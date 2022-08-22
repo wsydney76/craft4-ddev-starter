@@ -1,0 +1,16 @@
+{# Show search page content #}
+
+{# Don't cache page with user interaction #}
+{% if craft.app.plugins.pluginEnabled('blitz') %}
+    {% do craft.blitz.options.cachingEnabled(false) %}
+{% endif %}
+
+{# Load js script for Sprig/HTMX #}
+{% js craft.app.config.custom.htmxScriptUrl %}
+
+{# Load sprig component #}
+{% embed '_layouts/embeds/content-xl.twig' %}
+    {% block content %}
+        {{ sprig('_layouts/components/sprig/search.twig') }}
+    {% endblock %}
+{% endembed %}

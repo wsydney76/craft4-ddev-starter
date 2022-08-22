@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: b61bea97-e4d4-4de2-9149-15f74906945a # SEO
+handle: seoFields
+instructions: 'Add SEO settings to overwrite default SEO content'
+name: 'SEO Fields'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_seofields}}'
+  maxBlocks: 1
+  minBlocks: null
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

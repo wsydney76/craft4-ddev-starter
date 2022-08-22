@@ -1,0 +1,52 @@
+{# @param textKey String key for siteInfo.textModules #}
+{# @param heading String Heading text #}
+{# @param caption String Button text #}
+
+{% set textKey = textKey ?? 'default' %}
+{% set heading = heading ?? '' %}
+{% set caption = caption ?? 'Show Media'|t %}
+
+{% set textModule = siteInfo.textModules.key(textKey).one %}
+{% set privacyEntry = craft.entries.section('legal').type('privacy').one %}
+
+<div x-data="{show: false}">
+    <template x-if="show">
+        {% block media %}{% endblock %}
+    </template>
+
+    <div x-show="!show" class="border border-gray-700 bg-gray-50 rounded p-8 dark:bg-primary">
+
+        {% if heading %}
+            <div class="mb-8 text-xl font-bold">
+                {{ heading }}
+            </div>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+
+        {% if textModule %}
+            <div class="mb-2">
+                <div class="mb-1 text-lg font-bold">
+                    {{ textModule.heading }}
+                </div>
+                <div>
+                    {{ textModule.text|nl2br }}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if privacyEntry %}
+            <div class="mb-2">
+                {{ privacyEntry.link }}
+            </div>
+        {% endif %}
+
+        <div class="mt-8">
+            {% include '_layouts/partials/button.twig' with {
+                caption: "Show the video"|t,
+                xOnClick: "show = true",
+                tag: 'button'
+            } only %}
+        </div>
+    </div>
+</div>

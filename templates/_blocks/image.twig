@@ -1,0 +1,27 @@
+{# Display image block #}
+
+{% from '_layouts/macros/lib.twig' import img %}
+
+{% set image = block.image.one %}
+{% if image %}
+    {% set config = craft.app.config.custom %}
+
+    <figure>
+        {{ img(image, {
+            transform: config.contentTransform,
+            srcset: config.contentSrcSet,
+            attr: {
+                class: 'rounded shadow-lg'
+            }
+        }) }}
+
+        {% if block.caption or image.copyright %}
+            <figcaption>
+                {{ block.caption }}
+                {% if image.copyright %}
+                    &copy; {{ image.copyright }}
+                {% endif %}
+            </figcaption>
+        {% endif %}
+    </figure>
+{% endif %}

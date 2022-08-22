@@ -1,0 +1,23 @@
+{# @param entry Entry set by Craft #}
+
+<meta charset="UTF-8"/>
+<link rel="icon" href="{{ url('/favicon.ico') }}"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<!--- ----------------------- Start SEO --------------------------------------- --->
+
+
+{% hook 'seomateMeta' %}
+
+
+<!--- ----------------------- End   SEO --------------------------------------- --->
+
+{% include '_layouts/partials/json-ld.twig' with {
+	entry
+} only %}
+
+{% include '_layouts/components/alpinejs/scroll-to-top.twig' %}
+
+{% include '_layouts/partials/darkmode.twig' %}
+
+{{ craft.vite.script("/resources/js/app.js", false) }}

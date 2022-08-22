@@ -1,0 +1,19 @@
+columnSuffix: wcgkvvuu
+contentColumnType: string(240)
+fieldGroup: d50026f3-a236-4ae2-b00a-af55076acd17 # Site
+handle: copyright
+instructions: null
+name: Copyright
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: 60
+  code: false
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

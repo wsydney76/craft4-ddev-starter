@@ -1,0 +1,101 @@
+fieldLayouts:
+  e3d140db-bdcd-40a9-b73c-3a75176d0b5d:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: de3005e5-6273-430a-af12-67dcc3ef650a
+            userCondition: null
+            warning: null
+            width: 75
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\elements\conditions\LevelConditionRule
+                  operator: '='
+                  uid: 72410ce5-1d04-4215-9c54-acad881038c4
+                  value: '2'
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: e2e51276-3783-49cb-9ed0-22ae364fd49a # Menu Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f4277678-ac08-4032-8a96-169ac7b517cc
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 400d2e7a-d260-459d-b16d-bc388f093106 # Tagline
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b62f9783-5db6-4619-9522-689b36e3b15d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            style: tip
+            tip: 'Contact Form will be inserted here'
+            type: craft\fieldlayoutelements\Tip
+            uid: 2d2f0442-ec2c-4986-ab12-fd37cd16d883
+            userCondition: null
+        name: Content
+        uid: 285169d5-b955-4445-86ba-4efc3a22bc64
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: e62d63b0-c299-42ce-aeef-86a69f7e676c # SEO Fields
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 339fc7cb-630d-4da4-9495-c165145a489a
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 7b42e661-1a8e-4077-90c2-d9de4e61d39c
+        userCondition: null
+handle: contact
+hasTitleField: true
+name: Contact
+section: 84b98802-2548-4aed-b67e-fc97f6ed9e30 # Page
+sortOrder: 7
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: language

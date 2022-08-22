@@ -1,0 +1,84 @@
+{# Render form input #}
+{% macro input(config) %}
+
+    {# @param config Object #}
+
+    {#
+    config keys:
+        - type: type of input or 'textarea', optional default=text
+        - label: Label text, optional
+        - value: value of input, required
+        - name: Form name, required
+        - errors: Array of error texts, optional
+        - autocomplete: value of autocomplete attribute, optional
+        - min/max: values of min/max attributes for type=number
+        - required: bool Add asterisk to label
+        - extraAttr: addtional attributes
+        - autofocus: bool
+    #}
+
+    {% set type = config.type ?? 'text' %}
+    {% set min = config.min ?? null %}
+    {% set max = config.max ?? null %}
+    {% set errors = config.errors ?? null %}
+    {% set autocomplete = config.autocomplete ?? null %}
+    {% set autofocus = config.autofocus ?? null %}
+    {% set extraAttr = config.extraAttr ?? {} %}
+
+    <div>
+        {% if config.label is defined %}
+            <div class="mb-2 font-medium">
+                <label for="{{ config.name|id }}">{{ config.label }}</label>
+                {% if config.required is defined and config.required %}
+                    <span class="text-warning dark:text-warning-dark">*</span>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if type == 'textarea' %}
+            {{ tag('textarea', {
+                text: config.value,
+                id: config.name|id,
+                name: config.name,
+                rows: config.rows ?? 6,
+                cols: config.cols ?? 40,
+                autofocus: autofocus,
+                class: "block w-full shadow-sm py-3 px-4 bg-gray-50 focus:ring-secondary focus:border-primary border-secondary rounded-md shadow-md #{errors ? 'border-warning dark:border-warning-dark'} dark:text-gray-900"
+            })|attr(extraAttr) }}
+        {% else %}
+            {{ input(type, config.name, config.value, {
+                id: config.name|id,
+                min: min,
+                max: max,
+                autocomplete: autocomplete,
+                autofocus: autofocus,
+                class: "block w-full shadow-sm py-3 px-4 bg-gray-50 focus:ring-secondary focus:border-primary border-secondary rounded-md shadow-md #{errors ? 'border-warning dark:border-warning-dark'} dark:text-gray-900"
+            })|attr(extraAttr) }}
+        {% endif %}
+
+
+        {% if errors %}
+            {{ ul(errors, {class: 'font-medium text-warning'}) }}
+        {% endif %}
+    </div>
+
+{% endmacro %}
+
+{# Render form submit button #}
+{% macro submit(config={}) %}
+    {# @param config Hash caption=Button caption #}
+
+    {% include '_layouts/partials/button.twig' with {
+        caption: config.caption ?? 'Send'|t,
+        tag: 'button',
+        type: 'submit',
+        extraClasses: 'px-8 py-3',
+        color: 'primaryAlways'
+    } only %}
+{% endmacro %}
+
+{# Render whatever spam protect method we use #}
+{% macro spamProtect() %}
+    {# Honeypot for now #}
+    <input class="hidden" name="contact" type="text">
+{% endmacro %}

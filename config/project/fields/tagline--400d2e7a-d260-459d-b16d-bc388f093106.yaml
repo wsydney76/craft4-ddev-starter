@@ -1,0 +1,19 @@
+columnSuffix: sfatogar
+contentColumnType: text
+fieldGroup: 99b1f33e-21a3-4870-8165-2b685034a641 # Layout
+handle: tagline
+instructions: null
+name: Tagline
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: null
+  initialRows: 2
+  multiline: true
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: language
+type: craft\fields\PlainText

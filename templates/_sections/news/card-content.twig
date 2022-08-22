@@ -1,0 +1,9 @@
+{# Additional content for cards #}
+
+{# @param entry Entry The entry display in the card #}
+
+{% embed '_layouts/embeds/card-text.twig' %}
+    {% block content %}
+        {{ entry.cardText ?: entry.tagline }} ({{ entry.author.name }}, {{ entry.postDate|date('short') }})
+    {% endblock %}
+{% endembed %}

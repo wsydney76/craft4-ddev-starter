@@ -1,0 +1,93 @@
+field: 85898001-9c9c-4d46-abf9-a928e44f0d48 # Body Content
+fieldLayouts:
+  22cc67d9-e2e7-4e8d-b385-a1bc4c43835e:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 4b050685-0425-4094-bde2-85e2eedd0e12 # Text
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a5f31ac1-d94c-4311-82fa-1ef9ce42f581
+            userCondition: null
+            warning: null
+            width: 75
+          -
+            elementCondition: null
+            fieldUid: 3fb81893-2727-4990-b8f6-a5f6e391a8d8 # Style
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1aae69e6-1044-4dd3-8c94-f1f12929904d
+            userCondition: null
+            warning: null
+            width: 25
+        name: Content
+        uid: be6789a7-64de-4d8d-a3a8-38a75763af9b
+        userCondition: null
+fields:
+  3fb81893-2727-4990-b8f6-a5f6e391a8d8: # Style
+    columnSuffix: jqoxnegv
+    contentColumnType: string
+    fieldGroup: null
+    handle: style
+    instructions: null
+    name: Style
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Default
+            -
+              - value
+              - default
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Headline
+            -
+              - value
+              - headline
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  4b050685-0425-4094-bde2-85e2eedd0e12: # Text
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: text
+    instructions: null
+    name: Text
+    searchable: true
+    settings:
+      byteLimit: 255
+      charLimit: null
+      code: false
+      columnType: string
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: language
+    type: craft\fields\PlainText
+handle: heading
+name: Heading
+sortOrder: 1

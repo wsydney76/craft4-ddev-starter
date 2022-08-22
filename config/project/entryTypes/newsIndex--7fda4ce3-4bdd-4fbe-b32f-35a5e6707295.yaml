@@ -1,0 +1,101 @@
+fieldLayouts:
+  e2a407fc-d771-4118-badd-cfea8eba7084:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 82315a53-6320-4b99-bbe7-202d27562504
+            userCondition: null
+            warning: null
+            width: 75
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\elements\conditions\LevelConditionRule
+                  operator: '='
+                  uid: e9882e7b-79f6-4027-afa3-9a1c01d600f7
+                  value: '2'
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: e2e51276-3783-49cb-9ed0-22ae364fd49a # Menu Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5c9fbb08-9d12-43ad-81cd-6a486b1340fa
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 400d2e7a-d260-459d-b16d-bc388f093106 # Tagline
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bfed7c3b-3a7f-4c53-a568-aecf13f96dba
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            style: tip
+            tip: 'News listing will be inserted here'
+            type: craft\fieldlayoutelements\Tip
+            uid: f327d05d-0180-448b-9601-fd455a5ad66f
+            userCondition: null
+        name: Content
+        uid: 93c3e5a9-53eb-4ebd-ab1c-fb5419d9ce95
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: e62d63b0-c299-42ce-aeef-86a69f7e676c # SEO Fields
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0d56eea7-46cc-4e3e-88c8-62982e0e4146
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 52c4d875-2329-4098-b96f-e3b91e20a132
+        userCondition: null
+handle: newsIndex
+hasTitleField: true
+name: 'News Index'
+section: 84b98802-2548-4aed-b67e-fc97f6ed9e30 # Page
+sortOrder: 4
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

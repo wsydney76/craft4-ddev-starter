@@ -1,0 +1,121 @@
+fieldLayouts:
+  716521cd-1f8b-43c2-a57a-167f06d78b92:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 606b564d-9f76-4ff4-9e3f-ae35c49a0a84
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 400d2e7a-d260-459d-b16d-bc388f093106 # Tagline
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8acfd02d-1d02-4e59-beec-18d239059a1f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 44993cef-3718-479f-8c88-bdede1d256ba # Card Text
+            instructions: 'Will be show on the news index page instead of the tagline'
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a8a89a0e-0163-41f0-aa74-b6ed0fa85e9e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: c72e758a-f6c3-42cd-896b-3ff6353ed259 # Featured Image
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3af461da-7661-47fa-8825-5985d85f1014
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 85898001-9c9c-4d46-abf9-a928e44f0d48 # Body Content
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2edc5594-2c22-44b9-809f-f5265e581518
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 8785637f-8785-4fd2-86d2-9232d9674420 # Related Entries
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cb6454ae-f57c-4e20-a8cb-41e09cac3e24
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 1acf411e-8db3-4d3c-bad2-ac5bf3199455
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: e62d63b0-c299-42ce-aeef-86a69f7e676c # SEO Fields
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2f4c8917-d962-4ba4-aaea-44a57e006a0d
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 24a9ee6d-5a1f-44b9-8979-5b7e812dce40
+        userCondition: null
+handle: default
+hasTitleField: true
+name: Default
+section: 2f93cb45-a9ce-4284-8848-9eb001fb8a1c # News
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: language

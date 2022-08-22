@@ -1,0 +1,71 @@
+{# Displays hero area with optional CTA button #}
+
+{# @param image Asset Background image #}
+{# @param title String Title text #}
+{# @param tagline String Subtitle text #}
+{# @param url String optional Url for CTA button #}
+{# @param caption String Text for CTA button #}
+{# @param teaser String optional Small text above Title #}
+
+{% set url = url ?? '' %}
+{% set caption = caption ?? '' %}
+
+{% from '_layouts/macros/lib.twig' import img %}
+{% from '_layouts/macros/lib.twig' import imgCopyright %}
+
+{% if image %}
+
+    {% set config = craft.app.config.custom %}
+
+    <div>
+        <div class="relative">
+            <div class="max-w-full">
+                <div class="relative sm:overflow-hidden">
+                    <div class="absolute inset-0">
+
+                        {{ img(image, {
+                            transform: config.heroTransform,
+                            srcset: config.heroSrcSet,
+                            attr: {
+                                class: 'h-full w-full object-cover',
+                                loading: null
+                            }
+                        }) }}
+
+                        <div class="absolute inset-0 bg-black/20"></div>
+                    </div>
+
+                    {{ imgCopyright(image) }}
+                    
+                    <div class="max-w-screen-md mx-auto relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
+                        {% if teaser is defined and teaser %}
+                            <div class="mb-1 text-center text-white text-lg">
+                                {{ teaser }}
+                            </div>
+                        {% endif %}
+                        <h1 class="text-center text-5xl font-headings font-extrabold  md:5xl sm:text-7xl lg:text-7xl">
+
+                            <span class="block text-white">{{ title }}</span>
+
+                        </h1>
+                        <p class="mt-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl">
+                            {{ tagline }}
+                        </p>
+
+                        {% if url and caption %}
+                            <div class="mt-8 flex justify-center">
+                                {% include '_layouts/partials/button.twig' with {
+                                    caption: caption,
+                                    href: url,
+                                    color: 'white'
+                                } only %}
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endif %}

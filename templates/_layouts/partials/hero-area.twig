@@ -1,0 +1,36 @@
+{# Select data for hero area and invoke display #}
+
+{# @param entry Entry set by Craft #}
+
+{# 1. Hero entry #}
+
+{% set heroEntry = entry.heroArea ? entry.heroArea.one : null %}
+
+{% set teaser = '' %}
+
+{% if heroEntry %}
+    {% set image =  heroEntry.heroImage.one %}
+    {% set target = heroEntry.ctaTarget.one %}
+    {% include '_layouts/partials/hero-area-display.twig' with {
+        image,
+        title: heroEntry.title,
+        tagline: heroEntry.heroTagline,
+        url: target ? target.url : '',
+        caption: target ? heroEntry.ctaCaption ?: target.title : ''
+    } only %}
+{% else %}
+    {# 2. Featured Entry #}
+
+    {% set featuredEntry = null %}
+
+    {% if entry.featuredEntry %}
+        {% set featuredEntry = entry.featuredEntry ? entry.featuredEntry.one : null %}
+    {% endif %}
+
+    {% if featuredEntry %}
+        {% include '_layouts/partials/hero-area-entry.twig' with {
+            entry: featuredEntry
+        } only %}
+    {% endif %}
+{% endif %}
+

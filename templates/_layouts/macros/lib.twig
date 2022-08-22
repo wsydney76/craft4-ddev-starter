@@ -1,0 +1,112 @@
+{# Render image tag #}
+{% macro img(image, params = []) %}
+
+    {# @param image Asset required #}
+    {# @param params Object default=[] #}
+
+    {#
+    params keys:
+        - transform: Transform object, optional=customConfig
+        - srcSet: Array of sizes, optional=customConfig
+        - showCopyright: Bool
+        - attr: Object for image attributes, e.g.
+            - class
+            - loading
+    #}
+
+    {% set config = craft.app.config.custom %}
+
+    {% set transform = params.transform ?? config.defaultTransform %}
+    {% set srcset = params.srcset ?? config.defaultSrcSet %}
+    {% set attr = params.attr ?? {loading: 'lazy'} %}
+    {% set showCopyright = params.showCopyright is defined ? params.showCopyright : false %}
+
+    {% if transform.format is not defined %}
+        {% set transform = transform|merge({format: config.defaultImageFormat}) %}
+    {% endif %}
+
+
+    {% if craft.app.plugins.pluginEnabled('imager-x') %}
+
+        {% set imager = craft.imager %}
+
+        {# We need to manually calculate transforms for image / srcSets #}
+
+        {% if transform.width is defined and transform.height is defined %}
+            {# noop #}
+        {% elseif transform.width is defined %}
+            {% set ratio = image.width / image.height %}
+            {% set transform = transform|merge({height: (transform.width / ratio)|round(0) }) %}
+        {% elseif transform.height is defined %}
+            {% set ratio = image.width / image.height %}
+            {% set transform = transform|merge({width: (transform.height * ratio)|round(0) }) %}
+        {% else %}
+            {% set transform = transform|merge({width: image.width, height: image.height }) %}
+        {% endif %}
+
+        {% set baseTransform = {
+            width: transform.width,
+            height: transform.height,
+            format: transform.format ?? config.defaultImageFormat,
+            mode: transform.mode ?? 'crop',
+            effects: {sharpen: true}
+        } %}
+
+        {% set ratio = transform.width / transform.height %}
+
+        {% set transforms = [baseTransform] %}
+        {% for responsiveWidth in srcset %}
+            {% if responsiveWidth < transform.width %}
+                {% set transforms = transforms|push(baseTransform|merge({width: responsiveWidth, height: (responsiveWidth / ratio)|round(0)})) %}
+            {% endif %}
+        {% endfor %}
+
+        {% set transformedImages = imager.transformImage(image, transforms) %}
+
+        {% set imgHtml =  tag('img', {
+            src: imager.placeholder({ width: transform.height, height: transform.width, color: '#cccccc' }),
+            height: transform.height,
+            width: transform.width,
+            alt: image.altText ?: image.title,
+            srcset: imager.srcset(transformedImages),
+            loading: 'lazy'
+        })|attr(attr) %}
+
+
+    {% else %}
+
+        {# Craft native transforms, no need to manually calculate anything #}
+        {% set attr = attr | merge({alt: image.altText ?: image.title}) %}
+
+        {% set imgHtml = image.img(transform, srcset)|attr(attr) %}
+    {% endif %}
+
+    {% if showCopyright and image.copyright %}
+        <div class="relative">
+            {{ imgHtml|raw }}
+            {{ _self.imgCopyright(image) }}
+        </div>
+    {% else %}
+        {{ imgHtml|raw }}
+    {% endif %}
+
+{% endmacro %}
+
+{% macro imgCopyright(image) %}
+    {% if image.copyright %}
+        <div class="absolute bottom-0 right-0 px-2 py-1 bg-black/50 text-white text-xs">
+            &copy; {{ image.copyright }}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+
+{% macro navLink(text, url) %}
+    <a href="{{ url }}" class="text-base text-foreground-dark font-medium hover:underline transition-colors">
+        {{ text }}
+    </a>
+{% endmacro %}
+
+{% macro quotedText(text) %}
+    {{ '“'|t }}{{ text }}{{ '”'|t }}
+{% endmacro %}

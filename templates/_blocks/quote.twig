@@ -1,0 +1,14 @@
+{# Display quote block #}
+
+{% from '_layouts/macros/lib.twig' import quotedText %}
+
+<blockquote class="not-prose py-4">
+    <p class="text-3xl font-bold mb-8 leading-relaxed">
+        {{ quotedText(block.text) }}
+    </p>
+    {% if block.cite %}
+        <cite class="not-italic">
+            {{ block.cite }}
+        </cite>
+    {% endif %}
+</blockquote>

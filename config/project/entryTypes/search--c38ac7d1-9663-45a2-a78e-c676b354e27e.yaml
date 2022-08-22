@@ -1,0 +1,73 @@
+fieldLayouts:
+  1af964c2-ad83-4020-98c7-c94870140400:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 3b5af1e2-6184-4c82-a1ea-ef4b94e917be
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 400d2e7a-d260-459d-b16d-bc388f093106 # Tagline
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e0cc850a-c9e2-4eab-b879-15e910b6063c
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 3141b559-3931-4cf7-a88b-ab5c96766f20
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: e62d63b0-c299-42ce-aeef-86a69f7e676c # SEO Fields
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5a67ff7e-e956-4d0b-a752-6ff5d282b026
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 4305781a-0108-4550-8ea5-72288f424d19
+        userCondition: null
+handle: search
+hasTitleField: true
+name: Search
+section: 84b98802-2548-4aed-b67e-fc97f6ed9e30 # Page
+sortOrder: 9
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: language

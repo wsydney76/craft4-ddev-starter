@@ -1,0 +1,110 @@
+field: 2a1eaa07-5692-4473-9f2d-02ca85f81dfd # Text Modules
+fieldLayouts:
+  b57126a4-c3d7-4ec2-97a8-2941fc464e2e:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 27b3f36f-ea97-4dad-a77d-39eff7bd0900 # Key
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: dbe5a1ec-5960-4014-aadf-76e450dca2fa
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 9d9d22d0-ccc2-4e4e-95b2-a28deb16c08b # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1e866198-8196-4bad-990f-d9b23f5b0839
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 080cb307-609c-4155-9c50-b6248db4d974 # Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 21d2c9ac-b3de-4c68-ab8b-ca23a9cea95f
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: efa93b44-973d-48c8-af2b-d3aa33976dd3
+        userCondition: null
+fields:
+  9d9d22d0-ccc2-4e4e-95b2-a28deb16c08b: # Heading
+    columnSuffix: huhhxykn
+    contentColumnType: string(240)
+    fieldGroup: null
+    handle: heading
+    instructions: null
+    name: Heading
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: 60
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: language
+    type: craft\fields\PlainText
+  27b3f36f-ea97-4dad-a77d-39eff7bd0900: # Key
+    columnSuffix: mlmjyrvj
+    contentColumnType: string(100)
+    fieldGroup: null
+    handle: key
+    instructions: 'The key used in templates to output this text module.'
+    name: Key
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: 25
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  080cb307-609c-4155-9c50-b6248db4d974: # Text
+    columnSuffix: wbsivweb
+    contentColumnType: text
+    fieldGroup: null
+    handle: text
+    instructions: null
+    name: Text
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: true
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: language
+    type: craft\fields\PlainText
+handle: textModule
+name: 'Text Module'
+sortOrder: 1

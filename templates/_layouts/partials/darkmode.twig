@@ -1,0 +1,33 @@
+<script>
+    function watchColorSchemeChange() {
+        window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", function(e) {
+                const colorScheme = e.matches ? "dark" : "light";
+
+                if (colorScheme === "dark") {
+                    document.documentElement.classList.add('dark')
+                } else {
+                    document.documentElement.classList.remove('dark')
+                }
+            });
+    }
+
+    user_theme = ('theme' in localStorage) ? localStorage.theme : 'media';
+
+    if (user_theme === 'media') {
+        watchColorSchemeChange()
+    }
+
+    setDarkClass(user_theme);
+
+    function setDarkClass(selectedTheme) {
+        if (selectedTheme === 'dark' || (selectedTheme === 'media' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.querySelector('html').classList.add('dark')
+        } else {
+            document.querySelector('html').classList.remove('dark')
+        }
+    }
+</script>
+
+

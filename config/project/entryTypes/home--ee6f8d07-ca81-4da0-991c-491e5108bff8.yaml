@@ -1,0 +1,99 @@
+fieldLayouts:
+  4effe29c-8fae-40c4-bf98-81a89f1b8da8:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            style: warning
+            tip: 'There must be only one entry of type __home__ .The slug MUST be set to __\_\_home\_\___'
+            type: craft\fieldlayoutelements\Tip
+            uid: bfd55daa-3cbe-4ba4-a2eb-3dc3daf41b5d
+            userCondition: null
+          -
+            elementCondition: null
+            fieldUid: 75980a78-5a14-4d80-8e9c-b0616d62e02e # Hero Area
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 84119d22-9845-4744-8c7b-e74f015e4d7b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 985accd9-1570-4b76-8245-dd255ef9eb17
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 400d2e7a-d260-459d-b16d-bc388f093106 # Tagline
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f31bafac-3577-4ea4-a150-daaa34c8da8c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            style: tip
+            tip: "Homepage content will be inserted here.\r\n\r\nChilds will be displayed in the main navigation."
+            type: craft\fieldlayoutelements\Tip
+            uid: f6422655-712e-4c59-9d5d-e93453b84443
+            userCondition: null
+        name: Content
+        uid: ffceb22a-e330-47d2-a0c4-a41d7b42ec46
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: e62d63b0-c299-42ce-aeef-86a69f7e676c # SEO Fields
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4aecf352-4f26-47b3-95fc-66ba56c2da88
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 39950173-71af-4e8d-b567-7e06932999f9
+        userCondition: null
+handle: home
+hasTitleField: true
+name: Home
+section: 84b98802-2548-4aed-b67e-fc97f6ed9e30 # Page
+sortOrder: 2
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: language

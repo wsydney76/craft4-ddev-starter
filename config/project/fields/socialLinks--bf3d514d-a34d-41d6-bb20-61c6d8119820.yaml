@@ -1,0 +1,105 @@
+columnSuffix: ojnyxneq
+contentColumnType: text
+fieldGroup: d50026f3-a236-4ae2-b00a-af55076acd17 # Site
+handle: socialLinks
+instructions: null
+name: 'Social Links'
+searchable: false
+settings:
+  addRowLabel: 'Add a social platform'
+  columnType: text
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Platform
+            -
+              - handle
+              - socialPlatform
+            -
+              - width
+              - 100px
+            -
+              - type
+              - select
+            -
+              - options
+              -
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - Instagram
+                    -
+                      - value
+                      - instagram
+                    -
+                      - default
+                      - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - Twitter
+                    -
+                      - value
+                      - twitter
+                    -
+                      - default
+                      - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - Facebook
+                    -
+                      - value
+                      - facebook
+                    -
+                      - default
+                      - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - Youtube
+                    -
+                      - value
+                      - youtube
+                    -
+                      - default
+                      - false
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - Link
+            -
+              - handle
+              - socialLink
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+  defaults:
+    -
+      __assoc__:
+        -
+          - col1
+          - instagram
+        -
+          - col2
+          - ''
+  maxRows: null
+  minRows: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

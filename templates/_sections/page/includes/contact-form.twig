@@ -1,0 +1,54 @@
+{# Display contact form #}
+
+{# @param entry Entry The contact page entry #}
+
+{% import '_macros/forms.twig' as forms %}
+
+{% include '_layouts/partials/flash.twig' %}
+
+{# submission object will be present in case of errors #}
+{% set submission = submission ?? null %}
+
+<form method="post" action="" accept-charset="UTF-8">
+    {{ csrfInput() }}
+    {{ actionInput('contact-form/send') }}
+
+
+    {# Form fields #}
+
+    <div class="mt-8 space-y-8">
+        {{ forms.input({
+            label: "Your Name"|t,
+            name: 'fromName',
+            value: submission.fromName ?? '',
+            errors: submission.getErrors('fromName') ?? null,
+            autocomplete: 'name'
+        }) }}
+
+        {{ forms.input({
+            label: "Your Email"|t,
+            name: 'fromEmail',
+            value: submission.fromEmail ?? '',
+            errors: submission.getErrors('fromEmail') ?? null,
+            autocomplete: 'email',
+            required: true
+        }) }}
+
+        {{ forms.input({
+            type: 'textarea',
+            label: "Message"|t,
+            name: 'message[body]',
+            value: submission.message.body ?? '',
+            errors: submission.getErrors('message') ?? null,
+            required: true
+        }) }}
+    </div>
+
+
+    {{ forms.spamProtect() }}
+
+    {# Submit button #}
+    <div class="mt-8">
+        {{ forms.submit() }}
+    </div>
+</form>

@@ -1,0 +1,65 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 99b1f33e-21a3-4870-8165-2b685034a641 # Layout
+handle: featuredImage
+instructions: 'At least 1600 px wide'
+name: 'Featured Image'
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowSubfolders: false
+  allowUploads: true
+  allowedKinds:
+    - image
+  defaultUploadLocationSource: 'volume:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  defaultUploadLocationSubpath: null
+  localizeRelations: false
+  maxRelations: 1
+  minRelations: null
+  previewMode: full
+  restrictFiles: true
+  restrictLocation: false
+  restrictedDefaultUploadSubpath: null
+  restrictedLocationSource: 'volume:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  restrictedLocationSubpath: null
+  selectionCondition:
+    __assoc__:
+      -
+        - elementType
+        - craft\elements\Asset
+      -
+        - fieldContext
+        - global
+      -
+        - class
+        - craft\elements\conditions\assets\AssetCondition
+      -
+        - conditionRules
+        -
+          -
+            __assoc__:
+              -
+                - class
+                - craft\elements\conditions\assets\WidthConditionRule
+              -
+                - uid
+                - 6b737288-b18a-438f-80ca-51acf0399ec3
+              -
+                - operator
+                - '>='
+              -
+                - value
+                - '1600'
+  selectionLabel: 'Add an image'
+  showSiteMenu: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  source: null
+  sources:
+    - 'volume:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  targetSiteId: null
+  validateRelatedElements: true
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

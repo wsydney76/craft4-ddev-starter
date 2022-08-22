@@ -1,0 +1,38 @@
+{# Display gallery block #}
+
+{% from '_layouts/macros/lib.twig' import img %}
+
+{% set config = craft.app.config.custom %}
+{% set images = block.images.collect %}
+
+
+<div id="gallery-{{ block.id }}" class="grid grid-cols-2 sm:grid-cols-3 gap-2 not-prose">
+    {% for image in images %}
+
+        {% if craft.app.plugins.pluginEnabled('imager-x') %}
+            {% set transformedImage = craft.imager.transformImage(image, config.lightBoxTransform) %}
+            {% set lightboxUrl = transformedImage.url %}
+        {% else %}
+            {% set lightboxUrl = image.url(config.lightBoxTransform) %}
+        {% endif %}
+
+        <a href="{{ lightboxUrl }}" data-caption="{{ image.altText ?? image.title }} {{ image.copyright ? "&copy; #{image.copyright}" }}">
+
+            {{ img(image, {
+                transform: config.thumbTransform,
+                attr: {
+                    class: "hover:opacity-75 focus:opacity-75 transition duration-300 rounded"
+                }
+            }) }}
+
+        </a>
+    {% endfor %}
+</div>
+
+
+
+{% js %}
+window.addEventListener('load', function() {
+    baguetteBox.run('#gallery-{{ block.id }}');
+});
+{% endjs %}

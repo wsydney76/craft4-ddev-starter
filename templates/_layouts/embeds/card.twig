@@ -1,0 +1,41 @@
+{# Displays card with image/title/url and content block  #}
+
+{# @param entry Element optional if title/url specified #}
+{# @param title String Card Title optional if entry is specified #}
+{# @param url String Card href optional if entry is specified #}
+{# @param image Asset optional #}
+
+{% from '_layouts/macros/lib.twig' import img %}
+
+{% if entry is defined %}
+    {% set title = title ?? entry.title %}
+    {% set url = url ?? entry.url %}
+    {% set image = image ?? entry.featuredImage.one ?? null %}
+{% endif %}
+
+{% set transform = transform ?? craft.app.config.custom.cardTransform %}
+
+
+<a href="{{ url }}" class="group overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background focus:ring-primary dark:focus:ring-primary-dark dark:focus:ring-offset-background-dark rounded-lg">
+    <div class="bg-gray-200 rounded-lg overflow-hidden">
+        {% if image %}
+            {{ img(image, {
+                transform: transform,
+                attr: {
+                    class: "group-hover:opacity-75 group-focus:opacity-75 transition duration-300"
+                }
+            }) }}
+        {% endif %}
+    </div>
+
+    <div class="mt-4 text-lg font-bold text-primary dark:text-primary-dark group-hover:underline group-focus:underline">
+        {{ title }}
+    </div>
+
+    {% block content %}{% endblock %}
+
+    {% if entry.searchScore  is defined %}
+        <!-- Score: {{ entry.searchScore  }} -->
+    {% endif %}
+
+</a>

@@ -1,0 +1,36 @@
+{# Display youtube video block #}
+
+
+{% if block.key %}
+
+    {% embed '_layouts/components/alpinejs/external-media-consent.twig' with {
+        heading: block.heading,
+        caption: "Show the video"|t,
+        textKey: 'youtubeConsent' } %}
+
+        {% block content %}
+            {% if block.text %}
+                <div class="mb-8">
+                    {{ block.text|md|purify }}
+                </div>
+            {% endif %}
+        {% endblock %}
+        
+        {% block media %}
+
+            {% set aspectRatio = block.aspectRatio ?? '16:9' %}
+            {% set aspectRatio = aspectRatio|split(':')  %}
+
+            {% set width = craft.app.config.custom.mediaWidth %}
+            {% set height = ceil(width / aspectRatio[0] * aspectRatio[1]) %}
+            
+            <iframe width="{{ width }}" height="{{ height }}"
+                    src="https://www.youtube-nocookie.com/embed/{{ block.key }}"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        {% endblock %}
+
+    {% endembed %}
+
+{% endif %}

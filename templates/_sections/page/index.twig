@@ -1,0 +1,11 @@
+{# Show Page #}
+
+{% extends "_layouts/main.twig" %}
+
+{% block content %}
+    {# Display individual content per entry type #}
+    {% include [
+        "_sections/page/types/#{entry.type.handle}.twig",
+        "_sections/page/types/default.twig"
+    ] %}
+{% endblock %}

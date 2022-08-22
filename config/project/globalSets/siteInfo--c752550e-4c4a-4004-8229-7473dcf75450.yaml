@@ -1,0 +1,175 @@
+fieldLayouts:
+  f4019294-72d3-498d-a196-72612042deb5:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 3e35a043-a62e-4ede-acd6-44dfb92d6914 # Site Name
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6f6b964a-7458-4e96-bbf6-7d922977be65
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: eb6b24cc-83d7-416f-be4b-d002c7688b58 # Copyright
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: edb4663c-ed87-4c0d-80ee-fa175abb697c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: ebe8548f-7f01-49b6-af98-56da49668e79 # Logo
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 682f84eb-f62e-4211-a156-f8f302904d65
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: c72e758a-f6c3-42cd-896b-3ff6353ed259 # Featured Image
+            instructions: null
+            label: 'Default Featured Image'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a17c1872-4146-4578-9f61-54b0c65cbb05
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 5e034a3c-8cf7-46cb-a494-076274149e80
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 370cbaec-9bf1-4ecf-b903-276c6da6c861 # Postal Address
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1ee4cc86-fd3b-4c5a-a8b6-126e134bb46e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 4bc24da9-fd88-45ec-8410-bc189032e3f8 # Phone Number
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2a9bdd21-bf46-45a2-b58f-9b52078cb4cf
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: bbe2ff0f-6056-4848-80de-3070bb80294d # Email
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 93e45923-92bc-4621-8c4e-e92635d3053d
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: bf3d514d-a34d-41d6-bb20-61c6d8119820 # Social Links
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 544fbedc-652c-48a6-870d-def3768fa4d2
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Contact Info'
+        uid: 5dc9b1dc-3459-46c0-a2de-b94398aab95c
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            style: tip
+            tip: 'Use __youtubeConsent__ as as key'
+            type: craft\fieldlayoutelements\Tip
+            uid: ca207e21-d768-4ba5-95c6-ffc57d49fb3c
+            userCondition: null
+          -
+            elementCondition: null
+            fieldUid: 2a1eaa07-5692-4473-9f2d-02ca85f81dfd # Text Modules
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e88c165a-f959-424f-9473-b9136b04549c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            heading: 'Contact Info'
+            type: craft\fieldlayoutelements\Heading
+            uid: 6edb1a73-f7e8-4bf7-8399-4da130e8d54c
+            userCondition: null
+        name: 'Text Modules'
+        uid: 509a171b-c72c-438c-9736-fdeab41e4eac
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 621ad41b-f019-4e95-96aa-49f8c56482db # SEO Descriction
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2f026524-a355-4411-a822-944ebbd41c45
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: a1dd83a1-2011-4bef-aa20-b6d6a366d66e # SEO Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fb705374-5aed-4b8b-bcfe-ba9af7b1d0f5
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: de26a68f-7ada-4076-b3eb-0cf05f9f8bc4
+        userCondition: null
+handle: siteInfo
+name: 'Site Info'
+sortOrder: 1

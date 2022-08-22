@@ -1,0 +1,13 @@
+{# @var schema \Spatie\SchemaOrg\Schema #}
+{% set schema = craft.schema %}
+
+{{ schema.webPage
+    .publisher(organization)
+    .description(entry.tagline ?? entry.title)
+    .url(entry.url)
+    .headline(entry.title)
+    .datePublished(entry.postDate|date('Y-m-d'))
+    .copyrightYear(entry.postDate|date('Y'))
+
+    |raw
+}}

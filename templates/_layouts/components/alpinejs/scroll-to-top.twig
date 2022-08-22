@@ -1,0 +1,21 @@
+{# Scroll to top Alpine Component #}
+
+<div x-data="{
+        show: false,
+        top() {
+            document.getElementById('body').scrollIntoView({behavior: 'smooth'});
+        },
+        scroll() {
+            this.show = (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120)
+        }
+     }"
+     @scroll.window="scroll()">
+
+    <button class="fixed px-4 py-2 z-50 bottom-4 right-4 bg-secondary rounded text-white"
+            style="display: none"
+            x-show="show" x-transition
+            @click="top()" title="Go to top" accesskey="t">
+        {{ svg('@templates/_icons/chevron-up.svg') }}
+    </button>
+
+</div>

@@ -1,0 +1,17 @@
+{# Loop through Matrix blocks #}
+
+{# @param query MatrixBlockQuery  #}
+
+{% set blocks = query.collect %}
+
+{% if blocks.count %}
+    <div class="my-12 max-w-screen-md prose prose-custom prose-lg prose-h2:font-headings dark:prose-invert">
+        {# Don't set spacing here, it will be handled by 'prose' #}
+        {% for block in blocks %}
+            {% include "_blocks/#{block.type.handle}.twig" with {
+                block
+            } only %}
+        {% endfor %}
+    </div>
+{% endif %}
+

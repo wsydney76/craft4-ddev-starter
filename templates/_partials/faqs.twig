@@ -1,0 +1,11 @@
+{# Get data for faq's and call alpine component #}
+
+{% set items = query.collect %}
+
+{% if items %}
+    <div>
+        {% include '_layouts/components/alpinejs/accordion.twig' with {
+            items
+        } only %}
+    </div>
+{% endif %}

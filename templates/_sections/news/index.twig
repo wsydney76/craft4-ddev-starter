@@ -1,0 +1,68 @@
+{# News Page #}
+
+{% extends "_layouts/main.twig" %}
+
+{# Use second image for hero area if defined #}
+{% set featuredImage = entry.featuredImage.one %}
+
+{% block heroArea %}
+    {% if featuredImage %}
+        {% include '_layouts/partials/hero-area-display.twig' with {
+            image: featuredImage,
+            title: entry.title,
+            tagline: entry.tagline
+        } only %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    {% embed '_layouts/embeds/content-md.twig' %}
+
+        {# Display just the title if no featured image is set #}
+        {% block header %}
+            {% if not featuredImage %}
+                {% include '_layouts/partials/page-header.twig' with {
+                    entry
+                } only %}
+            {% endif %}
+        {% endblock %}
+
+        {% block content %}
+
+            {# News meta #}
+            <div class="my-12 text-primary font-bold text-xl dark:text-primary-dark">
+                {{ entry.author.name }}, {{ entry.postDate|date('short') }}
+            </div>
+
+            {# Blocks #}
+            {{ parent() }}
+
+            {# Related Entries #}
+
+            {% include '_layouts/partials/cards.twig' with {
+            	heading: '{count,plural,=1{Related Entry} other{Related Entries}}',
+                query: craft.entries.relatedTo({element: entry, field: 'relatedEntries'}).orderBy('title'),
+                wide: false
+            } only %}
+
+            {# Show prev/next #}
+            {% include '_layouts/partials/entry-nav.twig' with {
+                entry,
+                criteria: {section: 'news'}
+            } only %}
+        {% endblock %}
+
+
+       {# Widget example
+       {% block sidebar %}
+            {% include '_widgets/entries-list.twig' with {
+                heading: 'Latest News'|t,
+            	query: craft.entries.section('news').limit(5)
+            } only %}
+        {% endblock %}
+       #}
+
+    {% endembed %}
+
+{% endblock %}

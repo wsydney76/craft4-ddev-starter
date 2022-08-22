@@ -1,0 +1,98 @@
+{# Wide content container with header default block #}
+{# Sections can specify content with a card-content.twig template #}
+
+{# @param entries [Entry] optional if query is specified #}
+{# @param query EntryQuery optional is entries is specified #}
+{# @param heading String optional='' #}
+{# @param wide Bool optional=true Use false for use in narrow layout #}
+{# @param paginate Bool optional=false Whether list shall be paginated #}
+{# @param limit int optional=customConfig number of cards on a page if paginate=true #}
+{# @param defaultImage Asset optional=SiteInfo The image that will be used in no featuredImage is set on entry #}
+
+{% set transform = craft.app.config.custom.cardTransform %}
+{% set heading = heading ?? '' %}
+{% set wide = wide is defined ? wide : true %}
+{% set paginate = paginate is defined ? paginate : false %}
+{% set limit = limit ?? craft.app.config.custom.entriesPerPage %}
+{% set defaultImage = siteInfo.featuredImage.one %}
+
+{% if entries is not defined %}
+
+    {# Base query #}
+
+    {# Don't eager load transform index records if imager-x is enabled #}
+    {% set withCondition = craft.app.plugins.pluginEnabled('imager-x') ?
+        ['featuredImage'] :
+        ['featuredImage', {withTransforms: [transform]}] %}
+
+    {% set query = query
+        .with([
+           withCondition
+        ]) %}
+    
+    {% if paginate %}
+
+        {# get entries, pageInfo for current page #}
+        {% paginate query.limit(limit) as pageInfo, entries %}
+
+        {# Make sure entries is always a collection #}
+        {% set entries = collect(entries) %}
+
+        {# let Blitz cache the corrent number of pages #}
+        {% if craft.app.plugins.pluginEnabled('blitz') %}
+            {% do craft.blitz.options.paginate(pageInfo.totalPages) %}
+        {% endif %}
+    {% else %}
+
+        {# get all entries #}
+        {% set entries = query.collect %}
+    {% endif %}
+{% endif %}
+
+{% set hasPagination = paginate and pageInfo is defined and pageInfo.totalPages > 1 %}
+
+{% if hasPagination %}
+    <div class="mb-4">
+        {{ "Page"|t }} {{ pageInfo.currentPage }} {{ "of"|t }} {{ pageInfo.totalPages }}
+    </div>
+{% endif %}
+
+{% if entries.count %}
+
+    {% if heading %}
+        {% include '_layouts/partials/headline.twig' with {
+        	text: heading|t({count: entries.count})
+        } only %}
+    {% endif %}
+
+    {# Show cards grid #}
+
+    {% embed '_layouts/embeds/grid.twig' with {wide: wide} %}
+        {% block content %}
+            {% for entry in entries %}
+                {% embed "_layouts/embeds/card.twig" with {
+                    entry,
+                    image: entry.featuredImage.one ?? defaultImage,
+                    transform
+                } only %}
+
+                    {# display individual content form section type #}
+                    {% block content %}
+                        {% include "_sections/#{entry.section.handle}/card-content.twig" ignore missing  with {
+                            entry
+                        } only %}
+                    {% endblock %}
+
+                {% endembed %}
+            {% endfor %}
+        {% endblock %}
+    {% endembed %}
+
+{% endif %}
+
+{% if hasPagination %}
+    {# Display pagination navigation #}
+    {% include '_layouts/partials/entry-pagination.twig' with {
+        pageInfo
+    } only %}
+{% endif %}

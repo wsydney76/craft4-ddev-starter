@@ -1,0 +1,67 @@
+fieldLayouts:
+  6e5b9279-e821-4871-a89d-39660a84f991:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\assets\AssetTitleField
+            uid: 14bfe0e3-f9d0-439b-9005-0711f136dd25
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: cc3fbab0-826f-4aed-b2aa-eeaecc2964bf # Alt Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 50c11aa7-22fa-4f6f-8a72-30b3147f36ee
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: eb6b24cc-83d7-416f-be4b-d002c7688b58 # Copyright
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 121ccbee-4d41-417c-986a-c7b95d763f67
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 42d432b0-8a0a-4d01-9180-8bad74641bf1
+        userCondition: null
+fs: $TEMP_IMAGES_FS
+handle: tempImages
+name: 'Temp Images'
+sortOrder: 2
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+transformFs: $IMAGE_TRANSFORM_FS
+transformSubpath: tempimages

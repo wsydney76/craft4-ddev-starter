@@ -1,0 +1,9 @@
+{# Show FAQs page content #}
+
+{% embed '_layouts/embeds/content-md.twig' %}
+    {% block content %}
+        <div class="mt-8">
+            {% include '_partials/faqs.twig' with {query: entry.faqs} only %}
+        </div>
+    {% endblock %}
+{% endembed %}

@@ -1,0 +1,67 @@
+fieldLayouts:
+  741edb78-e490-4426-a3ca-1f7033331ddf:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\assets\AssetTitleField
+            uid: 722dd964-b9a0-4b55-b413-f2954c98c88c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: cc3fbab0-826f-4aed-b2aa-eeaecc2964bf # Alt Text
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 210d9fa3-32b0-47ac-a970-3859d419f4c1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: eb6b24cc-83d7-416f-be4b-d002c7688b58 # Copyright
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 495718ec-8e48-40fc-b5ec-4a6e34efec05
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 22529198-b0c8-440f-aa3e-f169a9e3f551
+        userCondition: null
+fs: $IMAGES_FS
+handle: images
+name: Images
+sortOrder: 1
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+transformFs: $IMAGE_TRANSFORM_FS
+transformSubpath: images

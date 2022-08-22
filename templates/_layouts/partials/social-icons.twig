@@ -1,0 +1,12 @@
+{% set links = siteInfo.socialLinks %}
+
+{% if links %}
+    <div class="flex space-x-4">
+        {% for link in links %}
+            <a href="{{ link.socialLink }}">
+                <span class="sr-only">{{ link.socialPlatform }}</span>
+                {{ svg("@templates/_icons/#{link.socialPlatform}.svg") }}
+            </a>
+        {% endfor %}
+    </div>
+{% endif %}

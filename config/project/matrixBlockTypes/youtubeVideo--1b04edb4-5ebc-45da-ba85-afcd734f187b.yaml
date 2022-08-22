@@ -1,0 +1,157 @@
+field: 85898001-9c9c-4d46-abf9-a928e44f0d48 # Body Content
+fieldLayouts:
+  a4d95bc5-a2a6-48a5-9a99-26744ed5f1e7:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: f76ccc3a-7c88-43a3-9024-5ea619356bbf # Heading
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c7ad7c87-a6a5-4b8d-acb1-60e8fd706c60
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: af9afec0-f712-4b14-b235-851c6455e267 # Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 60a7adb4-aa1e-42ab-9131-dba9e12f5cc6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 1b464b23-6750-460e-aea1-0c4af5f52e23 # Key
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a0034279-bbcf-4c1d-8892-85e416ccdd35
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: f3c6560d-3487-4f65-a4f9-ac2926397b57 # Aspect Ratio
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8806a410-cbec-45b7-8995-a103ccf8be5a
+            userCondition: null
+            warning: null
+            width: 25
+        name: Content
+        uid: 5bb92117-3e5a-4406-a147-f4738c98d7c6
+        userCondition: null
+fields:
+  1b464b23-6750-460e-aea1-0c4af5f52e23: # Key
+    columnSuffix: ieijvjhz
+    contentColumnType: string(120)
+    fieldGroup: null
+    handle: key
+    instructions: 'Parameter ?v= from YouTube Url, e.g. _hoGpYyn4Bs'
+    name: Key
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: 30
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  af9afec0-f712-4b14-b235-851c6455e267: # Text
+    columnSuffix: yxoapypa
+    contentColumnType: text
+    fieldGroup: null
+    handle: text
+    instructions: null
+    name: Text
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 2
+      multiline: true
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: language
+    type: craft\fields\PlainText
+  f3c6560d-3487-4f65-a4f9-ac2926397b57: # Aspect Ratio
+    columnSuffix: qmwcncnc
+    contentColumnType: string
+    fieldGroup: null
+    handle: aspectRatio
+    instructions: 'Sets the aspect ratio for the video iframe'
+    name: 'Aspect Ratio'
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - '16:9'
+            -
+              - value
+              - '16:9'
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - '4:3'
+            -
+              - value
+              - '4:3'
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  f76ccc3a-7c88-43a3-9024-5ea619356bbf: # Heading
+    columnSuffix: tcsdcrod
+    contentColumnType: string(240)
+    fieldGroup: null
+    handle: heading
+    instructions: null
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: 60
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: language
+    type: craft\fields\PlainText
+handle: youtubeVideo
+name: 'YouTube Video'
+sortOrder: 7

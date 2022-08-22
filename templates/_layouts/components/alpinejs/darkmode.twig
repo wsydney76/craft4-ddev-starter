@@ -1,0 +1,29 @@
+{# functions are declared in _layout/partials/darkmode.twig to avoid FLOC #}
+<div x-data="{
+        theme:user_theme,
+
+        setTheme: function(newTheme) {
+
+            setDarkClass(newTheme);
+
+            if (newTheme === 'media') {
+                localStorage.removeItem('theme');
+                watchColorSchemeChange();
+                }
+            else
+                localStorage.theme = newTheme;
+                // stopWatchColorSchemeChange();
+            return true;
+        }}"
+
+     x-effect="setTheme(theme)">
+
+    <select id="darkModeSelector"
+            class="h-10 border border-white bg-header text-sm text-gray-50 focus:border-gray-400 focus:ring-offset-2"
+            x-model="theme">
+        <option class="hover:bg-primary" value="media">{{ 'System color mode'|t }}</option>
+        <option value="light">{{ 'Light color mode'|t }}</option>
+        <option value="dark">{{ 'Dark color mode'|t }}</option>
+    </select>
+
+</div>

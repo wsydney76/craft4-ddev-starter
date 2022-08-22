@@ -1,0 +1,9 @@
+baseUrl: $EN_SITE_URL
+enabled: true
+handle: en
+hasUrls: true
+language: en-US
+name: English
+primary: true
+siteGroup: 3bb09a1c-cb36-438e-b8d5-0b35b0965f4e # Trail Quest
+sortOrder: 1

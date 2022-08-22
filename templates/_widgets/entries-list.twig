@@ -1,0 +1,20 @@
+{# @param Heading string Widget heading #}
+{# @param query EntryQuery specifies entries to display #}
+
+{% set entries = query.collect %}
+
+{% if entries.count %}
+
+    {% embed '_layouts/embeds/widget.twig' with {heading: heading} %}
+        {% block content %}
+            <ul class="space-y-2">
+                {% for entry in entries %}
+                    <li>
+                        {{ entry.link }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endblock %}
+    {% endembed %}
+
+{% endif %}

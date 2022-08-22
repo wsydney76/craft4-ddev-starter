@@ -1,0 +1,75 @@
+field: 85898001-9c9c-4d46-abf9-a928e44f0d48 # Body Content
+fieldLayouts:
+  748d84c2-377a-405b-952d-19cf015d9be1:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 0c39cdb5-26f9-49ca-9bb4-445a28a61ddf # Images
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 01b1bc33-ec15-4de4-8a4c-2545d85730f4
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 5f7c731a-45a8-476b-b628-a9d22cabe59b
+        userCondition: null
+fields:
+  0c39cdb5-26f9-49ca-9bb4-445a28a61ddf: # Images
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: images
+    instructions: null
+    name: Images
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowSubfolders: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+      defaultUploadLocationSubpath: null
+      localizeRelations: false
+      maxRelations: null
+      minRelations: null
+      previewMode: full
+      restrictFiles: true
+      restrictLocation: false
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'volume:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+      restrictedLocationSubpath: null
+      selectionCondition:
+        __assoc__:
+          -
+            - elementType
+            - craft\elements\Asset
+          -
+            - fieldContext
+            - global
+          -
+            - class
+            - craft\elements\conditions\assets\AssetCondition
+      selectionLabel: null
+      showSiteMenu: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      source: null
+      sources:
+        - 'volume:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: gallery
+name: Gallery
+sortOrder: 4

@@ -1,0 +1,5 @@
+{# Display cards block #}
+
+<div class="not-prose">
+    {% include '_layouts/partials/cards.twig' with {query: block.entries, wide: false} only %}
+</div>

@@ -1,0 +1,67 @@
+{# Show sitemap page content #}
+
+{# Define sections to show with sort order #}
+{% set sections = [
+    {handle: 'page'},
+    {handle: 'legal'},
+    {handle: 'news', orderBy: 'postDate desc', limit: 10, moreType: 'newsIndex', moreText: 'All News'|t},
+] %}
+
+{% embed '_layouts/embeds/content-xl.twig' with {alignTitle: 'left'} %}
+    {% block content %}
+        <div class="max-w-full grid sm:grid-cols-2 lg:grid-cols-4 gap-4 prose prose-custom dark:prose-invert">
+            {% for sectionConfig in sections %}
+                {% set section = craft.app.sections.sectionByHandle(sectionConfig.handle) %}
+
+                <div class="mr-8">
+                    <h2>{{ section.name|t }}</h2>
+                    
+                    {% if section.type == 'channel' %}
+
+                        {% set limit = sectionConfig.limit ?? null %}
+
+                        {# Channel: Just a list in configured order #}
+                        {% set query = craft.entries
+                            .section(sectionConfig.handle)
+                            .limit(limit)
+                            .orderBy(sectionConfig.orderBy) %}
+                        <ul>
+                            {% for entry in query.collect %}
+                                <li>
+                                    {{ entry.link }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+                        {% if limit and  query.count > limit %}
+                            {% set indexEntry = craft.entries.section('page').type(sectionConfig.moreType).one %}
+                            {% if indexEntry %}
+                                <div class="mt-4">
+                                    <a href="{{ indexEntry.url }}">{{ sectionConfig.moreText ?? "More"|t }}</a>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        
+                    {% elseif section.type == 'structure' %}
+
+                        {# Section: nested hierarchy #}
+                        {% set entries = craft.entries.section(sectionConfig.handle).type('not sitemap') %}
+                        <ul>
+                            {% nav entry in entries %}
+                                <li>
+                                    {{ entry.link }}
+                                    {% ifchildren %}
+                                        <ul>
+                                            {% children %}
+                                        </ul>
+                                    {% endifchildren %}
+                                </li>
+                            {% endnav %}
+                        </ul>
+
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endblock %}
+{% endembed %}

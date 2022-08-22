@@ -1,0 +1,75 @@
+{# Reactive search component #}
+
+{% import '_macros/forms.twig' as forms %}
+
+{# Sets a default value if not defined by the `query` input field below #}
+{% set query = query ?? '' %}
+
+{# Show search query input (only on first call, do not replace on ajax calls #}
+{% if sprig.isInclude %}
+
+
+   <div class="mt-8">
+       {{ forms.input({
+           label: "Search for"|t,
+           name: 'query',
+           value: query,
+           autofocus: true,
+           extraAttr: {
+               data: {
+                   'sprig': true,
+                   's-trigger': 'keyup changed delay:500ms',
+                   's-replace': '#results'
+               }
+           }
+       }) }}
+   </div>
+
+
+{% endif %}
+
+{% set maxResults = craft.app.config.custom.searchMaxResults %}
+
+<div id="results" class="mt-8">
+    {% if query %}
+
+        {# push query param to browser history #}
+        {{ sprig.pushUrl("?query=#{query|e('url')}") }}
+
+        {# Don't eager load transform index records if imager-x is enabled #}
+        {% set withCondition = craft.app.plugins.pluginEnabled('imager-x') ?
+            ['featuredImage'] :
+            ['featuredImage', {withTransforms: [craft.app.config.custom.cardTransform]}] %}
+
+        {# execute search query here, so that we can get the count in this template #}
+        {% set entries = craft.entries
+            .section(craft.app.config.custom.searchSections)
+            .search(query)
+            .limit(maxResults)
+            .with([
+                withCondition
+            ])
+            .orderBy('score')
+        .collect %}
+
+        {% set count = entries.count %}
+        {% if count %}
+
+            {# show results in cards layout #}
+            {% include '_layouts/partials/cards.twig' with {
+                entries
+            } only %}
+
+            {# Display hint if there are more than maxResults hits #}
+            {% if count > maxResults %}
+                <div class="mt-8 font-medium">
+                    {{ "Showing top {maxResults} of {count}"|t({maxResults: maxResults, count: count}) }}
+                </div>
+            {% endif %}
+
+        {% else %}
+            {# Sorry... #}
+            {{ "No results"|t }}
+        {% endif %}
+    {% endif %}
+</div>

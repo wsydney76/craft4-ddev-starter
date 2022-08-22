@@ -1,0 +1,15 @@
+.DS_Store
+/.env
+/.idea
+/node_modules
+/templates/test
+/vendor
+/volumes
+/web/assets/dist
+/web/assets/pdf
+/web/assets/site
+/web/assets/transforms
+/web/cache
+/web/cpresources
+/web/files
+/config/license.key

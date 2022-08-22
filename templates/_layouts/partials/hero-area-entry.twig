@@ -1,0 +1,16 @@
+{# @param entry Entry The entry used for the hero section #}
+{# @param teaser String optional Text above title #}
+
+{% from '_layouts/macros/lib.twig' import quotedText %}
+
+{% set teaser = teaser ?? '' %}
+
+{% include '_layouts/partials/hero-area-display.twig' with {
+    image: entry.featuredImage.one,
+    title: entry.title,
+    tagline: entry.tagline,
+    url: entry.url,
+    caption: 'Read more about'|t ~ ' '  ~ entry.title,
+    caption: "#{'Read more about'|t} #{quotedText(entry.title)}" ,
+    teaser: teaser
+} only %}

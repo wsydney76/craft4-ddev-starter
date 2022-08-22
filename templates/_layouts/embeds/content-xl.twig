@@ -1,0 +1,18 @@
+{# @param entry Entry set by Craft #}
+{# @param image Asset optional #}
+
+<div class="my-8 max-w-screen-xl mx-auto px-4 sm:px-8">
+
+    {% block header %}
+        {% include '_layouts/partials/page-header.twig' with {
+            entry,
+            image: image ?? null
+        } only %}
+    {% endblock %}
+
+    {% block contentTop %}{% endblock %}
+
+    {% block content %}{% endblock %}
+
+    {% block contentBottom %}{% endblock %}
+</div>

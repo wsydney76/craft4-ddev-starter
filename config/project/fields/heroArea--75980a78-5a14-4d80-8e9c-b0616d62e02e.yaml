@@ -1,0 +1,34 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: bd76fb6e-8765-41d3-8e8a-02e37e127c80 # Common
+handle: heroArea
+instructions: 'The first published Hero Area will be used'
+name: 'Hero Area'
+searchable: true
+settings:
+  allowSelfRelations: false
+  localizeRelations: false
+  maxRelations: null
+  minRelations: null
+  selectionCondition:
+    __assoc__:
+      -
+        - elementType
+        - craft\elements\Entry
+      -
+        - fieldContext
+        - global
+      -
+        - class
+        - craft\elements\conditions\entries\EntryCondition
+  selectionLabel: 'Select a hero area'
+  showSiteMenu: false
+  source: null
+  sources:
+    - 'section:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

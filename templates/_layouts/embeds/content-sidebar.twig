@@ -1,0 +1,41 @@
+{# Narrow content container with header/content default blocks #}
+
+{# @param entry Entry set by Craft #}
+{# @param alignTitle String left/center #}
+{# @param image Asset optional #}
+
+<div class="my-8 max-w-screen-xl mx-auto px-4 sm:px-8 xl:grid xl:grid-cols-12 gap-16">
+
+    <div class="xl:col-span-9">
+
+        {% block header %}
+            {% include '_layouts/partials/page-header.twig' with {
+                entry,
+                alignTitle: alignTitle ?? 'center',
+                image: image ?? null
+            } only %}
+        {% endblock %}
+
+        {% block contentTop %}{% endblock %}
+
+        {% block content %}
+            {% if entry.bodyContent %}
+                {% include '_layouts/partials/blocks.twig' with {
+                    query: entry.bodyContent
+                } only %}
+            {% endif %}
+        {% endblock %}
+
+        {% block contentBottom %}{% endblock %}
+
+    </div>
+
+
+    <div class="mt-12 border-t border-primary pt-8 xl:col-span-3 xl:border-0 xl:mt-0 xl:pt-12">
+        {% block sidebarTop %}{% endblock %}
+        <aside>
+            {% block sidebar %}{% endblock %}
+        </aside>
+        {% block sidebarBottom %}{% endblock %}
+    </div>
+</div>

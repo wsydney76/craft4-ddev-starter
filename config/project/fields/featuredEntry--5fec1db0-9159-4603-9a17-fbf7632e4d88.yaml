@@ -1,0 +1,35 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: bd76fb6e-8765-41d3-8e8a-02e37e127c80 # Common
+handle: featuredEntry
+instructions: 'Will be used for hero area'
+name: 'Featured Entry'
+searchable: true
+settings:
+  allowSelfRelations: false
+  localizeRelations: false
+  maxRelations: 1
+  minRelations: null
+  selectionCondition:
+    __assoc__:
+      -
+        - elementType
+        - craft\elements\Entry
+      -
+        - fieldContext
+        - global
+      -
+        - class
+        - craft\elements\conditions\entries\EntryCondition
+  selectionLabel: 'Select an entry'
+  showSiteMenu: false
+  source: null
+  sources:
+    - 'section:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # News
+    - 'section:552c6a1f-a750-4c3d-8ea1-49d57d9ce6ad'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

@@ -1,0 +1,7 @@
+allowPublicRegistration: false
+deactivateByDefault: false
+defaultGroup: ''
+photoSubpath: null
+photoVolumeUid: 3b60e4f9-36bb-4456-bee5-67160b5a3108 # User Photos
+requireEmailVerification: true
+validateOnPublicRegistration: false

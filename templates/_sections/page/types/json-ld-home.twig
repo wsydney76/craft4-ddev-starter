@@ -1,0 +1,16 @@
+{# @var schema \Spatie\SchemaOrg\Schema #}
+{% set schema = craft.schema %}
+
+{% set image = siteInfo.featuredImage.one %}
+
+{{ schema.webSite
+    .name(entry.title)
+    .sourceOrganization(organization)
+    .image(image ? image.url(craft.app.config.custom.defaultTransform))
+    .description(entry.tagline ?? entry.title)
+    .url(entry.url)
+    .datePublished(entry.postDate|date('Y-m-d'))
+    .copyrightYear(entry.postDate|date('Y'))
+
+|raw
+}}

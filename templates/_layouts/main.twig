@@ -1,0 +1,33 @@
+{%- if craft.app.plugins.pluginEnabled('blitz') -%}
+    {% do craft.blitz.options.cacheDuration('P1D').tags([entry.section.handle]) %}
+{%- endif-%}
+<!DOCTYPE html>
+<html lang="{{ currentSite.language }}" style="overflow-y: scroll">
+<head>
+    {% include '_layouts/head.twig' with {entry} only %}
+</head>
+<body id="body" class="text-foreground bg-background dark:bg-background-dark dark:text-foreground-dark">
+
+<a class="sr-only focus:not-sr-only" href="#content">{{ 'Skip to content'|t }}</a>
+
+{% include '_layouts/nav.twig' with {entry} only %}
+
+<main id="content">
+
+    {% block heroArea %}
+        {% include [
+            "_sections/#{entry.section.handle}/types/hero-area-#{entry.type.handle}.twig",
+            "_sections/#{entry.section.handle}/hero-area.twig",
+            '_layouts/partials/hero-area.twig'
+        ] with {entry} only %}
+    {% endblock %}
+
+    {% block content %}{% endblock %}
+
+</main>
+
+{% include '_layouts/footer.twig' with {entry} only %}
+
+</body>
+</html>
+

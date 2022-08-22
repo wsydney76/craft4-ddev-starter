@@ -1,0 +1,47 @@
+{# Display Page Title / Tagline / Featured Image #}
+
+{# @param entry Entry optional if title/tagline are set #}
+{# @param title String optional if entry is set #}
+{# @param tagline String optional='' if entry is set #}
+{# @param alignTitle String optional=left Title align and color #}
+
+{% from '_layouts/macros/lib.twig' import img %}
+
+{% set image = image ?? null %}
+{% set alignTitle = alignTitle ?? 'left' %}
+{% set tagline = tagline ?? '' %}
+
+{% if entry is defined %}
+    {% set title = entry.title %}
+    {% set tagline = entry.tagline %}
+{% endif %}
+
+{% set titleClasses = {
+    left: 'text-primary dark:text-primary-dark',
+    center: 'text-center'
+} %}
+
+
+{% if image %}
+    {% set config = craft.app.config.custom %}
+    <div class="my-8 lg:-mx-24">
+        {{ img(image, {
+            transform: config.featuredTransform,
+            srcset: config.featuredSrcSet,
+            attr: {
+                class: 'rounded shadow-lg',
+                loading: null
+            }
+        }) }}
+    </div>
+{% endif %}
+
+<h1 class="mt-12 text-3xl leading-8 font-headings font-extrabold {{ titleClasses[alignTitle] }} sm:text-4xl lg:text-5xl">
+    {{ title }}
+</h1>
+
+{% if tagline %}
+    <div class="mt-8 text-xl">
+        {{ tagline }}
+    </div>
+{% endif %}

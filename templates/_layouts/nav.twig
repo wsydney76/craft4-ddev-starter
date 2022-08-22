@@ -1,0 +1,132 @@
+{# Displays Main Navigation (Level 2 Pages) #}
+
+{# @param entry Entry Set by Craft #}
+
+{% from '_layouts/macros/lib.twig' import navLink %}
+
+{% cache globally for 1 hour %}
+    {% set navEntries = craft.entries.section('page').level(2).collect %}
+    {% set localizedEntries = entry.localized.collect %}
+    {% set logo = siteInfo.logo.one %}
+
+    {# No query params for site switcher if reactive content #}
+    {% set queryParams = entry.type == 'search' ? null : craft.app.request.queryParams %}
+
+    {# Alpine Component #}
+    <div class="relative bg-header" x-data="{open: false}">
+
+        
+        <div class="mx-auto container px-4 md:px-8">
+            <div class="flex justify-between items-center py-4 md:space-x-10">
+
+                {# Site Logo #}
+                <div class="flex justify-start  text-white">
+                    <div class="text-center">
+                        <a href="{{ siteUrl }}">
+                            {% if logo %}
+                                <img src="{{ logo.url({height: 64}) }}" class="h-16 w-auto hover:opacity-75"
+                                     alt="{{ siteInfo.siteName }}">
+                            {% else %}
+                                <div class="text-3xl font-bold">
+                                    {{ siteInfo.siteName }}
+                                </div>
+                            {% endif %}
+
+                        </a>
+                    </div>
+                </div>
+
+                {# Menu Button #}
+                <div class="-mr-2 -my-2 md:hidden">
+                    <button @click="open = true"
+                            type="button"
+                            class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                            aria-expanded="false"
+                    >
+                        <span class="sr-only">Open menu</span>
+                        {{ svg('@templates/_icons/menu.svg') }}
+                    </button>
+                </div>
+
+                {# Desktop Nav #}
+                <nav class="hidden md:flex items-center space-x-4">
+                    {% for navEntry in navEntries %}
+                        {{ navLink(navEntry.menuTitle ?: navEntry.title, navEntry.url) }}
+                    {% endfor %}
+
+                    {# Site Switcher #}
+                    {% for localizedEntry in localizedEntries %}
+
+                        {% include '_layouts/partials/button.twig' with {
+                        	caption: localizedEntry.site.name,
+                            href: url(localizedEntry.url, queryParams),
+                            extraClasses: 'px-2 py-1 font-medium text-sm',
+                            color: 'light'
+                        } only %}
+
+                    {% endfor %}
+
+                </nav>
+            </div>
+        </div>
+
+        {# Mobile Menu #}
+        <div x-show="open" x-collapse
+             class="z-50 absolute top-0 inset-x-0 p-2 transition transform origin-top-right" style="display: none;"
+        >
+            <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-primary divide-y-2 divide-secondary">
+                <div class="pt-5 pb-6 px-5">
+                    <div class="flex items-center justify-between">
+
+                        {# Site Logo #}
+                        <a href="#">
+                            {% if logo %}
+                                <img
+                                        src="{{ logo.url({height: 32}) }}"
+                                        class="h-12 w-auto hover:opacity-75"
+                                        alt="{{ siteInfo.siteName }}"
+                                />
+                            {% else %}
+                                <div class="text-2xl text-foreground-dark font-bold">
+                                    {{ siteInfo.siteName }}
+                                </div>
+                            {% endif %}
+
+                        </a>
+
+                        {# Close Button #}
+                        <div class="-mr-2">
+                            <button @click="open=false"
+                                    type="button"
+                                    class="bg-secondary rounded-md p-2 inline-flex items-center justify-center text-light hover:text-background hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                            >
+                                <span class="sr-only">Close menu</span>
+                                {{ svg('@templates/_icons/close.svg') }}
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <nav class="grid gap-y-8">
+
+                            {% for navEntry in navEntries %}
+                                {{ navLink(navEntry.menuTitle ?: navEntry.title, navEntry.url) }}
+                            {% endfor %}
+
+                        </nav>
+                    </div>
+                </div>
+
+                {# Site Switcher #}
+                <div class="py-6 px-5 space-y-6">
+                    <div class="grid grid-cols-2 gap-y-4 gap-x-8">
+                        {% for localizedEntry in localizedEntries %}
+                            {{ navLink(localizedEntry.site.name, url(localizedEntry.url, queryParams)) }}
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endcache %}

@@ -1,0 +1,41 @@
+{# Renders a button #}
+
+{# @param caption String The caption #}
+{# @param tag String a/button default=a #}
+{# @param href String optional  #}
+{# @param xOnClick String optional Alpine function #}
+{# @param color String optional primary/white/light default=primary #}
+{# @param extraClasses String optional CSS classes to add #}
+{# @param target String target attribute #}
+{# @param type String optional, if tag=button #}
+
+{% set tag = tag ?? 'a' %}
+{% set href = href ?? null %}
+{% set xOnClick = xOnClick ?? null %}
+{% set color = color ?? 'primary' %}
+{% set extraClasses = extraClasses ?? '' %}
+{% set target = target ?? null %}
+{% set type = type ?? null %}
+
+{% if tag == 'button' and not type %}
+    {% set type = 'button' %}
+{% endif %}
+
+{% set baseClasses = 'px-4 py-2 rounded hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors' %}
+{% set colorClasses = {
+    primary: 'bg-primary text-white hover:bg-secondary shadow-md dark:bg-primary-dark dark:text-black dark:hover:bg-secondary dark:hover:text-white',
+    primaryAlways: 'bg-primary text-white hover:bg-secondary shadow-md',
+    white: 'bg-white text-black hover:bg-secondary hover:text-white',
+    light: 'bg-light hover:text-white hover:bg-secondary dark:text-foreground dark:hover:text-foreground-dark'
+} %}
+
+{% set class = "#{baseClasses} #{colorClasses[color]} #{extraClasses}" %}
+
+{{ tag(tag, {
+    text: caption,
+    href: href,
+    '@click': xOnClick,
+    target: target,
+    class: class,
+    type: type
+}) }}

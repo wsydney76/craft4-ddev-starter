@@ -1,0 +1,7 @@
+{% macro milesToKm(miles) -%}
+    {{ ceil(miles / 0.621371) }} km
+{%- endmacro %}
+
+{% macro ftToMeter(feet) -%}
+    {{ ceil(feet * 0.3048) }} Meter
+{%- endmacro %}

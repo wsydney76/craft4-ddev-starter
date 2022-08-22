@@ -1,0 +1,78 @@
+field: 95358052-5e25-4a5d-bd52-58078b1a5aa2 # FAQs
+fieldLayouts:
+  b72cbe2f-4cf2-4f3c-b7c6-587ba14afe04:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 02d2113e-298a-47c6-a40e-413a682ac7c5 # Question
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 569ed2bd-b8ab-4cb3-be35-832e0ef9bd26
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 3cb8a841-f986-4959-8f1a-c44fe16ff8d1 # Answer
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6f0c8d34-3e23-4f11-b62a-a5e853cca746
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 5955d950-edfa-4c10-b604-93c576a95048
+        userCondition: null
+fields:
+  02d2113e-298a-47c6-a40e-413a682ac7c5: # Question
+    columnSuffix: qrdzpvoi
+    contentColumnType: text
+    fieldGroup: null
+    handle: question
+    instructions: null
+    name: Question
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: language
+    type: craft\fields\PlainText
+  3cb8a841-f986-4959-8f1a-c44fe16ff8d1: # Answer
+    columnSuffix: bqjientp
+    contentColumnType: text
+    fieldGroup: null
+    handle: answer
+    instructions: null
+    name: Answer
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: true
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: language
+    type: craft\fields\PlainText
+handle: faq
+name: FAQ
+sortOrder: 1

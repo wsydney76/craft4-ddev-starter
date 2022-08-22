@@ -1,0 +1,19 @@
+columnSuffix: cjgkdjiq
+contentColumnType: text
+fieldGroup: d50026f3-a236-4ae2-b00a-af55076acd17 # Site
+handle: postalAddress
+instructions: null
+name: 'Postal Address'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: null
+  initialRows: 4
+  multiline: true
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

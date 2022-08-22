@@ -1,0 +1,19 @@
+columnSuffix: yvfuijly
+contentColumnType: string(120)
+fieldGroup: d50026f3-a236-4ae2-b00a-af55076acd17 # Site
+handle: siteName
+instructions: null
+name: 'Site Name'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: 30
+  code: false
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -1,0 +1,73 @@
+fieldLayouts:
+  d28264ca-71ec-42b7-890a-bbd25c316cae:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 01c4a8f9-68f8-4b8d-92a0-93ff8023892a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 400d2e7a-d260-459d-b16d-bc388f093106 # Tagline
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3141bf48-bbd6-46a9-baf7-d79b3b70be8d
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 2dd014ad-12ed-458b-a774-e26390704887
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: e62d63b0-c299-42ce-aeef-86a69f7e676c # SEO Fields
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cdd6b299-2a9e-45e4-9ce4-83832e99ca48
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 089c19fa-4f77-48e4-af94-819b5fd65f52
+        userCondition: null
+handle: sitemap
+hasTitleField: true
+name: Sitemap
+section: 84b98802-2548-4aed-b67e-fc97f6ed9e30 # Page
+sortOrder: 8
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: language

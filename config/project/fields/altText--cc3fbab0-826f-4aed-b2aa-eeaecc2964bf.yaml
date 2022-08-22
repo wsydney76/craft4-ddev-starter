@@ -1,0 +1,19 @@
+columnSuffix: jbzvoxct
+contentColumnType: string
+fieldGroup: 169ccd00-9c12-4921-b187-8ef8ca2ad525 # Assets
+handle: altText
+instructions: null
+name: 'Alt Text'
+searchable: true
+settings:
+  byteLimit: 255
+  charLimit: null
+  code: false
+  columnType: string
+  initialRows: 1
+  multiline: true
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: language
+type: craft\fields\PlainText

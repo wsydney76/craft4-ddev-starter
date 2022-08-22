@@ -1,0 +1,20 @@
+{# @param entry Entry Current entry #}
+{# @param criteria Object Criteria that sets filter/order of entries #}
+
+{% set next = entry.next(criteria) %}
+{% set prev = entry.prev(criteria) %}
+
+{% if next or prev %}
+    <div class="mt-12 border-t pt-4 flex justify-between border-t pt-4 space-x-4">
+        <div>
+            {% if prev %}
+                &larr; {{ prev.link }}
+            {% endif %}
+        </div>
+        <div>
+            {% if next %}
+                {{ next.link }} &rarr;
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

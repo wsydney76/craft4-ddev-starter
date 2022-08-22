@@ -1,0 +1,20 @@
+{# @param pageInfo craft\web\twig\variables\Paginate #}
+
+<div class="mt-12 flex justify-between">
+    <div>
+        {% if pageInfo.prevUrl %}
+            {% include '_layouts/partials/button.twig' with {
+                caption: "Previous Page"|t,
+                href: pageInfo.prevUrl
+            } only %}
+        {% endif %}
+    </div>
+    <div>
+        {% if pageInfo.nextUrl %}
+            {% include '_layouts/partials/button.twig' with {
+                caption: "Next Page"|t,
+                href: pageInfo.nextUrl
+            } only %}
+        {% endif %}
+    </div>
+</div>

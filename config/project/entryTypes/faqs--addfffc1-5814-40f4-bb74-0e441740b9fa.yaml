@@ -1,0 +1,106 @@
+fieldLayouts:
+  fa65e542-dae3-42f2-9fa6-c1af7a01d900:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 41615c19-5d04-4403-a540-7197f340e195
+            userCondition: null
+            warning: null
+            width: 75
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\elements\conditions\LevelConditionRule
+                  operator: '='
+                  uid: a30b53dc-bd75-4e98-9f3a-f08a70639cc2
+                  value: '2'
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: e2e51276-3783-49cb-9ed0-22ae364fd49a # Menu Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 58bb6d70-b0d5-413e-b51d-47408875212c
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 400d2e7a-d260-459d-b16d-bc388f093106 # Tagline
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5e7b68e3-b1c5-466e-8cad-62521105785a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 95358052-5e25-4a5d-bd52-58078b1a5aa2 # FAQs
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e01c0129-9d52-42e9-9aa5-1531c0ad29eb
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 9e2cdc34-c139-42e8-aa7b-047f1bf7a359
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: e62d63b0-c299-42ce-aeef-86a69f7e676c # SEO Fields
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 28fd3cde-cf8c-478e-9138-e73324103ea1
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: 64672265-0deb-41d6-a867-6cec91fe73b1
+        userCondition: null
+handle: faqs
+hasTitleField: true
+name: FAQs
+section: 84b98802-2548-4aed-b67e-fc97f6ed9e30 # Page
+sortOrder: 6
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: language

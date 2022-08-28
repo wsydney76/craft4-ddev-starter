@@ -15,6 +15,7 @@ This is the result of a girls-only internship project, and we thank Aylin and Me
 In case you do not want to use DDEV:
 
 * Set up a development environment as you are used to, incl. database and web server
+* Php 8.1 and Node js V16 required
 * Copy `setup/.env` to your project root and edit it to match your needs
 * Run
   * `composer install`

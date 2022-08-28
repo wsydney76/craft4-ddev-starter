@@ -10,6 +10,9 @@ This is the result of a girls-only internship project, and we thank Aylin and Me
 * Clone this repository `git clone https://github.com/wsydney76/craft4-ddev-starter <dir> && cd <dir>`
 * Run `bash setup/install`. This will create a user with the credentials `admin/password`.
 
+Note: DDEV is configured here with http-port=81 in order to avoid a conflict with a web server running on the host machine (which in turn should not use 443 for https).
+Edit `setup/install` to change this.
+
 ### Without DDEV
 
 In case you do not want to use DDEV:

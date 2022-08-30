@@ -1,9 +1,6 @@
-{# @var schema \Spatie\SchemaOrg\Schema #}
-{% set schema = craft.schema %}
-
 {% set image = siteInfo.featuredImage.one %}
 
-{{ schema.webSite
+{{ craft.schema.webSite
     .name(entry.title)
     .sourceOrganization(organization)
     .image(image ? image.url(craft.app.config.custom.defaultTransform))

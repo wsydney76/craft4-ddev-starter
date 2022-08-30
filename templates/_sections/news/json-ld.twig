@@ -1,11 +1,8 @@
-{# @var schema \Spatie\SchemaOrg\Schema #}
-{% set schema = craft.schema %}
-
 {% set image = entry.featuredImage.one ?? siteInfo.featuredImage.one %}
 
-{{ schema.newsArticle
+{{ craft.schema.newsArticle
     .image(image ? image.url(craft.app.config.custom.defaultTransform))
-    .author(schema.person.name(entry.author.name))
+    .author(craft.schema.person.name(entry.author.name))
     .description(entry.tagline ?? entry.title)
     .url(entry.url)
     .headline(entry.title)

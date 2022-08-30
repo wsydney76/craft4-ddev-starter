@@ -20,31 +20,19 @@
  * @copyright Copyright (c) 2019 nystudio107
  */
 
-namespace nystudio107\craft;
+namespace modules\_faux;
 
-// use craft\commerce\elements\Order;
-// use craft\commerce\elements\Product;
-// use craft\commerce\elements\Variant;
-// use craft\commerce\models\LineItem;
-// use craft\commerce\Plugin;
 use craft\elements\Asset;
-use craft\elements\Category;
 use craft\elements\Entry;
 use craft\elements\GlobalSet;
 use craft\elements\MatrixBlock;
-use craft\elements\Tag;
-use craft\elements\User;
-use craft\models\Site;
-use craft\web\twig\variables\CraftVariable;
 use craft\web\twig\variables\Paginate;
-use craft\web\view;
 use Illuminate\Support\Collection;
-use spacecatninja\imagerx\variables\ImagerVariable;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 
 /**
- * @author    nystudio107
+ * @author    nystudio107 / wsydney76
  * @package   FauxTwigExtension
  * @since     1.0.0
  */
@@ -53,44 +41,30 @@ class FauxTwigExtension extends AbstractExtension implements GlobalsInterface
     public function getGlobals(): array
     {
         return [
-            // Craft Variable
-            'craft' => new CraftVariable(),
-            // Craft Elements
-            'asset' => new Asset(),
-            'block' => new MatrixBlock(),
-            'category' => new Category(),
-            'element' => new Entry(),
+            // Craft Variable with custom properties for plugin variables
+            'craft' => new CustomCraftVariable(),
+
+            // Inserted by Craft CMS
             'entry' => new Entry(),
+
+            // Custom variables, templates should use these names by convention
+
+            // Craft Elements
             'image' => new Asset(),
-            'tag' => new Tag(),
+            'block' => new MatrixBlock(),
+
+
+            // Global Set
+            'siteInfo' => new GlobalSet(),
+
+            // Collections (Query results)
             'entries' => new Collection(),
             'blocks' => new Collection(),
             'images' => new Collection(),
-            'siteInfo' => new GlobalSet(),
+
+            // Pagination
             'pageInfo' => new Paginate(),
 
-            'imager' => new ImagerVariable(),
-
-            // Misc. Craft globals
-            'currentUser' => new User(),
-            'currentSite' => new Site(),
-            'site' => new Site(),
-            'view' => new view(),
-
-             // Commerce Elements
-            // 'lineItem' => new LineItem(),
-            // 'order' => new Order(),
-            // 'cart' => new Order(),
-            // 'product' => new Product(),
-            // 'variant' => new Variant(),
-            // 'commerce' => new Plugin(),
-
-            // Project specific global variables
-            // 'global_featuredImage' => '',
-            // 'global_title' => '',
-
-            // Third party globals
-            //'seomatic' => new \nystudio107\seomatic\variables\SeomaticVariable(),
         ];
     }
 }

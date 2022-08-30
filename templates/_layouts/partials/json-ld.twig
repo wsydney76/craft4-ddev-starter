@@ -1,14 +1,10 @@
 {# Structured Data, no need to render this in preview #}
 
-{# @var schema \Spatie\SchemaOrg\Schema #}
-
 {% if not craft.app.request.isPreview %}
 
-    {% set schema = craft.schema %}
-
-    {% set organization = schema.organization
+    {% set organization = craft.schema.organization
         .url(siteUrl('/'))
-        .location(schema.place
+        .location(craft.schema.place
             .address(siteInfo.postalAddress))
         .email(siteInfo.email)
         .telephone(siteInfo.phoneNumber)

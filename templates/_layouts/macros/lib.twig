@@ -28,8 +28,6 @@
 
     {% if craft.app.plugins.pluginEnabled('imager-x') %}
 
-        {% set imager = craft.imager %}
-
         {# We need to manually calculate transforms for image / srcSets #}
 
         {% if transform.width is defined and transform.height is defined %}
@@ -61,14 +59,14 @@
             {% endif %}
         {% endfor %}
 
-        {% set transformedImages = imager.transformImage(image, transforms) %}
+        {% set transformedImages = craft.imager.transformImage(image, transforms) %}
 
         {% set imgHtml =  tag('img', {
-            src: imager.placeholder({ width: transform.height, height: transform.width, color: '#cccccc' }),
+            src: craft.imager.placeholder({ width: transform.height, height: transform.width, color: '#cccccc' }),
             height: transform.height,
             width: transform.width,
             alt: image.altText ?: image.title,
-            srcset: imager.srcset(transformedImages),
+            srcset: craft.imager.srcset(transformedImages),
             loading: 'lazy'
         })|attr(attr) %}
 

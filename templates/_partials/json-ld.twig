@@ -1,7 +1,4 @@
-{# @var schema \Spatie\SchemaOrg\Schema #}
-{% set schema = craft.schema %}
-
-{{ schema.webPage
+{{ craft.schema.webPage
     .publisher(organization)
     .description(entry.tagline ?? entry.title)
     .url(entry.url)

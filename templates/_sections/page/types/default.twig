@@ -1,6 +1,12 @@
 {# Show default page content #}
 
 {% embed '_layouts/embeds/content-md.twig' %}
-	
+    {% block content %}
+        {{ parent() }}
+
+        {% include '_layouts/partials/entry-nav-structure.twig' with {
+        	entry
+        } only %}
+    {% endblock %}
 {% endembed %}
 

@@ -53,7 +53,7 @@ In case you do not want to use DDEV:
 
 This starter comes with a mix of functionality that is likely to be used in every project.
 
-* Pages section: We don't use singles, instead dedicated entry sections. Main navigation shows level 2 entries.
+* Pages section: We don't use singles, instead dedicated entry sections. Main navigation shows children of the homepage.
   * Home page
   * News Index: paginated card view of news entries
   * FAQs: FAQs with Alpine JS component

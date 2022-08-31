@@ -28,6 +28,8 @@ use craft\elements\GlobalSet;
 use craft\elements\MatrixBlock;
 use craft\web\twig\variables\Paginate;
 use Illuminate\Support\Collection;
+use spacecatninja\imagerx\variables\ImagerVariable;
+use Spatie\SchemaOrg\Schema;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 
@@ -41,7 +43,8 @@ class FauxTwigExtension extends AbstractExtension implements GlobalsInterface
     public function getGlobals(): array
     {
         return [
-            // Craft Variable with custom properties for plugin variables
+            // Craft Variable with custom properties for plugin variables.
+            // No idea why this does work sometimes, sometimes it doesn't
             'craft' => new CustomCraftVariable(),
 
             // Inserted by Craft CMS
@@ -64,6 +67,13 @@ class FauxTwigExtension extends AbstractExtension implements GlobalsInterface
 
             // Pagination
             'pageInfo' => new Paginate(),
+
+
+            // Plugin variables
+            // Use workaround if autocompletion for craft.xxx does not work
+            // set schema = craft.schema
+            'schema' => new Schema(),
+            'imager' => new ImagerVariable()
 
         ];
     }

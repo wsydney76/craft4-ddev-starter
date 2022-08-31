@@ -1,4 +1,6 @@
-{{ craft.schema.webPage
+{% set schema = craft.schema %}
+
+{{ schema.webPage
     .publisher(organization)
     .description(entry.tagline ?? entry.title)
     .url(entry.url)

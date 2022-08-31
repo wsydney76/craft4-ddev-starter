@@ -2,9 +2,11 @@
 
 {% if not craft.app.request.isPreview %}
 
-    {% set organization = craft.schema.organization
+    {% set schema = craft.schema %}
+
+    {% set organization = schema.organization
         .url(siteUrl('/'))
-        .location(craft.schema.place
+        .location(schema.place
             .address(siteInfo.postalAddress))
         .email(siteInfo.email)
         .telephone(siteInfo.phoneNumber)

@@ -13,5 +13,8 @@ use Spatie\SchemaOrg\Schema;
 
 class CustomCraftVariable extends CraftVariable
 {
-
+    public function schema(): Schema
+    {
+        return new Schema();
+    }
 }

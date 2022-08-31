@@ -1,8 +1,9 @@
 {% set image = entry.featuredImage.one ?? siteInfo.featuredImage.one %}
+{% set schema = craft.schema %}
 
-{{ craft.schema.newsArticle
+{{ schema.newsArticle
     .image(image ? image.url(craft.app.config.custom.defaultTransform))
-    .author(craft.schema.person.name(entry.author.name))
+    .author(schema.person.name(entry.author.name))
     .description(entry.tagline ?? entry.title)
     .url(entry.url)
     .headline(entry.title)

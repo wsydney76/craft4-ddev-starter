@@ -1,6 +1,7 @@
 {% set image = siteInfo.featuredImage.one %}
+{% set schema = craft.schema %}
 
-{{ craft.schema.webSite
+{{ schema.webSite
     .name(entry.title)
     .sourceOrganization(organization)
     .image(image ? image.url(craft.app.config.custom.defaultTransform))

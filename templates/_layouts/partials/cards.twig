@@ -20,16 +20,14 @@
 
     {# Base query #}
 
-    {# Don't eager load transform index records if imager-x is enabled #}
+    {# Merge eager load condition for card image into existing condition.
+    Don't eager load transform index records if imager-x is enabled #}
     {% set withCondition = craft.app.plugins.pluginEnabled('imager-x') ?
-        ['featuredImage'] :
-        ['featuredImage', {withTransforms: [transform]}] %}
+        [['featuredImage']]|merge(query.with ?? []) :
+        [['featuredImage', {withTransforms: [transform]}]]|merge(query.with ?? []) %}
 
-    {% set query = query
-        .with([
-           withCondition
-        ]) %}
-    
+    {% set query = query.with(withCondition) %}
+
     {% if paginate %}
 
         {# get entries, pageInfo for current page #}
@@ -61,7 +59,7 @@
 
     {% if heading %}
         {% include '_layouts/partials/headline.twig' with {
-        	text: heading|t({count: entries.count})
+            text: heading|t({count: entries.count})
         } only %}
     {% endif %}
 

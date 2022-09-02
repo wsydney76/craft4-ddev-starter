@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temp Images
-dateModified: 1662111028
+dateModified: 1662139482
 elementSources:
   craft\elements\Asset:
     -
@@ -319,7 +319,7 @@ plugins:
 system:
   edition: pro
   live: true
-  name: Starter
+  name: $SYSTEM_NAME
   retryDuration: 30
   schemaVersion: 4.0.0.9
   timeZone: $SYSTEM_TIMEZONE

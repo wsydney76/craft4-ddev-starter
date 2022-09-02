@@ -28,7 +28,7 @@ return [
         'hintsEnabled' => false,
 
         // With this setting enabled, Blitz will begin caching pages according to the included/excluded URI patterns. Disable this setting to prevent Blitz from caching any new pages.
-        'cachingEnabled' => (bool)App::env('ENABLE_BLITZ_CACHING'),
+        'cachingEnabled' => (bool)App::env('BLITZ_CACHING_ENABLED'),
 
         // Determines when and how the cache should be refreshed.
         // - `0`: Expire the cache, regenerate manually or organically

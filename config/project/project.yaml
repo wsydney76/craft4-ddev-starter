@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temp Images
-dateModified: 1661684894
+dateModified: 1662111028
 elementSources:
   craft\elements\Asset:
     -
@@ -154,17 +154,17 @@ fs:
     type: craft\fs\Local
     url: null
   tempimages_local:
-    hasUrls: true
+    hasUrls: false
     name: 'Temp Images Local'
     settings:
-      path: '@webroot/files/temp'
+      path: '@root/volumes/temp'
     type: craft\fs\Local
     url: '@web/files/temp'
   userPhotos_local:
-    hasUrls: true
+    hasUrls: false
     name: 'User Photos Local'
     settings:
-      path: '@webroot/files/userphotos'
+      path: '@root/volumes/userphotos'
     type: craft\fs\Local
     url: '@web/files/userphotos'
 meta:

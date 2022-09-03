@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temp Images
-dateModified: 1662196287
+dateModified: 1662201336
 elementSources:
   craft\elements\Asset:
     -
@@ -175,6 +175,7 @@ meta:
     1b464b23-6750-460e-aea1-0c4af5f52e23: Key # Key
     1bcfb3b0-25cb-4e06-8af6-d11008f0dd03: 'CTA Target' # CTA Target
     1c948380-c11c-45f9-a668-2a5eac6f24c9: Settings # Settings
+    1f5834fd-ed0d-466a-b4dd-2891fd144893: 'Show Structure Navigation' # Show Structure Navigation
     2a1eaa07-5692-4473-9f2d-02ca85f81dfd: 'Text Modules' # Text Modules
     02d2113e-298a-47c6-a40e-413a682ac7c5: Question # Question
     2f93cb45-a9ce-4284-8848-9eb001fb8a1c: News # News

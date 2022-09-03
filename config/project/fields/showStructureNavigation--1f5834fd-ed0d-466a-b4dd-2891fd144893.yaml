@@ -1,0 +1,14 @@
+columnSuffix: otzweros
+contentColumnType: boolean
+fieldGroup: bd76fb6e-8765-41d3-8e8a-02e37e127c80 # Common
+handle: showStructureNavigation
+instructions: 'Show navigation for this entry and it''s descendants'
+name: 'Show Structure Navigation'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

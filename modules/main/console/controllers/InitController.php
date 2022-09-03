@@ -103,6 +103,23 @@ class InitController extends Controller
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
+        // Sitemap -----------------------------------------------------------------------------------
+
+        $section = Craft::$app->sections->getSectionByHandle('page');
+        $type = ArrayHelper::firstWhere($section->getEntryTypes(), 'handle', 'sitemap');
+
+        $homepage = new Entry([
+            'sectionId' => $section->id,
+            'typeId' => $type->id,
+            'authorId' => $user->id,
+            'title' => 'Sitemap',
+            'slug' => 'sitemap',
+        ]);
+
+        if (!Craft::$app->elements->saveElement($homepage)) {
+            echo "Error saving sitemap entry\n";
+            return ExitCode::UNSPECIFIED_ERROR;
+        }
 
         // News Index -------------------------------------------------------------------------------
 

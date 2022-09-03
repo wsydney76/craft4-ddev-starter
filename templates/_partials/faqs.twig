@@ -2,7 +2,7 @@
 
 {% set items = query.collect %}
 
-{% if items %}
+{% if items.count %}
     <div>
         {% include '_layouts/components/alpinejs/accordion.twig' with {
             items

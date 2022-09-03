@@ -15,7 +15,7 @@
 
                 <div class="mr-8">
                     <h2>{{ section.name|t }}</h2>
-                    
+
                     {% if section.type == 'channel' %}
 
                         {% set limit = sectionConfig.limit ?? null %}
@@ -41,7 +41,7 @@
                                 </div>
                             {% endif %}
                         {% endif %}
-                        
+
                     {% elseif section.type == 'structure' %}
 
                         {# Section: nested hierarchy #}

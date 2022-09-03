@@ -13,7 +13,7 @@
         .name(siteInfo.copyright ?? siteInfo.siteName) %}
 
     {% include [
-        "_sections/#{entry.section.handle}/types/json-ld-#{entry.type.handle}.twig",
+        "_sections/#{entry.section.handle}_#{entry.type.handle}/json-ld.twig",
         "_sections/#{entry.section.handle}/json-ld.twig",
         "_partials/json-ld.twig"
     ] with {

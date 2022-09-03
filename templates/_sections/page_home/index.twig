@@ -2,7 +2,6 @@
 
 <div class="max-w-2xl mx-auto pb-16 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
 
-
     {# Display Latest News #}
     <div class="mt-16">
 
@@ -17,7 +16,6 @@
 
     </div>
 
-
 </div>
 
 {# Button for 'see more' #}
@@ -26,7 +24,7 @@
     {% if navEntry %}
         <div class="mt-8">
             {% include '_layouts/partials/button.twig' with {
-            	caption: caption|t,
+                caption: caption|t,
                 href: navEntry.url
             } only %}
         </div>

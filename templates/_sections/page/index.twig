@@ -5,7 +5,7 @@
 {% block content %}
     {# Display individual content per entry type #}
     {% include [
-        "_sections/page/types/#{entry.type.handle}.twig",
-        "_sections/page/types/default.twig"
+        "_sections/page_#{entry.type.handle}",
+        "_sections/page_default"
     ] %}
 {% endblock %}

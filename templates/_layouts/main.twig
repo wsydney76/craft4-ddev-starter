@@ -16,7 +16,7 @@
 
     {% block heroArea %}
         {% include [
-            "_sections/#{entry.section.handle}/types/hero-area-#{entry.type.handle}.twig",
+            "_sections/#{entry.section.handle}_#{entry.type.handle}/hero-area.twig",
             "_sections/#{entry.section.handle}/hero-area.twig",
             '_layouts/partials/hero-area.twig'
         ] with {entry} only %}

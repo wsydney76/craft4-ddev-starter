@@ -8,12 +8,12 @@
     <div class="mt-12 border-t pt-4 flex justify-between border-t pt-4 space-x-4">
         <div>
             {% if prev %}
-                &larr; {{ prev.link }}
+                &larr;&nbsp;{{ prev.link }}
             {% endif %}
         </div>
-        <div>
+        <div class="text-right">
             {% if next %}
-                {{ next.link }} &rarr;
+                {{ next.link }}&nbsp;&rarr;
             {% endif %}
         </div>
     </div>

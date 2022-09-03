@@ -6,7 +6,7 @@
     <div class="mt-12 border-t pt-4 flex justify-between border-t pt-4 space-x-4">
         <div>
             {% if prev and prev.level > 1 %}
-                &larr; {{ prev.link }}
+                &larr;&nbsp;{{ prev.link }}
             {% endif %}
         </div>
 
@@ -27,7 +27,7 @@
 
         <div>
             {% if next and next.level > 1 %}
-                {{ next.link }} &rarr;
+                {{ next.link }}&nbsp;&rarr;
             {% endif %}
         </div>
     </div>

@@ -108,7 +108,7 @@
 {% endmacro %}
 
 {% macro navLinkClasses(active=false) -%}
-    {{ active ? 'underline ' }}text-base text-foreground-dark font-medium hover:underline
+    {{ active ? 'border-foreground-dark ' : 'border-transparent ' }} border-b-2 text-base text-foreground-dark font-medium hover:border-foreground-dark
 {%- endmacro %}
 
 

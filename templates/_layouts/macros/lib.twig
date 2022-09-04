@@ -101,11 +101,16 @@
 {% endmacro %}
 
 
-{% macro navLink(text, url) %}
-    <a href="{{ url }}" class="text-base text-foreground-dark font-medium hover:underline transition-colors">
+{% macro navLink(text, url, active=false) %}
+    <a href="{{ url }}" class="{{ _self.navLinkClasses(active) }}">
         {{ text }}
     </a>
 {% endmacro %}
+
+{% macro navLinkClasses(active=false) -%}
+    {{ active ? 'underline ' }}text-base text-foreground-dark font-medium hover:underline
+{%- endmacro %}
+
 
 {% macro quotedText(text) %}
     {{ '“'|t }}{{ text }}{{ '”'|t }}

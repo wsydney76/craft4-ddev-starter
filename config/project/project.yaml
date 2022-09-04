@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temp Images
-dateModified: 1662201336
+dateModified: 1662286000
 elementSources:
   craft\elements\Asset:
     -
@@ -250,6 +250,7 @@ meta:
     c72e758a-f6c3-42cd-896b-3ff6353ed259: 'Featured Image' # Featured Image
     c38953ca-ba84-4992-8deb-65aa2fc40b34: 'Hero Area' # Hero Area
     c752550e-4c4a-4004-8229-7473dcf75450: 'Site Info' # Site Info
+    cb919462-37df-4bb3-acf9-09892c4575e5: 'Nav Item'
     cc3fbab0-826f-4aed-b2aa-eeaecc2964bf: 'Alt Text' # Alt Text
     cce7e62c-f710-40fd-b9e9-71ba6f58265f: 'Hero Tagline' # Hero Tagline
     cf967bc8-e8fd-4cd3-b66c-998982d2cc6c: 'Booking Status' # Booking Status

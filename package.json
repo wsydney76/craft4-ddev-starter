@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@alpinejs/collapse": "^3.10.3",
+    "@alpinejs/focus": "^3.10.3",
     "alpinejs": "^3.10.2",
     "baguettebox.js": "^1.11.1"
   }

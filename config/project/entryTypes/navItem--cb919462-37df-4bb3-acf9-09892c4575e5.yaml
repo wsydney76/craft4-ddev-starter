@@ -1,0 +1,62 @@
+fieldLayouts:
+  1ca0bb2f-93b6-407d-883c-8b3dac20fa95:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            style: tip
+            tip: 'Does not have it''s own content, it creates a primary navigation item that lists its children in a dropdown'
+            type: craft\fieldlayoutelements\Tip
+            uid: 893bbc97-6474-49e3-a197-afc4ddbbee94
+            userCondition: null
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 98cd0278-9482-4133-90ab-5f54c1b26c70
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 1f5834fd-ed0d-466a-b4dd-2891fd144893 # Show Structure Navigation
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 55dffd0f-7284-4b2d-9e68-1497c03e31c3
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: d985bf75-b350-4220-b741-8a42c5efbb01
+        userCondition: null
+handle: navItem
+hasTitleField: true
+name: 'Nav Item'
+section: 84b98802-2548-4aed-b67e-fc97f6ed9e30 # Page
+sortOrder: 10
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: language

@@ -20,12 +20,12 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: _sections/page
-    uriFormat: '{slug}'
+    uriFormat: '{parent.uri|replace({''__home__'': ''''})}/{slug}'
   dbf50cb2-37c8-45f7-b375-dcb93e09691b: # Deutsch
     enabledByDefault: true
     hasUrls: true
     template: _sections/page
-    uriFormat: '{slug}'
+    uriFormat: '{parent.uri|replace({''__home__'': ''''})}/{slug}'
 structure:
   maxLevels: null
   uid: 90b11039-2eba-48d9-9e4a-bcbb8797204c

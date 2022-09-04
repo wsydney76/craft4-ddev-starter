@@ -1,0 +1,7 @@
+{% from '_layouts/macros/lib.twig' import navLink %}
+
+<div class="grid grid-cols-2 gap-y-4 gap-x-8">
+    {% for localizedEntry in localizedEntries %}
+        {{ navLink(localizedEntry.site.name, url(localizedEntry.url, queryParams)) }}
+    {% endfor %}
+</div>

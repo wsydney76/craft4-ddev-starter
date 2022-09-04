@@ -1,0 +1,32 @@
+{% from '_layouts/macros/lib.twig' import navLink %}
+
+{% for navEntry in navEntries|filter(e => e.level == 2) %}
+
+    {% set active = craft.app.request.segment(1) == navEntry.slug %}
+
+
+    {% if navEntry.type.handle == 'navItem' %}
+
+        {% set children = navEntries|filter(e => e.parentId == navEntry.id) %}
+        {% if children %}
+            {% embed '_layouts/components/alpinejs/dropdown.twig' with {
+                caption: navEntry.title,
+                active,
+                style: 'nav'
+            } %}
+                {% block panel %}
+                    {% from '_layouts/macros/lib.twig' import navLink %}
+                    {% for child in children %}
+                        <div class="my-2">
+                            {{ navLink(child.title, child.url) }}
+                        </div>
+                    {% endfor %}
+                {% endblock %}
+            {% endembed %}
+        {% endif %}
+
+    {% else %}
+        {{ navLink(navEntry.menuTitle ?: navEntry.title, navEntry.url, active) }}
+    {% endif %}
+
+{% endfor %}

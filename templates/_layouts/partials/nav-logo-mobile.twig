@@ -1,0 +1,13 @@
+<a href="#">
+    {% if logo %}
+        <img
+                src="{{ logo.url({height: 32}) }}"
+                class="h-12 w-auto hover:opacity-75"
+                alt="{{ siteInfo.siteName }}"
+        />
+    {% else %}
+        <div class="text-2xl text-foreground-dark font-bold">
+            {{ siteInfo.siteName }}
+        </div>
+    {% endif %}
+</a>

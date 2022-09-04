@@ -85,10 +85,10 @@ Folder:
   * embeds: Layout components, incl. page content layouts(single colum wide/narrow, sidebar), cards, widgets etc. Dark mode switch for front end
   * macros: img macro for advanced image handling, prepared for Imager-X plugin
   * partials: includes for hero area, page headers, buttons etc.
-* _sections/<sectionHandle>: Section specific templates. The following templates will be called if present in the <sectionHandle> folder:
-  * card-content.twig: Section specific content for cards. Use card-text embed for consistent layout.
-  * types/hero-area-<typeHandle>.twig, hero-area.twig: Outputs a section specific hero area
-  * types/json-ld-<typeHandle>.twig, json-ld.twig: Outputs section specific Json-ld meta data
+* \_sections/[sectionHandle], \_sections/[sectionHandle]_[typeHandle]: Section/Type specific templates. The following templates will be called if present in the folder:
+  * card-content.twig: Section/type specific content for cards. Use card-text embed for consistent layout.
+  * hero-area.twig: Outputs a section/type specific hero area
+  * json-ld.twig: Outputs section/type specific Json-ld meta data
 * _blocks: Content builder block type templates
 * _errors: Templates for error pages
 * _macros: Project specific macros

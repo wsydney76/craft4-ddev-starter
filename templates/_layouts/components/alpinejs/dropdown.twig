@@ -1,6 +1,10 @@
 {# @param style String determines classes to be applied default=nav #}
+{# @param caption String comment #}
 
 {# https://alpinejs.dev/component/dropdown #}
+
+{% set style = style ?? 'nav' %}
+{% set caption = caption ?? 'Toggle'|t %}
 
 {% from '_layouts/macros/lib.twig' import navLinkClasses %}
 

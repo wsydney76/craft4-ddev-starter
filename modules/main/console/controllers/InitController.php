@@ -108,7 +108,7 @@ class InitController extends Controller
         $section = Craft::$app->sections->getSectionByHandle('page');
         $type = ArrayHelper::firstWhere($section->getEntryTypes(), 'handle', 'sitemap');
 
-        $homepage = new Entry([
+        $entry = new Entry([
             'sectionId' => $section->id,
             'typeId' => $type->id,
             'authorId' => $user->id,
@@ -116,7 +116,7 @@ class InitController extends Controller
             'slug' => 'sitemap',
         ]);
 
-        if (!Craft::$app->elements->saveElement($homepage)) {
+        if (!Craft::$app->elements->saveElement($entry)) {
             echo "Error saving sitemap entry\n";
             return ExitCode::UNSPECIFIED_ERROR;
         }

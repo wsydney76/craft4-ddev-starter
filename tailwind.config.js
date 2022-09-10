@@ -108,6 +108,10 @@ module.exports = {
                 '5': '5deg'
             },
 
+            aspectRatio: {
+                '4/3': '4 / 3',
+            },
+
             // Custom color scheme with custom colors
             typography: ({theme}) => ({
                 custom: {

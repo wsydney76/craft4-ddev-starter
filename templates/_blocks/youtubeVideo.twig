@@ -15,16 +15,17 @@
                 </div>
             {% endif %}
         {% endblock %}
-        
+
         {% block media %}
 
-            {% set aspectRatio = block.aspectRatio ?? '16:9' %}
-            {% set aspectRatio = aspectRatio|split(':')  %}
+            {% set aspectRatio = block.aspectRatio.value ?? '16:9' %}
 
-            {% set width = craft.app.config.custom.mediaWidth %}
-            {% set height = ceil(width / aspectRatio[0] * aspectRatio[1]) %}
-            
-            <iframe width="{{ width }}" height="{{ height }}"
+            {% set class = {
+                '16:9' : 'aspect-video',
+                '4:3' : 'aspect-4/3'
+            } %}
+
+            <iframe class="w-full {{ class[aspectRatio] }}"
                     src="https://www.youtube-nocookie.com/embed/{{ block.key }}"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

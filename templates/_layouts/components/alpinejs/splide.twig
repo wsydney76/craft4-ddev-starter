@@ -1,0 +1,39 @@
+{# Carousel https://alpinejs.dev/component/splide #}
+
+{# @param config Array Splide config settings https://splidejs.com/guides/options/ #}
+{# @param slides Array Array of slide html #}
+
+{% css "https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/css/splide.min.css" %}
+{% js "https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/js/splide.min.js" %}
+
+{% set config = config ?? {
+    type: 'loop'
+} %}
+
+{% set config = config|json_encode %}
+
+{% css %}
+.splide__pagination__page.is-active {
+    background: #333;
+}
+{% endcss %}
+
+<div x-data="{
+    init() {
+        new Splide(this.$refs.splide).mount()
+    }
+}">
+    <section x-ref="splide" class="splide" aria-label="Carousel" data-splide="{{ config }}">
+        <div class="splide__track">
+            <ul class="splide__list">
+
+                {% for slide in slides %}
+                    <li class="splide__slide flex flex-col items-center justify-center pb-8">
+                        {{ slide }}
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+    </section>
+</div>

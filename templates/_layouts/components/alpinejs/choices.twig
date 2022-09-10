@@ -1,0 +1,50 @@
+{# https://alpinejs.dev/component/choices #}
+
+{# @param value int|string|array Selected values. Will generate a multiple select if array #}
+{# @param options array Array of hashes with keys value, label #}
+{# @param name string Name for form input #}
+
+{% css "https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" %}
+{% js "https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js" %}
+
+
+{% set isMultiple = value is array ? 'true' : 'false' %}
+{% set value = isMultiple ? value|json_encode : value %}
+{% set options = options|json_encode %}
+{% set name = name ?? 'choices' %}
+
+<div
+        x-data="{
+        multiple: {{ isMultiple }},
+        value: {{ value }},
+        options: {{ options }},
+        init() {
+            this.$nextTick(() => {
+                let choices = new Choices(this.$refs.select)
+
+                let refreshChoices = () => {
+                    let selection = this.multiple ? this.value : [this.value]
+
+                    choices.clearStore()
+                    choices.setChoices(this.options.map(({ value, label }) => ({
+                        value,
+                        label,
+                        selected: selection.includes(value),
+                    })))
+                }
+
+                refreshChoices()
+
+                this.$refs.select.addEventListener('change', () => {
+                    this.value = choices.getValue(true)
+                })
+
+                this.$watch('value', () => refreshChoices())
+                this.$watch('options', () => refreshChoices())
+            })
+        }
+    }"
+        class="max-w-sm w-full"
+>
+    <select x-ref="select" name="{{ name }}" :multiple="multiple"></select>
+</div>

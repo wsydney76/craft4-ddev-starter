@@ -1,0 +1,64 @@
+{# https://alpinejs.dev/component/select2 #}
+
+{# @param value int|string|array Selected values. Will generate a multiple select if array #}
+{# @param options array Array of hashes with keys value, label #}
+{# @param name string Name for form input #}
+
+<!--
+    Notice: We have to use jQuery 3.5.1 instead of 3.6.0 because select2's
+    input field won't autofocus on open in that version for this reason:
+    https://github.com/select2/select2/issues/5993
+ -->
+{% js "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" %}
+{% css "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" %}
+{% js "https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" %}
+
+
+{% set isMultiple = value is array ? 'true' : 'false' %}
+{% set value = isMultiple ? value|json_encode : value %}
+{% set options = options|json_encode %}
+{% set name = name ?? 'choices' %}
+
+<div
+        x-data="{
+        multiple: {{ isMultiple }},
+        value: {{ value }},
+        options: {{ options }},
+        init() {
+            let bootSelect2 = () => {
+                let selections = this.multiple ? this.value : [this.value]
+
+                $(this.$refs.select).select2({
+                    multiple: this.multiple,
+                    data: this.options.map(i => ({
+                        id: i.value,
+                        text: i.label,
+                        selected: selections.map(i => String(i)).includes(String(i.value)),
+                    })),
+                })
+            }
+
+            let refreshSelect2 = () => {
+                $(this.$refs.select).select2('destroy')
+                this.$refs.select.innerHTML = ''
+                bootSelect2()
+            }
+
+            bootSelect2()
+
+            $(this.$refs.select).on('change', () => {
+                let currentSelection = $(this.$refs.select).select2('data')
+
+                this.value = this.multiple
+                    ? currentSelection.map(i => i.id)
+                    : currentSelection[0].id
+            })
+
+            this.$watch('value', () => refreshSelect2())
+            this.$watch('options', () => refreshSelect2())
+        },
+    }"
+        class="max-w-sm w-full"
+>
+    <select x-ref="select" name="{{ name }}" class="w-full" multiple></select>
+</div>

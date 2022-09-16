@@ -1,8 +1,10 @@
 {# https://alpinejs.dev/component/choices #}
+{# https://github.com/Choices-js/Choices #}
 
 {# @param value int|string|array Selected values. Will generate a multiple select if array #}
 {# @param options array Array of hashes with keys value, label #}
 {# @param name string Name for form input #}
+{# @param class String Classes for container #}
 
 {% css "https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" %}
 {% js "https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js" %}
@@ -12,6 +14,7 @@
 {% set value = isMultiple ? value|json_encode : value %}
 {% set options = options|json_encode %}
 {% set name = name ?? 'choices' %}
+{% set class = class ?? '' %}
 
 <div
         x-data="{
@@ -20,7 +23,9 @@
         options: {{ options }},
         init() {
             this.$nextTick(() => {
-                let choices = new Choices(this.$refs.select)
+                let choices = new Choices(this.$refs.select, {
+                    removeItemButton: true
+                })
 
                 let refreshChoices = () => {
                     let selection = this.multiple ? this.value : [this.value]
@@ -44,7 +49,14 @@
             })
         }
     }"
-        class="max-w-sm w-full"
+        class="{{ class }}"
 >
     <select x-ref="select" name="{{ name }}" :multiple="multiple"></select>
 </div>
+
+{% css %}
+.choices__list--multiple .choices__item {
+    background-color: #0284C7 !important;
+    border-radius: 4px !important;
+}
+{% endcss %}

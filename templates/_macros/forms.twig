@@ -35,7 +35,10 @@
             </div>
         {% endif %}
 
-        {% if type == 'textarea' %}
+        {% switch type %}
+
+        {% case "textarea" %}
+
             {{ tag('textarea', {
                 text: config.value,
                 id: config.name|id,
@@ -45,7 +48,18 @@
                 autofocus: autofocus,
                 class: "block w-full shadow-sm py-3 px-4 bg-gray-50 focus:ring-secondary focus:border-primary border-secondary rounded-md shadow-md #{errors ? 'border-warning dark:border-warning-dark'} dark:text-gray-900"
             })|attr(extraAttr) }}
-        {% else %}
+
+        {% case "choices" %}
+
+            {% include '_layouts/components/alpinejs/choices.twig' with {
+                name: config.name,
+                value: config.value,
+                options: config.options,
+                class: "block w-full shadow-sm bg-gray-50 focus:ring-secondary focus:border-primary border border-secondary rounded shadow-md #{errors ? 'border-warning dark:border-warning-dark'} dark:text-gray-900"
+            } only %}
+
+        {% default %}
+
             {{ input(type, config.name, config.value, {
                 id: config.name|id,
                 min: min,
@@ -54,8 +68,8 @@
                 autofocus: autofocus,
                 class: "block w-full shadow-sm py-3 px-4 bg-gray-50 focus:ring-secondary focus:border-primary border-secondary rounded-md shadow-md #{errors ? 'border-warning dark:border-warning-dark'} dark:text-gray-900"
             })|attr(extraAttr) }}
-        {% endif %}
 
+        {% endswitch %}
 
         {% if errors %}
             {{ ul(errors, {class: 'font-medium text-warning'}) }}

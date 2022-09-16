@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temp Images
-dateModified: 1662720022
+dateModified: 1663325453
 elementSources:
   craft\elements\Asset:
     -
@@ -265,7 +265,7 @@ meta:
     eb6b24cc-83d7-416f-be4b-d002c7688b58: Copyright # Copyright
     eb61b6c1-d43a-4bf6-8091-bc71c44a9dcf: Entries # Entries
     ebe8548f-7f01-49b6-af98-56da49668e79: Logo # Logo
-    ed627edd-73bd-4b75-8684-f410bf4e4b9d: 'Temp Images' # Temp Images
+    ed627edd-73bd-4b75-8684-f410bf4e4b9d: 'Temporary Images' # Temp Images
     ee6f8d07-ca81-4da0-991c-491e5108bff8: Home # Home
     f3c6560d-3487-4f65-a4f9-ac2926397b57: 'Aspect Ratio' # Aspect Ratio
     f8ff18c6-ca19-4910-8753-62aa768dd3a3: Cite # Cite

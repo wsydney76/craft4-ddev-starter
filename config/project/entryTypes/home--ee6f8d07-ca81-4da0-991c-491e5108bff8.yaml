@@ -64,7 +64,7 @@ fieldLayouts:
           -
             elementCondition: null
             style: tip
-            tip: "Homepage content will be inserted here.\r\n\r\nChilds will be displayed in the main navigation."
+            tip: "Homepage content will be inserted here.\r\n\r\nDescendants will be displayed in the main navigation."
             type: craft\fieldlayoutelements\Tip
             uid: f6422655-712e-4c59-9d5d-e93453b84443
             userCondition: null

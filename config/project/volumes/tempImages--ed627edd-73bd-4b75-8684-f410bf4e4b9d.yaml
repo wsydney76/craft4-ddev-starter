@@ -59,7 +59,7 @@ fieldLayouts:
         userCondition: null
 fs: $TEMP_IMAGES_FS
 handle: tempImages
-name: 'Temp Images'
+name: 'Temporary Images'
 sortOrder: 2
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

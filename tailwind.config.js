@@ -103,11 +103,6 @@ module.exports = {
                 serif: ['"PT Serif"', 'serif']
             },
 
-            rotate: {
-                '4': '4deg',
-                '5': '5deg'
-            },
-
             aspectRatio: {
                 '4/3': '4 / 3',
             },

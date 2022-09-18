@@ -60,7 +60,7 @@ fields:
     handle: cite
     instructions: null
     name: Cite
-    searchable: false
+    searchable: true
     settings:
       byteLimit: null
       charLimit: 60

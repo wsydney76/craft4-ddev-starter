@@ -107,11 +107,13 @@ class BaseController extends Controller
                             if ($field instanceof Matrix) {
                                 $blocks = $value;
 
-                                $ids = $entry->getFieldValue($handle)->ids();
+                                $primaryBlocks = $entry->getFieldValue($handle)->all();
 
-                                $value = ['sortOrder' => $ids, 'blocks' => []];
+                                $value = ['sortOrder' => [], 'blocks' => []];
                                 foreach ($blocks as $i => $block) {
-                                    $value['blocks'][$ids[$i]] = $block;
+                                    $id = $primaryBlocks[$i]->id;
+                                    $value['sortOrder'][] = $id;
+                                    $value['blocks'][$id] = $block;
                                 }
                             }
 

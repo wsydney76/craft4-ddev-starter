@@ -44,18 +44,6 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 44993cef-3718-479f-8c88-bdede1d256ba # Card Text
-            instructions: 'Will be show on the news index page instead of the tagline'
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: a8a89a0e-0163-41f0-aa74-b6ed0fa85e9e
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
             fieldUid: c72e758a-f6c3-42cd-896b-3ff6353ed259 # Featured Image
             instructions: null
             label: null
@@ -63,6 +51,18 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 3af461da-7661-47fa-8825-5985d85f1014
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 44993cef-3718-479f-8c88-bdede1d256ba # Card Text
+            instructions: 'Will be show on the news index page instead of the tagline'
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a8a89a0e-0163-41f0-aa74-b6ed0fa85e9e
             userCondition: null
             warning: null
             width: 100

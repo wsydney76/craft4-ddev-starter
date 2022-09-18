@@ -76,9 +76,6 @@ class InitController extends BaseController
     {
 
 
-        // Homepage -----------------------------------------------------------------------------------
-
-
         $homepage = $this->createEntry([
             'section' => 'page',
             'type' => 'home',
@@ -116,6 +113,25 @@ class InitController extends BaseController
             'parent' => $homepage
         ]);
 
+        $this->createEntry([
+            'section' => 'page',
+            'type' => 'default',
+            'title' => 'About',
+            'slug' => 'about',
+            'parent' => $homepage,
+            'fields' => [
+                'tagline' => 'Who we are'
+            ],
+            'localized' => [
+                'de' => [
+                    'title' => 'Über uns',
+                    'slug' => 'ueber-uns',
+                    'fields' => [
+                        'tagline' => 'Wer wir sind'
+                    ],
+                ]
+            ]
+        ]);
 
         $this->createEntry([
             'section' => 'page',
@@ -163,7 +179,7 @@ class InitController extends BaseController
             'section' => 'legal',
             'type' => 'privacy',
             'title' => 'Privacy Declaration',
-            'slug' => 'privacy2',
+            'slug' => 'privacy',
             'fields' => [
                 'bodyContent' => [
                     'sortOrder' => ['new1'],

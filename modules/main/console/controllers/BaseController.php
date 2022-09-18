@@ -69,7 +69,7 @@ class BaseController extends Controller
             foreach ($data['fields'] as $handle => $value) {
                 $field = Craft::$app->fields->getFieldByHandle($handle);
 
-                if ($field instanceof Matrix) {
+                if ($field instanceof Matrix && !isset($value['sortOrder'])) {
                     $blocks = $value;
                     $value = ['sortOrder' => [], 'blocks' => []];
                     foreach ($blocks as $i => $block) {

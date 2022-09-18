@@ -3,12 +3,9 @@
 namespace modules\main\console\controllers;
 
 use Craft;
-use craft\console\Controller;
-use craft\elements\Entry;
 use craft\elements\GlobalSet;
 use craft\elements\User;
 use craft\helpers\App;
-use craft\helpers\ArrayHelper;
 use craft\helpers\Assets;
 use Faker\Factory;
 use yii\console\ExitCode;
@@ -16,11 +13,10 @@ use function array_diff;
 use function copy;
 use function pathinfo;
 use function scandir;
-use function var_dump;
 use const DIRECTORY_SEPARATOR;
 use const PHP_EOL;
 
-class InitController extends Controller
+class InitController extends BaseController
 {
 
     /**
@@ -78,162 +74,120 @@ class InitController extends Controller
 
     public function actionCreateEntries(): int
     {
-        $user = User::find()->admin()->one();
 
-        if (Entry::find()->slug('__home__')->exists()) {
-            $this->stdout('Entries exist' . PHP_EOL) ;
-            return ExitCode::OK;
-        }
 
         // Homepage -----------------------------------------------------------------------------------
 
-        $section = Craft::$app->sections->getSectionByHandle('page');
-        $type = ArrayHelper::firstWhere($section->getEntryTypes(), 'handle', 'home');
 
-        $homepage = new Entry([
-            'sectionId' => $section->id,
-            'typeId' => $type->id,
-            'authorId' => $user->id,
+        $homepage = $this->createEntry([
+            'section' => 'page',
+            'type' => 'home',
             'title' => 'Homepage',
-            'slug' => '__home__',
+            'slug' => '__home__'
         ]);
 
-        if (!Craft::$app->elements->saveElement($homepage)) {
-            echo "Error saving homepage entry\n";
-            return ExitCode::UNSPECIFIED_ERROR;
+        if (!$homepage) {
+            $this->stdout("Could not create homepage." . PHP_EOL);
+            return ExitCode::OK;
         }
 
-        // Sitemap -----------------------------------------------------------------------------------
-
-        $section = Craft::$app->sections->getSectionByHandle('page');
-        $type = ArrayHelper::firstWhere($section->getEntryTypes(), 'handle', 'sitemap');
-
-        $entry = new Entry([
-            'sectionId' => $section->id,
-            'typeId' => $type->id,
-            'authorId' => $user->id,
+        $this->createEntry([
+            'section' => 'page',
+            'type' => 'sitemap',
             'title' => 'Sitemap',
             'slug' => 'sitemap',
+            'fields' => [
+                'tagline' => 'Overview of all entries'
+            ],
+            'localized' => [
+                'de' => [
+                    'fields' => [
+                        'tagline' => 'Übersicht über alle Seiten'
+                    ],
+                ]
+            ]
         ]);
 
-        if (!Craft::$app->elements->saveElement($entry)) {
-            echo "Error saving sitemap entry\n";
-            return ExitCode::UNSPECIFIED_ERROR;
-        }
-
-        // News Index -------------------------------------------------------------------------------
-
-        $section = Craft::$app->sections->getSectionByHandle('page');
-        $type = ArrayHelper::firstWhere($section->getEntryTypes(), 'handle', 'newsIndex');
-
-        $entry = new Entry([
-            'sectionId' => $section->id,
-            'typeId' => $type->id,
-            'authorId' => $user->id,
+        $this->createEntry([
+            'section' => 'page',
+            'type' => 'newsIndex',
             'title' => 'News',
             'slug' => 'news',
+            'parent' => $homepage
         ]);
 
-        $entry->setParentId($homepage->id);
 
-        if (!Craft::$app->elements->saveElement($entry)) {
-            echo "Error saving entry\n";
-        } else {
-            $this->localize($entry, 'News', 'news');
-        }
-
-        // Contact page -------------------------------------------------------------------------------
-
-        $section = Craft::$app->sections->getSectionByHandle('page');
-        $type = ArrayHelper::firstWhere($section->getEntryTypes(), 'handle', 'contact');
-
-        $entry = new Entry([
-            'sectionId' => $section->id,
-            'typeId' => $type->id,
-            'authorId' => $user->id,
+        $this->createEntry([
+            'section' => 'page',
+            'type' => 'contact',
             'title' => 'Contact',
             'slug' => 'contact',
+            'parent' => $homepage,
+            'localized' => [
+                'de' => [
+                    'title' => 'Kontakt',
+                    'slug' => 'kontakt'
+                ]
+            ]
         ]);
 
-        $entry->setParentId($homepage->id);
-
-        if (!Craft::$app->elements->saveElement($entry)) {
-            echo "Error saving entry\n";
-        } else {
-            $this->localize($entry, 'Kontakt', 'contact');
-        }
-
-        // Search page  -------------------------------------------------------------------------------
-
-        $section = Craft::$app->sections->getSectionByHandle('page');
-        $type = ArrayHelper::firstWhere($section->getEntryTypes(), 'handle', 'search');
-
-        $entry = new Entry([
-            'sectionId' => $section->id,
-            'typeId' => $type->id,
-            'authorId' => $user->id,
+        $this->createEntry([
+            'section' => 'page',
+            'type' => 'search',
             'title' => 'Search',
             'slug' => 'search',
+            'parent' => $homepage,
+            'localized' => [
+                'de' => [
+                    'title' => 'Suche',
+                    'slug' => 'suche'
+                ]
+            ]
         ]);
 
-        $entry->setParentId($homepage->id);
 
-        if (!Craft::$app->elements->saveElement($entry)) {
-            echo "Error saving entry\n";
-        } else {
-            $this->localize($entry, 'Suche', 'suche');
-        }
-
-        // Impressum  -------------------------------------------------------------------------------
-
-        $section = Craft::$app->sections->getSectionByHandle('legal');
-        $type = ArrayHelper::firstWhere($section->getEntryTypes(), 'handle', 'default');
-
-        $entry = new Entry([
-            'sectionId' => $section->id,
-            'typeId' => $type->id,
-            'authorId' => $user->id,
+        $this->createEntry([
+            'section' => 'legal',
+            'type' => 'default',
             'title' => 'Imprint',
-            'slug' => 'imprint'
+            'slug' => 'imprint',
+            'localized' => [
+                'de' => [
+                    'title' => 'Impressum',
+                    'slug' => 'impressum'
+                ]
+            ]
         ]);
 
-
-        if (!Craft::$app->elements->saveElement($entry)) {
-            echo "Error saving impressum entry\n";
-        } else {
-            $this->localize($entry, 'Impressum', 'impressum');
-        }
-
-        // Privacy page -------------------------------------------------------------------------------
-
-        $type = ArrayHelper::firstWhere($section->getEntryTypes(), 'handle', 'privacy');
-
-        $entry = new Entry([
-            'sectionId' => $section->id,
-            'typeId' => $type->id,
-            'authorId' => $user->id,
+        $this->createEntry([
+            'section' => 'legal',
+            'type' => 'privacy',
             'title' => 'Privacy Declaration',
-            'slug' => 'privacy'
+            'slug' => 'privacy2',
+            'fields' => [
+                'bodyContent' => [
+                    'sortOrder' => ['new1'],
+                    'blocks' => [
+                        'new1' => [
+                            'type' => 'text',
+                            'fields' => [
+                                'text' => 'Content TDB.'
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            'localized' => [
+                'de' => [
+                    'title' => 'Datenschutzerklärung',
+                    'slug' => 'datenschutzerklaerung'
+                ]
+            ]
         ]);
-
-        if (!Craft::$app->elements->saveElement($entry)) {
-            echo "Error saving privacy entry\n";
-        } else {
-            $this->localize($entry, 'Datenschutzerklärung', 'datenschutzerklaerung');
-        }
 
         return ExitCode::OK;
     }
 
-    protected function localize($entry, $title, $slug)
-    {
-        $localizedEntry = $entry->getLocalized()->one();
-        if ($localizedEntry) {
-            $localizedEntry->title = $title;
-            $localizedEntry->slug = $slug;
-            Craft::$app->elements->saveElement($localizedEntry);
-        }
-    }
 
     public function actionSetUsers(): int
     {
@@ -287,4 +241,6 @@ class InitController extends Controller
         }
         return ExitCode::OK;
     }
+
+
 }

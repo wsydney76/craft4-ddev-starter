@@ -3,9 +3,7 @@
 namespace modules\main\console\controllers;
 
 use Craft;
-use craft\console\Controller;
 use craft\elements\Asset;
-use craft\elements\Entry;
 use craft\elements\User;
 use craft\helpers\App;
 use craft\helpers\ArrayHelper;
@@ -14,14 +12,11 @@ use Exception;
 use Faker\Factory;
 use Faker\Generator;
 use yii\console\ExitCode;
-use yii\helpers\Console;
-use function implode;
 use function is_dir;
-use function range;
 use const DIRECTORY_SEPARATOR;
 use const PHP_EOL;
 
-class SeedController extends Controller
+class SeedController extends BaseController
 
 {
     public const NUM_ENTRIES = 30;
@@ -58,32 +53,24 @@ class SeedController extends Controller
 
         for ($i = 1; $i <= $num; ++$i) {
 
-            $user = User::find()->orderBy('rand()')->one();
-
-            $entry = new Entry();
-            $entry->sectionId = $section->id;
-            $entry->typeId = $type->id;
-            $entry->authorId = $user->id;
-            $entry->postDate = $faker->dateTimeInInterval('-14 days', '-3 months');
-
             $title = $faker->text(50);
             $this->stdout("[{$i}/{$num}] Creating {$title} ... ");
 
-            $entry->title = $title;
-            $entry->setFieldValue('tagline', $faker->text(50));
-
             $image = $this->getRandomImage($this->minWidth);
-            if ($image) {
-                $entry->setFieldValue('featuredImage', [$image->id]);
-            }
 
-            $entry->setFieldValue('bodyContent', $this->getBodyContent($faker));
+            $this->createEntry([
+                'section' => $section->handle,
+                'type' => $type->handle,
+                'author' => User::find()->orderBy('rand()')->one(),
+                'title' => $title,
+                'postDate' => $faker->dateTimeInInterval('-14 days', '-3 months'),
+                'fields' => [
+                    'tagline' => $faker->text(50),
+                    'featuredImage' => $image ? [$image->id] : null,
+                    'bodyContent' => $this->getBodyContent($faker)
+                ]
 
-            if (Craft::$app->elements->saveElement($entry)) {
-                $this->stdout('created, ID:' . $entry->getId() . PHP_EOL);
-            } else {
-                $this->stderr('failed: ' . implode(', ', $entry->getErrorSummary(true)) . PHP_EOL, Console::FG_RED);
-            }
+            ]);
         }
 
         return ExitCode::OK;

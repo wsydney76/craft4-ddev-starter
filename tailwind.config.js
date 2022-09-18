@@ -151,12 +151,5 @@ module.exports = {
     plugins: [
         require('@tailwindcss/typography'),
         require('@tailwindcss/forms')
-    ],
-    safelist: [
-        'lg:rotate-1',
-        'lg:rotate-2',
-        'lg:rotate-3',
-        'lg:rotate-4',
-        'lg:rotate-5'
     ]
 }

@@ -18,6 +18,7 @@ return [
     'Previous Page' => 'Vorherige Seite',
     'Read more about' => 'Mehr lesen über',
     'Read more' => 'Weiterlesen',
+    'Scroll to top' => 'Zum Seitenanfang springen',
     'Search for' => 'Suche nach',
     'See all News' => 'Alle News ansehen',
     'Send' => 'Senden',

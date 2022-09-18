@@ -182,13 +182,10 @@ class InitController extends BaseController
             'slug' => 'privacy',
             'fields' => [
                 'bodyContent' => [
-                    'sortOrder' => ['new1'],
-                    'blocks' => [
-                        'new1' => [
-                            'type' => 'text',
-                            'fields' => [
-                                'text' => 'Content TDB.'
-                            ]
+                    [
+                        'type' => 'text',
+                        'fields' => [
+                            'text' => 'Content TDB.'
                         ]
                     ]
                 ]
@@ -196,7 +193,17 @@ class InitController extends BaseController
             'localized' => [
                 'de' => [
                     'title' => 'Datenschutzerklärung',
-                    'slug' => 'datenschutzerklaerung'
+                    'slug' => 'datenschutzerklaerung',
+                    'fields' => [
+                        'bodyContent' => [
+                            [
+                                'type' => 'text',
+                                'fields' => [
+                                    'text' => 'Inhalt TDB.'
+                                ]
+                            ]
+                        ]
+                    ],
                 ]
             ]
         ]);

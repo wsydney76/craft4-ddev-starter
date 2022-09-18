@@ -6,26 +6,27 @@ use Craft;
 use craft\console\Controller;
 use craft\elements\Entry;
 use craft\elements\User;
+use craft\fields\Matrix;
 use craft\helpers\ArrayHelper;
 use function implode;
 
 class BaseController extends Controller
 {
-    protected function createEntry(array $data, bool $overwrite=false): mixed
+    protected function createEntry(array $data, bool $overwrite = false): mixed
     {
 
         $user = User::find()->admin()->one();
 
         ['section' => $sectionHandle, 'type' => $typeHandle, 'title' => $title] = $data;
 
-       if (isset($data['slug']) && $overwrite === false) {
-           $entry = Entry::find()->section($sectionHandle)->slug($data['slug'])->one();
+        if (isset($data['slug']) && $overwrite === false) {
+            $entry = Entry::find()->section($sectionHandle)->slug($data['slug'])->one();
 
-           if ($entry) {
-               $this->stdout("Entry $title exists" . PHP_EOL);
-               return $entry;
-           }
-       }
+            if ($entry) {
+                $this->stdout("Entry $title exists" . PHP_EOL);
+                return $entry;
+            }
+        }
 
         $section = Craft::$app->sections->getSectionByHandle($sectionHandle);
 
@@ -59,13 +60,24 @@ class BaseController extends Controller
         if (isset($data['postDate'])) {
             $entry->postDate = $data['postDate'];
         }
-        
+
         if (isset($data['parent'])) {
             $entry->setParentId($data['parent']->id);
         }
 
         if (isset($data['fields'])) {
             foreach ($data['fields'] as $handle => $value) {
+                $field = Craft::$app->fields->getFieldByHandle($handle);
+
+                if ($field instanceof Matrix) {
+                    $blocks = $value;
+                    $value = ['sortOrder' => [], 'blocks' => []];
+                    foreach ($blocks as $i => $block) {
+                        $value['sortOrder'][] = $i;
+                        $value['blocks'][$i] = $block;
+                    }
+                }
+
                 $entry->setFieldValue($handle, $value);
             }
         }
@@ -88,14 +100,28 @@ class BaseController extends Controller
                         $localizedEntry->slug = $localizedContent['slug'];
                     }
 
-                    // TODO: make existing matrix blocks translatable
                     if (isset($localizedContent['fields'])) {
                         foreach ($localizedContent['fields'] as $handle => $value) {
+
+                            $field = Craft::$app->fields->getFieldByHandle($handle);
+                            if ($field instanceof Matrix) {
+                                $blocks = $value;
+
+                                $ids = $entry->getFieldValue($handle)->ids();
+
+                                $value = ['sortOrder' => $ids, 'blocks' => []];
+                                foreach ($blocks as $i => $block) {
+                                    $value['blocks'][$ids[$i]] = $block;
+                                }
+                            }
+
                             $localizedEntry->setFieldValue($handle, $value);
                         }
                     }
 
-                    Craft::$app->elements->saveElement($localizedEntry);
+                    if (!Craft::$app->elements->saveElement($localizedEntry)) {
+                        $this->stdout("Error saving localized entry $siteHandle $title: " . implode(', ', $localizedEntry->getErrorSummary(true)) . PHP_EOL);
+                    }
                 }
             }
         }

@@ -104,14 +104,16 @@ class BaseController extends Controller
                         foreach ($localizedContent['fields'] as $handle => $value) {
 
                             $field = Craft::$app->fields->getFieldByHandle($handle);
-                            if ($field instanceof Matrix) {
+                            if ($field instanceof Matrix  && !isset($value['sortOrder'])) {
                                 $blocks = $value;
 
-                                $ids = $entry->getFieldValue($handle)->ids();
+                                $primaryBlocks = $entry->getFieldValue($handle)->all();
 
-                                $value = ['sortOrder' => $ids, 'blocks' => []];
+                                $value = ['sortOrder' => [], 'blocks' => []];
                                 foreach ($blocks as $i => $block) {
-                                    $value['blocks'][$ids[$i]] = $block;
+                                    $id = $primaryBlocks[$i]->id;
+                                    $value['sortOrder'][] = $id;
+                                    $value['blocks'][$id] = $block;
                                 }
                             }
 

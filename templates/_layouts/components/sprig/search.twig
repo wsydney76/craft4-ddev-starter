@@ -57,7 +57,8 @@
 
             {# show results in cards layout #}
             {% include '_layouts/partials/cards.twig' with {
-                entries
+                entries,
+                highlight: query
             } only %}
 
             {# Display hint if there are more than maxResults hits #}

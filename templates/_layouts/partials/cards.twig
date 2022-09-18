@@ -8,6 +8,7 @@
 {# @param paginate Bool optional=false Whether list shall be paginated #}
 {# @param limit int optional=customConfig number of cards on a page if paginate=true #}
 {# @param defaultImage Asset optional=SiteInfo The image that will be used in no featuredImage is set on entry #}
+{# @param highlight String string for text fragmant highlighting #}
 
 {% set transform = craft.app.config.custom.cardTransform %}
 {% set heading = heading ?? '' %}
@@ -15,6 +16,9 @@
 {% set paginate = paginate is defined ? paginate : false %}
 {% set limit = limit ?? craft.app.config.custom.entriesPerPage %}
 {% set defaultImage = siteInfo.featuredImage.one %}
+{% set highlight = highlight ?? '' %}
+
+
 
 {% if entries is not defined %}
 
@@ -71,7 +75,8 @@
                 {% embed "_layouts/embeds/card.twig" with {
                     entry,
                     image: entry.featuredImage.one ?? defaultImage,
-                    transform
+                    transform,
+                    highlight
                 } only %}
 
                     {# display individual content form section type #}

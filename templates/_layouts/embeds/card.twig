@@ -4,6 +4,8 @@
 {# @param title String Card Title optional if entry is specified #}
 {# @param url String Card href optional if entry is specified #}
 {# @param image Asset optional #}
+{# @param highlight String string for text fragmant highlighting #}
+{% set highlight = highlight ?? '' %}
 
 {% from '_layouts/macros/lib.twig' import img %}
 
@@ -11,6 +13,11 @@
     {% set title = title ?? entry.title %}
     {% set url = url ?? entry.url %}
     {% set image = image ?? entry.featuredImage.one ?? null %}
+{% endif %}
+
+
+{% if highlight %}
+    {% set url = url ~ '#:~:text=' ~ highlight|replace({'"': ''})|e('url') %}
 {% endif %}
 
 {% set transform = transform ?? craft.app.config.custom.cardTransform %}

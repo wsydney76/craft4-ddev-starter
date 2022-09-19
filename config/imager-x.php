@@ -2,7 +2,7 @@
 return [
 
     'imagerSystemPath' => '@webroot/assets/site/',
-    'imagerUrl' => '/assets/site/',
+    'imagerUrl' => '@web/assets/site/',
 
     'fillTransforms ' => false,
     'fillInterval' => 256,

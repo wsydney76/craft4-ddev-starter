@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "license": "Unlicense",
     "require": {
-        "craftcms/cms": "4.2.4",
+        "craftcms/cms": "4.2.5.1",
         "craftcms/contact-form": "3.0.0",
         "craftcms/contact-form-honeypot": "^2.0",
         "doublesecretagency/craft-cpcss": "2.5.0",

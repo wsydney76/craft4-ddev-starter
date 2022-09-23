@@ -35,9 +35,11 @@
             </h2>
 
             <div x-show="expanded" x-collapse style="display: none">
-                <div class="p-4 prose prose-custom prose-lg dark:prose-invert">
-                    {{ item.answer|md|purify }}
-                </div>
+                {% embed '_layouts/embeds/prose.twig' with {extraClasses: 'p-4'} %}
+                    {% block content %}
+                        {{ item.answer|md|purify }}
+                    {% endblock %}
+                {% endembed %}
             </div>
         </div>
     {% endfor %}

@@ -1,0 +1,9 @@
+{# Tailwind prose section with custom colors #}
+
+{# @param extraClasses String classes to be added #}
+
+{% set extraClasses = extraClasses ?? '' %}
+
+<div class="{{ extraClasses }} prose prose-custom prose-lg prose-h2:font-headings dark:prose-invert">
+    {% block content %}{% endblock %}
+</div>

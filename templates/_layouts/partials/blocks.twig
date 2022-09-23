@@ -5,13 +5,16 @@
 {% set blocks = query.collect %}
 
 {% if blocks.count %}
-    <div class="my-12 max-w-screen-md prose prose-custom prose-lg prose-h2:font-headings dark:prose-invert">
-        {# Don't set spacing here, it will be handled by 'prose' #}
-        {% for block in blocks %}
-            {% include "_blocks/#{block.type.handle}.twig" with {
-                block
-            } only %}
-        {% endfor %}
-    </div>
+
+    {% embed '_layouts/embeds/prose.twig' with {extraClasses: 'my-12 max-w-screen-md'} %}
+        {% block content %}
+            {# Don't set spacing here, it will be handled by 'prose' #}
+            {% for block in blocks %}
+                {% include "_blocks/#{block.type.handle}.twig" with {
+                    block
+                } only %}
+            {% endfor %}
+        {% endblock %}
+    {% endembed %}
 {% endif %}
 

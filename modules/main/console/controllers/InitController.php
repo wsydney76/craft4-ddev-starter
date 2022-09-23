@@ -32,7 +32,7 @@ class InitController extends BaseController
         }
 
         $this->stdout('Setting global content...');
-        $this->actionSetup();
+        $this->actionSetupGlobals();
         $this->stdout(PHP_EOL);
 
         $this->stdout('Create one-off pages...');
@@ -50,12 +50,12 @@ class InitController extends BaseController
         return ExitCode::OK;
     }
 
-    public function actionSetup(): int
+    public function actionSetupGlobals(): int
     {
         $faker = Factory::create();
 
         // Set Globals
-        $global = GlobalSet::find()->handle('siteInfo')->one();
+        $global = GlobalSet::find()->handle('siteInfo')->site('en')->one();
         if ($global) {
             $global->setFieldValue('siteName', 'Starter');
             $global->setFieldValue('copyright', 'Starter GmbH');
@@ -65,6 +65,38 @@ class InitController extends BaseController
             $global->setFieldValue('socialLinks', [
                 ['col1' => 'twitter', 'col2' => 'https://twitter.com'],
                 ['col1' => 'instagram', 'col2' => 'https://instagram.com'],
+            ]);
+            $global->setFieldValue('textModules' , [
+               'sortOrder' => ['new1'],
+               'blocks' => [
+                   'new1' => [
+                       'type' => 'textModule',
+                       'fields' => [
+                           'key' => 'youtubeConsent',
+                           'heading' => 'External YouTube content',
+                           'text' => 'This will probably send personal data to youtube'
+                       ]
+                   ]
+               ]
+            ]);
+            Craft::$app->elements->saveElement($global);
+        }
+
+        $global = GlobalSet::find()->handle('siteInfo')->site('de')->one();
+        if ($global) {
+            $block = $global->textModules->one();
+            $global->setFieldValue('textModules' , [
+                'sortOrder' => [$block->id],
+                'blocks' => [
+                    $block->id => [
+                        'type' => 'textModule',
+                        'fields' => [
+                            'key' => 'youtubeConsent',
+                            'heading' => 'Externer YouTube-Inhalt',
+                            'text' => 'Dies wird wahrscheinlich persönliche Daten YouTube übertragen'
+                        ]
+                    ]
+                ]
             ]);
             Craft::$app->elements->saveElement($global);
         }

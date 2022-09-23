@@ -35,7 +35,7 @@ class InitController extends BaseController
         $this->actionSetupGlobals();
         $this->stdout(PHP_EOL);
 
-        $this->stdout('Create one-off pages...') . PHP_EOL;
+        $this->stdout('Create one-off pages...' . PHP_EOL) ;
         $this->actionCreateEntries();
         $this->stdout(PHP_EOL);
 

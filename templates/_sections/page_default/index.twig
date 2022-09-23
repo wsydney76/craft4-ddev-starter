@@ -1,9 +1,7 @@
 {# Show default page content #}
 
 {% embed '_layouts/embeds/content-md.twig' %}
-    {% block content %}
-        {{ parent() }}
-
+    {% block contentBottom %}
         {% include '_layouts/partials/entry-nav-structure.twig' with {
             entry
         } only %}

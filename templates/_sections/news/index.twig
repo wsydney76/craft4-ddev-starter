@@ -28,20 +28,17 @@
             {% endif %}
         {% endblock %}
 
-        {% block content %}
-
+        {% block contentTop %}
             {# News meta #}
             <div class="my-12 text-primary font-bold text-xl dark:text-primary-dark">
                 {{ entry.author.name }}, {{ entry.postDate|date('short') }}
             </div>
+        {% endblock %}
 
-            {# Blocks #}
-            {{ parent() }}
-
+        {% block contentBottom %}
             {# Related Entries #}
-
             {% include '_layouts/partials/cards.twig' with {
-            	heading: '{count,plural,=1{Related Entry} other{Related Entries}}',
+                heading: '{count,plural,=1{Related Entry} other{Related Entries}}',
                 query: craft.entries.relatedTo({element: entry, field: 'relatedEntries'}).orderBy('title'),
                 wide: false
             } only %}

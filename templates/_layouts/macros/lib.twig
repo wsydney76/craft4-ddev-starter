@@ -115,3 +115,16 @@
 {% macro quotedText(text) %}
     {{ '“'|t }}{{ text }}{{ '”'|t }}
 {% endmacro %}
+
+{# Button for 'see more' #}
+{% macro pageButton(type, caption) %}
+    {% set navEntry = craft.entries.section('page').type(type).one %}
+    {% if navEntry %}
+        <div class="mt-8">
+            {% include '_layouts/partials/button.twig' with {
+                caption: caption|t,
+                href: navEntry.url
+            } only %}
+        </div>
+    {% endif %}
+{% endmacro %}

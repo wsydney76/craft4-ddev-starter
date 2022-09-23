@@ -1,32 +1,21 @@
 {# Show home page content #}
 
-<div class="max-w-2xl mx-auto pb-16 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+{% embed '_layouts/embeds/content-xl.twig' %}
+    {% block content %}
+        {% from '_layouts/macros/lib.twig' import pageButton %}
 
-    {# Display Latest News #}
-    <div class="mt-16">
+        {# Display Latest News #}
+        <div class="mt-16">
 
-        {% include '_layouts/partials/cards.twig' with {
-            query: craft.entries
-                .section('news')
-                .limit(craft.app.config.custom.latestNewsLimit),
-            heading: "Latest News"
-        } only %}
-
-        {{ _self.pageButton('newsIndex', 'See all News') }}
-
-    </div>
-
-</div>
-
-{# Button for 'see more' #}
-{% macro pageButton(type, caption) %}
-    {% set navEntry = craft.entries.section('page').type(type).one %}
-    {% if navEntry %}
-        <div class="mt-8">
-            {% include '_layouts/partials/button.twig' with {
-                caption: caption|t,
-                href: navEntry.url
+            {% include '_layouts/partials/cards.twig' with {
+                query: craft.entries
+                    .section('news')
+                    .limit(craft.app.config.custom.latestNewsLimit),
+                heading: "Latest News"
             } only %}
+
+            {{ pageButton('newsIndex', 'See all News') }}
+
         </div>
-    {% endif %}
-{% endmacro %}
+    {% endblock %}
+{% endembed %}

@@ -32,7 +32,7 @@ class HasEmptyAltTextConditionRule extends BaseLightswitchConditionRule implemen
      */
     public function modifyQuery(ElementQueryInterface $query): void
     {
-        $query->volume('images')->kind('image')->altText(':empty:');
+        $query->volume('images')->kind('image')->altText(['or', ':empty:', 'tbd.']);
     }
 
     /**

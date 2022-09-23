@@ -40,6 +40,36 @@ class SeedController extends BaseController
 
         Craft::$app->runAction('index-assets/one', [$this->volume]);
 
+        if ($this->interactive && $this->confirm("Add provisional alt text/copyright to images?")) {
+            foreach (Craft::$app->sites->allSites as $site) {
+                $images = Asset::find()
+                    ->kind('image')
+                    ->volume($this->volume)
+                    ->site($site->handle)
+                    ->all();
+
+                foreach ($images as $image) {
+                    $save = false;
+                    if (!$image->altText) {
+                        $image->altText = 'tbd.';
+                        $save = true;
+                    }
+                    if (!$image->copyright) {
+                        $image->copyright = 'tbd.';
+                        $save = true;
+                    }
+                    if ($save) {
+                        $this->stdout("Saving provisional alt text / copyright to $image->title ($site->name)" . PHP_EOL);
+                        Craft::$app->elements->saveElement($image, false, true, false);
+                    }
+                }
+            }
+        }
+
+
+
+
+
         if (Asset::find()->kind('image')->volume($this->volume)->width('> ' . $this->minWidth)->count() < 10) {
             $this->stdout('Could not find enough images' . PHP_EOL);
             return ExitCode::OK;

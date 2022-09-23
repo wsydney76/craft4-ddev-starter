@@ -84,7 +84,7 @@ class SeedController extends BaseController
         for ($i = 1; $i <= $num; ++$i) {
 
             $title = $faker->text(50);
-            $this->stdout("[{$i}/{$num}] Creating {$title} ... ");
+            $this->stdout("[{$i}/{$num}] Creatingdd ... ");
 
             $image = $this->getRandomImage($this->minWidth);
 

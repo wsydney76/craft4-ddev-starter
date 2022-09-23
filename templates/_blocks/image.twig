@@ -4,20 +4,51 @@
 
 {% set image = block.image.one %}
 {% if image %}
-    {% set config = craft.app.config.custom %}
 
-    <figure>
+    {% set align = block.align.value ?? 'default' %}
+    {% set aspectRatio = block.aspectRatio.value ?? 'default' %}
+
+    {# Match with block 'align' options #}
+    {% set alignClasses = {
+        default: '',
+        wide: 'lg:-mx-24'
+    } %}
+
+    {% set figcaptionClasses = {
+        default: '',
+        wide: 'lg:mx-24'
+    } %}
+
+    {# Match with block 'aspectRatio' options #}
+    {% set aspectRatioFactor = {
+        default: 16/9,
+        fullHeight: null,
+        square: 1,
+        slim: 21/9,
+        classic: 4/3
+    } %}
+
+    {% set config = craft.app.config.custom %}
+    {% set transform = config.contentTransform[align] %}
+
+    {% set transform = aspectRatioFactor[aspectRatio] ?
+        transform|merge({height: ceil(transform.width / aspectRatioFactor[aspectRatio])}) :
+        transform %}
+
+    <figure class="{{ alignClasses[align] }}">
         {{ img(image, {
-            transform: config.contentTransform,
-            srcset: config.contentSrcSet,
+            transform: transform,
+            srcset: config.contentSrcSet[align],
             attr: {
                 class: 'rounded shadow-lg'
             }
         }) }}
 
         {% if block.caption or image.copyright %}
-            <figcaption>
-                {{ block.caption }}
+            <figcaption class="{{ figcaptionClasses[align] }}">
+                {% if block.caption %}
+                    {{ block.caption }}
+                {% endif %}
                 {% if image.copyright %}
                     &copy; {{ image.copyright }}
                 {% endif %}

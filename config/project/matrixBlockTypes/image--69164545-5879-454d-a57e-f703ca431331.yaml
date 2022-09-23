@@ -29,6 +29,30 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 75
+          -
+            elementCondition: null
+            fieldUid: 11f1c188-401c-44c4-bd0e-2b6d7b311fc6
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a7d2f31c-4840-49d7-b930-6ca71180731c
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 871e0a60-ea70-4650-91f2-746c9bc2de41
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 317ec3fc-8fee-45dc-a2e6-2770b50e0ead
+            userCondition: null
+            warning: null
+            width: 25
         name: Content
         uid: c7f52bda-4083-406b-982c-63def615500a
         userCondition: null
@@ -53,6 +77,41 @@ fields:
     translationKeyFormat: null
     translationMethod: language
     type: craft\fields\PlainText
+  11f1c188-401c-44c4-bd0e-2b6d7b311fc6:
+    columnSuffix: hvxizuqa
+    contentColumnType: string
+    fieldGroup: null
+    handle: align
+    instructions: null
+    name: Align
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Default
+            -
+              - value
+              - default
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Wide
+            -
+              - value
+              - wide
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
   735b5e6e-8026-4de4-8e32-14e03d975565: # Image
     columnSuffix: null
     contentColumnType: string
@@ -114,11 +173,79 @@ fields:
       sources:
         - 'volume:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
       targetSiteId: null
-      validateRelatedElements: true
+      validateRelatedElements: false
       viewMode: large
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
+  871e0a60-ea70-4650-91f2-746c9bc2de41:
+    columnSuffix: rizfjoen
+    contentColumnType: string
+    fieldGroup: null
+    handle: aspectRatio
+    instructions: null
+    name: 'Aspect Ratio'
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Default (16/9)'
+            -
+              - value
+              - default
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - 'Full Height'
+            -
+              - value
+              - fullHeight
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Square
+            -
+              - value
+              - square
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Slim (21/9)'
+            -
+              - value
+              - slim
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Classic (4/3)'
+            -
+              - value
+              - classic
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
 handle: image
 name: Image
 sortOrder: 3

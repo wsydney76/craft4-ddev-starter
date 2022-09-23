@@ -14,8 +14,14 @@ return [
     'cardTransform' => ['width' => 450, 'height' => 300],
     'defaultImageFormat' => 'webp',
 
-    'contentTransform' => ['width' => 768, 'height' => 432],
-    'contentSrcSet' => [768, 400],
+    'contentTransform' => [
+        'default' => ['width' => 768],
+        'wide' => ['width' => 1024],
+    ],
+    'contentSrcSet' => [
+        'default' => [768, 400],
+        'wide' => [1024, 768, 400],
+    ],
 
     'featuredTransform' => ['width' => 1024, 'height' => 350],
     'featuredSrcSet' => [1024, 768, 400],

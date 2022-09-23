@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1663516978
+dateModified: 1663919618
 elementSources:
   craft\elements\Asset:
     -
@@ -199,6 +199,7 @@ meta:
     9d9d22d0-ccc2-4e4e-95b2-a28deb16c08b: Heading # Heading
     9e2e3c4b-bd17-46b3-97f0-a4f6605b93d9: Text # Text
     9efaa99a-273e-47a3-83f7-692251886873: Text # Text
+    11f1c188-401c-44c4-bd0e-2b6d7b311fc6: Align
     27b3f36f-ea97-4dad-a77d-39eff7bd0900: Key # Key
     48fde250-325a-44bf-9238-66f0e831a883: Image # Image
     61c8dfb5-4ac7-420b-ad8e-5cad0d464a98: Description # Description
@@ -214,6 +215,7 @@ meta:
     400d2e7a-d260-459d-b16d-bc388f093106: Tagline # Tagline
     621ad41b-f019-4e95-96aa-49f8c56482db: 'SEO Descriction' # SEO Descriction
     735b5e6e-8026-4de4-8e32-14e03d975565: Image # Image
+    871e0a60-ea70-4650-91f2-746c9bc2de41: 'Aspect Ratio'
     3468bd44-82e8-4104-932e-5085601fca12: Default # Default
     4401f3f7-9915-4cd0-b3d9-987755e4bdf8: Image # Image
     13852c19-7f9e-4e6b-8790-0063f0f21ab8: Default # Default

@@ -69,9 +69,6 @@ class SeedController extends BaseController
         }
 
 
-
-
-
         if (Asset::find()->kind('image')->volume($this->volume)->width('> ' . $this->minWidth)->count() < 10) {
             $this->stdout('Could not find enough images' . PHP_EOL);
             return ExitCode::OK;
@@ -121,8 +118,9 @@ class SeedController extends BaseController
         $primaryBlocks = $entry->getFieldValue('bodyContent')->collect();
 
         $entry->setFieldValue('bodyContent', [
-            'sortOrder' => $primaryBlocks->map(function ($entry) {
-                return $entry->id ;
+            // Not sure whether ->ids() respects the correct order, so play it safe...
+            'sortOrder' => $primaryBlocks->map(function($entry) {
+                return $entry->id;
             }),
             'blocks' => [
                 $primaryBlocks->last()->id => [

@@ -4,6 +4,7 @@ namespace modules\main\console\controllers;
 
 use Craft;
 use craft\elements\Asset;
+use craft\elements\Entry;
 use craft\elements\User;
 use craft\helpers\App;
 use craft\helpers\ArrayHelper;
@@ -11,6 +12,7 @@ use craft\helpers\FileHelper;
 use Exception;
 use Faker\Factory;
 use Faker\Generator;
+use Illuminate\Support\Collection;
 use yii\console\ExitCode;
 use function is_dir;
 use const DIRECTORY_SEPARATOR;
@@ -84,11 +86,11 @@ class SeedController extends BaseController
         for ($i = 1; $i <= $num; ++$i) {
 
             $title = $faker->text(50);
-            $this->stdout("[{$i}/{$num}] Creatingdd ... ");
+            $this->stdout("[{$i}/{$num}] Creating ... ");
 
             $image = $this->getRandomImage($this->minWidth);
 
-            $this->createEntry([
+            $entry = $this->createEntry([
                 'section' => $section->handle,
                 'type' => $type->handle,
                 'author' => User::find()->orderBy('rand()')->one(),
@@ -101,9 +103,38 @@ class SeedController extends BaseController
                 ]
 
             ]);
+
+            $this->translateHint($entry, 'de');
         }
 
         return ExitCode::OK;
+    }
+
+    protected function translateHint(Entry $entry, string $siteHandle): void
+    {
+        $entry = $entry->getLocalized()->site($siteHandle)->one();
+        if (!$entry) {
+            return;
+        }
+
+        /** @var Collection $primaryBlocks */
+        $primaryBlocks = $entry->getFieldValue('bodyContent')->collect();
+
+        $entry->setFieldValue('bodyContent', [
+            'sortOrder' => $primaryBlocks->map(function ($entry) {
+                return $entry->id ;
+            }),
+            'blocks' => [
+                $primaryBlocks->last()->id => [
+                    'type' => 'text',
+                    'fields' => [
+                        'text' => 'Dies ist ein automatisch erstellter Beispieleintrag.'
+                    ]
+                ]
+            ]
+        ]);
+
+        Craft::$app->elements->saveElement($entry);
     }
 
     protected function getRandomImage($width = 1900)

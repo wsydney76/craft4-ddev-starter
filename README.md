@@ -29,7 +29,7 @@ In case you do not want to use DDEV:
 
 ### Sample content
 
-* Add some images (min 1200 px wide)
+* Add some images (min 1200 px wide). Some starter images (copyright: Pixabay) are included.
 * Run `ddev craft main/init`
 
 ## System

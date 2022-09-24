@@ -4,7 +4,9 @@
 /node_modules
 /templates/test
 /vendor
-/volumes
+/volumes/userphotos
+/volumes/images/*
+!/volumes/images/starter
 /web/assets/dist
 /web/assets/pdf
 /web/assets/site

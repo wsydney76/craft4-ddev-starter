@@ -5,6 +5,7 @@
 /templates/test
 /vendor
 /volumes/userphotos
+/volumes/temp
 /volumes/images/*
 !/volumes/images/starter
 /web/assets/dist

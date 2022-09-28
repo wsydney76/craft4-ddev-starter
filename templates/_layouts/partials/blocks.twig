@@ -10,9 +10,11 @@
         {% block content %}
             {# Don't set spacing here, it will be handled by 'prose' #}
             {% for block in blocks %}
-                {% include "_blocks/#{block.type.handle}.twig" with {
-                    block
-                } only %}
+                {% if block.showInSites == currentSite.handle or not block.showInSites %}
+                    {% include "_blocks/#{block.type.handle}.twig" with {
+                        block
+                    } only %}
+                {% endif %}
             {% endfor %}
         {% endblock %}
     {% endembed %}

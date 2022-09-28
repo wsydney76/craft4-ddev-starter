@@ -2,7 +2,7 @@ columnSuffix: null
 contentColumnType: string
 fieldGroup: c38953ca-ba84-4992-8deb-65aa2fc40b34 # Hero Area
 handle: heroImage
-instructions: 'At least 1800px wide'
+instructions: 'Full screen width'
 name: 'Hero Image'
 searchable: false
 settings:

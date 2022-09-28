@@ -2,7 +2,7 @@ columnSuffix: null
 contentColumnType: string
 fieldGroup: 99b1f33e-21a3-4870-8165-2b685034a641 # Layout
 handle: featuredImage
-instructions: 'At least 1600 px wide'
+instructions: 'Full screen width'
 name: 'Featured Image'
 searchable: false
 settings:

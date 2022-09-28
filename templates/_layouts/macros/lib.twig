@@ -112,10 +112,6 @@
 {%- endmacro %}
 
 
-{% macro quotedText(text) %}
-    {{ '“'|t }}{{ text }}{{ '”'|t }}
-{% endmacro %}
-
 {# Button for 'see more' #}
 {% macro pageButton(type, caption) %}
     {% set navEntry = craft.entries.section('page').type(type).one %}

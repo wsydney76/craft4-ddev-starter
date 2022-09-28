@@ -31,7 +31,7 @@ fieldLayouts:
             width: 75
           -
             elementCondition: null
-            fieldUid: 11f1c188-401c-44c4-bd0e-2b6d7b311fc6
+            fieldUid: 11f1c188-401c-44c4-bd0e-2b6d7b311fc6 # Align
             instructions: null
             label: null
             required: false
@@ -43,13 +43,25 @@ fieldLayouts:
             width: 25
           -
             elementCondition: null
-            fieldUid: 871e0a60-ea70-4650-91f2-746c9bc2de41
+            fieldUid: 871e0a60-ea70-4650-91f2-746c9bc2de41 # Aspect Ratio
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 317ec3fc-8fee-45dc-a2e6-2770b50e0ead
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: c8a6470e-a8da-46c4-ae23-4eb68d320a66 # Show in Sites
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c6e29d16-59d9-4538-87f6-021cf48891f7
             userCondition: null
             warning: null
             width: 25
@@ -77,7 +89,7 @@ fields:
     translationKeyFormat: null
     translationMethod: language
     type: craft\fields\PlainText
-  11f1c188-401c-44c4-bd0e-2b6d7b311fc6:
+  11f1c188-401c-44c4-bd0e-2b6d7b311fc6: # Align
     columnSuffix: hvxizuqa
     contentColumnType: string
     fieldGroup: null
@@ -178,7 +190,7 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-  871e0a60-ea70-4650-91f2-746c9bc2de41:
+  871e0a60-ea70-4650-91f2-746c9bc2de41: # Aspect Ratio
     columnSuffix: rizfjoen
     contentColumnType: string
     fieldGroup: null
@@ -246,6 +258,17 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
+  c8a6470e-a8da-46c4-ae23-4eb68d320a66: # Show in Sites
+    columnSuffix: bvyvbpkh
+    contentColumnType: string
+    fieldGroup: null
+    handle: showInSites
+    instructions: null
+    name: 'Show in Sites'
+    searchable: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: modules\main\fields\SiteField
 handle: image
 name: Image
 sortOrder: 3

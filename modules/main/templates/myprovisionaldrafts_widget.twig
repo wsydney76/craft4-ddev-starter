@@ -1,0 +1,16 @@
+{% if entries %}
+    <table class="fullwidth">
+        {% for entry in entries %}
+            <tr>
+                <td>
+                    <a href="{{ entry.cpEditUrl }}">{{ entry.title }}</a>
+                    <span class="light">{{ entry.dateUpdated|timestamp('short') }}</span>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p class="zilch small">
+        {{ 'No open edits found'|t('main') }}
+    </p>
+{% endif %}

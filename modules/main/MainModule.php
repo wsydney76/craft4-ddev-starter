@@ -3,66 +3,75 @@
 namespace modules\main;
 
 use Craft;
-use craft\base\conditions\BaseCondition;
 use craft\elements\Entry;
 use craft\events\ElementEvent;
-use craft\events\RegisterConditionRuleTypesEvent;
 use craft\helpers\ElementHelper;
 use craft\services\Elements;
+use modules\BaseModule;
 use modules\main\behaviors\EntryBehavior;
 use modules\main\conditions\HasDraftsConditionRule;
 use modules\main\conditions\HasEmptyAltTextConditionRule;
-use modules\main\services\PdfService;
+use modules\main\fields\SiteField;
+use modules\main\services\ContentService;
+use modules\main\twigextensions\TwigExtension;
+use modules\main\widgets\MyProvisionalDraftsWidget;
 use yii\base\Event;
-use yii\base\Module;
 
 
 /**
- * @property PdfService $pdf
+ * @property ContentService $content
  */
-class MainModule extends Module
+
+class MainModule extends BaseModule
 {
+
+    public $handle = 'main';
 
     public function init(): void
     {
-        // Required for php craft help
-        Craft::setAlias('@modules/main', $this->getBasePath());
 
-        // Set the controllerNamespace based on whether this is a console or web request
-        if (Craft::$app->getRequest()->getIsConsoleRequest()) {
-            $this->controllerNamespace = 'modules\\main\\console\\controllers';
-        } else {
-            $this->controllerNamespace = 'modules\\main\\controllers';
-        }
+        parent::init();
 
-        // Prevent password managers like Bitdefender Wallet from falsely inserting credentials into user form
-        Craft::$app->view->hook('cp.users.edit.content', function(array &$context) {
-            return '<input type="text" name="dummy-first-name" value="wtf" style="display: none">';
-        });
+        $this->registerServices([
+            'content' => ContentService::class
+        ]);
+
+        $this->registerTemplateRoots();
+
+        $this->setTranslationCategory();
+
+        $this->registerBehaviors(Entry::class, [
+            EntryBehavior::class
+        ]);
+
+        $this->registerConditionRuleTypes([
+            HasEmptyAltTextConditionRule::class,
+            HasDraftsConditionRule::class,
+        ]);
+
+        $this->registerFieldTypes([
+            SiteField::class
+        ]);
+
+        $this->registerWidgetTypes([
+            MyProvisionalDraftsWidget::class
+        ]);
+
+        $this->registerTwigExtensions([
+            TwigExtension::class
+        ]);
+
+        $this->restrictSearchIndex();
+
+        $this->validateAllSites();
+
+        $this->createHooks();
 
 
-        // Don't update search index for drafts
-        Event::on(
-            Elements::class,
-            Elements::EVENT_BEFORE_UPDATE_SEARCH_INDEX,
-            function(ElementEvent $event) {
-                if (ElementHelper::isDraftOrRevision($event->element)) {
-                    $event->isValid = false;
-                }
-            }
-        );
+    }
 
-        Event::on(
-            BaseCondition::class,
-            BaseCondition::EVENT_REGISTER_CONDITION_RULE_TYPES,
-            function(RegisterConditionRuleTypesEvent $event) {
-                $event->conditionRuleTypes = array_merge($event->conditionRuleTypes, [
-                    HasEmptyAltTextConditionRule::class,
-                    HasDraftsConditionRule::class,
-                ]);
-            }
-        );
-
+    protected function validateAllSites()
+    {
         // Validate entries on all sites (fixes open Craft bug)
         Event::on(
             Entry::class,
@@ -100,8 +109,28 @@ class MainModule extends Module
                 }
             }
         });
+    }
 
 
-        parent::init();
+    protected function restrictSearchIndex()
+    {
+        // Don't update search index for drafts
+        Event::on(
+            Elements::class,
+            Elements::EVENT_BEFORE_UPDATE_SEARCH_INDEX,
+            function(ElementEvent $event) {
+                if (ElementHelper::isDraftOrRevision($event->element)) {
+                    $event->isValid = false;
+                }
+            }
+        );
+    }
+
+    protected function createHooks()
+    {
+        // Prevent password managers like Bitdefender Wallet from falsely inserting credentials into user form
+        Craft::$app->view->hook('cp.users.edit.content', function(array &$context) {
+            return '<input type="text" name="dummy-first-name" value="wtf" style="display: none">';
+        });
     }
 }

@@ -36,9 +36,9 @@ class MainModule extends BaseModule
             'content' => ContentService::class
         ]);
 
-        $this->registerTemplateRoots();
+        $this->registerTemplateRoots(false, true);
 
-        $this->setTranslationCategory();
+        $this->registerTranslationCategory();
 
         $this->registerBehaviors(Entry::class, [
             EntryBehavior::class

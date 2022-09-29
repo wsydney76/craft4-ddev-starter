@@ -48,7 +48,7 @@ class BaseModule extends Module
         }
     }
 
-    protected function setTranslationCategory()
+    protected function registerTranslationCategory()
     {
         Craft::$app->i18n->translations[$this->handle] = [
             'class' => PhpMessageSource::class,

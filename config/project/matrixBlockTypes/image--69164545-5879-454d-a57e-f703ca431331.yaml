@@ -185,7 +185,7 @@ fields:
       sources:
         - 'volume:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
       targetSiteId: null
-      validateRelatedElements: false
+      validateRelatedElements: true
       viewMode: large
     translationKeyFormat: null
     translationMethod: site

@@ -15,11 +15,11 @@ class TwigExtension extends AbstractExtension
     public function getFilters(): array
     {
         return [
-            new TwigFilter('quote', fn(string $text): string => $this->quoteFilter($text))
+            new TwigFilter('quote', fn(?string $text): string => $this->quoteFilter($text))
         ];
     }
 
-    public function quoteFilter(string $text): string
+    public function quoteFilter(?string $text): string
     {
         return Craft::t('site', '“') . $text . Craft::t('site', '”');
     }

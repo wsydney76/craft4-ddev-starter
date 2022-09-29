@@ -57,7 +57,7 @@ fields:
           -
             - class
             - craft\elements\conditions\assets\AssetCondition
-      selectionLabel: null
+      selectionLabel: 'Add images'
       showSiteMenu: false
       showUnpermittedFiles: false
       showUnpermittedVolumes: false

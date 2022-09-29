@@ -16,13 +16,14 @@
 {% set queryParams = entry.type == 'search' ? null : craft.app.request.queryParams %}
 
 {# Alpine Component #}
-<div class="relative bg-header" x-data="{open: false}">
+<div class="relative bg-header-background text-header-foreground dark:bg-header-background-dark dark:text-header-foreground-dark border-b border-header-border dark:border-header-border-dark"
+     x-data="{open: false}">
 
     <div class="mx-auto container px-4 md:px-8">
         <div class="flex justify-between items-center py-4 md:space-x-10">
 
             {# Site Logo #}
-            <div class="flex justify-start text-white">
+            <div class="flex justify-start">
                 {% include '_layouts/partials/nav-logo-desktop.twig' with {
                 	logo
                 } only %}

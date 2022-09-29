@@ -4,15 +4,15 @@
 
 {% cache globally for 1 hour %}
 
-    <footer class="bg-footer">
-        <div class="container mx-auto py-4 px-4 lg:flex lg:justify-between lg:items-center overflow-hidden sm:px-6 lg:px-8">
+    <footer class="bg-footer-background text-footer-foreground dark:bg-footer-background-dark dark:text-footer-foreground-dark">
+        <div class="container mx-auto py-4 px-4 lg:flex lg:justify-between lg:items-center overflow-hidden sm:px-6 lg:px-8  border-t border-footer-border dark:border-footer-border-dark">
 
             <div class="flex justify-center lg:justify-start space-x-8">
-                <div class="text-center text-base text-foreground-dark">
+                <div class="text-center text-base">
                     &copy; {{ now|date('Y') }} {{ siteInfo.copyright ?? siteInfo.siteName }}
                 </div>
 
-                <div class="mt-1 text-white flex justify-center text-base text-light hover:text-background">
+                <div class="mt-1 text-white text-footer-foreground flex justify-center text-base ">
                     {% include '_layouts/partials/social-icons.twig' %}
                 </div>
             </div>

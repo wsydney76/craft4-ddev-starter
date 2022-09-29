@@ -19,7 +19,7 @@
      x-effect="setTheme(theme)">
 
     <select id="darkModeSelector"
-            class="h-10 border border-white bg-header text-sm text-gray-50 focus:border-gray-400 focus:ring-offset-2"
+            class="h-10 border border-footer-foreground dark:border-footer-foreground-dark text-footer-foreground dark:text-footer-foreground-dark bg-footer-background dark:bg-footer-background-dark text-sm focus:ring-footer-foreground dark:focus:ring-footer-foreground-dark focus:ring-offset-2"
             x-model="theme">
         <option class="hover:bg-primary" value="media">{{ 'System color mode'|t }}</option>
         <option value="light">{{ 'Light color mode'|t }}</option>

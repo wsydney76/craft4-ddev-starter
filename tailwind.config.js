@@ -6,6 +6,9 @@ const colors = require('tailwindcss/colors')
 const mainColor = 'sky'
 const grayColor = 'slate'
 
+const hasDarkHeader = true
+const hasDarkFooter = true
+
 const black = '#000000'
 const foreground = colors[grayColor][900]
 const backgroundDark = colors[grayColor][900]
@@ -16,10 +19,11 @@ const secondaryDark = colors[mainColor][400]
 const light = colors[mainColor][200]
 const primaryDark = colors[grayColor][200]
 const white = '#ffffff'
-const background = '#ffffff'
+const background = colors.neutral[100]
 const gray = colors[grayColor]
 const warning = colors['red'][700]
 const warningDark = colors['red'][400]
+const transparent = 'transparent'
 
 
 module.exports = {
@@ -80,9 +84,36 @@ module.exports = {
                 dark: warningDark
             },
 
-            // Header and footer background
-            header: primary,
-            footer: primary
+            // Header and footer
+            'header-foreground': {
+                DEFAULT: hasDarkHeader ? background : foreground,
+                dark: background
+            },
+
+            'header-background': {
+                DEFAULT: hasDarkHeader ? primary : background,
+                dark: primary
+            },
+
+            'header-border': {
+                DEFAULT: hasDarkHeader ? transparent : colors.gray[300],
+                dark: transparent
+            },
+
+            'footer-foreground': {
+                DEFAULT: hasDarkFooter ? background : foreground,
+                dark: background
+            },
+
+            'footer-background': {
+                DEFAULT: hasDarkFooter ? primary : background,
+                dark: primary
+            },
+
+            'footer-border': {
+                DEFAULT: hasDarkFooter ? transparent : colors.gray[300],
+                dark: transparent
+            },
         },
 
         // cannot add a smaller value into 'extend' because order matters

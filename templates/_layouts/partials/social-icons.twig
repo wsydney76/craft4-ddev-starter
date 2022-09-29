@@ -3,7 +3,7 @@
 {% if links %}
     <div class="flex space-x-4">
         {% for link in links %}
-            <a href="{{ link.socialLink }}">
+            <a href="{{ link.socialLink }}" class="text-footer-foreground dark:text-footer-foreground-dark">
                 <span class="sr-only">{{ link.socialPlatform }}</span>
                 {{ svg("@templates/_icons/#{link.socialPlatform}.svg") }}
             </a>

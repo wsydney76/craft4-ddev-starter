@@ -6,14 +6,14 @@
 
 {% if next or prev %}
     <div class="mt-12 border-t pt-4 flex justify-between border-t pt-4 space-x-4">
-        <div>
+        <div class="flex space-x-2 items-center">
             {% if prev %}
-                &larr;&nbsp;{{ prev.link }}
+                {{ svg('@templates/_icons/chevron-left.svg') }} {{ prev.link }}
             {% endif %}
         </div>
-        <div class="text-right">
+        <div class="text-right flex space-x-2 items-center">
             {% if next %}
-                {{ next.link }}&nbsp;&rarr;
+                {{ next.link }}&nbsp;{{ svg('@templates/_icons/chevron-right.svg') }}
             {% endif %}
         </div>
     </div>

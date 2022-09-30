@@ -1,3 +1,5 @@
+{% from '_layouts/macros/lib.twig' import icon %}
+
 {% set links = siteInfo.socialLinks %}
 
 {% if links %}
@@ -5,7 +7,7 @@
         {% for link in links %}
             <a href="{{ link.socialLink }}" class="text-footer-foreground dark:text-footer-foreground-dark">
                 <span class="sr-only">{{ link.socialPlatform }}</span>
-                {{ svg("@templates/_icons/#{link.socialPlatform}.svg") }}
+                {{ icon(link.socialPlatform) }}
             </a>
         {% endfor %}
     </div>

@@ -124,3 +124,23 @@
         </div>
     {% endif %}
 {% endmacro %}
+
+{# Icons #}
+{% macro icon(icon) %}
+    {{ svg("@templates/_icons/#{icon}.svg") }}
+{% endmacro %}
+
+{% macro linkWithIcon(entry, icon, align='left') %}
+	{% if entry %}
+        {% if align == 'left' %}
+            <div class="flex space-x-2 items-center">
+                {{ svg("@templates/_icons/#{icon}.svg") }}&nbsp;{{ entry.link }}
+            </div>
+        {% else %}
+            <div class="text-right flex space-x-2 items-center">
+                {{ entry.link }}&nbsp;{{ svg("@templates/_icons/#{icon}.svg") }}
+            </div>
+        {% endif %}
+	{% endif %}
+{% endmacro %}
+

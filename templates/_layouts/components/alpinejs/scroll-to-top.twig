@@ -1,5 +1,7 @@
 {# Scroll to top Alpine Component #}
 
+{% from '_layouts/macros/lib.twig' import icon %}
+
 <div x-data="{
         show: false,
         top() {
@@ -16,7 +18,7 @@
             aria-label="{{ "Scroll to top"|t }}"
             x-show="show" x-transition
             @click="top()" title="Go to top" accesskey="t">
-        {{ svg('@templates/_icons/chevron-up.svg') }}
+        {{ icon('chevron-up') }}
     </button>
 
 </div>

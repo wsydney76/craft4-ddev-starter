@@ -36,35 +36,28 @@
         {# push query param to browser history #}
         {{ sprig.pushUrl("?query=#{query|e('url')}") }}
 
-        {# Don't eager load transform index records if imager-x is enabled #}
-        {% set withCondition = craft.app.plugins.pluginEnabled('imager-x') ?
-            ['featuredImage'] :
-            ['featuredImage', {withTransforms: [craft.app.config.custom.cardTransform]}] %}
 
-        {# execute search query here, so that we can get the count in this template #}
-        {% set entries = craft.entries
+        {# set up search query #}
+        {% set searchQuery = craft.entries
             .section(craft.app.config.custom.searchSections)
             .search(query)
-            .limit(maxResults)
-            .with([
-                withCondition
-            ])
             .orderBy('score')
-        .collect %}
+         %}
 
-        {% set count = entries.count %}
+        {# count all hits #}
+        {% set count = searchQuery.count %}
         {% if count %}
 
-            {# show results in cards layout #}
+            {# show maxResults results in cards layout #}
             {% include '_layouts/partials/cards.twig' with {
-                entries,
+                query: searchQuery.limit(maxResults),
                 highlight: query
             } only %}
 
             {# Display hint if there are more than maxResults hits #}
             {% if count > maxResults %}
                 <div class="mt-8 font-medium">
-                    {{ "Showing top {maxResults} of {count}"|t({maxResults: maxResults, count: count}) }}
+                    {{ "Showing top {maxResults} of {count}"|t({maxResults, count}) }}
                 </div>
             {% endif %}
 

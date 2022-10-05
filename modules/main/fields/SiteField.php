@@ -3,8 +3,8 @@
 namespace modules\main\fields;
 
 use Craft;
+use craft\base\ElementInterface;
 use craft\base\Field;
-use craft\base\FieldInterface;
 use craft\helpers\Cp;
 
 class SiteField extends Field
@@ -21,23 +21,22 @@ class SiteField extends Field
         ];
     }
 
-    public function getInputHtml(mixed $value, ?\craft\base\ElementInterface $element = null): string
+    public function getInputHtml(mixed $value, ?ElementInterface $element = null): string
     {
-        $sites = collect(Craft::$app->sites->getAllSites());
-        $siteOptions = $sites->map(
-          fn($site) => [
-              'label' => $site->name,
-              'value' => $site->handle
-          ]
-        );
+        $siteOptions = collect(Craft::$app->sites->getAllSites())
+            ->map(fn($site) => [
+                'label' => $site->name,
+                'value' => $site->handle
+            ])
+            ->prepend([
+                'label' => Craft::t('main', 'All Sites'),
+                'value' => ''
+            ]);
 
         return Cp::selectHtml([
             'name' => $this->handle,
             'value' => $value,
-            'options' =>  $siteOptions->prepend([
-                'label' => Craft::t('main', 'All Sites'),
-                'value' => ''
-            ])
+            'options' => $siteOptions
         ]);
     }
 }

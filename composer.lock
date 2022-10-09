@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba0103baf946bf8ace08bd24c353cdaf",
+    "content-hash": "7a8af180d2a2a120b93e52fd403cf303",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -3292,18 +3292,18 @@
         },
         {
             "name": "putyourlightson/craft-sprig",
-            "version": "2.2.0",
+            "version": "2.2.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-sprig/zipball/4dfd74dfbf9c9454d1fe5ab448b1d2389410a74d",
-                "reference": "4dfd74dfbf9c9454d1fe5ab448b1d2389410a74d",
+                "url": "https://api.github.com/repos/putyourlightson/craft-sprig/zipball/7afdbeb22ce1e822dc162d8a5ba4999246a25a30",
+                "reference": "7afdbeb22ce1e822dc162d8a5ba4999246a25a30",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^4.0",
                 "nystudio107/craft-twigfield": "^1.0.8",
                 "php": "^8.0.2",
-                "putyourlightson/craft-sprig-core": "^2.1.0"
+                "putyourlightson/craft-sprig-core": "^2.1.1"
             },
             "type": "craft-plugin",
             "extra": {
@@ -3329,15 +3329,15 @@
                 "source": "https://github.com/putyourlightson/craft-sprig",
                 "issues": "https://github.com/putyourlightson/craft-sprig/issues"
             },
-            "time": "2022-10-05T09:39:24+00:00"
+            "time": "2022-10-08T14:57:44+00:00"
         },
         {
             "name": "putyourlightson/craft-sprig-core",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-sprig-core/zipball/6dbe0aa90da14259318eaea5e9cac8b2e3ee4320",
-                "reference": "6dbe0aa90da14259318eaea5e9cac8b2e3ee4320",
+                "url": "https://api.github.com/repos/putyourlightson/craft-sprig-core/zipball/6adcb8989dfea41bb6e355f157486052e2f336e2",
+                "reference": "6adcb8989dfea41bb6e355f157486052e2f336e2",
                 "shasum": ""
             },
             "require": {
@@ -3359,7 +3359,7 @@
                 "source": "https://github.com/putyourlightson/craft-sprig-core",
                 "issues": "https://github.com/putyourlightson/craft-sprig-core/issues"
             },
-            "time": "2022-10-05T09:40:37+00:00"
+            "time": "2022-10-08T14:54:20+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -5569,11 +5569,11 @@
         },
         {
             "name": "voku/portable-utf8",
-            "version": "6.0.9",
+            "version": "6.0.10",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/portable-utf8/zipball/eb2861c34203a9c2a7c275cba7014d6816604e89",
-                "reference": "eb2861c34203a9c2a7c275cba7014d6816604e89",
+                "url": "https://api.github.com/repos/voku/portable-utf8/zipball/35b21539c309cbc4697266591f3a4ae9ce4e029c",
+                "reference": "35b21539c309cbc4697266591f3a4ae9ce4e029c",
                 "shasum": ""
             },
             "require": {
@@ -5629,7 +5629,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2022-09-01T09:54:03+00:00"
+            "time": "2022-10-05T23:42:43+00:00"
         },
         {
             "name": "voku/stop-words",

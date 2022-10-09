@@ -10,7 +10,7 @@
         "doublesecretagency/craft-cpcss": "2.5.0",
         "fakerphp/faker": "^1.20",
         "nystudio107/craft-vite": "4.0.3",
-        "putyourlightson/craft-sprig": "2.2.0",
+        "putyourlightson/craft-sprig": "2.2.1",
         "spacecatninja/imager-x": "4.1.6",
         "vaersaagod/seomate": "2.0.3",
         "vlucas/phpdotenv": "^5.4",

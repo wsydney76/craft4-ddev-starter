@@ -1,5 +1,5 @@
 name: craft4-starter
-type: php
+type: craftcms
 docroot: web
 php_version: "8.1"
 webserver_type: nginx-fpm

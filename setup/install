@@ -8,7 +8,7 @@ fi
 
 echo Installing project $1...
 
-ddev config --project-name=$1 --project-type=php --php-version=8.1 --http-port=81
+ddev config --project-name=$1 --project-type=craftcms --php-version=8.1 --http-port=81
 ddev start &&
 ddev php ./setup/create-environment-file.php $1 &&
 ddev composer install --no-dev &&

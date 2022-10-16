@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1664453654
+dateModified: 1665926104
 elementSources:
   craft\elements\Asset:
     -
@@ -180,7 +180,7 @@ meta:
     02d2113e-298a-47c6-a40e-413a682ac7c5: Question # Question
     2f93cb45-a9ce-4284-8848-9eb001fb8a1c: News # News
     3b60e4f9-36bb-4456-bee5-67160b5a3108: 'User Photos' # User Photos
-    3bb09a1c-cb36-438e-b8d5-0b35b0965f4e: 'Trail Quest' # Trail Quest
+    3bb09a1c-cb36-438e-b8d5-0b35b0965f4e: Default # Trail Quest
     3cb8a841-f986-4959-8f1a-c44fe16ff8d1: Answer # Answer
     3e35a043-a62e-4ede-acd6-44dfb92d6914: 'Site Name' # Site Name
     3fb81893-2727-4990-b8f6-a5f6e391a8d8: Style # Style

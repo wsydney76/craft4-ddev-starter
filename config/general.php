@@ -49,7 +49,7 @@ return
 
 		->aliases([
 			// Prevent the @web alias from being set automatically (cache poisoning vulnerability)
-			'@web' => App::env('DEFAULT_SITE_URL'),
+			'@web' => App::env('PRIMARY_SITE_URL'),
 			// Lets `./craft clear-caches all` clear CP resources cache
 			'@webroot' => dirname(__DIR__) . '/web',
 		]);

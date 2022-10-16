@@ -1,4 +1,4 @@
-baseUrl: $DE_SITE_URL
+baseUrl: '@web/de'
 enabled: '1'
 handle: de
 hasUrls: true

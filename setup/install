@@ -8,10 +8,10 @@ fi
 
 echo Installing project $1...
 
-ddev config --project-name=$1 --project-type=craftcms --php-version=8.1 --http-port=81
+ddev config --project-name=$1 --http-port=81
 ddev start &&
 ddev composer install --no-dev &&
-ddev php craft install --interactive=0 --username=admin --password=password --email=admin@example.com &&
+ddev craft install --interactive=0 --username=admin --password=password --email=admin@example.com &&
 echo Installing npm dependencies...
 ddev exec npm install &&
 ddev exec npm run build &&

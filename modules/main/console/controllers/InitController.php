@@ -9,12 +9,7 @@ use craft\helpers\App;
 use craft\helpers\Assets;
 use Faker\Factory;
 use yii\console\ExitCode;
-use function array_diff;
-use function copy;
-use function pathinfo;
-use function scandir;
-use const DIRECTORY_SEPARATOR;
-use const PHP_EOL;
+
 
 class InitController extends BaseController
 {
@@ -31,15 +26,19 @@ class InitController extends BaseController
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
-        $this->stdout('Setting global content...');
+        $this->stdout('Setting project specific values...' . PHP_EOL);
+        $this->actionSetupDotEnv();
+        $this->stdout(PHP_EOL);
+
+        $this->stdout('Setting global content...' . PHP_EOL);
         $this->actionSetupGlobals();
         $this->stdout(PHP_EOL);
 
-        $this->stdout('Create one-off pages...' . PHP_EOL) ;
+        $this->stdout('Create one-off pages...' . PHP_EOL);
         $this->actionCreateEntries();
         $this->stdout(PHP_EOL);
 
-        $this->stdout('Update Users...');
+        $this->stdout('Update Users...' . PHP_EOL);
         $this->actionSetUsers();
         $this->stdout(PHP_EOL);
 
@@ -50,34 +49,63 @@ class InitController extends BaseController
         return ExitCode::OK;
     }
 
+    public function actionSetupDotEnv(): int
+    {
+        if (!$this->interactive) {
+            return ExitCode::OK;
+        }
+
+        $vars = [
+            ['prompt' => 'System Name (for backend)', 'name' => 'SYSTEM_NAME'],
+            ['prompt' => 'System mail address', 'name' => 'EMAIL_ADDRESS'],
+            ['prompt' => 'System mail sender', 'name' => 'EMAIL_SENDER'],
+        ];
+
+        foreach ($vars as $var) {
+            $value = $this->prompt($var['prompt'] . ': ', ['default' => App::env($var['name']), 'required' => true]);
+            Craft::$app->config->setDotEnvVar($var['name'], $value);
+        }
+
+        return ExitCode::OK;
+    }
+
     public function actionSetupGlobals(): int
     {
         $faker = Factory::create();
 
+        $siteName = 'Starter';
+        $copyright = 'Starter GmbH';
+
+        if ($this->interactive) {
+            $siteName = $this->prompt('Site Name (for frontend): ', ['default' => $siteName, 'required' => true]);
+            $copyright = $this->prompt('Copyright: ', ['default' => $copyright, 'required' => true]);
+        }
+
+
         // Set Globals
         $global = GlobalSet::find()->handle('siteInfo')->site('en')->one();
         if ($global) {
-            $global->setFieldValue('siteName', 'Starter');
-            $global->setFieldValue('copyright', 'Starter GmbH');
+            $global->setFieldValue('siteName', $siteName);
+            $global->setFieldValue('copyright', $copyright);
             $global->setFieldValue('postalAddress', $faker->address());
-            $global->setFieldValue('email', $faker->email());
+            $global->setFieldValue('email', App::env('EMAIL_ADDRESS'));
             $global->setFieldValue('phoneNumber', $faker->phoneNumber());
             $global->setFieldValue('socialLinks', [
                 ['col1' => 'twitter', 'col2' => 'https://twitter.com'],
                 ['col1' => 'instagram', 'col2' => 'https://instagram.com'],
             ]);
-            $global->setFieldValue('textModules' , [
-               'sortOrder' => ['new1'],
-               'blocks' => [
-                   'new1' => [
-                       'type' => 'textModule',
-                       'fields' => [
-                           'key' => 'youtubeConsent',
-                           'heading' => 'External YouTube content',
-                           'text' => 'This will probably send personal data to youtube'
-                       ]
-                   ]
-               ]
+            $global->setFieldValue('textModules', [
+                'sortOrder' => ['new1'],
+                'blocks' => [
+                    'new1' => [
+                        'type' => 'textModule',
+                        'fields' => [
+                            'key' => 'youtubeConsent',
+                            'heading' => 'External YouTube content',
+                            'text' => 'This will probably send personal data to youtube'
+                        ]
+                    ]
+                ]
             ]);
             Craft::$app->elements->saveElement($global);
         }
@@ -85,7 +113,7 @@ class InitController extends BaseController
         $global = GlobalSet::find()->handle('siteInfo')->site('de')->one();
         if ($global) {
             $block = $global->textModules->one();
-            $global->setFieldValue('textModules' , [
+            $global->setFieldValue('textModules', [
                 'sortOrder' => [$block->id],
                 'blocks' => [
                     $block->id => [

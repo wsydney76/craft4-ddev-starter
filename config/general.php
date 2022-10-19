@@ -20,10 +20,8 @@ return
 		->allowAdminChanges($isDev)
 
 		->maxRevisions(10)
-		->defaultWeekStartDay(1)
 
 		->omitScriptNameInUrls(true)
-		->cpTrigger('admin')
         ->cpHeadTags([
             ['link', ['rel' => 'icon', 'href' => '/favicon.ico']],
         ])
@@ -31,7 +29,7 @@ return
 
 		->preventUserEnumeration(true)
 		->sendPoweredByHeader(false)
-		->disallowRobots(false)
+		->disallowRobots(!$isProd)
         ->errorTemplatePrefix('_errors/')
 
 		->defaultTemplateExtensions(['twig'])

@@ -1,6 +1,6 @@
 # Craft 4 Simple Starter
 
-Multilingual Craft CMS starter for use with DDEV with a simple config and opinionated templating conventions, Can be useful as a starting point.
+Multilingual Craft CMS starter for use with (or without) DDEV with a simple config and opinionated templating conventions, Can be useful as a starting point.
 
 This is the result of a girls-only internship project, and we thank Aylin and Mel for bringing it to life and making it a success.
 
@@ -8,6 +8,9 @@ This is the result of a girls-only internship project, and we thank Aylin and Me
 
 * Make sure DDEV is installed
 * Clone this repository `git clone https://github.com/wsydney76/craft4-ddev-starter <dir> && cd <dir>`
+
+### Using DDEV (recommended)
+
 * Run `bash setup/install`. This will create a user with the credentials `admin/password`.
 
 Note: DDEV is configured here with http-port=81 in order to avoid a conflict with a web server running on the host machine (which in turn should not use 443 for https).
@@ -19,18 +22,19 @@ In case you do not want to use DDEV:
 
 * Set up a development environment as you are used to, incl. database and web server
 * Php 8.1 and Node js V16 required
-* Copy `setup/.env` to your project root and edit it to match your needs
 * Run
   * `composer install`
   * `npm install`
   * `npm run build`
-  * `php craft install`
+  * `cp .env.example.env`
+  * `php craft setup/welcome` Enter your full URL when asked for 'Site URL'.
+  * `php craft main/init`
 
 
 ### Sample content
 
 * Add some images (min 1200 px wide). Some starter images (copyright: Pixabay) are included.
-* Run `ddev craft main/init`
+* Run `ddev craft main/init` (or `php craft main/init` if not on DDEV)
 
 ## System
 
@@ -78,7 +82,7 @@ This starter comes with a mix of functionality that is likely to be used in ever
 ## Templating
 Layout inspired by Craft Quest Real World CMS course templates
 
-Folder:
+Folders:
 
 * _layouts: Templates that define the general look and feel of the site, mostly independent from the actual content model.
   * components: Sprig/Alpine JS components like search, accordion, scroll-to-top button

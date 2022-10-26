@@ -50,6 +50,9 @@ settings:
               -
                 - value
                 - '1800'
+              -
+                - maxValue
+                - ''
   selectionLabel: null
   showSiteMenu: true
   showUnpermittedFiles: false

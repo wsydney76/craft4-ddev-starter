@@ -36,6 +36,7 @@ fieldLayouts:
               conditionRules:
                 -
                   class: craft\elements\conditions\LevelConditionRule
+                  maxValue: ''
                   operator: '='
                   uid: 26bc4c45-6da3-484a-b16e-a9111915ed6b
                   value: '2'

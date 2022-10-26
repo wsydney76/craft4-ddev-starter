@@ -1,0 +1,13 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: d50026f3-a236-4ae2-b00a-af55076acd17 # Site
+handle: craftEnvironment
+instructions: 'dev / staging / production'
+name: 'Craft Environment'
+searchable: false
+settings:
+  validationRule: ''
+  variableName: CRAFT_ENVIRONMENT
+translationKeyFormat: null
+translationMethod: none
+type: modules\main\fields\EnvironmentVariableField

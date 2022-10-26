@@ -5,5 +5,5 @@ hasUrls: true
 language: de-DE
 name: Deutsch
 primary: false
-siteGroup: 3bb09a1c-cb36-438e-b8d5-0b35b0965f4e # Trail Quest
+siteGroup: 3bb09a1c-cb36-438e-b8d5-0b35b0965f4e # Default
 sortOrder: 2

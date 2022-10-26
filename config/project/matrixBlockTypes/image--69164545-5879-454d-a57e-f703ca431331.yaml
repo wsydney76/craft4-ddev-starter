@@ -177,6 +177,9 @@ fields:
                   -
                     - value
                     - '800'
+                  -
+                    - maxValue
+                    - ''
       selectionLabel: 'Select an image'
       showSiteMenu: true
       showUnpermittedFiles: false

@@ -50,6 +50,9 @@ settings:
               -
                 - value
                 - '1600'
+              -
+                - maxValue
+                - ''
   selectionLabel: 'Add an image'
   showSiteMenu: false
   showUnpermittedFiles: false

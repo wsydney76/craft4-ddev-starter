@@ -1,0 +1,13 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: d50026f3-a236-4ae2-b00a-af55076acd17 # Site
+handle: blitzCachingEnabled
+instructions: '0 / 1'
+name: 'Blitz Caching Enabled'
+searchable: false
+settings:
+  validationRule: boolean
+  variableName: BLITZ_CACHING_ENABLED
+translationKeyFormat: null
+translationMethod: none
+type: modules\main\fields\EnvironmentVariableField

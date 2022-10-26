@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1665926104
+dateModified: 1666778833
 elementSources:
   craft\elements\Asset:
     -
@@ -44,12 +44,17 @@ elementSources:
         class: craft\elements\conditions\assets\AssetCondition
         conditionRules:
           -
-            class: modules\main\conditions\HasEmptyAltTextConditionRule
-            uid: 1226f698-8930-491b-96bc-90a8509879bc
-            value: true
+            class: craft\fields\conditions\TextFieldConditionRule
+            fieldUid: cc3fbab0-826f-4aed-b2aa-eeaecc2964bf # Alt Text
+            operator: empty
+            uid: 8182e7e7-1f2a-4b12-abf5-9c937e885f4d
+            value: ''
         elementType: craft\elements\Asset
         fieldContext: global
-      key: 'custom:02955258-318b-4138-bf15-c03e7f18f5d9'
+      defaultSort:
+        - title
+        - asc
+      key: 'custom:8326efe2-6f9f-4744-a23b-76512dd63e7c'
       label: 'Missing Alt Text'
       tableAttributes:
         - imageSize
@@ -173,6 +178,7 @@ meta:
     0c39cdb5-26f9-49ca-9bb4-445a28a61ddf: Images # Images
     1b04edb4-5ebc-45da-ba85-afcd734f187b: 'YouTube Video' # YouTube Video
     1b464b23-6750-460e-aea1-0c4af5f52e23: Key # Key
+    1b934de4-d292-4d6f-b40f-ba2b0120b6c8: 'System Name' # System Name
     1bcfb3b0-25cb-4e06-8af6-d11008f0dd03: 'CTA Target' # CTA Target
     1c948380-c11c-45f9-a668-2a5eac6f24c9: Settings # Settings
     1f5834fd-ed0d-466a-b4dd-2891fd144893: 'Show Structure Navigation' # Show Structure Navigation
@@ -180,7 +186,7 @@ meta:
     02d2113e-298a-47c6-a40e-413a682ac7c5: Question # Question
     2f93cb45-a9ce-4284-8848-9eb001fb8a1c: News # News
     3b60e4f9-36bb-4456-bee5-67160b5a3108: 'User Photos' # User Photos
-    3bb09a1c-cb36-438e-b8d5-0b35b0965f4e: Default # Trail Quest
+    3bb09a1c-cb36-438e-b8d5-0b35b0965f4e: Default # Default
     3cb8a841-f986-4959-8f1a-c44fe16ff8d1: Answer # Answer
     3e35a043-a62e-4ede-acd6-44dfb92d6914: 'Site Name' # Site Name
     3fb81893-2727-4990-b8f6-a5f6e391a8d8: Style # Style
@@ -224,6 +230,7 @@ meta:
     75980a78-5a14-4d80-8e9c-b0616d62e02e: 'Hero Area' # Hero Area
     90724a6b-55ad-446f-be50-7aea7e1fb067: Robots # Robots
     97742dae-23f0-4986-a259-c886b727a452: FAQ # FAQ
+    481205e6-eb29-45a0-8b40-021d4dcfcac1: 'Email Sender' # Email Sender
     5286148d-12b9-4f55-a35c-0e51c06bbe44: Contact # Contact
     8785637f-8785-4fd2-86d2-9232d9674420: 'Related Entries' # Related Entries
     27127353-b8d1-4c07-a2af-7a273ad8f1f6: 'Hero Area' # Hero Area
@@ -232,6 +239,7 @@ meta:
     85898001-9c9c-4d46-abf9-a928e44f0d48: 'Body Content' # Body Content
     95358052-5e25-4a5d-bd52-58078b1a5aa2: FAQs # FAQs
     a1dd83a1-2011-4bef-aa20-b6d6a366d66e: 'SEO Image' # SEO Image
+    a21f07ce-87f7-431d-b54c-a12786f9fc9c: 'Craft Environment' # Craft Environment
     a24e2c31-f1b3-4687-873d-b8d6dff03e10: Question # Question
     abd279ac-58c4-41dc-ac32-d2e388e34252: Legal # Legal
     abefa0bd-6b36-4b4f-a9de-a4304e7b66a3: 'Public Schema' # Public Schema
@@ -258,6 +266,7 @@ meta:
     cc3fbab0-826f-4aed-b2aa-eeaecc2964bf: 'Alt Text' # Alt Text
     cce7e62c-f710-40fd-b9e9-71ba6f58265f: 'Hero Tagline' # Hero Tagline
     cf967bc8-e8fd-4cd3-b66c-998982d2cc6c: 'Booking Status' # Booking Status
+    d1ce7a99-7ba0-4ad1-9f19-c4cdad3f247e: 'Email Address' # Email Address
     d92e63b4-996e-4dcd-8b55-d119540b5831: Default # Default
     d50026f3-a236-4ae2-b00a-af55076acd17: Site # Site
     dbf50cb2-37c8-45f7-b375-dcb93e09691b: Deutsch # Deutsch
@@ -274,7 +283,9 @@ meta:
     f3c6560d-3487-4f65-a4f9-ac2926397b57: 'Aspect Ratio' # Aspect Ratio
     f8ff18c6-ca19-4910-8753-62aa768dd3a3: Cite # Cite
     f76ccc3a-7c88-43a3-9024-5ea619356bbf: Heading # Heading
+    fbaae504-9220-4e1b-a58a-e3819e88194b: 'Use Vite Dev Server' # Use Vite Dev Server
     fbf00eb2-4a16-40ca-96bb-3fadd2bf459c: Default # Default
+    fed0a20c-7c44-4de7-83d9-7843f8facfb8: 'Blitz Caching Enabled' # Blitz Caching Enabled
 plugins:
   contact-form:
     edition: standard
@@ -298,7 +309,7 @@ plugins:
     enabled: true
     schemaVersion: 2.0.0
     settings:
-      additionalCss: "/* Set link color back to V3, increase contrast */\r\n:root {\r\n    --text-color: var(--gray-800);\r\n    --medium-dark-text-color: var(--gray-700);\r\n    --link-color: #0c4a6e;\r\n}\r\n\r\n/* Increase font size */\r\n\r\nhtml, body {\r\n    font-size: 16px !important;\r\n}\r\n\r\ninput.text, textarea.text, .text > input, .text > textarea, table.editable textarea, .selectize-text > .selectize-control > .selectize-input {\r\n    font-size: 16px !important;\r\n}\r\n\r\nh2 {\r\n    font-size: 18px !important;\r\n}\r\n\r\n/* We are not at a funeral */\r\n#global-sidebar {\r\n    background-color: #0c4a6e !important;\r\n}\r\n    \r\n/* Element index sidebar */\r\n.sidebar .heading > span {\r\n\r\n    font-size: 14px !important;\r\n    letter-spacing: 1.5px;\r\n   \r\n}\r\n \r\n\r\n\r\n/* 4.2 toasts */\r\n#notifications [data-type=\"error\"] {\r\n    background-color: #D61F2B;\r\n    color: white;\r\n}\r\n\r\n#notifications [data-type=\"success\"] {\r\n    background-color: #2C5F2D;\r\n    color: white;\r\n}\r\n\r\n#notifications [data-type=\"notice\"] {\r\n    background-color: #2C5F2D;\r\n    color: white;\r\n}\r\n\r\n#notifications .notification .notification-icon {\r\n    color: white;\r\n}\r\nbody.ltr #notifications {\r\n    bottom: initial;\r\n    top: 8px;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n}\r\n#notifications .notification-details {\r\n    background-color: white;\r\n    padding: 4px;\r\n}"
+      additionalCss: "/* Set link color back to V3, increase contrast */\r\n:root {\r\n    --text-color: var(--gray-800);\r\n    --medium-dark-text-color: var(--gray-700);\r\n    --link-color: #0c4a6e;\r\n}\r\n\r\n/* Increase font size */\r\n\r\nhtml, body {\r\n    font-size: 16px !important;\r\n}\r\n\r\ninput.text, textarea.text, .text > input, .text > textarea, table.editable textarea, .selectize-text > .selectize-control > .selectize-input {\r\n    font-size: 16px !important;\r\n}\r\n\r\nh2 {\r\n    font-size: 18px !important;\r\n}\r\n\r\n/* We are not at a funeral */\r\n#global-sidebar {\r\n    background-color: #0c4a6e !important;\r\n}\r\n    \r\n\r\n\r\n\r\n\r\n#sidebar .heading > span {\r\n\r\n    font-size: 14px;\r\n}\r\n    \r\n\r\n/* 4.2 toasts */\r\n#notifications [data-type=\"error\"] {\r\n    background-color: #D61F2B;\r\n    color: white;\r\n}\r\n\r\n#notifications [data-type=\"success\"] {\r\n    background-color: #2C5F2D;\r\n    color: white;\r\n}\r\n\r\n#notifications [data-type=\"notice\"] {\r\n    background-color: #2C5F2D;\r\n    color: white;\r\n}\r\n\r\n#notifications .notification .notification-icon {\r\n    color: white;\r\n}\r\nbody.ltr #notifications {\r\n    bottom: initial;\r\n    top: 8px;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n}\r\n#notifications .notification-details {\r\n    background-color: white;\r\n    padding: 4px;\r\n}"
       cacheBusting: true
       cssFile: ''
   elementmap:
@@ -308,7 +319,7 @@ plugins:
   imager-x:
     edition: lite
     enabled: true
-    licenseKey: $IMAGER_X_LICENSE_KEY
+    licenseKey: 7D1BJIWBEFGCQ4I0CE6C8WLE
     schemaVersion: 4.0.0
   seomate:
     edition: standard

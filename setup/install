@@ -16,7 +16,7 @@ echo Installing npm dependencies...
 ddev exec npm install &&
 ddev exec npm run build &&
 ddev describe &&
-echo Check for some wide images, cd into $1 and run ddev craft main/init
+ddev craft main/init
 ddev launch admin
 
 

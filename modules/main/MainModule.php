@@ -10,7 +10,7 @@ use craft\services\Elements;
 use modules\BaseModule;
 use modules\main\behaviors\EntryBehavior;
 use modules\main\conditions\HasDraftsConditionRule;
-use modules\main\conditions\HasEmptyAltTextConditionRule;
+use modules\main\fields\EnvironmentVariableField;
 use modules\main\fields\SiteField;
 use modules\main\services\ContentService;
 use modules\main\twigextensions\TwigExtension;
@@ -21,7 +21,6 @@ use yii\base\Event;
 /**
  * @property ContentService $content
  */
-
 class MainModule extends BaseModule
 {
 
@@ -45,12 +44,12 @@ class MainModule extends BaseModule
         ]);
 
         $this->registerConditionRuleTypes([
-            HasEmptyAltTextConditionRule::class,
             HasDraftsConditionRule::class,
         ]);
 
         $this->registerFieldTypes([
-            SiteField::class
+            SiteField::class,
+            EnvironmentVariableField::class
         ]);
 
         $this->registerWidgetTypes([
@@ -66,8 +65,6 @@ class MainModule extends BaseModule
         $this->validateAllSites();
 
         $this->createHooks();
-
-
     }
 
     protected function validateAllSites()

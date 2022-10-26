@@ -45,6 +45,9 @@ return
 
         ->enableGql(false)
 
+        ->extraNameSalutations(['Professor', 'Doktor'])
+        ->extraLastNamePrefixes(['zu', 'und'])
+
 		->aliases([
 			// Prevent the @web alias from being set automatically (cache poisoning vulnerability)
 			'@web' => App::env('PRIMARY_SITE_URL'),

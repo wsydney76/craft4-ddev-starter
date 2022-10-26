@@ -1,0 +1,13 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: d50026f3-a236-4ae2-b00a-af55076acd17 # Site
+handle: systemName
+instructions: 'The System name as used in the Control Panel'
+name: 'System Name'
+searchable: false
+settings:
+  validationRule: ''
+  variableName: SYSTEM_NAME
+translationKeyFormat: null
+translationMethod: none
+type: modules\main\fields\EnvironmentVariableField

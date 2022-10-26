@@ -1,0 +1,13 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: d50026f3-a236-4ae2-b00a-af55076acd17 # Site
+handle: emailAddress
+instructions: null
+name: 'Email Address'
+searchable: false
+settings:
+  validationRule: email
+  variableName: EMAIL_ADDRESS
+translationKeyFormat: null
+translationMethod: none
+type: modules\main\fields\EnvironmentVariableField

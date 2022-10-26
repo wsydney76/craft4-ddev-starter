@@ -37,6 +37,24 @@ return [
     '”' => '“',
     '{count,plural,=1{Related Entry} other{Related Entries}}' => '{count,plural,=1{Verwandter Eintrag} other{Verwandte Einträge}}',
 
+    // Environment field
+
+    'No validation' => 'Keine Validierung',
+    'Integer' => 'Ganzzahl',
+    'Boolean (0/1)' => 'Boolean (0/1)',
+    'URL' => 'URL',
+    'Environment Variable' => 'Umgebungsvariable',
+    'Variable Name' => 'Variablenname',
+    'Name of the variable in .env file. Only uppercase letters and underscore allowed [A-Z_]' => 'Name der Variablen in der .env-Datei. Nur Großbuchstaben und Unterstrich erlaubt [A-Z_]',
+    'Validation Rule' => 'Validierungsregel',
+    'How a user input should be validated' => 'Wie eine Benutzereingabe validiert werden soll',
+
+
+    'As used in the front end' => 'Wie im Frontend verwendet',
+    'The System name as used in the Control Panel' => 'Der Systemname, wie er im Control Panel verwendet wird',
+    'Settings for sending system emails' => 'Einstellungen für den Versand von System-E-Mails',
+    'Email Address' => 'E-Mail-Addresse',
+    'Email Sender' => 'E-Mail-Absender',
     // CP -----------------------------------------------------------------
 
     'Add SEO settings to overwrite default SEO content' => 'SEO-Einstellungen hinzufügen, um Standard-SEO-Inhalte zu überschreiben',
@@ -67,6 +85,7 @@ return [
     'Images' => 'Bilder',
     'Legal' => 'Rechtliches',
     'Menu Title' => 'Menütitel',
+    'Missing Alt Text' => 'Fehlender Alt-Text',
     'Phone Number' => 'Telefonnummer',
     'Postal Address' => 'Postanschrift',
     'Privacy' => 'Datenschutz',

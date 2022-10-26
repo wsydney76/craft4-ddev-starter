@@ -26,7 +26,7 @@ In case you do not want to use DDEV:
   * `composer install`
   * `npm install`
   * `npm run build`
-  * `cp .env.example.env`
+  * `cp .env.example .env`
   * `php craft setup/welcome` Enter your full URL when asked for 'Site URL'.
   * `php craft main/init`
 

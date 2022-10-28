@@ -57,7 +57,7 @@ class MainModule extends BaseModule
 
         $this->registerWidgetTypes([
             MyProvisionalDraftsWidget::class,
-            ContentWidget::class
+            // ContentWidget::class
         ]);
 
         $this->registerTwigExtensions([
@@ -70,7 +70,7 @@ class MainModule extends BaseModule
 
         $this->createHooks();
 
-        Event::on(
+       /* Event::on(
             Cp::class,
             Cp::EVENT_REGISTER_CP_NAV_ITEMS,
             function (RegisterCpNavItemsEvent $event) {
@@ -83,7 +83,7 @@ class MainModule extends BaseModule
                 array_splice($event->navItems, 1, 0,[ $navItem]);
 
             }
-        );
+        );*/
 
 
     }

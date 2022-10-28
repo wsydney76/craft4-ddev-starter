@@ -8,7 +8,7 @@ fi
 
 echo Installing project $1...
 
-ddev config --project-name=$1 --http-port=81
+ddev config --project-name=$1
 ddev start &&
 ddev composer install --no-dev &&
 ddev craft install --interactive=0 --username=admin --password=password --email=admin@example.com &&

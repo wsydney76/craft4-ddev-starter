@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "262d7669dd6584d4ccc5b166e1f3a019",
+    "content-hash": "d2b3d5f7ca6f371aa0e8f99d5bbdbb78",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -541,11 +541,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "4.3.0",
+            "version": "4.3.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/57dd0fab44655df27200e3a67a975ad182cd5125",
-                "reference": "57dd0fab44655df27200e3a67a975ad182cd5125",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/1149dd385d9d38fbd1e0a6edf057ce8fe5347487",
+                "reference": "1149dd385d9d38fbd1e0a6edf057ce8fe5347487",
                 "shasum": ""
             },
             "require": {
@@ -636,7 +636,7 @@
                 "docs": "https://docs.craftcms.com/v3/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2022-10-25T17:32:50+00:00"
+            "time": "2022-10-27T19:59:08+00:00"
         },
         {
             "name": "craftcms/contact-form",
@@ -1774,11 +1774,11 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.4.2",
+            "version": "2.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/3148458748274be1546f8f2809a6c09fe66f44aa",
-                "reference": "3148458748274be1546f8f2809a6c09fe66f44aa",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/67c26b443f348a51926030c83481b85718457d3d",
+                "reference": "67c26b443f348a51926030c83481b85718457d3d",
                 "shasum": ""
             },
             "require": {
@@ -1860,7 +1860,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2022-10-25T13:49:28+00:00"
+            "time": "2022-10-26T14:07:24+00:00"
         },
         {
             "name": "illuminate/collections",
@@ -1984,11 +1984,6 @@
         {
             "name": "illuminate/macroable",
             "version": "v9.37.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/macroable.git",
-                "reference": "e3bfaf6401742a9c6abca61b9b10e998e5b6449a"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/macroable/zipball/e3bfaf6401742a9c6abca61b9b10e998e5b6449a",
@@ -2009,7 +2004,6 @@
                     "Illuminate\\Support\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2021,10 +2015,6 @@
             ],
             "description": "The Illuminate Macroable package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
             "time": "2022-08-09T13:29:29+00:00"
         },
         {

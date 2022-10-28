@@ -5,8 +5,10 @@ namespace modules\main;
 use Craft;
 use craft\elements\Entry;
 use craft\events\ElementEvent;
+use craft\events\RegisterCpNavItemsEvent;
 use craft\helpers\ElementHelper;
 use craft\services\Elements;
+use craft\web\twig\variables\Cp;
 use modules\BaseModule;
 use modules\main\behaviors\EntryBehavior;
 use modules\main\conditions\HasDraftsConditionRule;
@@ -14,6 +16,7 @@ use modules\main\fields\EnvironmentVariableField;
 use modules\main\fields\SiteField;
 use modules\main\services\ContentService;
 use modules\main\twigextensions\TwigExtension;
+use modules\main\widgets\ContentWidget;
 use modules\main\widgets\MyProvisionalDraftsWidget;
 use yii\base\Event;
 
@@ -53,7 +56,8 @@ class MainModule extends BaseModule
         ]);
 
         $this->registerWidgetTypes([
-            MyProvisionalDraftsWidget::class
+            MyProvisionalDraftsWidget::class,
+            ContentWidget::class
         ]);
 
         $this->registerTwigExtensions([
@@ -65,6 +69,23 @@ class MainModule extends BaseModule
         $this->validateAllSites();
 
         $this->createHooks();
+
+        Event::on(
+            Cp::class,
+            Cp::EVENT_REGISTER_CP_NAV_ITEMS,
+            function (RegisterCpNavItemsEvent $event) {
+                $navItem = [
+                    'label' => Craft::t('site', 'Content'),
+                    'url' => 'main/content',
+                    'fontIcon' => 'section'
+                ];
+
+                array_splice($event->navItems, 1, 0,[ $navItem]);
+
+            }
+        );
+
+
     }
 
     protected function validateAllSites()

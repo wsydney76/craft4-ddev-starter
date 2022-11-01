@@ -1,46 +1,46 @@
 {
-    "description": "Multilingual Craft CMS starter for use with DDEV",
-    "name": "wsydney76/craft4-ddev-starter",
-    "version": "1.0.0",
-    "license": "Unlicense",
-    "require": {
-        "craftcms/cms": "4.3.1",
-        "craftcms/contact-form": "3.0.0",
-        "craftcms/contact-form-honeypot": "^2.0",
-        "doublesecretagency/craft-cpcss": "2.5.0",
-        "fakerphp/faker": "^1.20",
-        "nystudio107/craft-vite": "4.0.3",
-        "putyourlightson/craft-sprig": "2.2.1",
-        "spacecatninja/imager-x": "4.1.7",
-        "vaersaagod/seomate": "2.0.3",
-        "vlucas/phpdotenv": "^5.4",
-        "wsydney76/elementmap": "^4.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "modules\\": "modules/",
-            "config\\": "config/"
-        }
-    },
-    "config": {
-        "sort-packages": true,
-        "optimize-autoloader": true,
-        "platform": {
-            "php": "8.0.2"
-        },
-        "allow-plugins": {
-            "yiisoft/yii2-composer": true,
-            "craftcms/plugin-installer": true
-        }
-    },
-    "scripts": {
-        "pre-update-cmd": [
-            "@php craft off --retry=30"
-        ],
-        "post-update-cmd": [
-            "@php craft clear-caches/all",
-            "@php craft migrate/all",
-            "@php craft on"
-        ]
+  "description": "Multilingual Craft CMS starter for use with DDEV",
+  "name": "wsydney76/craft4-ddev-starter",
+  "version": "1.0.0",
+  "license": "Unlicense",
+  "require": {
+    "craftcms/cms": "4.3.1",
+    "craftcms/contact-form": "3.0.0",
+    "craftcms/contact-form-honeypot": "^2.0",
+    "fakerphp/faker": "^1.20",
+    "nystudio107/craft-vite": "4.0.3",
+    "putyourlightson/craft-sprig": "2.2.1",
+    "spacecatninja/imager-x": "4.1.7",
+    "vaersaagod/seomate": "2.0.3",
+    "vlucas/phpdotenv": "^5.4",
+    "wsydney76/craft-contentoverview": "^1.0.0",
+    "wsydney76/elementmap": "^4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "modules\\": "modules/",
+      "config\\": "config/"
     }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "8.0.2"
+    },
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true
+    }
+  },
+  "scripts": {
+    "pre-update-cmd": [
+      "@php craft off --retry=30"
+    ],
+    "post-update-cmd": [
+      "@php craft clear-caches/all",
+      "@php craft migrate/all",
+      "@php craft on"
+    ]
+  }
 }

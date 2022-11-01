@@ -8,13 +8,16 @@ use craft\base\Model;
 use craft\events\DefineBehaviorsEvent;
 use craft\events\RegisterComponentTypesEvent;
 use craft\events\RegisterConditionRuleTypesEvent;
+use craft\events\RegisterCpNavItemsEvent;
 use craft\events\RegisterTemplateRootsEvent;
 use craft\i18n\PhpMessageSource;
 use craft\services\Dashboard;
 use craft\services\Fields;
+use craft\web\twig\variables\Cp;
 use craft\web\View;
 use yii\base\Event;
 use yii\base\Module;
+use function array_splice;
 
 
 class BaseModule extends Module
@@ -142,5 +145,20 @@ class BaseModule extends Module
     {
         // Register Services
         $this->setComponents($services);
+    }
+
+    protected function registerNavItem(array $navItem, $pos = null)
+    {
+        Event::on(
+            Cp::class,
+            Cp::EVENT_REGISTER_CP_NAV_ITEMS,
+            function(RegisterCpNavItemsEvent $event) use($navItem, $pos) {
+                if ($pos) {
+                    array_splice($event->navItems, $pos, 0, [$navItem]);
+                } else {
+                    $event->navItems[] = $navItem;
+                }
+            }
+        );
     }
 }

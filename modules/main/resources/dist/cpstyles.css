@@ -1,0 +1,61 @@
+/* Set link color back to V3, increase contrast */
+:root {
+    --text-color: var(--gray-800);
+    --medium-dark-text-color: var(--gray-700);
+    --link-color: #0c4a6e;
+}
+
+/* Increase font size */
+
+html, body {
+    font-size: 16px;
+}
+
+input.text, textarea.text, .text > input, .text > textarea, table.editable textarea, .selectize-text > .selectize-control > .selectize-input {
+    font-size: 16px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+/* We are not at a funeral */
+#global-sidebar {
+    background-color: #0c4a6e;
+}
+
+#sidebar .heading > span {
+
+    font-size: 14px;
+}
+
+
+/* 4.2 toasts */
+#notifications [data-type="error"] {
+    background-color: #D61F2B;
+    color: white;
+}
+
+#notifications [data-type="success"] {
+    background-color: #2C5F2D;
+    color: white;
+}
+
+#notifications [data-type="notice"] {
+    background-color: #2C5F2D;
+    color: white;
+}
+
+#notifications .notification .notification-icon {
+    color: white;
+}
+body.ltr #notifications {
+    bottom: initial;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#notifications .notification-details {
+    background-color: white;
+    padding: 4px;
+}

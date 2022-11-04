@@ -152,7 +152,7 @@ class BaseModule extends Module
         Event::on(
             Cp::class,
             Cp::EVENT_REGISTER_CP_NAV_ITEMS,
-            function(RegisterCpNavItemsEvent $event) use($navItem, $pos) {
+            function(RegisterCpNavItemsEvent $event) use ($navItem, $pos) {
                 if ($pos) {
                     array_splice($event->navItems, $pos, 0, [$navItem]);
                 } else {
@@ -161,4 +161,13 @@ class BaseModule extends Module
             }
         );
     }
+
+    protected function registerAssetBundles(array $assetBundles)
+    {
+        foreach ($assetBundles as $assetBundle) {
+            Craft::$app->view->registerAssetBundle($assetBundle);
+        }
+    }
+
+
 }

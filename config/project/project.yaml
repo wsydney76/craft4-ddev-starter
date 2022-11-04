@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1667304798
+dateModified: 1667516097
 elementSources:
   craft\elements\Asset:
     -
@@ -308,14 +308,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
-  cp-css:
-    edition: standard
-    enabled: true
-    schemaVersion: 2.0.0
-    settings:
-      additionalCss: "/* Set link color back to V3, increase contrast */\r\n:root {\r\n    --text-color: var(--gray-800);\r\n    --medium-dark-text-color: var(--gray-700);\r\n    --link-color: #0c4a6e;\r\n}\r\n\r\n/* Increase font size */\r\n\r\nhtml, body {\r\n    font-size: 16px !important;\r\n}\r\n\r\ninput.text, textarea.text, .text > input, .text > textarea, table.editable textarea, .selectize-text > .selectize-control > .selectize-input {\r\n    font-size: 16px !important;\r\n}\r\n\r\nh2 {\r\n    font-size: 18px !important;\r\n}\r\n\r\n/* We are not at a funeral */\r\n#global-sidebar {\r\n    background-color: #0c4a6e !important;\r\n}\r\n    \r\n\r\n\r\n\r\n\r\n#sidebar .heading > span {\r\n\r\n    font-size: 14px;\r\n}\r\n    \r\n\r\n/* 4.2 toasts */\r\n#notifications [data-type=\"error\"] {\r\n    background-color: #D61F2B;\r\n    color: white;\r\n}\r\n\r\n#notifications [data-type=\"success\"] {\r\n    background-color: #2C5F2D;\r\n    color: white;\r\n}\r\n\r\n#notifications [data-type=\"notice\"] {\r\n    background-color: #2C5F2D;\r\n    color: white;\r\n}\r\n\r\n#notifications .notification .notification-icon {\r\n    color: white;\r\n}\r\nbody.ltr #notifications {\r\n    bottom: initial;\r\n    top: 8px;\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n}\r\n#notifications .notification-details {\r\n    background-color: white;\r\n    padding: 4px;\r\n}"
-      cacheBusting: true
-      cssFile: ''
   elementmap:
     edition: standard
     enabled: true

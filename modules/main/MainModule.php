@@ -12,6 +12,7 @@ use modules\main\behaviors\EntryBehavior;
 use modules\main\conditions\HasDraftsConditionRule;
 use modules\main\fields\EnvironmentVariableField;
 use modules\main\fields\SiteField;
+use modules\main\resources\CpAssetBundle;
 use modules\main\services\ContentService;
 use modules\main\twigextensions\TwigExtension;
 use modules\main\widgets\ContentWidget;
@@ -36,16 +37,10 @@ class MainModule extends BaseModule
             'content' => ContentService::class
         ]);
 
-        $this->registerTemplateRoots(false, true);
-
         $this->registerTranslationCategory();
 
         $this->registerBehaviors(Entry::class, [
             EntryBehavior::class
-        ]);
-
-        $this->registerConditionRuleTypes([
-            HasDraftsConditionRule::class,
         ]);
 
         $this->registerFieldTypes([
@@ -53,19 +48,31 @@ class MainModule extends BaseModule
             EnvironmentVariableField::class
         ]);
 
-        $this->registerWidgetTypes([
-            MyProvisionalDraftsWidget::class,
-        ]);
-
         $this->registerTwigExtensions([
             TwigExtension::class
         ]);
 
-        $this->restrictSearchIndex();
+        if (Craft::$app->request->isCpRequest) {
+            $this->registerTemplateRoots(false, true);
 
-        $this->validateAllSites();
+            $this->registerConditionRuleTypes([
+                HasDraftsConditionRule::class,
+            ]);
 
-        $this->createHooks();
+            $this->registerWidgetTypes([
+                MyProvisionalDraftsWidget::class,
+            ]);
+
+            $this->restrictSearchIndex();
+
+            $this->validateAllSites();
+
+            $this->createHooks();
+
+            $this->registerAssetBundles([
+                CpAssetBundle::class
+            ]);
+        }
     }
 
     protected function validateAllSites()

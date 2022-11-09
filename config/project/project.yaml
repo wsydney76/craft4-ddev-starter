@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1667516097
+dateModified: 1667996980
 elementSources:
   craft\elements\Asset:
     -
@@ -304,10 +304,6 @@ plugins:
     schemaVersion: 1.0.0
     settings:
       honeypotParam: contact
-  contentoverview:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   elementmap:
     edition: standard
     enabled: true

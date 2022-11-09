@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "02445be6da0762d0d959b1dc791e1adc",
+    "content-hash": "7073fc349d572eda6e3297729ab57d44",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -58,16 +58,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.240.9",
+            "version": "3.241.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "ee0bde83538e5acbb4f84f79a12b651ccb19017b"
+                "reference": "9a08ac83249a2e6d07c624802cbf961f7269a691"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ee0bde83538e5acbb4f84f79a12b651ccb19017b",
-                "reference": "ee0bde83538e5acbb4f84f79a12b651ccb19017b",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9a08ac83249a2e6d07c624802cbf961f7269a691",
+                "reference": "9a08ac83249a2e6d07c624802cbf961f7269a691",
                 "shasum": ""
             },
             "require": {
@@ -146,9 +146,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.240.9"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.241.0"
             },
-            "time": "2022-11-03T18:18:02+00:00"
+            "time": "2022-11-08T19:16:53+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -2479,16 +2479,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v9.38.0",
+            "version": "v9.39.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "9d98beda3f50251321565b77455687794e47dfcc"
+                "reference": "1729899f8e37840738d1c37bb110da5b09509990"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/9d98beda3f50251321565b77455687794e47dfcc",
-                "reference": "9d98beda3f50251321565b77455687794e47dfcc",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/1729899f8e37840738d1c37bb110da5b09509990",
+                "reference": "1729899f8e37840738d1c37bb110da5b09509990",
                 "shasum": ""
             },
             "require": {
@@ -2530,11 +2530,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-10-29T16:25:53+00:00"
+            "time": "2022-11-07T11:40:33+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v9.38.0",
+            "version": "v9.39.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -2580,7 +2580,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v9.38.0",
+            "version": "v9.39.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -2628,7 +2628,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v9.38.0",
+            "version": "v9.39.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -3299,17 +3299,82 @@
             "time": "2021-06-14T00:11:39+00:00"
         },
         {
-            "name": "nystudio107/craft-plugin-vite",
-            "version": "4.0.6",
+            "name": "nystudio107/craft-code-editor",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nystudio107/craft-plugin-vite.git",
-                "reference": "9ec08d7072b727241842a059ca13978563f8d1ed"
+                "url": "https://github.com/nystudio107/craft-code-editor.git",
+                "reference": "f4bc04b22a6d1b94b87e6076a53a87e52058b7a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-plugin-vite/zipball/9ec08d7072b727241842a059ca13978563f8d1ed",
-                "reference": "9ec08d7072b727241842a059ca13978563f8d1ed",
+                "url": "https://api.github.com/repos/nystudio107/craft-code-editor/zipball/f4bc04b22a6d1b94b87e6076a53a87e52058b7a9",
+                "reference": "f4bc04b22a6d1b94b87e6076a53a87e52058b7a9",
+                "shasum": ""
+            },
+            "require": {
+                "phpdocumentor/reflection-docblock": "^5.0.0"
+            },
+            "require-dev": {
+                "craftcms/cms": "^3.0.0 || ^4.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "nystudio107\\codeeditor\\CodeEditor"
+            },
+            "autoload": {
+                "psr-4": {
+                    "nystudio107\\codeeditor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "nystudio107",
+                    "homepage": "https://nystudio107.com"
+                }
+            ],
+            "description": "Provides a code editor field with Twig & Craft API autocomplete",
+            "keywords": [
+                "Craft",
+                "Monaco",
+                "cms",
+                "code",
+                "craftcms",
+                "css",
+                "editor",
+                "javascript",
+                "markdown",
+                "twig"
+            ],
+            "support": {
+                "docs": "https://github.com/nystudio107/craft-code-editor/blob/v1/README.md",
+                "issues": "https://github.com/nystudio107/craft-code-editor/issues",
+                "source": "https://github.com/nystudio107/craft-code-editor"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/khalwat",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-11-04T16:15:50+00:00"
+        },
+        {
+            "name": "nystudio107/craft-plugin-vite",
+            "version": "4.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nystudio107/craft-plugin-vite.git",
+                "reference": "2fd0b6dddb95d8d42385af81385f9e5b28266408"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nystudio107/craft-plugin-vite/zipball/2fd0b6dddb95d8d42385af81385f9e5b28266408",
+                "reference": "2fd0b6dddb95d8d42385af81385f9e5b28266408",
                 "shasum": ""
             },
             "require": {
@@ -3340,7 +3405,7 @@
             "support": {
                 "docs": "https://github.com/nystudio107/craft-plugin-vite/blob/v1/README.md",
                 "issues": "https://github.com/nystudio107/craft-plugin-vite/issues",
-                "source": "https://github.com/nystudio107/craft-plugin-vite/tree/4.0.6"
+                "source": "https://github.com/nystudio107/craft-plugin-vite/tree/4.0.7"
             },
             "funding": [
                 {
@@ -3348,71 +3413,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-08-29T16:16:33+00:00"
-        },
-        {
-            "name": "nystudio107/craft-twigfield",
-            "version": "1.0.18",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nystudio107/craft-twigfield.git",
-                "reference": "836705ca56e303a4adf50d189dc889ece2934a1b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-twigfield/zipball/836705ca56e303a4adf50d189dc889ece2934a1b",
-                "reference": "836705ca56e303a4adf50d189dc889ece2934a1b",
-                "shasum": ""
-            },
-            "require": {
-                "phpdocumentor/reflection-docblock": "^5.0.0"
-            },
-            "require-dev": {
-                "craftcms/cms": "^3.0.0 || ^4.0.0"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "bootstrap": "nystudio107\\twigfield\\Twigfield"
-            },
-            "autoload": {
-                "psr-4": {
-                    "nystudio107\\twigfield\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "nystudio107",
-                    "homepage": "https://nystudio107.com"
-                }
-            ],
-            "description": "Provides a twig editor field with Twig & Craft API autocomplete",
-            "keywords": [
-                "Craft",
-                "auto",
-                "autocomplete",
-                "cms",
-                "complete",
-                "craftcms",
-                "editor",
-                "twig"
-            ],
-            "support": {
-                "docs": "https://github.com/nystudio107/craft-twigfield/blob/v1/README.md",
-                "issues": "https://github.com/nystudio107/craft-twigfield/issues",
-                "source": "https://github.com/nystudio107/craft-twigfield"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/khalwat",
-                    "type": "github"
-                }
-            ],
-            "abandoned": "nystudio107/craft-code-editor",
-            "time": "2022-10-26T04:29:32+00:00"
+            "time": "2022-11-08T15:50:22+00:00"
         },
         {
             "name": "nystudio107/craft-vite",
@@ -4240,23 +4241,23 @@
         },
         {
             "name": "putyourlightson/craft-sprig",
-            "version": "2.2.1",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/putyourlightson/craft-sprig.git",
-                "reference": "7afdbeb22ce1e822dc162d8a5ba4999246a25a30"
+                "reference": "ed843b2b12e3aec8bd5d478bb4a67c3337a5688d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-sprig/zipball/7afdbeb22ce1e822dc162d8a5ba4999246a25a30",
-                "reference": "7afdbeb22ce1e822dc162d8a5ba4999246a25a30",
+                "url": "https://api.github.com/repos/putyourlightson/craft-sprig/zipball/ed843b2b12e3aec8bd5d478bb4a67c3337a5688d",
+                "reference": "ed843b2b12e3aec8bd5d478bb4a67c3337a5688d",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^4.0",
-                "nystudio107/craft-twigfield": "^1.0.8",
+                "nystudio107/craft-code-editor": "^1.0.0",
                 "php": "^8.0.2",
-                "putyourlightson/craft-sprig-core": "^2.1.1"
+                "putyourlightson/craft-sprig-core": "^2.2.0"
             },
             "type": "craft-plugin",
             "extra": {
@@ -4289,20 +4290,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-10-08T14:57:44+00:00"
+            "time": "2022-11-08T00:52:01+00:00"
         },
         {
             "name": "putyourlightson/craft-sprig-core",
-            "version": "2.1.1",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/putyourlightson/craft-sprig-core.git",
-                "reference": "6adcb8989dfea41bb6e355f157486052e2f336e2"
+                "reference": "093958c0a5e2883cc637c1752619a276cb3ead74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-sprig-core/zipball/6adcb8989dfea41bb6e355f157486052e2f336e2",
-                "reference": "6adcb8989dfea41bb6e355f157486052e2f336e2",
+                "url": "https://api.github.com/repos/putyourlightson/craft-sprig-core/zipball/093958c0a5e2883cc637c1752619a276cb3ead74",
+                "reference": "093958c0a5e2883cc637c1752619a276cb3ead74",
                 "shasum": ""
             },
             "require": {
@@ -4331,7 +4332,7 @@
                 "issues": "https://github.com/putyourlightson/craft-sprig-core/issues",
                 "source": "https://github.com/putyourlightson/craft-sprig-core"
             },
-            "time": "2022-10-08T14:54:20+00:00"
+            "time": "2022-11-08T00:46:43+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -7959,57 +7960,6 @@
             "time": "2022-09-21T15:35:03+00:00"
         },
         {
-            "name": "wsydney76/craft-contentoverview",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wsydney76/craft-contentoverview.git",
-                "reference": "40d559e5167651cf3b502cb6dc012819e7ddd7d7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wsydney76/craft-contentoverview/zipball/40d559e5167651cf3b502cb6dc012819e7ddd7d7",
-                "reference": "40d559e5167651cf3b502cb6dc012819e7ddd7d7",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^4.3.0"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Content Overview",
-                "handle": "contentoverview"
-            },
-            "autoload": {
-                "psr-4": {
-                    "wsydney76\\contentoverview\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "wsydney76",
-                    "homepage": "https://github.com/wsydney76"
-                }
-            ],
-            "description": "Content Overview",
-            "keywords": [
-                "CP",
-                "Craft",
-                "plugin"
-            ],
-            "support": {
-                "docs": "https://github.com/wsydney76/craft-contentoverview/blob/master/README.md",
-                "email": "wsydney@web.de",
-                "issues": "https://github.com/wsydney76/craft-contentoverview/issues?state=open",
-                "source": "https://github.com/wsydney76/craft-contentoverview"
-            },
-            "time": "2022-11-04T13:22:16+00:00"
-        },
-        {
             "name": "wsydney76/elementmap",
             "version": "4.1",
             "source": {
@@ -8538,5 +8488,5 @@
     "platform-overrides": {
         "php": "8.0.2"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }

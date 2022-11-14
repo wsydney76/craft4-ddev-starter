@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7073fc349d572eda6e3297729ab57d44",
+    "content-hash": "19c372a81610d9e5c1992774d8dcf604",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -7960,6 +7960,57 @@
             "time": "2022-09-21T15:35:03+00:00"
         },
         {
+            "name": "wsydney76/craft-contentoverview",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wsydney76/craft-contentoverview.git",
+                "reference": "cafc1a93c38350ce44a29000a80fdbbe9139e531"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wsydney76/craft-contentoverview/zipball/cafc1a93c38350ce44a29000a80fdbbe9139e531",
+                "reference": "cafc1a93c38350ce44a29000a80fdbbe9139e531",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.3.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Content Overview",
+                "handle": "contentoverview"
+            },
+            "autoload": {
+                "psr-4": {
+                    "wsydney76\\contentoverview\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "wsydney76",
+                    "homepage": "https://github.com/wsydney76"
+                }
+            ],
+            "description": "Content Overview",
+            "keywords": [
+                "CP",
+                "Craft",
+                "plugin"
+            ],
+            "support": {
+                "docs": "https://github.com/wsydney76/craft-contentoverview/blob/master/README.md",
+                "email": "wsydney@web.de",
+                "issues": "https://github.com/wsydney76/craft-contentoverview/issues?state=open",
+                "source": "https://github.com/wsydney76/craft-contentoverview"
+            },
+            "time": "2022-11-11T16:39:40+00:00"
+        },
+        {
             "name": "wsydney76/elementmap",
             "version": "4.1",
             "source": {
@@ -8488,5 +8539,5 @@
     "platform-overrides": {
         "php": "8.0.2"
     },
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

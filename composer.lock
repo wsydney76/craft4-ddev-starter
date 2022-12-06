@@ -2479,16 +2479,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v9.42.2",
+            "version": "v9.43.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "dd78f942e2052743e8f290292e4f7a40ec96ca12"
+                "reference": "7a8afa0875d7de162f30865d9fae33c8fb235fa2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/dd78f942e2052743e8f290292e4f7a40ec96ca12",
-                "reference": "dd78f942e2052743e8f290292e4f7a40ec96ca12",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/7a8afa0875d7de162f30865d9fae33c8fb235fa2",
+                "reference": "7a8afa0875d7de162f30865d9fae33c8fb235fa2",
                 "shasum": ""
             },
             "require": {
@@ -2530,11 +2530,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-11-25T07:58:11+00:00"
+            "time": "2022-12-02T18:48:05+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v9.42.2",
+            "version": "v9.43.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -2580,7 +2580,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v9.42.2",
+            "version": "v9.43.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -2628,16 +2628,16 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v9.42.2",
+            "version": "v9.43.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
-                "reference": "25a2c6dac2b7541ecbadef952702e84ae15f5354"
+                "reference": "e3bfaf6401742a9c6abca61b9b10e998e5b6449a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/macroable/zipball/25a2c6dac2b7541ecbadef952702e84ae15f5354",
-                "reference": "25a2c6dac2b7541ecbadef952702e84ae15f5354",
+                "url": "https://api.github.com/repos/illuminate/macroable/zipball/e3bfaf6401742a9c6abca61b9b10e998e5b6449a",
+                "reference": "e3bfaf6401742a9c6abca61b9b10e998e5b6449a",
                 "shasum": ""
             },
             "require": {
@@ -2670,7 +2670,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-02-01T14:44:21+00:00"
+            "time": "2022-08-09T13:29:29+00:00"
         },
         {
             "name": "imgix/imgix-php",
@@ -7960,16 +7960,16 @@
         },
         {
             "name": "wsydney76/craft-contentoverview",
-            "version": "5.0.0",
+            "version": "5.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wsydney76/craft-contentoverview.git",
-                "reference": "33f486e39b2da0b72a44e5a7cba9ccf6cd87cbf5"
+                "reference": "397c299c5b61f2a61925da68d09f87d8ddfc8e2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wsydney76/craft-contentoverview/zipball/33f486e39b2da0b72a44e5a7cba9ccf6cd87cbf5",
-                "reference": "33f486e39b2da0b72a44e5a7cba9ccf6cd87cbf5",
+                "url": "https://api.github.com/repos/wsydney76/craft-contentoverview/zipball/397c299c5b61f2a61925da68d09f87d8ddfc8e2e",
+                "reference": "397c299c5b61f2a61925da68d09f87d8ddfc8e2e",
                 "shasum": ""
             },
             "require": {
@@ -8007,7 +8007,7 @@
                 "issues": "https://github.com/wsydney76/craft-contentoverview/issues?state=open",
                 "source": "https://github.com/wsydney76/craft-contentoverview"
             },
-            "time": "2022-12-05T14:40:39+00:00"
+            "time": "2022-12-06T14:41:35+00:00"
         },
         {
             "name": "wsydney76/elementmap",

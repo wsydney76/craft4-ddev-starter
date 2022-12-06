@@ -38,9 +38,7 @@ class SeedController extends BaseController
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
-        $this->stdout("Indexing existing images..." . PHP_EOL);
-
-        Craft::$app->runAction('index-assets/one', [$this->volume]);
+        $this->indexImages();
 
         if ($this->interactive && $this->confirm("Add provisional alt text/copyright to images?")) {
             foreach (Craft::$app->sites->allSites as $site) {
@@ -102,6 +100,51 @@ class SeedController extends BaseController
             ]);
 
             $this->translateHint($entry, 'de');
+        }
+
+        return ExitCode::OK;
+    }
+
+    public function actionCreateHeroArea(): int
+    {
+
+        if ($this->interactive && !$this->confirm("Create hero area for homepage?")) {
+            return ExitCode::UNSPECIFIED_ERROR;
+        }
+
+        $image = $this->getRandomImage($this->minWidth);
+
+        if (!$image) {
+            $this->indexImages();
+            $image = $this->getRandomImage($this->minWidth);
+        }
+
+        if ($image) {
+            $heroAreaEntry = $this->createEntry([
+                'section' => 'heroArea',
+                'type' => 'default',
+                'title' => 'Craft Starter',
+                'slug' => 'craft-starter',
+                'fields' => [
+                    'heroTagline' => 'Get your project up and running.',
+                    'heroImage' => [$image->id]
+                ],
+                'localized' => [
+                    'de' => [
+                        'fields' => [
+                            'heroTagline' => 'Bringen Sie Ihr Projekt zum Laufen.'
+                        ]
+                    ]
+                ]
+            ]);
+
+            if ($heroAreaEntry) {
+                $homepageEntry = Entry::find()->section('page')->type('home')->one();
+                if ($homepageEntry) {
+                    $homepageEntry->setFieldValue('heroArea', [$heroAreaEntry->id]);
+                    Craft::$app->elements->saveElement($homepageEntry);
+                }
+            }
         }
 
         return ExitCode::OK;
@@ -298,5 +341,11 @@ class SeedController extends BaseController
         }
 
         return ExitCode::OK;
+    }
+
+    protected function indexImages(): void
+    {
+        $this->stdout("Indexing existing images..." . PHP_EOL);
+        Craft::$app->runAction('index-assets/one', [$this->volume]);
     }
 }

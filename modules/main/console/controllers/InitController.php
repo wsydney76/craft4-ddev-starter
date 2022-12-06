@@ -44,6 +44,8 @@ class InitController extends BaseController
 
         Craft::$app->runAction('main/seed/create-entries', ['interactive' => $this->interactive]);
 
+        Craft::$app->runAction('main/seed/create-hero-area', ['interactive' => $this->interactive]);
+
         Craft::$app->runAction('main/assets/create-transforms', ['interactive' => $this->interactive]);
 
         return ExitCode::OK;

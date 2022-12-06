@@ -9,7 +9,11 @@ return [
             ->info('{tagline}, {postDate|date("short")}')
             ->imageField('featuredImage')
             ->layout('cards')
-            ->limit(6)
+            ->size('small')
+            ->limit(6),
+        $co->createSection()
+            ->section('legal')
+            ->info('{type.name}')
     ]),
 
     $co->createColumn(5, [
@@ -28,11 +32,5 @@ return [
             ->scope('all')
     ]),
 
-
-    $co->createColumn(4, [
-        $co->createSection()
-            ->section('legal')
-            ->info('{type.name}')
-    ])
 
 ];

@@ -10,7 +10,7 @@ echo Installing project $1...
 
 ddev config --project-name=$1
 ddev start &&
-ddev composer install --no-dev &&
+ddev composer install &&
 ddev craft install --interactive=0 --username=admin --password=password --email=admin@example.com &&
 echo Installing npm dependencies...
 ddev exec npm install &&

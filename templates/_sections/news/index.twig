@@ -16,16 +16,7 @@
 
 {% block content %}
 
-    {% embed '_layouts/embeds/content-md.twig' %}
-
-        {# Display just the title if no featured image is set #}
-        {% block header %}
-            {% if not featuredImage %}
-                {% include '_layouts/partials/page-header.twig' with {
-                    entry
-                } only %}
-            {% endif %}
-        {% endblock %}
+    {% embed '_layouts/embeds/content-md.twig' with {showHeader: featuredImage == null, alignTitle: 'left'} %}
 
         {% block contentTop %}
             {# News meta #}

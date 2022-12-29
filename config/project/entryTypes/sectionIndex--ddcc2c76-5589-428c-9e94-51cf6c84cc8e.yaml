@@ -1,0 +1,109 @@
+fieldLayouts:
+  643dac8e-f6a7-492e-beba-59486dff44cf:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: e57ef662-5f95-472e-930e-3f4df391afb6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: e2e51276-3783-49cb-9ed0-22ae364fd49a # Menu Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 87ea15bb-a93f-4cc9-868b-2fc4badea48c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 75980a78-5a14-4d80-8e9c-b0616d62e02e # Hero Area
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a7198e68-d2cc-4347-8d79-cfe105b9e07f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 400d2e7a-d260-459d-b16d-bc388f093106 # Tagline
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a6a1d123-79ac-41a1-888b-a8f3c6a5ae53
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: ad07bc26-df9d-4358-9fd9-f1ceb8e00af0 # Sections
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 09e06db7-3557-49a4-b7ac-29faf38a2811
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: bff9ed07-df83-4e2e-a923-45222d07c8e8
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: e62d63b0-c299-42ce-aeef-86a69f7e676c # SEO Fields
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b7df9eaa-219b-4515-9a75-44ebcd443d81
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: c362692b-1868-4768-87d3-28ee14177efc
+        userCondition: null
+handle: sectionIndex
+hasTitleField: true
+name: 'Section Index'
+section: 84b98802-2548-4aed-b67e-fc97f6ed9e30 # Page
+sortOrder: 11
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

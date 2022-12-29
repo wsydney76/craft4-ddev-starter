@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1669299390
+dateModified: 1672328089
 elementSources:
   craft\elements\Asset:
     -
@@ -224,7 +224,9 @@ meta:
     735b5e6e-8026-4de4-8e32-14e03d975565: Image # Image
     871e0a60-ea70-4650-91f2-746c9bc2de41: 'Aspect Ratio' # Aspect Ratio
     3468bd44-82e8-4104-932e-5085601fca12: Default # Default
+    4120c3e9-17c2-464b-8d41-7d009dacb5e3: 'Page Template' # Page Template
     4401f3f7-9915-4cd0-b3d9-987755e4bdf8: Image # Image
+    6739b2cb-a865-433d-9732-cdd6a419188d: 'Page Template'
     13852c19-7f9e-4e6b-8790-0063f0f21ab8: Default # Default
     44993cef-3718-479f-8c88-bdede1d256ba: 'Card Text' # Card Text
     75980a78-5a14-4d80-8e9c-b0616d62e02e: 'Hero Area' # Hero Area
@@ -244,6 +246,7 @@ meta:
     abd279ac-58c4-41dc-ac32-d2e388e34252: Legal # Legal
     abefa0bd-6b36-4b4f-a9de-a4304e7b66a3: 'Public Schema' # Public Schema
     ac457f93-1a50-473e-9983-a899a7f0bed7: Heading # Heading
+    ad07bc26-df9d-4358-9fd9-f1ceb8e00af0: Sections # Sections
     addfffc1-5814-40f4-bb74-0e441740b9fa: FAQs # FAQs
     af9afec0-f712-4b14-b235-851c6455e267: Text # Text
     b0cfc7f4-d446-41bb-87ab-dc16b1481540: 'Alternative Title' # Alternative Title
@@ -270,6 +273,7 @@ meta:
     d92e63b4-996e-4dcd-8b55-d119540b5831: Default # Default
     d50026f3-a236-4ae2-b00a-af55076acd17: Site # Site
     dbf50cb2-37c8-45f7-b375-dcb93e09691b: Deutsch # Deutsch
+    ddcc2c76-5589-428c-9e94-51cf6c84cc8e: 'Section Index' # Section Index
     de3c08c7-8c44-46ea-8a7c-109499269f55: Answer # Answer
     e2e51276-3783-49cb-9ed0-22ae364fd49a: 'Menu Title' # Menu Title
     e41dea07-8368-4830-a643-ff8fa7f37200: Guides # Guides

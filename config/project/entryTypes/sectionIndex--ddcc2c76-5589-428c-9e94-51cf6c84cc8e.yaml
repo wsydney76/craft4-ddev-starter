@@ -78,6 +78,18 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            fieldUid: 94c9d72d-8409-4f0c-aa29-81b35bbab856 # Card Content Template Root
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cd2eda36-fc11-450a-8b1b-32037f854654
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: bff9ed07-df83-4e2e-a923-45222d07c8e8
         userCondition: null

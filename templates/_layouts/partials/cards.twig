@@ -9,6 +9,7 @@
 {# @param limit int optional=customConfig number of cards on a page if paginate=true #}
 {# @param defaultImage Asset optional=SiteInfo The image that will be used in no featuredImage is set on entry #}
 {# @param highlight String string for text fragmant highlighting #}
+{# @param cardContentTemplateRoot string Where to find content templates. This enables plugins to provide their own predefined templates #}
 
 {% set transform = craft.app.config.custom.cardTransform %}
 {% set heading = heading ?? '' %}
@@ -17,6 +18,7 @@
 {% set limit = limit ?? craft.app.config.custom.entriesPerPage %}
 {% set defaultImage = siteInfo.featuredImage.one %}
 {% set highlight = highlight ?? '' %}
+{% set cardContentTemplateRoot = cardContentTemplateRoot ?? '_sections' %}
 
 
 
@@ -76,12 +78,15 @@
                     entry,
                     image: entry.featuredImage.one ?? defaultImage,
                     transform,
-                    highlight
+                    highlight,
+                    cardContentTemplateRoot
                 } only %}
 
                     {# display individual content form section type #}
                     {% block content %}
-                        {% include "_sections/#{entry.section.handle}/card-content.twig" ignore missing  with {
+                        {% include [
+                            "#{cardContentTemplateRoot}/#{entry.section.handle}/card-content.twig"
+                        ] ignore missing  with {
                             entry
                         } only %}
                     {% endblock %}

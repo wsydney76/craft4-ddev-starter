@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1672328089
+dateModified: 1672506247
 elementSources:
   craft\elements\Asset:
     -
@@ -216,6 +216,7 @@ meta:
     81e6a0d6-13c5-47ad-a9e6-c2181276db9c: Text # Text
     84b98802-2548-4aed-b67e-fc97f6ed9e30: Page # Page
     94b76905-09aa-4aeb-82a0-222f592d42f8: 'Show in Sites' # Show in Sites
+    94c9d72d-8409-4f0c-aa29-81b35bbab856: 'Card Content Template Root' # Card Content Template Root
     99b1f33e-21a3-4870-8165-2b685034a641: Layout # Layout
     169ccd00-9c12-4921-b187-8ef8ca2ad525: Assets # Assets
     370cbaec-9bf1-4ecf-b903-276c6da6c861: 'Postal Address' # Postal Address
@@ -226,7 +227,7 @@ meta:
     3468bd44-82e8-4104-932e-5085601fca12: Default # Default
     4120c3e9-17c2-464b-8d41-7d009dacb5e3: 'Page Template' # Page Template
     4401f3f7-9915-4cd0-b3d9-987755e4bdf8: Image # Image
-    6739b2cb-a865-433d-9732-cdd6a419188d: 'Page Template'
+    6739b2cb-a865-433d-9732-cdd6a419188d: 'Page Template' # Page Template
     13852c19-7f9e-4e6b-8790-0063f0f21ab8: Default # Default
     44993cef-3718-479f-8c88-bdede1d256ba: 'Card Text' # Card Text
     75980a78-5a14-4d80-8e9c-b0616d62e02e: 'Hero Area' # Hero Area

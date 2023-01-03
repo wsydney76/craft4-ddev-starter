@@ -1,14 +1,14 @@
 columnSuffix: null
 contentColumnType: string
 fieldGroup: bd76fb6e-8765-41d3-8e8a-02e37e127c80 # Common
-handle: featuredEntry
-instructions: 'Will be used for hero area'
-name: 'Featured Entry'
-searchable: true
+handle: featuredEntries
+instructions: null
+name: 'Featured Entries'
+searchable: false
 settings:
   allowSelfRelations: false
   localizeRelations: false
-  maxRelations: 1
+  maxRelations: null
   minRelations: null
   selectionCondition:
     __assoc__:
@@ -21,7 +21,7 @@ settings:
       -
         - class
         - craft\elements\conditions\entries\EntryCondition
-  selectionLabel: 'Select an entry'
+  selectionLabel: null
   showSiteMenu: false
   source: null
   sources: '*'

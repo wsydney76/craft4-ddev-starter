@@ -3,17 +3,22 @@
 {# @param entry Entry set by Craft #}
 {# @param alignTitle String left/center #}
 {# @param image Asset optional #}
+{# @param showHeader bool show header? #}
+
+{% set showHeader = showHeader is defined ? showHeader : true %}
 
 <div class="my-8 max-w-screen-xl mx-auto px-4 sm:px-8 xl:grid xl:grid-cols-12 gap-16">
 
     <div class="xl:col-span-9">
 
         {% block header %}
-            {% include '_layouts/partials/page-header.twig' with {
-                entry,
-                alignTitle: alignTitle ?? 'center',
-                image: image ?? null
-            } only %}
+            {% if showHeader %}
+                {% include '_layouts/partials/page-header.twig' with {
+                    entry,
+                    alignTitle: alignTitle ?? 'center',
+                    image: image ?? null
+                } only %}
+            {% endif %}
         {% endblock %}
 
         {% block contentTop %}{% endblock %}

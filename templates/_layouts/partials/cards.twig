@@ -92,9 +92,9 @@
 
 {% endif %}
 
-                        {% if hasPagination %}
-                            {# Display pagination navigation #}
-                            {% include '_layouts/partials/entry-pagination.twig' with {
-                                pageInfo
-                            } only %}
-                        {% endif %}
+{% if hasPagination %}
+    {# Display pagination navigation #}
+    {% include '_layouts/partials/entry-pagination.twig' with {
+        pageInfo
+    } only %}
+{% endif %}

@@ -1,0 +1,6 @@
+<div>
+    {% include block.template ignore missing with {
+        entry,
+        params: block.parameter|json_decode
+    } %}
+</div>

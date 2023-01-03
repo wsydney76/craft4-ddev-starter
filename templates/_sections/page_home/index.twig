@@ -4,6 +4,10 @@
     {% block content %}
         {% from '_layouts/macros/lib.twig' import pageButton %}
 
+        {% include '_layouts/partials/blocks.twig' with {
+            query: entry.bodyContent
+        } only %}
+
         {# Display Latest News #}
         <div class="mt-16">
 

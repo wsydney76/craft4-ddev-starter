@@ -70,17 +70,22 @@
 
     {% embed '_layouts/embeds/grid.twig' with {wide: wide} %}
         {% block content %}
+
+            {% set cardContentTemplateRoots = craft.app.config.custom.cardContentTemplateRoots %}
+
             {% for entry in entries %}
                 {% embed "_layouts/embeds/card.twig" with {
                     entry,
                     image: entry.featuredImage.one ?? defaultImage,
                     transform,
-                    highlight
+                    highlight,
+                    cardContentTemplateRoots
                 } only %}
 
                     {# display individual content form section type #}
                     {% block content %}
-                        {% include "_sections/#{entry.section.handle}/card-content.twig" ignore missing  with {
+                        {% include cardContentTemplateRoots|map(r => "#{r}/#{entry.section.handle}/card-content.twig")
+                            ignore missing  with {
                             entry
                         } only %}
                     {% endblock %}

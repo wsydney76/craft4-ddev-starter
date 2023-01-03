@@ -35,6 +35,11 @@ return [
     'searchSections' => ['news', 'page', 'legal'],
     'searchMaxResults' => 24,
 
+    // This setting allows plugins to inject card content via their own templates.
+    'cardContentTemplateRoots' => [
+        '_sections',
+    ],
+
     // this is the file as in sprig.script(), just hosting it locally. Check version after updating sprig.
     // Gets versioned by {% js craft.app.config.custom.htmxScriptUrl %} so it is safe to always use the same path
     // Copy from e.g. https://unpkg.com/htmx.org@1.8.0/dist/htmx.min.js

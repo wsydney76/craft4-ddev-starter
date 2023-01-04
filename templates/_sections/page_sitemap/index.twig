@@ -1,11 +1,7 @@
 {# Show sitemap page content #}
 
 {# Define sections to show with sort order #}
-{% set sections = [
-    {handle: 'page'},
-    {handle: 'legal'},
-    {handle: 'news', orderBy: 'postDate desc', limit: 10, moreType: 'newsIndex', moreText: 'All News'|t},
-] %}
+{% set sections = craft.app.config.custom.sitemapSections %}
 
 {% embed '_layouts/embeds/content-xl.twig' with {alignTitle: 'left'} %}
     {% block content %}

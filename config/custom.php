@@ -35,7 +35,13 @@ return [
     'searchSections' => ['news', 'page', 'legal'],
     'searchMaxResults' => 24,
 
-    // This setting allows plugins to inject card content via their own templates.
+    'sitemapSections' => [
+        ['handle' => 'page'],
+        ['handle' => 'legal'],
+        ['handle' => 'news', 'orderBy' => 'postDate desc', 'limit' => 10, 'moreType' => 'newsIndex', 'moreText' => Craft::t('site', 'All News') ],
+    ],
+
+    // This setting allows plugins to inject section specific content via their own templates.
     'sectionRoots' => [
         '_sections',
     ],

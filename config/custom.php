@@ -36,7 +36,7 @@ return [
     'searchMaxResults' => 24,
 
     // This setting allows plugins to inject card content via their own templates.
-    'cardContentTemplateRoots' => [
+    'sectionRoots' => [
         '_sections',
     ],
 

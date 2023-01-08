@@ -16,6 +16,7 @@
 {% set extraClasses = extraClasses ?? '' %}
 {% set target = target ?? null %}
 {% set type = type ?? null %}
+{% set data = data ?? [] %}
 
 {% if tag == 'button' and not type %}
     {% set type = 'button' %}
@@ -37,5 +38,6 @@
     '@click': xOnClick,
     target: target,
     class: class,
+    data: data,
     type: type
 }) }}

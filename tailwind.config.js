@@ -5,6 +5,7 @@ const colors = require('tailwindcss/colors')
 // We define colors here so that they can be reused
 const mainColor = 'sky'
 const grayColor = 'slate'
+const greenColor = 'green'
 
 const hasDarkHeader = true
 const hasDarkFooter = true
@@ -21,6 +22,7 @@ const primaryDark = colors[grayColor][200]
 const white = '#ffffff'
 const background = colors.neutral[100]
 const gray = colors[grayColor]
+const green = colors[greenColor]
 const warning = colors['red'][700]
 const warningDark = colors['red'][400]
 const transparent = 'transparent'
@@ -77,6 +79,7 @@ module.exports = {
             white: white,
             black: black,
             gray: gray,
+            green: green,
 
             // Error messages
             warning: {

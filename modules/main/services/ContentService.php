@@ -95,7 +95,7 @@ class ContentService extends BaseService
 
         if (isset($data['localized'])) {
             foreach ($data['localized'] as $siteHandle => $localizedContent) {
-                $localizedEntry = $entry->getLocalized()->site($siteHandle)->one();
+                $localizedEntry = Entry::find()->id($entry->id)->site($siteHandle)->one();
                 if ($localizedEntry) {
                     if (isset($localizedContent['title'])) {
                         $localizedEntry->title = $localizedContent['title'];

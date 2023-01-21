@@ -46,7 +46,7 @@
                 rows: config.rows ?? 6,
                 cols: config.cols ?? 40,
                 autofocus: autofocus,
-                class: "block w-full shadow-sm py-3 px-4 bg-gray-50 focus:ring-secondary focus:border-primary border-secondary rounded-md shadow-md #{errors ? 'border-warning dark:border-warning-dark'} dark:text-gray-900"
+                class: "block w-full shadow-sm py-3 px-4 bg-gray-50 focus:ring-secondary focus:border-primary border-secondary rounded-md shadow-md #{errors ? 'border-warning dark:border-warning-dark'} text-black dark:text-gray-900"
             })|attr(extraAttr) }}
 
         {% case "choices" %}
@@ -55,7 +55,7 @@
                 name: config.name,
                 value: config.value,
                 options: config.options,
-                class: "block w-full shadow-sm bg-gray-50 focus:ring-secondary focus:border-primary border border-secondary rounded shadow-md #{errors ? 'border-warning dark:border-warning-dark'} dark:text-gray-900"
+                class: "block w-full shadow-sm bg-gray-50 focus:ring-secondary focus:border-primary border border-secondary rounded shadow-md #{errors ? 'border-warning dark:border-warning-dark'} text-black dark:text-gray-900"
             } only %}
 
         {% default %}
@@ -66,7 +66,7 @@
                 max: max,
                 autocomplete: autocomplete,
                 autofocus: autofocus,
-                class: "block w-full shadow-sm py-3 px-4 bg-gray-50 focus:ring-secondary focus:border-primary border-secondary rounded-md shadow-md #{errors ? 'border-warning dark:border-warning-dark'} dark:text-gray-900"
+                class: "block w-full shadow-sm py-3 px-4 bg-gray-50 focus:ring-secondary focus:border-primary border-secondary rounded-md shadow-md #{errors ? 'border-warning dark:border-warning-dark'} text-black dark:text-gray-900"
             })|attr(extraAttr) }}
 
         {% endswitch %}

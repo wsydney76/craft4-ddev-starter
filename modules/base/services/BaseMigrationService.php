@@ -18,7 +18,7 @@ use craft\models\Section;
 use craft\models\Section_SiteSettings;
 use craft\models\Site;
 use craft\records\FieldGroup as FieldGroupRecord;
-use modules\main\MainModule;
+use modules\base\BaseModule;
 use function collect;
 use function extract;
 use function in_array;
@@ -112,7 +112,7 @@ class BaseMigrationService extends BaseService
                 'pageTemplate' => "$this->templateRoot/_sections/$section->handle/index"
             ];
 
-            $contentService = MainModule::getInstance()->content;
+            $contentService = BaseModule::getInstance()->contentService;
 
             if ($withHeroFields) {
                 $image = $this->getRandomImage($this->minHeroImageWidth);

@@ -1,5 +1,11 @@
 # Plugins in DDEV
 
+If you are following the default conventions:
+
+Run `bash setup/plugin-dev`.
+
+If not, follow these instructions and adjust them to your needs.
+
 In order to pull in a plugin living outside the current DDEV project set up a mapping:
 
 Assuming plugins are located in the root directory `~/dev/plugins`, e.g. `~/dev/plugins/test`

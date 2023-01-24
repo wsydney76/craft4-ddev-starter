@@ -1,15 +1,18 @@
 <?php
 
-namespace modules\main\services;
+namespace modules\base\services;
 
 use Craft;
 use craft\elements\Entry;
 use craft\elements\User;
 use craft\fields\Matrix;
 use craft\helpers\ArrayHelper;
-use function implode;
+use yii\base\Component;
 
-class ContentService extends BaseService
+/**
+ * Content Service service
+ */
+class ContentService extends Component
 {
     public function test()
     {
@@ -134,6 +137,4 @@ class ContentService extends BaseService
 
         return $entry;
     }
-
-
 }

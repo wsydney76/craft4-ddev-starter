@@ -7,7 +7,7 @@ use craft\elements\Entry;
 use craft\events\ElementEvent;
 use craft\helpers\ElementHelper;
 use craft\services\Elements;
-use modules\BaseModule;
+use modules\base\BaseModule;
 use modules\main\behaviors\EntryBehavior;
 use modules\main\conditions\HasDraftsConditionRule;
 use modules\main\fields\EnvironmentVariableField;
@@ -15,7 +15,6 @@ use modules\main\fields\SiteField;
 use modules\main\resources\CpAssetBundle;
 use modules\main\services\ContentService;
 use modules\main\twigextensions\TwigExtension;
-use modules\main\widgets\ContentWidget;
 use modules\main\widgets\MyProvisionalDraftsWidget;
 use yii\base\Event;
 

@@ -18,12 +18,15 @@
  */
 
 use craft\helpers\App;
+use modules\base\BaseModule;
+use modules\base\Module;
 use modules\main\MainModule;
 
 return [
     'id' => App::env('CRAFT_APP_ID') ?: 'CraftCMS',
     'modules' => [
         'main' => MainModule::class,
+        'base' => BaseModule::class,
     ],
     'bootstrap' => ['main']
 ];

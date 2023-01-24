@@ -1,6 +1,6 @@
 <?php
 
-namespace modules;
+namespace modules\base;
 
 use Craft;
 use craft\base\conditions\BaseCondition;
@@ -15,15 +15,28 @@ use craft\services\Dashboard;
 use craft\services\Fields;
 use craft\web\twig\variables\Cp;
 use craft\web\View;
+use modules\base\services\ContentService;
 use yii\base\Event;
 use yii\base\Module;
 use function array_splice;
 
 
+/**
+ * @property-read ContentService $contentService
+ */
 class BaseModule extends Module
 {
 
     protected $handle = '';
+
+    public static function config(): array
+    {
+        return [
+            'components' => [
+                'contentService' => ContentService::class,
+            ],
+        ];
+    }
 
     public function init()
     {

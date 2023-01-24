@@ -1,19 +1,23 @@
 <?php
 
-namespace modules\main\services;
+namespace modules\base\services;
 
 use Craft;
 use craft\base\Component;
 use yii\helpers\Console;
 
+
 class BaseService extends Component
 {
+
+    protected string $logCategory = 'BaseService';
+
     protected function info(string $string): void
     {
         if (Craft::$app->request->isConsoleRequest) {
             Console::stdout($string . PHP_EOL);
         } else {
-            Craft::info($string, 'MainModule');
+            Craft::info($string, $this->logCategory);
         }
     }
 
@@ -22,7 +26,7 @@ class BaseService extends Component
         if (Craft::$app->request->isConsoleRequest) {
             Console::stderr($string . PHP_EOL);
         } else {
-            Craft::error($string, 'MainModule');
+            Craft::error($string, $this->logCategory);
         }
     }
 }

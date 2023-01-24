@@ -19,7 +19,6 @@
 
 use craft\helpers\App;
 use modules\base\BaseModule;
-use modules\base\Module;
 use modules\main\MainModule;
 
 return [
@@ -28,5 +27,5 @@ return [
         'main' => MainModule::class,
         'base' => BaseModule::class,
     ],
-    'bootstrap' => ['main']
+    'bootstrap' => ['main', 'base']
 ];

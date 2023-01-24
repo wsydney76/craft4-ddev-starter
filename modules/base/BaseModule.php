@@ -29,20 +29,16 @@ class BaseModule extends Module
 
     protected $handle = '';
 
-    public static function config(): array
-    {
-        return [
-            'components' => [
-                'contentService' => ContentService::class,
-            ],
-        ];
-    }
-
     public function init()
     {
         $this->setAlias();
 
         $this->setControllerNamespace();
+
+        $this->setComponents([
+            'contentService' => ContentService::class
+        ]);
+
 
         parent::init();
     }

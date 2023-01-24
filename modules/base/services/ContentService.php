@@ -12,7 +12,7 @@ use yii\base\Component;
 /**
  * Content Service service
  */
-class ContentService extends Component
+class ContentService extends BaseService
 {
     public function test()
     {

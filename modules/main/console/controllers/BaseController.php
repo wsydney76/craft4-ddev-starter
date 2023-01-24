@@ -4,7 +4,6 @@ namespace modules\main\console\controllers;
 
 use craft\console\Controller;
 use modules\base\BaseModule;
-use modules\main\MainModule;
 
 class BaseController extends Controller
 {

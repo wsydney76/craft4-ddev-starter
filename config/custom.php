@@ -51,4 +51,11 @@ return [
     // Copy from e.g. https://unpkg.com/htmx.org@1.8.0/dist/htmx.min.js
     'htmxScriptUrl' => '/assets/vendor/htmx/htmx.min.js', // 1.8.0
 
+    // Preload fonts used above the fold
+    'preloadFonts' => [
+        '/assets/fonts/open-sans-v27-latin-regular.woff2',
+        '/assets/fonts/raleway-v28-latin-800.woff2',
+        '/assets/fonts/open-sans-v27-latin-600.woff2'
+    ]
+
 ];

@@ -12,7 +12,7 @@ Usage:
    type: success|info|warning|error
 #}
 
-
+{# play with justify-xxx, items-xxx, flex-col-xxx for positioning and smooth transitions #}
 <div class="fixed z-50 inset-0 flex flex-col-reverse items-center justify-end h-screen w-screen"
      style="pointer-events:none"
      x-data="{
@@ -39,7 +39,7 @@ Usage:
      x-on:notice.window="add($event.detail)">
 
     <template x-for="notice in notices" :key="notice.id">
-        <div class="mt-2 py-2 px-8 w-96 z-50 rounded flex items-center justify-center text-white text-sm shadow-2xl cursor-pointer"
+        <div class="m-2 py-3 px-8 w-96 z-50 rounded flex items-center justify-center text-white shadow-2xl cursor-pointer"
              :class="{
                 'bg-green-800': notice.type === 'success',
                 'bg-primary': notice.type === 'info',

@@ -25,8 +25,8 @@ const gray = colors[grayColor]
 const green = colors[greenColor]
 const warning = colors['orange'][700]
 const warningDark = colors['orange'][400]
-const error = colors['orange'][700]
-const errorDark = colors['orange'][400]
+const error = colors['red'][600]
+const errorDark = colors['red'][400]
 
 const transparent = 'transparent'
 

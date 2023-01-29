@@ -34,6 +34,7 @@ In case you do not want to use DDEV:
 ### Sample content
 
 * Add some images (min 1200 px wide). Some starter images (copyright: Pixabay) are included.
+* More example images can be downloaded from Unsplash via `ddev craft main/seed/create-images [number]`. If it doesn't time out...
 * Run `ddev craft main/init` (or `php craft main/init` if not on DDEV)
 
 ## System

@@ -23,8 +23,11 @@ const white = '#ffffff'
 const background = colors.neutral[100]
 const gray = colors[grayColor]
 const green = colors[greenColor]
-const warning = colors['red'][700]
-const warningDark = colors['red'][400]
+const warning = colors['orange'][700]
+const warningDark = colors['orange'][400]
+const error = colors['orange'][700]
+const errorDark = colors['orange'][400]
+
 const transparent = 'transparent'
 
 
@@ -82,6 +85,12 @@ module.exports = {
             green: green,
 
             // Error messages
+
+            error: {
+                DEFAULT: error,
+                dark: errorDark
+            },
+
             warning: {
                 DEFAULT: warning,
                 dark: warningDark

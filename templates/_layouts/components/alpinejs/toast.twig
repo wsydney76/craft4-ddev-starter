@@ -1,0 +1,61 @@
+{# https://codepen.io/KevinBatdorf/pen/JjGKbMa?css-preprocessor=none #}
+
+{#
+Usage:
+
+   {% include '_layouts/components/alpinejs/toast.twig' %}
+
+   <div x-data>
+       <button @click="$dispatch('notice', {type: 'warning', text: 'Button geklickt!'})">Click</button>
+   </div>
+
+   type: success|info|warning|error
+#}
+
+
+<div class="fixed z-50 inset-0 flex flex-col-reverse items-center justify-end h-screen w-screen"
+     style="pointer-events:none"
+     x-data="{
+        notices: [],
+        visible: [],
+        add(notice) {
+            notice.id = Date.now()
+            this.notices.push(notice)
+            this.fire(notice.id)
+        },
+        fire(id) {
+            this.visible.push(this.notices.find(notice => notice.id === id))
+            const timeShown = 2500 * this.visible.length
+            setTimeout(() => {
+                this.remove(id)
+            }, timeShown)
+        },
+        remove(id) {
+            const notice = this.visible.find(notice => notice.id === id)
+            const index = this.visible.indexOf(notice)
+            this.visible.splice(index, 1)
+        },
+    }"
+     x-on:notice.window="add($event.detail)">
+
+    <template x-for="notice in notices" :key="notice.id">
+        <div class="mt-2 py-2 px-8 w-96 z-50 rounded flex items-center justify-center text-white text-sm shadow-2xl cursor-pointer"
+             :class="{
+                'bg-green-800': notice.type === 'success',
+                'bg-primary': notice.type === 'info',
+                'bg-warning': notice.type === 'warning',
+                'bg-error': notice.type === 'error',
+                }"
+             style="pointer-events:all"
+             x-show="visible.includes(notice)"
+             x-transition:enter="transition ease-in"
+             x-transition:enter-start="transform opacity-0 -translate-y-2"
+             x-transition:enter-end="transform opacity-100"
+             x-transition:leave="transition ease-out"
+             x-transition:leave-start="transform translate-y-0 opacity-100"
+             x-transition:leave-end="transform -translate-y-2 opacity-0"
+             x-on:click="remove(notice.id)"
+             x-text="notice.text">
+        </div>
+    </template>
+</div>

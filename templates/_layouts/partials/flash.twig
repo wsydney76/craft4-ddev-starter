@@ -6,7 +6,7 @@
         <span>{{ session.getFlash('notice')|t }}</span>
     </div>
 {% elseif session.hasFlash('error') %}
-    <div class="bg-warning p-4 rounded-md mb-8 text-white">
+    <div class="bg-error p-4 rounded-md mb-8 text-white">
         <span>{{ session.getFlash('error')|t }}</span>
     </div>
 {% endif %}

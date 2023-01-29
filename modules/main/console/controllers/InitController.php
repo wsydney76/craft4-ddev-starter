@@ -22,7 +22,7 @@ class InitController extends BaseController
     public function actionAll(): int
     {
 
-        if ($this->interactive && !$this->confirm('Run all init actions? This should only be done once, immediately after installing.')) {
+        if ($this->interactive && !$this->confirm('Run all init actions? This should only be done once, immediately after installing.', true)) {
             return ExitCode::UNSPECIFIED_ERROR;
         }
 

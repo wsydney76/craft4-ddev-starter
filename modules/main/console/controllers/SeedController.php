@@ -34,13 +34,13 @@ class SeedController extends BaseController
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
-        if ($this->interactive && !$this->confirm("Create {$num} entries of type '{$section->name}'? Make sure a number of images exist!")) {
+        if ($this->interactive && !$this->confirm("Create {$num} entries of type '{$section->name}'? Make sure a number of images exist!", true)) {
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
         $this->indexImages();
 
-        if ($this->interactive && $this->confirm("Add provisional alt text/copyright to images?")) {
+        if ($this->interactive && $this->confirm("Add provisional alt text/copyright to images?", true)) {
             foreach (Craft::$app->sites->allSites as $site) {
                 $images = Asset::find()
                     ->kind('image')
@@ -108,7 +108,7 @@ class SeedController extends BaseController
     public function actionCreateHeroArea(): int
     {
 
-        if ($this->interactive && !$this->confirm("Create hero area for homepage?")) {
+        if ($this->interactive && !$this->confirm("Create hero area for homepage?", true)) {
             return ExitCode::UNSPECIFIED_ERROR;
         }
 

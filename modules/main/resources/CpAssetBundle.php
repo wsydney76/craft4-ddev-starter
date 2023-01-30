@@ -15,7 +15,11 @@ class CpAssetBundle extends AssetBundle
         $this->depends = [CpAsset::class];
 
         $this->css = [
-          'cpstyles.css'
+            'cpstyles.css'
+        ];
+
+        $this->js = [
+            'cpscripts.js'
         ];
 
         parent::init();

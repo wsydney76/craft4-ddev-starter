@@ -59,3 +59,29 @@ body.ltr #notifications {
     background-color: white;
     padding: 4px;
 }
+
+/* toggle sidebar visibility */
+
+
+#sidebar li.heading > span {
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: block;
+}
+
+#sidebar li.heading > span:hover::after {
+    content: '  [-]';
+    font-weight: normal;
+    font-size: 12px;
+}
+#sidebar li.heading.collapsed > span::after {
+    content: ' [+]';
+    font-weight: normal;
+    font-size: 12px;
+}
+
+
+#sidebar li.heading.collapsed ul {
+    display: none;
+}

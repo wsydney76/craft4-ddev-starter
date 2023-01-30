@@ -12,6 +12,7 @@ ddev config --project-name=$1
 ddev start &&
 ddev composer install &&
 ddev craft install --interactive=0 --username=admin --password=password --email=admin@example.com &&
+ddev craft index-assets/one images &&
 echo Installing npm dependencies...
 ddev exec npm install &&
 ddev exec npm run build &&

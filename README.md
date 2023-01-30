@@ -28,6 +28,7 @@ In case you do not want to use DDEV:
   * `npm run build`
   * `cp .env.example .env`
   * `php craft setup/welcome` Enter your full URL when asked for 'Site URL'.
+  * `ddev craft index-assets/one images`
   * `php craft main/init`
 
 

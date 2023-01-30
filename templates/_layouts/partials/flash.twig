@@ -2,7 +2,7 @@
 {% set session = craft.app.session %}
 
 {% if session.hasFlash('notice') %}
-    <div class="bg-gray-700 p-4 rounded-md mb-8 text-white dark:bg-primary">
+    <div class="bg-success p-4 rounded-md mb-8 text-white">
         <span>{{ session.getFlash('notice')|t }}</span>
     </div>
 {% elseif session.hasFlash('error') %}

@@ -46,7 +46,7 @@ CSS:
 
 function isElementIndex(elementType) {
     urlSegments = window.location.pathname.split("/");
-    return urlSegments.length >= 3 && urlSegments[2] == elementType
+    return urlSegments.length >= 3 && urlSegments[2] === elementType
 }
 
 function initSidebarVisibility(elementType) {

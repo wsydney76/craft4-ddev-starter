@@ -6,10 +6,10 @@ Usage:
    {% include '_layouts/components/alpinejs/toast.twig' %}
 
    <div x-data>
-       <button @click="$dispatch('notice', {type: 'warning', text: 'Button geklickt!'})">Click</button>
+       <button @click="$dispatch('notice', {type: 'success', text: 'Button geklickt!'})">Click</button>
    </div>
 
-   type: success|info|warning|error
+   type: success|warning|error
 #}
 
 {# play with justify-xxx, items-xxx, flex-col-xxx for positioning and smooth transitions #}
@@ -41,8 +41,7 @@ Usage:
     <template x-for="notice in notices" :key="notice.id">
         <div class="m-2 py-3 px-8 w-96 z-50 rounded flex items-center justify-center text-white shadow-2xl cursor-pointer"
              :class="{
-                'bg-green-800': notice.type === 'success',
-                'bg-primary': notice.type === 'info',
+                'bg-success': notice.type === 'success',
                 'bg-warning': notice.type === 'warning',
                 'bg-error': notice.type === 'error',
                 }"

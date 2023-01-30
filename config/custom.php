@@ -1,15 +1,24 @@
 <?php
 
 return [
+    'stickyMenu' => true,
+
     'entriesPerPage' => 12,
     'latestNewsLimit' => 8,
 
     'defaultTransform' => ['width' => 1024],
     'defaultSrcSet' => [1024, 640, 400],
 
-    'heroTransform' => ['width' => 2000, 'height' => 600],
-    'heroSrcSet' => [2000, 1580, 1024, 768, 640, 360],
-
+    // full/xl, as defined in hero-area-display.twig
+    'heroWidth' => 'xl',
+    'heroTransform' => [
+        'full' => ['width' => 2000, 'height' => 600],
+        'xl' => ['width' => 1280, 'height' => 600]
+    ],
+    'heroSrcSet' => [
+        'full' => [2000, 1580, 1024, 768, 640, 360],
+        'xl' => [1280, 768, 640, 360]
+    ],
 
     'cardTransform' => ['width' => 450, 'height' => 300],
     'defaultImageFormat' => 'webp',

@@ -16,7 +16,7 @@
 {% set queryParams = entry.type == 'search' ? null : craft.app.request.queryParams %}
 
 {# Alpine Component #}
-<div class="relative bg-header-background text-header-foreground dark:bg-header-background-dark dark:text-header-foreground-dark border-b border-header-border dark:border-header-border-dark"
+<div class="{{ craft.app.config.custom.stickyMenu ? 'sticky top-0 z-40' }} relative bg-header-background text-header-foreground dark:bg-header-background-dark dark:text-header-foreground-dark border-b border-header-border dark:border-header-border-dark"
      x-data="{open: false}">
 
     <div class="mx-auto container px-4 md:px-8">

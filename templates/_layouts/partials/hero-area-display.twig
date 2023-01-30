@@ -13,19 +13,24 @@
 {% from '_layouts/macros/lib.twig' import img %}
 {% from '_layouts/macros/lib.twig' import imgCopyright %}
 
+{% set classes = {
+    full: '',
+    xl: 'max-w-screen-xl mx-auto mt-8 px-8'
+} %}
+
 {% if image %}
 
     {% set config = craft.app.config.custom %}
 
-    <div>
+    <div class="{{ classes[config.heroWidth] }}">
         <div class="relative">
             <div class="max-w-full">
                 <div class="relative sm:overflow-hidden">
                     <div class="absolute inset-0">
 
                         {{ img(image, {
-                            transform: config.heroTransform,
-                            srcset: config.heroSrcSet,
+                            transform: config.heroTransform[config.heroWidth],
+                            srcset: config.heroSrcSet[config.heroWidth],
                             attr: {
                                 class: 'h-full w-full object-cover',
                                 loading: null,

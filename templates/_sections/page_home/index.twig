@@ -1,6 +1,6 @@
 {# Show home page content #}
 
-{% embed '_layouts/embeds/content-xl.twig' %}
+{% embed '_layouts/embeds/content-xl.twig' with {showHeader: false} %}
     {% block content %}
         {% from '_layouts/macros/lib.twig' import pageButton %}
 

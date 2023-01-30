@@ -12,16 +12,21 @@ DOM Structure:
 CSS:
 
     #sidebar li.heading > span {
+        font-size: 14px;
+        letter-spacing: 1px;
         cursor: pointer;
+        display: block;
     }
 
-    #sidebar li.heading > span::after {
+    #sidebar li.heading > span:hover::after {
         content: '  [-]';
         font-weight: normal;
         font-size: 12px;
     }
     #sidebar li.heading.collapsed > span::after {
-        content: '  [+]';
+        content: ' [+]';
+        font-weight: normal;
+        font-size: 12px;
     }
 
 
@@ -63,10 +68,9 @@ function initSidebarVisibility(elementType) {
 
 // store settings in local storage
 function storeSidebarVisibility(elementType, headingNodes) {
-    v = {};
+    var v = {};
     headingNodes.forEach(function(element) {
         v[element.innerText] = element.parentElement.classList.contains('collapsed') ? 'hidden' : 'visible'
-        // v.push(element.parentElement.classList.contains('collapsed') ? 'hidden' : 'visible')
     });
     localStorage['sidebarVisiblity_' + elementType] = JSON.stringify(v);
 }
@@ -80,9 +84,6 @@ function setSidebarVisibility(elementType, headingNodes) {
     }
 
     v = JSON.parse(v);
-
-    console.log(v)
-
 
     headingNodes.forEach( (element, index) => {
         if (v[element.innerText] == 'hidden') {

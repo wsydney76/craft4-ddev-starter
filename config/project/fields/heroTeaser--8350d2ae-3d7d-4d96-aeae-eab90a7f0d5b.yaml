@@ -1,0 +1,19 @@
+columnSuffix: qcqqkfxb
+contentColumnType: string(250)
+fieldGroup: c38953ca-ba84-4992-8deb-65aa2fc40b34 # Hero Area
+handle: heroTeaser
+instructions: 'Above the title'
+name: 'Hero Teaser'
+searchable: false
+settings:
+  byteLimit: 250
+  charLimit: null
+  code: false
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: language
+type: craft\fields\PlainText

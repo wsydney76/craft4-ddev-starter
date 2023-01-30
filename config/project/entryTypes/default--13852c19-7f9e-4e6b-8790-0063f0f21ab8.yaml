@@ -5,6 +5,18 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            elementCondition: null
+            fieldUid: 8350d2ae-3d7d-4d96-aeae-eab90a7f0d5b # Hero Teaser
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c245459d-5dab-4726-b2d9-d2a0b748dd8b
+            userCondition: null
+            warning: null
+            width: 100
+          -
             autocapitalize: true
             autocomplete: false
             autocorrect: true

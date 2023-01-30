@@ -10,7 +10,7 @@ return [
     'defaultSrcSet' => [1024, 640, 400],
 
     // full/xl, as defined in hero-area-display.twig
-    'heroWidth' => 'xl',
+    'heroWidth' => 'full',
     'heroTransform' => [
         'full' => ['width' => 2000, 'height' => 600],
         'xl' => ['width' => 1280, 'height' => 600]
@@ -62,8 +62,8 @@ return [
 
     // Preload fonts used above the fold
     'preloadFonts' => [
+        '/assets/fonts/raleway-v22-latin-700.woff2',
         '/assets/fonts/open-sans-v27-latin-regular.woff2',
-        '/assets/fonts/raleway-v28-latin-800.woff2',
         '/assets/fonts/open-sans-v27-latin-600.woff2'
     ]
 

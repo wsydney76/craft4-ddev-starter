@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1675076050
+dateModified: 1675088245
 elementSources:
   craft\elements\Asset:
     -
@@ -229,6 +229,7 @@ meta:
     4120c3e9-17c2-464b-8d41-7d009dacb5e3: 'Page Template' # Page Template
     4401f3f7-9915-4cd0-b3d9-987755e4bdf8: Image # Image
     6739b2cb-a865-433d-9732-cdd6a419188d: 'Page Template' # Page Template
+    8350d2ae-3d7d-4d96-aeae-eab90a7f0d5b: 'Hero Teaser' # Hero Teaser
     13852c19-7f9e-4e6b-8790-0063f0f21ab8: Default # Default
     44993cef-3718-479f-8c88-bdede1d256ba: 'Card Text' # Card Text
     75980a78-5a14-4d80-8e9c-b0616d62e02e: 'Hero Area' # Hero Area

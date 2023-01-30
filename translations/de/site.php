@@ -109,4 +109,5 @@ return [
     'Wide' => 'Breit',
     'Will be show on the news index page instead of the tagline' => 'Wird auf der News-Indexseite anstelle der Schlagzeile angezeigt',
     'Work' => 'In Arbeit',
+    'Above the title' => 'Über dem Titel',
 ];

@@ -23,13 +23,13 @@ In case you do not want to use DDEV:
 * Set up a development environment as you are used to, incl. database and web server
 * Php 8.1 and Node js V16 required
 * Run
-  * `composer install`
-  * `npm install`
-  * `npm run build`
-  * `cp .env.example .env`
-  * `php craft setup/welcome` Enter your full URL when asked for 'Site URL'.
-  * `ddev craft index-assets/one images`
-  * `php craft main/init`
+    * `composer install`
+    * `npm install`
+    * `npm run build`
+    * `cp .env.example .env`
+    * `php craft setup/welcome` Enter your full URL when asked for 'Site URL'.
+    * `ddev craft index-assets/one images`
+    * `php craft main/init`
 
 
 ### Sample content
@@ -42,8 +42,8 @@ In case you do not want to use DDEV:
 
 * Added modules/_faux to enable autocompletion for some most frequently used variables in twig
 * Adds main module modules/main
-  * Adds main/init and main/seed console controllers for creating starter/sample content
-  * Adds main/assets console controller for asset transforms helper functions
+    * Adds main/init and main/seed console controllers for creating starter/sample content
+    * Adds main/assets console controller for asset transforms helper functions
 * Set system timezone to Europe/Berlin
 * Added /web/cpresources, /node_modules to .gitignore
 * Added some settings to config/general.php
@@ -53,24 +53,27 @@ In case you do not want to use DDEV:
 * Added code for better validation on multi site installs
 * Added frontend tooling that uses Tailwind CSS, Alpine JS, Baguettebox (Lightbox) via Vite/Craft Vite plugin
 * Added custom css for the control panel
-* Added plugins: Contact Form, Element Map (custom), Imager X (optional), SEO Mate, Sprig, Vite
+* Added plugins: Contact Form, Element Map (custom), Content Overview (custom, PoC) Imager X (optional), SEO Mate, Sprig, Vite
 
 ## Custom Config
 
 This starter comes with a mix of functionality that is likely to be used in every project.
 
 * Pages section: We don't use singles, instead dedicated entry sections. Main navigation shows children of the homepage.
-  * Home page
-  * News Index: paginated card view of news entries
-  * FAQs: FAQs with Alpine JS component
-  * Contact: Simple contact form with first party Contact Form plugin
-  * Sitemap
-  * Search powered by Sprig
-  * Default: just heading and blocks
+    * Home page. One page with slug `__home__` required.
+    * News Index: paginated card view of news entries
+    * FAQs: FAQs with Alpine JS component
+    * Contact: Simple contact form with first party Contact Form plugin
+    * Sitemap
+    * Search powered by Sprig
+    * Default: just heading and blocks
+    * Nav item: Does not have its own content, it creates a primary navigation item that lists its children in a dropdown
+    * Section Index: Create a simple index page for new sections.
+    * Page Template: Create a page that renders a custom page template, e.g. for more specific section indexes with eager loading enabled.
 * News section
 * Legal section. Use for privacy, imprint. Shown in footer navigation
 * Hero Area: Embedded section. This allows hero area/CTA content which can be scheduled precisely, independent of the owning entry.
-* Content Builder field with block types: Heading, Text, Image, Gallery, Quote, Cards, YouTube Video
+* Content Builder field with block types: Heading, Text, Image, Gallery, Quote, Cards, YouTube Video, Dynamic content (custom template)
 * Site Info global inc. contact info
 * Assets with translatable alt text, copyright field
 * SEO via Seomate plugin inc. Json-ld meta data
@@ -79,25 +82,95 @@ This starter comes with a mix of functionality that is likely to be used in ever
 * Volumes/file systems. Images volume outside of web root, so transformed images are forced on front end. No use of named image transforms.
 * Custom config file inc. transform settings
 * Tailwind CSS config with named colors
+* Dark mode switch for templates
 
 
 ## Templating
-Layout inspired by Craft Quest Real World CMS course templates
+
+Layout inspired by Craft Quest Real World CMS course templates.
 
 Folders:
 
-* _layouts: Templates that define the general look and feel of the site, mostly independent from the actual content model.
-  * components: Sprig/Alpine JS components like search, accordion, scroll-to-top button
-  * embeds: Layout components, incl. page content layouts(single colum wide/narrow, sidebar), cards, widgets etc. Dark mode switch for front end
-  * macros: img macro for advanced image handling, prepared for Imager-X plugin
-  * partials: includes for hero area, page headers, buttons etc.
+* _layouts: Templates that define the general look and feel of the site, mostly independent of the actual content model.
+    * components: Sprig/Alpine JS components like search, accordion, scroll-to-top button
+    * embeds: Layout components, incl. page content layouts(single colum wide/narrow, sidebar), cards, widgets etc. Dark mode switch for front end
+    * macros: img macro for advanced image handling, prepared for Imager-X plugin
+    * partials: includes for hero area, page headers, buttons etc.
 * \_sections/[sectionHandle], \_sections/[sectionHandle]_[typeHandle]: Section/Type specific templates. The following templates will be called if present in the folder:
-  * card-content.twig: Section/type specific content for cards. Use card-text embed for consistent layout.
-  * hero-area.twig: Outputs a section/type specific hero area
-  * json-ld.twig: Outputs section/type specific Json-ld meta data
+    * card-content.twig: Section/type specific content for cards. Use card-text embed for consistent layout.
+    * hero-area.twig: Outputs a section/type specific hero area
+    * json-ld.twig: Outputs section/type specific Json-ld meta data
 * _blocks: Content builder block type templates
 * _errors: Templates for error pages
 * _macros: Project specific macros
 * _partials: Project specific partial templates
 * _widgets: Widget example for sidebar layouts
+
+## Hero Area
+
+The hero area should be rendered by `_layouts/partials/hero-area-display.twig`.
+
+* a background image with copyright
+* a teaser line above the title (optional)
+* a title
+* a tagline (optial)
+* a call-to-action button (optional)
+
+Content is determined in the following order:
+
+* the entry template overwrites the `heroArea` twig blog
+* a `_sections/#{entry.section.handle}_#{entry.type.handle}/hero-area.twig` template exists
+* a `_sections/#{entry.section.handle}/hero-area.twig` template exists
+* the current entry links to `Hero Area` entries. The first 'live' hero area entry will be displayed, this enables you to play with site specific or temporary hero areas, setting enabled/post date/expires. Remember to refresh cached pages... 
+* the current entry links to a `Featured Entry`.
+
+## Components
+
+### Layout components
+
+tbd. In the meantime see `_layouts/embeds, _layouts/embeds`.
+
+
+### Macros
+
+tdb. In the meantime see `_layouts/macros`.
+
+Always use the `img` macro for images!
+
+### Alpine.js components
+
+tbd. In the meantime see `_layouts/components/alpinejs`.
+
+Includes a number of components that are not used in this starter, but can be useful for a better user experience.
+
+
+## Customization
+
+Update templates as you like.
+
+* Run `npm run dev (automatic reloading)/npm run build` when changing tailwind stuff (config/classes in templates).
+
+### config/custom.php
+
+* `'stickyMenu' => true,` for sticky navigation
+* `'heroWidth' => 'xl',` if you do not want a full width hero area
+
+### tailwind.config.js
+
+Templates mostly use named colors, like primary, as a starting point the default Tailwind colors are used.
+
+* change color values to match your custom color schema.
+* `hasDarkHeader = false / hasDarkFooter = false` if you do not want a dark background for header/footer
+* set `borderRadius` values to 0 if you do not want to use rounded corners for images
+
+### Fonts
+
+Fonts are hosted locally, Google fonts can be downloaded from [https://gwfh.mranftl.com/fonts](https://gwfh.mranftl.com/fonts).
+
+`font-heading` is used for headlines.
+
+* Place fonts in `web/assets/fonts`
+* Update `fontFamily` in `tailwind.config.js`
+* Update `resources/css/fonts/fonts.css`. Make sure `font-display: swap;` is defined.
+* Update `preloadFonts` in `config/custom.php` for fonts used above the fold.
 

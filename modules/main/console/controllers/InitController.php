@@ -93,7 +93,7 @@ class InitController extends BaseController
             $global->setFieldValue('email', App::env('EMAIL_ADDRESS'));
             $global->setFieldValue('phoneNumber', $faker->phoneNumber());
             $global->setFieldValue('socialLinks', [
-                ['col1' => 'twitter', 'col2' => 'https://twitter.com'],
+                ['col1' => 'mastodon', 'col2' => 'https://joinmastodon.org'],
                 ['col1' => 'instagram', 'col2' => 'https://instagram.com'],
             ]);
             $global->setFieldValue('textModules', [

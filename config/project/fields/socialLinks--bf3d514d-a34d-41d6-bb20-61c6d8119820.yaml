@@ -73,6 +73,17 @@ settings:
                     -
                       - default
                       - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - Mastodon
+                    -
+                      - value
+                      - mastodon
+                    -
+                      - default
+                      - false
       -
         - col2
         -

@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1675088245
+dateModified: 1675098241
 elementSources:
   craft\elements\Asset:
     -
@@ -63,6 +63,9 @@ elementSources:
       type: custom
   craft\elements\Entry:
     -
+      defaultSort:
+        - postDate
+        - desc
       disabled: true
       key: '*'
       tableAttributes:
@@ -73,6 +76,9 @@ elementSources:
       heading: Site
       type: heading
     -
+      defaultSort:
+        - structure
+        - asc
       disabled: false
       key: 'section:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
       tableAttributes:

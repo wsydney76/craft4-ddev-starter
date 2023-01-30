@@ -86,7 +86,7 @@ function setSidebarVisibility(elementType, headingNodes) {
     v = JSON.parse(v);
 
     headingNodes.forEach( (element, index) => {
-        if (v[element.innerText] == 'hidden') {
+        if (element.innerText in v && v[element.innerText] === 'hidden') {
             element.parentElement.classList.add('collapsed');
         }
     })

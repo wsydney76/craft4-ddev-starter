@@ -42,7 +42,7 @@
 
             {# Site Logo #}
             <div class="flex justify-start">
-                {% include '_layouts/partials/nav-logo-desktop.twig' with {
+                {% include '_layouts/partials/nav/logo-desktop.twig' with {
                 	logo
                 } only %}
             </div>
@@ -50,7 +50,7 @@
             {# Menu Button #}
             {% if config.mobileNavBreakpoint != 'never' %}
                 <div class="-mr-2 -my-2 {{ breakpointClasses[config.mobileNavBreakpoint].button }}">
-                    {% include '_layouts/partials/nav-mobile-menu-button.twig' %}
+                    {% include '_layouts/partials/nav/mobile-menu-button.twig' %}
                 </div>
             {% endif %}
 
@@ -58,12 +58,12 @@
             {% if config.mobileNavBreakpoint != 'always' %}
                 <nav class="{{ breakpointClasses[config.mobileNavBreakpoint].nav }} items-center space-x-4">
 
-                    {% include '_layouts/partials/nav-items-desktop.twig' with {
+                    {% include '_layouts/partials/nav/items-desktop.twig' with {
                         navEntries
                     } only %}
 
                     {# Site Switcher #}
-                    {% include '_layouts/partials/nav-siteswitcher-desktop.twig' with {
+                    {% include '_layouts/partials/nav/siteswitcher-desktop.twig' with {
                         localizedEntries,
                         queryParams
                     } only %}
@@ -86,18 +86,18 @@
                     <div class="flex items-center justify-between">
 
                         {# Site Logo #}
-                        {% include '_layouts/partials/nav-logo-mobile.twig' with {
+                        {% include '_layouts/partials/nav/logo-mobile.twig' with {
                             logo
                         } only %}
 
                         {# Close Button #}
-                        {% include '_layouts/partials/nav-close-button.twig' %}
+                        {% include '_layouts/partials/nav/close-button.twig' %}
                     </div>
 
                     <div class="mt-6">
                         <nav class="grid gap-y-8">
 
-                            {% include '_layouts/partials/nav-items-mobile.twig' with {
+                            {% include '_layouts/partials/nav/items-mobile.twig' with {
                                 navEntries
                             } only %}
 
@@ -107,7 +107,7 @@
 
                 {# Site Switcher #}
                 <div class="py-6 px-5 space-y-6">
-                    {% include '_layouts/partials/nav-siteswitcher-mobile.twig' with {
+                    {% include '_layouts/partials/nav/siteswitcher-mobile.twig' with {
                         localizedEntries,
                         queryParams
                     } only %}

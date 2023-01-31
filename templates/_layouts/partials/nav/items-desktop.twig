@@ -7,7 +7,7 @@
 
     {% if navEntry.type.handle == 'navItem' %}
 
-        {% set navTemplate = navEntry.navItemTemplate ?? '_layouts/partials/nav-item.twig' %}
+        {% set navTemplate = navEntry.navItemTemplate ?? '_layouts/partials/nav/item.twig' %}
 
         {% include navTemplate with {
         	entry: navEntry,

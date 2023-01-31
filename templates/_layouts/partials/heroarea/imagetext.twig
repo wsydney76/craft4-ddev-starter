@@ -1,0 +1,14 @@
+{# Demo only. Delete if not used #}
+
+{% from '_layouts/macros/lib.twig' import img %}
+{% from '_layouts/macros/lib.twig' import imgCopyright %}
+
+{{ img(image, {
+    transform: config.heroTransform[config.heroWidth],
+    attr: {
+        loading: null,
+        fetchpriority: 'high'
+    }
+}) }}
+
+{% include '_layouts/partials/heroarea/textonly.twig' %}

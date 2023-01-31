@@ -16,6 +16,9 @@ return [
 
     // full/xl, as defined in hero-area-display.twig
     'heroWidth' => 'full',
+    // template in _layouts/partials/heroarea
+    'heroTemplate' => 'default',
+    'heroFallbackTemplate' => 'textonly',
     'heroTransform' => [
         'full' => ['width' => 2000, 'height' => 600],
         'xl' => ['width' => 1280, 'height' => 600]

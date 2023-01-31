@@ -1,0 +1,41 @@
+{# Demo only. Delete if not used #}
+
+{% from '_layouts/macros/lib.twig' import img %}
+{% from '_layouts/macros/lib.twig' import imgCopyright %}
+
+{{ img(image, {
+    transform: config.heroTransform[config.heroWidth],
+    attr: {
+        loading: null,
+        fetchpriority: 'high'
+    }
+}) }}
+
+
+<div class="bg-primary text-white mb-12 p-8">
+    <div class="max-w-screen-xl mx-auto pt-2 pb-4">
+        {% if teaser is defined and teaser %}
+            <div class="mb-2">
+                {{ teaser }}
+            </div>
+        {% endif %}
+
+        <h1 class="text-2xl xl:text-4xl font-light tracking-wide">
+            {{ title }}
+        </h1>
+
+        <p class="mt-6 text-xl tracking-wider text-white sm:max-w-3xl">
+            {{ tagline }}
+        </p>
+
+        {% if url and caption %}
+            <div class="mt-8">
+                {% include '_layouts/partials/button.twig' with {
+                    caption: caption,
+                    href: url,
+                    color: 'white'
+                } only %}
+            </div>
+        {% endif %}
+    </div>
+</div>

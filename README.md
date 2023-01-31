@@ -108,13 +108,33 @@ Folders:
 
 ## Hero Area
 
-The hero area should be rendered by `_layouts/partials/hero-area-display.twig`.
+The hero area shows:
 
 * a background image with copyright
 * a teaser line above the title (optional)
 * a title
 * a tagline (optial)
 * a call-to-action button (optional)
+
+
+The hero area should be rendered via `_layouts/partials/hero-area-display.twig`.
+
+The actual template lives in `_layouts/partials/heroarea` and is determined
+
+* by a `template` parameter
+* by the `heroTemplate` setting in `config/custom.php`
+
+The `default` template is prepared for this starter. 
+
+Some hero templates stolen from other projects are included as demo, styling needs to be optimized, image transforms should be adjusted.
+
+* textonly: No image, this is by default also used as a fallback if no image is present.
+* imagetext: image + textonly below
+* imagecoloredbg: image + text on a colored background
+* introimage: colored background with an overlapping image
+* skew: image with a semi transparent, gradient overlay. This is fancy, but works only for short titles.
+
+Unused templates should be deleted in order to avoid unused tailwind classes in your css.
 
 Content is determined in the following order:
 
@@ -160,6 +180,7 @@ See comments for possible values.
 * `'heroWidth' => 'xl',` if you do not want a full width hero area
 * `'navWidth' => 'xl',` Width of primary navigation header
 * `'mobileNavBreakpoint' => 'md',` When to show the mobile (hamburger) menu. 
+* `'heroTemplate' => 'skew',` The template for the hero area. See below.
 
 ### tailwind.config.js
 

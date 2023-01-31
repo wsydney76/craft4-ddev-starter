@@ -1,0 +1,46 @@
+{# Demo only. Delete if not used #}
+
+{% from '_layouts/macros/lib.twig' import img %}
+{% from '_layouts/macros/lib.twig' import imgCopyright %}
+
+<div class="pt-20 pb-60 bg-primary text-white">
+    <div class="container mx-auto px-8">
+
+{#        {% include '_layouts/partials/fullwidth/includes/meta.twig' %}#}
+
+        {% if teaser is defined and teaser %}
+            <div class="mb-2 font-serif italic">
+                {{ teaser }}
+            </div>
+        {% endif %}
+
+        <div class=" max-w-screen-lg">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider">{{ title }}</h1>
+        </div>
+
+        {% if tagline is defined and tagline %}
+            <div class="mt-12 max-w-screen-md italic font-serif text-xl sm:text-2xl leading-loose">
+                {{ tagline }}
+            </div>
+        {% endif %}
+
+        {% if url and caption %}
+            <div class="mt-8">
+                {% include '_layouts/partials/button.twig' with {
+                    caption: caption,
+                    href: url,
+                    color: 'white'
+                } only %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+
+
+<div class="container mx-auto -mt-44 mb-20">
+    {{ img(image,  {
+        transform: {width: 1024, height: 400},
+        showCopyright: false}) }}
+</div>
+

@@ -1,0 +1,19 @@
+columnSuffix: tuizefdr
+contentColumnType: string
+fieldGroup: d50026f3-a236-4ae2-b00a-af55076acd17 # Site
+handle: navItemTemplate
+instructions: 'The template that renders the dropdown panel. If empty, the direct descendants of this entry will be shown.'
+name: 'Nav Item Template'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: string
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

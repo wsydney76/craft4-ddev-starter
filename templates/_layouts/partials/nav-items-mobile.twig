@@ -1,18 +1,16 @@
 {% from '_layouts/macros/lib.twig' import navLink %}
-{% from '_layouts/macros/lib.twig' import navLinkClasses %}
 
 {% for navEntry in navEntries|filter(e => e.level == 2) %}
     {% if navEntry.type.handle == 'navItem' %}
-        <div class="{{ navLinkClasses() }}">
-            {{ navEntry.title }}
-            <ul class="ml-8 space-y-4 mt-4">
-                {% for child in navEntries|filter(e => e.parentId == navEntry.id) %}
-                    <li>{{ navLink(child.menuTitle ?: child.title, child.url) }}</li>
-                {% endfor %}
-            </ul>
-        </div>
+        {% set navTemplate = navEntry.navItemTemplate ?? '_layouts/partials/nav-item.twig' %}
+
+        {% include navTemplate with {
+            entry: navEntry,
+            children: navEntries|filter(e => e.parentId == navEntry.id),
+            active: false,
+            isDesktop: false
+        } only %}
     {% else %}
         {{ navLink(navEntry.menuTitle ?: navEntry.title, navEntry.url) }}
     {% endif %}
-
 {% endfor %}

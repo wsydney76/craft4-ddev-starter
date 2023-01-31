@@ -7,23 +7,14 @@
 
     {% if navEntry.type.handle == 'navItem' %}
 
-        {% set children = navEntries|filter(e => e.parentId == navEntry.id) %}
-        {% if children %}
-            {% embed '_layouts/components/alpinejs/dropdown.twig' with {
-                caption: navEntry.title,
-                active,
-                style: 'nav'
-            } %}
-                {% block panel %}
-                    {% from '_layouts/macros/lib.twig' import navLink %}
-                    {% for child in children %}
-                        <div class="my-2">
-                            {{ navLink(child.title, child.url) }}
-                        </div>
-                    {% endfor %}
-                {% endblock %}
-            {% endembed %}
-        {% endif %}
+        {% set navTemplate = navEntry.navItemTemplate ?? '_layouts/partials/nav-item.twig' %}
+
+        {% include navTemplate with {
+        	entry: navEntry,
+            children: navEntries|filter(e => e.parentId == navEntry.id),
+            active,
+            isDesktop: true
+        } only %}
 
     {% else %}
         {{ navLink(navEntry.menuTitle ?: navEntry.title, navEntry.url, active) }}

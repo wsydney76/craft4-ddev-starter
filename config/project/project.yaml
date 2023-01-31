@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1675098241
+dateModified: 1675159922
 elementSources:
   craft\elements\Asset:
     -
@@ -293,6 +293,7 @@ meta:
     eb6b24cc-83d7-416f-be4b-d002c7688b58: Copyright # Copyright
     eb61b6c1-d43a-4bf6-8091-bc71c44a9dcf: Entries # Entries
     ebe8548f-7f01-49b6-af98-56da49668e79: Logo # Logo
+    ec70b604-43e4-45f8-bab5-0ab78983f3ce: 'Nav Item Template' # Nav Item Template
     ed627edd-73bd-4b75-8684-f410bf4e4b9d: 'Temporary Images' # Temporary Images
     ee6f8d07-ca81-4da0-991c-491e5108bff8: Home # Home
     f3c6560d-3487-4f65-a4f9-ac2926397b57: 'Aspect Ratio' # Aspect Ratio

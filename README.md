@@ -67,7 +67,7 @@ This starter comes with a mix of functionality that is likely to be used in ever
     * Sitemap
     * Search powered by Sprig
     * Default: just heading and blocks
-    * Nav item: Does not have its own content, it creates a primary navigation item that lists its children in a dropdown
+    * Nav item: Does not have its own content, it creates a primary navigation item that lists its children in a dropdown, or renders a custom template in the dropdown panel.
     * Section Index: Create a simple index page for new sections.
     * Page Template: Create a page that renders a custom page template, e.g. for more specific section indexes with eager loading enabled.
 * News section
@@ -150,14 +150,20 @@ Update templates as you like.
 
 * Run `npm run dev (automatic reloading)/npm run build` when changing tailwind stuff (config/classes in templates).
 
+Settings worth mentioning:
+
 ### config/custom.php
+
+See comments for possible values.
 
 * `'stickyMenu' => true,` for sticky navigation
 * `'heroWidth' => 'xl',` if you do not want a full width hero area
+* `'navWidth' => 'xl',` Width of primary navigation header
+* `'mobileNavBreakpoint' => 'md',` When to show the mobile (hamburger) menu. 
 
 ### tailwind.config.js
 
-Templates mostly use named colors, like primary, as a starting point the default Tailwind colors are used.
+Templates use named colors (except `gray`), like `primary`. As a starting point default Tailwind colors are used.
 
 * change color values to match your custom color schema.
 * `hasDarkHeader = false / hasDarkFooter = false` if you do not want a dark background for header/footer

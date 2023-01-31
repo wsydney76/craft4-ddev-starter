@@ -15,11 +15,29 @@
 {# No query params for site switcher if reactive content #}
 {% set queryParams = entry.type == 'search' ? null : craft.app.request.queryParams %}
 
+{% set containerClass = {
+    container: 'container',
+    lg: 'max-w-screen-lg',
+    xl: 'max-w-screen-xl',
+    '2xl': 'max-w-screen-2xl'
+} %}
+
+{% set breakpointClasses = {
+    md: {button: 'md:hidden', nav:'hidden md:flex'},
+    lg: {button: 'lg:hidden', nav:'hidden lg:flex'},
+    xl: {button: 'xl:hidden', nav:'hidden xl:flex'},
+    '2xl': {button: '2xl:hidden', nav:'hidden 2xl:flex'},
+    never: {button: 'hidden', nav:'flex'},
+    always: {button: '', nav: 'hidden'}
+} %}
+
+{% set config = craft.app.config.custom %}
+
 {# Alpine Component #}
-<div class="{{ craft.app.config.custom.stickyMenu ? 'sticky top-0 z-40' }} relative bg-header-background text-header-foreground dark:bg-header-background-dark dark:text-header-foreground-dark border-b border-header-border dark:border-header-border-dark"
+<div class="{{ config.stickyMenu ? 'sticky top-0 z-40' }} relative bg-header-background text-header-foreground dark:bg-header-background-dark dark:text-header-foreground-dark border-b border-header-border dark:border-header-border-dark"
      x-data="{open: false}">
 
-    <div class="mx-auto container px-4 md:px-8">
+    <div class="mx-auto {{ containerClass[config.navWidth] }} px-4 md:px-8">
         <div class="flex justify-between items-center py-4 md:space-x-10">
 
             {# Site Logo #}
@@ -30,66 +48,72 @@
             </div>
 
             {# Menu Button #}
-            <div class="-mr-2 -my-2 md:hidden">
-                {% include '_layouts/partials/nav-mobile-menu-button.twig' %}
-            </div>
+            {% if config.mobileNavBreakpoint != 'never' %}
+                <div class="-mr-2 -my-2 {{ breakpointClasses[config.mobileNavBreakpoint].button }}">
+                    {% include '_layouts/partials/nav-mobile-menu-button.twig' %}
+                </div>
+            {% endif %}
 
             {# Desktop Nav #}
-            <nav class="hidden md:flex items-center space-x-4">
+            {% if config.mobileNavBreakpoint != 'always' %}
+                <nav class="{{ breakpointClasses[config.mobileNavBreakpoint].nav }} items-center space-x-4">
 
-                {% include '_layouts/partials/nav-items-desktop.twig' with {
-                	navEntries
-                } only %}
+                    {% include '_layouts/partials/nav-items-desktop.twig' with {
+                        navEntries
+                    } only %}
 
-                {# Site Switcher #}
-                {% include '_layouts/partials/nav-siteswitcher-desktop.twig' with {
-                	localizedEntries,
-                    queryParams
-                } only %}
+                    {# Site Switcher #}
+                    {% include '_layouts/partials/nav-siteswitcher-desktop.twig' with {
+                        localizedEntries,
+                        queryParams
+                    } only %}
 
-            </nav>
+                </nav>
+            {% endif %}
         </div>
     </div>
 
     {# Mobile Menu #}
-    <div x-show="open"
-         x-collapse
-         @click.outside.prevent.stop="open=false"
-         class="z-50 absolute top-0 inset-x-0 p-2 transition transform origin-top-right"
-         style="display: none;">
+    {% if config.mobileNavBreakpoint != 'never' %}
+        <div x-show="open"
+             x-collapse
+             @click.outside.prevent.stop="open=false"
+             class="z-50 absolute top-0 inset-x-0 p-2 transition transform origin-top-right"
+             style="display: none;">
 
-        <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-primary divide-y-2 divide-secondary">
-            <div class="pt-5 pb-6 px-5">
-                <div class="flex items-center justify-between">
+            <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-primary divide-y-2 divide-secondary">
+                <div class="pt-5 pb-6 px-5">
+                    <div class="flex items-center justify-between">
 
-                    {# Site Logo #}
-                    {% include '_layouts/partials/nav-logo-mobile.twig' with {
-                    	logo
-                    } only %}
-
-                    {# Close Button #}
-                    {% include '_layouts/partials/nav-close-button.twig' %}
-                </div>
-
-                <div class="mt-6">
-                    <nav class="grid gap-y-8">
-
-                        {% include '_layouts/partials/nav-items-mobile.twig' with {
-                        	navEntries
+                        {# Site Logo #}
+                        {% include '_layouts/partials/nav-logo-mobile.twig' with {
+                            logo
                         } only %}
 
-                    </nav>
+                        {# Close Button #}
+                        {% include '_layouts/partials/nav-close-button.twig' %}
+                    </div>
+
+                    <div class="mt-6">
+                        <nav class="grid gap-y-8">
+
+                            {% include '_layouts/partials/nav-items-mobile.twig' with {
+                                navEntries
+                            } only %}
+
+                        </nav>
+                    </div>
                 </div>
-            </div>
 
-            {# Site Switcher #}
-            <div class="py-6 px-5 space-y-6">
-                {% include '_layouts/partials/nav-siteswitcher-mobile.twig' with {
-                	localizedEntries,
-                    queryParams
-                } only %}
-            </div>
+                {# Site Switcher #}
+                <div class="py-6 px-5 space-y-6">
+                    {% include '_layouts/partials/nav-siteswitcher-mobile.twig' with {
+                        localizedEntries,
+                        queryParams
+                    } only %}
+                </div>
 
+            </div>
         </div>
-    </div>
+    {% endif %}
 </div>

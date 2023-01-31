@@ -10,7 +10,11 @@
 
 <a class="sr-only focus:not-sr-only" href="#content">{{ 'Skip to content'|t }}</a>
 
-{% include '_layouts/nav.twig' with {entry} only %}
+
+{% cache for 1 hour %}
+    {% include '_layouts/nav.twig' with {entry} only %}
+{% endcache %}
+
 
 <main id="content">
 
@@ -26,7 +30,9 @@
 
 </main>
 
-{% include '_layouts/footer.twig' with {entry} only %}
+{% cache globally for 1 hour %}
+    {% include '_layouts/footer.twig' with {entry} only %}
+{% endcache %}
 
 </body>
 </html>

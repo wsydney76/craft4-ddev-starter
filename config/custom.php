@@ -6,8 +6,13 @@ return [
     'entriesPerPage' => 12,
     'latestNewsLimit' => 8,
 
-    'defaultTransform' => ['width' => 1024],
-    'defaultSrcSet' => [1024, 640, 400],
+    // The width of the primary navigation, defined in nav.twig
+    // container|2xl|xl|lg
+    'navWidth' => 'container',
+
+    // Breakpoint when to show the mobile nav (hamburger), defined in nav.twig
+    // md|lg|xl|2xl|never|always
+    'mobileNavBreakpoint' => 'md',
 
     // full/xl, as defined in hero-area-display.twig
     'heroWidth' => 'full',
@@ -19,6 +24,7 @@ return [
         'full' => [2000, 1580, 1024, 768, 640, 360],
         'xl' => [1280, 768, 640, 360]
     ],
+
 
     'cardTransform' => ['width' => 450, 'height' => 300],
     'defaultImageFormat' => 'webp',
@@ -34,6 +40,10 @@ return [
 
     'featuredTransform' => ['width' => 1024, 'height' => 350],
     'featuredSrcSet' => [1024, 768, 400],
+
+    'defaultTransform' => ['width' => 1024],
+    'defaultSrcSet' => [1024, 640, 400],
+
 
     'lightBoxTransform' => ['height' => 800],
 

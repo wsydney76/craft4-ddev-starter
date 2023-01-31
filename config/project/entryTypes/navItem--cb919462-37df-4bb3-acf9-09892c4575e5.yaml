@@ -7,7 +7,7 @@ fieldLayouts:
           -
             elementCondition: null
             style: tip
-            tip: 'Does not have it''s own content, it creates a primary navigation item that lists its children in a dropdown'
+            tip: 'Does not have it''s own content, it creates a primary navigation item that shows a dropdown.'
             type: craft\fieldlayoutelements\Tip
             uid: 893bbc97-6474-49e3-a197-afc4ddbbee94
             userCondition: null
@@ -46,6 +46,18 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 55dffd0f-7284-4b2d-9e68-1497c03e31c3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: ec70b604-43e4-45f8-bab5-0ab78983f3ce # Nav Item Template
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e8f64447-9feb-49b6-9548-b20a4e0fa992
             userCondition: null
             warning: null
             width: 100

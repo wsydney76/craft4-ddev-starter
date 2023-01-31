@@ -2,37 +2,36 @@
 
 {% from '_layouts/macros/lib.twig' import navLink %}
 
-{% cache globally for 1 hour %}
 
-    <footer class="bg-footer-background text-footer-foreground dark:bg-footer-background-dark dark:text-footer-foreground-dark">
-        <div class="container mx-auto py-4 px-4 lg:flex lg:justify-between lg:items-center overflow-hidden sm:px-6 lg:px-8  border-t border-footer-border dark:border-footer-border-dark">
 
-            <div class="flex justify-center lg:justify-start space-x-8">
-                <div class="text-center text-base">
-                    &copy; {{ now|date('Y') }} {{ siteInfo.copyright ?? siteInfo.siteName }}
-                </div>
+<footer class="bg-footer-background text-footer-foreground dark:bg-footer-background-dark dark:text-footer-foreground-dark">
+    <div class="container mx-auto py-4 px-4 lg:flex lg:justify-between lg:items-center overflow-hidden sm:px-6 lg:px-8  border-t border-footer-border dark:border-footer-border-dark">
 
-                <div class="mt-1 text-white text-footer-foreground flex justify-center text-base ">
-                    {% include '_layouts/partials/social-icons.twig' %}
-                </div>
+        <div class="flex justify-center lg:justify-start space-x-8">
+            <div class="text-center text-base">
+                &copy; {{ now|date('Y') }} {{ siteInfo.copyright ?? siteInfo.siteName }}
             </div>
 
-            <div class="mt-4 flex justify-center">
-                {% include '_layouts/components/alpinejs/darkmode.twig' %}
+            <div class="mt-1 text-white text-footer-foreground flex justify-center text-base ">
+                {% include '_layouts/partials/social-icons.twig' %}
             </div>
-
-            <nav class="-mx-5 -my-2 mt-4 lg:-mt-1 flex flex-wrap justify-center items-center space-x-4"
-                 aria-label="Footer">
-
-                {% for navEntry in craft.entries.section('legal').collect %}
-                    {{ navLink(navEntry.title, navEntry.url) }}
-                {% endfor %}
-
-                {# Project specific links #}
-                {% include '_partials/footer-links.twig' ignore missing %}
-
-            </nav>
-
         </div>
-    </footer>
-{% endcache %}
+
+        <div class="mt-4 flex justify-center">
+            {% include '_layouts/components/alpinejs/darkmode.twig' %}
+        </div>
+
+        <nav class="-mx-5 -my-2 mt-4 lg:-mt-1 flex flex-wrap justify-center items-center space-x-4"
+             aria-label="Footer">
+
+            {% for navEntry in craft.entries.section('legal').collect %}
+                {{ navLink(navEntry.title, navEntry.url) }}
+            {% endfor %}
+
+            {# Project specific links #}
+            {% include '_partials/footer-links.twig' ignore missing %}
+
+        </nav>
+
+    </div>
+</footer>

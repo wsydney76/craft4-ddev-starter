@@ -1,0 +1,36 @@
+{# @param entry Entry the navItem #}
+{# @param active bool whether the uri matches #}
+{# @param children collection the direct descendants #}
+{# @param isDesktop bool whether to show for desktop or mobile #}
+
+
+{% from '_layouts/macros/lib.twig' import navLinkClasses %}
+
+{% if children %}
+    {% if isDesktop %}
+        {% embed '_layouts/components/alpinejs/dropdown.twig' with {
+            caption: entry.title,
+            active,
+            style: 'nav'
+        } %}
+            {% block panel %}
+                {% from '_layouts/macros/lib.twig' import navLink %}
+                {% for child in children %}
+                    <div class="my-2">
+                        {{ navLink(child.title, child.url) }}
+                    </div>
+                {% endfor %}
+            {% endblock %}
+        {% endembed %}
+    {% else %}
+        {% from '_layouts/macros/lib.twig' import navLink %}
+        <div class="{{ navLinkClasses() }}">
+            {{ entry.title }}
+            <ul class="ml-8 space-y-4 mt-4">
+                {% for child in children %}
+                    <li>{{ navLink(child.menuTitle ?: child.title, child.url) }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endif %}

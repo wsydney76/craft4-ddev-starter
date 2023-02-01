@@ -112,30 +112,42 @@ class SeedController extends BaseController
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
-        $image = $this->getRandomImage($this->minWidth);
+        // home, sweet home
+        $image = Asset::find()->filename('ammersee-1091443_1920.jpg')->one();
 
+        if (!$image) {
+            // homeless
+            $image = $this->getRandomImage($this->minWidth);
+        }
+
+        // Starter images not yet indexed?
         if (!$image) {
             $this->indexImages();
             $image = $this->getRandomImage($this->minWidth);
         }
 
         if ($image) {
+            $faker = Factory::create();
+            $paragraphs = '';
+            foreach ($faker->paragraphs(2) as $paragraph) {
+                $paragraphs .= $paragraph . PHP_EOL . PHP_EOL;
+            }
+
+            // pseudo random
+            $target = Entry::find()->section('news')->orderBy('title')->one();
+
             $heroAreaEntry = $this->createEntry([
                 'section' => 'heroArea',
                 'type' => 'default',
                 'title' => 'Craft Starter',
                 'slug' => 'craft-starter',
                 'fields' => [
-                    'heroText' => 'Get your project up and running.',
-                    'heroImage' => [$image->id]
-                ],
-                'localized' => [
-                    'de' => [
-                        'fields' => [
-                            'heroText' => 'Bringen Sie Ihr Projekt zum Laufen.'
-                        ]
-                    ]
-                ]
+                    'heroText' => $paragraphs,
+                    'heroImage' => [$image->id],
+                    'ctaTarget' => $target ?[$target->id] : [],
+                    'ctaCaption' => $faker->text(20),
+                    'pageTemplate' => 'textimagehalfed',
+                 ]
             ]);
 
             if ($heroAreaEntry) {
@@ -203,7 +215,7 @@ class SeedController extends BaseController
             ['text', 'heading', 'image', 'text', 'image'],
             ['text', 'heading', 'image', 'text', 'quote', 'text'],
             ['text', 'text', 'text', 'heading', 'text', 'text', 'text', 'heading', 'text', 'text', 'text'],
-            ['image', 'image', 'image'],
+            ['text','image', 'image', 'image'],
         ];
 
         $blockTypes = $faker->randomElement($layouts);
@@ -248,7 +260,9 @@ class SeedController extends BaseController
                         'type' => 'image',
                         'fields' => [
                             'image' => $image ? [$image->id] : null,
-                            'caption' => $faker->text(30)
+                            'caption' => $faker->text(30),
+                            'align' => 'wide',
+                            'aspectRatio' => 'default'
                         ]
                     ];
                     break;

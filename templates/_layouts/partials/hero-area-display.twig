@@ -2,7 +2,7 @@
 
 {# @param image Asset Background image #}
 {# @param title String Title text #}
-{# @param tagline String Subtitle text #}
+{# @param text String Text #}
 {# @param url String optional Url for CTA button #}
 {# @param caption String Text for CTA button #}
 {# @param teaser String optional Small text above Title #}
@@ -11,6 +11,7 @@
 
 {% set url = url ?? '' %}
 {% set caption = caption ?? '' %}
+{% set text = text ?? '' %}
 {% set template = template ?? config.heroTemplate %}
 {% set fallbackTemplate = config.heroFallbackTemplate ?? 'textonly' %}
 {% set topHtml = topHtml ?? '' %}

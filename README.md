@@ -213,3 +213,8 @@ Add missing networks:
 
 * Add icon to `templates/_icons`
 * Update field `socialLinks`, the dropdown value must match the filename.
+
+### Icons/Branding
+
+* Replace the icons in `/web`.
+* Update `templates/_layouts/head` and/or `web/sitemanifest.json` if you have different sizes/filenames.

@@ -116,6 +116,8 @@ The hero area shows:
 * a text (optial). Rendered as markdown
 * a call-to-action button (optional)
 
+Additionally  `topHtml` and `bottomHtml` params can be passed in that will appear, you guessed it, at the top or bottom. 
+
 
 The hero area should be rendered via `_layouts/partials/hero-area-display.twig`.
 

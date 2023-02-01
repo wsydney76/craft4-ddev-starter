@@ -17,7 +17,8 @@
         tagline: heroEntry.heroTagline,
         teaser: heroEntry.heroTeaser,
         url: target ? target.url : '',
-        caption: target ? heroEntry.ctaCaption ?: target.title : ''
+        caption: target ? heroEntry.ctaCaption ?: target.title : '',
+        template: heroEntry.pageTemplate
     } only %}
 {% else %}
     {# 2. Featured Entry #}

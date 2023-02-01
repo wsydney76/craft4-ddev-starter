@@ -121,6 +121,7 @@ The hero area should be rendered via `_layouts/partials/hero-area-display.twig`.
 
 The actual template lives in `_layouts/partials/heroarea` and is determined
 
+* by the `pageTemplate` field of a hero area entry, if available
 * by a `template` parameter
 * by the `heroTemplate` setting in `config/custom.php`
 
@@ -201,3 +202,11 @@ Fonts are hosted locally, Google fonts can be downloaded from [https://gwfh.mran
 * Update `resources/css/fonts/fonts.css`. Make sure `font-display: swap;` is defined.
 * Update `preloadFonts` in `config/custom.php` for fonts used above the fold.
 
+### Social Icons
+
+Links to social networks can be edited via the `Site Info` global.
+
+Add missing networks:
+
+* Add icon to `templates/_icons`
+* Update field `socialLinks`, the dropdown value must match the filename.

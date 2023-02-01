@@ -21,9 +21,15 @@
 
 <div class="{{ classes[config.heroWidth] }}">
     {% if image %}
-        {% include "_layouts/partials/heroarea/#{template}" %}
+        {% include [
+            "_layouts/partials/heroarea/#{template}",
+            "_layouts/partials/heroarea/default.twig"
+        ] %}
     {% else %}
-        {% include "_layouts/partials/heroarea/#{fallbackTemplate}" %}
+        {% include [
+            "_layouts/partials/heroarea/#{fallbackTemplate}",
+            "_layouts/partials/heroarea/textonly",
+        ] %}
     {% endif %}
 </div>
 

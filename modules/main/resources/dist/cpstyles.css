@@ -37,7 +37,7 @@ h2 {
 }
 
 #notifications [data-type="success"] {
-    background-color: #2C5F2D;
+    background-color: #16a34a;
     color: white;
 }
 
@@ -55,8 +55,14 @@ body.ltr #notifications {
     left: 50%;
     transform: translateX(-50%);
 }
+
 #notifications .notification-details {
     background-color: white;
+    padding: 4px;
+}
+
+#notifications [data-type="success"] .notification-details {
+    background-color: #dcfce7;
     padding: 4px;
 }
 

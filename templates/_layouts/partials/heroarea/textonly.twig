@@ -1,4 +1,9 @@
 <div class="max-w-screen-md mx-auto relative px-4 py-16">
+
+    {% if topHtml %}
+        {{ topHtml|raw }}
+    {% endif %}
+
     {% if teaser is defined and teaser %}
         <div class="mb-4 text-center text-primary dark:text-primary-dark text-lg">
             {{ teaser }}
@@ -10,9 +15,12 @@
         <span class="block text-primary dark:text-primary-dark">{{ title }}</span>
 
     </h1>
-    <p class="mt-6 max-w-lg mx-auto text-center text-xl tracking-wider text-primary dark:text-primary-dark sm:max-w-3xl">
-        {{ tagline }}
-    </p>
+
+    {% if text %}
+        <div class="prose mt-6 max-w-lg mx-auto text-center text-xl tracking-wider text-primary dark:text-primary-dark sm:max-w-3xl">
+            {{ text|md|purify }}
+        </div>
+    {% endif %}
 
     {% if url and caption %}
         <div class="mt-8 flex justify-center">
@@ -22,6 +30,10 @@
                 color: 'primary'
             } only %}
         </div>
+    {% endif %}
+
+    {% if bottomHtml %}
+        {{ bottomHtml|raw }}
     {% endif %}
 
 </div>

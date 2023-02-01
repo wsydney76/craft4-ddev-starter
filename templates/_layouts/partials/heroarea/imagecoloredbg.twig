@@ -14,6 +14,11 @@
 
 <div class="bg-primary text-white mb-12 p-8">
     <div class="max-w-screen-xl mx-auto pt-2 pb-4">
+
+        {% if topHtml %}
+            {{ topHtml|raw }}
+        {% endif %}
+
         {% if teaser is defined and teaser %}
             <div class="mb-2">
                 {{ teaser }}
@@ -24,9 +29,11 @@
             {{ title }}
         </h1>
 
-        <p class="mt-6 text-xl tracking-wider text-white sm:max-w-3xl">
-            {{ tagline }}
-        </p>
+        {% if text %}
+            <div class="prose text-white mt-6 text-xl tracking-wider text-white sm:max-w-3xl">
+                {{ text|md|purify }}
+            </div>
+        {% endif %}
 
         {% if url and caption %}
             <div class="mt-8">
@@ -37,5 +44,10 @@
                 } only %}
             </div>
         {% endif %}
+
+        {% if bottomHtml %}
+            {{ bottomHtml|raw }}
+        {% endif %}
+
     </div>
 </div>

@@ -126,13 +126,13 @@ class SeedController extends BaseController
                 'title' => 'Craft Starter',
                 'slug' => 'craft-starter',
                 'fields' => [
-                    'heroTagline' => 'Get your project up and running.',
+                    'heroText' => 'Get your project up and running.',
                     'heroImage' => [$image->id]
                 ],
                 'localized' => [
                     'de' => [
                         'fields' => [
-                            'heroTagline' => 'Bringen Sie Ihr Projekt zum Laufen.'
+                            'heroText' => 'Bringen Sie Ihr Projekt zum Laufen.'
                         ]
                     ]
                 ]

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'stickyMenu' => true,
+    'stickyMenu' => false,
 
     'entriesPerPage' => 12,
     'latestNewsLimit' => 8,

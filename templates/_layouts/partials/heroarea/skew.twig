@@ -9,11 +9,11 @@
     <div class="max-w-full">
         <div class="relative sm:overflow-hidden">
 
-            <div class="absolute inset-0">
+            <div class="md:absolute md:inset-0">
                 {{ img(image, {
                     transform: config.heroTransform[config.heroWidth],
                     attr: {
-                        class: 'hidden sm:block h-full w-full object-cover',
+                        class: 'hidden md:block h-full w-full object-cover',
                         loading: null,
                         fetchpriority: 'high'
                     }
@@ -21,8 +21,14 @@
             </div>
 
 
-            <div class="mb-16 w-full md:w-3/4 lg:w-1/2 md:-skew-x-12 md:-ml-12 md:pl-8 bg-gradient-to-r from-primary to-secondary text-white opacity-95 md:rounded-br-3xl flex justify-center items-center">
+            <div class="mb-16 flex justify-center items-center w-full bg-gradient-to-r from-primary to-secondary opacity-90 text-white
+                        md:w-3/4 md:-skew-x-12 md:-ml-12 md:pl-8 md:rounded-br-3xl
+                        2xl:w-1/2">
                 <div class="md:skew-x-12 py-8 2xl:py-16 pl-12 pr-16">
+
+                    {% if topHtml %}
+                        {{ topHtml|raw }}
+                    {% endif %}
 
                     {% if teaser is defined and teaser %}
                         <div class="mb-2">
@@ -34,9 +40,11 @@
                         {{ title }}
                     </h1>
 
-                    <p class="mt-4 text-lg tracking-wider text-white sm:max-w-3xl">
-                        {{ tagline }}
-                    </p>
+                    {% if text %}
+                        <div class="prose mt-4 text-lg tracking-wider text-white sm:max-w-3xl">
+                            {{ text|md|purify }}
+                        </div>
+                    {% endif %}
 
                     {% if url and caption %}
                         <div class="mt-8">
@@ -46,6 +54,10 @@
                                 color: 'white'
                             } only %}
                         </div>
+                    {% endif %}
+
+                    {% if bottomHtml %}
+                        {{ bottomHtml|raw }}
                     {% endif %}
 
                 </div>

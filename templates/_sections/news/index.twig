@@ -5,24 +5,33 @@
 {% set featuredImage = entry.featuredImage.one %}
 
 {% block heroArea %}
+    {% set topHtml  %}
+        <div class="mb-4 font-bold uppercase text-lg">
+            {{ entry.author.name }}, {{ entry.postDate|date('short') }}
+        </div>
+    {% endset %}
+
     {% if featuredImage %}
         {% include '_layouts/partials/hero-area-display.twig' with {
             image: featuredImage,
             title: entry.title,
-            tagline: entry.tagline
+            text: entry.tagline,
+            topHtml
         } only %}
     {% endif %}
 {% endblock %}
 
 {% block content %}
 
-    {% embed '_layouts/embeds/content-md.twig' with {showHeader: featuredImage == null, alignTitle: 'left'} %}
+    {% embed '_layouts/embeds/content-md.twig' with {showHeader: false, alignTitle: 'left'} %}
 
         {% block contentTop %}
-            {# News meta #}
-            <div class="my-12 text-primary font-bold text-xl dark:text-primary-dark">
-                {{ entry.author.name }}, {{ entry.postDate|date('short') }}
-            </div>
+            {% if not featuredImage %}
+                {# News meta #}
+                <div class="my-12 text-primary font-bold text-xl dark:text-primary-dark">
+                    {{ entry.author.name }}, {{ entry.postDate|date('short') }}
+                </div>
+            {% endif %}
         {% endblock %}
 
         {% block contentBottom %}

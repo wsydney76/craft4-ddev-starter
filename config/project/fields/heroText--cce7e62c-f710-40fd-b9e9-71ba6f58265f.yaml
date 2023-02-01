@@ -1,17 +1,17 @@
 columnSuffix: jyzfhgbr
 contentColumnType: text
 fieldGroup: c38953ca-ba84-4992-8deb-65aa2fc40b34 # Hero Area
-handle: heroTagline
+handle: heroText
 instructions: null
-name: 'Hero Tagline'
+name: 'Hero Text'
 searchable: false
 settings:
   byteLimit: null
   charLimit: null
   code: false
   columnType: null
-  initialRows: 4
-  multiline: false
+  initialRows: 1
+  multiline: true
   placeholder: null
   uiMode: normal
 translationKeyFormat: null

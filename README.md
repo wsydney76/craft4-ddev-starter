@@ -113,7 +113,7 @@ The hero area shows:
 * a background image with copyright
 * a teaser line above the title (optional)
 * a title
-* a tagline (optial)
+* a text (optial). Rendered as markdown
 * a call-to-action button (optional)
 
 
@@ -133,7 +133,8 @@ Some hero templates stolen from other projects are included as demo, styling nee
 * imagetext: image + textonly below
 * imagecoloredbg: image + text on a colored background
 * introimage: colored background with an overlapping image
-* skew: image with a semi transparent, gradient overlay. This is fancy, but works only for short titles.
+* skew: image with a semi transparent, gradient overlay.
+* textimagehalfed: text on the left, image on the right. Great for longer texts.
 
 Unused templates should be deleted in order to avoid unused tailwind classes in your css.
 

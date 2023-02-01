@@ -2,7 +2,7 @@ columnSuffix: null
 contentColumnType: string
 fieldGroup: c38953ca-ba84-4992-8deb-65aa2fc40b34 # Hero Area
 handle: heroImage
-instructions: 'Full screen width'
+instructions: null
 name: 'Hero Image'
 searchable: false
 settings:
@@ -33,26 +33,6 @@ settings:
       -
         - class
         - craft\elements\conditions\assets\AssetCondition
-      -
-        - conditionRules
-        -
-          -
-            __assoc__:
-              -
-                - class
-                - craft\elements\conditions\assets\WidthConditionRule
-              -
-                - uid
-                - bcd4f2f0-39b4-4ad0-bc1b-1b4b30b07c51
-              -
-                - operator
-                - '>'
-              -
-                - value
-                - '1800'
-              -
-                - maxValue
-                - ''
   selectionLabel: null
   showSiteMenu: true
   showUnpermittedFiles: false

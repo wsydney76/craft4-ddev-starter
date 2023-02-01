@@ -56,7 +56,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: cce7e62c-f710-40fd-b9e9-71ba6f58265f # Hero Tagline
+            fieldUid: cce7e62c-f710-40fd-b9e9-71ba6f58265f # Hero Text
             instructions: null
             label: null
             required: false
@@ -96,6 +96,18 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 25
+          -
+            elementCondition: null
+            fieldUid: 55a9382b-6de2-4150-b375-33e79dafc8e3 # CTA Additional Buttons
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9e0f9059-9226-46ba-bf2b-37648b09329d
+            userCondition: null
+            warning: null
+            width: 100
           -
             elementCondition: null
             heading: Layout

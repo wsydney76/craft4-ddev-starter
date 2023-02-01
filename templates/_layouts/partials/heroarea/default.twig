@@ -23,20 +23,28 @@
             {{ imgCopyright(image) }}
 
 
-            <div class="max-w-screen-md mx-auto relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
+            <div class="max-w-screen-md mx-auto relative text-center px-4 py-16 text-white sm:px-6 sm:py-24 lg:py-32 lg:px-8">
+
+                {% if topHtml %}
+                    {{ topHtml|raw }}
+                {% endif %}
+
                 {% if teaser is defined and teaser %}
-                    <div class="mb-4 text-center text-white text-lg">
+                    <div class="mb-4 text-lg">
                         {{ teaser }}
                     </div>
                 {% endif %}
-                <h1 class="text-center text-5xl font-headings font-semibold tracking-wider md:5xl sm:text-7xl lg:text-7xl">
+                <h1 class="text-5xl font-headings font-semibold tracking-wider md:5xl sm:text-7xl lg:text-7xl">
 
-                    <span class="block text-white">{{ title }}</span>
+                    <span class="block">{{ title }}</span>
 
                 </h1>
-                <p class="mt-6 max-w-lg mx-auto text-center text-xl tracking-wider text-white sm:max-w-3xl">
-                    {{ tagline }}
-                </p>
+
+                {% if text %}
+                    <div class="prose text-white mt-6 max-w-lg mx-auto text-xl tracking-wider sm:max-w-3xl">
+                        {{ text|md|purify }}
+                    </div>
+                {% endif %}
 
                 {% if url and caption %}
                     <div class="mt-8 flex justify-center">
@@ -46,6 +54,10 @@
                             color: 'white'
                         } only %}
                     </div>
+                {% endif %}
+
+                {% if bottomHtml %}
+                    {{ bottomHtml|raw }}
                 {% endif %}
 
             </div>

@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1675209856
+dateModified: 1675258697
 elementSources:
   craft\elements\Asset:
     -
@@ -260,6 +260,7 @@ meta:
     addfffc1-5814-40f4-bb74-0e441740b9fa: FAQs # FAQs
     af9afec0-f712-4b14-b235-851c6455e267: Text # Text
     b0cfc7f4-d446-41bb-87ab-dc16b1481540: 'Alternative Title' # Alternative Title
+    b3b9ebe4-94b8-4601-bf11-3c5aa638c87f: 'CTA Target' # CTA Target
     b3f2b523-f81d-4204-9f83-763da48cd843: 'CTA Caption' # CTA Caption
     b32ea3bc-ee43-4236-864d-972d36f184b2: Sitemap # Sitemap
     b61bea97-e4d4-4de2-9149-15f74906945a: SEO # SEO
@@ -273,11 +274,12 @@ meta:
     c38ac7d1-9663-45a2-a78e-c676b354e27e: Search # Search
     c62d66b7-d193-453a-b154-4141fa6332c6: Quote # Quote
     c72e758a-f6c3-42cd-896b-3ff6353ed259: 'Featured Image' # Featured Image
+    c908a30e-b8c5-44de-b9ee-7ae52d9c4c07: 'CTA Caption' # CTA Caption
     c38953ca-ba84-4992-8deb-65aa2fc40b34: 'Hero Area' # Hero Area
     c752550e-4c4a-4004-8229-7473dcf75450: 'Site Info' # Site Info
     cb919462-37df-4bb3-acf9-09892c4575e5: 'Nav Item' # Nav Item
     cc3fbab0-826f-4aed-b2aa-eeaecc2964bf: 'Alt Text' # Alt Text
-    cce7e62c-f710-40fd-b9e9-71ba6f58265f: 'Hero Tagline' # Hero Tagline
+    cce7e62c-f710-40fd-b9e9-71ba6f58265f: 'Hero Text' # Hero Text
     cf967bc8-e8fd-4cd3-b66c-998982d2cc6c: 'Booking Status' # Booking Status
     d1ce7a99-7ba0-4ad1-9f19-c4cdad3f247e: 'Email Address' # Email Address
     d92e63b4-996e-4dcd-8b55-d119540b5831: Default # Default

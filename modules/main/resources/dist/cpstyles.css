@@ -62,7 +62,7 @@ body.ltr #notifications {
 }
 
 #notifications [data-type="success"] .notification-details {
-    background-color: #dcfce7;
+    background-color: #f0fdf4;
     padding: 4px;
 }
 

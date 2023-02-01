@@ -1,8 +1,8 @@
 {% from '_layouts/macros/lib.twig' import img %}
 {% from '_layouts/macros/lib.twig' import imgCopyright %}
 
-<div class="flex flex-col-reverse lg:flex-row pl-16">
-    <div class="lg:w-1/2 flex items-center">
+<div class="flex flex-col-reverse lg:flex-row">
+    <div class="lg:w-1/2 flex items-center px-8 lg:pl-8">
         <div class="py-16">
             {% if topHtml %}
                 {{ topHtml|raw }}
@@ -14,14 +14,14 @@
                 </div>
             {% endif %}
 
-            <h1 class="text-3xl font-headings font-semibold tracking-wider md:5xl sm:text-7xl lg:text-7xl">
+            <h1 class="text-3xl font-headings font-semibold tracking-wider text-3xl md:text-5xl lg:text-7xl">
 
                 <span class="block text-primary dark:text-primary-dark">{{ title }}</span>
 
             </h1>
 
             {% if text %}
-                <div class="prose mt-6 text-xl tracking-wider text-primary dark:text-primary-dark sm:max-w-3xl">
+                <div class="prose mt-6 lg:text-xl tracking-wider text-primary dark:text-primary-dark sm:max-w-3xl">
                     {{ text|md|purify }}
                 </div>
             {% endif %}
@@ -50,7 +50,7 @@
                scrset: [768, 360],
                showCopyright: false,
                attr: {
-                   class: 'lg:object-cover lg:object-top w-full h-full',
+                   class: 'lg:object-cover lg:object-top w-full h-full lg:rounded-bl-xl',
                    loading: null,
                    fetchpriority: 'high'
                }

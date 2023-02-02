@@ -23,7 +23,7 @@
 {% set transform = transform ?? craft.app.config.custom.cardTransform %}
 
 
-<a href="{{ url }}" class="group overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background focus:ring-primary dark:focus:ring-primary-dark dark:focus:ring-offset-background-dark rounded-lg">
+<a href="{{ url }}" class="group overflow-hidden border border-gray-200 shadow-xl focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-dark  rounded-lg">
     <div class="bg-gray-200 rounded-lg overflow-hidden">
         {% if image %}
             {{ img(image, {
@@ -35,14 +35,16 @@
         {% endif %}
     </div>
 
-    <div class="mt-4 text-lg font-bold text-primary dark:text-primary-dark group-hover:underline group-focus:underline">
-        {{ title }}
+    <div class="p-4">
+        <div class="text-lg font-bold text-primary dark:text-primary-dark group-hover:underline group-focus:underline">
+            {{ title }}
+        </div>
+
+        {% block content %}{% endblock %}
+
+        {% if entry.searchScore  is defined %}
+            <!-- Score: {{ entry.searchScore  }} -->
+        {% endif %}
     </div>
-
-    {% block content %}{% endblock %}
-
-    {% if entry.searchScore  is defined %}
-        <!-- Score: {{ entry.searchScore  }} -->
-    {% endif %}
 
 </a>

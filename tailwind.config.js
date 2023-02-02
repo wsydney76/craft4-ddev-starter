@@ -150,12 +150,12 @@ module.exports = {
                 serif: ['"PT Serif"', 'serif']
             },
 
-            // these are actually the default values, but you can set them to 0 to avoid rounded corners
-            // without changing templates
+            // If you want a layout with rounded corners, uncomment these lines
             borderRadius: {
-                DEFAULT: '0.25rem',
-                md: '0.375rem',
-                lg: '0.5rem'
+                DEFAULT: '0px',
+                md: '0px',
+                lg: '0px',
+                xl: '0px',
             },
 
             aspectRatio: {

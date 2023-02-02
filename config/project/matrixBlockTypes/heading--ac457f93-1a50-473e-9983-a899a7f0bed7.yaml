@@ -65,6 +65,17 @@ fields:
             -
               - default
               - ''
+        -
+          __assoc__:
+            -
+              - label
+              - H4
+            -
+              - value
+              - h4
+            -
+              - default
+              - ''
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown

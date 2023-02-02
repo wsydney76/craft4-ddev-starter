@@ -93,6 +93,7 @@ This starter comes with a mix of functionality that is likely to be used in ever
 * Custom config file inc. transform settings
 * Tailwind CSS config with named colors
 * Dark mode switch for templates
+* A `BaseModule` that provides common functionality like creating entries, fields, sections etc.
 
 
 ## Templating

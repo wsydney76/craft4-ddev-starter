@@ -5,7 +5,10 @@
 {# @param url String Card href optional if entry is specified #}
 {# @param image Asset optional #}
 {# @param highlight String string for text fragmant highlighting #}
+{# @param layout String card|cardlet #}
+
 {% set highlight = highlight ?? '' %}
+{% set layout = layout ?? 'card' %}
 
 {% from '_layouts/macros/lib.twig' import img %}
 
@@ -22,9 +25,21 @@
 
 {% set transform = transform ?? craft.app.config.custom.cardTransform %}
 
+{% set classes = {
+    card: {
+        a: 'border border-gray-200 shadow-xl',
+        imgDiv: '',
+        textDiv: 'p-4'
+    },
+    cardlet:  {
+        a: 'flex space-x-4',
+        imgDiv: 'flex-shrink-0 w-36 sm:w-52',
+        textDiv: ''
+    }
+} %}
 
-<a href="{{ url }}" class="group overflow-hidden border border-gray-200 shadow-xl focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-dark  rounded-lg">
-    <div class="bg-gray-200 rounded-lg overflow-hidden">
+<a href="{{ url }}" class="{{ classes[layout].a }} group overflow-hidden focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-dark  rounded-lg">
+    <div class="{{ classes[layout].imgDiv }} bg-gray-200 rounded-lg overflow-hidden">
         {% if image %}
             {{ img(image, {
                 transform: transform,
@@ -35,7 +50,7 @@
         {% endif %}
     </div>
 
-    <div class="p-4">
+    <div class="{{ classes[layout].textDiv }}">
         <div class="text-lg font-bold text-primary dark:text-primary-dark group-hover:underline group-focus:underline">
             {{ title }}
         </div>

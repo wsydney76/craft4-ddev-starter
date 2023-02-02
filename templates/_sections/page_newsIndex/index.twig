@@ -6,7 +6,8 @@
         <div class="mt-8">
             {% include '_layouts/partials/cards.twig' with {
                 query:  craft.entries.section('news'),
-                paginate: true
+                paginate: true,
+                layout: 'card'
             } only %}
         </div>
     {% endblock %}

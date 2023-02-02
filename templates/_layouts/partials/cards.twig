@@ -8,9 +8,12 @@
 {# @param paginate Bool optional=false Whether list shall be paginated #}
 {# @param limit int optional=customConfig number of cards on a page if paginate=true #}
 {# @param defaultImage Asset optional=SiteInfo The image that will be used in no featuredImage is set on entry #}
-{# @param highlight String string for text fragmant highlighting #}
+{# @param highlight String string for text fragment highlighting #}
+{# @param layout string card|cardlet #}
 
-{% set transform = craft.app.config.custom.cardTransform %}
+{% set layout = layout ?? 'card' %}
+{% set transform = layout == 'card' ? craft.app.config.custom.cardTransform : craft.app.config.custom.cardletTransform %}
+
 {% set heading = heading ?? '' %}
 {% set wide = wide is defined ? wide : true %}
 {% set paginate = paginate is defined ? paginate : false %}
@@ -66,34 +69,47 @@
         } only %}
     {% endif %}
 
-    {# Show cards grid #}
+    {% set html %}
+        {% set sectionRoots = craft.app.config.custom.sectionRoots ?? ['_sections'] %}
 
-    {% embed '_layouts/embeds/grid.twig' with {wide: wide} %}
-        {% block content %}
+        {% for entry in entries %}
+            {% embed "_layouts/embeds/card.twig" with {
+                entry,
+                image: entry.featuredImage.one ?? defaultImage,
+                transform,
+                highlight,
+                sectionRoots,
+                layout
+            } only %}
 
-            {% set sectionRoots = craft.app.config.custom.sectionRoots ?? ['_sections'] %}
+                {# display individual content form section type #}
+                {% block content %}
+                    {% include sectionRoots|map(r => "#{r}/#{entry.section.handle}/card-content.twig")
+                        ignore missing  with {
+                        entry
+                    } only %}
+                {% endblock %}
 
-            {% for entry in entries %}
-                {% embed "_layouts/embeds/card.twig" with {
-                    entry,
-                    image: entry.featuredImage.one ?? defaultImage,
-                    transform,
-                    highlight,
-                    sectionRoots
-                } only %}
+            {% endembed %}
+        {% endfor %}
+    {% endset %}
 
-                    {# display individual content form section type #}
-                    {% block content %}
-                        {% include sectionRoots|map(r => "#{r}/#{entry.section.handle}/card-content.twig")
-                            ignore missing  with {
-                            entry
-                        } only %}
-                    {% endblock %}
+    {% switch layout %}
 
-                {% endembed %}
-            {% endfor %}
-        {% endblock %}
-    {% endembed %}
+    {% case "card" %}
+        {# Show cards grid #}
+
+        {% embed '_layouts/embeds/grid.twig' with {wide: wide} %}
+            {% block content %}
+                {{ html }}
+            {% endblock %}
+        {% endembed %}
+
+    {% case "cardlet" %}
+        <div class="space-y-8">
+            {{ html }}
+        </div>
+    {% endswitch %}
 
 {% endif %}
 

@@ -14,6 +14,8 @@ return [
     // md|lg|xl|2xl|never|always
     'mobileNavBreakpoint' => 'md',
 
+    'defaultImageFormat' => 'webp',
+
     // full/xl, as defined in hero-area-display.twig
     'heroWidth' => 'full',
     // template in _layouts/partials/heroarea
@@ -30,7 +32,7 @@ return [
 
 
     'cardTransform' => ['width' => 450, 'height' => 300],
-    'defaultImageFormat' => 'webp',
+    'cardletTransform' => ['width' => 220, 'height' => 120],
 
     'contentTransform' => [
         'default' => ['width' => 768],

@@ -9,7 +9,7 @@
 {% set homePage = entry.isHomepage ? entry : craft.entries.section('page').type('home').one %}
 {% set navEntries = homePage.descendants.level('<=3').collect ?? [] %}
 
-{% set localizedEntries = entry.localized.collect %}
+{% set localizedEntries = entry.localized.uri(':notempty:').collect %}
 {% set logo = siteInfo.logo.one %}
 
 {# No query params for site switcher if reactive content #}

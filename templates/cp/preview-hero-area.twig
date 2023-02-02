@@ -1,4 +1,6 @@
-{# No front end page for hero area, this is only used for preview #}
+{% set id = craft.app.request.param('id') %}
+{% set siteId = craft.app.request.param('siteId') %}
+{% set entry = craft.app.entries.entryById(id, siteId) %}
 
 {% if not currentUser or not entry.canSave(currentUser) %}
     {% exit 404 %}
@@ -8,7 +10,7 @@
 
 {% block heroArea %}
     {% set heroEntry = entry %}
-    
+
     {% set image =  heroEntry.heroImage.one %}
     {% set ctaButtons = heroEntry.ctaButtons.collect %}
 
@@ -31,7 +33,7 @@
         {% block content %}
 
             {% include '_layouts/partials/headline.twig' with {
-            	text: 'Hero Area Preview'
+                text: 'Hero Area Preview'
             } only %}
 
             {% for i in 0..4 %}

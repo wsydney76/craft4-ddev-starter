@@ -3,6 +3,7 @@
 namespace modules\main;
 
 use Craft;
+use craft\base\Element;
 use craft\elements\Entry;
 use craft\events\ElementEvent;
 use craft\helpers\ElementHelper;
@@ -16,6 +17,7 @@ use modules\main\fields\SiteField;
 use modules\main\resources\CpAssetBundle;
 use modules\main\services\ContentService;
 use modules\main\twigextensions\TwigExtension;
+use modules\main\validators\BodyContentValidator;
 use modules\main\widgets\MyProvisionalDraftsWidget;
 use yii\base\Event;
 
@@ -73,6 +75,11 @@ class MainModule extends BaseModule
             $this->registerAssetBundles([
                 CpAssetBundle::class
             ]);
+
+            $this->registerEntryValidators([
+                [['bodyContent'], BodyContentValidator::class, 'on' => [Element::SCENARIO_LIVE]]
+            ]);
+
         }
     }
 

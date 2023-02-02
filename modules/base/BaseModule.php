@@ -4,8 +4,11 @@ namespace modules\base;
 
 use Craft;
 use craft\base\conditions\BaseCondition;
+use craft\base\Element;
 use craft\base\Model;
+use craft\elements\Entry;
 use craft\events\DefineBehaviorsEvent;
+use craft\events\DefineRulesEvent;
 use craft\events\RegisterComponentTypesEvent;
 use craft\events\RegisterConditionRuleTypesEvent;
 use craft\events\RegisterCpNavItemsEvent;
@@ -16,6 +19,7 @@ use craft\services\Fields;
 use craft\web\twig\variables\Cp;
 use craft\web\View;
 use modules\base\services\ContentService;
+use modules\main\validators\BodyContentValidator;
 use yii\base\Event;
 use yii\base\Module;
 use function array_splice;
@@ -176,6 +180,20 @@ class BaseModule extends Module
         foreach ($assetBundles as $assetBundle) {
             Craft::$app->view->registerAssetBundle($assetBundle);
         }
+    }
+
+    protected function registerEntryValidators(array $rules)
+    {
+
+        Event::on(
+            Entry::class,
+            Entry::EVENT_DEFINE_RULES, function(DefineRulesEvent $event) use ($rules) {
+
+            foreach ($rules as $rule) {
+                $event->rules[] = $rule;
+            }
+
+        });
     }
 
 

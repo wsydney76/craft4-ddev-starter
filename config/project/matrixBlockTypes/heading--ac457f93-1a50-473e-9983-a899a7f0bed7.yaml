@@ -16,16 +16,16 @@ fieldLayouts:
             uid: a5f31ac1-d94c-4311-82fa-1ef9ce42f581
             userCondition: null
             warning: null
-            width: 75
+            width: 50
           -
             elementCondition: null
-            fieldUid: 3fb81893-2727-4990-b8f6-a5f6e391a8d8 # Style
+            fieldUid: 1de27fd9-bda6-4977-8d43-b36ef6813c60 # Level
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 1aae69e6-1044-4dd3-8c94-f1f12929904d
+            uid: eb338c21-2796-4b2c-b622-b82738a3be2f
             userCondition: null
             warning: null
             width: 25
@@ -33,13 +33,13 @@ fieldLayouts:
         uid: be6789a7-64de-4d8d-a3a8-38a75763af9b
         userCondition: null
 fields:
-  3fb81893-2727-4990-b8f6-a5f6e391a8d8: # Style
-    columnSuffix: jqoxnegv
+  1de27fd9-bda6-4977-8d43-b36ef6813c60: # Level
+    columnSuffix: fdmibgap
     contentColumnType: string
     fieldGroup: null
-    handle: style
+    handle: htmlTag
     instructions: null
-    name: Style
+    name: Level
     searchable: false
     settings:
       options:
@@ -47,10 +47,10 @@ fields:
           __assoc__:
             -
               - label
-              - Default
+              - H2
             -
               - value
-              - default
+              - h2
             -
               - default
               - '1'
@@ -58,10 +58,10 @@ fields:
           __assoc__:
             -
               - label
-              - Headline
+              - H3
             -
               - value
-              - headline
+              - h3
             -
               - default
               - ''

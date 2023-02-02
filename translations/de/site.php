@@ -36,6 +36,8 @@ return [
     '“' => '„',
     '”' => '“',
     '{count,plural,=1{Related Entry} other{Related Entries}}' => '{count,plural,=1{Verwandter Eintrag} other{Verwandte Einträge}}',
+    'Nesting of heading levels is wrong.' => 'Die Verschachtelung der Überschriftenebenen ist falsch.',
+    'Block {index}: H{level} cannot follow H{lastHeadingLevel}.' => 'Block {index}: H{level} kann nicht auf H{lastHeadingLevel} folgen.',
 
     // Environment field
 

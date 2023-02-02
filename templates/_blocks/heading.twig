@@ -1,21 +1,8 @@
 {# Display headings block #}
 
-{% set style = block.style ?? 'default' %}
+{% set htmlTag = block.htmlTag ?? 'h2' %}
 
-
-{% switch style %}
-
-{% case "headline" %}
-
-    {% include '_layouts/partials/headline.twig' with {
-    	text: block.text
-    } only %}
-
-
-{% default %}
-
-    <h2 class="text-2xl font-semibold">{{ block.text }}</h2>
-
-{% endswitch %}
-
+{{ tag(htmlTag, {
+    text: block.text
+}) }}
 

@@ -98,7 +98,7 @@ fieldLayouts:
             width: 25
           -
             elementCondition: null
-            fieldUid: 55a9382b-6de2-4150-b375-33e79dafc8e3 # CTA Additional Buttons
+            fieldUid: 55a9382b-6de2-4150-b375-33e79dafc8e3
             instructions: null
             label: null
             required: false

@@ -1,0 +1,38 @@
+{# No front end page for hero area, this is only used for preview #}
+
+{% if not currentUser or not entry.canSave(currentUser) %}
+    {% exit 404 %}
+{% endif %}
+
+{% extends "_layouts/main.twig" %}
+
+{% block heroArea %}
+    {% set image =  entry.heroImage.one %}
+    {% set target = entry.ctaTarget.one %}
+    {% include '_layouts/partials/hero-area-display.twig' with {
+        image,
+        title: entry.title,
+        text: entry.heroText,
+        teaser: entry.heroTeaser,
+        url: target ? target.url : '',
+        caption: target ? entry.ctaCaption ?: target.title : '',
+        template: entry.pageTemplate
+    } only %}
+{% endblock %}
+
+{% block content %}
+    {% embed '_layouts/embeds/content-md.twig' with {showHeader: false} %}
+        {% block content %}
+
+            {% include '_layouts/partials/headline.twig' with {
+            	text: 'Hero Area Preview'
+            } only %}
+
+            {% for i in 0..4 %}
+                <div class="mt-8">
+                    Aliquam erat volutpat. Cras id dui. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros. Praesent ac massa at ligula laoreet iaculis.
+                </div>
+            {% endfor %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

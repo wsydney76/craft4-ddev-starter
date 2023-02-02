@@ -87,6 +87,7 @@ This starter comes with a mix of functionality that is likely to be used in ever
 * Assets with translatable alt text, copyright field
 * SEO via Seomate plugin inc. Json-ld meta data
 * Has Drafts condition rule for entry index: Shows my open drafts
+* A 'my provisional drafts' dashboard widget.
 * Has Empty Alt Text condition rule for asset index
 * Volumes/file systems. Images volume outside of web root, so transformed images are forced on front end. No use of named image transforms.
 * Custom config file inc. transform settings
@@ -236,6 +237,7 @@ What the starter does not do:
 * User tracking and cookie banners (the YouTube block is safe to use without it)
 * Spam protection
 * Advanced caching. A sample config file for the Blitz plugin is included.
+* Trying to achieve near perfect code quality.
 
 ## Money
 

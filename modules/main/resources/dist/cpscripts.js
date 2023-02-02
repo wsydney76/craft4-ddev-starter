@@ -34,6 +34,10 @@ CSS:
         display: none;
     }
 
+Known issue:
+
+Visibility does not get refreshed when changing sites via the sitemenu.
+
 */
 
 
@@ -72,11 +76,11 @@ function storeSidebarVisibility(elementType, headingNodes) {
     headingNodes.forEach(function(element) {
         v[element.innerText] = element.parentElement.classList.contains('collapsed') ? 'hidden' : 'visible'
     });
-    localStorage['sidebarVisiblity_' + elementType] = JSON.stringify(v);
+    localStorage[getStorageName(elementType)] = JSON.stringify(v);
 }
 
 function setSidebarVisibility(elementType, headingNodes) {
-    var v = localStorage['sidebarVisiblity_' + elementType];
+    var v = localStorage[getStorageName(elementType)];
 
     // No stored settings?
     if (v === undefined) {
@@ -91,4 +95,10 @@ function setSidebarVisibility(elementType, headingNodes) {
         }
     })
 
+}
+
+function getStorageName(elementType) {
+    urlParams = new URLSearchParams(window.location.search)
+    site = urlParams.get('site')
+    return 'sidebarVisiblity_' + site + '_' + elementType
 }

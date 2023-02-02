@@ -1,8 +1,17 @@
 # Craft 4 Simple Starter
 
-Multilingual Craft CMS starter for use with (or without) DDEV with a simple config and opinionated templating conventions, Can be useful as a starting point.
+Multilingual Craft CMS starter for use with (or without) DDEV with a simple config and opinionated templating conventions, can be useful as a starting point.
 
-This is the result of a girls-only internship project, and we thank Aylin and Mel for bringing it to life and making it a success.
+This is initially the result of a girls-only internship project, and we thank Aylin and Mel for bringing it to life and making it a success.
+
+Still work in progress, trying to make it suit for
+
+* quick demos for potential customers
+* hobby or semi-professional projects
+* developer training
+* prototyping new stuff
+* playground for internships and student theses
+* basis for ongoing PoCs, that try to split existing functionality into a series of plugins.
 
 ## Install
 
@@ -87,8 +96,6 @@ This starter comes with a mix of functionality that is likely to be used in ever
 
 ## Templating
 
-Layout inspired by Craft Quest Real World CMS course templates.
-
 Folders:
 
 * _layouts: Templates that define the general look and feel of the site, mostly independent of the actual content model.
@@ -106,6 +113,8 @@ Folders:
 * _partials: Project specific partial templates
 * _widgets: Widget example for sidebar layouts
 
+Templates are prepared to use rounded corners for cards, images etc., this is by default switched off in `tailwind.config.js`. Uncomment the `borderRadius` settings to see rounded corners.
+
 ## Hero Area
 
 The hero area shows:
@@ -113,7 +122,7 @@ The hero area shows:
 * a background image with copyright
 * a teaser line above the title (optional)
 * a title
-* a text (optial). Rendered as markdown
+* a text (optional). Rendered as markdown
 * a call-to-action button (optional)
 
 Additionally  `topHtml` and `bottomHtml` params can be passed in that will appear, you guessed it, at the top or bottom. 
@@ -123,13 +132,13 @@ The hero area should be rendered via `_layouts/partials/hero-area-display.twig`.
 
 The actual template lives in `_layouts/partials/heroarea` and is determined
 
-* by the `pageTemplate` field of a hero area entry, if available
+* by the `heroAreaTemplate` field value of a hero area entry, if available
 * by a `template` parameter
 * by the `heroTemplate` setting in `config/custom.php`
 
 The `default` template is prepared for this starter. 
 
-Some hero templates stolen from other projects are included as demo, styling needs to be optimized, image transforms should be adjusted.
+Some hero templates stolen from other projects are included as a demo, styling needs to be optimized, image transforms should be adjusted.
 
 * textonly: No image, this is by default also used as a fallback if no image is present.
 * imagetext: image + textonly below
@@ -218,3 +227,18 @@ Add missing networks:
 
 * Replace the icons in `/web`.
 * Update `templates/_layouts/head` and/or `web/sitemanifest.json` if you have different sizes/filenames.
+
+## Not in here
+
+What the starter does not do:
+
+* Optimize SEO, Json-Ld
+* User tracking and cookie banners (the YouTube block is safe to use without it)
+* Spam protection
+* Advanced caching. A sample config file for the Blitz plugin is included.
+
+## Money
+
+Craft CMS Pro edition and the Imager X plugin are paid software, but can be used in non-production domains.
+
+It is safe to switch to Craft CMS Solo Edition and remove the Imager X plugin. This starter will continue to work.

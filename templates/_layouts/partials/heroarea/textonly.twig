@@ -22,15 +22,13 @@
         </div>
     {% endif %}
 
-    {% if url and caption %}
-        <div class="mt-8 flex justify-center">
-            {% include '_layouts/partials/button.twig' with {
-                caption: caption,
-                href: url,
-                color: 'primary'
-            } only %}
-        </div>
-    {% endif %}
+    {% include '_layouts/partials/heroarea/_ctabuttons.twig' with {
+        buttons,
+        primaryColor: 'primary',
+        secondaryColor: 'white',
+        classes: 'mt-16 flex justify-center'
+    } only %}
+
 
     {% if bottomHtml %}
         {{ bottomHtml|raw }}

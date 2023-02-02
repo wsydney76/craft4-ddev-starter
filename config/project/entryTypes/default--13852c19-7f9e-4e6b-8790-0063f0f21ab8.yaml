@@ -74,28 +74,16 @@ fieldLayouts:
             userCondition: null
           -
             elementCondition: null
-            fieldUid: 1bcfb3b0-25cb-4e06-8af6-d11008f0dd03 # CTA Target
+            fieldUid: 08f7545c-870e-4727-a418-660af19052ea # CTA Buttons
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: a5999e21-a227-477e-b2d5-4269112784ba
+            uid: 8cd30983-5d8a-4c19-8d71-61e410aa5ff3
             userCondition: null
             warning: null
-            width: 25
-          -
-            elementCondition: null
-            fieldUid: b3f2b523-f81d-4204-9f83-763da48cd843 # CTA Caption
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 60b2ebda-de96-437d-8552-64eb1df7e085
-            userCondition: null
-            warning: null
-            width: 25
+            width: 100
           -
             elementCondition: null
             heading: Layout

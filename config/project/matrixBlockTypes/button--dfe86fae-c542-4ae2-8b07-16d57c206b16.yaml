@@ -1,0 +1,121 @@
+field: 08f7545c-870e-4727-a418-660af19052ea # CTA Buttons
+fieldLayouts:
+  6cce5763-28e6-451b-b8f3-84e06afb007c:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 489e5502-a241-4b2e-97c5-d8a0220a72c6 # CTA Target
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8b419540-0e6e-4dbb-91c2-e8e28746954b
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 6193ce57-a570-451e-8124-ec3ba985b0b2 # CTA Caption
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c77ac28b-6775-46df-87a0-737959495778
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 52144f06-b394-45aa-bee6-d00e1f86878f # Primary
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d033e372-1331-47a7-8445-5b67bc93c75c
+            userCondition: null
+            warning: null
+            width: 25
+        name: Content
+        uid: 1e9aa5b9-9d0a-41ce-8f11-a8954fd8b777
+        userCondition: null
+fields:
+  489e5502-a241-4b2e-97c5-d8a0220a72c6: # CTA Target
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: ctaTarget
+    instructions: null
+    name: 'CTA Target'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      localizeRelations: false
+      maxRelations: 1
+      minRelations: null
+      selectionCondition:
+        __assoc__:
+          -
+            - elementType
+            - craft\elements\Entry
+          -
+            - fieldContext
+            - global
+          -
+            - class
+            - craft\elements\conditions\entries\EntryCondition
+      selectionLabel: 'Select entry'
+      showSiteMenu: false
+      source: null
+      sources:
+        - 'section:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # News
+        - 'section:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  6193ce57-a570-451e-8124-ec3ba985b0b2: # CTA Caption
+    columnSuffix: fmpkzsew
+    contentColumnType: string(240)
+    fieldGroup: null
+    handle: ctaCaption
+    instructions: null
+    name: 'CTA Caption'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: 60
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: language
+    type: craft\fields\PlainText
+  52144f06-b394-45aa-bee6-d00e1f86878f: # Primary
+    columnSuffix: ticlfxhq
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: primary
+    instructions: null
+    name: Primary
+    searchable: false
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+handle: button
+name: Button
+sortOrder: 1

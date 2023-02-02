@@ -3,8 +3,7 @@
 {# @param image Asset Background image #}
 {# @param title String Title text #}
 {# @param text String Text #}
-{# @param url String optional Url for CTA button #}
-{# @param caption String Text for CTA button #}
+{# @param buttons Array buttons with url, caption, primary #}
 {# @param teaser String optional Small text above Title #}
 
 {% set config = craft.app.config.custom %}
@@ -16,6 +15,7 @@
 {% set fallbackTemplate = config.heroFallbackTemplate ?? 'textonly' %}
 {% set topHtml = topHtml ?? '' %}
 {% set bottomHtml = bottomHtml ?? '' %}
+{% set buttons = buttons ?? [] %}
 
 {% set classes = {
     full: '',

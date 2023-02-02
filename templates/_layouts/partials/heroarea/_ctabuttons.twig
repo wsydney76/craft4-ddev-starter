@@ -1,0 +1,18 @@
+{# @param buttons array buttons #}
+
+{% set primaryColor = primaryColor ?? 'primary' %}
+{% set secondaryColor = secondaryColor ?? 'light' %}
+
+{% if buttons %}
+    <div class="flex space-x-4 {{ classes ?? '' }}">
+        {% for button in buttons %}
+            {% if button.url %}
+                {% include '_layouts/partials/button.twig' with {
+                    href: button.url,
+                    caption: button.caption,
+                    color: button.primary ? primaryColor : secondaryColor
+                } only %}
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}

@@ -135,6 +135,7 @@ class SeedController extends BaseController
 
             // pseudo random
             $target = Entry::find()->section('news')->orderBy('title')->one();
+            $target2 = Entry::find()->section('news')->offset(1)->orderBy('title')->one();
 
             $heroAreaEntry = $this->createEntry([
                 'section' => 'heroArea',
@@ -144,9 +145,25 @@ class SeedController extends BaseController
                 'fields' => [
                     'heroText' => $paragraphs,
                     'heroImage' => [$image->id],
-                    'ctaTarget' => $target ?[$target->id] : [],
-                    'ctaCaption' => $faker->text(20),
-                    'pageTemplate' => 'textimagehalfed',
+                    'heroAreaTemplate' => 'textimagehalfed.twig',
+                    'ctaButtons' => [
+                        [
+                            'type' => 'button',
+                            'fields' => [
+                                'ctaTarget' => $target ?[$target->id] : [],
+                                'ctaCaption' => $faker->text(20),
+                                'primary' => true,
+                            ]
+                        ],
+                        [
+                        'type' => 'button',
+                        'fields' => [
+                            'ctaTarget' => $target2 ?[$target2->id] : [],
+                            'ctaCaption' => $faker->text(20),
+                            'primary' => false,
+                        ]
+                    ]
+                    ]
                  ]
             ]);
 

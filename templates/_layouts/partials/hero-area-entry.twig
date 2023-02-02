@@ -8,7 +8,10 @@
     image: entry.featuredImage.one,
     title: entry.title,
     text: entry.tagline,
-    url: entry.url,
-    caption: "#{'Read more about'|t} #{entry.title|quote}" ,
+    buttons: [{
+        url: entry.url,
+        caption: "#{'Read more about'|t} #{entry.title|quote}" ,
+        primary: false
+    }],
     teaser: teaser
 } only %}

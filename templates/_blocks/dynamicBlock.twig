@@ -1,5 +1,5 @@
 <div>
-    {% include block.template ignore missing with {
+    {% include "_blocks/dynamic/#{block.template}" ignore missing with {
         block,
         params: block.parameter|json_decode
     } %}

@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1675332168
+dateModified: 1675336053
 elementSources:
   craft\elements\Asset:
     -
@@ -242,6 +242,7 @@ meta:
     90724a6b-55ad-446f-be50-7aea7e1fb067: Robots # Robots
     97742dae-23f0-4986-a259-c886b727a452: FAQ # FAQ
     481205e6-eb29-45a0-8b40-021d4dcfcac1: 'Email Sender' # Email Sender
+    655243f7-46a2-42c0-8de4-188017c31d53: 'Hero Area Template' # Hero Area Template
     5286148d-12b9-4f55-a35c-0e51c06bbe44: Contact # Contact
     8785637f-8785-4fd2-86d2-9232d9674420: 'Related Entries' # Related Entries
     27127353-b8d1-4c07-a2af-7a273ad8f1f6: 'Hero Area' # Hero Area

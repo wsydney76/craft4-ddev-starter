@@ -1,0 +1,12 @@
+columnSuffix: zeihvxvn
+contentColumnType: string
+fieldGroup: 99b1f33e-21a3-4870-8165-2b685034a641 # Layout
+handle: heroAreaTemplate
+instructions: null
+name: 'Hero Area Template'
+searchable: false
+settings:
+  includeDirectory: _layouts/partials/heroarea
+translationKeyFormat: null
+translationMethod: none
+type: modules\main\fields\IncludeField

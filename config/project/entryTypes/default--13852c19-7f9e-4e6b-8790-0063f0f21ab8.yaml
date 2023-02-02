@@ -98,31 +98,19 @@ fieldLayouts:
             width: 25
           -
             elementCondition: null
-            fieldUid: 55a9382b-6de2-4150-b375-33e79dafc8e3
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 9e0f9059-9226-46ba-bf2b-37648b09329d
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
             heading: Layout
             type: craft\fieldlayoutelements\Heading
             uid: b5509a70-3403-4dd3-a8db-77f6adecd776
             userCondition: null
           -
             elementCondition: null
-            fieldUid: 4120c3e9-17c2-464b-8d41-7d009dacb5e3 # Page Template
-            instructions: 'The template that renders the hero area. If empty or the entered template does not exist, the default template of the project will be used.'
-            label: 'Hero Area Template'
+            fieldUid: 655243f7-46a2-42c0-8de4-188017c31d53 # Hero Area Template
+            instructions: null
+            label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 9668b7ab-8686-496f-b9b1-56308606bc03
+            uid: f384736a-6635-4904-a48d-5d10367a48cc
             userCondition: null
             warning: null
             width: 100

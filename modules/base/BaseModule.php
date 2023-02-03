@@ -29,7 +29,7 @@ use function array_splice;
 class BaseModule extends Module
 {
 
-    protected string $handle = '';
+    protected $handle = '';
 
     public function init()
     {

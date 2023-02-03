@@ -4,6 +4,6 @@ handle: en
 hasUrls: true
 language: en-US
 name: English
-primary: true
+primary: false
 siteGroup: 3bb09a1c-cb36-438e-b8d5-0b35b0965f4e # Default
-sortOrder: 1
+sortOrder: 2

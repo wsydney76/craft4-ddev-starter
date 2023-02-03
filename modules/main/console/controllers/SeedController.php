@@ -150,21 +150,21 @@ class SeedController extends BaseController
                         [
                             'type' => 'button',
                             'fields' => [
-                                'ctaTarget' => $target ?[$target->id] : [],
+                                'ctaTarget' => $target ? [$target->id] : [],
                                 'ctaCaption' => $faker->text(20),
                                 'primary' => true,
                             ]
                         ],
                         [
-                        'type' => 'button',
-                        'fields' => [
-                            'ctaTarget' => $target2 ?[$target2->id] : [],
-                            'ctaCaption' => $faker->text(20),
-                            'primary' => false,
+                            'type' => 'button',
+                            'fields' => [
+                                'ctaTarget' => $target2 ? [$target2->id] : [],
+                                'ctaCaption' => $faker->text(20),
+                                'primary' => false,
+                            ]
                         ]
                     ]
-                    ]
-                 ]
+                ]
             ]);
 
             if ($heroAreaEntry) {
@@ -232,7 +232,7 @@ class SeedController extends BaseController
             ['text', 'heading', 'image', 'text', 'image'],
             ['text', 'heading', 'image', 'text', 'quote', 'text'],
             ['text', 'text', 'text', 'heading', 'text', 'text', 'text', 'heading', 'text', 'text', 'text'],
-            ['text','image', 'image', 'image'],
+            ['text', 'image', 'image', 'image'],
         ];
 
         $blockTypes = $faker->randomElement($layouts);
@@ -376,7 +376,15 @@ class SeedController extends BaseController
 
     protected function indexImages(): void
     {
-        $this->stdout("Indexing existing images..." . PHP_EOL);
-        Craft::$app->runAction('index-assets/one', [$this->volume]);
+        $imagesCount = Asset::find()
+            ->volume($this->volume)
+            ->kind('image')
+            ->width("> $this->minWidth")
+            ->count();
+
+        if ($imagesCount < 20) {
+            $this->stdout("Indexing existing images..." . PHP_EOL);
+            Craft::$app->runAction('index-assets/one', [$this->volume]);
+        }
     }
 }

@@ -82,7 +82,7 @@ This starter comes with a mix of functionality that is likely to be used in ever
 * News section
 * Legal section. Use for privacy, imprint. Shown in footer navigation
 * Hero Area: Embedded section. This allows hero area/CTA content which can be scheduled precisely, independent of the owning entry.
-* Content Builder field with block types: Heading, Text, Image, Gallery, Quote, Cards, YouTube Video, Dynamic content (custom template)
+* Content Builder field with block types: Heading, Text, Image, Gallery, Quote, Cards, YouTube Video, Dynamic content with custom template(section page only)
 * Site Info global inc. contact info
 * Assets with translatable alt text, copyright field
 * SEO via Seomate plugin inc. Json-ld meta data

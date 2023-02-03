@@ -7,9 +7,8 @@ use yii\base\Behavior;
 
 class EntryBehavior extends Behavior
 {
-    public function test()
+    public function ping()
     {
-        // Example for service call
-        return MainModule::getInstance()->content->test();
+        return 'Pong';
     }
 }

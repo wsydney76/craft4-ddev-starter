@@ -5,7 +5,9 @@ namespace modules\main;
 use Craft;
 use craft\base\Element;
 use craft\elements\Entry;
+use craft\events\BlockTypesEvent;
 use craft\events\ElementEvent;
+use craft\fields\Matrix;
 use craft\helpers\ElementHelper;
 use craft\services\Elements;
 use modules\base\BaseModule;
@@ -15,16 +17,12 @@ use modules\main\fields\EnvironmentVariableField;
 use modules\main\fields\IncludeField;
 use modules\main\fields\SiteField;
 use modules\main\resources\CpAssetBundle;
-use modules\main\services\ContentService;
 use modules\main\twigextensions\TwigExtension;
 use modules\main\validators\BodyContentValidator;
 use modules\main\widgets\MyProvisionalDraftsWidget;
 use yii\base\Event;
 
 
-/**
- * @property ContentService $content
- */
 class MainModule extends BaseModule
 {
 
@@ -35,9 +33,16 @@ class MainModule extends BaseModule
 
         parent::init();
 
-        $this->registerServices([
-            'content' => ContentService::class
-        ]);
+        // Defer most setup tasks until Craft is fully initialized
+        Craft::$app->onInit(function() {
+            $this->attachEventHandlers();
+        });
+    }
+
+    private function attachEventHandlers(): void
+    {
+        // Register event handlers here ...
+        // (see https://craftcms.com/docs/4.x/extend/events.html to get started)
 
         $this->registerTranslationCategory();
 
@@ -80,6 +85,21 @@ class MainModule extends BaseModule
                 [['bodyContent'], BodyContentValidator::class, 'on' => [Element::SCENARIO_LIVE]]
             ]);
 
+
+            // Show the dynamicBlock block type only for section page
+            Event::on(
+                Matrix::class,
+                Matrix::EVENT_SET_FIELD_BLOCK_TYPES,
+                function(BlockTypesEvent $event) {
+                    $element = $event->element;
+                    if ($element instanceof Entry && $element->section->handle !== 'page') {
+                        foreach ($event->blockTypes as $i => $blockType) {
+                            if ($blockType->handle === 'dynamicBlock') {
+                                unset($event->blockTypes[$i]);
+                            }
+                        }
+                    }
+                });
         }
     }
 

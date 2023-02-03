@@ -1,5 +1,7 @@
 {# Display cards block #}
 
+{% set layout = block.layout.value ?? 'card' %}
+
 <div class="not-prose">
-    {% include '_layouts/partials/cards.twig' with {query: block.entries, wide: false} only %}
+    {% include '_layouts/partials/cards.twig' with {query: block.entries, wide: false, layout} only %}
 </div>

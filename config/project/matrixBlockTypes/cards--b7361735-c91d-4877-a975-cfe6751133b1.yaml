@@ -16,11 +16,58 @@ fieldLayouts:
             uid: 33044d64-3e02-42d1-8752-0dd647dfd38e
             userCondition: null
             warning: null
-            width: 100
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 3d8293ac-fa84-47ed-befa-a41cb6315212 # Layout
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: dfc562a7-8b95-4966-9334-1905e2c8e5a0
+            userCondition: null
+            warning: null
+            width: 25
         name: Content
         uid: 92206a48-c702-4bec-9596-93475e6fa0e6
         userCondition: null
 fields:
+  3d8293ac-fa84-47ed-befa-a41cb6315212: # Layout
+    columnSuffix: gfvnkphp
+    contentColumnType: string
+    fieldGroup: null
+    handle: layout
+    instructions: null
+    name: Layout
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Cards
+            -
+              - value
+              - card
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Cardlets
+            -
+              - value
+              - cardlet
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
   eb61b6c1-d43a-4bf6-8091-bc71c44a9dcf: # Entries
     columnSuffix: null
     contentColumnType: string

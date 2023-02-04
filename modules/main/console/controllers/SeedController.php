@@ -109,7 +109,7 @@ class SeedController extends BaseController
                 'postDate' => $faker->dateTimeInInterval('-14 days', '-3 months'),
                 'fields' => [
                     'tagline' => $faker->text(50),
-                    'featuredImage' => $images[$i - 1]->id,
+                    'featuredImage' => [$images[$i - 1]->id],
                     'bodyContent' => $this->getBodyContent($faker)
                 ]
 

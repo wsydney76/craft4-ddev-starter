@@ -8,6 +8,7 @@ use craft\elements\Entry;
 use craft\elements\User;
 use craft\helpers\App;
 use craft\helpers\ArrayHelper;
+use craft\helpers\Console;
 use craft\helpers\FileHelper;
 use Exception;
 use Faker\Factory;
@@ -27,7 +28,18 @@ class SeedController extends BaseController
     public string $volume = 'images';
     public int $minWidth = 1200;
 
-    public function actionCreateEntries(int $num = self::NUM_ENTRIES, $sectionHandle = self::SECTION_HANDLE): int
+    /**
+     * Create a number of fake entries
+     *
+     * @param int $num Max number of entries that will be created.
+     * Will be set to the number of images in the specified folder if lower.
+     * @param string $sectionHandle Section handle for the created entries
+     * @param string $folderName Name of the folder where images live
+     * @return int
+     * @throws \yii\base\InvalidRouteException
+     * @throws \yii\console\Exception
+     */
+    public function actionCreateEntries(int $num = self::NUM_ENTRIES, string $sectionHandle = self::SECTION_HANDLE, string $folderName = 'starter'): int
     {
         $section = Craft::$app->sections->getSectionByHandle($sectionHandle);
         if (!$section) {
@@ -37,43 +49,21 @@ class SeedController extends BaseController
 
         $this->indexImages();
 
-        if ($this->interactive && $this->confirm("Add provisional alt text/copyright to images?", true)) {
-            foreach (Craft::$app->sites->allSites as $site) {
-                $images = Asset::find()
-                    ->kind('image')
-                    ->volume($this->volume)
-                    ->site($site->handle)
-                    ->all();
+        Craft::$app->runAction('main/seed/img-add-provisional-texts', ['folderName' => $folderName]);
 
-                foreach ($images as $image) {
-                    $save = false;
-                    if (!$image->altText) {
-                        $image->altText = ucwords($image->title);
-                        $save = true;
-                    }
-                    if (!$image->copyright) {
-                        $image->copyright = 'tbd.';
-                        $save = true;
-                    }
-                    if ($save) {
-                        $this->stdout("Saving provisional alt text / copyright to $image->title ($site->name)" . PHP_EOL);
-                        Craft::$app->elements->saveElement($image, false, true, false);
-                    }
-                }
-            }
+        $folder = Craft::$app->assets->findFolder(['name' => $folderName]);
+        if (!$folder) {
+            Console::output('Folder not found');
+            return ExitCode::UNSPECIFIED_ERROR;
         }
-
 
         $query = Asset::find()
             ->kind('image')
             ->volume($this->volume)
+            ->folderId($folder->id)
             ->width('> ' . $this->minWidth)
-            ->orderBy('rand()');
+            ->orderBy(Craft::$app->db->driverName === 'mysql' ? 'RAND()' : 'RANDOM()');
 
-        $folder = Craft::$app->assets->findFolder(['path' => 'starter/']);
-        if ($folder) {
-            $query->folderId($folder->id);
-        }
 
         $images = $query->collect();
 
@@ -121,6 +111,14 @@ class SeedController extends BaseController
         return ExitCode::OK;
     }
 
+    /**
+     * Create a fake hero area entry and attach it to the home page.
+     *
+     * @return int
+     * @throws \Throwable
+     * @throws \craft\errors\ElementNotFoundException
+     * @throws \yii\base\Exception
+     */
     public function actionCreateHeroArea(): int
     {
 
@@ -244,11 +242,14 @@ class SeedController extends BaseController
             'blocks' => []
         ];
 
+        $folder = Craft::$app->assets->findFolder(['name' => 'starter']);
+
         $layouts = [
             ['text', 'heading', 'image', 'text', 'image'],
             ['text', 'heading', 'image', 'text', 'quote', 'text'],
             ['text', 'text', 'text', 'heading', 'text', 'text', 'text', 'heading', 'text', 'text', 'text'],
             ['text', 'image', 'image', 'image'],
+            ['text', 'heading', 'gallery', 'image', 'image'],
         ];
 
         $blockTypes = $faker->randomElement($layouts);
@@ -274,7 +275,8 @@ class SeedController extends BaseController
                     $block = [
                         'type' => 'heading',
                         'fields' => [
-                            'text' => $faker->text(40)
+                            'text' => $faker->text(40),
+                            'htmlTag' => 'h2'
                         ]
                     ];
                     break;
@@ -299,6 +301,23 @@ class SeedController extends BaseController
                         ]
                     ];
                     break;
+                case 'gallery':
+                    $ids = Asset::find()
+                        ->kind('image')
+                        ->volume($this->volume)
+                        ->folderId($folder->id)
+                        ->width('> 900')
+                        ->limit(6)
+                        ->orderBy(Craft::$app->db->driverName === 'mysql' ? 'RAND()' : 'RANDOM()')
+                        ->ids();
+
+                    $block = [
+                        'type' => 'gallery',
+                        'fields' => [
+                            'images' => $ids,
+                        ]
+                    ];
+                    break;
             }
 
             ++$i;
@@ -319,7 +338,24 @@ class SeedController extends BaseController
         return $content;
     }
 
-    public function actionCreateImages($num = 30, $timeout = 10): int
+    /**
+     * Downloads and imports a number of images from Unsplash
+     *
+     * @param int $num Number of images to be created
+     * @param int $timeout The Timeout in seconds for each call to Unsplash
+     * @param string $folderName The name of the folder where the images will be stored
+     * @return int
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Throwable
+     * @throws \craft\errors\AssetDisallowedExtensionException
+     * @throws \craft\errors\ElementNotFoundException
+     * @throws \craft\errors\MissingAssetException
+     * @throws \craft\errors\VolumeException
+     * @throws \yii\base\Exception
+     * @throws \yii\base\InvalidConfigException
+     */
+
+    public function actionCreateImages(int $num = 30, int $timeout = 10, string $folderName = 'examples'): int
     {
 
         if ($this->interactive && !$this->confirm("Download {$num} example images from Unsplash?")) {
@@ -335,13 +371,13 @@ class SeedController extends BaseController
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
-        $path = App::parseEnv($volume->fs->path) . DIRECTORY_SEPARATOR . 'examples';
+        $path = App::parseEnv($volume->fs->path) . DIRECTORY_SEPARATOR . $folderName;
         if (!is_dir($path)) {
             FileHelper::createDirectory($path);
         }
 
         // Don't overwrite existing images, ensure sequence number is unique
-        $folders = Craft::$app->assets->findFolders(['volumeId' => $volume->id, 'path' => 'examples/']);
+        $folders = Craft::$app->assets->findFolders(['volumeId' => $volume->id, 'path' => $folderName . '/']);
         if ($folders) {
             $count = Asset::find()->folderId(ArrayHelper::firstValue($folders)->id)->count();
         } else {
@@ -387,6 +423,62 @@ class SeedController extends BaseController
             $this->stdout(" created\n");
         }
 
+        return ExitCode::OK;
+    }
+
+    /**
+     * Make sure images in the specified folder have alt text and copyright.
+     * This will make sure that entries relating to these images can be saved without errors.
+     *
+     * @param string $folderName The folder name where to check the images
+     * @return int
+     * @throws \Throwable
+     * @throws \craft\errors\ElementNotFoundException
+     * @throws \yii\base\Exception
+     */
+    public function actionImgAddProvisionalTexts(string $folderName = 'starter'): int
+    {
+        $folder = Craft::$app->assets->findFolder(['folder' => $folderName]);
+        if (!$folder) {
+            return ExitCode::OK;
+        }
+
+        $hasNoAlt = Asset::find()
+            ->site('*')
+            ->folderId($folder->id)
+            ->kind('image')
+            ->altText(':empty:')
+            ->exists();
+
+        if (!$hasNoAlt) {
+            return ExitCode::OK;
+        }
+
+        if ($this->interactive && $this->confirm("Add provisional alt text/copyright to images?", true)) {
+            foreach (Craft::$app->sites->allSites as $site) {
+                $images = Asset::find()
+                    ->kind('image')
+                    ->volume($this->volume)
+                    ->site($site->handle)
+                    ->all();
+
+                foreach ($images as $image) {
+                    $save = false;
+                    if (!$image->altText) {
+                        $image->altText = ucwords($image->title);
+                        $save = true;
+                    }
+                    if (!$image->copyright) {
+                        $image->copyright = 'tbd.';
+                        $save = true;
+                    }
+                    if ($save) {
+                        $this->stdout("Saving provisional alt text / copyright to $image->title ($site->name)" . PHP_EOL);
+                        Craft::$app->elements->saveElement($image, false, true, false);
+                    }
+                }
+            }
+        }
         return ExitCode::OK;
     }
 

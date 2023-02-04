@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1675471247
+dateModified: 1675507316
 elementSources:
   craft\elements\Asset:
     -
@@ -291,7 +291,6 @@ meta:
     d50026f3-a236-4ae2-b00a-af55076acd17: Site # Site
     db33cf09-8ba1-45f6-9cc0-3e855cbcb809: Template # Template
     dbf50cb2-37c8-45f7-b375-dcb93e09691b: Deutsch # Deutsch
-    ddcc2c76-5589-428c-9e94-51cf6c84cc8e: 'Section Index' # Section Index
     de3c08c7-8c44-46ea-8a7c-109499269f55: Answer # Answer
     dfe86fae-c542-4ae2-8b07-16d57c206b16: Button # Button
     e2e51276-3783-49cb-9ed0-22ae364fd49a: 'Menu Title' # Menu Title

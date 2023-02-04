@@ -77,7 +77,6 @@ This starter comes with a mix of functionality that is likely to be used in ever
     * Search powered by Sprig
     * Default: just heading and blocks
     * Nav item: Does not have its own content, it creates a primary navigation item that lists its children in a dropdown, or renders a custom template in the dropdown panel.
-    * Section Index: Create a simple index page for new sections.
     * Page Template: Create a page that renders a custom page template, e.g. for more specific section indexes with eager loading enabled.
 * News section
 * Legal section. Use for privacy, imprint. Shown in footer navigation

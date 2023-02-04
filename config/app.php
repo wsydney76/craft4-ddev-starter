@@ -26,8 +26,7 @@ return [
     'id' => App::env('CRAFT_APP_ID') ?: 'CraftCMS',
     'modules' => [
         'main' => MainModule::class,
-        'base' => BaseModule::class,
-        'test' => Module::class,
+        'base' => BaseModule::class
     ],
     'bootstrap' => ['main', 'base']
 ];

@@ -1,9 +1,0 @@
-{% if craft.app.request.pageNum == 1 %}
-    {% set featuredEntry = craft.entries.section(entry.sections).one %}
-    {% if featuredEntry %}
-        {% include '_layouts/partials/hero-area-entry.twig' with {
-            entry: featuredEntry,
-            teaser: 'Latest'|t
-        } only %}
-    {% endif %}
-{% endif %}

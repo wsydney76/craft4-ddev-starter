@@ -19,6 +19,14 @@ class InitController extends BaseController
      */
     public $defaultAction = 'all';
 
+
+    /**
+     * Run all init actions
+     *
+     * @return int
+     * @throws \yii\base\InvalidRouteException
+     * @throws \yii\console\Exception
+     */
     public function actionAll(): int
     {
 
@@ -51,6 +59,13 @@ class InitController extends BaseController
         return ExitCode::OK;
     }
 
+
+    /**
+     * Sets values that will be stored in the local .env file
+     *
+     * @return int
+     * @throws \yii\base\Exception
+     */
     public function actionSetupDotEnv(): int
     {
         if (!$this->interactive) {
@@ -71,6 +86,14 @@ class InitController extends BaseController
         return ExitCode::OK;
     }
 
+    /**
+     * Sets (mostly faked) field values for the siteInfo global set
+     *
+     * @return int
+     * @throws \Throwable
+     * @throws \craft\errors\ElementNotFoundException
+     * @throws \yii\base\Exception
+     */
     public function actionSetupGlobals(): int
     {
         $faker = Factory::create();
@@ -134,6 +157,11 @@ class InitController extends BaseController
         return ExitCode::OK;
     }
 
+    /**
+     * Creates page/legal entries
+     *
+     * @return int
+     */
     public function actionCreateEntries(): int
     {
 
@@ -274,6 +302,16 @@ class InitController extends BaseController
     }
 
 
+    /**
+     * Sets name for the default user and creates another faked user. Sets user photos.
+     *
+     * @return int
+     * @throws \Throwable
+     * @throws \craft\errors\ElementNotFoundException
+     * @throws \craft\errors\ImageException
+     * @throws \craft\errors\VolumeException
+     * @throws \yii\base\Exception
+     */
     public function actionSetUsers(): int
     {
         $faker = Factory::create();
@@ -291,8 +329,10 @@ class InitController extends BaseController
         $user->firstName = 'Erna';
         $user->lastName = 'Klawuppke';
         $user->email = 'erna.klawuppke@example.com';
+        $user->active = true;
 
         $user->setScenario(User::SCENARIO_LIVE);
+
 
         if (Craft::$app->elements->saveElement($user)) {
             $group = Craft::$app->userGroups->getGroupByHandle('contentEditors');

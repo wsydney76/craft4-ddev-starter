@@ -61,6 +61,8 @@ class AssetsController extends Controller
     }
 
     /**
+     * Clears all folders containing Crafts native transformed images
+     *
      * @throws \yii\base\InvalidConfigException
      */
     public function actionDeleteEmptyTransformFolders(): int

@@ -249,7 +249,7 @@ class SeedController extends BaseController
             ['text', 'heading', 'image', 'text', 'quote', 'text'],
             ['text', 'text', 'text', 'heading', 'text', 'text', 'text', 'heading', 'text', 'text', 'text'],
             ['text', 'image', 'image', 'image'],
-            ['text', 'heading', 'gallery', 'image', 'image'],
+            ['text', 'heading', 'gallery', 'text', 'heading', 'text'],
         ];
 
         $blockTypes = $faker->randomElement($layouts);

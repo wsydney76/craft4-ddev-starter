@@ -51,7 +51,7 @@ class SeedController extends BaseController
                 foreach ($images as $image) {
                     $save = false;
                     if (!$image->altText) {
-                        $image->altText = 'tbd.';
+                        $image->altText = $image->title;
                         $save = true;
                     }
                     if (!$image->copyright) {

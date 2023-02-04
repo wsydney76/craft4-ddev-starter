@@ -22,7 +22,7 @@ use const PHP_EOL;
 class SeedController extends BaseController
 
 {
-    public const NUM_ENTRIES = 30;
+    public const NUM_ENTRIES = 50;
     public const SECTION_HANDLE = 'news';
     public string $volume = 'images';
     public int $minWidth = 1200;
@@ -32,10 +32,6 @@ class SeedController extends BaseController
         $section = Craft::$app->sections->getSectionByHandle($sectionHandle);
         if (!$section) {
             $this->stderr("Invalid section {$sectionHandle}") . PHP_EOL;
-            return ExitCode::UNSPECIFIED_ERROR;
-        }
-
-        if ($this->interactive && !$this->confirm("Create {$num} entries of type '{$section->name}'? Make sure a number of images exist!", true)) {
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
@@ -68,9 +64,28 @@ class SeedController extends BaseController
         }
 
 
-        if (Asset::find()->kind('image')->volume($this->volume)->width('> ' . $this->minWidth)->count() < 10) {
+        $query = Asset::find()
+            ->kind('image')
+            ->volume($this->volume)
+            ->width('> ' . $this->minWidth)
+            ->orderBy('rand()');
+
+        $folder = Craft::$app->assets->findFolder(['path' => 'starter/']);
+        if ($folder) {
+            $query->folderId($folder->id);
+        }
+
+        $images = $query->collect();
+
+        $num = min($num, $images->count());
+
+        if ($num < 12) {
             $this->stdout('Could not find enough images' . PHP_EOL);
             return ExitCode::OK;
+        }
+
+        if ($this->interactive && !$this->confirm("Create {$num} entries of type '{$section->name}'? Make sure a number of images exist!", true)) {
+            return ExitCode::UNSPECIFIED_ERROR;
         }
 
         $this->stdout("Creating {$num} entries of type '{$section->name}'." . PHP_EOL);
@@ -94,7 +109,7 @@ class SeedController extends BaseController
                 'postDate' => $faker->dateTimeInInterval('-14 days', '-3 months'),
                 'fields' => [
                     'tagline' => $faker->text(50),
-                    'featuredImage' => $image ? [$image->id] : null,
+                    'featuredImage' => $images[$i - 1]->id,
                     'bodyContent' => $this->getBodyContent($faker)
                 ]
 
@@ -114,7 +129,7 @@ class SeedController extends BaseController
         }
 
         // home, sweet home
-        $image = Asset::find()->filename('ammersee-1091443_1920.jpg')->one();
+        $image = Asset::find()->filename('ammersee-2.jpg')->one();
 
         if (!$image) {
             // homeless

@@ -79,7 +79,7 @@ class IncludeField extends Field
         /** @var Entry $entry */
         $entry = $element;
         $options = [
-            ['label' => '---', 'value' => 'none.twig']
+            ['label' => '---', 'value' => '']
         ];
 
         try {

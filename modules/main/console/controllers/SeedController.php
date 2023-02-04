@@ -438,7 +438,7 @@ class SeedController extends BaseController
      */
     public function actionImgAddProvisionalTexts(string $folderName = 'starter'): int
     {
-        $folder = Craft::$app->assets->findFolder(['folder' => $folderName]);
+        $folder = Craft::$app->assets->findFolder(['name' => $folderName]);
         if (!$folder) {
             return ExitCode::OK;
         }

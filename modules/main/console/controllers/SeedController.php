@@ -49,7 +49,7 @@ class SeedController extends BaseController
 
         $this->indexImages();
 
-        Craft::$app->runAction('main/seed/img-add-provisional-texts', ['folderName' => $folderName]);
+        Craft::$app->runAction('main/seed/img-add-provisional-texts', [$folderName]);
 
         $folder = Craft::$app->assets->findFolder(['name' => $folderName]);
         if (!$folder) {

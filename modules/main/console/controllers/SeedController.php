@@ -15,6 +15,7 @@ use Faker\Generator;
 use Illuminate\Support\Collection;
 use yii\console\ExitCode;
 use function is_dir;
+use function ucwords;
 use const DIRECTORY_SEPARATOR;
 use const PHP_EOL;
 
@@ -51,7 +52,7 @@ class SeedController extends BaseController
                 foreach ($images as $image) {
                     $save = false;
                     if (!$image->altText) {
-                        $image->altText = $image->title;
+                        $image->altText = ucwords($image->title);
                         $save = true;
                     }
                     if (!$image->copyright) {

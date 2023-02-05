@@ -62,7 +62,7 @@ return [
     'sitemapSections' => [
         ['handle' => 'page'],
         ['handle' => 'legal'],
-        ['handle' => 'news', 'orderBy' => 'postDate desc', 'limit' => 10, 'moreType' => 'newsIndex', 'moreText' => Craft::t('site', 'All News') ],
+        ['handle' => 'news', 'orderBy' => 'postDate desc', 'limit' => 10, 'moreType' => 'newsIndex', 'moreText' => Craft::t('site', 'All News')],
     ],
 
     // This setting allows plugins to inject section specific content via their own templates.

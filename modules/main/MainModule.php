@@ -86,13 +86,17 @@ class MainModule extends BaseModule
             ]);
 
 
-            // Show the dynamicBlock block type only for section page
+            // Hide bodyContent block types not relevant for the current entry
             Event::on(
                 Matrix::class,
                 Matrix::EVENT_SET_FIELD_BLOCK_TYPES,
                 function(BlockTypesEvent $event) {
-                    $element = $event->element;
-                    if ($element instanceof Entry && $element->section->handle !== 'page') {
+                    if (!$event->element instanceof Entry || $event->sender->handle !== 'bodyContent') {
+                        return;
+                    }
+
+                    $entry = $event->element;
+                    if ($entry->section->handle !== 'page') {
                         foreach ($event->blockTypes as $i => $blockType) {
                             if ($blockType->handle === 'dynamicBlock') {
                                 unset($event->blockTypes[$i]);

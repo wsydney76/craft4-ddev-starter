@@ -8,6 +8,15 @@
             query: entry.bodyContent
         } only %}
 
+
+        {# Featured Entries #}
+
+        {% include '_layouts/partials/cards.twig' with {
+            query: entry.featuredEntries,
+            heading: "Featured"
+        } only %}
+
+
         {# Display Latest News #}
         <div class="mt-16">
 
@@ -15,7 +24,8 @@
                 query: craft.entries
                     .section('news')
                     .limit(craft.app.config.custom.latestNewsLimit),
-                heading: "Latest News"
+                heading: "Latest News",
+                showMetaData: true
             } only %}
 
             {{ pageButton('newsIndex', 'See all News') }}

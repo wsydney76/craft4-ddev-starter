@@ -4,6 +4,6 @@
 
 {% embed '_layouts/embeds/card-text.twig' %}
     {% block content %}
-        {{ entry.cardText ?: entry.tagline }} ({{ entry.author.name }}, {{ entry.postDate|date('short') }})
+        {{ entry.cardText ?: entry.tagline }}
     {% endblock %}
 {% endembed %}

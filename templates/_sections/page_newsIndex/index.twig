@@ -4,10 +4,18 @@
 {% embed '_layouts/embeds/content-xl.twig' %}
     {% block content %}
         <div class="mt-8">
+            {# TODO: Check eager loading author, does not work this way #}
             {% include '_layouts/partials/cards.twig' with {
-                query:  craft.entries.section('news'),
+                query:  craft.entries
+                    .section('news')
+                    .with([
+                        'author',
+                        'author.photo'
+                    ])
+                ,
                 paginate: true,
-                layout: 'card'
+                layout: 'card',
+                showMetaData: true
             } only %}
         </div>
     {% endblock %}

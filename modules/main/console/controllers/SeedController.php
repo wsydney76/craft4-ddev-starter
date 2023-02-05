@@ -159,7 +159,7 @@ class SeedController extends BaseController
                 'fields' => [
                     'heroText' => $paragraphs,
                     'heroImage' => [$image->id],
-                    'heroAreaTemplate' => 'textimagehalfed.twig',
+                    'heroAreaTemplate' => 'split.twig',
                     'ctaButtons' => [
                         [
                             'type' => 'button',

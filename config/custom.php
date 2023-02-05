@@ -4,7 +4,7 @@ return [
     'stickyMenu' => false,
 
     'entriesPerPage' => 12,
-    'latestNewsLimit' => 8,
+    'latestNewsLimit' => 6,
 
     // The width of the primary navigation, defined in nav.twig
     // container|2xl|xl|lg
@@ -19,7 +19,7 @@ return [
     // full/xl, as defined in hero-area-display.twig
     'heroWidth' => 'full',
     // template in _layouts/partials/heroarea
-    'heroTemplate' => 'fading',
+    'heroTemplate' => 'default',
     'heroFallbackTemplate' => 'textonly',
     'heroTransform' => [
         'full' => ['width' => 2000, 'height' => 600],
@@ -31,7 +31,7 @@ return [
     ],
 
 
-    'cardTransform' => ['width' => 450, 'height' => 300],
+    'cardTransform' => ['width' => 450, 'height' => 250],
     'cardletTransform' => ['width' => 220, 'height' => 120],
 
     'contentTransform' => [

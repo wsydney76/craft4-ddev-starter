@@ -9,6 +9,7 @@
 {# @param limit int optional=customConfig number of cards on a page if paginate=true #}
 {# @param defaultImage Asset optional=SiteInfo The image that will be used in no featuredImage is set on entry #}
 {# @param highlight String string for text fragment highlighting #}
+{# @param showMetaData bool Show author and postdate #}
 {# @param layout string card|cardlet #}
 
 {% set layout = layout ?? 'card' %}
@@ -20,7 +21,7 @@
 {% set limit = limit ?? craft.app.config.custom.entriesPerPage %}
 {% set defaultImage = siteInfo.featuredImage.one %}
 {% set highlight = highlight ?? '' %}
-
+{% set showMetaData = showMetaData is defined ? showMetaData : false %}
 
 {% if entries is not defined %}
 
@@ -34,6 +35,7 @@
 
     {% set query = query.with(withCondition) %}
 
+    
     {% if paginate %}
 
         {# get entries, pageInfo for current page #}
@@ -79,7 +81,8 @@
                 transform,
                 highlight,
                 sectionRoots,
-                layout
+                layout,
+                showMetaData
             } only %}
 
                 {# display individual content form section type #}

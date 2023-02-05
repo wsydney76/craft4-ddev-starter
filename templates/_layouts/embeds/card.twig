@@ -5,10 +5,12 @@
 {# @param url String Card href optional if entry is specified #}
 {# @param image Asset optional #}
 {# @param highlight String string for text fragmant highlighting #}
+{# @param showMetaData bool Show author and postdate #}
 {# @param layout String card|cardlet #}
 
 {% set highlight = highlight ?? '' %}
 {% set layout = layout ?? 'card' %}
+{% set showMetaData = showMetaData is defined ? showMetaData : false %}
 
 {% from '_layouts/macros/lib.twig' import img %}
 
@@ -27,7 +29,7 @@
 
 {% set classes = {
     card: {
-        a: 'border border-gray-200 shadow-xl',
+        a: 'border border-gray-200 shadow-xl flex flex-col',
         imgDiv: '',
         textDiv: 'p-4'
     },
@@ -38,7 +40,8 @@
     }
 } %}
 
-<a href="{{ url }}" class="{{ classes[layout].a }} group overflow-hidden focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-dark  rounded-lg">
+<a href="{{ url }}"
+   class="{{ classes[layout].a }} group overflow-hidden focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-dark  rounded-lg">
     <div class="{{ classes[layout].imgDiv }} bg-gray-200 rounded-lg overflow-hidden">
         {% if image %}
             {{ img(image, {
@@ -50,16 +53,42 @@
         {% endif %}
     </div>
 
-    <div class="{{ classes[layout].textDiv }}">
-        <div class="text-lg font-bold text-primary dark:text-primary-dark group-hover:underline group-focus:underline">
-            {{ title }}
+    <div class="flex flex-1 flex-col justify-between {{ classes[layout].textDiv }}">
+        <div class="flex-1">
+            <div class="mt-2 block">
+                <div class="text-xl font-semibold text-primary dark:text-primary-dark group-hover:underline group-focus:underline">
+                    {{ title }}
+                </div>
+                {% block content %}{% endblock %}
+            </div>
         </div>
 
-        {% block content %}{% endblock %}
+        {% if entry is defined and showMetaData %}
+            {% set image = entry.author.photo %}
+            <div class="mt-4 flex items-center">
+                {% if image %}
+                    <div class="flex-shrink-0">
+                        <span class="sr-only">{{ entry.author.name }}</span>
+                        {{ img(image, {
+                            transform: {width: 40, height: 40},
+                            attr: {
+                                class: "h-10 w-10 rounded-full"
+                            }
+                        }) }}
+                    </div>
+                {% endif %}
 
-        {% if entry.searchScore  is defined %}
-            <!-- Score: {{ entry.searchScore  }} -->
+                <div class="ml-4">
+                    <div class="text-sm font-medium text-gray-900 dark:text-gray-200">
+                        {{ entry.author.name }}
+                    </div>
+                    <div class="flex space-x-1 text-sm text-gray-600 dark:text-gray-400">
+                        <time datetime="{{ entry.postDate|date('Y-m-d') }}">{{ entry.postDate|date('short') }}</time>
+                    </div>
+                </div>
+
+            </div>
         {% endif %}
-    </div>
 
+    </div>
 </a>

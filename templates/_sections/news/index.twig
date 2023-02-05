@@ -6,9 +6,31 @@
 
 {% block heroArea %}
     {% set topHtml  %}
-        <div class="mb-4 font-bold uppercase text-lg">
-            {{ entry.author.name }}, {{ entry.postDate|date('short') }}
+        {% from '_layouts/macros/lib.twig' import img %}
+        {% set image = entry.author.photo %}
+        <div class="my-4 flex justify-center items-center">
+            {% if image %}
+                <div class="flex-shrink-0">
+                    <span class="sr-only">{{ entry.author.name }}</span>
+                    {{ img(image, {
+                        transform: {width: 60, height: 60},
+                        attr: {
+                            class: "h-16 w-16 rounded-full"
+                        }
+                    }) }}
+                </div>
+            {% endif %}
+
+            <div class="ml-4 text-xl uppercase">
+                <div class="font-medium">
+                    {{ entry.author.name }}
+
+                    <time datetime="{{ entry.postDate|date('Y-m-d') }}">{{ entry.postDate|date('short') }}</time>
+                </div>
+            </div>
+
         </div>
+
     {% endset %}
 
     {% if featuredImage %}

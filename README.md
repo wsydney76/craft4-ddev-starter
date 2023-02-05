@@ -146,6 +146,7 @@ Some hero templates stolen from other projects are included as a demo, styling n
 * imagecoloredbg: image + text on a colored background
 * introimage: colored background with an overlapping image
 * skew: image with a semi transparent, gradient overlay.
+* fading: fading image
 * textimagehalfed: text on the left, image on the right. Great for longer texts.
 
 Unused templates should be deleted in order to avoid unused tailwind classes in your css.

@@ -2,7 +2,6 @@
 
 {# @param entry Entry set by Craft #}
 {# @param alignTitle String left/center #}
-{# @param image Asset optional #}
 {# @param showHeader bool show header? #}
 
 {% set showHeader = showHeader is defined ? showHeader : true %}
@@ -15,8 +14,7 @@
             {% if showHeader %}
                 {% include '_layouts/partials/page-header.twig' with {
                     entry,
-                    alignTitle: alignTitle ?? 'center',
-                    image: image ?? null
+                    alignTitle: alignTitle ?? 'center'
                 } only %}
             {% endif %}
         {% endblock %}

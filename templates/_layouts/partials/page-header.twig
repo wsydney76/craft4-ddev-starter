@@ -7,7 +7,6 @@
 
 {% from '_layouts/macros/lib.twig' import img %}
 
-{% set image = image ?? null %}
 {% set alignTitle = alignTitle ?? 'left' %}
 {% set tagline = tagline ?? '' %}
 
@@ -21,20 +20,6 @@
     center: 'text-center'
 } %}
 
-
-{% if image %}
-    {% set config = craft.app.config.custom %}
-    <div class="my-8 lg:-mx-24">
-        {{ img(image, {
-            transform: config.featuredTransform,
-            srcset: config.featuredSrcSet,
-            attr: {
-                class: 'rounded shadow-lg',
-                loading: null
-            }
-        }) }}
-    </div>
-{% endif %}
 
 <h1 class="mt-12 text-3xl leading-8 font-headings font-bold {{ titleClasses[alignTitle] }} sm:text-4xl lg:text-5xl">
     {{ title }}

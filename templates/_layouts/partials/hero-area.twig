@@ -2,41 +2,51 @@
 
 {# @param entry Entry set by Craft #}
 
-{# 1. Hero entry #}
-
-{% set heroEntry = entry.heroArea ? entry.heroArea.one : null %}
-
-{% set teaser = '' %}
-
-{% if heroEntry %}
-    {% set image =  heroEntry.heroImage.one %}
-    {% set ctaButtons = heroEntry.ctaButtons.collect %}
+{% if entry.showHeroArea %}
+    {# 1. the entry itself  #}
 
     {% include '_layouts/partials/hero-area-display.twig' with {
-        image,
-        title: heroEntry.title,
-        text: heroEntry.heroText,
-        teaser: heroEntry.heroTeaser,
-        buttons: ctaButtons|map(button => {
-            url: button.ctaTarget.one.url ?? '',
-            caption: button.ctaCaption ?? button.ctaTarget.one.title ?? 'Read more'|t,
-            primary: button.primary
-        }),
-        template: heroEntry.heroAreaTemplate
+        image: entry.featuredImage.one ?? siteInfo.featuredImage.one,
+        title: entry.title,
+        text: entry.tagline,
+        template: entry.heroAreaTemplate
     } only %}
 {% else %}
-    {# 2. Featured Entry #}
+    {# 2. Hero entry #}
 
-    {% set featuredEntry = null %}
+    {% set heroEntry = entry.heroArea ? entry.heroArea.one : null %}
 
-    {% if entry.featuredEntry %}
-        {% set featuredEntry = entry.featuredEntry ? entry.featuredEntry.one : null %}
-    {% endif %}
+    {% set teaser = '' %}
 
-    {% if featuredEntry %}
-        {% include '_layouts/partials/hero-area-entry.twig' with {
-            entry: featuredEntry
+    {% if heroEntry %}
+        {% set image =  heroEntry.heroImage.one %}
+        {% set ctaButtons = heroEntry.ctaButtons.collect %}
+
+        {% include '_layouts/partials/hero-area-display.twig' with {
+            image,
+            title: heroEntry.title,
+            text: heroEntry.heroText,
+            teaser: heroEntry.heroTeaser,
+            buttons: ctaButtons|map(button => {
+                url: button.ctaTarget.one.url ?? '',
+                caption: button.ctaCaption ?? button.ctaTarget.one.title ?? 'Read more'|t,
+                primary: button.primary
+            }),
+            template: heroEntry.heroAreaTemplate
         } only %}
+    {% else %}
+        {# 3. Featured Entry #}
+
+        {% set featuredEntry = null %}
+
+        {% if entry.featuredEntry %}
+            {% set featuredEntry = entry.featuredEntry ? entry.featuredEntry.one : null %}
+        {% endif %}
+
+        {% if featuredEntry %}
+            {% include '_layouts/partials/hero-area-entry.twig' with {
+                entry: featuredEntry
+            } only %}
+        {% endif %}
     {% endif %}
 {% endif %}
-

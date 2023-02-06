@@ -1,0 +1,14 @@
+columnSuffix: oiccxzkd
+contentColumnType: boolean
+fieldGroup: 99b1f33e-21a3-4870-8165-2b685034a641 # Layout
+handle: showHeroArea
+instructions: null
+name: 'Show Hero Area'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

@@ -19,6 +19,12 @@ h2 {
     font-size: 18px;
 }
 
+#content-container h2 {
+    border-color: var(--gray-600) !important;
+    font-size: 20px;
+
+}
+
 /* We are not at a funeral */
 #global-sidebar {
     background-color: #0c4a6e;

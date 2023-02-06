@@ -2,24 +2,37 @@
 
 {% from '_layouts/macros/lib.twig' import img %}
 
-{% set config = craft.app.config.custom %}
-{% set images = block.images.collect %}
+{% set lightboxTransform = {height: 800} %}
+{% set thumbnailTransform = {width: 320, height: 250} %}
 
+{% set query = block.images %}
+
+{% if craft.app.plugins.pluginEnabled('imager-x') %}
+    {% do query.with('images') %}
+{% else %}
+    {% do query.with([
+        ['images', {withTransforms: [lightboxTransform, thumbnailTransform]}]
+    ]) %}
+{% endif %}
+
+{% set images = query.collect %}
 
 <div id="gallery-{{ block.id }}" class="grid grid-cols-2 sm:grid-cols-3 gap-2 not-prose">
     {% for image in images %}
 
         {% if craft.app.plugins.pluginEnabled('imager-x') %}
-            {% set transformedImage = craft.imager.transformImage(image, config.lightBoxTransform) %}
+            {% set transformedImage = craft.imager.transformImage(image, lightboxTransform) %}
+
             {% set lightboxUrl = transformedImage.url %}
         {% else %}
-            {% set lightboxUrl = image.url(config.lightBoxTransform) %}
+            {% set lightboxUrl = image.url(lightboxTransform) %}
         {% endif %}
 
-        <a href="{{ lightboxUrl }}" data-caption="{{ image.altText ?? image.title }} {{ image.copyright ? "&copy; #{image.copyright}" }}">
+        <a href="{{ lightboxUrl }}"
+           data-caption="{{ image.altText ?? image.title }} {{ image.copyright ? "&copy; #{image.copyright}" }}">
 
             {{ img(image, {
-                transform: config.thumbTransform,
+                transform: thumbnailTransform,
                 attr: {
                     class: "hover:opacity-75 focus:opacity-75 transition duration-300 rounded"
                 }
@@ -28,7 +41,6 @@
         </a>
     {% endfor %}
 </div>
-
 
 
 {% js %}

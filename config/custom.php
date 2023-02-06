@@ -18,9 +18,15 @@ return [
 
     // full/xl, as defined in hero-area-display.twig
     'heroWidth' => 'full',
+
     // template in _layouts/partials/heroarea
     'heroTemplate' => 'default',
     'heroFallbackTemplate' => 'textonly',
+
+
+    // We define image transforms/srcsets here if they are reused among different components
+
+    // Reused among different hero templates
     'heroTransform' => [
         'full' => ['width' => 2000, 'height' => 600],
         'xl' => ['width' => 1280, 'height' => 600]
@@ -30,31 +36,13 @@ return [
         'xl' => [1280, 768, 640, 360]
     ],
 
-
+    // Reused for eager loading transform records
     'cardTransform' => ['width' => 450, 'height' => 250],
     'cardletTransform' => ['width' => 220, 'height' => 120],
 
-    'contentTransform' => [
-        'default' => ['width' => 768],
-        'wide' => ['width' => 1024],
-    ],
-    'contentSrcSet' => [
-        'default' => [768, 400],
-        'wide' => [1024, 768, 400],
-    ],
-
-    'featuredTransform' => ['width' => 1024, 'height' => 350],
-    'featuredSrcSet' => [1024, 768, 400],
-
+    // Fallback, used for seo/json-ld
     'defaultTransform' => ['width' => 1024],
     'defaultSrcSet' => [1024, 640, 400],
-
-
-    'lightBoxTransform' => ['height' => 800],
-
-    'thumbTransform' => ['width' => 320, 'height' => 250],
-
-    'mediaWidth' => 768,
 
     'searchSections' => ['news', 'page', 'legal'],
     'searchMaxResults' => 24,

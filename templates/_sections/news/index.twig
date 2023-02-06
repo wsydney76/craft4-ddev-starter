@@ -2,7 +2,7 @@
 
 {% extends "_layouts/main.twig" %}
 
-{% set featuredImage = entry.featuredImage.one %}
+{% set featuredImage = entry.featuredImage.one ?? siteInfo.featuredImage.one %}
 
 {% block heroArea %}
     {% set topHtml  %}
@@ -15,7 +15,7 @@
                     {{ img(image, {
                         transform: {width: 60, height: 60},
                         attr: {
-                            class: "h-16 w-16 rounded-full"
+                            class: "h-16 w-16 rounded-full border-2 border-white"
                         }
                     }) }}
                 </div>

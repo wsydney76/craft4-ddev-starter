@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1675593966
+dateModified: 1675683432
 elementSources:
   craft\elements\Asset:
     -
@@ -205,6 +205,7 @@ meta:
     8e7aba7b-4624-4470-b007-a84c85242f36: 'Sold Out' # Sold Out
     08f7545c-870e-4727-a418-660af19052ea: 'CTA Buttons' # CTA Buttons
     8f596240-23ec-46cd-abe2-386291b11179: 'Content Editors' # Content Editors
+    9a3286bb-91f7-47ba-9862-9d102a8cf5d0: 'Show Hero Area' # Show Hero Area
     9c7e95a7-7a87-46ad-974e-8ce3846ef68b: Description # Description
     9d9d22d0-ccc2-4e4e-95b2-a28deb16c08b: Heading # Heading
     9e2e3c4b-bd17-46b3-97f0-a4f6605b93d9: Text # Text
@@ -335,6 +336,10 @@ plugins:
     enabled: true
     licenseKey: 7D1BJIWBEFGCQ4I0CE6C8WLE
     schemaVersion: 4.0.0
+  inventory:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
   seomate:
     edition: standard
     enabled: true

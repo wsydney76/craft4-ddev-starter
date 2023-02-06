@@ -1,5 +1,4 @@
 {# @param entry Entry set by Craft #}
-{# @param image Asset optional #}
 {# @param showHeader Bool Show header #}
 
 {% set showHeader = showHeader is defined ? showHeader : true %}
@@ -9,8 +8,7 @@
     {% block header %}
         {% if showHeader %}
             {% include '_layouts/partials/page-header.twig' with {
-                entry,
-                image: image ?? null
+                entry
             } only %}
         {% endif %}
     {% endblock %}

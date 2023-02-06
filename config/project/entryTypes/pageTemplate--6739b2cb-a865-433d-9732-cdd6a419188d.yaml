@@ -44,16 +44,22 @@ fieldLayouts:
             width: 25
           -
             elementCondition: null
-            fieldUid: 75980a78-5a14-4d80-8e9c-b0616d62e02e # Hero Area
+            fieldUid: 400d2e7a-d260-459d-b16d-bc388f093106 # Tagline
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: a7c1f569-eece-4729-a5ae-dd7d0ad51ba7
+            uid: afb2145e-1322-44eb-b30c-906dba6ce34e
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            heading: 'Header Layout'
+            type: craft\fieldlayoutelements\Heading
+            uid: 86e849d3-dc2d-4999-b8e6-2cbacb705a41
+            userCondition: null
           -
             elementCondition: null
             fieldUid: c72e758a-f6c3-42cd-896b-3ff6353ed259 # Featured Image
@@ -65,19 +71,58 @@ fieldLayouts:
             uid: a53a4c9c-87e2-438f-abf9-8e5cde9cb4a1
             userCondition: null
             warning: null
-            width: 100
+            width: 25
           -
             elementCondition: null
-            fieldUid: 400d2e7a-d260-459d-b16d-bc388f093106 # Tagline
+            fieldUid: 9a3286bb-91f7-47ba-9862-9d102a8cf5d0 # Show Hero Area
+            instructions: 'Show hero area with featured image'
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 53a6b78f-2ed3-4c2b-8526-f473e5440f3d
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 9a3286bb-91f7-47ba-9862-9d102a8cf5d0 # Show Hero Area
+                  uid: 2f1eea87-0034-4116-b8dd-211b8f28c427
+                  value: false
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 75980a78-5a14-4d80-8e9c-b0616d62e02e # Hero Area
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: afb2145e-1322-44eb-b30c-906dba6ce34e
+            uid: a7c1f569-eece-4729-a5ae-dd7d0ad51ba7
             userCondition: null
             warning: null
-            width: 100
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 655243f7-46a2-42c0-8de4-188017c31d53 # Hero Area Template
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 163be9a2-b434-45f8-a0c2-0638eaaf2717
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            heading: Content
+            type: craft\fieldlayoutelements\Heading
+            uid: 3028b2cb-b21b-42e9-acb2-de4f11747015
+            userCondition: null
           -
             elementCondition: null
             fieldUid: 85898001-9c9c-4d46-abf9-a928e44f0d48 # Body Content
@@ -102,8 +147,8 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-        name: Inhalt
-        uid: 60f8322d-fd96-4a44-bad7-8421bfa2229b
+        name: Header
+        uid: 3e5d4b25-803e-4a54-8e02-ac9238e449c4
         userCondition: null
 handle: pageTemplate
 hasTitleField: true

@@ -2,6 +2,15 @@
 
 {% from '_layouts/macros/lib.twig' import img %}
 
+{% set transforms = {
+    default: {width: 768},
+    wide: {width: 1024}
+} %}
+{% set srcsets = {
+    default: [768, 400],
+    wide: [1024, 768, 400]
+} %}
+
 {% set image = block.image.one %}
 {% if image %}
 
@@ -14,10 +23,6 @@
         wide: 'lg:-mx-24'
     } %}
 
-    {% set figcaptionClasses = {
-        default: '',
-        wide: 'lg:mx-24'
-    } %}
 
     {# Match with block 'aspectRatio' options #}
     {% set aspectRatioFactor = {
@@ -28,8 +33,8 @@
         classic: 4/3
     } %}
 
-    {% set config = craft.app.config.custom %}
-    {% set transform = config.contentTransform[align] %}
+
+    {% set transform = transforms[align] %}
 
     {% set transform = aspectRatioFactor[aspectRatio] ?
         transform|merge({height: ceil(transform.width / aspectRatioFactor[aspectRatio])}) :
@@ -38,14 +43,14 @@
     <figure class="{{ alignClasses[align] }}">
         {{ img(image, {
             transform: transform,
-            srcset: config.contentSrcSet[align],
+            srcset: srcsets[align],
             attr: {
                 class: 'rounded shadow-lg'
             }
         }) }}
 
         {% if block.caption or image.copyright %}
-            <figcaption class="{{ figcaptionClasses[align] }}">
+            <figcaption>
                 {% if block.caption %}
                     {{ block.caption }}
                 {% endif %}

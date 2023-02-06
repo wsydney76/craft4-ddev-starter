@@ -7,6 +7,7 @@
     "craftcms/cms": "4.3.7.1",
     "craftcms/contact-form": "3.0.0",
     "craftcms/contact-form-honeypot": "^2.0",
+    "doublesecretagency/craft-inventory": "2.2.0",
     "fakerphp/faker": "^1.20",
     "nystudio107/craft-vite": "4.0.5",
     "putyourlightson/craft-sprig": "2.5.1",

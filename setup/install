@@ -18,7 +18,7 @@ ddev exec npm install &&
 ddev exec npm run build &&
 ddev describe &&
 ddev craft main/init
-ddev launch admin
+ddev launch
 
 
 

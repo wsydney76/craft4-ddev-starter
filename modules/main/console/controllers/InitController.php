@@ -9,6 +9,7 @@ use craft\helpers\App;
 use craft\helpers\Assets;
 use Faker\Factory;
 use yii\console\ExitCode;
+use function str_replace;
 
 
 class InitController extends BaseController
@@ -258,6 +259,17 @@ class InitController extends BaseController
             ]
         ]);
 
+        $faqs = [];
+        for ($i = 0; $i < 4; $i++) {
+            $faqs[] = [
+                'type' => 'faq',
+                'fields' => [
+                    'question' => str_replace('.', '?', $faker->text(60)),
+                    'answer' => $faker->text(300)
+                ]
+            ];
+        }
+
         $this->createEntry([
             'section' => 'page',
             'type' => 'faqs',
@@ -266,38 +278,8 @@ class InitController extends BaseController
             'slug' => 'faqs',
             'parent' => $homepage,
             'fields' => [
-                'tagline' => $faker->text(50),
-                'faqs' => [
-                    [
-                        'type' => 'faq',
-                        'fields' => [
-                            'question' => $faker->text(40),
-                            'answer' => $faker->text(200)
-                        ]
-                    ],
-                    [
-                        'type' => 'faq',
-                        'fields' => [
-                            'question' => $faker->text(40),
-                            'answer' => $faker->text(200)
-                        ]
-                    ],
-                    [
-                        'type' => 'faq',
-                        'fields' => [
-                            'question' => $faker->text(40),
-                            'answer' => $faker->text(200)
-                        ]
-                    ],
-                    [
-                        'type' => 'faq',
-                        'fields' => [
-                            'question' => $faker->text(40),
-                            'answer' => $faker->text(200)
-                        ]
-                    ]
-
-                ]
+                'tagline' => $faker->text(80),
+                'faqs' => $faqs
             ]
         ]);
 

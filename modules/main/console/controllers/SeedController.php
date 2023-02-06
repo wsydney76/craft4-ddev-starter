@@ -69,7 +69,7 @@ class SeedController extends BaseController
 
         $num = min($num, $images->count());
 
-        if ($num < 12) {
+        if (!$num) {
             $this->stdout('Could not find enough images' . PHP_EOL);
             return ExitCode::OK;
         }

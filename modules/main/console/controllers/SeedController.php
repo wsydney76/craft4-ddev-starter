@@ -96,7 +96,7 @@ class SeedController extends BaseController
                 'type' => $type->handle,
                 'author' => User::find()->orderBy('rand()')->one(),
                 'title' => $title,
-                'postDate' => $faker->dateTimeInInterval('-14 days', '-3 months'),
+                'postDate' => $faker->dateTimeInInterval('-2 days', '-3 months'),
                 'fields' => [
                     'isFeatured' => $faker->boolean(25),
                     'tagline' => $faker->text(50),

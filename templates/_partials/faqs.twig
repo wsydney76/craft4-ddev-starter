@@ -1,11 +1,11 @@
 {# Get data for faq's and call alpine component #}
 
-{% set items = query.collect %}
+{% set faqs = query.collect %}
 
-{% if items.count %}
+{% if faqs.count %}
     <div>
         {% include '_layouts/components/alpinejs/accordion.twig' with {
-            items
+            items: faqs|map(faq => {heading: faq.question, panel: faq.answer|md|purify})
         } only %}
     </div>
 {% endif %}

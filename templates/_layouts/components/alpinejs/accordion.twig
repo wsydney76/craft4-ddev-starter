@@ -2,7 +2,7 @@
 
 {# https://alpinejs.dev/component/accordion #}
 
-{# @param items Array|Collection[object|Element] with keys question/answer #}
+{# @param items Array with keys heading/panel #}
 
 <div x-data="{ active: 0 }" class="space-y-4">
 
@@ -15,14 +15,14 @@
         set expanded(value) {
             this.active = value ? this.id : null
         },
-    }" role="region" class="border border-border bg-background dark:bg-background-dark">
+    }" role="region" class="border border-gray-400 bg-background dark:bg-background-dark">
             <h2>
                 <button
                         @click="expanded = !expanded"
                         :aria-expanded="expanded"
                         class="flex items-center justify-between w-full font-bold text-xl px-4 py-3"
                 >
-                    <span>{{ item.question }}</span>
+                    <span>{{ item.heading }}</span>
                     <svg fill="currentColor" viewBox="0 0 20 20"
                          aria-hidden="true"
                          :class="expanded ? 'rotate-180' : 'rotate-0'"
@@ -37,7 +37,7 @@
             <div x-show="expanded" x-collapse style="display: none">
                 {% embed '_layouts/embeds/prose.twig' with {extraClasses: 'p-4'} %}
                     {% block content %}
-                        {{ item.answer|md|purify }}
+                        {{ item.panel|raw }}
                     {% endblock %}
                 {% endembed %}
             </div>

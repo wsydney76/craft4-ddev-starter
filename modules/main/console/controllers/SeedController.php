@@ -98,6 +98,7 @@ class SeedController extends BaseController
                 'title' => $title,
                 'postDate' => $faker->dateTimeInInterval('-14 days', '-3 months'),
                 'fields' => [
+                    'isFeatured' => $faker->boolean(25),
                     'tagline' => $faker->text(50),
                     'featuredImage' => [$images[$i - 1]->id],
                     'bodyContent' => $this->getBodyContent($faker)

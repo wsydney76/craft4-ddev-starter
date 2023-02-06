@@ -165,10 +165,12 @@ class InitController extends BaseController
     public function actionCreateEntries(): int
     {
 
+        $faker = Factory::create();
 
         $homepage = $this->createEntry([
             'section' => 'page',
             'type' => 'home',
+            'site' => 'en',
             'title' => 'Homepage',
             'slug' => '__home__'
         ]);
@@ -181,6 +183,7 @@ class InitController extends BaseController
         $this->createEntry([
             'section' => 'page',
             'type' => 'sitemap',
+            'site' => 'en',
             'title' => 'Sitemap',
             'slug' => 'sitemap',
             'fields' => [
@@ -198,6 +201,7 @@ class InitController extends BaseController
         $this->createEntry([
             'section' => 'page',
             'type' => 'newsIndex',
+            'site' => 'en',
             'title' => 'News',
             'slug' => 'news',
             'parent' => $homepage
@@ -206,6 +210,7 @@ class InitController extends BaseController
         $this->createEntry([
             'section' => 'page',
             'type' => 'default',
+            'site' => 'en',
             'title' => 'About',
             'slug' => 'about',
             'parent' => $homepage,
@@ -226,6 +231,7 @@ class InitController extends BaseController
         $this->createEntry([
             'section' => 'page',
             'type' => 'contact',
+            'site' => 'en',
             'title' => 'Contact',
             'slug' => 'contact',
             'parent' => $homepage,
@@ -240,6 +246,7 @@ class InitController extends BaseController
         $this->createEntry([
             'section' => 'page',
             'type' => 'search',
+            'site' => 'en',
             'title' => 'Search',
             'slug' => 'search',
             'parent' => $homepage,
@@ -251,10 +258,54 @@ class InitController extends BaseController
             ]
         ]);
 
+        $this->createEntry([
+            'section' => 'page',
+            'type' => 'faqs',
+            'site' => 'en',
+            'title' => 'FAQs',
+            'slug' => 'faqs',
+            'parent' => $homepage,
+            'fields' => [
+                'tagline' => $faker->text(50),
+                'faqs' => [
+                    [
+                        'type' => 'faq',
+                        'fields' => [
+                            'question' => $faker->text(40),
+                            'answer' => $faker->text(200)
+                        ]
+                    ],
+                    [
+                        'type' => 'faq',
+                        'fields' => [
+                            'question' => $faker->text(40),
+                            'answer' => $faker->text(200)
+                        ]
+                    ],
+                    [
+                        'type' => 'faq',
+                        'fields' => [
+                            'question' => $faker->text(40),
+                            'answer' => $faker->text(200)
+                        ]
+                    ],
+                    [
+                        'type' => 'faq',
+                        'fields' => [
+                            'question' => $faker->text(40),
+                            'answer' => $faker->text(200)
+                        ]
+                    ]
+
+                ]
+            ]
+        ]);
+
 
         $this->createEntry([
             'section' => 'legal',
             'type' => 'default',
+            'site' => 'en',
             'title' => 'Imprint',
             'slug' => 'imprint',
             'localized' => [
@@ -268,6 +319,7 @@ class InitController extends BaseController
         $this->createEntry([
             'section' => 'legal',
             'type' => 'privacy',
+            'site' => 'en',
             'title' => 'Privacy Declaration',
             'slug' => 'privacy',
             'fields' => [

@@ -78,6 +78,39 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
+            fieldUid: 9a3286bb-91f7-47ba-9862-9d102a8cf5d0 # Show Hero Area
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 68876fb7-52aa-4904-8f3c-29d4cf6dfaa1
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 9a3286bb-91f7-47ba-9862-9d102a8cf5d0 # Show Hero Area
+                  uid: 0286e92e-f408-40e5-807e-1da065650d73
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: c72e758a-f6c3-42cd-896b-3ff6353ed259 # Featured Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6e30e2dd-1bb2-40b0-a4d3-e70ab95d47da
+            userCondition: null
+            warning: null
+            width: 75
+          -
+            elementCondition: null
             fieldUid: 85898001-9c9c-4d46-abf9-a928e44f0d48 # Body Content
             instructions: null
             label: null

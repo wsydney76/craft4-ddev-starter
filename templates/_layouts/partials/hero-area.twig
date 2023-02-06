@@ -34,19 +34,5 @@
             }),
             template: heroEntry.heroAreaTemplate
         } only %}
-    {% else %}
-        {# 3. Featured Entry #}
-
-        {% set featuredEntry = null %}
-
-        {% if entry.featuredEntry %}
-            {% set featuredEntry = entry.featuredEntry ? entry.featuredEntry.one : null %}
-        {% endif %}
-
-        {% if featuredEntry %}
-            {% include '_layouts/partials/hero-area-entry.twig' with {
-                entry: featuredEntry
-            } only %}
-        {% endif %}
     {% endif %}
 {% endif %}

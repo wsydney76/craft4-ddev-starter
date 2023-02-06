@@ -29,7 +29,19 @@ fieldLayouts:
             uid: 606b564d-9f76-4ff4-9e3f-ae35c49a0a84
             userCondition: null
             warning: null
-            width: 100
+            width: 75
+          -
+            elementCondition: null
+            fieldUid: b7e84646-2ab1-476a-97a1-49ac1fa05852 # Is Featured
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 08c9d081-49d8-4914-a31c-6178344b4dce
+            userCondition: null
+            warning: null
+            width: 25
           -
             elementCondition: null
             fieldUid: 400d2e7a-d260-459d-b16d-bc388f093106 # Tagline

@@ -3,7 +3,7 @@
 {# Define sections to show with sort order #}
 {% set sections = craft.app.config.custom.sitemapSections %}
 
-{% embed '_layouts/embeds/content-xl.twig' with {alignTitle: 'left'} %}
+{% embed '_layouts/embeds/content-xl.twig' with {showHeader: not entry.showHeroArea} %}
     {% block content %}
         <div class="max-w-full grid sm:grid-cols-2 lg:grid-cols-4 gap-4 prose prose-custom dark:prose-invert">
             {% for sectionConfig in sections %}

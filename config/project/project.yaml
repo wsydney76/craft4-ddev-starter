@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1675683432
+dateModified: 1675698093
 elementSources:
   craft\elements\Asset:
     -
@@ -198,7 +198,6 @@ meta:
     4bf7eb3c-ca42-4327-97e2-77533fc27a61: Caption # Caption
     5a0be839-14a2-465e-a504-bb63dd0281e9: Images # Images
     5b0c38db-9ab4-47d8-b4a7-913710c08ca6: English # English
-    5fec1db0-9159-4603-9a17-fbf7632e4d88: 'Featured Entry' # Featured Entry
     7b8b6f04-9d76-4b26-8276-96a80183750e: Quote # Quote
     7df417e8-1eea-46d8-85a7-2a20370a881e: 'Hero Image' # Hero Image
     7fda4ce3-4bdd-4fbe-b32f-35a5e6707295: 'News Index' # News Index
@@ -263,6 +262,7 @@ meta:
     af9afec0-f712-4b14-b235-851c6455e267: Text # Text
     b0cfc7f4-d446-41bb-87ab-dc16b1481540: 'Alternative Title' # Alternative Title
     b3b9ebe4-94b8-4601-bf11-3c5aa638c87f: 'CTA Target' # CTA Target
+    b7e84646-2ab1-476a-97a1-49ac1fa05852: 'Is Featured' # Is Featured
     b32ea3bc-ee43-4236-864d-972d36f184b2: Sitemap # Sitemap
     b61bea97-e4d4-4de2-9149-15f74906945a: SEO # SEO
     b64a3aa4-62b9-40c5-b05d-ea06389b36c7: 'Start Date' # Start Date

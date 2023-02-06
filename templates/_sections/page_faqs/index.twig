@@ -1,6 +1,6 @@
 {# Show FAQs page content #}
 
-{% embed '_layouts/embeds/content-md.twig' %}
+{% embed '_layouts/embeds/content-md.twig'  with {showHeader: not entry.showHeroArea} %}
     {% block contentBottom %}
         <div class="mt-8">
             {% include '_partials/faqs.twig' with {query: entry.faqs} only %}

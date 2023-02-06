@@ -1,9 +1,25 @@
 {% if craft.app.request.pageNum == 1 %}
-    {% set featuredEntry = craft.entries.section('news').one %}
+
+    {% set featuredEntry = craft.entries
+        .section('news')
+        .postDate('> '~ now|date_modify('-1 month')|date('Y-m-d'))
+        .isFeatured(true)
+    .one %}
+
     {% if featuredEntry %}
-        {% include '_layouts/partials/hero-area-entry.twig' with {
-            entry: featuredEntry,
-            teaser: 'Latest News'|t
+
+        {% include '_layouts/partials/hero-area-display.twig' with {
+            image: featuredEntry.featuredImage.one ?? siteInfo.featuredImage.one,
+            title: featuredEntry.title,
+            text: featuredEntry.tagline,
+            buttons: [{
+                url: entry.url,
+                caption: "#{'Read more about'|t} #{featuredEntry.title|quote}" ,
+                primary: false
+            }],
+            teaser: 'Featured News'|t
         } only %}
+
     {% endif %}
+
 {% endif %}

@@ -21,6 +21,7 @@ use modules\main\twigextensions\TwigExtension;
 use modules\main\validators\BodyContentValidator;
 use modules\main\widgets\MyProvisionalDraftsWidget;
 use yii\base\Event;
+use function in_array;
 
 
 class MainModule extends BaseModule
@@ -96,7 +97,9 @@ class MainModule extends BaseModule
                     }
 
                     $entry = $event->element;
-                    if ($entry->section->handle !== 'page') {
+
+                    // TODO: Make that configurable
+                    if ($entry->section->handle !== 'page' || in_array($entry->type->handle, ['faqs', 'sitemap']) ) {
                         foreach ($event->blockTypes as $i => $blockType) {
                             if ($blockType->handle === 'dynamicBlock') {
                                 unset($event->blockTypes[$i]);

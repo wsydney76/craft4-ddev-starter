@@ -66,6 +66,57 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
+            fieldUid: 9a3286bb-91f7-47ba-9862-9d102a8cf5d0 # Show Hero Area
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 85bf81c8-3722-45ab-ac60-1786c5ceed6a
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 9a3286bb-91f7-47ba-9862-9d102a8cf5d0 # Show Hero Area
+                  uid: b082be4c-bae0-4ca5-b9c2-13cb1eea56df
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: c72e758a-f6c3-42cd-896b-3ff6353ed259 # Featured Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e1833fc5-7c31-417d-af89-4482a913cbde
+            userCondition: null
+            warning: null
+            width: 75
+          -
+            elementCondition: null
+            heading: Content
+            type: craft\fieldlayoutelements\Heading
+            uid: b43b3769-042a-4c7b-ad1f-ea5ba4394922
+            userCondition: null
+          -
+            elementCondition: null
+            fieldUid: 85898001-9c9c-4d46-abf9-a928e44f0d48 # Body Content
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 399f8eb2-1a54-4f98-ad67-0fa62e8b51e7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
             fieldUid: 95358052-5e25-4a5d-bd52-58078b1a5aa2 # FAQs
             instructions: null
             label: null

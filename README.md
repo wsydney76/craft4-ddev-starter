@@ -156,8 +156,9 @@ Content is determined in the following order:
 * the entry template overwrites the `heroArea` twig blog
 * a `_sections/#{entry.section.handle}_#{entry.type.handle}/hero-area.twig` template exists
 * a `_sections/#{entry.section.handle}/hero-area.twig` template exists
+* the current entry has `Show Hero Area` switched on.
 * the current entry links to `Hero Area` entries. The first 'live' hero area entry will be displayed, this enables you to play with site specific or temporary hero areas, setting enabled/post date/expires. Remember to refresh cached pages... 
-* the current entry links to a `Featured Entry`.
+
 
 ## Components
 

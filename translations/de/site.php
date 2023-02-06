@@ -76,6 +76,7 @@ return [
     'Embedded' => 'Eingebettet',
     'Entries' => 'Einträge',
     'Featured Entry' => 'Ausgewählter Eintrag',
+    'Featured News' => 'Ausgewählte Nachricht',
     'Featured Image' => 'Eintragsbild',
     'Full screen width' => 'Volle Bildschirmbreite',
     'Gallery' => 'Galerie',

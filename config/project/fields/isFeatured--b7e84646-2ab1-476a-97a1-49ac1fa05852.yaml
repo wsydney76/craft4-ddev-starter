@@ -1,0 +1,14 @@
+columnSuffix: dkaiswba
+contentColumnType: boolean
+fieldGroup: bd76fb6e-8765-41d3-8e8a-02e37e127c80 # Common
+handle: isFeatured
+instructions: 'Show in hero area of the news page'
+name: 'Is Featured'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

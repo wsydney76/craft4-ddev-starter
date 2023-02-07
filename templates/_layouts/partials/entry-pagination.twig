@@ -1,20 +1,80 @@
 {# @param pageInfo craft\web\twig\variables\Paginate #}
 
-<div class="mt-12 flex justify-between">
-    <div>
-        {% if pageInfo.prevUrl %}
-            {% include '_layouts/partials/button.twig' with {
-                caption: "Previous Page"|t,
-                href: pageInfo.prevUrl
-            } only %}
-        {% endif %}
+{% set paginationLinkClasses = 'w-10 h-10 flex items-center justify-center  text-sm font-bold leading-tight border-t border-b border-r border-primary rounded-none focus:ring-0  dark:text-white dark:border-gray-50' %}
+{% set hoverClasses = 'hover:bg-secondary hover:text-white hover:no-underline' %}
+
+{% if pageInfo.totalPages > 1 %}
+
+    <div class="mt-12 md:flex md:justify-between space-y-8 md:space-y-0 md:space-x-4 items-center">
+
+        <div>
+            {% if pageInfo.prevUrl %}
+                {% include '_layouts/partials/button.twig' with {
+                    caption: "Previous Page"|t,
+                    href: pageInfo.prevUrl
+                } only %}
+            {% else %}
+                {% include '_layouts/partials/button.twig' with {
+                    tag: 'div',
+                    caption: "Previous Page"|t,
+                    color: 'inactive'
+                } only %}
+            {% endif %}
+        </div>
+
+        <nav class="block md:flex md:justify-center">
+
+            <div class="flex flex-wrap border-l border-primary dark:border-gray-50">
+
+                {% if pageInfo.currentPage > 3 %}
+                    <a class="{{ paginationLinkClasses }} {{ hoverClasses }}" href="{{ pageInfo.firstUrl }}">1</a>
+                {% endif %}
+
+                {% if pageInfo.currentPage > 4 %}
+                    <div class="{{ paginationLinkClasses }}">...</div>
+                {% endif %}
+
+
+                {% for page, url in pageInfo.getPrevUrls(2) %}
+                    <a class="{{ paginationLinkClasses }} {{ hoverClasses }}" href="{{ url }}">{{ page }}</a>
+                {% endfor %}
+
+                <a class="{{ paginationLinkClasses }} bg-primary text-white dark:bg-primary-dark dark:text-gray-800" href="#">{{ pageInfo.currentPage }}</a>
+
+                {% for page, url in pageInfo.getNextUrls(2) %}
+                    <a class="{{ paginationLinkClasses }} {{ hoverClasses }}" href="{{ url }}">{{ page }}</a>
+                {% endfor %}
+
+
+                {% if pageInfo.currentPage < pageInfo.totalPages - 3 %}
+                    <div class="{{ paginationLinkClasses }}">...</div>
+                {% endif %}
+
+                {% if pageInfo.currentPage < pageInfo.totalPages - 2 %}
+                    <a class="{{ paginationLinkClasses }} {{ hoverClasses }}" href="{{ pageInfo.lastUrl }}">{{ pageInfo.totalPages }}</a>
+                {% endif %}
+
+            </div>
+
+        </nav>
+
+        <div>
+            {% if pageInfo.nextUrl %}
+                {% include '_layouts/partials/button.twig' with {
+                    caption: "Next Page"|t,
+                    href: pageInfo.nextUrl
+                } only %}
+            {% else %}
+                {% include '_layouts/partials/button.twig' with {
+                    tag: 'div',
+                    caption: "Next Page"|t,
+                    color: 'inactive'
+                } only %}
+            {% endif %}
+        </div>
     </div>
-    <div>
-        {% if pageInfo.nextUrl %}
-            {% include '_layouts/partials/button.twig' with {
-                caption: "Next Page"|t,
-                href: pageInfo.nextUrl
-            } only %}
-        {% endif %}
-    </div>
-</div>
+
+{% endif %}
+
+
+

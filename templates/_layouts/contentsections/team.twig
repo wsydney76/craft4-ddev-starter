@@ -1,45 +1,47 @@
 {% from '_layouts/macros/lib.twig' import img %}
-
-<div class="">
+<div>
     <div class="mx-auto max-w-7xl py-12 px-6 lg:px-8 lg:py-24">
-        <div class="space-y-12 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
-            <div class="space-y-5 sm:space-y-4">
-                <h2 class="text-3xl text-primary font-headings dark:text-primary-dark font-bold tracking-tight sm:text-4xl">{{ entry.title }}</h2>
-                {% if entry.body %}
-                    <div class="text-xl text-gray-500 dark:text-gray-200">{{ entry.body|md|purify }}</div>
-                {% endif %}
-            </div>
-            <div class="lg:col-span-2">
-                <ul role="list" class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:gap-x-8">
-                    {% for person in entry.persons.collect %}
-                        <li>
-                            <div class="space-y-4">
-                                {% set image = person.photo.one %}
-                                {% if image %}
-                                    <div>
-                                        {{ img(image, {
-                                            transform: {width: 400, height: 280},
-                                            attr: {
-                                                class: 'rounded-lg shadow-lg'
-                                            }
-                                        }) }}
+        <div class="space-y-12">
+            <h2 class="text-3xl font-bold text-primary dark:text-primary-dark tracking-tight sm:text-4xl">{{ entry.title }}</h2>
+
+            <ul role="list"
+                class="space-y-12 lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 lg:gap-y-12 lg:space-y-0">
+                {% for person in entry.persons.collect %}
+                    {% set image = person.photo.one %}
+                    <li>
+                        <div class="space-y-4 sm:grid sm:grid-cols-3 sm:gap-6 sm:space-y-0 lg:gap-8">
+                            {% if image %}
+                                <div class="aspect-w-3 aspect-h-2 h-0 sm:aspect-w-3 sm:aspect-h-4 dark:border dark:border-white">
+                                    {{ img(image, {
+                                        transform: {width: 300, height: 400},
+                                        attr: {
+                                            class: 'rounded-lg object-cover shadow-lg'
+                                        }
+                                    }) }}
+                                </div>
+                            {% endif %}
+                            <div class="sm:col-span-2">
+                                <div class="space-y-4">
+                                    <div class="space-y-1 text-lg leading-6">
+                                        <h3 class="font-semibold">{{ person.title }}</h3>
+                                        <p class="text-gray-600 dark:text-gray-300">{{ person.teaser }}</p>
                                     </div>
-                                {% endif %}
-                                <div class="space-y-1 text-lg font-medium leading-6">
-                                    <h3 class="font-semibold">{{ person.title }}</h3>
-                                    <div class="text-primary dark:text-primary-dark">{{ person.teaser }}</div>
+                                    <div class="text-lg">
+                                        <div class="text-gray-500 dark:text-gray-200">
+                                            {{ person.body|md|purify }}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        {% include '_layouts/partials/social-icons.twig' with {links: person.socialLinks} %}
+                                    </div>
                                 </div>
-                                <div class="text-lg">
-                                    <p class="text-gray-500">{{ person.body|md|purify }}</p>
-                                </div>
-
-                                {% include '_layouts/partials/social-icons.twig' with {links: person.socialLinks} %}
-
                             </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
+                        </div>
+                    </li>
+
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </div>
+

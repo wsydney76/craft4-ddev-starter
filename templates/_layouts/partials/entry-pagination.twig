@@ -31,7 +31,11 @@
                 {% endif %}
 
                 {% if pageInfo.currentPage > 4 %}
-                    <div class="{{ paginationLinkClasses }}">...</div>
+                    {% if pageInfo.currentPage == 5 %}
+                        <a class="{{ paginationLinkClasses }} {{ hoverClasses }}" href="{{ pageInfo.pageUrl(2) }}">2</a>
+                    {% else %}
+                        <div class="{{ paginationLinkClasses }}">...</div>
+                    {% endif %}
                 {% endif %}
 
 
@@ -39,7 +43,8 @@
                     <a class="{{ paginationLinkClasses }} {{ hoverClasses }}" href="{{ url }}">{{ page }}</a>
                 {% endfor %}
 
-                <a class="{{ paginationLinkClasses }} bg-primary text-white dark:bg-primary-dark dark:text-gray-800" href="#">{{ pageInfo.currentPage }}</a>
+                <a class="{{ paginationLinkClasses }} bg-primary text-white dark:bg-primary-dark dark:text-gray-800"
+                   href="#">{{ pageInfo.currentPage }}</a>
 
                 {% for page, url in pageInfo.getNextUrls(2) %}
                     <a class="{{ paginationLinkClasses }} {{ hoverClasses }}" href="{{ url }}">{{ page }}</a>
@@ -47,11 +52,16 @@
 
 
                 {% if pageInfo.currentPage < pageInfo.totalPages - 3 %}
-                    <div class="{{ paginationLinkClasses }}">...</div>
+                    {% if pageInfo.currentPage == pageInfo.totalPages - 4 %}
+                        <a class="{{ paginationLinkClasses }} {{ hoverClasses }}" href="{{ pageInfo.pageUrl(pageInfo.totalPages - 1) }}">{{ pageInfo.totalPages - 1 }}</a>
+                    {% else %}
+                        <div class="{{ paginationLinkClasses }}">...</div>
+                    {% endif %}
                 {% endif %}
 
                 {% if pageInfo.currentPage < pageInfo.totalPages - 2 %}
-                    <a class="{{ paginationLinkClasses }} {{ hoverClasses }}" href="{{ pageInfo.lastUrl }}">{{ pageInfo.totalPages }}</a>
+                    <a class="{{ paginationLinkClasses }} {{ hoverClasses }}"
+                       href="{{ pageInfo.lastUrl }}">{{ pageInfo.totalPages }}</a>
                 {% endif %}
 
             </div>

@@ -1,0 +1,17 @@
+defaultPlacement: end
+enableVersioning: true
+handle: contentSection
+name: 'Content Section'
+propagationMethod: all
+siteSettings:
+  5b0c38db-9ab4-47d8-b4a7-913710c08ca6: # English
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+  dbf50cb2-37c8-45f7-b375-dcb93e09691b: # Deutsch
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: channel

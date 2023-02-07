@@ -1,0 +1,34 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: bef1d233-b346-4d06-a2c1-be50cca6eae2 # Content Sections
+handle: contentSections
+instructions: 'Select the desired type in the drop-down field at the top right.'
+name: 'Content Sections'
+searchable: false
+settings:
+  allowSelfRelations: false
+  localizeRelations: false
+  maxRelations: null
+  minRelations: null
+  selectionCondition:
+    __assoc__:
+      -
+        - elementType
+        - craft\elements\Entry
+      -
+        - fieldContext
+        - global
+      -
+        - class
+        - craft\elements\conditions\entries\EntryCondition
+  selectionLabel: 'Add a content section'
+  showSiteMenu: false
+  source: null
+  sources:
+    - 'section:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Section
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

@@ -87,6 +87,18 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
+            fieldUid: 2f9975bd-3ee0-4f17-96cc-e91a163964dc # Content Sections
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 95472fe1-0581-4a5d-8bc9-233154e9d359
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
             style: tip
             tip: "Homepage content will be inserted here.\r\n\r\nDescendants will be displayed in the main navigation."
             type: craft\fieldlayoutelements\Tip

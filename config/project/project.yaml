@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1675766729
+dateModified: 1675774219
 elementSources:
   craft\elements\Asset:
     -
@@ -89,6 +89,9 @@ elementSources:
         - link
       type: native
     -
+      defaultSort:
+        - postDate
+        - desc
       disabled: false
       key: 'section:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # News
       tableAttributes:
@@ -114,6 +117,28 @@ elementSources:
       tableAttributes:
         - 'field:7df417e8-1eea-46d8-85a7-2a20370a881e' # Hero Image
         - postDate
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: 'section:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Section
+      tableAttributes:
+        - type
+        - postDate
+        - author
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: 'section:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
+      tableAttributes:
+        - 'field:78014c80-5d4b-4253-ae59-80f00e516c86' # Photo
+        - postDate
+        - author
       type: native
     -
       heading: Work
@@ -181,23 +206,30 @@ meta:
     1b464b23-6750-460e-aea1-0c4af5f52e23: Key # Key
     1b934de4-d292-4d6f-b40f-ba2b0120b6c8: 'System Name' # System Name
     1c948380-c11c-45f9-a668-2a5eac6f24c9: Settings # Settings
+    1dcc69f1-6963-4b8a-9a9a-10b35084db1a: Team # Team
     1de27fd9-bda6-4977-8d43-b36ef6813c60: Level # Level
     1f5834fd-ed0d-466a-b4dd-2891fd144893: 'Show Structure Navigation' # Show Structure Navigation
     2a1eaa07-5692-4473-9f2d-02ca85f81dfd: 'Text Modules' # Text Modules
     2bfd1710-35e5-41cb-a655-1fdaf49a0d7c: 'Featured Entries' # Featured Entries
     02d2113e-298a-47c6-a40e-413a682ac7c5: Question # Question
     2f93cb45-a9ce-4284-8848-9eb001fb8a1c: News # News
+    2f9975bd-3ee0-4f17-96cc-e91a163964dc: 'Content Sections' # Content Sections
     3b60e4f9-36bb-4456-bee5-67160b5a3108: 'User Photos' # User Photos
     3bb09a1c-cb36-438e-b8d5-0b35b0965f4e: Default # Default
     3cb8a841-f986-4959-8f1a-c44fe16ff8d1: Answer # Answer
     3d8293ac-fa84-47ed-befa-a41cb6315212: Layout # Layout
     3e35a043-a62e-4ede-acd6-44dfb92d6914: 'Site Name' # Site Name
+    3f8bc981-20ce-41f2-b848-e77f8dab1640: 'Content Sections' # Content Sections
     3fb81893-2727-4990-b8f6-a5f6e391a8d8: Style # Style
+    4a8239eb-1b66-44e0-bd66-5a65d44b0727: Icon # Icon
     4b050685-0425-4094-bde2-85e2eedd0e12: Text # Text
+    4bb10ea0-ad74-4550-a70f-b9ac1ef3cac1: 'Body Content' # Body Content
     4bc24da9-fd88-45ec-8410-bc189032e3f8: 'Phone Number' # Phone Number
     4bf7eb3c-ca42-4327-97e2-77533fc27a61: Caption # Caption
     5a0be839-14a2-465e-a504-bb63dd0281e9: Images # Images
+    5aea2dce-a401-4e9f-8563-7a5a312f644b: 'Content Section' # Content Section
     5b0c38db-9ab4-47d8-b4a7-913710c08ca6: English # English
+    5e954ca4-2245-4624-b25e-fc91bbb917bf: Default # Default
     7b8b6f04-9d76-4b26-8276-96a80183750e: Quote # Quote
     7df417e8-1eea-46d8-85a7-2a20370a881e: 'Hero Image' # Hero Image
     7fda4ce3-4bdd-4fbe-b32f-35a5e6707295: 'News Index' # News Index
@@ -209,7 +241,9 @@ meta:
     9d9d22d0-ccc2-4e4e-95b2-a28deb16c08b: Heading # Heading
     9e2e3c4b-bd17-46b3-97f0-a4f6605b93d9: Text # Text
     9efaa99a-273e-47a3-83f7-692251886873: Text # Text
+    10ed7f90-b5ae-414d-a27e-ce0c2e680d27: Features # Features
     11f1c188-401c-44c4-bd0e-2b6d7b311fc6: Align # Align
+    24a1d709-9601-4848-9deb-6df1f3ecd806: Feature # Feature
     27b3f36f-ea97-4dad-a77d-39eff7bd0900: Key # Key
     48fde250-325a-44bf-9238-66f0e831a883: Image # Image
     61c8dfb5-4ac7-420b-ad8e-5cad0d464a98: Description # Description
@@ -227,7 +261,9 @@ meta:
     489e5502-a241-4b2e-97c5-d8a0220a72c6: 'CTA Target' # CTA Target
     605e973b-b2e9-4421-9f1a-80d4cddc0cf0: Parameter # Parameter
     621ad41b-f019-4e95-96aa-49f8c56482db: 'SEO Descriction' # SEO Descriction
+    710a1bd0-9eeb-4721-9493-f2d7dead49ee: Body # Body
     735b5e6e-8026-4de4-8e32-14e03d975565: Image # Image
+    0767f000-e433-4930-9534-b795a48740bb: Teaser # Teaser
     871e0a60-ea70-4650-91f2-746c9bc2de41: 'Aspect Ratio' # Aspect Ratio
     3468bd44-82e8-4104-932e-5085601fca12: Default # Default
     4120c3e9-17c2-464b-8d41-7d009dacb5e3: 'Page Template' # Page Template
@@ -239,8 +275,10 @@ meta:
     44993cef-3718-479f-8c88-bdede1d256ba: 'Card Text' # Card Text
     52144f06-b394-45aa-bee6-d00e1f86878f: Primary # Primary
     75980a78-5a14-4d80-8e9c-b0616d62e02e: 'Hero Area' # Hero Area
+    78014c80-5d4b-4253-ae59-80f00e516c86: Photo # Photo
     90724a6b-55ad-446f-be50-7aea7e1fb067: Robots # Robots
     97742dae-23f0-4986-a259-c886b727a452: FAQ # FAQ
+    0415563b-b1b2-4756-9f8d-0b86d005deb1: Heading # Heading
     481205e6-eb29-45a0-8b40-021d4dcfcac1: 'Email Sender' # Email Sender
     655243f7-46a2-42c0-8de4-188017c31d53: 'Hero Area Template' # Hero Area Template
     5286148d-12b9-4f55-a35c-0e51c06bbe44: Contact # Contact
@@ -251,7 +289,9 @@ meta:
     85898001-9c9c-4d46-abf9-a928e44f0d48: 'Body Content' # Body Content
     95358052-5e25-4a5d-bd52-58078b1a5aa2: FAQs # FAQs
     a08f1c5e-b057-468b-b989-6b243df4d213: Dynamic # Dynamic
+    a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692: 'Content Section' # Content Section
     a1dd83a1-2011-4bef-aa20-b6d6a366d66e: 'SEO Image' # SEO Image
+    a2bf20cd-fdbe-4f9f-88e0-7ab5167e9e50: 'Content Section' # Content Section
     a21f07ce-87f7-431d-b54c-a12786f9fc9c: 'Craft Environment' # Craft Environment
     a24e2c31-f1b3-4687-873d-b8d6dff03e10: Question # Question
     abd279ac-58c4-41dc-ac32-d2e388e34252: Legal # Legal
@@ -270,6 +310,7 @@ meta:
     bb5f8fa8-90f9-4d54-9f99-3ccd6fb69a7b: Text # Text
     bbe2ff0f-6056-4848-80de-3070bb80294d: Email # Email
     bd76fb6e-8765-41d3-8e8a-02e37e127c80: Common # Common
+    bef1d233-b346-4d06-a2c1-be50cca6eae2: 'Content Sections' # Content Sections
     bf3d514d-a34d-41d6-bb20-61c6d8119820: 'Social Links' # Social Links
     c8a6470e-a8da-46c4-ae23-4eb68d320a66: 'Show in Sites' # Show in Sites
     c38ac7d1-9663-45a2-a78e-c676b354e27e: Search # Search
@@ -282,6 +323,7 @@ meta:
     cc3fbab0-826f-4aed-b2aa-eeaecc2964bf: 'Alt Text' # Alt Text
     cce7e62c-f710-40fd-b9e9-71ba6f58265f: 'Hero Text' # Hero Text
     cf967bc8-e8fd-4cd3-b66c-998982d2cc6c: 'Booking Status' # Booking Status
+    cf1158bf-b524-4684-9147-0ca8295ba477: Text # Text
     d1ce7a99-7ba0-4ad1-9f19-c4cdad3f247e: 'Email Address' # Email Address
     d92e63b4-996e-4dcd-8b55-d119540b5831: Default # Default
     d50026f3-a236-4ae2-b00a-af55076acd17: Site # Site
@@ -298,12 +340,15 @@ meta:
     ebe8548f-7f01-49b6-af98-56da49668e79: Logo # Logo
     ec70b604-43e4-45f8-bab5-0ab78983f3ce: 'Nav Item Template' # Nav Item Template
     ed627edd-73bd-4b75-8684-f410bf4e4b9d: 'Temporary Images' # Temporary Images
+    edae774c-4600-499d-8c26-3af51f7bc820: Features # Features
     ee6f8d07-ca81-4da0-991c-491e5108bff8: Home # Home
+    ee886fff-a72a-4a22-b217-f878c7f53ffe: Persons # Persons
     f3c6560d-3487-4f65-a4f9-ac2926397b57: 'Aspect Ratio' # Aspect Ratio
     f8ff18c6-ca19-4910-8753-62aa768dd3a3: Cite # Cite
     f76ccc3a-7c88-43a3-9024-5ea619356bbf: Heading # Heading
     fbaae504-9220-4e1b-a58a-e3819e88194b: 'Use Vite Dev Server' # Use Vite Dev Server
     fbf00eb2-4a16-40ca-96bb-3fadd2bf459c: Default # Default
+    fcbda6e5-a26a-4efb-800a-a67a44a88fa1: Person # Person
     fed0a20c-7c44-4de7-83d9-7843f8facfb8: 'Blitz Caching Enabled' # Blitz Caching Enabled
 plugins:
   contact-form:

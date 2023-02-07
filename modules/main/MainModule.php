@@ -101,7 +101,7 @@ class MainModule extends BaseModule
                     // TODO: Make that configurable
                     if ($entry->section->handle !== 'page' || in_array($entry->type->handle, ['faqs', 'sitemap']) ) {
                         foreach ($event->blockTypes as $i => $blockType) {
-                            if ($blockType->handle === 'dynamicBlock') {
+                            if (in_array($blockType->handle, ['dynamicBlock', 'contentSection'])) {
                                 unset($event->blockTypes[$i]);
                             }
                         }

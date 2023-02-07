@@ -84,6 +84,17 @@ settings:
                     -
                       - default
                       - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - Email
+                    -
+                      - value
+                      - email
+                    -
+                      - default
+                      - false
       -
         - col2
         -

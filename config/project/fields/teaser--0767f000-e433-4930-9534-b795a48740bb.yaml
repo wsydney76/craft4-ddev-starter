@@ -1,0 +1,19 @@
+columnSuffix: vfqjrrnc
+contentColumnType: string(240)
+fieldGroup: bef1d233-b346-4d06-a2c1-be50cca6eae2 # Content Sections
+handle: teaser
+instructions: null
+name: Teaser
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: 60
+  code: false
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: language
+type: craft\fields\PlainText

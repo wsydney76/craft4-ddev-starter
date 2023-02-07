@@ -13,7 +13,10 @@
             </div>
 
             <div class="mt-1 text-white text-footer-foreground flex justify-center text-base ">
-                {% include '_layouts/partials/social-icons.twig' %}
+                {% include '_layouts/partials/social-icons.twig' with {
+                    links: siteInfo.socialLinks,
+                    classes: 'text-footer-foreground dark:text-footer-foreground-dark'
+                } %}
             </div>
         </div>
 

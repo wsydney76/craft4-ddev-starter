@@ -2,11 +2,25 @@
 
 {% embed '_layouts/embeds/content-xl.twig' with {showHeader: false} %}
     {% block content %}
-        {% from '_layouts/macros/lib.twig' import pageButton %}
 
-        {% include '_layouts/partials/blocks.twig' with {
-            query: entry.bodyContent
-        } only %}
+        <div class="flex justify-center">
+            {% include '_layouts/partials/blocks.twig' with {
+                query: entry.bodyContent
+            } only %}
+        </div>
+
+    {% endblock %}
+{% endembed %}
+
+
+  {% include '_layouts/partials/contentsections.twig' with {
+      query: entry.contentSections
+  } only %}
+
+
+{% embed '_layouts/embeds/content-xl.twig' with {showHeader: false} %}
+    {% block content %}
+        {% from '_layouts/macros/lib.twig' import pageButton %}
 
 
         {# Featured Entries #}

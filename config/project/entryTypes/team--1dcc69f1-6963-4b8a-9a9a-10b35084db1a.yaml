@@ -1,0 +1,67 @@
+fieldLayouts:
+  003bfc39-e6ae-40d1-aea0-ee455fe5cee0:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 489dda23-5a11-4abe-83d5-66d212aca425
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 710a1bd0-9eeb-4721-9493-f2d7dead49ee # Body
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c7c438d3-eee8-4ee9-a705-ea359e8fb970
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: ee886fff-a72a-4a22-b217-f878c7f53ffe # Persons
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cc7e4efd-dbe3-49ba-b46a-85ec440af8c9
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: f72988be-59c7-495b-9b8b-bb9a7aabda83
+        userCondition: null
+handle: team
+hasTitleField: true
+name: Team
+section: a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692 # Content Section
+sortOrder: 3
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: language

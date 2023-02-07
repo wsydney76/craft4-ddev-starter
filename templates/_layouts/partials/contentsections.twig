@@ -1,0 +1,9 @@
+{% set entries = query.collect %}
+
+{% for entry in entries %}
+    <div>
+        {% include "_layouts/contentsections/#{entry.type.handle}.twig" with {
+            entry
+        } only %}
+    </div>
+{% endfor %}

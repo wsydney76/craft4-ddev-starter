@@ -1,0 +1,34 @@
+columnSuffix: xkuyhmpj
+contentColumnType: string
+fieldGroup: 169ccd00-9c12-4921-b187-8ef8ca2ad525 # Assets
+handle: align
+instructions: null
+name: Align
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Default
+        -
+          - value
+          - default
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Right
+        -
+          - value
+          - right
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

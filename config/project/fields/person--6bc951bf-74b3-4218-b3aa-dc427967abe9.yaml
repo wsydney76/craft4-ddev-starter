@@ -1,0 +1,34 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: bef1d233-b346-4d06-a2c1-be50cca6eae2 # Content Sections
+handle: person
+instructions: null
+name: Person
+searchable: false
+settings:
+  allowSelfRelations: false
+  localizeRelations: false
+  maxRelations: 1
+  minRelations: null
+  selectionCondition:
+    __assoc__:
+      -
+        - elementType
+        - craft\elements\Entry
+      -
+        - fieldContext
+        - global
+      -
+        - class
+        - craft\elements\conditions\entries\EntryCondition
+  selectionLabel: 'Select a person'
+  showSiteMenu: false
+  source: null
+  sources:
+    - 'section:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

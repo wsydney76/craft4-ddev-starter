@@ -80,6 +80,7 @@ This starter comes with a mix of functionality that is likely to be used in ever
     * Page Template: Create a page that renders a custom page template, e.g. for more specific section indexes with eager loading enabled.
 * News section
 * Legal section. Use for privacy, imprint. Shown in footer navigation
+* 'Content Section' Embedded section with Features/Team/Testimonial types. 
 * Hero Area: Embedded section. This allows hero area/CTA content which can be scheduled precisely, independent of the owning entry.
 * Content Builder field with block types: Heading, Text, Image, Gallery, Quote, Cards, YouTube Video, Dynamic content with custom template(section page only)
 * Site Info global inc. contact info
@@ -104,6 +105,7 @@ Folders:
     * embeds: Layout components, incl. page content layouts(single colum wide/narrow, sidebar), cards, widgets etc. Dark mode switch for front end
     * macros: img macro for advanced image handling, prepared for Imager-X plugin
     * partials: includes for hero area, page headers, buttons etc.
+    * contentsections: a bit more complex layouts for components like features/team/testimonial
 * \_sections/[sectionHandle], \_sections/[sectionHandle]_[typeHandle]: Section/Type specific templates. The following templates will be called if present in the folder:
     * card-content.twig: Section/type specific content for cards. Use card-text embed for consistent layout.
     * hero-area.twig: Outputs a section/type specific hero area

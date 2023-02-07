@@ -1,0 +1,91 @@
+fieldLayouts:
+  574f0277-818f-4e79-a293-e007dc51855a:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 262c090c-dbf5-4ba4-b2f0-1b247a92f4ea
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 710a1bd0-9eeb-4721-9493-f2d7dead49ee # Body
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ce925d8a-927a-4699-9485-c0e36e9c9b93
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 80fa81e4-1f78-4d88-b733-f565d1f5b9bd # Image
+            instructions: 'If blank, the persons photo will be used'
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d09db5d5-776d-4091-84fa-a1b65b31e5a7
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 33518692-b4a6-4ac6-9423-5631e47f87a5 # Align
+            instructions: 'Position of the image'
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 765b2eb8-69da-4a9b-957a-0375514fb057
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 6bc951bf-74b3-4218-b3aa-dc427967abe9 # Person
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a0513742-f153-46a0-aa76-49da5d5fda1e
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: ac442f84-3e1d-40cb-8fa8-aff61224880e
+        userCondition: null
+handle: testimonial
+hasTitleField: false
+name: Testimonial
+section: a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692 # Content Section
+sortOrder: 4
+titleFormat: '{body[:50]} - {person.one.title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: language

@@ -38,7 +38,23 @@ return [
     '{count,plural,=1{Related Entry} other{Related Entries}}' => '{count,plural,=1{Verwandter Eintrag} other{Verwandte Einträge}}',
     'Nesting of heading levels is wrong.' => 'Die Verschachtelung der Überschriftenebenen ist falsch.',
     'Block {index}: H{level} cannot follow H{lastHeadingLevel}.' => 'Block {index}: H{level} kann nicht auf H{lastHeadingLevel} folgen.',
-
+    'Featured Entries' => 'Ausgewählte Einträge',
+    'Select the desired type in the drop-down field at the top right.' => 'Wählen Sie im Dropdown-Feld oben rechts den gewünschten Typ aus.',
+    'Content Section' => 'Inhalts-Abschnitt',
+    'Content Sections' => 'Inhalts-Abschnitte',
+    'Add a content section' => 'Inhalts-Abschnitt hinzufügen',
+    'Body' => 'Text',
+    'If blank, the persons photo will be used' => 'Wenn leer, wird das Foto der Person verwendet.',
+    'Position of the image' => 'Position des Bilds',
+    'Right' => 'Rechts',
+    'Persons' => 'Personen',
+    'Add a person' => 'Person hinzufügen',
+    'Job description' => 'Stellenbeschreibung',
+    'Platform' => 'Plattform',
+    'Add a social platform' => 'Soziales Netzwerk hinzufügen',
+    
+    
+    
     // Environment field
 
     'No validation' => 'Keine Validierung',

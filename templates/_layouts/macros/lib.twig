@@ -7,7 +7,7 @@
     {#
     params keys:
         - transform: Transform object, optional=customConfig
-        - srcSet: Array of sizes, optional=customConfig
+        - srcset: Array of sizes, optional=customConfig
         - showCopyright: Bool
         - attr: Object for image attributes, e.g.
             - class
@@ -20,7 +20,6 @@
     {% set srcset = params.srcset ?? config.defaultSrcSet %}
     {% set attr = params.attr ?? {loading: 'lazy'} %}
     {% set showCopyright = params.showCopyright is defined ? params.showCopyright : false %}
-
     {% if transform.format is not defined %}
         {% set transform = transform|merge({format: config.defaultImageFormat}) %}
     {% endif %}
@@ -54,10 +53,15 @@
 
         {% set ratio = transform.width / transform.height %}
 
+
         {% set transforms = [baseTransform] %}
         {% for responsiveWidth in srcset %}
-            {% if responsiveWidth < transform.width %}
-                {% set transforms = transforms|push(baseTransform|merge({width: responsiveWidth, height: (responsiveWidth / ratio)|round(0)})) %}
+            {% if responsiveWidth is array %}
+                {% set transforms = transforms|push(responsiveWidth) %}
+            {% else %}
+                {% if responsiveWidth < transform.width %}
+                    {% set transforms = transforms|push(baseTransform|merge({width: responsiveWidth, height: (responsiveWidth / ratio)|round(0)})) %}
+                {% endif %}
             {% endif %}
         {% endfor %}
 
@@ -131,7 +135,7 @@
 {% endmacro %}
 
 {% macro linkWithIcon(entry, icon, align='left') %}
-	{% if entry %}
+    {% if entry %}
         {% if align == 'left' %}
             <div class="flex space-x-2 items-center">
                 {{ svg("@templates/_icons/#{icon}.svg") }}&nbsp;{{ entry.link }}
@@ -141,6 +145,6 @@
                 {{ entry.link }}&nbsp;{{ svg("@templates/_icons/#{icon}.svg") }}
             </div>
         {% endif %}
-	{% endif %}
+    {% endif %}
 {% endmacro %}
 

@@ -91,6 +91,7 @@ return [
     'Drafts' => 'Entwürfe',
     'Embedded' => 'Eingebettet',
     'Entries' => 'Einträge',
+    'Featured' => 'Ausgewählt',
     'Featured Entry' => 'Ausgewählter Eintrag',
     'Featured News' => 'Ausgewählte Nachricht',
     'Featured Image' => 'Eintragsbild',

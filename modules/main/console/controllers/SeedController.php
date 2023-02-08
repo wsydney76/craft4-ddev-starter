@@ -120,12 +120,21 @@ class SeedController extends BaseController
      * @throws \craft\errors\ElementNotFoundException
      * @throws \yii\base\Exception
      */
-    public function actionCreateHeroArea(): int
+    public function actionCreateHomepageContent(): int
     {
 
-        if ($this->interactive && !$this->confirm("Create hero area for homepage?", true)) {
+        if ($this->interactive && !$this->confirm("Create some content for homepage?", true)) {
             return ExitCode::UNSPECIFIED_ERROR;
         }
+
+        $homepageEntry = Entry::find()->section('page')->type('home')->one();
+
+        if (!$homepageEntry) {
+            Console::error('No homepage entry found');
+            return ExitCode::UNSPECIFIED_ERROR;
+        }
+
+        $faker = Factory::create();
 
         // home, sweet home
         $image = Asset::find()->filename('ammersee-2.jpg')->one();
@@ -142,7 +151,7 @@ class SeedController extends BaseController
         }
 
         if ($image) {
-            $faker = Factory::create();
+
             $paragraphs = '';
             foreach ($faker->paragraphs(2) as $paragraph) {
                 $paragraphs .= $paragraph . PHP_EOL . PHP_EOL;
@@ -155,6 +164,7 @@ class SeedController extends BaseController
             $heroAreaEntry = $this->createEntry([
                 'section' => 'heroArea',
                 'type' => 'default',
+                'site' => 'en',
                 'title' => 'Craft Starter',
                 'slug' => 'craft-starter',
                 'fields' => [
@@ -183,12 +193,61 @@ class SeedController extends BaseController
             ]);
 
             if ($heroAreaEntry) {
-                $homepageEntry = Entry::find()->section('page')->type('home')->one();
                 if ($homepageEntry) {
                     $homepageEntry->setFieldValue('heroArea', [$heroAreaEntry->id]);
-                    Craft::$app->elements->saveElement($homepageEntry);
                 }
             }
+
+
+            $newsIndex = Entry::find()
+                ->section('page')
+                ->type('newsIndex')
+                ->one();
+
+            $newsContentSection = $this->createEntry([
+                'section' => 'contentSection',
+                'type' => 'cards',
+                'site' => 'en',
+                'title' => 'Latest News',
+                'slug' => 'latest-news',
+                'fields' => [
+                    'criteria' => ['language' => 'json', 'value' => '{"section": "news", "limit": 9, "showMetaData": true}'],
+                    'ctaButtons' => [
+                        [
+                            'type' => 'button',
+                            'fields' => [
+                                'ctaTarget' => $newsIndex ? [$newsIndex->id] : [],
+                                'ctaCaption' => 'Show all News',
+                                'primary' => true,
+                            ]
+                        ]
+                    ]
+                ],
+                'localized' => [
+                    'de' => [
+                        'fields' => [
+                            'ctaButtons' => [
+                                [
+                                    'type' => 'button',
+                                    'fields' => [
+                                        'ctaTarget' => $newsIndex ? [$newsIndex->id] : [],
+                                        'ctaCaption' => 'Alle News anzeigen',
+                                        'primary' => true,
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]);
+
+            if ($newsContentSection) {
+                if ($homepageEntry) {
+                    $homepageEntry->setFieldValue('contentSections', [$newsContentSection->id]);
+                }
+            }
+
+            Craft::$app->elements->saveElement($homepageEntry);
         }
 
         return ExitCode::OK;

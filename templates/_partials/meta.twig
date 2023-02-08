@@ -1,0 +1,33 @@
+{% from '_layouts/macros/lib.twig' import img %}
+
+{% set authors = entry.authors %}
+
+<div class="bg-white dark:bg-gray-700 p-4 rounded shadow-lg flex justify-between items-center">
+    <div class="md:flex flex-wrap space-y-4 md:space-y-0 md:space-x-4">
+        {% for author in entry.authors %}
+            <div class="flex justify-start items-center">
+                {% if author.photo %}
+                    <div class="flex-shrink-0">
+                        <span class="sr-only">{{ author.name }}</span>
+                        {{ img(author.photo, {
+                            transform: {width: 48, height: 48},
+                            attr: {
+                                class: "h-12 w-12 rounded-full"
+                            }
+                        }) }}
+                    </div>
+                {% endif %}
+                <div class="ml-4 text-lg uppercase">
+                    <div class="font-medium">
+                        {{ author.name }}
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+    <div class="text-lg uppercase">
+        <time datetime="{{ entry.postDate|date('Y-m-d') }}">{{ entry.postDate|date('short') }}</time>
+    </div>
+
+</div>

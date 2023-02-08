@@ -1,9 +1,21 @@
 fieldLayouts:
-  ae61d45c-50ca-4c64-b79f-b88f8fde1def:
+  e463be1c-a88a-40f9-9d31-e772cc9690ea:
     tabs:
       -
         elementCondition: null
         elements:
+          -
+            elementCondition: null
+            fieldUid: 0767f000-e433-4930-9534-b795a48740bb # Teaser
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 48681c9a-24c8-4695-b31e-b58218980afb
+            userCondition: null
+            warning: null
+            width: 100
           -
             autocapitalize: true
             autocomplete: false
@@ -26,7 +38,19 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: d059273e-00b0-4da1-8b87-e20946579db7
+            uid: 559dda1e-9a33-4857-aaf3-ac1bcce65160
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 80fa81e4-1f78-4d88-b733-f565d1f5b9bd # Image
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 64580eeb-e575-4374-9ba3-0e7fa0745a9a
             userCondition: null
             warning: null
             width: 100
@@ -35,21 +59,21 @@ fieldLayouts:
             fieldUid: 85898001-9c9c-4d46-abf9-a928e44f0d48 # Body Content
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 5bf70ba7-dd06-41cd-bf95-28ba463b1e5f
+            uid: 95083646-e6d9-4b6d-baf6-bc5e14f86c58
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 3abdc70b-89c8-42df-815b-18731fc4bfe2
+        uid: 79e20dfb-3edc-467c-a1e9-826c362d54b6
         userCondition: null
-handle: bodyContent
+handle: twoColumnsWithImage
 hasTitleField: true
-name: 'Body Content'
+name: 'Two columns with image'
 section: a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692 # Content Section
-sortOrder: 1
+sortOrder: 6
 titleFormat: null
 titleTranslationKeyFormat: null
-titleTranslationMethod: language
+titleTranslationMethod: site

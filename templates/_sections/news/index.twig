@@ -5,40 +5,12 @@
 {% set featuredImage = entry.featuredImage.one ?? siteInfo.featuredImage.one %}
 
 {% block heroArea %}
-    {% set topHtml  %}
-        {% from '_layouts/macros/lib.twig' import img %}
-        {% set image = entry.author.photo %}
-        <div class="my-4 flex justify-center items-center">
-            {% if image %}
-                <div class="flex-shrink-0">
-                    <span class="sr-only">{{ entry.author.name }}</span>
-                    {{ img(image, {
-                        transform: {width: 60, height: 60},
-                        attr: {
-                            class: "h-16 w-16 rounded-full border-2 border-white"
-                        }
-                    }) }}
-                </div>
-            {% endif %}
-
-            <div class="ml-4 text-xl uppercase">
-                <div class="font-medium">
-                    {{ entry.author.name }}
-
-                    <time datetime="{{ entry.postDate|date('Y-m-d') }}">{{ entry.postDate|date('short') }}</time>
-                </div>
-            </div>
-
-        </div>
-
-    {% endset %}
-
     {% if featuredImage %}
         {% include '_layouts/partials/hero-area-display.twig' with {
+            teaser: entry.teaser,
             image: featuredImage,
             title: entry.title,
             text: entry.tagline,
-            topHtml
         } only %}
     {% endif %}
 {% endblock %}
@@ -48,12 +20,9 @@
     {% embed '_layouts/embeds/content-md.twig' with {showHeader: false, alignTitle: 'left'} %}
 
         {% block contentTop %}
-            {% if not featuredImage %}
-                {# News meta #}
-                <div class="my-12 text-primary font-bold text-xl dark:text-primary-dark">
-                    {{ entry.author.name }}, {{ entry.postDate|date('short') }}
-                </div>
-            {% endif %}
+            {% include '_partials/meta.twig' with {
+            	entry
+            } only %}
         {% endblock %}
 
         {% block contentBottom %}

@@ -1,5 +1,5 @@
 fieldLayouts:
-  ae61d45c-50ca-4c64-b79f-b88f8fde1def:
+  67348023-43a0-47ff-85c1-e817fd411a16:
     tabs:
       -
         elementCondition: null
@@ -26,30 +26,30 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: d059273e-00b0-4da1-8b87-e20946579db7
+            uid: e63c5223-e2e9-434a-8fdd-22bb4e1b1a80
             userCondition: null
             warning: null
             width: 100
           -
             elementCondition: null
-            fieldUid: 85898001-9c9c-4d46-abf9-a928e44f0d48 # Body Content
+            fieldUid: 95358052-5e25-4a5d-bd52-58078b1a5aa2 # FAQs
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 5bf70ba7-dd06-41cd-bf95-28ba463b1e5f
+            uid: a976c09c-82cd-4b61-9a53-6408dc411437
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 3abdc70b-89c8-42df-815b-18731fc4bfe2
+        uid: 9983cef9-c592-4580-af7d-1899898da37e
         userCondition: null
-handle: bodyContent
+handle: faqs
 hasTitleField: true
-name: 'Body Content'
+name: FAQs
 section: a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692 # Content Section
-sortOrder: 1
+sortOrder: 7
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: language

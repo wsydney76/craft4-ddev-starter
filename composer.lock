@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6cb53d819fff47ff872857611ce72e8a",
+    "content-hash": "b08f189fafcf343861a25958cdb14b90",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1995,11 +1995,6 @@
         {
             "name": "illuminate/collections",
             "version": "v9.51.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/collections.git",
-                "reference": "e0bb46f59239c787574d5a202d91982327737459"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/collections/zipball/e0bb46f59239c787574d5a202d91982327737459",
@@ -2029,7 +2024,6 @@
                     "Illuminate\\Support\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2041,10 +2035,6 @@
             ],
             "description": "The Illuminate Collections package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
             "time": "2023-02-03T19:27:44+00:00"
         },
         {
@@ -2096,11 +2086,6 @@
         {
             "name": "illuminate/contracts",
             "version": "v9.51.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/contracts.git",
-                "reference": "d731949dd1deff07c5a9d01379b1c1918bfd0672"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/contracts/zipball/d731949dd1deff07c5a9d01379b1c1918bfd0672",
@@ -2123,7 +2108,6 @@
                     "Illuminate\\Contracts\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2135,10 +2119,6 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
             "time": "2023-01-27T22:43:58+00:00"
         },
         {
@@ -2704,11 +2684,6 @@
         {
             "name": "nystudio107/craft-code-editor",
             "version": "1.0.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nystudio107/craft-code-editor.git",
-                "reference": "68ddd78f0988d6702b5849ae69241a473a58f08c"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/nystudio107/craft-code-editor/zipball/68ddd78f0988d6702b5849ae69241a473a58f08c",
@@ -2717,9 +2692,6 @@
             },
             "require": {
                 "phpdocumentor/reflection-docblock": "^5.0.0"
-            },
-            "require-dev": {
-                "craftcms/cms": "^3.0.0 || ^4.0.0"
             },
             "type": "yii2-extension",
             "extra": {
@@ -2730,7 +2702,6 @@
                     "nystudio107\\codeeditor\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2753,10 +2724,60 @@
                 "markdown",
                 "twig"
             ],
+            "time": "2022-12-16T03:52:43+00:00"
+        },
+        {
+            "name": "nystudio107/craft-code-field",
+            "version": "4.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nystudio107/craft-code-field.git",
+                "reference": "0e40d0bf4fc465383bf1b0dd90a0ef35ea3fcc47"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nystudio107/craft-code-field/zipball/0e40d0bf4fc465383bf1b0dd90a0ef35ea3fcc47",
+                "reference": "0e40d0bf4fc465383bf1b0dd90a0ef35ea3fcc47",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.0.0",
+                "nystudio107/craft-code-editor": "^1.0.6"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Code Field",
+                "handle": "codefield",
+                "changelogUrl": "https://raw.githubusercontent.com/nystudio107/craft-code-field/v3/CHANGELOG.md",
+                "class": "nystudio107\\codefield\\CodeField"
+            },
+            "autoload": {
+                "psr-4": {
+                    "nystudio107\\codefield\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "nystudio107",
+                    "homepage": "https://nystudio107.com"
+                }
+            ],
+            "description": "Provides a Code Field that has a full-featured code editor with syntax highlighting & autocomplete",
+            "keywords": [
+                "Craft",
+                "cms",
+                "code field",
+                "craft-plugin",
+                "craftcms"
+            ],
             "support": {
-                "docs": "https://github.com/nystudio107/craft-code-editor/blob/v1/README.md",
-                "issues": "https://github.com/nystudio107/craft-code-editor/issues",
-                "source": "https://github.com/nystudio107/craft-code-editor"
+                "docs": "https://github.com/nystudio107/craft-code-field/blob/v3/README.md",
+                "issues": "https://github.com/nystudio107/craft-code-field/issues",
+                "source": "https://github.com/nystudio107/craft-code-field/tree/4.0.6"
             },
             "funding": [
                 {
@@ -2764,7 +2785,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-16T03:52:43+00:00"
+            "time": "2022-12-13T23:20:10+00:00"
         },
         {
             "name": "nystudio107/craft-plugin-vite",
@@ -7000,5 +7021,5 @@
     "platform-overrides": {
         "php": "8.0.2"
     },
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

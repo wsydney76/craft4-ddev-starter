@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1675790555
+dateModified: 1675862264
 elementSources:
   craft\elements\Asset:
     -
@@ -219,6 +219,7 @@ meta:
     3bb09a1c-cb36-438e-b8d5-0b35b0965f4e: Default # Default
     3cb8a841-f986-4959-8f1a-c44fe16ff8d1: Answer # Answer
     3d8293ac-fa84-47ed-befa-a41cb6315212: Layout # Layout
+    3db074a8-549b-4879-a864-250d2652282e: Cards # Cards
     3e35a043-a62e-4ede-acd6-44dfb92d6914: 'Site Name' # Site Name
     3f8bc981-20ce-41f2-b848-e77f8dab1640: 'Content Sections' # Content Sections
     3fb81893-2727-4990-b8f6-a5f6e391a8d8: Style # Style
@@ -274,6 +275,7 @@ meta:
     4401f3f7-9915-4cd0-b3d9-987755e4bdf8: Image # Image
     6193ce57-a570-451e-8124-ec3ba985b0b2: 'CTA Caption' # CTA Caption
     6739b2cb-a865-433d-9732-cdd6a419188d: 'Page Template' # Page Template
+    7602aac5-c98e-44bd-8570-457a85b8abad: Criteria # Criteria
     8350d2ae-3d7d-4d96-aeae-eab90a7f0d5b: 'Hero Teaser' # Hero Teaser
     13852c19-7f9e-4e6b-8790-0063f0f21ab8: Default # Default
     44993cef-3718-479f-8c88-bdede1d256ba: 'Card Text' # Card Text
@@ -303,7 +305,6 @@ meta:
     abefa0bd-6b36-4b4f-a9de-a4304e7b66a3: 'Public Schema' # Public Schema
     ac457f93-1a50-473e-9983-a899a7f0bed7: Heading # Heading
     ad07bc26-df9d-4358-9fd9-f1ceb8e00af0: Sections # Sections
-    addfffc1-5814-40f4-bb74-0e441740b9fa: FAQs # FAQs
     af9afec0-f712-4b14-b235-851c6455e267: Text # Text
     b0cfc7f4-d446-41bb-87ab-dc16b1481540: 'Alternative Title' # Alternative Title
     b3b9ebe4-94b8-4601-bf11-3c5aa638c87f: 'CTA Target' # CTA Target
@@ -351,11 +352,17 @@ meta:
     f3c6560d-3487-4f65-a4f9-ac2926397b57: 'Aspect Ratio' # Aspect Ratio
     f8ff18c6-ca19-4910-8753-62aa768dd3a3: Cite # Cite
     f76ccc3a-7c88-43a3-9024-5ea619356bbf: Heading # Heading
+    fad1f43f-1f3b-4f91-a3d7-fc97622b7767: FAQs # FAQs
     fbaae504-9220-4e1b-a58a-e3819e88194b: 'Use Vite Dev Server' # Use Vite Dev Server
     fbf00eb2-4a16-40ca-96bb-3fadd2bf459c: Default # Default
     fcbda6e5-a26a-4efb-800a-a67a44a88fa1: Person # Person
+    fd509893-48ca-4ba0-a755-294ff5a48ca7: 'Two columns with image' # Two columns with image
     fed0a20c-7c44-4de7-83d9-7843f8facfb8: 'Blitz Caching Enabled' # Blitz Caching Enabled
 plugins:
+  codefield:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   contact-form:
     edition: standard
     enabled: true

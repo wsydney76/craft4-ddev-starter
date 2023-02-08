@@ -259,7 +259,7 @@ class InitController extends BaseController
             ]
         ]);
 
-        $faqs = [];
+        /*$faqs = [];
         for ($i = 0; $i < 4; $i++) {
             $faqs[] = [
                 'type' => 'faq',
@@ -281,7 +281,7 @@ class InitController extends BaseController
                 'tagline' => $faker->text(80),
                 'faqs' => $faqs
             ]
-        ]);
+        ]);*/
 
 
         $this->createEntry([

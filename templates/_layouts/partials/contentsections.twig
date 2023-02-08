@@ -2,8 +2,30 @@
 
 {% for entry in entries %}
     <div>
-        {% include "_layouts/contentsections/#{entry.type.handle}.twig" with {
-            entry
-        } only %}
+        
+        {% switch entry.section.handle %}
+
+        {% case "contentSection" %}
+            {% include "_layouts/contentsections/#{entry.type.handle}.twig" with {
+                entry
+            } only %}
+
+        {% case "heroArea" %}
+            {% set image =  entry.heroImage.one %}
+            {% set ctaButtons = entry.ctaButtons.collect %}
+
+            {% include '_layouts/partials/hero-area-display.twig' with {
+                image,
+                title: entry.title,
+                text: entry.heroText,
+                teaser: entry.heroTeaser,
+                buttons: ctaButtons|map(button => {
+                    url: button.ctaTarget.one.url ?? '',
+                    caption: button.ctaCaption ?? button.ctaTarget.one.title ?? 'Read more'|t,
+                    primary: button.primary
+                }),
+                template: entry.heroAreaTemplate
+            } only %}
+        {% endswitch %}
     </div>
 {% endfor %}

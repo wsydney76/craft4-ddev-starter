@@ -13,37 +13,6 @@
 {% endembed %}
 
 
-  {% include '_layouts/partials/contentsections.twig' with {
-      query: entry.contentSections
-  } only %}
-
-
-{% embed '_layouts/embeds/content-xl.twig' with {showHeader: false} %}
-    {% block content %}
-        {% from '_layouts/macros/lib.twig' import pageButton %}
-
-
-        {# Featured Entries #}
-
-        {% include '_layouts/partials/cards.twig' with {
-            query: entry.featuredEntries,
-            heading: "Featured"
-        } only %}
-
-
-        {# Display Latest News #}
-        <div class="mt-16">
-
-            {% include '_layouts/partials/cards.twig' with {
-                query: craft.entries
-                    .section('news')
-                    .limit(craft.app.config.custom.latestNewsLimit),
-                heading: "Latest News",
-                showMetaData: true
-            } only %}
-
-            {{ pageButton('newsIndex', 'See all News') }}
-
-        </div>
-    {% endblock %}
-{% endembed %}
+{% include '_layouts/partials/contentsections.twig' with {
+  query: entry.contentSections
+} only %}

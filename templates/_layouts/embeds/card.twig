@@ -2,6 +2,7 @@
 
 {# @param entry Element optional if title/url specified #}
 {# @param title String Card Title optional if entry is specified #}
+{# @param teaser String Card teaser optional #}
 {# @param url String Card href optional if entry is specified #}
 {# @param image Asset optional #}
 {# @param highlight String string for text fragmant highlighting #}
@@ -11,12 +12,14 @@
 {% set highlight = highlight ?? '' %}
 {% set layout = layout ?? 'card' %}
 {% set showMetaData = showMetaData is defined ? showMetaData : false %}
+{% set teaser = teaser ?? '' %}
 
 {% from '_layouts/macros/lib.twig' import img %}
 
 {% if entry is defined %}
     {% set title = title ?? entry.title %}
     {% set url = url ?? entry.url %}
+    {% set teaser = entry.teaser %}
     {% set image = image ?? entry.featuredImage.one ?? null %}
 {% endif %}
 
@@ -56,7 +59,12 @@
     <div class="flex flex-1 flex-col justify-between {{ classes[layout].textDiv }}">
         <div class="flex-1">
             <div class="mt-2 block">
-                <div class="text-xl font-semibold text-primary dark:text-primary-dark group-hover:underline group-focus:underline">
+                {% if teaser %}
+                    <div class="text-sm">
+                        {{ teaser }}
+                    </div>
+                {% endif %}
+                <div class="mb-2 text-xl font-semibold text-primary dark:text-primary-dark group-hover:underline group-focus:underline">
                     {{ title }}
                 </div>
                 {% block content %}{% endblock %}
@@ -64,12 +72,12 @@
         </div>
 
         {% if entry is defined and showMetaData %}
-            {% set image = entry.author.photo %}
+            {% set authors = entry.authors %}
             <div class="mt-4 flex items-center">
-                {% if image %}
+                {% if authors[0].photo %}
                     <div class="flex-shrink-0">
-                        <span class="sr-only">{{ entry.author.name }}</span>
-                        {{ img(image, {
+                        <span class="sr-only">{{ authors[0].name }}</span>
+                        {{ img(authors[0].photo, {
                             transform: {width: 40, height: 40},
                             attr: {
                                 class: "h-10 w-10 rounded-full"
@@ -80,7 +88,7 @@
 
                 <div class="ml-4">
                     <div class="text-sm font-medium text-gray-900 dark:text-gray-200">
-                        {{ entry.author.name }}
+                        {{ authors[0].name }}
                     </div>
                     <div class="flex space-x-1 text-sm text-gray-700 dark:text-gray-400">
                         <time datetime="{{ entry.postDate|date('Y-m-d') }}">{{ entry.postDate|date('short') }}</time>

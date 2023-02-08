@@ -1,0 +1,33 @@
+columnSuffix: qleadnbv
+contentColumnType: text
+fieldGroup: bef1d233-b346-4d06-a2c1-be50cca6eae2 # Content Sections
+handle: criteria
+instructions: 'Must be valid JSON'
+name: Criteria
+searchable: false
+settings:
+  availableLanguages:
+    - css
+    - graphql
+    - html
+    - javascript
+    - json
+    - markdown
+    - mysql
+    - php
+    - shell
+    - twig
+    - typescript
+    - yaml
+  codeFolding: false
+  fontSize: 14
+  language: json
+  lineNumbers: true
+  monacoEditorOptions: ''
+  placeholder: ''
+  showLanguageDropdown: false
+  singleLineEditor: false
+  theme: auto
+translationKeyFormat: null
+translationMethod: none
+type: nystudio107\codefield\fields\Code

@@ -1,0 +1,42 @@
+{% set criteria = entry.criteria.value|json_decode %}
+
+{% set showMetaData = false %}
+{% set layout = 'card' %}
+{% set width = 'xl' %}
+
+{% if criteria.showMetaData is defined %}
+    {% set showMetaData = criteria.showMetaData %}
+    {% set criteria = criteria|filter((v, k) => k != 'showMetaData') %}
+{% endif %}
+
+{% if criteria.layout is defined %}
+    {% set layout = criteria.layout %}
+    {% set criteria = criteria|filter((v, k) => k != 'layout') %}
+{% endif %}
+
+{% if criteria.width is defined %}
+    {% set width = criteria.width %}
+    {% set criteria = criteria|filter((v, k) => k != 'width') %}
+{% endif %}
+
+
+{% embed "_layouts/embeds/content-#{width}.twig" with {showHeader: false} %}
+    {% block content %}
+        {% include '_layouts/partials/cards.twig' with {
+            query: craft.entries(criteria),
+            heading: entry.title,
+            showMetaData: showMetaData,
+            layout: layout
+        } only %}
+
+        {% include '_layouts/partials/heroarea/_ctabuttons.twig' with {
+            buttons: entry.ctaButtons.collect|map(button => {
+                url: button.ctaTarget.one.url ?? '',
+                caption: button.ctaCaption ?? button.ctaTarget.one.title ?? 'Read more'|t,
+                primary: button.primary
+            }),
+            classes: 'mt-8'
+        } only %}
+        
+    {% endblock %}
+{% endembed %}

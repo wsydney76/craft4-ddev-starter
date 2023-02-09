@@ -4,10 +4,9 @@
   "version": "1.1.0",
   "license": "Unlicense",
   "require": {
-    "craftcms/cms": "4.3.8.1",
+    "craftcms/cms": "4.3.8.2",
     "craftcms/contact-form": "3.0.0",
     "craftcms/contact-form-honeypot": "^2.0",
-    "doublesecretagency/craft-inventory": "2.2.0",
     "fakerphp/faker": "^1.20",
     "nystudio107/craft-code-field": "^4.0",
     "nystudio107/craft-vite": "4.0.5",

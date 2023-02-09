@@ -62,7 +62,7 @@ In case you do not want to use DDEV:
 * Added code for better validation on multi site installs
 * Added frontend tooling that uses Tailwind CSS, Alpine JS, Baguettebox (Lightbox) via Vite/Craft Vite plugin
 * Added custom css for the control panel
-* Added plugins: Contact Form, Element Map (custom), Content Overview (custom, PoC) Imager X (optional), SEO Mate, Sprig, Vite
+* Added plugins: Contact Form, Element Map (custom), Content Overview (custom, PoC, disable by default) Imager X (optional), SEO Mate, Sprig, Vite
 
 ## Custom Config
 
@@ -163,8 +163,29 @@ Content is determined in the following order:
 * the current entry has `Show Hero Area` switched on.
 * the current entry links to `Hero Area` entries. The first 'live' hero area entry will be displayed, this enables you to play with site specific or temporary hero areas, setting enabled/post date/expires. Remember to refresh cached pages... 
 
+## Content Sections (experimental)
 
-## Components
+This is mainly for spinning up quick (potential) customer demos.
+
+The 'Homepage' and 'Content Section' page entry types have a 'Content Sections' entries field, which allows you to compose your page with content living in separate entries from the Hero Area or 'Content Section' sections.
+
+Different component types are implemented as entry types, which prevents the entries index from getting bloated.
+
+The starter contains the following examples, mainly derived from Tailwind UI.
+
+* Body Content: This is the default content builder, that allows you to insert standard texts, headings, images etc.
+* Features: Lists some features with icon, header, text
+* Team: List of team members. Uses the 'person' section
+* Testimonial: A single testimonial. Uses the 'person' section.
+* Cards: Shows entries in a cards layout with custom criteria, e.g. a 'Latest News' section.
+* Two colomns with image: Column layout with and image and the default content builder.
+* FAQs: An accordion component with questions and, hopefully, answers.
+
+Using this in a production environment requires optimization in styling, using correct responsive image sizes, performance (eager loading things).
+
+The search is provisionally prepared for this, but correct search results may be missing.
+
+## Twig Components
 
 ### Layout components
 

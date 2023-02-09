@@ -44,7 +44,7 @@ return [
     'defaultTransform' => ['width' => 1024],
     'defaultSrcSet' => [1024, 640, 400],
 
-    'searchSections' => ['news', 'page', 'legal'],
+    'searchSections' => ['news', 'page', 'legal','contentSection', 'heroArea', 'person'],
     'searchMaxResults' => 24,
 
     'sitemapSections' => [

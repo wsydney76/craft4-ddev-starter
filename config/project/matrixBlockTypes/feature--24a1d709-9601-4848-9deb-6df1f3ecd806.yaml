@@ -117,7 +117,7 @@ fields:
     handle: heading
     instructions: null
     name: Heading
-    searchable: false
+    searchable: true
     settings:
       byteLimit: null
       charLimit: 60
@@ -137,7 +137,7 @@ fields:
     handle: text
     instructions: null
     name: Text
-    searchable: false
+    searchable: true
     settings:
       byteLimit: null
       charLimit: null

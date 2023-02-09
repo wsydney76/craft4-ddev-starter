@@ -1,3 +1,5 @@
+{# @var ids \Illuminate\Support\Collection #}
+
 {# Reactive search component #}
 
 {% import '_layouts/macros/forms.twig' as forms %}
@@ -9,21 +11,21 @@
 {% if sprig.isInclude %}
 
 
-   <div class="mt-8">
-       {{ forms.input({
-           label: "Search for"|t,
-           name: 'query',
-           value: query,
-           autofocus: true,
-           extraAttr: {
-               data: {
-                   'sprig': true,
-                   's-trigger': 'keyup changed delay:500ms',
-                   's-replace': '#results'
-               }
-           }
-       }) }}
-   </div>
+    <div class="mt-8">
+        {{ forms.input({
+            label: "Search for"|t,
+            name: 'query',
+            value: query,
+            autofocus: true,
+            extraAttr: {
+                data: {
+                    'sprig': true,
+                    's-trigger': 'keyup changed delay:500ms',
+                    's-replace': '#results'
+                }
+            }
+        }) }}
+    </div>
 
 
 {% endif %}
@@ -41,23 +43,45 @@
         {% set searchQuery = craft.entries
             .section(craft.app.config.custom.searchSections)
             .search(query)
-            .orderBy('score')
-         %}
+            .limit(maxResults)
+            .orderBy('score') %}
 
         {# count all hits #}
         {% set count = searchQuery.count %}
         {% if count %}
 
+            {# TODO: this has to be smarter, does not handle maxResults correctly #}
+            {% set results = searchQuery.collect %}
+            {% set entries = collect([]) %}
+
+            {% for result in results %}
+                {% if entries.count < maxResults %}
+                    {% if result.url %}
+                        {% if not entries.firstWhere('id', result.id) %}
+                            {% set entries = entries.push(result) %}
+                        {% endif %}
+                    {% else %}
+                        {# found an embeded section, look for usages #}
+                        {% set relatedEntries = craft.entries.relatedTo({targetElement: result.id}).uri(':notempty:').collect %}
+                        {% for relatedEntry in relatedEntries %}
+                            {% if not entries.firstWhere('id', relatedEntry.id) %}
+                                {% set entries = entries.push(relatedEntry) %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
             {# show maxResults results in cards layout #}
             {% include '_layouts/partials/cards.twig' with {
-                query: searchQuery.limit(maxResults),
+                entries: entries,
                 highlight: query
             } only %}
 
             {# Display hint if there are more than maxResults hits #}
-            {% if count > maxResults %}
+            {% if entries.count > maxResults %}
                 <div class="mt-8 font-medium">
-                    {{ "Showing top {maxResults} of {count}"|t({maxResults, count}) }}
+                    {{ "Showing top {maxResults} of {count}"|t({maxResults, count: entries.count}) }}
                 </div>
             {% endif %}
 

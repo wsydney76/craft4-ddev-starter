@@ -181,9 +181,17 @@ The starter contains the following examples, mainly derived from Tailwind UI.
 * Two colomns with image: Column layout with and image and the default content builder.
 * FAQs: An accordion component with questions and, hopefully, answers.
 
+You can also select a hero area, this way it can be included anywhere on the page.
+
 Using this in a production environment requires optimization in styling, using correct responsive image sizes, performance (eager loading things).
 
 The search is provisionally prepared for this, but correct search results may be missing.
+
+Also previewing pages with embedded entries is limited, what should work for now:
+
+* Edit embedded content section in a slidout, do not save!
+* Close slideout, confirm if asked.
+* Press `Refresh`
 
 ## Twig Components
 

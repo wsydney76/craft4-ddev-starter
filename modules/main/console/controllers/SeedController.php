@@ -100,7 +100,7 @@ class SeedController extends BaseController
                 'fields' => [
                     'isFeatured' => $faker->boolean(25),
                     'tagline' => $faker->text(50),
-                    'teaser' => $faker->words(1),
+                    'teaser' => $faker->text(15),
                     'featuredImage' => [$images[$i - 1]->id],
                     'bodyContent' => $this->getBodyContent($faker)
                 ]

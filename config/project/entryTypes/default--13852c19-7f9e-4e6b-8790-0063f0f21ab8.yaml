@@ -6,13 +6,13 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 8350d2ae-3d7d-4d96-aeae-eab90a7f0d5b # Hero Teaser
-            instructions: null
+            fieldUid: 0767f000-e433-4930-9534-b795a48740bb # Teaser
+            instructions: 'Above the title'
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: c245459d-5dab-4726-b2d9-d2a0b748dd8b
+            uid: c0e37d1a-5d23-4756-a738-3400c2f373fc
             userCondition: null
             warning: null
             width: 100
@@ -44,25 +44,25 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 7df417e8-1eea-46d8-85a7-2a20370a881e # Hero Image
+            fieldUid: 80fa81e4-1f78-4d88-b733-f565d1f5b9bd # Image
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 6e54432f-c93b-45d7-a68e-cbcdb522ed4f
+            uid: 9160991b-cdd7-44e5-9fa0-10d6f3bd48a9
             userCondition: null
             warning: null
             width: 100
           -
             elementCondition: null
-            fieldUid: cce7e62c-f710-40fd-b9e9-71ba6f58265f # Hero Text
+            fieldUid: 710a1bd0-9eeb-4721-9493-f2d7dead49ee # Body
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 3c7f6faa-9f00-4d1d-830a-4533f55aff35
+            uid: 388ca375-23d5-4726-8808-ffedb9297ac7
             userCondition: null
             warning: null
             width: 100
@@ -74,7 +74,7 @@ fieldLayouts:
             userCondition: null
           -
             elementCondition: null
-            fieldUid: 08f7545c-870e-4727-a418-660af19052ea # CTA Buttons
+            fieldUid: 08f7545c-870e-4727-a418-660af19052ea # Buttons
             instructions: null
             label: null
             required: false

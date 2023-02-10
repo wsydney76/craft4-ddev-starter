@@ -21,17 +21,17 @@
             } only %}
 
         {% case "heroArea" %}
-            {% set image =  entry.heroImage.one %}
-            {% set ctaButtons = entry.ctaButtons.collect %}
+            {% set image =  entry.image.one %}
+            {% set buttons = entry.buttons.collect %}
 
             {% include '_layouts/partials/hero-area-display.twig' with {
                 image,
                 title: entry.title,
-                text: entry.heroText,
-                teaser: entry.heroTeaser,
-                buttons: ctaButtons|map(button => {
-                    url: button.ctaTarget.one.url ?? '',
-                    caption: button.ctaCaption ?? button.ctaTarget.one.title ?? 'Read more'|t,
+                text: entry.body,
+                teaser: entry.teaser,
+                buttons: buttons|map(button => {
+                    url: button.target.one.url ?? '',
+                    caption: button.caption ?? button.target.one.title ?? 'Read more'|t,
                     primary: button.primary
                 }),
                 template: entry.heroAreaTemplate

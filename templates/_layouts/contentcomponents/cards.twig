@@ -30,9 +30,9 @@
         } only %}
 
         {% include '_layouts/partials/heroarea/_ctabuttons.twig' with {
-            buttons: entry.ctaButtons.collect|map(button => {
-                url: button.ctaTarget.one.url ?? '',
-                caption: button.ctaCaption ?? button.ctaTarget.one.title ?? 'Read more'|t,
+            buttons: entry.buttons.collect|map(button => {
+                url: button.target.one.url ?? '',
+                caption: button.caption ?? button.target.one.title ?? 'Read more'|t,
                 primary: button.primary
             }),
             classes: 'mt-8'

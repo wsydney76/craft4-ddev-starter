@@ -169,23 +169,23 @@ class SeedController extends BaseController
                 'title' => 'Craft Starter',
                 'slug' => 'craft-starter',
                 'fields' => [
-                    'heroText' => $paragraphs,
-                    'heroImage' => [$image->id],
+                    'body' => $paragraphs,
+                    'image' => [$image->id],
                     'heroAreaTemplate' => 'split.twig',
-                    'ctaButtons' => [
+                    'buttons' => [
                         [
                             'type' => 'button',
                             'fields' => [
-                                'ctaTarget' => $target ? [$target->id] : [],
-                                'ctaCaption' => $faker->text(20),
+                                'target' => $target ? [$target->id] : [],
+                                'caption' => $faker->text(20),
                                 'primary' => true,
                             ]
                         ],
                         [
                             'type' => 'button',
                             'fields' => [
-                                'ctaTarget' => $target2 ? [$target2->id] : [],
-                                'ctaCaption' => $faker->text(20),
+                                'target' => $target2 ? [$target2->id] : [],
+                                'caption' => $faker->text(20),
                                 'primary' => false,
                             ]
                         ]
@@ -213,12 +213,12 @@ class SeedController extends BaseController
                 'slug' => 'latest-news',
                 'fields' => [
                     'criteria' => ['language' => 'json', 'value' => '{"section": "news", "limit": 9, "showMetaData": true}'],
-                    'ctaButtons' => [
+                    'buttons' => [
                         [
                             'type' => 'button',
                             'fields' => [
-                                'ctaTarget' => $newsIndex ? [$newsIndex->id] : [],
-                                'ctaCaption' => 'Show all News',
+                                'target' => $newsIndex ? [$newsIndex->id] : [],
+                                'caption' => 'Show all News',
                                 'primary' => true,
                             ]
                         ]
@@ -227,12 +227,12 @@ class SeedController extends BaseController
                 'localized' => [
                     'de' => [
                         'fields' => [
-                            'ctaButtons' => [
+                            'buttons' => [
                                 [
                                     'type' => 'button',
                                     'fields' => [
-                                        'ctaTarget' => $newsIndex ? [$newsIndex->id] : [],
-                                        'ctaCaption' => 'Alle News anzeigen',
+                                        'target' => $newsIndex ? [$newsIndex->id] : [],
+                                        'caption' => 'Alle News anzeigen',
                                         'primary' => true,
                                     ]
                                 ]

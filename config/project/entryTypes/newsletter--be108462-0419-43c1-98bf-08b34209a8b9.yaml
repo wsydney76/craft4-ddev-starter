@@ -1,9 +1,16 @@
 fieldLayouts:
-  9be2749d-72b7-48fa-afa7-d1f2b7e7b091:
+  a9532587-12ca-483b-9e53-5aa73b26666a:
     tabs:
       -
         elementCondition: null
         elements:
+          -
+            elementCondition: null
+            style: warning
+            tip: 'The Emaillist plugin must be installed!'
+            type: craft\fieldlayoutelements\Tip
+            uid: d9096f6b-a37f-474b-8d4d-d8d77acd16b6
+            userCondition: null
           -
             autocapitalize: true
             autocomplete: false
@@ -26,7 +33,19 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: f3031dfd-8076-45b3-b767-8c73fe441e6b
+            uid: c7f51693-c9c4-4b55-9546-6325a2b0e99c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: bbc46fd7-2b24-431f-a7d1-aedf86a6c169 # Handle
+            instructions: 'e.g. ''newsletter'''
+            label: 'Email List Id'
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 93f5d6a4-9902-4056-bdc6-ea8a31755ad2
             userCondition: null
             warning: null
             width: 100
@@ -35,45 +54,33 @@ fieldLayouts:
             fieldUid: 710a1bd0-9eeb-4721-9493-f2d7dead49ee # Body
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 16b48c34-ffb4-4f39-8001-c4a9d116e0ee
+            uid: 22cc98aa-a486-49b9-a0e2-bc1cb9b3d6b2
             userCondition: null
             warning: null
             width: 100
           -
             elementCondition: null
-            fieldUid: 7602aac5-c98e-44bd-8570-457a85b8abad # Criteria
-            instructions: "Must be valid JSON.\r\n\r\nBesides query criteria you can use `\"showMetaData\": true` , `\"layout\":\"card/cardlet\"` `\"width\":\"md/xl\"`"
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 6bc1c257-97ba-4296-805f-eb0121fcfa8c
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
-            fieldUid: 08f7545c-870e-4727-a418-660af19052ea # Buttons
+            fieldUid: 502456b5-d67c-412d-927e-d06e8f662eac # Button Caption
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: f8c89bf6-7e51-4624-ae7b-492a2591252b
+            uid: 56b477a2-afa6-4bca-9689-a11e7348cb7f
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 9982bc63-ab67-470e-8a48-e935f6491770
+        uid: f7bd979f-701a-4c93-b239-5f5ed2a577a3
         userCondition: null
-handle: cards
+handle: newsletter
 hasTitleField: true
-name: Cards
+name: Newsletter
 section: a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692 # Content Component
-sortOrder: 5
+sortOrder: 8
 titleFormat: null
 titleTranslationKeyFormat: null
-titleTranslationMethod: site
+titleTranslationMethod: language

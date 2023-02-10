@@ -1,0 +1,19 @@
+columnSuffix: qecrqksa
+contentColumnType: string(120)
+fieldGroup: bd76fb6e-8765-41d3-8e8a-02e37e127c80 # Common
+handle: buttonCaption
+instructions: null
+name: 'Button Caption'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: 30
+  code: false
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: language
+type: craft\fields\PlainText

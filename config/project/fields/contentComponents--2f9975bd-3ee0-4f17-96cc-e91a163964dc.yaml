@@ -21,7 +21,7 @@ settings:
       -
         - class
         - craft\elements\conditions\entries\EntryCondition
-  selectionLabel: 'Add a content section'
+  selectionLabel: 'Add a content component'
   showSiteMenu: false
   source: null
   sources:

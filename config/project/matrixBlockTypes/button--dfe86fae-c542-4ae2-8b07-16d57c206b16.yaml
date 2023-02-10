@@ -1,4 +1,4 @@
-field: 08f7545c-870e-4727-a418-660af19052ea # CTA Buttons
+field: 08f7545c-870e-4727-a418-660af19052ea # Buttons
 fieldLayouts:
   6cce5763-28e6-451b-b8f3-84e06afb007c:
     tabs:
@@ -7,7 +7,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 489e5502-a241-4b2e-97c5-d8a0220a72c6 # CTA Target
+            fieldUid: 489e5502-a241-4b2e-97c5-d8a0220a72c6 # Target
             instructions: null
             label: null
             required: true
@@ -19,7 +19,7 @@ fieldLayouts:
             width: 25
           -
             elementCondition: null
-            fieldUid: 6193ce57-a570-451e-8124-ec3ba985b0b2 # CTA Caption
+            fieldUid: 6193ce57-a570-451e-8124-ec3ba985b0b2 # Caption
             instructions: null
             label: null
             required: false
@@ -45,13 +45,13 @@ fieldLayouts:
         uid: 1e9aa5b9-9d0a-41ce-8f11-a8954fd8b777
         userCondition: null
 fields:
-  489e5502-a241-4b2e-97c5-d8a0220a72c6: # CTA Target
+  489e5502-a241-4b2e-97c5-d8a0220a72c6: # Target
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
-    handle: ctaTarget
+    handle: target
     instructions: null
-    name: 'CTA Target'
+    name: Target
     searchable: false
     settings:
       allowSelfRelations: false
@@ -81,13 +81,13 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Entries
-  6193ce57-a570-451e-8124-ec3ba985b0b2: # CTA Caption
+  6193ce57-a570-451e-8124-ec3ba985b0b2: # Caption
     columnSuffix: fmpkzsew
     contentColumnType: string(240)
     fieldGroup: null
-    handle: ctaCaption
+    handle: caption
     instructions: null
-    name: 'CTA Caption'
+    name: Caption
     searchable: false
     settings:
       byteLimit: null

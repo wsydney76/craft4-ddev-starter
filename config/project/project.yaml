@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1676020364
+dateModified: 1676044291
 elementSources:
   craft\elements\Asset:
     -
@@ -237,7 +237,7 @@ meta:
     7df417e8-1eea-46d8-85a7-2a20370a881e: 'Hero Image' # Hero Image
     7fda4ce3-4bdd-4fbe-b32f-35a5e6707295: 'News Index' # News Index
     8e7aba7b-4624-4470-b007-a84c85242f36: 'Sold Out' # Sold Out
-    08f7545c-870e-4727-a418-660af19052ea: 'CTA Buttons' # CTA Buttons
+    08f7545c-870e-4727-a418-660af19052ea: Buttons # Buttons
     8f596240-23ec-46cd-abe2-386291b11179: 'Content Editors' # Content Editors
     9a3286bb-91f7-47ba-9862-9d102a8cf5d0: 'Show Hero Area' # Show Hero Area
     9c7e95a7-7a87-46ad-974e-8ce3846ef68b: Description # Description
@@ -263,7 +263,7 @@ meta:
     169ccd00-9c12-4921-b187-8ef8ca2ad525: Assets # Assets
     370cbaec-9bf1-4ecf-b903-276c6da6c861: 'Postal Address' # Postal Address
     400d2e7a-d260-459d-b16d-bc388f093106: Tagline # Tagline
-    489e5502-a241-4b2e-97c5-d8a0220a72c6: 'CTA Target' # CTA Target
+    489e5502-a241-4b2e-97c5-d8a0220a72c6: Target # Target
     605e973b-b2e9-4421-9f1a-80d4cddc0cf0: Parameter # Parameter
     621ad41b-f019-4e95-96aa-49f8c56482db: 'SEO Descriction' # SEO Descriction
     710a1bd0-9eeb-4721-9493-f2d7dead49ee: Body # Body
@@ -273,7 +273,7 @@ meta:
     3468bd44-82e8-4104-932e-5085601fca12: Default # Default
     4120c3e9-17c2-464b-8d41-7d009dacb5e3: 'Page Template' # Page Template
     4401f3f7-9915-4cd0-b3d9-987755e4bdf8: Image # Image
-    6193ce57-a570-451e-8124-ec3ba985b0b2: 'CTA Caption' # CTA Caption
+    6193ce57-a570-451e-8124-ec3ba985b0b2: Caption # Caption
     6739b2cb-a865-433d-9732-cdd6a419188d: 'Page Template' # Page Template
     7602aac5-c98e-44bd-8570-457a85b8abad: Criteria # Criteria
     8350d2ae-3d7d-4d96-aeae-eab90a7f0d5b: 'Hero Teaser' # Hero Teaser
@@ -286,6 +286,7 @@ meta:
     97742dae-23f0-4986-a259-c886b727a452: FAQ # FAQ
     0415563b-b1b2-4756-9f8d-0b86d005deb1: Heading # Heading
     481205e6-eb29-45a0-8b40-021d4dcfcac1: 'Email Sender' # Email Sender
+    502456b5-d67c-412d-927e-d06e8f662eac: 'Button Caption' # Button Caption
     655243f7-46a2-42c0-8de4-188017c31d53: 'Hero Area Template' # Hero Area Template
     5286148d-12b9-4f55-a35c-0e51c06bbe44: Contact # Contact
     8785637f-8785-4fd2-86d2-9232d9674420: 'Related Entries' # Related Entries
@@ -313,8 +314,10 @@ meta:
     b64a3aa4-62b9-40c5-b05d-ea06389b36c7: 'Start Date' # Start Date
     b7361735-c91d-4877-a975-cfe6751133b1: Cards # Cards
     bb5f8fa8-90f9-4d54-9f99-3ccd6fb69a7b: Text # Text
+    bbc46fd7-2b24-431f-a7d1-aedf86a6c169: Handle # Handle
     bbe2ff0f-6056-4848-80de-3070bb80294d: Email # Email
     bd76fb6e-8765-41d3-8e8a-02e37e127c80: Common # Common
+    be108462-0419-43c1-98bf-08b34209a8b9: Newsletter # Newsletter
     bef1d233-b346-4d06-a2c1-be50cca6eae2: 'Content Sections' # Content Sections
     bf3d514d-a34d-41d6-bb20-61c6d8119820: 'Social Links' # Social Links
     c8a6470e-a8da-46c4-ae23-4eb68d320a66: 'Show in Sites' # Show in Sites

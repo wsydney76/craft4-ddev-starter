@@ -1,12 +1,12 @@
 columnSuffix: null
 contentColumnType: string
 fieldGroup: c38953ca-ba84-4992-8deb-65aa2fc40b34 # Hero Area
-handle: ctaButtons
+handle: buttons
 instructions: null
-name: 'CTA Buttons'
+name: Buttons
 searchable: true
 settings:
-  contentTable: '{{%matrixcontent_ctabuttons}}'
+  contentTable: '{{%matrixcontent_buttons}}'
   maxBlocks: null
   minBlocks: null
   propagationKeyFormat: null

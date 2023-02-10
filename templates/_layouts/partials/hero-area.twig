@@ -26,18 +26,18 @@
             {% endif %}
         {% endif %}
 
-        {% set image =  heroEntry.heroImage.one %}
-        {% set ctaButtons = heroEntry.ctaButtons.collect %}
+        {% set image =  heroEntry.image.one %}
+        {% set buttons = heroEntry.buttons.collect %}
 
         {% include '_layouts/partials/hero-area-display.twig' with {
             image,
             title: heroEntry.title,
-            text: heroEntry.heroText,
-            teaser: heroEntry.heroTeaser,
-            buttons: ctaButtons|map(button => {
-                url: button.ctaTarget.one.url ?? '',
-                caption: button.ctaCaption ?? button.ctaTarget.one.title ?? 'Read more'|t,
-                text: button.ctaTarget.one.tagline ?? '',
+            text: heroEntry.body,
+            teaser: heroEntry.teaser,
+            buttons: buttons|map(button => {
+                url: button.target.one.url ?? '',
+                caption: button.caption ?? button.target.one.title ?? 'Read more'|t,
+                text: button.target.one.tagline ?? '',
                 primary: button.primary
             }),
             template: heroEntry.heroAreaTemplate

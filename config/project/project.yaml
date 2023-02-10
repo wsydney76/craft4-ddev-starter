@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1675952297
+dateModified: 1676020364
 elementSources:
   craft\elements\Asset:
     -
@@ -123,7 +123,7 @@ elementSources:
         - postDate
         - desc
       disabled: false
-      key: 'section:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Section
+      key: 'section:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
       tableAttributes:
         - type
         - postDate
@@ -214,7 +214,7 @@ meta:
     2bfd1710-35e5-41cb-a655-1fdaf49a0d7c: 'Featured Entries' # Featured Entries
     02d2113e-298a-47c6-a40e-413a682ac7c5: Question # Question
     2f93cb45-a9ce-4284-8848-9eb001fb8a1c: News # News
-    2f9975bd-3ee0-4f17-96cc-e91a163964dc: 'Content Sections' # Content Sections
+    2f9975bd-3ee0-4f17-96cc-e91a163964dc: 'Content Components' # Content Components
     3b60e4f9-36bb-4456-bee5-67160b5a3108: 'User Photos' # User Photos
     3bb09a1c-cb36-438e-b8d5-0b35b0965f4e: Default # Default
     3cb8a841-f986-4959-8f1a-c44fe16ff8d1: Answer # Answer
@@ -296,9 +296,8 @@ meta:
     85898001-9c9c-4d46-abf9-a928e44f0d48: 'Body Content' # Body Content
     95358052-5e25-4a5d-bd52-58078b1a5aa2: FAQs # FAQs
     a08f1c5e-b057-468b-b989-6b243df4d213: Dynamic # Dynamic
-    a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692: 'Content Section' # Content Section
+    a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692: 'Content Component' # Content Component
     a1dd83a1-2011-4bef-aa20-b6d6a366d66e: 'SEO Image' # SEO Image
-    a2bf20cd-fdbe-4f9f-88e0-7ab5167e9e50: 'Content Section' # Content Section
     a21f07ce-87f7-431d-b54c-a12786f9fc9c: 'Craft Environment' # Craft Environment
     a24e2c31-f1b3-4687-873d-b8d6dff03e10: Question # Question
     abd279ac-58c4-41dc-ac32-d2e388e34252: Legal # Legal

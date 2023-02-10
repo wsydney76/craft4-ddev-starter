@@ -13,10 +13,10 @@
         
         {% switch entry.section.handle %}
 
-        {% case "contentSection" %}
+        {% case "contentComponent" %}
 
 
-            {% include "_layouts/contentsections/#{entry.type.handle}.twig" with {
+            {% include "_layouts/contentcomponents/#{entry.type.handle}.twig" with {
                 entry
             } only %}
 

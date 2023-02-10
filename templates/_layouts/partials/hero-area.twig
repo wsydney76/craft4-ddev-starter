@@ -9,14 +9,13 @@
         image: entry.featuredImage.one ?? siteInfo.featuredImage.one,
         title: entry.title,
         text: entry.tagline,
+        teaser: entry.teaser,
         template: entry.heroAreaTemplate
     } only %}
 {% else %}
     {# 2. Hero entry #}
 
     {% set heroEntry = entry.heroArea ? entry.heroArea.one : null %}
-
-    {% set teaser = '' %}
 
     {% if heroEntry %}
 
@@ -27,27 +26,22 @@
             {% endif %}
         {% endif %}
 
-        {% if heroEntry.section.handle == 'heroArea' %}
-            {% set image =  heroEntry.heroImage.one %}
-            {% set ctaButtons = heroEntry.ctaButtons.collect %}
+        {% set image =  heroEntry.heroImage.one %}
+        {% set ctaButtons = heroEntry.ctaButtons.collect %}
 
-            {% include '_layouts/partials/hero-area-display.twig' with {
-                image,
-                title: heroEntry.title,
-                text: heroEntry.heroText,
-                teaser: heroEntry.heroTeaser,
-                buttons: ctaButtons|map(button => {
-                    url: button.ctaTarget.one.url ?? '',
-                    caption: button.ctaCaption ?? button.ctaTarget.one.title ?? 'Read more'|t,
-                    text: button.ctaTarget.one.tagline ?? '',
-                    primary: button.primary
-                }),
-                template: heroEntry.heroAreaTemplate
-            } only %}
-        {% else %}
-            {% include "_layouts/contentsections/#{heroEntry.type.handle}.twig" with {
-                entry: heroEntry
-            } only %}
-        {% endif %}
+        {% include '_layouts/partials/hero-area-display.twig' with {
+            image,
+            title: heroEntry.title,
+            text: heroEntry.heroText,
+            teaser: heroEntry.heroTeaser,
+            buttons: ctaButtons|map(button => {
+                url: button.ctaTarget.one.url ?? '',
+                caption: button.ctaCaption ?? button.ctaTarget.one.title ?? 'Read more'|t,
+                text: button.ctaTarget.one.tagline ?? '',
+                primary: button.primary
+            }),
+            template: heroEntry.heroAreaTemplate
+        } only %}
+
     {% endif %}
 {% endif %}

@@ -1,7 +1,7 @@
 defaultPlacement: end
 enableVersioning: true
-handle: contentSection
-name: 'Content Section'
+handle: contentComponent
+name: 'Content Component'
 previewTargets:
   -
     __assoc__:

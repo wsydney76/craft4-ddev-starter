@@ -2,7 +2,7 @@
 
 {% for entry in entries %}
 	<div class="not-prose">
-        {% include "_layouts/contentsections/#{entry.type.handle}" with {
+        {% include "_layouts/contentcomponents/#{entry.type.handle}" with {
             block,
             entry
         } only %}

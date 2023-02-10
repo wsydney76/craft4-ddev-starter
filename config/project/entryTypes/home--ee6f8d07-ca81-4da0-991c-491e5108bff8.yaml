@@ -87,7 +87,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 2f9975bd-3ee0-4f17-96cc-e91a163964dc # Content Sections
+            fieldUid: 2f9975bd-3ee0-4f17-96cc-e91a163964dc # Content Components
             instructions: null
             label: null
             required: false

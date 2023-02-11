@@ -5,12 +5,13 @@
 
 {% set fullWidthBlocks = craft.app.config.custom.fullWidthBlocks %}
 {% set padding = padding is defined ? padding : true %}
+{% set extraClasses = extraClasses is defined ? extraClasses : 'my-12 mx-auto max-w-full'  %}
 
 {% set blocks = query.collect %}
 
 {% if blocks.count %}
 
-    {% embed '_layouts/embeds/prose.twig' with {extraClasses: 'my-12 mx-auto max-w-full'} %}
+    {% embed '_layouts/embeds/prose.twig' with {extraClasses} %}
         {% block content %}
 
             {# Don't set vertical spacing here, it will be handled by 'prose' #}

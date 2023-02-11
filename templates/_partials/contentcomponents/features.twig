@@ -1,33 +1,48 @@
+{# @param entry Entry the content component entry #}
+{# Alternatively, individual parameters can be passed. #}
+
+{% if entry is defined %}
+    {% set teaser = entry.teaser %}
+    {% set title = entry.title %}
+    {% set text = entry.body %}
+    {% set features = entry.features.with('feature:icon').collect %}
+{% endif %}
+
+{# Defaults #}
+{% set teaser = teaser ?? '' %}
+{% set text = text ?? '' %}
+{% set features = features ?? [] %}
+
 <div class="py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:text-center">
-            {% if entry.teaser %}
-                <h2 class="text-lg font-semibold leading-8 tracking-tight text-gray-700 dark:text-gray-200">{{ entry.teaser }}</h2>
+            {% if teaser %}
+                <h2 class="text-lg font-semibold leading-8 tracking-tight text-gray-700 dark:text-gray-200">{{ teaser }}</h2>
             {% endif %}
-            <div class="mt-2 text-3xl font-bold tracking-tight text-primary dark:text-primary-dark sm:text-4xl">{{ entry.title }}</div>
+            <div class="mt-2 text-3xl font-bold tracking-tight text-primary dark:text-primary-dark sm:text-4xl">{{ title }}</div>
             
-            {% if entry.body %}
-                <div class="mt-6 text-lg leading-8 text-gray-700 dark:text-gray-200">{{ entry.body|md|purify }}</div>
+            {% if text %}
+                <div class="mt-6 text-lg leading-8 text-gray-700 dark:text-gray-200">{{ text|md|purify }}</div>
             {% endif %}
         </div>
 
         <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
             <dl class="grid max-w-xl grid-cols-1 gap-y-10 gap-x-8 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-                {% for block in entry.features.with('feature:icon').collect %}
+                {% for feature in features %}
                     <div class="relative pl-16">
                         <dt class="text-lg font-semibold leading-7 text-gray-900 dark:text-gray-100">
                             <div class="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-lg bg-primary dark:bg-gray-700">
-                                {% set icon = block.icon.one %}
+                                {% set icon = feature.icon.one %}
 
                                 {% if icon %}
                                     {{ svg(icon)|attr({class: 'h6 w-6 text-white'}) }}
                                 {% endif %}
 
                             </div>
-                            {{ block.heading }}
+                            {{ feature.heading }}
                         </dt>
                         <dd class="mt-2 leading-7 text-gray-700 dark:text-gray-200">
-                            {{ block.text|md|purify }}
+                            {{ feature.text|md|purify }}
                         </dd>
                     </div>
                 {% endfor %}

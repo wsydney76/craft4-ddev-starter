@@ -1,0 +1,26 @@
+{# @param entry Entry the content component entry #}
+{# or #}
+{# @param faqs array[question,answer]  #}
+
+
+{% if entry is defined %}
+    {% set faqs = entry.faqs.collect|map(faq => {
+        heading: faq.question,
+        panel: faq.answer|md|purify
+    }) %}
+{% endif %}
+
+
+{% embed '_layouts/embeds/content-xl.twig' %}
+    {% block contentBottom %}
+        <div class="mt-8 max-w-screen-md">
+            {% if faqs|length %}
+                <div>
+                    {% include '_layouts/components/alpinejs/accordion.twig' with {
+                        items: faqs
+                    } only %}
+                </div>
+            {% endif %}
+        </div>
+    {% endblock %}
+{% endembed %}

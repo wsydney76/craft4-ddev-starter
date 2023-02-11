@@ -1,12 +1,21 @@
+{# @param entry Entry the content component entry #}
+{# Alternatively, individual parameters can be passed. #}
+
+{% if entry is defined %}
+    {% set title = entry.title %}
+    {% set persons = entry.persons.collect %}
+{% endif %}
+
+
 {% from '_layouts/macros/lib.twig' import img %}
 <div>
     <div class="mx-auto max-w-7xl py-12 px-6 lg:px-8 lg:py-24">
         <div class="space-y-12">
-            <h2 class="text-3xl font-bold text-primary dark:text-primary-dark tracking-tight sm:text-4xl">{{ entry.title }}</h2>
+            <h2 class="text-3xl font-bold text-primary dark:text-primary-dark tracking-tight sm:text-4xl">{{ title }}</h2>
 
             <ul role="list"
                 class="space-y-12 lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 lg:gap-y-12 lg:space-y-0">
-                {% for person in entry.persons.collect %}
+                {% for person in persons %}
                     {% set image = person.photo.one %}
                     <li>
                         <div class="space-y-4 sm:grid sm:grid-cols-3 sm:gap-6 sm:space-y-0 lg:gap-8">

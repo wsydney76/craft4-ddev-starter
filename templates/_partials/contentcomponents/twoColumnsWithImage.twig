@@ -1,5 +1,18 @@
 {% from '_layouts/macros/lib.twig' import img %}
-{% set image = entry.image.one %}
+
+{# @param entry Entry the content component entry #}
+{# Alternatively, individual parameters can be passed. #}
+
+{% if entry is defined %}
+    {% set image = entry.image.one %}
+    {% set teaser = entry.teaser %}
+    {% set title = entry.title %}
+    {% set query = entry.bodyContent %}
+{% endif %}
+
+{% set image = image ?? null %}
+{% set title = title ?? '' %}
+{% set teaser = teaser ?? '' %}
 
 <div class="overflow-hidden bg-white dark:bg-background-dark">
     <div class="relative mx-auto max-w-7xl py-16 px-6 lg:px-8">
@@ -7,9 +20,9 @@
         <div class="max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
             <div>
                 {% if entry.teaser %}
-                    <h2 class="mb-2 text-lg font-semibold text-gray-600 dark:text-gray-200">{{ entry.teaser }}</h2>
+                    <h2 class="mb-2 text-lg font-semibold text-gray-600 dark:text-gray-200">{{ teaser }}</h2>
                 {% endif %}
-                <h3 class="text-4xl font-headings font-bold leading-8 tracking-tight text-primary dark:text-primary-dark sm:text-4xl">{{ entry.title }}</h3>
+                <h3 class="text-4xl font-headings font-bold leading-8 tracking-tight text-primary dark:text-primary-dark sm:text-4xl">{{ title }}</h3>
             </div>
         </div>
         <div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
@@ -49,7 +62,7 @@
             </div>
             <div class="mt-8 lg:mt-0">
                 {% include '_layouts/partials/content-blocks.twig' with {
-                	query: entry.bodyContent,
+                	query,
                     padding: false
                 } only %}
             </div>

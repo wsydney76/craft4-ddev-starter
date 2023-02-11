@@ -1,4 +1,18 @@
-{% set criteria = entry.criteria.value|json_decode %}
+{# @param entry Entry the content component entry #}
+{# Alternatively, individual parameters can be passed. #}
+
+{% if entry is defined %}
+    {% set title = entry.title %}
+    {% set criteria = entry.criteria.value|json_decode %}
+    {% set buttons = entry.buttons.collect|map(button => {
+        url: button.target.one.url ?? '',
+        caption: button.caption ?? button.target.one.title ?? 'Read more'|t,
+        primary: button.primary
+    }) %}
+{% endif %}
+
+{# Defaults #}
+{% set buttons = buttons ?? [] %}
 
 {% set showMetaData = false %}
 {% set layout = 'card' %}
@@ -24,17 +38,13 @@
     {% block content %}
         {% include '_layouts/partials/cards.twig' with {
             query: craft.entries(criteria),
-            heading: entry.title,
+            heading: title,
             showMetaData: showMetaData,
             layout: layout
         } only %}
 
         {% include '_layouts/partials/heroarea/_ctabuttons.twig' with {
-            buttons: entry.buttons.collect|map(button => {
-                url: button.target.one.url ?? '',
-                caption: button.caption ?? button.target.one.title ?? 'Read more'|t,
-                primary: button.primary
-            }),
+            buttons,
             classes: 'mt-8'
         } only %}
         

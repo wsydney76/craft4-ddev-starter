@@ -16,7 +16,7 @@
         {% case "contentComponent" %}
 
 
-            {% include "_layouts/partials/contentcomponents/#{entry.type.handle}.twig" with {
+            {% include "_partials/contentcomponents/#{entry.type.handle}.twig" with {
                 entry
             } only %}
 

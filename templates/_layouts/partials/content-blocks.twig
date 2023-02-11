@@ -1,0 +1,42 @@
+{# Loop through Matrix blocks #}
+
+{# @param query MatrixBlockQuery  #}
+{# @param bool padding If horizontal padding should be applied. Set to false if embedded in other components #}
+
+{% set fullWidthBlocks = craft.app.config.custom.fullWidthBlocks %}
+{% set padding = padding is defined ? padding : true %}
+
+{% set blocks = query.collect %}
+
+{% if blocks.count %}
+
+    {% embed '_layouts/embeds/prose.twig' with {extraClasses: 'my-12 mx-auto max-w-full'} %}
+        {% block content %}
+
+            {# Don't set vertical spacing here, it will be handled by 'prose' #}
+            {% for block in blocks %}
+                {% if block.showInSites == currentSite.handle or not block.showInSites %}
+
+                    {% if block.type.handle in fullWidthBlocks %}
+                        <div class="not-prose">
+                            {% include "_blocks/#{block.type.handle}.twig" with {
+                                block
+                            } only %}
+                        </div>
+                    {% else %}
+                        {% embed '_layouts/embeds/container-md.twig' with {padding} %}
+                            {% block content %}
+                                {% include "_blocks/#{block.type.handle}.twig" with {
+                                    block
+                                } only %}
+                            {% endblock %}
+                        {% endembed %}
+                    {% endif %}
+
+                {% endif %}
+            {% endfor %}
+
+        {% endblock %}
+    {% endembed %} {# end prose #}
+{% endif %}
+

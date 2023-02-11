@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1676049102
+dateModified: 1676111350
 elementSources:
   craft\elements\Asset:
     -
@@ -229,11 +229,9 @@ meta:
     3d8293ac-fa84-47ed-befa-a41cb6315212: Layout # Layout
     3db074a8-549b-4879-a864-250d2652282e: Cards # Cards
     3e35a043-a62e-4ede-acd6-44dfb92d6914: 'Site Name' # Site Name
-    3f8bc981-20ce-41f2-b848-e77f8dab1640: 'Content Sections' # Content Sections
     3fb81893-2727-4990-b8f6-a5f6e391a8d8: Style # Style
     4a8239eb-1b66-44e0-bd66-5a65d44b0727: Icon # Icon
     4b050685-0425-4094-bde2-85e2eedd0e12: Text # Text
-    4bb10ea0-ad74-4550-a70f-b9ac1ef3cac1: 'Body Content' # Body Content
     4bc24da9-fd88-45ec-8410-bc189032e3f8: 'Phone Number' # Phone Number
     4bf7eb3c-ca42-4327-97e2-77533fc27a61: Caption # Caption
     5a0be839-14a2-465e-a504-bb63dd0281e9: Images # Images
@@ -284,8 +282,10 @@ meta:
     6193ce57-a570-451e-8124-ec3ba985b0b2: Caption # Caption
     6739b2cb-a865-433d-9732-cdd6a419188d: 'Page Template' # Page Template
     7602aac5-c98e-44bd-8570-457a85b8abad: Criteria # Criteria
+    7681df0f-bb10-47a5-ae54-25d7743237e3: 'Content Components' # Content Components
     8350d2ae-3d7d-4d96-aeae-eab90a7f0d5b: 'Hero Teaser' # Hero Teaser
     13852c19-7f9e-4e6b-8790-0063f0f21ab8: Default # Default
+    37283b65-80b3-4451-a1d2-03fd68d18a05: 'Content Components' # Content Components
     44993cef-3718-479f-8c88-bdede1d256ba: 'Card Text' # Card Text
     52144f06-b394-45aa-bee6-d00e1f86878f: Primary # Primary
     75980a78-5a14-4d80-8e9c-b0616d62e02e: 'Hero Area' # Hero Area

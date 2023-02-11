@@ -1,0 +1,62 @@
+field: 85898001-9c9c-4d46-abf9-a928e44f0d48 # Body Content
+fieldLayouts:
+  d0d8ef83-17de-4109-aeb5-dc1321c3a9b7:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 37283b65-80b3-4451-a1d2-03fd68d18a05 # Content Components
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ea790753-d6d2-48de-b3c0-1f9a2dd46463
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: f56b9d82-2146-47f6-9caf-376000199000
+        userCondition: null
+fields:
+  37283b65-80b3-4451-a1d2-03fd68d18a05: # Content Components
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: contentComponents
+    instructions: null
+    name: 'Content Components'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      localizeRelations: false
+      maxRelations: null
+      minRelations: null
+      selectionCondition:
+        __assoc__:
+          -
+            - elementType
+            - craft\elements\Entry
+          -
+            - fieldContext
+            - global
+          -
+            - class
+            - craft\elements\conditions\entries\EntryCondition
+      selectionLabel: null
+      showSiteMenu: false
+      source: null
+      sources:
+        - 'section:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
+        - 'section:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: contentComponents
+name: 'Content Components'
+sortOrder: 9

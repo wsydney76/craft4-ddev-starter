@@ -17,15 +17,21 @@
 
 {% block content %}
 
-    {% embed '_layouts/embeds/content-md.twig' with {showHeader: false, alignTitle: 'left'} %}
-
-        {% block contentTop %}
+    {% embed '_layouts/embeds/container-md.twig' %}
+        {% block content %}
             {% include '_partials/meta.twig' with {
-            	entry
+                entry
             } only %}
         {% endblock %}
+    {% endembed %}
 
-        {% block contentBottom %}
+    {% include '_layouts/partials/content-blocks.twig' with {
+        query: entry.bodyContent
+    } only %}
+
+    {% embed '_layouts/embeds/container-md.twig' %}
+        {% block content %}
+
             {# Related Entries #}
             {% include '_layouts/partials/cards.twig' with {
                 heading: '{count,plural,=1{Related Entry} other{Related Entries}}',
@@ -33,23 +39,13 @@
                 wide: false
             } only %}
 
-            {# Show prev/next #}
             {% include '_layouts/partials/entry-nav-channel.twig' with {
                 entry,
                 criteria: {section: 'news'}
             } only %}
         {% endblock %}
-
-
-       {# Widget example
-       {% block sidebar %}
-            {% include '_widgets/entries-list.twig' with {
-                heading: 'Latest News'|t,
-            	query: craft.entries.section('news').limit(5)
-            } only %}
-        {% endblock %}
-       #}
-
     {% endembed %}
+
+
 
 {% endblock %}

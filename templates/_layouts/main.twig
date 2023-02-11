@@ -26,7 +26,11 @@
         ] with {entry} only %}
     {% endblock %}
 
-    {% block content %}{% endblock %}
+    {% block contentWrapper %}
+        <div class="my-16">
+            {% block content %}{% endblock %}
+        </div>
+    {% endblock %}
 
 </main>
 

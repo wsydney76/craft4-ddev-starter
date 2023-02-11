@@ -101,7 +101,7 @@ class MainModule extends BaseModule
                     // TODO: Make that configurable
                     if ($entry->section->handle !== 'page' || in_array($entry->type->handle, ['faqs', 'sitemap']) ) {
                         foreach ($event->blockTypes as $i => $blockType) {
-                            if (in_array($blockType->handle, ['dynamicBlock', 'contentSection'])) {
+                            if (in_array($blockType->handle, ['dynamicBlock', 'contentComponents'])) {
                                 unset($event->blockTypes[$i]);
                             }
                         }
@@ -117,7 +117,7 @@ class MainModule extends BaseModule
             Entry::class,
             Entry::EVENT_BEFORE_SAVE, function($event): void {
 
-            if (Craft::$app->sites->getTotalSites() == 1) {
+            if (Craft::$app->sites->getTotalSites() === 1) {
                 return;
             }
 

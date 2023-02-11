@@ -1,9 +1,27 @@
 {# Show default page content #}
 
-{% embed '_layouts/embeds/content-md.twig' with {showHeader: not entry.showHeroArea} %}
-    {% block contentBottom %}
+{% if not entry.showHeroArea %}
+    {% embed '_layouts/embeds/container-md.twig' %}
+        {% block content %}
+            {% include '_layouts/partials/page-header.twig' with {
+                entry,
+                alignTitle: alignTitle ?? 'left'
+            } only %}
+        {% endblock %}
+    {% endembed %}
+{% endif %}
+
+{% if entry.bodyContent %}
+    {% include '_layouts/partials/content-blocks.twig' with {
+        query: entry.bodyContent
+    } only %}
+{% endif %}
+
+{% embed '_layouts/embeds/container-md.twig' %}
+    {% block content %}
         {% include '_layouts/partials/entry-nav-structure.twig' with {
             entry
         } only %}
     {% endblock %}
 {% endembed %}
+

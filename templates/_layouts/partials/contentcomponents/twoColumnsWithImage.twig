@@ -48,8 +48,9 @@
                 </div>
             </div>
             <div class="mt-8 lg:mt-0">
-                {% include '_layouts/partials/blocks.twig' with {
-                	query: entry.bodyContent
+                {% include '_layouts/partials/content-blocks.twig' with {
+                	query: entry.bodyContent,
+                    padding: false
                 } only %}
             </div>
         </div>

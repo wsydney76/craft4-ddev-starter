@@ -2,7 +2,7 @@
 
 {% extends "_layouts/main.twig" %}
 
-{% block content %}
+{% block contentWrapper %}
     {# Display individual content per entry type #}
     {% include [
         "_sections/page_#{entry.type.handle}",

@@ -1,0 +1,5 @@
+{% set padding = padding is defined ? padding : true %}
+
+<div class="max-w-screen-md mx-auto {{ padding ? 'px-4 sm:px-8' }}">
+    {% block content %}{% endblock %}
+</div>

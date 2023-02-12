@@ -8,6 +8,8 @@
 /volumes/temp
 /volumes/images/*
 !/volumes/images/starter
+!/volumes/images/icons/starter
+!/volumes/images/photos/starter
 /web/assets/dist
 /web/assets/pdf
 /web/assets/site

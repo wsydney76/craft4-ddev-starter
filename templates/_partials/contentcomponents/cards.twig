@@ -14,25 +14,11 @@
 {# Defaults #}
 {% set buttons = buttons ?? [] %}
 
-{% set showMetaData = false %}
-{% set layout = 'card' %}
-{% set width = 'xl' %}
+{% set showMetaData = criteria.showMetaData ?? false %}
+{% set layout = criteria.layout ?? 'card' %}
+{% set width = criteria.width ?? 'xl' %}
 
-{% if criteria.showMetaData is defined %}
-    {% set showMetaData = criteria.showMetaData %}
-    {% set criteria = criteria|filter((v, k) => k != 'showMetaData') %}
-{% endif %}
-
-{% if criteria.layout is defined %}
-    {% set layout = criteria.layout %}
-    {% set criteria = criteria|filter((v, k) => k != 'layout') %}
-{% endif %}
-
-{% if criteria.width is defined %}
-    {% set width = criteria.width %}
-    {% set criteria = criteria|filter((v, k) => k != 'width') %}
-{% endif %}
-
+{% set criteria = criteria|withoutKey(['showMetaData', 'layout', 'width']) %}
 
 {% embed "_layouts/embeds/content-#{width}.twig" with {showHeader: false} %}
     {% block content %}

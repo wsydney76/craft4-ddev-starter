@@ -94,7 +94,7 @@ class SeedController extends BaseController
                     'tagline' => $this->faker->text(50),
                     'teaser' => $this->faker->text(15),
                     'featuredImage' => [$images[$i - 1]->id],
-                    'bodyContent' => $this->getBodyContent($faker)
+                    'bodyContent' => $this->getBodyContent()
                 ]
 
             ]);
@@ -280,7 +280,7 @@ class SeedController extends BaseController
     /**
      * @return array<string, array<array<string, string|array<string, string>|array<string, mixed[]|string|null>|array<string, mixed[]>>|string>>
      */
-    protected function getBodyContent(Generator $faker): array
+    protected function getBodyContent(): array
     {
 
         $content = [

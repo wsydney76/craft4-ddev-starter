@@ -28,18 +28,26 @@ class SeedController extends BaseController
     public string $volume = 'images';
     public int $minWidth = 1200;
 
+    protected Generator $faker;
+
+    public function beforeAction($action): bool
+    {
+        $this->faker = Factory::create();
+        return parent::beforeAction($action); 
+    }
+
     /**
      * Create a number of fake entries
      *
      * @param int $num Max number of entries that will be created.
      * Will be set to the number of images in the specified folder if lower.
      * @param string $sectionHandle Section handle for the created entries
-     * @param string $folderName Name of the folder where images live
+     * @param string $path Path of the folder where images live. Ends with '/'
      * @return int
      * @throws \yii\base\InvalidRouteException
      * @throws \yii\console\Exception
      */
-    public function actionCreateEntries(int $num = self::NUM_ENTRIES, string $sectionHandle = self::SECTION_HANDLE, string $folderName = 'starter'): int
+    public function actionCreateEntries(int $num = self::NUM_ENTRIES, string $sectionHandle = self::SECTION_HANDLE, string $path = 'starter/'): int
     {
         $section = Craft::$app->sections->getSectionByHandle($sectionHandle);
         if (!$section) {
@@ -49,23 +57,9 @@ class SeedController extends BaseController
 
         $this->indexImages();
 
-        Craft::$app->runAction('main/seed/img-add-provisional-texts', [$folderName]);
+        $this->actionImgAddProvisionalTexts($path);
 
-        $folder = Craft::$app->assets->findFolder(['name' => $folderName]);
-        if (!$folder) {
-            Console::output('Folder not found');
-            return ExitCode::UNSPECIFIED_ERROR;
-        }
-
-        $query = Asset::find()
-            ->kind('image')
-            ->volume($this->volume)
-            ->folderId($folder->id)
-            ->width('> ' . $this->minWidth)
-            ->orderBy(Craft::$app->db->driverName === 'mysql' ? 'RAND()' : 'RANDOM()');
-
-
-        $images = $query->collect();
+        $images = $this->getImagesFromFolder($path);
 
         $num = min($num, $images->count());
 
@@ -80,13 +74,11 @@ class SeedController extends BaseController
 
         $this->stdout("Creating {$num} entries of type '{$section->name}'." . PHP_EOL);
 
-        $faker = Factory::create();
-
         $type = $section->getEntryTypes()[0];
 
         for ($i = 1; $i <= $num; ++$i) {
 
-            $title = $faker->text(50);
+            $title = $this->faker->text(50);
             $this->stdout("[{$i}/{$num}] Creating ... ");
 
             $image = $this->getRandomImage($this->minWidth);
@@ -96,11 +88,11 @@ class SeedController extends BaseController
                 'type' => $type->handle,
                 'author' => User::find()->orderBy('rand()')->one(),
                 'title' => $title,
-                'postDate' => $faker->dateTimeInInterval('-2 days', '-3 months'),
+                'postDate' => $this->faker->dateTimeInInterval('-2 days', '-3 months'),
                 'fields' => [
-                    'isFeatured' => $faker->boolean(25),
-                    'tagline' => $faker->text(50),
-                    'teaser' => $faker->text(15),
+                    'isFeatured' => $this->faker->boolean(25),
+                    'tagline' => $this->faker->text(50),
+                    'teaser' => $this->faker->text(15),
                     'featuredImage' => [$images[$i - 1]->id],
                     'bodyContent' => $this->getBodyContent($faker)
                 ]
@@ -135,8 +127,6 @@ class SeedController extends BaseController
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
-        $faker = Factory::create();
-
         // home, sweet home
         $image = Asset::find()->filename('ammersee-2.jpg')->one();
 
@@ -153,11 +143,6 @@ class SeedController extends BaseController
 
         if ($image) {
 
-            $paragraphs = '';
-            foreach ($faker->paragraphs(2) as $paragraph) {
-                $paragraphs .= $paragraph . PHP_EOL . PHP_EOL;
-            }
-
             // pseudo random
             $target = Entry::find()->section('news')->orderBy('title')->one();
             $target2 = Entry::find()->section('news')->offset(1)->orderBy('title')->one();
@@ -169,7 +154,7 @@ class SeedController extends BaseController
                 'title' => 'Craft Starter',
                 'slug' => 'craft-starter',
                 'fields' => [
-                    'body' => $paragraphs,
+                    'body' => $this->getMarkdownParagraphs(2),
                     'image' => [$image->id],
                     'heroAreaTemplate' => 'split.twig',
                     'buttons' => [
@@ -177,7 +162,7 @@ class SeedController extends BaseController
                             'type' => 'button',
                             'fields' => [
                                 'target' => $target ? [$target->id] : [],
-                                'caption' => $faker->text(20),
+                                'caption' => $this->faker->text(20),
                                 'primary' => true,
                             ]
                         ],
@@ -185,7 +170,7 @@ class SeedController extends BaseController
                             'type' => 'button',
                             'fields' => [
                                 'target' => $target2 ? [$target2->id] : [],
-                                'caption' => $faker->text(20),
+                                'caption' => $this->faker->text(20),
                                 'primary' => false,
                             ]
                         ]
@@ -313,22 +298,17 @@ class SeedController extends BaseController
             ['text', 'heading', 'gallery', 'text', 'heading', 'text'],
         ];
 
-        $blockTypes = $faker->randomElement($layouts);
+        $blockTypes = $this->faker->randomElement($layouts);
 
         $i = 0;
         foreach ($blockTypes as $blockType) {
 
             switch ($blockType) {
                 case 'text':
-                    $paragraphs = '';
-                    foreach ($faker->paragraphs($faker->numberBetween(1, 5)) as $paragraph) {
-                        $paragraphs .= $paragraph . PHP_EOL . PHP_EOL;
-                    }
-
                     $block = [
                         'type' => 'text',
                         'fields' => [
-                            'text' => $paragraphs
+                            'text' => $this->getMarkdownParagraphs($this->faker->numberBetween(1, 5))
                         ]
                     ];
                     break;
@@ -336,7 +316,7 @@ class SeedController extends BaseController
                     $block = [
                         'type' => 'heading',
                         'fields' => [
-                            'text' => $faker->text(40),
+                            'text' => $this->faker->text(40),
                             'htmlTag' => 'h2'
                         ]
                     ];
@@ -345,8 +325,8 @@ class SeedController extends BaseController
                     $block = [
                         'type' => 'quote',
                         'fields' => [
-                            'text' => $faker->text(80),
-                            'cite' => $faker->name
+                            'text' => $this->faker->text(80),
+                            'cite' => $this->faker->name
                         ]
                     ];
                     break;
@@ -356,7 +336,7 @@ class SeedController extends BaseController
                         'type' => 'image',
                         'fields' => [
                             'image' => $image ? [$image->id] : null,
-                            'caption' => $faker->text(30),
+                            'caption' => $this->faker->text(30),
                             'align' => 'wide',
                             'aspectRatio' => 'default'
                         ]
@@ -497,9 +477,9 @@ class SeedController extends BaseController
      * @throws \craft\errors\ElementNotFoundException
      * @throws \yii\base\Exception
      */
-    public function actionImgAddProvisionalTexts(string $folderName = 'starter'): int
+    public function actionImgAddProvisionalTexts(string $path = 'starter'): int
     {
-        $folder = Craft::$app->assets->findFolder(['name' => $folderName]);
+        $folder = Craft::$app->assets->findFolder(['path' => $path]);
         if (!$folder) {
             return ExitCode::OK;
         }
@@ -543,6 +523,33 @@ class SeedController extends BaseController
         return ExitCode::OK;
     }
 
+    private function getImagesFromFolder(string $path)
+    {
+        $folder = Craft::$app->assets->findFolder(['path' => $path]);
+        if (!$folder) {
+            Console::output('Folder not found');
+            return ExitCode::UNSPECIFIED_ERROR;
+        }
+
+        $query = Asset::find()
+            ->kind('image')
+            ->volume($this->volume)
+            ->folderId($folder->id)
+            ->width('> ' . $this->minWidth)
+            ->orderBy(Craft::$app->db->driverName === 'mysql' ? 'RAND()' : 'RANDOM()');
+
+
+        return $query->collect();
+    }
+
+    protected function getMarkdownParagraphs(int $number) {
+        $paragraphs = '';
+        foreach ($this->faker->paragraphs($number) as $paragraph) {
+            $paragraphs .= $paragraph . PHP_EOL . PHP_EOL;
+        }
+        return $paragraphs;
+    }
+    
     protected function indexImages(): void
     {
         $imagesCount = Asset::find()

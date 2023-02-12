@@ -7,7 +7,7 @@ name: Photo
 searchable: false
 settings:
   allowSelfRelations: false
-  allowSubfolders: false
+  allowSubfolders: true
   allowUploads: true
   allowedKinds:
     - image

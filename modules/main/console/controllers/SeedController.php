@@ -10,13 +10,16 @@ use craft\helpers\App;
 use craft\helpers\ArrayHelper;
 use craft\helpers\Console;
 use craft\helpers\FileHelper;
+use craft\helpers\StringHelper;
 use Exception;
 use Faker\Factory;
 use Faker\Generator;
 use Illuminate\Support\Collection;
 use yii\console\ExitCode;
+use function ceil;
 use function is_dir;
 use function ucwords;
+use function var_dump;
 use const DIRECTORY_SEPARATOR;
 use const PHP_EOL;
 
@@ -33,7 +36,7 @@ class SeedController extends BaseController
     public function beforeAction($action): bool
     {
         $this->faker = Factory::create();
-        return parent::beforeAction($action); 
+        return parent::beforeAction($action);
     }
 
     /**
@@ -80,8 +83,6 @@ class SeedController extends BaseController
 
             $title = $this->faker->text(50);
             $this->stdout("[{$i}/{$num}] Creating ... ");
-
-            $image = $this->getRandomImage($this->minWidth);
 
             $entry = $this->createEntry([
                 'section' => $section->handle,
@@ -152,7 +153,7 @@ class SeedController extends BaseController
                 'type' => 'default',
                 'site' => 'en',
                 'title' => 'Craft Starter',
-                'slug' => 'craft-starter',
+                'slug' => 'hero1',
                 'fields' => [
                     'body' => $this->getMarkdownParagraphs(2),
                     'image' => [$image->id],
@@ -178,11 +179,163 @@ class SeedController extends BaseController
                 ]
             ]);
 
+            $this->actionCreatePersons();
+
             if ($heroAreaEntry) {
-                if ($homepageEntry) {
-                    $homepageEntry->setFieldValue('heroArea', [$heroAreaEntry->id]);
-                }
+                $homepageEntry->setFieldValue('heroArea', [$heroAreaEntry->id]);
             }
+
+            $homepageEntry->setFieldValue('bodyContent', [
+                'sortOrder' => ['new1', 'new2'],
+                'blocks' => [
+                    'new1' => [
+                        'type' => 'heading',
+                        'fields' => [
+                            'text' => $this->faker->text(50),
+                            'htmlTag' => 'h2'
+                        ]
+                    ],
+                    'new2' => [
+                        'type' => 'text',
+                        'fields' => [
+                            'text' => $this->getMarkdownParagraphs(3),
+
+                        ]
+                    ]
+                ]
+
+            ]);
+
+            $contentComponents = [];
+
+
+            $persons = Entry::find()->section('person')->collect();
+            $icons = $this->getImagesFromFolder('icons/starter/', 20, 4);
+
+            $contentComponents[] = $this->createEntry([
+                'section' => 'contentComponent',
+                'type' => 'testimonial',
+                'site' => 'en',
+                'title' => '',
+                'slug' => 'testimonial1',
+                'fields' => [
+                    'body' => $this->faker->text(250),
+                    'person' => [$persons[0]->id],
+                    'align' => 'right'
+                ]
+            ]);
+
+
+
+            $contentComponents[] = $this->createEntry([
+                'section' => 'contentComponent',
+                'type' => 'features',
+                'site' => 'en',
+                'title' => $this->faker->text(60),
+                'slug' => 'features1',
+                'fields' => [
+                    'teaser' => $this->faker->text(30),
+                    'body' => $this->faker->text(200),
+                    'features' => [
+                        [
+                            'type' => 'feature',
+                            'fields' => [
+                                'icon' => [$icons[0]->id],
+                                'heading' => $this->faker->text(30),
+                                'text' => $this->faker->text(120)
+                            ]
+                        ],
+                        [
+                            'type' => 'feature',
+                            'fields' => [
+                                'icon' => [$icons[1]->id],
+                                'heading' => $this->faker->text(30),
+                                'text' => $this->faker->text(120)
+                            ]
+                        ],
+                        [
+                            'type' => 'feature',
+                            'fields' => [
+                                'icon' => [$icons[2]->id],
+                                'heading' => $this->faker->text(30),
+                                'text' => $this->faker->text(120)
+                            ]
+                        ],
+                        [
+                            'type' => 'feature',
+                            'fields' => [
+                                'icon' => [$icons[3]->id],
+                                'heading' => $this->faker->text(30),
+                                'text' => $this->faker->text(120)
+                            ]
+                        ],
+                    ]
+                ]
+            ]);
+
+
+            $contentComponents[] = $this->createEntry([
+                'section' => 'contentComponent',
+                'type' => 'testimonial',
+                'site' => 'en',
+                'title' => '',
+                'slug' => 'testimonial2',
+                'fields' => [
+                    'body' => $this->faker->text(250),
+                    'person' => [$persons[1]->id],
+                    'align' => 'default'
+                ]
+            ]);
+
+            $contentComponents[] = $this->createEntry([
+                'section' => 'contentComponent',
+                'type' => 'team',
+                'site' => 'en',
+                'title' => 'Our Team',
+                'slug' => 'team',
+                'fields' => [
+                    'persons' => Entry::find()->section('person')->limit(4)->ids(),
+                    'body' => $this->faker->text(200)
+                ],
+                'localized' => [
+                    'en' => [
+                        'title' => 'Unser Team'
+                    ]
+                ]
+            ]);
+
+
+            $image = Asset::find()->filename('blind.jpg')->one();
+            $contentComponents[] = $this->createEntry([
+                'section' => 'heroArea',
+                'type' => 'default',
+                'site' => 'en',
+                'title' => $this->faker->text(30),
+                'slug' => 'hero2',
+                'fields' => [
+                    'body' => $this->faker->text(200),
+                    'image' => [$image->id],
+                    'heroAreaTemplate' => 'minor.twig',
+                    'buttons' => [
+                        [
+                            'type' => 'button',
+                            'fields' => [
+                                'target' => $target ? [$target->id] : [],
+                                'caption' => $this->faker->text(20),
+                                'primary' => true,
+                            ]
+                        ],
+                        [
+                            'type' => 'button',
+                            'fields' => [
+                                'target' => $target2 ? [$target2->id] : [],
+                                'caption' => $this->faker->text(20),
+                                'primary' => false,
+                            ]
+                        ]
+                    ]
+                ]
+            ]);
 
 
             $newsIndex = Entry::find()
@@ -190,7 +343,7 @@ class SeedController extends BaseController
                 ->type('newsIndex')
                 ->one();
 
-            $newsContentComponent = $this->createEntry([
+            $contentComponents[] = $this->createEntry([
                 'section' => 'contentComponent',
                 'type' => 'cards',
                 'site' => 'en',
@@ -227,15 +380,48 @@ class SeedController extends BaseController
                 ]
             ]);
 
-            if ($newsContentComponent) {
+
+            if ($contentComponents) {
+                $contentComponents = collect($contentComponents);
                 if ($homepageEntry) {
-                    $homepageEntry->setFieldValue('contentComponents', [$newsContentComponent->id]);
+                    $homepageEntry->setFieldValue('contentComponents', $contentComponents->map(fn($e) => $e->id)->toArray());
                 }
             }
 
             Craft::$app->elements->saveElement($homepageEntry);
         }
 
+        return ExitCode::OK;
+    }
+
+    public function actionCreatePersons(): int
+    {
+        $names = ['Erna Klawuppke', 'Aisha Conelly', 'Miram Zboncak', 'Aylin Müller-Lüdenscheidt'];
+        $teasers = ['Project Manager', 'Frontend Developer', 'Junior Designer', 'Head of Development'];
+
+
+        $images = $this->getImagesFromFolder('photos/starter/', 800, 4);
+
+        foreach ($images as $i => $image) {
+            $name = $names[$i];
+            $slug = StringHelper::slugify($name);
+            $person = $this->createEntry([
+                'section' => 'person',
+                'type' => 'default',
+                'site' => 'en',
+                'title' => $name,
+                'slug' => $slug,
+                'fields' => [
+                    'photo' => [$image->id],
+                    'body' => $this->faker->text(200),
+                    'teaser' => $teasers[$i],
+                    'socialLinks' => [
+                        ['col1' => 'mastodon', 'col2' => 'https://joinmastodon.org'],
+                        ['col1' => 'email', 'col2' => 'email:name@example.com'],
+                    ]
+                ]
+            ]);
+        }
         return ExitCode::OK;
     }
 
@@ -523,7 +709,7 @@ class SeedController extends BaseController
         return ExitCode::OK;
     }
 
-    private function getImagesFromFolder(string $path)
+    private function getImagesFromFolder(string $path, $minWidth = null, $limit = null)
     {
         $folder = Craft::$app->assets->findFolder(['path' => $path]);
         if (!$folder) {
@@ -531,25 +717,31 @@ class SeedController extends BaseController
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
+        if (!$minWidth) {
+            $minWidth = $this->minWidth;
+        }
+
         $query = Asset::find()
             ->kind('image')
             ->volume($this->volume)
             ->folderId($folder->id)
-            ->width('> ' . $this->minWidth)
+            ->width('> ' . $minWidth)
+            ->limit($limit)
             ->orderBy(Craft::$app->db->driverName === 'mysql' ? 'RAND()' : 'RANDOM()');
 
 
         return $query->collect();
     }
 
-    protected function getMarkdownParagraphs(int $number) {
+    protected function getMarkdownParagraphs(int $number)
+    {
         $paragraphs = '';
         foreach ($this->faker->paragraphs($number) as $paragraph) {
             $paragraphs .= $paragraph . PHP_EOL . PHP_EOL;
         }
         return $paragraphs;
     }
-    
+
     protected function indexImages(): void
     {
         $imagesCount = Asset::find()

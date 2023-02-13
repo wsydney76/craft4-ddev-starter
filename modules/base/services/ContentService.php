@@ -6,7 +6,10 @@ use Craft;
 use craft\elements\Entry;
 use craft\elements\User;
 use craft\fields\Matrix;
+use craft\helpers\App;
 use craft\helpers\ArrayHelper;
+use DateTime;
+use function in_array;
 
 /**
  * Content Service service
@@ -142,5 +145,38 @@ class ContentService extends BaseService
         }
 
         return $entry;
+    }
+
+    /**
+     * Update last modified of frontpages for sitemap
+     *
+     * TODO: Make configurable, add contentComponents, use background job
+     *
+     * @return void
+     */
+    public function updateFrontPages(Entry $entry): void
+    {
+        if (App::devMode()) {
+            return;
+        }
+
+        $watchSections = ['news'];
+
+        $types = ['home', 'newsIndex'];
+        if (in_array($entry->section->handle, $watchSections, true)) {
+            foreach ($types as $type) {
+                $frontPage = Entry::find()
+                    ->section('page')
+                    ->type($type)
+                    ->one();
+
+                if ($frontPage) {
+                    $frontPage->dateUpdated = new DateTime();
+                    if (!Craft::$app->elements->saveElement($frontPage)) {
+                        Craft::warning('Could not update frontpage');
+                    }
+                }
+            }
+        }
     }
 }

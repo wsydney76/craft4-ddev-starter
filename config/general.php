@@ -31,6 +31,7 @@ return
 		->sendPoweredByHeader(false)
 		->disallowRobots(!$isProd)
         ->errorTemplatePrefix('_errors/')
+        ->translationDebugOutput(false)
 
 		->defaultTemplateExtensions(['twig'])
 		->enableTemplateCaching($isProd)

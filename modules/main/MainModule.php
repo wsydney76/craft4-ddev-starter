@@ -7,6 +7,7 @@ use craft\base\Element;
 use craft\elements\Entry;
 use craft\events\BlockTypesEvent;
 use craft\events\ElementEvent;
+use craft\events\ModelEvent;
 use craft\fields\Matrix;
 use craft\helpers\ElementHelper;
 use craft\services\Elements;
@@ -87,26 +88,9 @@ class MainModule extends BaseModule
             ]);
 
 
-            // Hide bodyContent block types not relevant for the current entry
-            Event::on(
-                Matrix::class,
-                Matrix::EVENT_SET_FIELD_BLOCK_TYPES,
-                function(BlockTypesEvent $event) {
-                    if (!$event->element instanceof Entry || $event->sender->handle !== 'bodyContent') {
-                        return;
-                    }
+            $this->hideBlockTypes();
 
-                    $entry = $event->element;
-
-                    // TODO: Make that configurable
-                    if ($entry->section->handle !== 'page' || in_array($entry->type->handle, ['faqs', 'sitemap']) ) {
-                        foreach ($event->blockTypes as $i => $blockType) {
-                            if (in_array($blockType->handle, ['dynamicBlock', 'contentComponents'])) {
-                                unset($event->blockTypes[$i]);
-                            }
-                        }
-                    }
-                });
+            $this->updateFrontPages();
         }
     }
 
@@ -172,5 +156,56 @@ class MainModule extends BaseModule
         Craft::$app->view->hook('cp.users.edit.content', function(array &$context) {
             return '<input type="text" name="dummy-first-name" value="wtf" style="display: none">';
         });
+    }
+
+    protected function hideBlockTypes()
+    {
+        // Hide bodyContent block types not relevant for the current entry
+        Event::on(
+            Matrix::class,
+            Matrix::EVENT_SET_FIELD_BLOCK_TYPES,
+            function(BlockTypesEvent $event) {
+                if (!$event->element instanceof Entry || $event->sender->handle !== 'bodyContent') {
+                    return;
+                }
+
+                $entry = $event->element;
+
+                // TODO: Make that configurable
+                if ($entry->section->handle !== 'page' || in_array($entry->type->handle, ['faqs', 'sitemap'])) {
+                    foreach ($event->blockTypes as $i => $blockType) {
+                        if (in_array($blockType->handle, ['dynamicBlock', 'contentComponents'])) {
+                            unset($event->blockTypes[$i]);
+                        }
+                    }
+                }
+            });
+    }
+
+    /**
+     * PROVISIONAL
+     *
+     * Update sitemap frontpages when contant has possibly changed
+     *
+     * @return void
+     */
+    protected function updateFrontPages()
+    {
+        Event::on(
+            Entry::class,
+            Entry::EVENT_AFTER_SAVE,
+            function(ModelEvent $event) {
+                /** @var Entry $entry */
+                $entry = $event->sender;
+                if (
+                    !$event->sender->resaving &&
+                    $entry->scenario === Element::SCENARIO_LIVE &&
+                    ($event->sender->enabled && $event->sender->getEnabledForSite()) &&
+                    !ElementHelper::isDraftOrRevision($entry)
+                ) {
+                    $this->contentService->updateFrontPages($entry);
+                }
+            }
+        );
     }
 }

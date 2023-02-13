@@ -25,7 +25,7 @@
     {% set url = url ?? entry.url %}
     {% set text = text ?? entry.body %}
     {% set teaser = teaser ?? entry.teaser %}
-    {% set image = image ?? entry.image.one %}
+    {% set image = image ?? entry.image.one ?? entry.featuredImage.one %}
     {% set template = template ?? entry.heroAreaTemplate %}
 {% endif %}
 

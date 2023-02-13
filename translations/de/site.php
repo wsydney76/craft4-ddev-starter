@@ -52,6 +52,7 @@ return [
     'Job description' => 'Stellenbeschreibung',
     'Platform' => 'Plattform',
     'Add a social platform' => 'Soziales Netzwerk hinzufügen',
+    'Header image' => 'Seitenbild',
     
     
     

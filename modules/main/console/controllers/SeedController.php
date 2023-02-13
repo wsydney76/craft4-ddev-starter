@@ -18,6 +18,7 @@ use Illuminate\Support\Collection;
 use yii\console\ExitCode;
 use function ceil;
 use function is_dir;
+use function str_replace;
 use function ucwords;
 use function var_dump;
 use const DIRECTORY_SEPARATOR;
@@ -377,6 +378,39 @@ class SeedController extends BaseController
                             ]
                         ]
                     ]
+                ]
+            ]);
+
+            $contentComponents[] = $this->createEntry([
+                'section' => 'contentComponent',
+                'type' => 'faqs',
+                'site' => 'en',
+                'title' => 'FAQs',
+                'slug' => 'faqs',
+                'fields' => [
+                   'faqs' => [
+                       [
+                           'type' => 'faq',
+                           'fields' => [
+                               'question' => str_replace('.', '?', $this->faker->text(40)),
+                               'answer' => $this->faker->text(300)
+                           ]
+                       ],
+                       [
+                           'type' => 'faq',
+                           'fields' => [
+                               'question' => str_replace('.', '?', $this->faker->text(40)),
+                               'answer' => $this->faker->text(300)
+                           ]
+                       ],
+                       [
+                           'type' => 'faq',
+                           'fields' => [
+                               'question' => str_replace('.', '?', $this->faker->text(40)),
+                               'answer' => $this->faker->text(300)
+                           ]
+                       ],
+                   ]
                 ]
             ]);
 

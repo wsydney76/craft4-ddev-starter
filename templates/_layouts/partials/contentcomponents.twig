@@ -1,41 +1,32 @@
 {% set entries = query.collect %}
 
-{% for entry in entries %}
+<div class="space-y-20">
+    {% for entry in entries %}
 
-    {% if craft.app.request.isPreview and currentUser %}
-        {% set draft = craft.entries.draftOf(entry.id).provisionalDrafts(true).draftCreator(currentUser).one %}
-        {% if draft %}
-            {% set entry = draft %}
+        {% if craft.app.request.isPreview and currentUser %}
+            {% set draft = craft.entries.draftOf(entry.id).provisionalDrafts(true).draftCreator(currentUser).one %}
+            {% if draft %}
+                {% set entry = draft %}
+            {% endif %}
         {% endif %}
-    {% endif %}
 
-    <div>
-        
-        {% switch entry.section.handle %}
+        <div>
 
-        {% case "contentComponent" %}
+            {% switch entry.section.handle %}
 
+            {% case "contentComponent" %}
 
-            {% include "_partials/contentcomponents/#{entry.type.handle}.twig" with {
-                entry
-            } only %}
+                {% include "_partials/contentcomponents/#{entry.type.handle}.twig" with {
+                    entry
+                } only %}
 
-        {% case "heroArea" %}
-            {% set image =  entry.image.one %}
-            {% set buttons = entry.buttons.collect %}
+            {% case "heroArea" %}
 
-            {% include '_layouts/partials/hero-area-display.twig' with {
-                image,
-                title: entry.title,
-                text: entry.body,
-                teaser: entry.teaser,
-                buttons: buttons|map(button => {
-                    url: button.target.one.url ?? '',
-                    caption: button.caption ?? button.target.one.title ?? 'Read more'|t,
-                    primary: button.primary
-                }),
-                template: entry.heroAreaTemplate
-            } only %}
-        {% endswitch %}
-    </div>
-{% endfor %}
+                {% include '_layouts/partials/hero-area-display.twig' with {
+                    entry
+                } only %}
+
+            {% endswitch %}
+        </div>
+    {% endfor %}
+</div>

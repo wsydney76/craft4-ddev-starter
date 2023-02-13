@@ -20,9 +20,12 @@
         <div class="max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
             <div>
                 {% if entry.teaser %}
-                    <h2 class="mb-2 text-lg font-semibold text-gray-600 dark:text-gray-200">{{ teaser }}</h2>
+                    <div class="mb-2 text-lg font-semibold text-gray-600 dark:text-gray-200">{{ teaser }}</div>
                 {% endif %}
-                <h3 class="text-4xl font-headings font-bold leading-8 tracking-tight text-primary dark:text-primary-dark sm:text-4xl">{{ title }}</h3>
+
+                {% include '_layouts/partials/headline.twig' with {
+                	text: title
+                } only %}
             </div>
         </div>
         <div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">

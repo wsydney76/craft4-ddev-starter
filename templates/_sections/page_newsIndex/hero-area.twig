@@ -7,7 +7,6 @@
     .one %}
 
     {% if featuredEntry %}
-
         {% include '_layouts/partials/hero-area-display.twig' with {
             image: featuredEntry.featuredImage.one ?? siteInfo.featuredImage.one,
             title: featuredEntry.title,

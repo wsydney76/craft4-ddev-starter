@@ -9,22 +9,8 @@
 {% extends "_layouts/main.twig" %}
 
 {% block heroArea %}
-    {% set heroEntry = entry %}
-
-    {% set image =  heroEntry.heroImage.one %}
-    {% set buttons = heroEntry.buttons.collect %}
-
     {% include '_layouts/partials/hero-area-display.twig' with {
-        image,
-        title: heroEntry.title,
-        text: heroEntry.body,
-        teaser: heroEntry.teaser,
-        buttons: buttons|map(button => {
-            url: button.target.one.url ?? '',
-            caption: button.caption ?? button.target.one.title ?? 'Read more'|t,
-            primary: button.primary
-        }),
-        template: heroEntry.heroAreaTemplate
+        entry
     } only %}
 {% endblock %}
 
@@ -32,9 +18,11 @@
     {% embed '_layouts/embeds/content-md.twig' with {showHeader: false} %}
         {% block content %}
 
-            {% include '_layouts/partials/headline.twig' with {
-                text: 'Hero Area Preview'
-            } only %}
+            <div class="mb-8">
+                {% include '_layouts/partials/headline.twig' with {
+                    text: 'Hero Area Preview'
+                } only %}
+            </div>
 
             {% for i in 0..4 %}
                 <div class="mt-8">

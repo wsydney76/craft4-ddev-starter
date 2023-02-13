@@ -21,9 +21,12 @@
 } %}
 
 
-<h1 class="mt-12 text-3xl leading-8 font-headings font-bold {{ titleClasses[alignTitle] }} sm:text-4xl lg:text-5xl">
-    {{ title }}
-</h1>
+{% include '_layouts/partials/headline.twig' with {
+    text: title,
+    tag: 'h1',
+    extraClasses: 'mt-12'
+} only %}
+
 
 {% if tagline %}
     <div class="mt-8 text-xl">

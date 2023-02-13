@@ -2,14 +2,22 @@
 
 {% from '_layouts/macros/lib.twig' import navLink %}
 
-
-
 <footer class="bg-footer-background text-footer-foreground dark:bg-footer-background-dark dark:text-footer-foreground-dark">
     <div class="container mx-auto py-4 px-4 lg:flex lg:justify-between lg:items-center overflow-hidden sm:px-6 lg:px-8  border-t border-footer-border dark:border-footer-border-dark">
 
         <div class="flex justify-center lg:justify-start space-x-8">
-            <div class="text-center text-base">
-                &copy; {{ now|date('Y') }} {{ siteInfo.copyright ?? siteInfo.siteName }}
+            <div class="flex justify-center text-base">
+                <div>
+                    &copy; {{ now|date('Y') }} {{ siteInfo.copyright ?? siteInfo.siteName }}
+
+                    {# May be set in hero area template #}
+                    {% set copyright = craft.app.urlManager.getRouteParams.copyright ?? '' %}
+                    {% if copyright %}
+                        <div>
+                            &copy {{ 'Header Image'|t }}: {{ copyright }}
+                        </div>
+                    {% endif %}
+                </div>
             </div>
 
             <div class="mt-1 text-white text-footer-foreground flex justify-center text-base ">

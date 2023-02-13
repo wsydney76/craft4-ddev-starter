@@ -42,18 +42,20 @@
 
     {% if image %}
 
-       <div class="lg:w-1/2 lg:mb-0">
-           {{ img(image,  {
-               transform: {width: 1024, height: 400},
-               scrset: [768, 360],
-               showCopyright: false,
-               attr: {
-                   class: 'lg:object-cover lg:object-top w-full h-full lg:rounded-bl-xl',
-                   loading: null,
-                   fetchpriority: 'high'
-               }
-           }) }}
-       </div>
+        {% do craft.app.urlManager.setRouteParams({copyright: image.copyright}, true) %}
+
+        <div class="lg:w-1/2 lg:mb-0">
+            {{ img(image,  {
+                transform: {width: 1024, height: 400},
+                scrset: [768, 360],
+                showCopyright: false,
+                attr: {
+                    class: 'lg:object-cover lg:object-top w-full h-full lg:rounded-bl-xl',
+                    loading: null,
+                    fetchpriority: 'high'
+                }
+            }) }}
+        </div>
 
     {% endif %}
 </div>

@@ -13,11 +13,13 @@ const black = '#000000'
 const foreground = colors[grayColor][900]
 const backgroundDark = colors[grayColor][900]
 const primary = colors[mainColor][900]
+const headings = colors[mainColor][900]
 const lightDark = primary
 const secondary = colors[mainColor][600]
 const secondaryDark = colors[mainColor][400]
 const light = colors[mainColor][200]
 const primaryDark = colors[grayColor][200]
+const headingsDark = colors[grayColor][200]
 const white = '#ffffff'
 const background = colors.neutral[100]
 const gray = colors[grayColor]
@@ -60,7 +62,7 @@ module.exports = {
                 'dark': primaryDark
             },
 
-            // Headings, button background
+            // Themes main color
             primary: {
                 DEFAULT: primary,
                 dark: primaryDark
@@ -76,6 +78,11 @@ module.exports = {
             light: {
                 DEFAULT: light,
                 dark: lightDark
+            },
+
+            headings: {
+                DEFAULT: headings,
+                dark: headingsDark
             },
 
             // Gray scale, black and white. Special usages only
@@ -167,7 +174,7 @@ module.exports = {
                 custom: {
                     css: {
                         '--tw-prose-body': theme('colors.foreground.DEFAULT'),
-                        '--tw-prose-headings': theme('colors.primary.DEFAULT'),
+                        '--tw-prose-headings': theme('colors.headings.DEFAULT'),
                         '--tw-prose-lead': theme('colors.primary.DEFAULT'),
                         '--tw-prose-links': theme('colors.foreground.DEFAULT'),
                         '--tw-prose-bold': theme('colors.primary.DEFAULT'),
@@ -183,7 +190,7 @@ module.exports = {
                         '--tw-prose-th-borders': theme('colors.gray[300]'),
                         '--tw-prose-td-borders': theme('colors.gray[200]'),
                         '--tw-prose-invert-body': theme('colors.foreground.dark'),
-                        '--tw-prose-invert-headings': theme('colors.primary.dark'),
+                        '--tw-prose-invert-headings': theme('colors.headings.dark'),
                         '--tw-prose-invert-lead': theme('colors.gray[300]'),
                         '--tw-prose-invert-links': theme('colors.foreground.dark'),
                         '--tw-prose-invert-bold': theme('colors.primary.dark'),

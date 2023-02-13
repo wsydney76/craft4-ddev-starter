@@ -1,5 +1,8 @@
 {# Displays hero area with optional CTA button #}
 
+{# @param entry Entry the entry to display #}
+{# @param alternatevly individual parameters can be passed #}
+
 {# @param image Asset Background image #}
 {# @param title String Title text #}
 {# @param text String Text #}
@@ -8,8 +11,25 @@
 
 {% set config = craft.app.config.custom %}
 
+{% if entry is defined %}
+    {% if buttons is not defined and entry.buttons %}
+        {% set buttons = entry.buttons.collect|map(button => {
+            url: button.target.one.url ?? '',
+            caption: button.caption ?? button.target.one.title ?? 'Read more'|t,
+            primary: button.primary
+        }) %}
+    {% endif %}
+
+    {% set buttons = buttons ?? entry.buttons.collect ?? null %}
+    {% set title = titel ?? entry.title %}
+    {% set url = url ?? entry.url %}
+    {% set text = text ?? entry.body %}
+    {% set teaser = teaser ?? entry.teaser %}
+    {% set image = image ?? entry.image.one %}
+    {% set template = template ?? entry.heroAreaTemplate %}
+{% endif %}
+
 {% set url = url ?? '' %}
-{% set caption = caption ?? '' %}
 {% set text = text ?? '' %}
 {% set template = template ?? config.heroTemplate %}
 {% set fallbackTemplate = config.heroFallbackTemplate ?? 'textonly' %}

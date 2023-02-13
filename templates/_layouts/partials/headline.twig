@@ -6,14 +6,16 @@
 
 {% set tag = tag ?? 'h2' %}
 {% set href = href ?? null %}
+{% set extraClasses = extraClasses ?? '' %}
 
 {% if href %}
     {% set tag = 'a' %}
 {% endif %}
 
 
+{# This should match a h2 tag in tailwind typography: prose prose-lg #}
 {{ tag(tag, {
     text: text,
-    class: 'text-3xl sm:text-4xl leading-9 font-headings font-semibold text-primary dark:text-primary-dark mt-12 mb-6',
+    class: "text-4xl leading-9 font-headings font-bold text-headings dark:text-headings-dark #{extraClasses}",
     href: href
 }) }}

@@ -2,6 +2,8 @@
 
 // https://github.com/vaersaagod/seomate/blob/master/README.md
 
+use craft\elements\Entry;
+
 return [
     '*' => [
         'cacheEnabled' => false,
@@ -29,9 +31,14 @@ return [
         'sitemapLimit' => 100,
         'sitemapConfig' => [
             'elements' => [
-                'page' => ['changefreq' => 'daily', 'priority' => 1],
-                'news' => ['changefreq' => 'daily', 'priority' => 1],
-                'legal' => ['changefreq' => 'daily', 'priority' => 1],
+                'frontpages' => [
+                    'elementType' => Entry::class,
+                    'criteria' => ['section' => 'page','type' => ['home', 'newsIndex']],
+                    'params' => ['changefreq' => 'daily', 'priority' => 1],
+                ],
+                'page' => ['changefreq' => 'daily', 'priority' => 0.5],
+                'news' => ['changefreq' => 'weekly', 'priority' => 0.5],
+                'legal' => ['changefreq' => 'yearly', 'priority' => 0.2],
             ],
         ],
 

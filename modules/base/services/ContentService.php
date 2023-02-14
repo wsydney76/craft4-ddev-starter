@@ -103,7 +103,7 @@ class ContentService extends BaseService
             return null;
         }
 
-        $this->info("Entry $title saved.");
+        $this->info("Entry $entry->title saved.");
 
         if (isset($data['localized'])) {
             foreach ($data['localized'] as $siteHandle => $localizedContent) {

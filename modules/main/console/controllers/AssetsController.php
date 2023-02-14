@@ -102,6 +102,7 @@ class AssetsController extends Controller
 
         $entries = Entry::find()
             ->uri(':notempty:')
+            ->section('not person')
             ->site('*') // uncomment this line if this is a multi site install
             ->unique() // uncomment this line if there are no site specific images in a multisite install
             ->orderBy('id')

@@ -38,7 +38,11 @@
                 query: craft.entries.relatedTo({element: entry, field: 'relatedEntries'}).orderBy('title'),
                 wide: false
             } only %}
+        {% endblock %}
+    {% endembed %}
 
+    {% embed '_layouts/embeds/container-xl.twig' %}
+        {% block content %}
             {% include '_layouts/partials/entry-nav-channel.twig' with {
                 entry,
                 criteria: {section: 'news'}

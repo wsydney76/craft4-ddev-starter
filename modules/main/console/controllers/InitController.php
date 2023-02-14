@@ -3,10 +3,12 @@
 namespace modules\main\console\controllers;
 
 use Craft;
+use craft\elements\Asset;
 use craft\elements\GlobalSet;
 use craft\elements\User;
 use craft\helpers\App;
 use craft\helpers\Assets;
+use craft\helpers\Console;
 use Faker\Factory;
 use yii\console\ExitCode;
 use function str_replace;
@@ -399,6 +401,53 @@ class InitController extends BaseController
             }
         }
         return ExitCode::OK;
+    }
+
+    private function getImagesFromFolder(string $path, $minWidth = null, $limit = null)
+    {
+        $folder = Craft::$app->assets->findFolder(['path' => $path]);
+        if (!$folder) {
+            Console::output('Folder not found');
+            return ExitCode::UNSPECIFIED_ERROR;
+        }
+
+        if (!$minWidth) {
+            $minWidth = $this->minWidth;
+        }
+
+        $query = Asset::find()
+            ->kind('image')
+            ->volume($this->volume)
+            ->folderId($folder->id)
+            ->width('> ' . $minWidth)
+            ->limit($limit)
+            ->orderBy(Craft::$app->db->driverName === 'mysql' ? 'RAND()' : 'RANDOM()');
+
+
+        return $query->collect();
+    }
+
+    protected function getMarkdownParagraphs(int $number)
+    {
+        $paragraphs = '';
+        foreach ($this->faker->paragraphs($number) as $paragraph) {
+            $paragraphs .= $paragraph . PHP_EOL . PHP_EOL;
+        }
+        return $paragraphs;
+    }
+
+    protected function indexImages(): void
+    {
+        $imagesCount = Asset::find()
+            ->volume($this->volume)
+            ->kind('image')
+            ->width("> $this->minWidth")
+            ->count();
+
+        if ($imagesCount < 20) {
+            $this->stdout("Indexing existing images..." . PHP_EOL);
+            Craft::$app->runAction('index-assets/one', [$this->volume]);
+        }
     }
 
 

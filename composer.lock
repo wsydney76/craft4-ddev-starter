@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9afde41a738559cbfab02088653c7317",
+    "content-hash": "8e9d9df2a6f1d8bd878c05e4b428a25c",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -8026,22 +8026,21 @@
         },
         {
             "name": "wsydney76/craft-contentoverview",
-            "version": "dev-main",
+            "version": "5.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wsydney76/craft-contentoverview.git",
-                "reference": "0c82831a1a06120fa82504179d28ea55b3d2975a"
+                "reference": "1848c9dc28d2752844692ea12051f48007701882"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wsydney76/craft-contentoverview/zipball/0c82831a1a06120fa82504179d28ea55b3d2975a",
-                "reference": "0c82831a1a06120fa82504179d28ea55b3d2975a",
+                "url": "https://api.github.com/repos/wsydney76/craft-contentoverview/zipball/1848c9dc28d2752844692ea12051f48007701882",
+                "reference": "1848c9dc28d2752844692ea12051f48007701882",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^4.3.5"
             },
-            "default-branch": true,
             "type": "craft-plugin",
             "extra": {
                 "name": "Content Overview",
@@ -8074,7 +8073,7 @@
                 "issues": "https://github.com/wsydney76/craft-contentoverview/issues?state=open",
                 "source": "https://github.com/wsydney76/craft-contentoverview"
             },
-            "time": "2023-02-10T15:23:49+00:00"
+            "time": "2022-12-23T10:30:18+00:00"
         },
         {
             "name": "wsydney76/elementmap",
@@ -9009,9 +9008,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "wsydney76/craft-contentoverview": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

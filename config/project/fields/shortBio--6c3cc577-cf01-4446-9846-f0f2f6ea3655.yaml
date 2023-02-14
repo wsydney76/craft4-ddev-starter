@@ -1,0 +1,19 @@
+columnSuffix: jzotbkok
+contentColumnType: text
+fieldGroup: cf487444-d6c2-4c99-9432-e229efa674a2 # Person
+handle: shortBio
+instructions: null
+name: 'Short Bio'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: null
+  initialRows: 4
+  multiline: true
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: language
+type: craft\fields\PlainText

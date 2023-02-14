@@ -1,0 +1,19 @@
+columnSuffix: xecykfwo
+contentColumnType: string(40)
+fieldGroup: cf487444-d6c2-4c99-9432-e229efa674a2 # Person
+handle: nameAffix
+instructions: null
+name: 'Name Affix'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: 10
+  code: false
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

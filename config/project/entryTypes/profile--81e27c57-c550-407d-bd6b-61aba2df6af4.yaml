@@ -1,0 +1,151 @@
+fieldLayouts:
+  305f5e9d-af89-4ce7-8fa6-42a69dc0b9e8:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 26e3fda0-b4d2-4184-9b29-b95ff9a26da6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 5aa9454e-9fa0-4d8b-b667-023ce4cef5df # First Name
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 63600cc6-1a63-450f-9236-d16e9c12a185
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: e62a4659-99c7-4a5b-af65-00d9f6cb1d22 # Name Affix
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ba4246c2-9104-4990-997a-f644b73626eb
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: b3aae533-c873-4f67-8df2-d2bde900b30a # Last Name
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9e05f0b3-05c9-4467-9a03-eac8c9b0d23d
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: e842f783-0027-4c81-8136-61f70ccfbd6d # Birthday
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 561e614a-f89e-4b3e-91a9-997613c9590f
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 78014c80-5d4b-4253-ae59-80f00e516c86 # Photo
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e17d3e9b-d307-4dc2-916b-467064ee0c3c
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: c72e758a-f6c3-42cd-896b-3ff6353ed259 # Featured Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d37197d1-6459-415a-b0a6-45cb1178d9b2
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 6c3cc577-cf01-4446-9846-f0f2f6ea3655 # Short Bio
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 08958cd8-7f05-46b7-a2a4-811dc52152f9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 10df8f20-7a11-4fb0-8143-f50048806d3b # Works
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 24a9fe9e-a500-4632-acb4-3156aabda994
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 85898001-9c9c-4d46-abf9-a928e44f0d48 # Body Content
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1c5be59c-4402-42c4-9a26-4cab47414167
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: bed7f3f2-857f-4213-81ea-c6a006acd79b
+        userCondition: null
+handle: profile
+hasTitleField: false
+name: Profile
+section: fcbda6e5-a26a-4efb-800a-a67a44a88fa1 # Person
+sortOrder: 2
+titleFormat: '{firstName} {nameAffix} {lastName}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

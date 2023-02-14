@@ -58,16 +58,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.258.8",
+            "version": "3.258.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "3bb42aeb1e11f17b0ca7357385a427a438df35b1"
+                "reference": "1d42f8170ecc775a85e0efa96476caa2d4be13ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/3bb42aeb1e11f17b0ca7357385a427a438df35b1",
-                "reference": "3bb42aeb1e11f17b0ca7357385a427a438df35b1",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1d42f8170ecc775a85e0efa96476caa2d4be13ae",
+                "reference": "1d42f8170ecc775a85e0efa96476caa2d4be13ae",
                 "shasum": ""
             },
             "require": {
@@ -146,9 +146,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.258.8"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.258.9"
             },
-            "time": "2023-02-10T19:22:52+00:00"
+            "time": "2023-02-13T19:21:26+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -2482,16 +2482,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v9.51.0",
+            "version": "v9.52.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "e0bb46f59239c787574d5a202d91982327737459"
+                "reference": "f3ac81877e98c0c096ef403ab4f0c7ed96623c18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/e0bb46f59239c787574d5a202d91982327737459",
-                "reference": "e0bb46f59239c787574d5a202d91982327737459",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/f3ac81877e98c0c096ef403ab4f0c7ed96623c18",
+                "reference": "f3ac81877e98c0c096ef403ab4f0c7ed96623c18",
                 "shasum": ""
             },
             "require": {
@@ -2533,11 +2533,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-02-03T19:27:44+00:00"
+            "time": "2023-02-10T19:46:01+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v9.51.0",
+            "version": "v9.52.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -2583,16 +2583,16 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v9.51.0",
+            "version": "v9.52.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "d731949dd1deff07c5a9d01379b1c1918bfd0672"
+                "reference": "44f65d723b13823baa02ff69751a5948bde60c22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/d731949dd1deff07c5a9d01379b1c1918bfd0672",
-                "reference": "d731949dd1deff07c5a9d01379b1c1918bfd0672",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/44f65d723b13823baa02ff69751a5948bde60c22",
+                "reference": "44f65d723b13823baa02ff69751a5948bde60c22",
                 "shasum": ""
             },
             "require": {
@@ -2627,11 +2627,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-01-27T22:43:58+00:00"
+            "time": "2023-02-08T14:36:30+00:00"
         },
         {
             "name": "illuminate/macroable",
-            "version": "v9.51.0",
+            "version": "v9.52.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -4884,16 +4884,16 @@
         },
         {
             "name": "spatie/schema-org",
-            "version": "3.13.0",
+            "version": "3.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/schema-org.git",
-                "reference": "54399c090aa14f875f0551be6ed688a2d7ea151e"
+                "reference": "ada9f696ae958236d6707caced77b2630185bb76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/schema-org/zipball/54399c090aa14f875f0551be6ed688a2d7ea151e",
-                "reference": "54399c090aa14f875f0551be6ed688a2d7ea151e",
+                "url": "https://api.github.com/repos/spatie/schema-org/zipball/ada9f696ae958236d6707caced77b2630185bb76",
+                "reference": "ada9f696ae958236d6707caced77b2630185bb76",
                 "shasum": ""
             },
             "require": {
@@ -4941,7 +4941,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/schema-org/issues",
-                "source": "https://github.com/spatie/schema-org/tree/3.13.0"
+                "source": "https://github.com/spatie/schema-org/tree/3.14.0"
             },
             "funding": [
                 {
@@ -4953,7 +4953,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-11-14T16:02:16+00:00"
+            "time": "2023-02-14T16:46:30+00:00"
         },
         {
             "name": "ssnepenthe/color-utils",
@@ -8026,16 +8026,16 @@
         },
         {
             "name": "wsydney76/craft-contentoverview",
-            "version": "5.4.0",
+            "version": "5.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wsydney76/craft-contentoverview.git",
-                "reference": "1848c9dc28d2752844692ea12051f48007701882"
+                "reference": "4c116f447c394409b29df504ae0ee25f93aa5f8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wsydney76/craft-contentoverview/zipball/1848c9dc28d2752844692ea12051f48007701882",
-                "reference": "1848c9dc28d2752844692ea12051f48007701882",
+                "url": "https://api.github.com/repos/wsydney76/craft-contentoverview/zipball/4c116f447c394409b29df504ae0ee25f93aa5f8b",
+                "reference": "4c116f447c394409b29df504ae0ee25f93aa5f8b",
                 "shasum": ""
             },
             "require": {
@@ -8073,7 +8073,7 @@
                 "issues": "https://github.com/wsydney76/craft-contentoverview/issues?state=open",
                 "source": "https://github.com/wsydney76/craft-contentoverview"
             },
-            "time": "2022-12-23T10:30:18+00:00"
+            "time": "2023-02-13T17:01:54+00:00"
         },
         {
             "name": "wsydney76/elementmap",

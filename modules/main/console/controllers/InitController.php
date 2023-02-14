@@ -403,7 +403,7 @@ class InitController extends BaseController
         return ExitCode::OK;
     }
 
-    private function getImagesFromFolder(string $path, $minWidth = null, $limit = null)
+    protected function getImagesFromFolder(string $path, $minWidth = null, $limit = null)
     {
         $folder = Craft::$app->assets->findFolder(['path' => $path]);
         if (!$folder) {

@@ -46,7 +46,7 @@ return [
     'defaultTransform' => ['width' => 1024],
     'defaultSrcSet' => [1024, 640, 400],
 
-    'searchSections' => ['news', 'page', 'legal','contentSection', 'heroArea', 'person'],
+    'searchSections' => ['news', 'page', 'legal', 'contentSection', 'heroArea', 'person'],
     'searchMaxResults' => 24,
 
     'sitemapSections' => [
@@ -58,6 +58,11 @@ return [
     // This setting allows plugins to inject section specific content via their own templates.
     'sectionRoots' => [
         '_sections',
+    ],
+
+    // This setting allows plugin to overwrite section specific templates
+    'sectionTemplates' => [
+
     ],
 
     // this is the file as in sprig.script(), just hosting it locally. Check version after updating sprig.

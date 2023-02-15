@@ -299,7 +299,7 @@ class SeedController extends InitController
                     'body' => $this->faker->text(200)
                 ],
                 'localized' => [
-                    'en' => [
+                    'de' => [
                         'title' => 'Unser Team'
                     ]
                 ]

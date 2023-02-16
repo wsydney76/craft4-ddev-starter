@@ -20,7 +20,17 @@ Still work in progress, trying to make it suit for
 
 ### Using DDEV (recommended)
 
-* Run `bash setup/install`. This will create a user with the credentials `admin/password`.
+Run `bash setup/install`. 
+
+This will 
+
+* configure DDEV
+* let composer install the packages (Craft CMS and plugins).
+* install Craft with a user with the credentials `admin/password`. 
+* index included starter images
+* install npm dependencies
+* build frontend assets (css/js)
+* run `main/init` (see Starter content below)
 
 Note: DDEV is configured here with http-port=81 in order to avoid a conflict with a web server running on the host machine (which in turn should not use 443 for https).
 Edit `setup/install` to change this.
@@ -41,11 +51,21 @@ In case you do not want to use DDEV:
     * `php craft main/init`
 
 
-### Sample content
+### Starter content
 
-* Add some images (min 1200 px wide). Some starter images (copyright: Pixabay) are included.
+* Some starter images (copyright: Pixabay) are included.
 * More example images can be downloaded from Unsplash via `ddev craft main/seed/create-images [number]`. If it doesn't time out...
-* Run `ddev craft main/init` (or `php craft main/init` if not on DDEV)
+
+Running `craft main init` will
+
+* Ask for site name, email settings, copyright
+* Create basic pages, like homepage, news index, sitemap, about/contact, search, legal stuff
+* Create a second user assigned to `Content Editors` group.
+* Assign user photos.
+* Add provisional alt text/copyright to images (so that there will be no validation errors when doing the first demo...)
+* Create a number of 'News' entries
+* Create some random homepage content (fun fact: the main image shows the place where the idea for this starter was born)
+* Retrieve each page so that image transforms are created
 
 ## System
 
@@ -76,15 +96,14 @@ This starter comes with a mix of functionality that is likely to be used in ever
     * Sitemap
     * Search powered by Sprig
     * Default: just heading and blocks
-    * Content Sections: compose your page with `content section` entries.
     * Nav item: Does not have its own content, it creates a primary navigation item that lists its children in a dropdown, or renders a custom template in the dropdown panel.
-    * Page Template: Create a page that renders a custom page template, e.g. for more specific section indexes with eager loading enabled.
+    * Page Template: Create a page that renders a custom page template, e.g. for more specific section indexes with eager loading enabled. This is also the place where plugins can install their own pages.
 * News section
 * Person section
 * Legal section. Use for privacy, imprint. Shown in footer navigation
 * 'Content Section' Embedded section with Features/Team/Testimonial types. 
 * Hero Area: Embedded section. This allows hero area/CTA content which can be scheduled precisely, independent of the owning entry.
-* Content Builder field with block types: Heading, Text, Image, Gallery, Quote, Cards, YouTube Video, Dynamic content with custom template(section page only)
+* Content Builder field with block types: Heading, Text, Image, Gallery, Quote, Cards, YouTube Video, Dynamic content with custom template, content sections (section page only)
 * Site Info global inc. contact info
 * Assets with translatable alt text, copyright field
 * SEO via Seomate plugin inc. Json-ld meta data
@@ -236,7 +255,7 @@ Templates use named colors (except `gray`), like `primary`. As a starting point 
 
 * change color values to match your custom color schema.
 * `hasDarkHeader = false / hasDarkFooter = false` if you do not want a dark background for header/footer
-* set `borderRadius` values to 0 if you do not want to use rounded corners for images
+`borderRadius` values are set to 0. Uncomment this if you want to use rounded corners for images
 
 ### Fonts
 
@@ -273,9 +292,47 @@ What the starter does not do:
 * Advanced caching. A sample config file for the Blitz plugin is included.
 * Trying to achieve near perfect code quality.
 
+## Plugins
+
+This starter serves as a foundation for a series of PoC plugins that try to separate their functionality from a main project.
+
+The plugins can use components/CSS from the starter, so these things need to stay compatible and strictly version controlled.
+
+Currently available:
+
+### Generic stuff
+
+* [Members](https://github.com/wsydney76/craft-members): Membership stuff like registration, login, password reset etc.
+* [Favorites](https://github.com/wsydney76/craft-favorites): Let a user select favorite entries.
+* [Email list](https://github.com/wsydney76/craft-emaillist): Collect email addresses, e.g. for a newsletter
+
+### Specific stuff
+
+Implements the information model, CP setup and frontend for typical application areas:
+
+The goal for the next winter season is 
+
+* to have a common starter project 
+* then install a specific plugin 
+* continue customization from there
+
+* [Film Festival Light](https://github.com/wsydney76/craft-film-festival-light)
+
+Next on the list:
+
+* theater companies
+* music festivals
+* artist agencies
+* museums
+
+Not on the list:
+
+* cinemas. Too much competition/ready solutions in this area...
+
+
 ## Money
 
-Craft CMS Pro edition and the Imager X plugin are paid software, but can be used in non-production domains.
+Craft CMS Pro edition and the Imager X plugin are paid software, but can be used for free on non-production domains.
 
 It is safe to switch to Craft CMS Solo Edition and remove the Imager X plugin. This starter will continue to work.
 

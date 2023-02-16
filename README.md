@@ -316,6 +316,8 @@ The goal for the next winter season is
 * then install a specific plugin 
 * continue customization from there
 
+Currently available:
+
 * [Film Festival Light](https://github.com/wsydney76/craft-film-festival-light)
 
 Next on the list:

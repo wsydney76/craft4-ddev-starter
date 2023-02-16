@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1 2023-02-16
+
+Use sidebar layout for contact page.  This also fixes a layout issue.
+
 ## 2.0.0 2023-02-16
 
 Beta quality.

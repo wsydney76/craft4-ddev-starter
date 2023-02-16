@@ -5,27 +5,13 @@
     {% do craft.blitz.options.cachingEnabled(false) %}
 {% endif %}
 
-<div class="relative">
-    <div class="absolute inset-0">
-        <div class="absolute inset-y-0 left-0 w-full bg-light dark:bg-secondary"></div>
-    </div>
-    <div class="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5">
+{% embed '_layouts/embeds/content-sidebar.twig' %}
+    {% block content %}
+        {% include '_sections/page_contact/includes/form.twig' %}
+    {% endblock %}
 
-        {# Display contact details #}
-        <div class="bg-secondary py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12 dark:bg-primary">
-
-            {% include '_sections/page_contact/includes/details.twig' %}
-
-        </div>
-
-        {# Display contact form #}
-        <div class="bg-white pt-16 pb-52 px-4 sm:px-6 lg:col-span-3  lg:px-8 xl:pl-12 dark:bg-light dark:text-foreground">
-            <div class="max-w-lg mx-auto lg:max-w-none">
-
-                {% include '_sections/page_contact/includes/form.twig' %}
-
-            </div>
-        </div>
-    </div>
-</div>
+    {% block sidebarTop %}
+        {% include '_sections/page_contact/includes/details.twig' %}
+    {% endblock %}
+{% endembed %}
 

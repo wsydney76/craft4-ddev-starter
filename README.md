@@ -13,6 +13,10 @@ Still work in progress, trying to make it suit for
 * playground for internships and student theses
 * basis for ongoing PoCs, that try to split existing functionality into a series of plugins.
 
+## Disclaimer
+
+Although shared publicly, this project was created for internal use, and therefore contains things that seem a bit strange without context.
+
 ## Install
 
 * Make sure DDEV is installed

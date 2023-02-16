@@ -12,10 +12,12 @@
 
         {% block header %}
             {% if showHeader %}
-                {% include '_layouts/partials/page-header.twig' with {
-                    entry,
-                    alignTitle: alignTitle ?? 'center'
-                } only %}
+                <div class="mb-8">
+                    {% include '_layouts/partials/page-header.twig' with {
+                        entry,
+                        alignTitle: alignTitle ?? 'center'
+                    } only %}
+                </div>
             {% endif %}
         {% endblock %}
 
@@ -25,7 +27,7 @@
             {% if entry.bodyContent %}
                 {% include '_layouts/partials/content-blocks.twig' with {
                     query: entry.bodyContent,
-                    padding: false,
+                    constrain: false,
                     extraClasses: ''
                 } only %}
             {% endif %}

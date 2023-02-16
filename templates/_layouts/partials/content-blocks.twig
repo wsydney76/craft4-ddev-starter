@@ -1,9 +1,11 @@
 {# Loop through Matrix blocks #}
 
 {# @param query MatrixBlockQuery  #}
+{# @param bool constrain If standard blocks should be be wrapped in a max width div  #}
 {# @param bool padding If horizontal padding should be applied. Set to false if embedded in other components #}
 
 {% set fullWidthBlocks = craft.app.config.custom.fullWidthBlocks %}
+{% set constrain = constrain is defined ? constrain : true %}
 {% set padding = padding is defined ? padding : true %}
 {% set extraClasses = extraClasses is defined ? extraClasses : 'my-12 mx-auto max-w-full'  %}
 
@@ -25,13 +27,20 @@
                             } only %}
                         </div>
                     {% else %}
-                        {% embed '_layouts/embeds/container-md.twig' with {padding} %}
-                            {% block content %}
-                                {% include "_blocks/#{block.type.handle}.twig" with {
-                                    block
-                                } only %}
-                            {% endblock %}
-                        {% endembed %}
+                        {% if constrain %}
+                            {% embed '_layouts/embeds/container-md.twig' with {padding} %}
+                                {% block content %}
+                                    {% include "_blocks/#{block.type.handle}.twig" with {
+                                        block
+                                    } only %}
+                                {% endblock %}
+                            {% endembed %}
+                        {% else %}
+                            {# width is already set in calling template #}
+                            {% include "_blocks/#{block.type.handle}.twig" with {
+                                block
+                            } only %}
+                        {% endif %}
                     {% endif %}
 
                 {% endif %}

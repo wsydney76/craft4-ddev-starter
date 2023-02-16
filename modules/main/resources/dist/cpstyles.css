@@ -20,7 +20,7 @@ h2 {
 }
 
 #content-container h2 {
-    border-color: var(--gray-600) !important;
+    border-color: var(--gray-400) !important;
     font-size: 20px;
 
 }

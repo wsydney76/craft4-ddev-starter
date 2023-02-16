@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e9d9df2a6f1d8bd878c05e4b428a25c",
+    "content-hash": "a1dd79bdfa020db8432919c67ec62a7d",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -58,16 +58,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.258.9",
+            "version": "3.258.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "1d42f8170ecc775a85e0efa96476caa2d4be13ae"
+                "reference": "5e339f47f86db7ed5f5afcda345d30ac1713aed3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1d42f8170ecc775a85e0efa96476caa2d4be13ae",
-                "reference": "1d42f8170ecc775a85e0efa96476caa2d4be13ae",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5e339f47f86db7ed5f5afcda345d30ac1713aed3",
+                "reference": "5e339f47f86db7ed5f5afcda345d30ac1713aed3",
                 "shasum": ""
             },
             "require": {
@@ -146,9 +146,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.258.9"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.258.11"
             },
-            "time": "2023-02-13T19:21:26+00:00"
+            "time": "2023-02-15T20:08:42+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -216,20 +216,20 @@
         },
         {
             "name": "commerceguys/addressing",
-            "version": "v1.4.1",
+            "version": "v1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/commerceguys/addressing.git",
-                "reference": "8b1bcd45971733e8f4224e539cb92838f18c4d06"
+                "reference": "406c7b5f0fbe4f6a64155c0fe03b1adb34d01308"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/commerceguys/addressing/zipball/8b1bcd45971733e8f4224e539cb92838f18c4d06",
-                "reference": "8b1bcd45971733e8f4224e539cb92838f18c4d06",
+                "url": "https://api.github.com/repos/commerceguys/addressing/zipball/406c7b5f0fbe4f6a64155c0fe03b1adb34d01308",
+                "reference": "406c7b5f0fbe4f6a64155c0fe03b1adb34d01308",
                 "shasum": ""
             },
             "require": {
-                "doctrine/collections": "^1.2",
+                "doctrine/collections": "^1.2 || ^2.0",
                 "php": ">=7.3"
             },
             "require-dev": {
@@ -274,9 +274,9 @@
             ],
             "support": {
                 "issues": "https://github.com/commerceguys/addressing/issues",
-                "source": "https://github.com/commerceguys/addressing/tree/v1.4.1"
+                "source": "https://github.com/commerceguys/addressing/tree/v1.4.2"
             },
-            "time": "2022-08-09T11:42:51+00:00"
+            "time": "2023-02-15T10:11:14+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -822,16 +822,16 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "4.3.8.2",
+            "version": "4.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/cms.git",
-                "reference": "a75b1b09e4b6c50f0783b86b2e7dacd0682d75da"
+                "reference": "12a6e0952d7130740eb0ac2e33bedebf9ba37e5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/a75b1b09e4b6c50f0783b86b2e7dacd0682d75da",
-                "reference": "a75b1b09e4b6c50f0783b86b2e7dacd0682d75da",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/12a6e0952d7130740eb0ac2e33bedebf9ba37e5a",
+                "reference": "12a6e0952d7130740eb0ac2e33bedebf9ba37e5a",
                 "shasum": ""
             },
             "require": {
@@ -936,7 +936,7 @@
                 "rss": "https://github.com/craftcms/cms/releases.atom",
                 "source": "https://github.com/craftcms/cms"
             },
-            "time": "2023-02-09T00:17:53+00:00"
+            "time": "2023-02-14T18:50:04+00:00"
         },
         {
             "name": "craftcms/contact-form",
@@ -3369,16 +3369,16 @@
         },
         {
             "name": "nystudio107/craft-code-field",
-            "version": "4.0.6",
+            "version": "4.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nystudio107/craft-code-field.git",
-                "reference": "0e40d0bf4fc465383bf1b0dd90a0ef35ea3fcc47"
+                "reference": "7aa0b3ba12a08f65cfee2bf16002f69b0db01aa7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-code-field/zipball/0e40d0bf4fc465383bf1b0dd90a0ef35ea3fcc47",
-                "reference": "0e40d0bf4fc465383bf1b0dd90a0ef35ea3fcc47",
+                "url": "https://api.github.com/repos/nystudio107/craft-code-field/zipball/7aa0b3ba12a08f65cfee2bf16002f69b0db01aa7",
+                "reference": "7aa0b3ba12a08f65cfee2bf16002f69b0db01aa7",
                 "shasum": ""
             },
             "require": {
@@ -3418,7 +3418,7 @@
             "support": {
                 "docs": "https://github.com/nystudio107/craft-code-field/blob/v3/README.md",
                 "issues": "https://github.com/nystudio107/craft-code-field/issues",
-                "source": "https://github.com/nystudio107/craft-code-field/tree/4.0.6"
+                "source": "https://github.com/nystudio107/craft-code-field/tree/4.0.7"
             },
             "funding": [
                 {
@@ -3426,7 +3426,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-13T23:20:10+00:00"
+            "time": "2023-02-15T19:55:28+00:00"
         },
         {
             "name": "nystudio107/craft-plugin-vite",
@@ -7113,16 +7113,16 @@
         },
         {
             "name": "vaersaagod/seomate",
-            "version": "2.0.3",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vaersaagod/seomate.git",
-                "reference": "aff405b7265b1a8566fbc0787ead1f628d2bb1e8"
+                "reference": "7e17178caf6d973808321e13cd97f159fd459eaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vaersaagod/seomate/zipball/aff405b7265b1a8566fbc0787ead1f628d2bb1e8",
-                "reference": "aff405b7265b1a8566fbc0787ead1f628d2bb1e8",
+                "url": "https://api.github.com/repos/vaersaagod/seomate/zipball/7e17178caf6d973808321e13cd97f159fd459eaf",
+                "reference": "7e17178caf6d973808321e13cd97f159fd459eaf",
                 "shasum": ""
             },
             "require": {
@@ -7169,9 +7169,9 @@
             "support": {
                 "docs": "https://github.com/vaersaagod/seomate/blob/master/README.md",
                 "issues": "https://github.com/vaersaagod/seomate/issues",
-                "source": "https://github.com/vaersaagod/seomate/tree/2.0.3"
+                "source": "https://github.com/vaersaagod/seomate/tree/2.1.0"
             },
-            "time": "2022-06-14T08:34:07+00:00"
+            "time": "2023-02-15T22:57:14+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

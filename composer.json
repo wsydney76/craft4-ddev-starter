@@ -4,7 +4,7 @@
   "version": "1.1.0",
   "license": "Unlicense",
   "require": {
-    "craftcms/cms": "4.3.8.2",
+    "craftcms/cms": "4.3.9",
     "craftcms/contact-form": "3.0.0",
     "craftcms/contact-form-honeypot": "^2.0",
     "fakerphp/faker": "^1.20",
@@ -12,7 +12,7 @@
     "nystudio107/craft-vite": "4.0.5",
     "putyourlightson/craft-sprig": "2.5.1",
     "spacecatninja/imager-x": "4.1.10",
-    "vaersaagod/seomate": "2.0.3",
+    "vaersaagod/seomate": "2.1.0",
     "vlucas/phpdotenv": "^5.4",
     "wsydney76/craft-contentoverview": "^5.4.0",
     "wsydney76/elementmap": "^4.0"

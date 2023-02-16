@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1676388956
+dateModified: 1676568742
 elementSources:
   craft\elements\Asset:
     -
@@ -385,7 +385,7 @@ plugins:
       allowAttachments: ''
       allowedMessageFields: null
       prependSender: 'On behalf of'
-      prependSubject: 'New message from Trail-quest'
+      prependSubject: 'New message'
       successFlashMessage: 'Thank you for your message! We received it and will reply as soon as possible.'
       toEmail: $EMAIL_ADDRESS
   contact-form-honeypot:

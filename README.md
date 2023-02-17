@@ -24,7 +24,7 @@ Although shared publicly, this project was created for internal use, and therefo
 
 ### Using DDEV (recommended)
 
-Run `bash setup/install`. 
+Run `bash setup/install <project-name>`. 
 
 This will 
 
@@ -92,6 +92,8 @@ Running `craft main init` will
 
 This starter comes with a mix of functionality that is likely to be used in every project.
 
+### Sections
+
 * Pages section: We don't use singles, instead dedicated entry sections. Main navigation shows children of the homepage.
     * Home page. One page with slug `__home__` required.
     * News Index: paginated card view of news entries
@@ -104,12 +106,20 @@ This starter comes with a mix of functionality that is likely to be used in ever
     * Page Template: Create a page that renders a custom page template, e.g. for more specific section indexes with eager loading enabled. This is also the place where plugins can install their own pages.
 * News section
 * Person section
+    * Default: Just photo, name, job description, social links. This is used in content components like testimonnial, team, where details do not matter. Does not have its own page.
+    * Profile: More details, like short bio, works. Plugins can use this type, e.g. for an actress profile, and provide their own frontend pages.
 * Legal section. Use for privacy, imprint. Shown in footer navigation
 * 'Content Section' Embedded section with Features/Team/Testimonial types. 
 * Hero Area: Embedded section. This allows hero area/CTA content which can be scheduled precisely, independent of the owning entry.
+
+### More content
+
 * Content Builder field with block types: Heading, Text, Image, Gallery, Quote, Cards, YouTube Video, Dynamic content with custom template, content sections (section page only)
 * Site Info global inc. contact info
 * Assets with translatable alt text, copyright field
+
+### Other
+
 * SEO via Seomate plugin inc. Json-ld meta data
 * Has Drafts condition rule for entry index: Shows my open drafts
 * A 'my provisional drafts' dashboard widget.
@@ -217,23 +227,71 @@ Also previewing pages with embedded entries is limited, what should work for now
 
 ## Twig Components
 
+Usage is (fingers crossed) described in comments in each component.
+
 ### Layout components
 
-tbd. In the meantime see `_layouts/embeds, _layouts/embeds`.
+Worth mentioning:
 
+__content-md.twig, content-xl.twig__
+
+Use these embeds when you want to limit all your content to a specific width with a consistent page header.
+
+__container-md.twig, container-xl.twig__
+
+Use these embeds to limit a piece of your content to a specific width with consistent horizontal padding.
+
+__content-sidebar.twig__
+
+Use this embed for a sidebar layout.
+
+__prose.twig__
+
+Use this embed for a consistent typography.
+
+__grid.twig__
+
+Use this embed for a consistent grid layout.
+
+__widget.twig__
+
+Use this embed for a consistent widget layout inside the sidebar layout.
+
+__card.twig__
+
+Use this embed for a consistent card layout
+
+__card-text.twig__
+
+Use this embed for a consistent layout of content inside cards.
 
 ### Macros
 
-tdb. In the meantime see `_layouts/macros`.
+__forms.twig__
+
+Some basic input fields, used for the contact page.
+
+__lib.twig__
 
 Always use the `img` macro for images!
 
 ### Alpine.js components
 
-tbd. In the meantime see `_layouts/components/alpinejs`.
+Reusable components that can be useful for a better user experience:
 
-Includes a number of components that are not used in this starter, but can be useful for a better user experience.
+Components from [Alpine UI Components](https://alpinejs.dev/components) are especially valuable because they are built with accessibility in mind.
 
+May need some adjustments.
+
+* dropdown.twig: Dropdown component, used in navigation.
+* accordion.twig: Accordion component, used in faqs.
+* choices.twig: Select input via choices.js
+* select2.twig: Select input via select2.js
+* modal.twig: Modal window with trigger button.
+* toast.twig: Give user feedback via a toast message.
+* tabs.twig: Well, tabs.
+* toggle.twig: A toggle boolean input field.
+* splide.twig: A carousel component via splide.js
 
 ## Customization
 

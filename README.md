@@ -353,6 +353,7 @@ What the starter does not do:
 * Spam protection
 * Advanced caching. A sample config file for the Blitz plugin is included.
 * Trying to achieve near perfect code quality.
+* Progressive web app things.
 
 ## Plugins
 
@@ -387,12 +388,66 @@ Next on the list:
 * theater companies
 * music festivals
 * artist agencies
+* conferences
 * museums
 
 Not on the list:
 
 * cinemas. Too much competition/ready solutions in this area...
 
+## Why oh why ...
+
+Some wonder why we built things the way we did. No pseudo-religious beliefs at all, just what feels better.
+
+__... do you seed the database via scripts and don't simply ship a database dump?__
+
+* It is some work do have a db at hand without any silly testing stuff.
+* We want a more granular control over what will be created.
+* It is easier to version control and share.
+* We need this scripts anyway for plugins to create their things.
+
+__... don't you use single sections?__
+
+* Because we can arrange pages from different entry types in a hierarchy.
+* A 'single' navigation item is not very intuitive for users.
+
+__... don't you use categories but sections for taxonomies?__
+
+* We want to give users a unified editing experience.
+* We want to group together what belongs together. E.g. A 'genre' is shown beneath 'film'.
+* Sometimes it is not clear what is a 'category' and what not. Is a 'country' a film is produced in a category or not?
+* We want to resolve hierarchy at run time, instead of having redundant relationships. 
+* All content is available under only one main navigation point.
+
+__... do you use this strange Tailwind CSS bloat?__
+
+* It is such a productivity boost.
+
+__... don't you use at least Tailwinds @apply to avoid those endless chains of classes?__
+
+* Do not mix things up.
+* Avoid repetition by building components.
+
+__... don't you use images transforms defined in the CP?__
+
+* We think of image sizes as part of the design, so it feels more natural to define them in the frontend templates along with the markup they live in.
+* Or define them in `config/custom.php` if used in multiple places.
+* Version control them along with the templates that use them without affecting the project config.
+* Sizes can be calculated dynamically depending on user selections (alignment, aspect ratio).
+
+__... do you have a 'Show in sites' field in image matrix blocks instead of using the 'Manage relations on a per-site basis' option?__
+
+* Different images for different sites are a rare exception, so changing an image should not force the editors to change it on all sites by default.
+* Could also be different block types, e.g. 'global image' vs 'site-specific image', but there is currently no way to convert one block type into another.
+
+__... don't you build a fancy headless solution?__
+
+* For the type of projects this is used for, I can't see an advantage to do so.
+* However, it may make sense to add an api that enables third party apps like event aggregators to retrieve data.
+
+__... pff, you are just an old man unable to learn new things!!!__
+
+* Yes I am old. That's why I have learned so many things and seen so many things come and go. And I have already forgotten more than these young people ever learned.
 
 ## Money
 

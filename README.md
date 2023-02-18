@@ -488,6 +488,7 @@ __... don't you build a fancy headless solution?__
 __... pff, you are just an old man unable to learn new things!!!__
 
 * Yes I am old. That's why I have learned so many things and seen so many things come and go. And I have already forgotten more than these young people ever learned. (Sorry. Internal running gag.)
+* Being serious for a moment: I strongly believe that it is not technology that makes a project fail or succeed. It's more about your client relationship, your processes, your skills, your empathy, your creativity, your resources.
 
 __... don't you reveal the name of the agency this is made for?__
 
@@ -498,12 +499,21 @@ __... don't you reveal the name of the agency this is made for?__
 
 __... why Craft CMS at all?__
 
-* The relationship engine. Multisite capabilities.
+* The relationship engine. 
+* Multisite capabilities.
+
+
+__... is the stuff on this account in a semifinished state, to say the least?__
+
+* The developers in the core team are usually caught up in the day-to-day business and find little time and concentration to develop and try out new ideas.
+* It has therefore worked well for us to have such things done outside the core team by people who are not involved in daily business.
+* And then turn it over to the core team that will clean up and polish things and make it look 'professional' and work reliably.
 
 __... is this such lousy english?__
 
 * Sorry, we don't have native speakers on the team, or someone who has lived in an English-speaking country.
 * And you see what happens when you only interact with other non-native speakers. Mistakes multiply.
+
 
 ## Money
 

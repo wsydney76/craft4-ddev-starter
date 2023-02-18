@@ -265,6 +265,14 @@ __card-text.twig__
 
 Use this embed for a consistent layout of content inside cards.
 
+__button.twig__
+
+Renders a button.
+
+__headline.twig__
+
+Renders a consistent headline.
+
 ### Macros
 
 __forms.twig__

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.2 2023-02-18
+
+Craft updates.
+
 ## 2.0.1 2023-02-16
 
 Use sidebar layout for contact page.  This also fixes a layout issue.

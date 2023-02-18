@@ -106,7 +106,7 @@ This starter comes with a mix of functionality that is likely to be used in ever
     * Page Template: Create a page that renders a custom page template, e.g. for more specific section indexes with eager loading enabled. This is also the place where plugins can install their own pages.
 * News section
 * Person section
-    * Default: Just photo, name, job description, social links. This is used in content components like testimonnial, team, where details do not matter. Does not have its own page.
+    * Default: Just photo, name, job description, social links. This is used in content components like testimonial, team, where details do not matter. Does not have its own page.
     * Profile: More details, like short bio, works. Plugins can use this type, e.g. for an actress profile, and provide their own frontend pages.
 * Legal section. Use for privacy, imprint. Shown in footer navigation
 * 'Content Section' Embedded section with Features/Team/Testimonial types. 
@@ -444,6 +444,21 @@ __... don't you use images transforms defined in the CP?__
 * Version control them along with the templates that use them without affecting the project config.
 * Sizes can be calculated dynamically depending on user selections (alignment, aspect ratio).
 
+__... do you place the root folder for images outside the web root?__
+
+* This way we enforce that only transformed, and therefore smaller, images are used on the front end.
+* This way we avoid that the original images can be downloaded by simply manipulating the URL. 
+* Which is important if you want to make them available only for specific users, like print ready press photos.
+* Or make them paid content, e.g. on Patreon.
+
+__... do you use the Imager-X plugin instead of using the native image transforms?__
+
+* It is faster.
+* Does not require to eager load transform records.
+* Enables a clear separation between transformed images in the CP and on the frontend.
+* It is more powerful, for example we always apply the 'sharpen' effect for better quality images by default.
+* However, we always output images via an `img` macro, which can determine whether the plugin is installed or not and act accordingly.
+
 __... do you have a 'Show in sites' field in image matrix blocks instead of using the 'Manage relations on a per-site basis' option?__
 
 * Different images for different sites are a rare exception, so changing an image should not force the editors to change it on all sites by default.
@@ -484,6 +499,11 @@ __... don't you reveal the name of the agency this is made for?__
 __... why Craft CMS at all?__
 
 * The relationship engine. Multisite capabilities.
+
+__... is this such lousy english?__
+
+* Sorry, we don't have native speakers on the team, or someone who has lived in an English-speaking country.
+* And you see what happens when you only interact with other non-native speakers. Mistakes multiply.
 
 ## Money
 

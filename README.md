@@ -404,6 +404,7 @@ __... do you seed the database via scripts and don't simply ship a database dump
 * It is some work do have a db at hand without any silly testing stuff.
 * We want a more granular control over what will be created.
 * It is easier to version control and share.
+* It should be independent of the database type and version you use.
 * We need this scripts anyway for plugins to create their things.
 
 __... don't you use single sections?__
@@ -440,14 +441,41 @@ __... do you have a 'Show in sites' field in image matrix blocks instead of usin
 * Different images for different sites are a rare exception, so changing an image should not force the editors to change it on all sites by default.
 * Could also be different block types, e.g. 'global image' vs 'site-specific image', but there is currently no way to convert one block type into another.
 
+__... do you miss eager loading opportunities?__
+
+* We overlooked them.
+* There may be cases where eager loading things may not really help. 
+* For example, in a content builder you do not know in advance which elements are used on a page and in what numbers. The 'n' in 'n+1' will be often 0.
+* In general, we follow the rule that each page has to be fast enough for a single user. And then rely on aggressive caching with server rewrites to handle the traffic.
+
+__... don't you use CDNs for assets?__
+
+* The sites in mind are typically in-person events, so there is no need to serve assets from everywhere in the world.
+* We avoid privacy issues by hosting everything locally, incl. Google fonts. Hello DSGVO!
+
+__... is there no cookie banner?__
+
+* No need to have one. There are no cookies, except for technically necessary session cookies.
+
 __... don't you build a fancy headless solution?__
 
-* For the type of projects this is used for, I can't see an advantage to do so.
+* For the type of projects this is used for, I can't see any advantage to do so.
 * However, it may make sense to add an api that enables third party apps like event aggregators to retrieve data.
 
 __... pff, you are just an old man unable to learn new things!!!__
 
-* Yes I am old. That's why I have learned so many things and seen so many things come and go. And I have already forgotten more than these young people ever learned.
+* Yes I am old. That's why I have learned so many things and seen so many things come and go. And I have already forgotten more than these young people ever learned. (Sorry. Internal running gag.)
+
+__... don't you reveal the name of the agency this is made for?__
+
+* We are asked to do so.
+* The people there are under an enormous workload and have no free capacity.
+* Imagine a full service event agency where building websites is only a small part.
+* Therefore, building websites is not a selling point.
+
+__... why Craft CMS at all?__
+
+* The relationship engine. Multisite capabilities.
 
 ## Money
 

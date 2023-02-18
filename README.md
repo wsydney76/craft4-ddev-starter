@@ -409,7 +409,7 @@ Some wonder why we built things the way we did. No pseudo-religious beliefs at a
 
 __... do you seed the database via scripts and don't simply ship a database dump?__
 
-* It is some work do have a db at hand without any silly testing stuff.
+* It is some work to have a db at hand without any test content.
 * We want a more granular control over what will be created.
 * It is easier to version control and share.
 * It should be independent of the database type and version you use.

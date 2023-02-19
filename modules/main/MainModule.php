@@ -16,6 +16,7 @@ use modules\main\behaviors\EntryBehavior;
 use modules\main\conditions\HasDraftsConditionRule;
 use modules\main\fields\EnvironmentVariableField;
 use modules\main\fields\IncludeField;
+use modules\main\fields\SectionField;
 use modules\main\fields\SiteField;
 use modules\main\resources\CpAssetBundle;
 use modules\main\services\EntriesService;
@@ -50,7 +51,7 @@ class MainModule extends BaseModule
         // (see https://craftcms.com/docs/4.x/extend/events.html to get started)
 
         $this->registerServices([
-            EntriesService::class
+            'entriesService' => EntriesService::class
         ]);
 
         $this->registerTranslationCategory();
@@ -62,7 +63,8 @@ class MainModule extends BaseModule
         $this->registerFieldTypes([
             SiteField::class,
             EnvironmentVariableField::class,
-            IncludeField::class
+            IncludeField::class,
+            SectionField::class
         ]);
 
         $this->registerTwigExtensions([

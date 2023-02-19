@@ -97,7 +97,7 @@ This starter comes with a mix of functionality that is likely to be used in ever
 * Pages section: We don't use singles, instead dedicated entry sections. Main navigation shows children of the homepage.
     * Home page. One page with slug `__home__` required.
     * News Index: paginated card view of news entries
-    * FAQs: FAQs with Alpine JS component
+    * Topic Index: displays topic hierarchy
     * Contact: Simple contact form with first party Contact Form plugin
     * Sitemap
     * Search powered by Sprig
@@ -105,6 +105,7 @@ This starter comes with a mix of functionality that is likely to be used in ever
     * Nav item: Does not have its own content, it creates a primary navigation item that lists its children in a dropdown, or renders a custom template in the dropdown panel.
     * Page Template: Create a page that renders a custom page template, e.g. for more specific section indexes with eager loading enabled. This is also the place where plugins can install their own pages.
 * News section
+* Topic section
 * Person section
     * Default: Just photo, name, job description, social links. This is used in content components like testimonial, team, where details do not matter. Does not have its own page.
     * Profile: More details, like short bio, works. Plugins can use this type, e.g. for an actress profile, and provide their own frontend pages.

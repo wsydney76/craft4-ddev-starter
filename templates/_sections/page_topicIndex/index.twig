@@ -1,0 +1,22 @@
+{% embed '_layouts/embeds/container-xl.twig' %}
+    {% block content %}
+
+        <div class="mt-8">
+            Provisional layout
+        </div>
+
+        <div class="mt-8">
+            {# TODO: Check eager loading author, does not work this way #}
+            {% include '_layouts/partials/cards.twig' with {
+                heading: 'Topics'|t,
+                query:  craft.entries
+                    .section('topic'),
+
+                paginate: false,
+                layout: 'cardlet'
+            } only %}
+        </div>
+
+
+    {% endblock %}
+{% endembed %}

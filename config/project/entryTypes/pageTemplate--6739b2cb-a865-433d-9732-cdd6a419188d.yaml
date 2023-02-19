@@ -154,7 +154,7 @@ handle: pageTemplate
 hasTitleField: true
 name: 'Page Template'
 section: 84b98802-2548-4aed-b67e-fc97f6ed9e30 # Page
-sortOrder: 12
+sortOrder: 9
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

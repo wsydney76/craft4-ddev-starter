@@ -1,0 +1,22 @@
+{% set query = craft.entries
+    .relatedTo({targetElement: entry.id, field: 'topics'}) %}
+
+{% set count = query.count %}
+<div class="mt-4">
+    {% if count %}
+        {% for entry in query.limit(2).all %}
+            <div>
+                <span class="font-semibold">
+                    {{ entry.title }}
+                </span> {{ entry.postDate|date('short') }}
+            </div>
+        {% endfor %}
+        {% if count > 2 %}
+            <div class="mt-2">
+                {{ 'and'|t }} {{ count-2 }} {{ '{c,plural,=1{more entry} other{more entries}}'|t({c: count-2}) }}
+            </div>
+        {% endif %}
+    {% else %}
+        {{ 'No entries yet'|t }}
+    {% endif %}
+</div>

@@ -1,0 +1,32 @@
+defaultPlacement: end
+enableVersioning: true
+handle: topic
+name: Topic
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  5b0c38db-9ab4-47d8-b4a7-913710c08ca6: # English
+    enabledByDefault: true
+    hasUrls: true
+    template: _sections/topic
+    uriFormat: '{parent.uri ?? ''topics''}/{slug}'
+  dbf50cb2-37c8-45f7-b375-dcb93e09691b: # Deutsch
+    enabledByDefault: true
+    hasUrls: true
+    template: _sections/topic
+    uriFormat: '{parent.uri ?? ''themen''}/{slug}'
+structure:
+  maxLevels: 3
+  uid: 56929c05-7d46-49f3-bd1e-4a239757dd86
+type: structure

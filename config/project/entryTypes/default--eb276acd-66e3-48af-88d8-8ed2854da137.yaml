@@ -1,9 +1,21 @@
 fieldLayouts:
-  e2a407fc-d771-4118-badd-cfea8eba7084:
+  64083172-6049-4f63-a521-593e6ddbf213:
     tabs:
       -
         elementCondition: null
         elements:
+          -
+            elementCondition: null
+            fieldUid: 0767f000-e433-4930-9534-b795a48740bb # Teaser
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: eaebfa07-9439-417d-bf82-7e9898e3b2f4
+            userCondition: null
+            warning: null
+            width: 100
           -
             autocapitalize: true
             autocomplete: false
@@ -26,32 +38,22 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 82315a53-6320-4b99-bbe7-202d27562504
+            uid: a4d9f147-20e7-4db5-9154-194add4298d2
             userCondition: null
             warning: null
-            width: 75
+            width: 100
           -
-            elementCondition:
-              class: craft\elements\conditions\entries\EntryCondition
-              conditionRules:
-                -
-                  class: craft\elements\conditions\LevelConditionRule
-                  maxValue: ''
-                  operator: '='
-                  uid: e9882e7b-79f6-4027-afa3-9a1c01d600f7
-                  value: '2'
-              elementType: craft\elements\Entry
-              fieldContext: global
-            fieldUid: e2e51276-3783-49cb-9ed0-22ae364fd49a # Menu Title
+            elementCondition: null
+            fieldUid: c72e758a-f6c3-42cd-896b-3ff6353ed259 # Featured Image
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 5c9fbb08-9d12-43ad-81cd-6a486b1340fa
+            uid: 98d54ade-ee33-4114-b174-2aadb0fc3234
             userCondition: null
             warning: null
-            width: 25
+            width: 100
           -
             elementCondition: null
             fieldUid: 400d2e7a-d260-459d-b16d-bc388f093106 # Tagline
@@ -60,19 +62,24 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: bfed7c3b-3a7f-4c53-a568-aecf13f96dba
+            uid: 590558bc-36d2-438e-b5f9-ca47506c829d
             userCondition: null
             warning: null
             width: 100
           -
             elementCondition: null
-            style: tip
-            tip: 'Section listing will be inserted here'
-            type: craft\fieldlayoutelements\Tip
-            uid: f327d05d-0180-448b-9601-fd455a5ad66f
+            fieldUid: 85898001-9c9c-4d46-abf9-a928e44f0d48 # Body Content
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 36c12736-a522-4c35-84ec-5023c1360409
             userCondition: null
+            warning: null
+            width: 100
         name: Content
-        uid: 93c3e5a9-53eb-4ebd-ab1c-fb5419d9ce95
+        uid: 3a8d6836-53b0-4def-bee6-b774cc87918f
         userCondition: null
       -
         elementCondition: null
@@ -85,18 +92,18 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 0d56eea7-46cc-4e3e-88c8-62982e0e4146
+            uid: 81d79fb2-b23f-4c0a-93e4-80ae0298ae5b
             userCondition: null
             warning: null
             width: 100
         name: SEO
-        uid: 52c4d875-2329-4098-b96f-e3b91e20a132
+        uid: d3c7aa2e-b2d2-40ce-aea3-401d0585f6ea
         userCondition: null
-handle: newsIndex
+handle: default
 hasTitleField: true
-name: 'News Index'
-section: 84b98802-2548-4aed-b67e-fc97f6ed9e30 # Page
-sortOrder: 3
+name: Default
+section: 5042338b-5f7b-4535-96bb-578a829e987c # Topic
+sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
-titleTranslationMethod: site
+titleTranslationMethod: language

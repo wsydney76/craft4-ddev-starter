@@ -1,0 +1,28 @@
+{# @param entry Entry an entry in a structure entry  #}
+{# @param linkEntry bool Whether the entry itself shall be linked #}
+
+{% set linkEntry = linkEntry is defined ? linkEntry : false %}
+
+<div class="flex flex-wrap items-center  space-x-4">
+    {% for ancestor in entry.ancestors.all %}
+        {% include '_layouts/partials/button.twig' with {
+            href: ancestor.url,
+            caption: ancestor.title,
+            color: 'white'
+        } only %}
+        <div class="">
+            {{ svg('@templates/_icons/chevron-right.svg') }}
+        </div>
+    {% endfor %}
+    <div>
+        {% if linkEntry %}
+            {% include '_layouts/partials/button.twig' with {
+                href: entry.url,
+                caption: entry.title,
+                color: 'white'
+            } only %}
+        {% else %}
+            {{ entry.title }}
+        {% endif %}
+    </div>
+</div>

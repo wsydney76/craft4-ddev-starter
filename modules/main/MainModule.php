@@ -50,7 +50,7 @@ class MainModule extends BaseModule
         // (see https://craftcms.com/docs/4.x/extend/events.html to get started)
 
         $this->registerServices([
-            EntriesService::class
+            'entriesService' => EntriesService::class
         ]);
 
         $this->registerTranslationCategory();

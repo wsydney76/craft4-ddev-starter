@@ -130,6 +130,21 @@ This starter comes with a mix of functionality that is likely to be used in ever
 * Dark mode switch for templates
 * A `BaseModule` that provides common functionality like creating entries, fields, sections etc.
 
+## Custom Field Types
+
+### Environment Variable Field
+
+Lets you edit values in your `.env` file in the CP, used in Global sets. Will be useful if you don't have access to the `.env` file.
+
+Use field conditions to restrict access to field instances to admins.
+
+### Include Field
+
+Lets you select a template from a configured folder. Can be useful for selecting different design variations.
+
+### Site Field.
+
+Lets you select a site.
 
 ## Templating
 

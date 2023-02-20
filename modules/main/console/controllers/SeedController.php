@@ -41,54 +41,86 @@ class SeedController extends InitController
 
     public function actionCreateTopics(): int
     {
-
         if ($this->interactive && !$this->confirm("Create topic entries?", true)) {
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
-        // The copy and paste coder's version
-        for ($i=0; $i < 3; $i++) {
-            $level1 = $this->createEntry([
-                'section' => 'topic',
-                'type' => 'default',
-                'site' => 'en',
-                'title' => str_replace('.', '', $this->faker->text(20)),
-                'fields' => [
-                    'tagline' => $this->faker->text(30),
-                    'featuredImage' => [$this->getRandomImage()->id ?? null]
-                ]
-            ]);
-            for ($j=0; $j < 2; $j++) {
-                $level2 = $this->createEntry([
-                    'section' => 'topic',
-                    'type' => 'default',
-                    'site' => 'en',
-                    'parent' => $level1,
-                    'title' => str_replace('.', '', $this->faker->text(20)),
-                    'fields' => [
-                        'tagline' => $this->faker->text(30),
-                        'featuredImage' => [$this->getRandomImage()->id ?? null]
+        $topics = [
+            [
+                'en' => 'Sport',
+                'de' => 'Sport',
+                'children' => [
+                    [
+                        'en' => 'Football',
+                        'de' => 'Fußball',
+                        'children' => [
+                            ['en' => 'Bundesliga', 'de' => 'Bundesliga'],
+                            ['en' => 'Premier League', 'de' => 'Premier League'],
+                            ['en' => 'International', 'de' => 'International'],
+                        ]
+                    ],
+                    [
+                        'en' => 'Tennis',
+                        'de' => 'Tennis',
+                        'children' => [
+                            ['en' => 'Majors', 'de' => 'Majors']
+                        ]
+                    ],
+                    [
+                        'en' => 'Golf',
+                        'de' => 'Golf'
                     ]
-                ]);
-                if ($i === 1) {
-                    for ($k=0; $k < 2; $k++) {
-                        $this->createEntry([
-                            'section' => 'topic',
-                            'type' => 'default',
-                            'site' => 'en',
-                            'parent' => $level2,
-                            'title' => str_replace('.', '', $this->faker->text(20)),
-                            'fields' => [
-                                'tagline' => $this->faker->text(30),
-                                'featuredImage' => [$this->getRandomImage()->id ?? null]
-                            ]
-                        ]);
-                    }
-                }
-            }
+
+                ]
+            ],
+            [
+                'en' => 'Entertainment',
+                'de' => 'Unterhaltung',
+                'children' => [
+                    ['en' => 'Music', 'de' => 'Musik'],
+                    ['en' => 'Cinema', 'de' => 'Kino'],
+                ]
+            ],
+            [
+                'en' => 'Opinion',
+                'de' => 'Meinung'
+            ]
+        ];
+
+        foreach ($topics as $topic) {
+            $this->createTopic($topic);
         }
 
+
         return ExitCode::OK;
+    }
+
+    protected function createTopic($topic, ?Entry $parent = null): void
+    {
+        $entry = $this->createEntry([
+            'section' => 'topic',
+            'type' => 'default',
+            'site' => 'en',
+            'parent' => $parent,
+            'title' => $topic['en'],
+            'slug' => StringHelper::slugify($topic['en']),
+            'fields' => [
+                'tagline' => $this->faker->text(30),
+                'featuredImage' => [$this->getRandomImage()->id ?? null]
+            ],
+            'localized' => [
+                'de' => [
+                    'title' => $topic['de'],
+                    'slug' => StringHelper::slugify($topic['de'])
+                ]
+            ]
+        ]);
+
+        if (isset($topic['children'])) {
+            foreach ($topic['children'] as $child) {
+                $this->createTopic($child, $entry);
+            }
+        }
     }
 
     /**
@@ -434,7 +466,7 @@ class SeedController extends InitController
 
             $topicsIndex = Entry::find()
                 ->section('page')
-                ->type('newsIndex')
+                ->type('topicIndex')
                 ->one();
 
             $contentComponents[] = $this->createEntry([

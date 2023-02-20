@@ -5,8 +5,14 @@
 {# This is just a demo implementation and very inefficient. #}
 {# TODO: Redesign and optimize #}
 
+{% set with = [
+    ['featuredImage'],
+    ['children']
+] %}
+
 {% set topics1 = craft.entries
     .section('topic')
+    .with(with)
     .level(1)
 .collect %}
 
@@ -21,9 +27,12 @@
                         {% set image = topic1.featuredImage.one ?? siteInfo.featuredImage.one %}
                         {% if image %}
                             <div>
-                                <a href="{{ topic1.url }}" class="relative block">
+                                <a href="{{ topic1.url }}" class="relative block group overflow-hidden">
                                     {{ img(image, {
-                                        transform: {width: 768, height: 250}
+                                        transform: {width: 768, height: 250},
+                                        attr: {
+                                            class: "group-hover:opacity-75 group-hover:scale-105 group-focus:opacity-75 transition duration-300"
+                                        }
                                     }) }}
 
                                     <div class="absolute inset-0 bg-black/30"></div>
@@ -45,33 +54,37 @@
                         {% endif %}
                     </div>
 
-                    {% set topics2 = topic1.children.collect %}
+                    {% set topics2 = topic1.children.with(with).collect %}
 
-                    {% if topics2 %}
+                    {% if topics2.count %}
                         <div class="grid grid-cols1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
                             {% for topic2 in topics2 %}
-                                <div class="border border-gray-300 shadow-xl">
-                                    {% set image = topic2.featuredImage.one ?? siteInfo.featuredImage.one %}
-                                    {% if image %}
-                                        <a href="{{ topic1.url }}" class="relative block">
+                                <div>
+                                    <div class="border border-gray-300">
+                                        {% set image = topic2.featuredImage.one ?? siteInfo.featuredImage.one %}
+                                        {% if image %}
+                                            <a href="{{ topic2.url }}" class="relative block group overflow-hidden">
 
-                                            {{ img(image, {
-                                                transform: {width: 640, height: 240}
-                                            }) }}
+                                                {{ img(image, {
+                                                    transform: {width: 640, height: 240},
+                                                    attr: {
+                                                        class: "group-hover:opacity-75  group-hover:scale-105  group-focus:opacity-75 transition duration-300"
+                                                    }
+                                                }) }}
 
-                                            <div class="absolute inset-0 bg-black/30"></div>
+                                                <div class="absolute inset-0 bg-black/30"></div>
 
-                                            <div class="absolute inset-0 flex justify-center items-center">
-                                                <div class="p-2 text-xl text-center text-white tracking-wider font-headings font-bold">
-                                                    {{ topic2.title }}
+                                                <div class="absolute inset-0 flex justify-center items-center">
+                                                    <div class="p-2 text-xl text-center text-white tracking-wider font-headings font-bold">
+                                                        {{ topic2.title }}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
+                                            </a>
 
-                                    {% endif %}
+                                        {% endif %}
 
-                                        {% set topics3 = topic2.children.all %}
-                                        {% if topics3 %}
+                                        {% set topics3 = topic2.children.collect %}
+                                        {% if topics3.count %}
                                             <div class="p-4 space-y-2">
                                                 {% for topic3 in topics3 %}
                                                     {{ topic3.link|attr({class: 'underline'}) }}{{ not loop.last ? ', ' }}
@@ -79,6 +92,7 @@
                                             </div>
                                         {% endif %}
 
+                                    </div>
                                 </div>
                             {% endfor %}
                         </div>

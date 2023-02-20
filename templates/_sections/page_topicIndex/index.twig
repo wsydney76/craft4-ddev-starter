@@ -29,8 +29,15 @@
                                     <div class="absolute inset-0 bg-black/30"></div>
 
                                     <div class="absolute inset-0 flex justify-center items-center">
-                                        <div class="p-2 text-4xl text-white tracking-wider font-headings font-bold">
-                                            {{ topic1.title }}
+                                        <div class="p-2 text-white text-center">
+                                            <div class="p-2 text-4xl tracking-wider font-headings font-bold">
+                                                {{ topic1.title }}
+                                            </div>
+                                            {% if topic1.tagline %}
+                                                <div>
+                                                    {{ topic1.tagline }}
+                                                </div>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </a>
@@ -48,27 +55,28 @@
                     {% set topics2 = topic1.children.collect %}
 
                     {% if topics2 %}
-                        <div class="grid grid-cols1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
+                        <div class="grid grid-cols1 sm:grid-cols-2 {{ topics2.count > 2 ? 'md:grid-cols-3' }}">
                             {% for topic2 in topics2 %}
-                                <div class="border border-gray-300 shadow-xl">
-                                    {% set image = topic2.featuredImage.one ?? siteInfo.featuredImage.one %}
-                                    {% if image %}
-                                        <a href="{{ topic1.url }}" class="relative block">
+                                <div>
+                                    <div class="">
+                                        {% set image = topic2.featuredImage.one ?? siteInfo.featuredImage.one %}
+                                        {% if image %}
+                                            <a href="{{ topic1.url }}" class="relative block">
 
-                                            {{ img(image, {
-                                                transform: {width: 640, height: 240}
-                                            }) }}
+                                                {{ img(image, {
+                                                    transform: {width: 640, height: 360}
+                                                }) }}
 
-                                            <div class="absolute inset-0 bg-black/30"></div>
+                                                <div class="absolute inset-0 bg-black/30"></div>
 
-                                            <div class="absolute inset-0 flex justify-center items-center">
-                                                <div class="p-2 text-xl text-center text-white tracking-wider font-headings font-bold">
-                                                    {{ topic2.title }}
+                                                <div class="absolute inset-0 flex justify-center items-center">
+                                                    <div class="p-2 text-xl text-center text-white tracking-wider font-headings font-bold">
+                                                        {{ topic2.title }}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
+                                            </a>
 
-                                    {% endif %}
+                                        {% endif %}
 
                                         {% set topics3 = topic2.children.all %}
                                         {% if topics3 %}
@@ -79,6 +87,7 @@
                                             </div>
                                         {% endif %}
 
+                                    </div>
                                 </div>
                             {% endfor %}
                         </div>

@@ -1,5 +1,6 @@
+{% set ids = entry.descendants.ids|push(entry.id) %}
 {% set query = craft.entries
-    .relatedTo({targetElement: entry.id, field: 'topics'}) %}
+    .relatedTo({targetElement: ids, field: 'topics'}) %}
 
 {% set count = query.count %}
 <div class="mt-4">

@@ -1,22 +1,92 @@
-{% embed '_layouts/embeds/container-xl.twig' %}
+{# @var topic1 \craft\elements\Entry #}
+{# @var topic2 \craft\elements\Entry #}
+{# @var topic3 \craft\elements\Entry #}
+
+{# This is just a demo implementation and very inefficient. #}
+{# TODO: Redesign and optimize #}
+
+{% set topics1 = craft.entries
+    .section('topic')
+    .level(1)
+.collect %}
+
+{% embed '_layouts/embeds/content-md.twig' %}
     {% block content %}
+        {% from '_layouts/macros/lib.twig' import img %}
 
-        <div class="mt-8">
-            Provisional layout
+        <div class="space-y-8 my-8">
+            {% for topic1 in topics1 %}
+                <div class="border border-gray-200 shadow-xl">
+                    <div>
+                        {% set image = topic1.featuredImage.one ?? siteInfo.featuredImage.one %}
+                        {% if image %}
+                            <div>
+                                <a href="{{ topic1.url }}" class="relative block">
+                                    {{ img(image, {
+                                        transform: {width: 768, height: 250}
+                                    }) }}
+
+                                    <div class="absolute inset-0 bg-black/30"></div>
+
+                                    <div class="absolute inset-0 flex justify-center items-center">
+                                        <div class="p-2 text-4xl text-white tracking-wider font-headings font-bold">
+                                            {{ topic1.title }}
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                        {% else %}
+                            {% include '_layouts/partials/headline.twig' with {
+                                tag: 'a',
+                                href: topic1.url,
+                                text: topic1.title
+                            } only %}
+                        {% endif %}
+                    </div>
+
+                    {% set topics2 = topic1.children.collect %}
+
+                    {% if topics2 %}
+                        <div class="grid grid-cols1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
+                            {% for topic2 in topics2 %}
+                                <div class="border border-gray-300 shadow-xl">
+                                    {% set image = topic2.featuredImage.one ?? siteInfo.featuredImage.one %}
+                                    {% if image %}
+                                        <a href="{{ topic1.url }}" class="relative block">
+
+                                            {{ img(image, {
+                                                transform: {width: 640, height: 240}
+                                            }) }}
+
+                                            <div class="absolute inset-0 bg-black/30"></div>
+
+                                            <div class="absolute inset-0 flex justify-center items-center">
+                                                <div class="p-2 text-xl text-center text-white tracking-wider font-headings font-bold">
+                                                    {{ topic2.title }}
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                    {% endif %}
+
+                                        {% set topics3 = topic2.children.all %}
+                                        {% if topics3 %}
+                                            <div class="p-4 space-y-2">
+                                                {% for topic3 in topics3 %}
+                                                    {{ topic3.link|attr({class: 'underline'}) }}{{ not loop.last ? ', ' }}
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                </div>
+            {% endfor %}
         </div>
-
-        <div class="mt-8">
-            {# TODO: Check eager loading author, does not work this way #}
-            {% include '_layouts/partials/cards.twig' with {
-                heading: 'Topics'|t,
-                query:  craft.entries
-                    .section('topic'),
-
-                paginate: false,
-                layout: 'cardlet'
-            } only %}
-        </div>
-
 
     {% endblock %}
 {% endembed %}

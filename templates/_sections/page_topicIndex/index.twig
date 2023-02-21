@@ -13,7 +13,7 @@
 
 {# returns an array of nodes with keys entry, children #}
 
-{% set topicNodes = entry.getStructureNodes('topic') %}
+{% set topicNodes = craft.project.getStructureNodes('topic') %}
 {% set defaultImage = siteInfo.featuredImage.one %}
 
 {% embed '_layouts/embeds/content-md.twig' %}

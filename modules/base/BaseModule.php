@@ -16,8 +16,10 @@ use craft\i18n\PhpMessageSource;
 use craft\services\Dashboard;
 use craft\services\Fields;
 use craft\web\twig\variables\Cp;
+use craft\web\twig\variables\CraftVariable;
 use craft\web\View;
 use modules\base\services\ContentService;
+use modules\main\services\ProjectService;
 use yii\base\Event;
 use yii\base\Module;
 use function array_splice;
@@ -157,7 +159,7 @@ class BaseModule extends Module
         $this->setComponents($services);
     }
 
-    protected function registerNavItem(array $navItem, $pos = null)
+    protected function registerNavItem(array $navItem, $pos = null): void
     {
         Event::on(
             Cp::class,
@@ -172,14 +174,14 @@ class BaseModule extends Module
         );
     }
 
-    protected function registerAssetBundles(array $assetBundles)
+    protected function registerAssetBundles(array $assetBundles): void
     {
         foreach ($assetBundles as $assetBundle) {
             Craft::$app->view->registerAssetBundle($assetBundle);
         }
     }
 
-    protected function registerEntryValidators(array $rules)
+    protected function registerEntryValidators(array $rules): void
     {
 
         Event::on(
@@ -190,6 +192,36 @@ class BaseModule extends Module
                 $event->rules[] = $rule;
             }
         });
+    }
+
+    protected function registerCraftVariableServices(array $services): void
+    {
+        Event::on(
+            CraftVariable::class,
+            CraftVariable::EVENT_INIT,
+            function($event) use ($services) {
+                /** @var CraftVariable $variable */
+                $variable = $event->sender;
+                foreach ($services as $service) {
+                    $variable->set($service[0], $service[1]);
+                }
+
+            }
+        );
+    }
+
+    protected function registerCraftVariableBehaviors(array $behaviors): void
+    {
+        Event::on(
+            CraftVariable::class,
+            CraftVariable::EVENT_INIT,
+            function($event) use ($behaviors) {
+                /** @var CraftVariable $variable */
+                $variable = $event->sender;
+                $variable->attachBehaviors($behaviors);
+
+            }
+        );
     }
 
 

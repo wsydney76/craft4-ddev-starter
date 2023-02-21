@@ -7,7 +7,6 @@ use craft\base\Element;
 use craft\elements\Entry;
 use craft\events\BlockTypesEvent;
 use craft\events\ElementEvent;
-use craft\events\ModelEvent;
 use craft\fields\Matrix;
 use craft\helpers\ElementHelper;
 use craft\services\Elements;
@@ -20,6 +19,7 @@ use modules\main\fields\SectionField;
 use modules\main\fields\SiteField;
 use modules\main\resources\CpAssetBundle;
 use modules\main\services\EntriesService;
+use modules\main\services\ProjectService;
 use modules\main\twigextensions\TwigExtension;
 use modules\main\validators\BodyContentValidator;
 use modules\main\widgets\MyProvisionalDraftsWidget;
@@ -50,9 +50,6 @@ class MainModule extends BaseModule
         // Register event handlers here ...
         // (see https://craftcms.com/docs/4.x/extend/events.html to get started)
 
-        $this->registerServices([
-            'entriesService' => EntriesService::class
-        ]);
 
         $this->registerTranslationCategory();
 
@@ -69,6 +66,10 @@ class MainModule extends BaseModule
 
         $this->registerTwigExtensions([
             TwigExtension::class
+        ]);
+
+        $this->registerCraftVariableServices([
+            ['project', ProjectService::class]
         ]);
 
         if (Craft::$app->request->isCpRequest) {
@@ -99,7 +100,6 @@ class MainModule extends BaseModule
 
             $this->hideBlockTypes();
 
-            $this->updateFrontPages();
         }
     }
 
@@ -191,30 +191,4 @@ class MainModule extends BaseModule
             });
     }
 
-    /**
-     * PROVISIONAL
-     *
-     * Update sitemap frontpages when contant has possibly changed
-     *
-     * @return void
-     */
-    protected function updateFrontPages()
-    {
-        Event::on(
-            Entry::class,
-            Entry::EVENT_AFTER_SAVE,
-            function(ModelEvent $event) {
-                /** @var Entry $entry */
-                $entry = $event->sender;
-                if (
-                    !$event->sender->resaving &&
-                    $entry->scenario === Element::SCENARIO_LIVE &&
-                    ($event->sender->enabled && $event->sender->getEnabledForSite()) &&
-                    !ElementHelper::isDraftOrRevision($entry)
-                ) {
-                    $this->entriesService->updateFrontPages($entry);
-                }
-            }
-        );
-    }
 }

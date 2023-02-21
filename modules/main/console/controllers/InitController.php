@@ -120,6 +120,7 @@ class InitController extends BaseController
             $global->setFieldValue('postalAddress', $faker->address());
             $global->setFieldValue('email', App::env('EMAIL_ADDRESS'));
             $global->setFieldValue('phoneNumber', $faker->phoneNumber());
+            $global->setFieldValue('featuredImage', [$this->getImagesFromFolder('starter/')[0]->id ?? null]);
             $global->setFieldValue('socialLinks', [
                 ['col1' => 'mastodon', 'col2' => 'https://joinmastodon.org'],
                 ['col1' => 'instagram', 'col2' => 'https://instagram.com'],

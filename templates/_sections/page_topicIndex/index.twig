@@ -14,6 +14,7 @@
 {# returns an array of nodes with keys entry, children #}
 
 {% set topicNodes = entry.getStructureNodes('topic') %}
+{% set defaultImage = siteInfo.featuredImage.one %}
 
 {% embed '_layouts/embeds/content-md.twig' %}
     {% block content %}
@@ -24,7 +25,7 @@
                 {% set topic1 = topicNode1.entry %}
                 <div class="border border-gray-200 shadow-xl">
                     <div>
-                        {% set image = topic1.featuredImage.one ?? siteInfo.featuredImage.one %}
+                        {% set image = topic1.featuredImage.one ?? defaultImage %}
                         {% if image %}
                             <div>
                                 <a href="{{ topic1.url }}" class="relative block group overflow-hidden">
@@ -71,7 +72,7 @@
                                 {% set topic2 = topicNode2.entry %}
                                 <div>
                                     <div class="border border-gray-400">
-                                        {% set image = topic2.featuredImage.one ?? siteInfo.featuredImage.one %}
+                                        {% set image = topic2.featuredImage.one ?? defaultImage %}
                                         {% if image %}
                                             <a href="{{ topic2.url }}" class="relative block group overflow-hidden">
 

@@ -28,7 +28,7 @@ class SeedController extends InitController
     public const NUM_ENTRIES = 50;
     public const SECTION_HANDLE = 'news';
     public string $volume = 'images';
-    public int $minWidth = 1200;
+
 
     protected Generator $faker;
 

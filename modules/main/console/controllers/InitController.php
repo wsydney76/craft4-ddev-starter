@@ -21,6 +21,7 @@ class InitController extends BaseController
      * @var string
      */
     public $defaultAction = 'all';
+    public int $minWidth = 1200;
 
 
     /**

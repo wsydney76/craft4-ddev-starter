@@ -315,6 +315,10 @@ __headline.twig__
 
 Renders a consistent headline.
 
+__cover-image.twig__
+
+Renders a cover image, i.e. a background image with a centered content block
+
 ### Macros
 
 __forms.twig__

@@ -5,7 +5,7 @@
 {# This is just a demo implementation #}
 
 
-{# Calling a behavior method here because #}
+{# Calling a service method here because #}
 {# - the nav tag can't be used here because it does not allow inner logic #}
 {# - see https://craftcms.com/docs/4.x/dev/tags.html#showing-children #}
 {# - getting children/parentId for each node create a ton of additional queries #}
@@ -18,51 +18,31 @@
 
 {% embed '_layouts/embeds/content-md.twig' %}
     {% block content %}
-        {% from '_layouts/macros/lib.twig' import img %}
 
         <div class="space-y-8 my-8">
             {% for topicNode1 in topicNodes %}
                 {% set topic1 = topicNode1.entry %}
                 <div class="border border-gray-200 shadow-xl">
-                    <div>
-                        {% set image = topic1.featuredImage.one ?? defaultImage %}
-                        {% if image %}
-                            <div>
-                                <a href="{{ topic1.url }}" class="relative block group overflow-hidden">
-                                    <div class="absolute inset-0">
-                                        {{ img(image, {
-                                            transform: {width: 768, height: 250},
-                                            attr: {
-                                                class: "h-full w-full object-cover group-hover:opacity-75 group-hover:scale-105 group-focus:opacity-75 transition duration-300"
-                                            }
-                                        }) }}
 
-                                        <div class="absolute inset-0 bg-black/30"></div>
+                    {% embed '_layouts/embeds/cover-image.twig' with  {
+                        image: topic1.featuredImage.one ?? defaultImage,
+                        transform: {width: 768, height: 250},
+                        url: topic1.url
+                    } %}
+                        {% block content %}
+                            <div class="p-4 text-center my-12">
+                                <div class="text-4xl  tracking-wider font-headings font-bold">
+                                    {{ topic1.title }}
+                                </div>
+                                {% if topic1.tagline %}
+                                    <div class="mt-2">
+                                        {{ topic1.tagline }}
                                     </div>
-
-                                    <div class="relative flex justify-center items-center text-white">
-                                        <div class="p-4 text-center my-12">
-                                            <div class="text-4xl  tracking-wider font-headings font-bold">
-                                                {{ topic1.title }}
-                                            </div>
-                                            {% if topic1.tagline %}
-                                                <div class="mt-2">
-                                                    {{ topic1.tagline }}
-                                                </div>
-                                            {% endif %}
-                                        </div>
-                                    </div>
-                                </a>
-
+                                {% endif %}
                             </div>
-                        {% else %}
-                            {% include '_layouts/partials/headline.twig' with {
-                                tag: 'a',
-                                href: topic1.url,
-                                text: topic1.title
-                            } only %}
-                        {% endif %}
-                    </div>
+                        {% endblock %}
+                    {% endembed %}
+
 
                     {% set topicNodes2 = topicNode1.children %}
 
@@ -72,29 +52,18 @@
                                 {% set topic2 = topicNode2.entry %}
                                 <div>
                                     <div class="border border-gray-400">
-                                        {% set image = topic2.featuredImage.one ?? defaultImage %}
-                                        {% if image %}
-                                            <a href="{{ topic2.url }}" class="relative block group overflow-hidden">
 
-                                                <div class="absolute inset-0">
-                                                    {{ img(image, {
-                                                        transform: {width: 640, height: 240},
-                                                        attr: {
-                                                            class: "h-full w-full object-cover group-hover:opacity-75  group-hover:scale-105  group-focus:opacity-75 transition duration-300"
-                                                        }
-                                                    }) }}
-
-                                                    <div class="absolute inset-0 bg-black/30"></div>
+                                        {% embed '_layouts/embeds/cover-image.twig' with  {
+                                            image: topic2.featuredImage.one ?? defaultImage,
+                                            transform: {width: 640, height: 240},
+                                            url: topic2.url
+                                        } %}
+                                            {% block content %}
+                                                <div class="p-2 my-4 text-xl text-center text-white tracking-wider font-headings font-bold">
+                                                    {{ topic2.title }}
                                                 </div>
-
-                                                <div class="relative flex justify-center items-center">
-                                                    <div class="p-2 my-4 text-xl text-center text-white tracking-wider font-headings font-bold">
-                                                        {{ topic2.title }}
-                                                    </div>
-                                                </div>
-                                            </a>
-
-                                        {% endif %}
+                                            {% endblock %}
+                                        {% endembed %}
 
                                         {% set topicNodes3 = topicNode2.children %}
                                         {% if topicNodes3|length %}

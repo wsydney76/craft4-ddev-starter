@@ -1,0 +1,35 @@
+{# Renders a cover image, i.e. a background image with a centered content block #}
+
+{# @param image Asset background image #}
+{# @param transform array transform definition #}
+{# @param url string optional url #}
+{# @param srcset array optional #}
+{# @param attr array optional additional img tag attributes #}
+
+{% set url = url ?? null %}
+{% set tag = url ? 'a' : 'div' %}
+{% set srcset = srcset ?? null %}
+{% set attr = attr ?? {} %}
+
+{% from '_layouts/macros/lib.twig' import img %}
+
+{% tag tag with {href: url, class: 'relative block group overflow-hidden'} %}
+    <div class="absolute inset-0">
+        {% if image %}
+            {{ img(image, {
+                transform,
+                srcset,
+                attr: attr|merge({
+                    class: "h-full w-full object-cover #{url ? 'group-hover:opacity-75 group-hover:scale-105 group-focus:opacity-75 transition duration-300'}"
+                })
+            }) }}
+        {% endif %}
+
+        <div class="absolute inset-0 bg-black/30"></div>
+    </div>
+
+    <div class="relative flex justify-center items-center text-white">
+        {% block content %}
+        {% endblock %}
+    </div>
+{% endtag %}

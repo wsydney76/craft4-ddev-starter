@@ -22,6 +22,7 @@ class InitController extends BaseController
      */
     public $defaultAction = 'all';
     public int $minWidth = 1200;
+    public string $volume = 'images';
 
 
     /**
@@ -421,7 +422,7 @@ class InitController extends BaseController
         return $query->collect();
     }
 
-    protected function getMarkdownParagraphs(int $number)
+    protected function getMarkdownParagraphs(int $number): string
     {
         $paragraphs = '';
         foreach ($this->faker->paragraphs($number) as $paragraph) {

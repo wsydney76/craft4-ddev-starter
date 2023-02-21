@@ -2,17 +2,6 @@
 
 {% extends "_layouts/main.twig" %}
 
-{% set ids = entry.descendants.ids|push(entry.id) %}
-
-{% set entries = craft.entries
-    .relatedTo({targetElement: ids, field: 'topics'})
-    .with([
-        'author',
-        'author.photo',
-        'persons',
-        'persons.photo'
-    ]) %}
-
 {% set featuredImage = entry.featuredImage.one ?? siteInfo.featuredImage.one %}
 
 {% block heroArea %}
@@ -64,9 +53,21 @@
 
     {% embed '_layouts/embeds/container-xl.twig' %}
         {% block content %}
+            {% set ids = entry.descendants.ids|push(entry.id) %}
+
+            {% set query = craft.entries
+                .relatedTo({targetElement: ids, field: 'topics'})
+                .with([
+                    'author',
+                    'author.photo',
+                    'persons',
+                    'persons.photo'
+                ]) %}
+
             {% include '_layouts/partials/cards.twig' with {
-                entries,
-                showMetaData: true
+                query,
+                showMetaData: true,
+                paginate: true
             } only %}
         {% endblock %}
     {% endembed %}

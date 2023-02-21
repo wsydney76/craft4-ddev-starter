@@ -241,6 +241,32 @@ Also previewing pages with embedded entries is limited, what should work for now
 * Close slideout, confirm if asked.
 * Press `Refresh`
 
+## Topics (Categories/Taxonomies)
+
+Includes a demo implementation of a 'topic' section as a taxonomy.
+
+The use of taxonomies can be very different in terms of
+
+* Number of taxonomies
+* Number of entries per taxonomy
+* Number of hierarchy levels 
+* Number of related entries
+* How to display relations (with or without hierarchy)
+* What additional content taxonomies can have
+* Whether an index page should be shown or not.
+
+The starter implements a 3-level 'Topics' taxonomy that works best with a limit number of topics.
+
+However, it is not very likely that this will meet your needs, but you may find some usefully techniques.
+
+## Navigation
+
+The main navigation uses the 'page' section hierarchy, the direct descendants of the 'homepage' entry will be shown as primary navigation items.
+
+If you want a dropdown showing another level, insert an entry of type `Nav Item` below the homepage and add subpages as children.
+
+Alternatively, you can specify a Twig template that can populate the dropdown panel as desired.
+
 ## Twig Components
 
 Usage is (fingers crossed) described in comments in each component.

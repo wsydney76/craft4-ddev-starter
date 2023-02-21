@@ -2,44 +2,53 @@
 {# @var topic2 \craft\elements\Entry #}
 {# @var topic3 \craft\elements\Entry #}
 
-{# This is just a demo implementation and very inefficient. #}
-{# TODO: Redesign and optimize #}
+{# This is just a demo implementation #}
 
-{% set with = [
-    ['featuredImage'],
-    ['children']
-] %}
 
-{% set topics1 = craft.entries
-    .section('topic')
-    .with(with)
-    .level(1)
-.collect %}
+{# Calling a behavior method here because #}
+{# - the nav tag can't be used here because it does not allow inner logic #}
+{# - see https://craftcms.com/docs/4.x/dev/tags.html#showing-children #}
+{# - getting children/parentId for each node create a ton of additional queries #}
+{# - array handling in twig is so weird... #}
+
+{# returns an array of nodes with keys entry, children #}
+
+{% set topicNodes = entry.getStructureNodes('topic') %}
 
 {% embed '_layouts/embeds/content-md.twig' %}
     {% block content %}
         {% from '_layouts/macros/lib.twig' import img %}
 
         <div class="space-y-8 my-8">
-            {% for topic1 in topics1 %}
+            {% for topicNode1 in topicNodes %}
+                {% set topic1 = topicNode1.entry %}
                 <div class="border border-gray-200 shadow-xl">
                     <div>
                         {% set image = topic1.featuredImage.one ?? siteInfo.featuredImage.one %}
                         {% if image %}
                             <div>
                                 <a href="{{ topic1.url }}" class="relative block group overflow-hidden">
-                                    {{ img(image, {
-                                        transform: {width: 768, height: 250},
-                                        attr: {
-                                            class: "group-hover:opacity-75 group-hover:scale-105 group-focus:opacity-75 transition duration-300"
-                                        }
-                                    }) }}
+                                    <div class="absolute inset-0">
+                                        {{ img(image, {
+                                            transform: {width: 768, height: 250},
+                                            attr: {
+                                                class: "h-full w-full object-cover group-hover:opacity-75 group-hover:scale-105 group-focus:opacity-75 transition duration-300"
+                                            }
+                                        }) }}
 
-                                    <div class="absolute inset-0 bg-black/30"></div>
+                                        <div class="absolute inset-0 bg-black/30"></div>
+                                    </div>
 
-                                    <div class="absolute inset-0 flex justify-center items-center">
-                                        <div class="p-2 text-4xl text-white tracking-wider font-headings font-bold">
-                                            {{ topic1.title }}
+                                    <div class="relative flex justify-center items-center text-white">
+                                        <div class="p-4 text-center my-12">
+                                            <div class="text-4xl  tracking-wider font-headings font-bold">
+                                                {{ topic1.title }}
+                                            </div>
+                                            {% if topic1.tagline %}
+                                                <div class="mt-2">
+                                                    {{ topic1.tagline }}
+                                                </div>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </a>
@@ -54,28 +63,31 @@
                         {% endif %}
                     </div>
 
-                    {% set topics2 = topic1.children.with(with).collect %}
+                    {% set topicNodes2 = topicNode1.children %}
 
-                    {% if topics2.count %}
-                        <div class="grid grid-cols1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
-                            {% for topic2 in topics2 %}
+                    {% if topicNodes2|length %}
+                        <div class="grid grid-cols1 sm:grid-cols-2 md:grid-cols-3 gap-2 p-2">
+                            {% for topicNode2 in topicNodes2 %}
+                                {% set topic2 = topicNode2.entry %}
                                 <div>
-                                    <div class="border border-gray-300">
+                                    <div class="border border-gray-400">
                                         {% set image = topic2.featuredImage.one ?? siteInfo.featuredImage.one %}
                                         {% if image %}
                                             <a href="{{ topic2.url }}" class="relative block group overflow-hidden">
 
-                                                {{ img(image, {
-                                                    transform: {width: 640, height: 240},
-                                                    attr: {
-                                                        class: "group-hover:opacity-75  group-hover:scale-105  group-focus:opacity-75 transition duration-300"
-                                                    }
-                                                }) }}
+                                                <div class="absolute inset-0">
+                                                    {{ img(image, {
+                                                        transform: {width: 640, height: 240},
+                                                        attr: {
+                                                            class: "h-full w-full object-cover group-hover:opacity-75  group-hover:scale-105  group-focus:opacity-75 transition duration-300"
+                                                        }
+                                                    }) }}
 
-                                                <div class="absolute inset-0 bg-black/30"></div>
+                                                    <div class="absolute inset-0 bg-black/30"></div>
+                                                </div>
 
-                                                <div class="absolute inset-0 flex justify-center items-center">
-                                                    <div class="p-2 text-xl text-center text-white tracking-wider font-headings font-bold">
+                                                <div class="relative flex justify-center items-center">
+                                                    <div class="p-2 my-4 text-xl text-center text-white tracking-wider font-headings font-bold">
                                                         {{ topic2.title }}
                                                     </div>
                                                 </div>
@@ -83,10 +95,11 @@
 
                                         {% endif %}
 
-                                        {% set topics3 = topic2.children.collect %}
-                                        {% if topics3.count %}
+                                        {% set topicNodes3 = topicNode2.children %}
+                                        {% if topicNodes3|length %}
                                             <div class="p-4 space-y-2">
-                                                {% for topic3 in topics3 %}
+                                                {% for topicNode3 in topicNodes3 %}
+                                                    {% set topic3 = topicNode3.entry %}
                                                     {{ topic3.link|attr({class: 'underline'}) }}{{ not loop.last ? ', ' }}
                                                 {% endfor %}
                                             </div>

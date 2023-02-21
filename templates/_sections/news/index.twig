@@ -20,7 +20,8 @@
     {% embed '_layouts/embeds/container-md.twig' %}
         {% block content %}
             {% include '_partials/meta.twig' with {
-                entry
+                entry,
+                breadcrumpQueries: [entry.topics]
             } only %}
         {% endblock %}
     {% endembed %}
@@ -31,7 +32,6 @@
 
     {% embed '_layouts/embeds/container-md.twig' %}
         {% block content %}
-
             {# Related Entries #}
             {% include '_layouts/partials/cards.twig' with {
                 heading: '{count,plural,=1{Related Entry} other{Related Entries}}',

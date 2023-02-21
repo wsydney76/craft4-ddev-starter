@@ -1,0 +1,76 @@
+{# News Page #}
+
+{% extends "_layouts/main.twig" %}
+
+{% set featuredImage = entry.featuredImage.one ?? siteInfo.featuredImage.one %}
+
+{% block heroArea %}
+    {% if featuredImage %}
+        {% include '_layouts/partials/hero-area-display.twig' with {
+            teaser: entry.teaser,
+            image: featuredImage,
+            title: "#{'Topic'|t}: #{entry.title}",
+            text: entry.tagline,
+        } only %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    {% if entry.level > 1 %}
+        {% embed '_layouts/embeds/container-md.twig' %}
+            {% block content %}
+                <div class="mb-8">
+                    {% include '_layouts/partials/structure_breadcrump.twig' with {
+                        entry
+                    } only %}
+                </div>
+            {% endblock %}
+        {% endembed %}
+    {% endif %}
+
+    {% set descendants = entry.children.all %}
+
+    {% if descendants %}
+        {% embed '_layouts/embeds/container-md.twig' %}
+            {% block content %}
+                <div class="flex space-x-4 my-8">
+                    {% for descendant in descendants %}
+                        {% include '_layouts/partials/button.twig' with {
+                            href: descendant.url,
+                            caption: descendant.title,
+                            color: 'white'
+                        } only %}
+                    {% endfor %}
+                </div>
+            {% endblock %}
+        {% endembed %}
+    {% endif %}
+    
+    {% include '_layouts/partials/content-blocks.twig' with {
+        query: entry.bodyContent
+    } only %}
+
+    {% embed '_layouts/embeds/container-xl.twig' %}
+        {% block content %}
+            {% set ids = entry.descendants.ids|push(entry.id) %}
+
+            {% set query = craft.entries
+                .relatedTo({targetElement: ids, field: 'topics'})
+                .with([
+                    'author',
+                    'author.photo',
+                    'persons',
+                    'persons.photo'
+                ]) %}
+
+            {% include '_layouts/partials/cards.twig' with {
+                query,
+                showMetaData: true,
+                paginate: true
+            } only %}
+        {% endblock %}
+    {% endembed %}
+
+
+{% endblock %}

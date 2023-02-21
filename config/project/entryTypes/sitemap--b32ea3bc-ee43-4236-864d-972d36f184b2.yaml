@@ -112,7 +112,7 @@ handle: sitemap
 hasTitleField: true
 name: Sitemap
 section: 84b98802-2548-4aed-b67e-fc97f6ed9e30 # Page
-sortOrder: 8
+sortOrder: 6
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: language

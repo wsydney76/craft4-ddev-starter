@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1676804053
+dateModified: 1676891403
 elementSources:
   craft\elements\Asset:
     -
@@ -100,6 +100,20 @@ elementSources:
         - link
       type: native
     -
+      defaultSort:
+        - structure
+        - asc
+      disabled: false
+      key: 'section:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
+      tableAttributes:
+        - postDate
+        - author
+        - link
+      type: native
+    -
+      defaultSort:
+        - structure
+        - asc
       disabled: false
       key: 'section:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
       tableAttributes:
@@ -232,13 +246,13 @@ meta:
     4bf7eb3c-ca42-4327-97e2-77533fc27a61: Caption # Caption
     5a0be839-14a2-465e-a504-bb63dd0281e9: Images # Images
     5aa9454e-9fa0-4d8b-b667-023ce4cef5df: 'First Name' # First Name
+    05ab0680-2ccc-4a59-932a-07311f773d42: Topics # Topics
     5aea2dce-a401-4e9f-8563-7a5a312f644b: 'Content Section' # Content Section
     5b0c38db-9ab4-47d8-b4a7-913710c08ca6: English # English
     5e954ca4-2245-4624-b25e-fc91bbb917bf: Default # Default
     6bc951bf-74b3-4218-b3aa-dc427967abe9: Person # Person
     6c3cc577-cf01-4446-9846-f0f2f6ea3655: 'Short Bio' # Short Bio
     7b8b6f04-9d76-4b26-8276-96a80183750e: Quote # Quote
-    7df417e8-1eea-46d8-85a7-2a20370a881e: 'Hero Image' # Hero Image
     7fda4ce3-4bdd-4fbe-b32f-35a5e6707295: 'News Index' # News Index
     8e7aba7b-4624-4470-b007-a84c85242f36: 'Sold Out' # Sold Out
     08f7545c-870e-4727-a418-660af19052ea: Buttons # Buttons
@@ -254,6 +268,7 @@ meta:
     16e1ce60-0ee3-48c2-ac6a-d34757a52eed: Testimonial # Testimonial
     24a1d709-9601-4848-9deb-6df1f3ecd806: Feature # Feature
     27b3f36f-ea97-4dad-a77d-39eff7bd0900: Key # Key
+    43f9aef9-cc98-45e1-ac64-8b73fc0c79a8: 'Topic Index' # Topic Index
     48fde250-325a-44bf-9238-66f0e831a883: Image # Image
     61c8dfb5-4ac7-420b-ad8e-5cad0d464a98: Description # Description
     67a97a95-ddb9-4d73-a10b-649ba6d997cd: Privacy # Privacy
@@ -283,7 +298,6 @@ meta:
     6739b2cb-a865-433d-9732-cdd6a419188d: 'Page Template' # Page Template
     7602aac5-c98e-44bd-8570-457a85b8abad: Criteria # Criteria
     7681df0f-bb10-47a5-ae54-25d7743237e3: 'Content Components' # Content Components
-    8350d2ae-3d7d-4d96-aeae-eab90a7f0d5b: 'Hero Teaser' # Hero Teaser
     13852c19-7f9e-4e6b-8790-0063f0f21ab8: Default # Default
     37283b65-80b3-4451-a1d2-03fd68d18a05: 'Content Components' # Content Components
     44993cef-3718-479f-8c88-bdede1d256ba: 'Card Text' # Card Text
@@ -296,6 +310,7 @@ meta:
     481205e6-eb29-45a0-8b40-021d4dcfcac1: 'Email Sender' # Email Sender
     502456b5-d67c-412d-927e-d06e8f662eac: 'Button Caption' # Button Caption
     655243f7-46a2-42c0-8de4-188017c31d53: 'Hero Area Template' # Hero Area Template
+    5042338b-5f7b-4535-96bb-578a829e987c: Topic # Topic
     5286148d-12b9-4f55-a35c-0e51c06bbe44: Contact # Contact
     8785637f-8785-4fd2-86d2-9232d9674420: 'Related Entries' # Related Entries
     27127353-b8d1-4c07-a2af-7a273ad8f1f6: 'Hero Area' # Hero Area
@@ -338,7 +353,6 @@ meta:
     c752550e-4c4a-4004-8229-7473dcf75450: 'Site Info' # Site Info
     cb919462-37df-4bb3-acf9-09892c4575e5: 'Nav Item' # Nav Item
     cc3fbab0-826f-4aed-b2aa-eeaecc2964bf: 'Alt Text' # Alt Text
-    cce7e62c-f710-40fd-b9e9-71ba6f58265f: 'Hero Text' # Hero Text
     cf967bc8-e8fd-4cd3-b66c-998982d2cc6c: 'Booking Status' # Booking Status
     cf1158bf-b524-4684-9147-0ca8295ba477: Text # Text
     cf487444-d6c2-4c99-9432-e229efa674a2: Person # Person
@@ -357,6 +371,7 @@ meta:
     e842f783-0027-4c81-8136-61f70ccfbd6d: Birthday # Birthday
     eb6b24cc-83d7-416f-be4b-d002c7688b58: Copyright # Copyright
     eb61b6c1-d43a-4bf6-8091-bc71c44a9dcf: Entries # Entries
+    eb276acd-66e3-48af-88d8-8ed2854da137: Default # Default
     ebe8548f-7f01-49b6-af98-56da49668e79: Logo # Logo
     ec70b604-43e4-45f8-bab5-0ab78983f3ce: 'Nav Item Template' # Nav Item Template
     ed627edd-73bd-4b75-8684-f410bf4e4b9d: 'Temporary Images' # Temporary Images

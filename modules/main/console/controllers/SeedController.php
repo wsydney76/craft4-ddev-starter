@@ -16,11 +16,9 @@ use Faker\Factory;
 use Faker\Generator;
 use Illuminate\Support\Collection;
 use yii\console\ExitCode;
-use function ceil;
 use function is_dir;
 use function str_replace;
 use function ucwords;
-use function var_dump;
 use const DIRECTORY_SEPARATOR;
 use const PHP_EOL;
 
@@ -38,6 +36,91 @@ class SeedController extends InitController
     {
         $this->faker = Factory::create();
         return parent::beforeAction($action);
+    }
+
+
+    public function actionCreateTopics(): int
+    {
+        if ($this->interactive && !$this->confirm("Create topic entries?", true)) {
+            return ExitCode::UNSPECIFIED_ERROR;
+        }
+
+        $topics = [
+            [
+                'en' => 'Sport',
+                'de' => 'Sport',
+                'children' => [
+                    [
+                        'en' => 'Football',
+                        'de' => 'Fußball',
+                        'children' => [
+                            ['en' => 'Bundesliga', 'de' => 'Bundesliga'],
+                            ['en' => 'Premier League', 'de' => 'Premier League'],
+                            ['en' => 'International', 'de' => 'International'],
+                        ]
+                    ],
+                    [
+                        'en' => 'Tennis',
+                        'de' => 'Tennis',
+                        'children' => [
+                            ['en' => 'Majors', 'de' => 'Majors']
+                        ]
+                    ],
+                    [
+                        'en' => 'Golf',
+                        'de' => 'Golf'
+                    ]
+
+                ]
+            ],
+            [
+                'en' => 'Entertainment',
+                'de' => 'Unterhaltung',
+                'children' => [
+                    ['en' => 'Music', 'de' => 'Musik'],
+                    ['en' => 'Cinema', 'de' => 'Kino'],
+                ]
+            ],
+            [
+                'en' => 'Opinion',
+                'de' => 'Meinung'
+            ]
+        ];
+
+        foreach ($topics as $topic) {
+            $this->createTopic($topic);
+        }
+
+
+        return ExitCode::OK;
+    }
+
+    protected function createTopic($topic, ?Entry $parent = null): void
+    {
+        $entry = $this->createEntry([
+            'section' => 'topic',
+            'type' => 'default',
+            'site' => 'en',
+            'parent' => $parent,
+            'title' => $topic['en'],
+            'slug' => StringHelper::slugify($topic['en']),
+            'fields' => [
+                'tagline' => $this->faker->text(30),
+                'featuredImage' => [$this->getRandomImage()->id ?? null]
+            ],
+            'localized' => [
+                'de' => [
+                    'title' => $topic['de'],
+                    'slug' => StringHelper::slugify($topic['de'])
+                ]
+            ]
+        ]);
+
+        if (isset($topic['children'])) {
+            foreach ($topic['children'] as $child) {
+                $this->createTopic($child, $entry);
+            }
+        }
     }
 
     /**
@@ -89,14 +172,15 @@ class SeedController extends InitController
                 'section' => $section->handle,
                 'type' => $type->handle,
                 'author' => User::find()->orderBy('rand()')->one(),
-                'title' => $title,
+                'title' => str_replace('.', '', $title),
                 'postDate' => $this->faker->dateTimeInInterval('-2 days', '-3 months'),
                 'fields' => [
                     'isFeatured' => $this->faker->boolean(25),
                     'tagline' => $this->faker->text(50),
                     'teaser' => $this->faker->text(15),
                     'featuredImage' => [$images[$i - 1]->id],
-                    'bodyContent' => $this->getBodyContent()
+                    'bodyContent' => $this->getBodyContent(),
+                    'topics' => [$this->getRandomTopic()->id ?? null]
                 ]
 
             ]);
@@ -225,7 +309,6 @@ class SeedController extends InitController
                     'align' => 'right'
                 ]
             ]);
-
 
 
             $contentComponents[] = $this->createEntry([
@@ -381,6 +464,50 @@ class SeedController extends InitController
                 ]
             ]);
 
+            $topicsIndex = Entry::find()
+                ->section('page')
+                ->type('topicIndex')
+                ->one();
+
+            $contentComponents[] = $this->createEntry([
+                'section' => 'contentComponent',
+                'type' => 'cards',
+                'site' => 'en',
+                'title' => 'Topics',
+                'slug' => 'topics',
+                'fields' => [
+                    'criteria' => ['language' => 'json', 'value' => '{"section": "topic", "level": 1}'],
+                    'buttons' => [
+                        [
+                            'type' => 'button',
+                            'fields' => [
+                                'target' => $topicsIndex ? [$topicsIndex->id] : [],
+                                'caption' => 'Show all Topics',
+                                'primary' => true,
+                            ]
+                        ]
+                    ]
+                ],
+                'localized' => [
+                    'de' => [
+                        'title' => 'Themen',
+                        'slug' => 'themen',
+                        'fields' => [
+                            'buttons' => [
+                                [
+                                    'type' => 'button',
+                                    'fields' => [
+                                        'target' => $topicsIndex ? [$topicsIndex->id] : [],
+                                        'caption' => 'Alle Themen anzeigen',
+                                        'primary' => true,
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]);
+
             $contentComponents[] = $this->createEntry([
                 'section' => 'contentComponent',
                 'type' => 'faqs',
@@ -388,29 +515,29 @@ class SeedController extends InitController
                 'title' => 'FAQs',
                 'slug' => 'faqs',
                 'fields' => [
-                   'faqs' => [
-                       [
-                           'type' => 'faq',
-                           'fields' => [
-                               'question' => str_replace('.', '?', $this->faker->text(40)),
-                               'answer' => $this->faker->text(300)
-                           ]
-                       ],
-                       [
-                           'type' => 'faq',
-                           'fields' => [
-                               'question' => str_replace('.', '?', $this->faker->text(40)),
-                               'answer' => $this->faker->text(300)
-                           ]
-                       ],
-                       [
-                           'type' => 'faq',
-                           'fields' => [
-                               'question' => str_replace('.', '?', $this->faker->text(40)),
-                               'answer' => $this->faker->text(300)
-                           ]
-                       ],
-                   ]
+                    'faqs' => [
+                        [
+                            'type' => 'faq',
+                            'fields' => [
+                                'question' => str_replace('.', '?', $this->faker->text(40)),
+                                'answer' => $this->faker->text(300)
+                            ]
+                        ],
+                        [
+                            'type' => 'faq',
+                            'fields' => [
+                                'question' => str_replace('.', '?', $this->faker->text(40)),
+                                'answer' => $this->faker->text(300)
+                            ]
+                        ],
+                        [
+                            'type' => 'faq',
+                            'fields' => [
+                                'question' => str_replace('.', '?', $this->faker->text(40)),
+                                'answer' => $this->faker->text(300)
+                            ]
+                        ],
+                    ]
                 ]
             ]);
 
@@ -487,7 +614,7 @@ class SeedController extends InitController
         Craft::$app->elements->saveElement($entry);
     }
 
-    protected function getRandomImage($width = 1900)
+    protected function getRandomImage($width = 1900): ?Asset
     {
         return Asset::find()
             ->volume($this->volume)
@@ -741,6 +868,14 @@ class SeedController extends InitController
             }
         }
         return ExitCode::OK;
+    }
+
+    protected function getRandomTopic(): ?Entry
+    {
+        return Entry::find()
+            ->section('topic')
+            ->orderBy(Craft::$app->db->driverName === 'mysql' ? 'RAND()' : 'RANDOM()')
+            ->one();
     }
 
 }

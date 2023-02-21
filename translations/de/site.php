@@ -53,8 +53,11 @@ return [
     'Platform' => 'Plattform',
     'Add a social platform' => 'Soziales Netzwerk hinzufügen',
     'Header image' => 'Seitenbild',
-    
-    
+    'Topic' => 'Thema',
+    'Topics' => 'Themen',
+    '{c,plural,=1{more entry} other{more entries}}' => '{c,plural,=1{weiterer Eintrag} other{weitere Einträge}}',
+    'and' => 'und',
+
     
     // Environment field
 

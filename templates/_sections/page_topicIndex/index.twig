@@ -1,0 +1,120 @@
+{# @var topic1 \craft\elements\Entry #}
+{# @var topic2 \craft\elements\Entry #}
+{# @var topic3 \craft\elements\Entry #}
+
+{# This is just a demo implementation #}
+
+
+{# Calling a behavior method here because #}
+{# - the nav tag can't be used here because it does not allow inner logic #}
+{# - see https://craftcms.com/docs/4.x/dev/tags.html#showing-children #}
+{# - getting children/parentId for each node create a ton of additional queries #}
+{# - array handling in twig is so weird... #}
+
+{# returns an array of nodes with keys entry, children #}
+
+{% set topicNodes = entry.getStructureNodes('topic') %}
+{% set defaultImage = siteInfo.featuredImage.one %}
+
+{% embed '_layouts/embeds/content-md.twig' %}
+    {% block content %}
+        {% from '_layouts/macros/lib.twig' import img %}
+
+        <div class="space-y-8 my-8">
+            {% for topicNode1 in topicNodes %}
+                {% set topic1 = topicNode1.entry %}
+                <div class="border border-gray-200 shadow-xl">
+                    <div>
+                        {% set image = topic1.featuredImage.one ?? defaultImage %}
+                        {% if image %}
+                            <div>
+                                <a href="{{ topic1.url }}" class="relative block group overflow-hidden">
+                                    <div class="absolute inset-0">
+                                        {{ img(image, {
+                                            transform: {width: 768, height: 250},
+                                            attr: {
+                                                class: "h-full w-full object-cover group-hover:opacity-75 group-hover:scale-105 group-focus:opacity-75 transition duration-300"
+                                            }
+                                        }) }}
+
+                                        <div class="absolute inset-0 bg-black/30"></div>
+                                    </div>
+
+                                    <div class="relative flex justify-center items-center text-white">
+                                        <div class="p-4 text-center my-12">
+                                            <div class="text-4xl  tracking-wider font-headings font-bold">
+                                                {{ topic1.title }}
+                                            </div>
+                                            {% if topic1.tagline %}
+                                                <div class="mt-2">
+                                                    {{ topic1.tagline }}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                        {% else %}
+                            {% include '_layouts/partials/headline.twig' with {
+                                tag: 'a',
+                                href: topic1.url,
+                                text: topic1.title
+                            } only %}
+                        {% endif %}
+                    </div>
+
+                    {% set topicNodes2 = topicNode1.children %}
+
+                    {% if topicNodes2|length %}
+                        <div class="grid grid-cols1 sm:grid-cols-2 md:grid-cols-3 gap-2 p-2">
+                            {% for topicNode2 in topicNodes2 %}
+                                {% set topic2 = topicNode2.entry %}
+                                <div>
+                                    <div class="border border-gray-400">
+                                        {% set image = topic2.featuredImage.one ?? defaultImage %}
+                                        {% if image %}
+                                            <a href="{{ topic2.url }}" class="relative block group overflow-hidden">
+
+                                                <div class="absolute inset-0">
+                                                    {{ img(image, {
+                                                        transform: {width: 640, height: 240},
+                                                        attr: {
+                                                            class: "h-full w-full object-cover group-hover:opacity-75  group-hover:scale-105  group-focus:opacity-75 transition duration-300"
+                                                        }
+                                                    }) }}
+
+                                                    <div class="absolute inset-0 bg-black/30"></div>
+                                                </div>
+
+                                                <div class="relative flex justify-center items-center">
+                                                    <div class="p-2 my-4 text-xl text-center text-white tracking-wider font-headings font-bold">
+                                                        {{ topic2.title }}
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        {% endif %}
+
+                                        {% set topicNodes3 = topicNode2.children %}
+                                        {% if topicNodes3|length %}
+                                            <div class="p-4 space-y-2">
+                                                {% for topicNode3 in topicNodes3 %}
+                                                    {% set topic3 = topicNode3.entry %}
+                                                    {{ topic3.link|attr({class: 'underline'}) }}{{ not loop.last ? ', ' }}
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                </div>
+            {% endfor %}
+        </div>
+
+    {% endblock %}
+{% endembed %}

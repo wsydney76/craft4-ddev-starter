@@ -97,7 +97,7 @@ This starter comes with a mix of functionality that is likely to be used in ever
 * Pages section: We don't use singles, instead dedicated entry sections. Main navigation shows children of the homepage.
     * Home page. One page with slug `__home__` required.
     * News Index: paginated card view of news entries
-    * FAQs: FAQs with Alpine JS component
+    * Topic Index: displays topic hierarchy
     * Contact: Simple contact form with first party Contact Form plugin
     * Sitemap
     * Search powered by Sprig
@@ -105,6 +105,7 @@ This starter comes with a mix of functionality that is likely to be used in ever
     * Nav item: Does not have its own content, it creates a primary navigation item that lists its children in a dropdown, or renders a custom template in the dropdown panel.
     * Page Template: Create a page that renders a custom page template, e.g. for more specific section indexes with eager loading enabled. This is also the place where plugins can install their own pages.
 * News section
+* Topic section
 * Person section
     * Default: Just photo, name, job description, social links. This is used in content components like testimonial, team, where details do not matter. Does not have its own page.
     * Profile: More details, like short bio, works. Plugins can use this type, e.g. for an actress profile, and provide their own frontend pages.
@@ -239,6 +240,32 @@ Also previewing pages with embedded entries is limited, what should work for now
 * Edit embedded content section in a slidout, do not save!
 * Close slideout, confirm if asked.
 * Press `Refresh`
+
+## Topics (Categories/Taxonomies)
+
+Includes a demo implementation of a 'topic' section as a taxonomy.
+
+The use of taxonomies can be very different in terms of
+
+* Number of taxonomies
+* Number of entries per taxonomy
+* Number of hierarchy levels 
+* Number of related entries
+* How to display relations (with or without hierarchy)
+* What additional content taxonomies can have
+* Whether an index page should be shown or not.
+
+The starter implements a 3-level 'Topics' taxonomy that works best with a limit number of topics.
+
+However, it is not very likely that this will meet your needs, but you may find some usefully techniques.
+
+## Navigation
+
+The main navigation uses the 'page' section hierarchy, the direct descendants of the 'homepage' entry will be shown as primary navigation items.
+
+If you want a dropdown showing another level, insert an entry of type `Nav Item` below the homepage and add subpages as children.
+
+Alternatively, you can specify a Twig template that can populate the dropdown panel as desired.
 
 ## Twig Components
 

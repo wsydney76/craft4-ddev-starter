@@ -1,0 +1,21 @@
+{% set entries = query.all %}
+{% if entries %}
+    <div class="flex space-x-4 mt-16">
+        {% for entry in entries %}
+            {% for ancestor in entry.ancestors.all %}
+
+                {% include '_layouts/partials/button.twig' with {
+                	href: ancestor.url,
+                    caption: "#{'Topic'|t}: #{ancestor.title}"
+                } only %}
+
+            {% endfor %}
+
+            {% include '_layouts/partials/button.twig' with {
+                href: entry.url,
+                caption: "#{'Topic'|t}: #{entry.title}"
+            } only %}
+
+        {% endfor %}
+    </div>
+{% endif %}

@@ -53,6 +53,8 @@ class InitController extends BaseController
         $this->actionSetUsers();
         $this->stdout(PHP_EOL);
 
+        Craft::$app->runAction('main/seed/create-topics', ['interactive' => $this->interactive]);
+
         Craft::$app->runAction('main/seed/create-entries', ['interactive' => $this->interactive]);
 
         Craft::$app->runAction('main/seed/create-homepage-content', ['interactive' => $this->interactive]);
@@ -118,6 +120,7 @@ class InitController extends BaseController
             $global->setFieldValue('postalAddress', $faker->address());
             $global->setFieldValue('email', App::env('EMAIL_ADDRESS'));
             $global->setFieldValue('phoneNumber', $faker->phoneNumber());
+            $global->setFieldValue('featuredImage', [$this->getImagesFromFolder('starter/')[0]->id ?? null]);
             $global->setFieldValue('socialLinks', [
                 ['col1' => 'mastodon', 'col2' => 'https://joinmastodon.org'],
                 ['col1' => 'instagram', 'col2' => 'https://instagram.com'],
@@ -212,6 +215,21 @@ class InitController extends BaseController
 
         $this->createEntry([
             'section' => 'page',
+            'type' => 'topicIndex',
+            'site' => 'en',
+            'title' => 'Topics',
+            'slug' => 'topics',
+            'parent' => $homepage,
+            'localized' => [
+                'de' => [
+                    'title' => 'Themen',
+                    'slug' => 'themen'
+                ]
+            ]
+        ]);
+
+        $this->createEntry([
+            'section' => 'page',
             'type' => 'default',
             'site' => 'en',
             'title' => 'About',
@@ -260,31 +278,6 @@ class InitController extends BaseController
                 ]
             ]
         ]);
-
-        /*$faqs = [];
-        for ($i = 0; $i < 4; $i++) {
-            $faqs[] = [
-                'type' => 'faq',
-                'fields' => [
-                    'question' => str_replace('.', '?', $faker->text(60)),
-                    'answer' => $faker->text(300)
-                ]
-            ];
-        }
-
-        $this->createEntry([
-            'section' => 'page',
-            'type' => 'faqs',
-            'site' => 'en',
-            'title' => 'FAQs',
-            'slug' => 'faqs',
-            'parent' => $homepage,
-            'fields' => [
-                'tagline' => $faker->text(80),
-                'faqs' => $faqs
-            ]
-        ]);*/
-
 
         $this->createEntry([
             'section' => 'legal',

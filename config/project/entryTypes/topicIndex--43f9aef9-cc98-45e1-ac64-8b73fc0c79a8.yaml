@@ -1,16 +1,9 @@
 fieldLayouts:
-  1ca0bb2f-93b6-407d-883c-8b3dac20fa95:
+  03a3dd42-247b-44aa-9c14-fb59fc17a2db:
     tabs:
       -
         elementCondition: null
         elements:
-          -
-            elementCondition: null
-            style: tip
-            tip: 'Does not have it''s own content, it creates a primary navigation item that shows a dropdown.'
-            type: craft\fieldlayoutelements\Tip
-            uid: 893bbc97-6474-49e3-a197-afc4ddbbee94
-            userCondition: null
           -
             autocapitalize: true
             autocomplete: false
@@ -33,42 +26,42 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 98cd0278-9482-4133-90ab-5f54c1b26c70
+            uid: 7de3b3ab-6bb0-4a13-8d1f-aeb473426c59
             userCondition: null
             warning: null
             width: 100
           -
             elementCondition: null
-            fieldUid: 1f5834fd-ed0d-466a-b4dd-2891fd144893 # Show Structure Navigation
+            fieldUid: 400d2e7a-d260-459d-b16d-bc388f093106 # Tagline
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 55dffd0f-7284-4b2d-9e68-1497c03e31c3
+            uid: 7e06012d-b3d4-4823-aa90-13536eabb2eb
             userCondition: null
             warning: null
             width: 100
           -
             elementCondition: null
-            fieldUid: ec70b604-43e4-45f8-bab5-0ab78983f3ce # Nav Item Template
+            fieldUid: 85898001-9c9c-4d46-abf9-a928e44f0d48 # Body Content
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: e8f64447-9feb-49b6-9548-b20a4e0fa992
+            uid: aab23caf-6f9d-4bc8-b399-6177e5046284
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: d985bf75-b350-4220-b741-8a42c5efbb01
+        uid: c7da09a7-bb5d-431c-bac3-bbf5a791cbc7
         userCondition: null
-handle: navItem
+handle: topicIndex
 hasTitleField: true
-name: 'Nav Item'
+name: 'Topic Index'
 section: 84b98802-2548-4aed-b67e-fc97f6ed9e30 # Page
-sortOrder: 8
+sortOrder: 4
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: language

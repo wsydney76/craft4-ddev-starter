@@ -1,0 +1,34 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: bd76fb6e-8765-41d3-8e8a-02e37e127c80 # Common
+handle: topics
+instructions: null
+name: Topics
+searchable: true
+settings:
+  allowSelfRelations: false
+  localizeRelations: false
+  maxRelations: null
+  minRelations: null
+  selectionCondition:
+    __assoc__:
+      -
+        - elementType
+        - craft\elements\Entry
+      -
+        - fieldContext
+        - global
+      -
+        - class
+        - craft\elements\conditions\entries\EntryCondition
+  selectionLabel: 'Add a topic'
+  showSiteMenu: false
+  source: null
+  sources:
+    - 'section:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

@@ -6,53 +6,48 @@
 
 <div class="relative">
     <div class="max-w-full">
-        <div class="relative sm:overflow-hidden">
 
-            <div class="absolute inset-0">
+        {% embed '_layouts/embeds/cover-image.twig' with {
+            image,
+            transform: config.heroTransform[config.heroWidth],
+            srcset: config.heroSrcSet[config.heroWidth],
+            attr: {
+                loading: null,
+                fetchpriority: 'high'
+            }
+        } %}
 
-                {{ img(image, {
-                    transform: config.heroTransform[config.heroWidth],
-                    srcset: config.heroSrcSet[config.heroWidth],
-                    attr: {
-                        class: 'h-full w-full object-cover',
-                        loading: null,
-                        fetchpriority: 'high'
-                    }
-                }) }}
+            {% block content %}
+                <div class="max-w-screen-md mx-auto relative text-center px-4 py-8 sm:px-6 sm:py-12 lg:py-20 lg:px-8">
 
-                <div class="absolute inset-0 bg-black/30"></div>
-            </div>
+                    {% if teaser is defined and teaser %}
+                        <div class="mb-2">
+                            {{ teaser }}
+                        </div>
+                    {% endif %}
+                    <h1 class="text-2xl font-headings font-semibold tracking-wider sm:text-3xl lg:text-4xl">
 
-            {{ imgCopyright(image) }}
+                        <span class="block">{{ title }}</span>
 
+                    </h1>
 
-            <div class="max-w-screen-md mx-auto relative text-center px-4 py-8 text-white sm:px-6 sm:py-12 lg:py-20 lg:px-8">
+                    {% if text %}
+                        <div class="prose text-white mt-4 max-w-lg mx-auto tracking-wider sm:max-w-3xl">
+                            {{ text|md|purify }}
+                        </div>
+                    {% endif %}
 
-                {% if teaser is defined and teaser %}
-                    <div class="mb-2">
-                        {{ teaser }}
-                    </div>
-                {% endif %}
-                <h1 class="text-2xl font-headings font-semibold tracking-wider sm:text-3xl lg:text-4xl">
+                    {% include '_layouts/partials/heroarea/_ctabuttons.twig' with {
+                        buttons,
+                        primaryColor: 'primary',
+                        secondaryColor: 'white',
+                        classes: 'mt-8 flex justify-center'
+                    } only %}
 
-                    <span class="block">{{ title }}</span>
+                </div>
+            {% endblock %}
 
-                </h1>
+        {% endembed %}
 
-                {% if text %}
-                    <div class="prose text-white mt-4 max-w-lg mx-auto tracking-wider sm:max-w-3xl">
-                        {{ text|md|purify }}
-                    </div>
-                {% endif %}
-
-                {% include '_layouts/partials/heroarea/_ctabuttons.twig' with {
-                    buttons,
-                    primaryColor: 'primary',
-                    secondaryColor: 'white',
-                    classes: 'mt-8 flex justify-center'
-                } only %}
-
-            </div>
-        </div>
     </div>
 </div>

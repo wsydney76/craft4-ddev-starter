@@ -3,13 +3,17 @@
 {# @param image Asset background image #}
 {# @param transform array transform definition #}
 {# @param url string optional url #}
+{# @param showCopyright bool Whether copyright should be displayed #}
 {# @param srcset array optional #}
 {# @param attr array optional additional img tag attributes #}
+
+{% from '_layouts/macros/lib.twig' import imgCopyright %}
 
 {% set url = url ?? null %}
 {% set tag = url ? 'a' : 'div' %}
 {% set srcset = srcset ?? null %}
 {% set attr = attr ?? {} %}
+{% set showCopyright = showCopyright is defined ? showCopyright : true %}
 
 {% from '_layouts/macros/lib.twig' import img %}
 
@@ -26,6 +30,11 @@
         {% endif %}
 
         <div class="absolute inset-0 bg-black/30"></div>
+
+        {% if showCopyright %}
+            {{ imgCopyright(image) }}
+        {% endif %}
+
     </div>
 
     <div class="relative flex justify-center items-center text-white">

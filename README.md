@@ -273,11 +273,14 @@ We have included a `Person` section type with two entry types:
 
 __Default__
 
-Just a name (title), job description photo.
+Just a name (title), job description photo, social links.
 
 A `News` entry can relate to multiple persons (= authors), if you do not want to show the CMS user as an author on the front end.
 
+There is a `getAuthors()` entry behavior method, that return either data from person(s) entries or, as a fallback, the user element. 
+
 While the native `author` field points to a CMS user and its permissions, you may want to display the person(s) who actually wrote the text. And user elements are not translatable.
+
 
 Also, the `Team` and `Testimonial` content components have relationships to a `Person` in order to avoid redundancy.
 

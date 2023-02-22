@@ -24,6 +24,13 @@
                         <div class="font-medium">
                             {{ author.name }}
                         </div>
+                        {% if author.socialLinks %}
+                            <div>
+                                {% include '_layouts/partials/social-icons.twig' with {
+                                	links: author.socialLinks
+                                } only %}
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}

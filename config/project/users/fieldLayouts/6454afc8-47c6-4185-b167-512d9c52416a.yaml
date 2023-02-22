@@ -1,0 +1,19 @@
+tabs:
+  -
+    elementCondition: null
+    elements:
+      -
+        elementCondition: null
+        fieldUid: bf3d514d-a34d-41d6-bb20-61c6d8119820 # Social Links
+        instructions: null
+        label: null
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        uid: 4407dd78-9f2b-4d09-8b18-d324dc3f9192
+        userCondition: null
+        warning: null
+        width: 100
+    name: Contact
+    uid: 534d80ae-eb2b-4636-aac9-4ecea2c797ab
+    userCondition: null

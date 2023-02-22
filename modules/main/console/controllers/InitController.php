@@ -352,7 +352,7 @@ class InitController extends BaseController
         $user->firstName = 'Sabine';
         $user->lastName = 'Mustermann';
         $user->setFieldValue('socialLinks', [
-            ['col1' => 'email', 'col2' => 'sabine.mustermann@example.com'],
+            ['col1' => 'email', 'col2' => 'mailto:sabine.mustermann@example.com'],
         ]);
 
         Craft::$app->elements->saveElement($user);
@@ -365,7 +365,7 @@ class InitController extends BaseController
         $user->email = 'erna.klawuppke@example.com';
         $user->setFieldValue('socialLinks', [
             ['col1' => 'mastodon', 'col2' => 'https://joinmastodon.org'],
-            ['col1' => 'email', 'col2' => 'erna.klawuppke@example.com'],
+            ['col1' => 'email', 'col2' => 'mailto:erna.klawuppke@example.com'],
         ]);
         $user->active = true;
 

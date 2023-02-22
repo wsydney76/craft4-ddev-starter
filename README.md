@@ -4,7 +4,7 @@ Multilingual Craft CMS starter for use with (or without) DDEV with a simple conf
 
 This is initially the result of a girls-only internship project, and we thank Aylin and Mel for bringing it to life and making it a success.
 
-Still work in progress, trying to make it suit for
+Still beta quality, but feature complete, tried to make it suit for
 
 * quick demos for potential customers
 * hobby or semi-professional projects

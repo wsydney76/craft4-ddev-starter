@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1677062569
+dateModified: 1677064141
 elementSources:
   craft\elements\Asset:
     -
@@ -82,7 +82,6 @@ elementSources:
       disabled: false
       key: 'section:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
       tableAttributes:
-        - 'field:e2e51276-3783-49cb-9ed0-22ae364fd49a' # Menu Title
         - type
         - slug
         - postDate
@@ -101,14 +100,15 @@ elementSources:
       type: native
     -
       defaultSort:
-        - structure
-        - asc
-      disabled: false
-      key: 'section:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
-      tableAttributes:
         - postDate
-        - author
-        - link
+        - desc
+      disabled: false
+      key: 'section:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
+      tableAttributes:
+        - 'field:0767f000-e433-4930-9534-b795a48740bb' # Teaser
+        - type
+        - 'field:78014c80-5d4b-4253-ae59-80f00e516c86' # Photo
+        - postDate
       type: native
     -
       defaultSort:
@@ -123,16 +123,19 @@ elementSources:
         - link
       type: native
     -
+      heading: Categories
+      type: heading
+    -
       defaultSort:
-        - postDate
-        - desc
+        - structure
+        - asc
       disabled: false
-      key: 'section:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
+      key: 'section:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
       tableAttributes:
-        - 'field:0767f000-e433-4930-9534-b795a48740bb' # Teaser
-        - type
-        - 'field:78014c80-5d4b-4253-ae59-80f00e516c86' # Photo
+        - 'field:400d2e7a-d260-459d-b16d-bc388f093106' # Tagline
         - postDate
+        - author
+        - link
       type: native
     -
       heading: Embedded
@@ -144,6 +147,7 @@ elementSources:
       disabled: false
       key: 'section:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
       tableAttributes:
+        - 'field:80fa81e4-1f78-4d88-b733-f565d1f5b9bd' # Image
         - postDate
       type: native
     -

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.0
+
+Added Topics section as an example for taxonomies.
+
+Still beta quality, but feature complete.
+
 ## 2.0.2 2023-02-18
 
 Craft updates.

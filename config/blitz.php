@@ -59,6 +59,14 @@ return [
                 'siteId' => '',
                 'uriPattern' => '^heroarea/*',
             ],
+            [
+                'siteId' => '',
+                'uriPattern' => '^members/*',
+            ],
+            [
+                'siteId' => '',
+                'uriPattern' => '^mitglieder/*',
+            ],
         ],
 
         // The storage type to use.

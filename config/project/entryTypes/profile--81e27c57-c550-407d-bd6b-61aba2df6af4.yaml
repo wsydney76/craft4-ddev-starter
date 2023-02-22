@@ -138,6 +138,18 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            fieldUid: bf3d514d-a34d-41d6-bb20-61c6d8119820 # Social Links
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 47f3be94-3c5b-4e74-9450-5423999ea384
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: bed7f3f2-857f-4213-81ea-c6a006acd79b
         userCondition: null

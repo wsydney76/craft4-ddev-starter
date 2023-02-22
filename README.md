@@ -267,6 +267,26 @@ If you want a dropdown showing another level, insert an entry of type `Nav Item`
 
 Alternatively, you can specify a Twig template that can populate the dropdown panel as desired.
 
+## Person section type
+
+We have included a `Person` section type with two entry types:
+
+__Default__
+
+Just a name (title), job description photo.
+
+A `News` entry can relate to multiple persons (= authors), if you do not want to show the CMS user as an author on the front end.
+
+While the native `author` field points to a CMS user and its permissions, you may want to display the person(s) who actually wrote the text. And user elements are not translatable.
+
+Also, the `Team` and `Testimonial` content components have relationships to a `Person` in order to avoid redundancy.
+
+__Profile__
+
+A more detailed entry type that is not used by the starter itself, but is included to be used by plugins, e.g. for an actress profile.
+
+Has more detailed name fields, content builder, profile fields like bio, birthday, works (e.g. filmography, books).
+
 ## Twig Components
 
 Usage is (fingers crossed) described in comments in each component.

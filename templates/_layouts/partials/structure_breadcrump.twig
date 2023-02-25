@@ -1,9 +1,11 @@
 {# @param entry Entry an entry in a structure entry  #}
 {# @param linkEntry bool Whether the entry itself shall be linked #}
+{# @param showChildren bool Whether to show the entries children #}
 
 {% set linkEntry = linkEntry is defined ? linkEntry : false %}
+{% set showChildren = showChildren is defined ? showChildren : false %}
 
-<div class="flex flex-wrap items-center  space-x-4">
+<div class="flex flex-wrap items-center space-x-4">
     {% for ancestor in entry.ancestors.all %}
         {% include '_layouts/partials/button.twig' with {
             href: ancestor.url,
@@ -27,4 +29,21 @@
             </div>
         {% endif %}
     </div>
+
+    {% if showChildren %}
+        {# TODO: This works only for a limited number of children #}
+        {% set descendants = entry.children.all %}
+        {% if descendants %}
+            <div class="">
+                {{ svg('@templates/_icons/chevron-right.svg') }}
+            </div>
+            {% for descendant in descendants %}
+                {% include '_layouts/partials/button.twig' with {
+                    href: descendant.url,
+                    caption: descendant.title,
+                    color: 'white'
+                } only %}
+            {% endfor %}
+        {% endif %}
+    {% endif %}
 </div>

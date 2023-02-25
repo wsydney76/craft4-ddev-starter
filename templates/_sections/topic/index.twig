@@ -17,35 +17,18 @@
 
 {% block content %}
 
-    {% if entry.level > 1 %}
-        {% embed '_layouts/embeds/container-md.twig' %}
-            {% block content %}
-                <div class="mb-8">
-                    {% include '_layouts/partials/structure_breadcrump.twig' with {
-                        entry
-                    } only %}
-                </div>
-            {% endblock %}
-        {% endembed %}
-    {% endif %}
 
-    {% set descendants = entry.children.all %}
+    {% embed '_layouts/embeds/container-md.twig' %}
+        {% block content %}
+            <div class="mb-8">
+                {% include '_layouts/partials/structure_breadcrump.twig' with {
+                    entry,
+                    showChildren: true
+                } only %}
+            </div>
+        {% endblock %}
+    {% endembed %}
 
-    {% if descendants %}
-        {% embed '_layouts/embeds/container-md.twig' %}
-            {% block content %}
-                <div class="flex space-x-4 my-8">
-                    {% for descendant in descendants %}
-                        {% include '_layouts/partials/button.twig' with {
-                            href: descendant.url,
-                            caption: descendant.title,
-                            color: 'white'
-                        } only %}
-                    {% endfor %}
-                </div>
-            {% endblock %}
-        {% endembed %}
-    {% endif %}
     
     {% include '_layouts/partials/content-blocks.twig' with {
         query: entry.bodyContent

@@ -41,19 +41,21 @@
     </div>
 
     {% if breadcrumpQueries is defined %}
-        {% for breadcrumpQuery in breadcrumpQueries %}
-            {% set linkedEntries = breadcrumpQuery.all %}
-            {% if linkedEntries %}
-                <div class="mt-4 space-y-4">
-                    {% for linkedEntry in linkedEntries %}
-                        {% include '_layouts/partials/structure_breadcrump.twig' with {
-                            entry: linkedEntry,
-                            linkEntry: true
-                        } only %}
-                    {% endfor %}
-                </div>
-            {% endif %}
-        {% endfor %}
+        <div class="mt-8">
+            {% for breadcrumpQuery in breadcrumpQueries %}
+                {% set linkedEntries = breadcrumpQuery.all %}
+                {% if linkedEntries %}
+                    <div class="space-y-4">
+                        {% for linkedEntry in linkedEntries %}
+                            {% include '_layouts/partials/structure_breadcrump.twig' with {
+                                entry: linkedEntry,
+                                linkEntry: true
+                            } only %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
     {% endif %}
 
 </div>

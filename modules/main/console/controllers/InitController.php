@@ -103,7 +103,7 @@ class InitController extends BaseController
      */
     public function actionSetupGlobals(): int
     {
-        $faker = Factory::create();
+        $faker = Factory::create('de_DE');
 
         $siteName = 'Starter';
         $copyright = 'Starter GmbH';
@@ -172,8 +172,6 @@ class InitController extends BaseController
      */
     public function actionCreateEntries(): int
     {
-
-        $faker = Factory::create();
 
         $homepage = $this->createEntry([
             'section' => 'page',
@@ -345,7 +343,6 @@ class InitController extends BaseController
      */
     public function actionSetUsers(): int
     {
-        $faker = Factory::create();
 
         // Set admin attributes
         $user = User::find()->one();

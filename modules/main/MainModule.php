@@ -25,6 +25,7 @@ use modules\main\validators\BodyContentValidator;
 use modules\main\widgets\MyProvisionalDraftsWidget;
 use yii\base\Event;
 use function in_array;
+use function version_compare;
 
 /**
  * @property-read EntriesService $entriesService
@@ -99,7 +100,6 @@ class MainModule extends BaseModule
 
 
             $this->hideBlockTypes();
-
         }
     }
 
@@ -165,6 +165,14 @@ class MainModule extends BaseModule
         Craft::$app->view->hook('cp.users.edit.content', function(array &$context) {
             return '<input type="text" name="dummy-first-name" value="wtf" style="display: none">';
         });
+
+        if (version_compare(Craft::$app->version, '4.4', '>=')) {
+            // Let users reset their dismissed tips/warnings
+            // This will only be called for users editing their own profile
+            Craft::$app->view->hook('cp.users.edit.prefs', function(array &$context) {
+                return Craft::$app->view->renderTemplate('main/cp-dismissed-tips.twig');
+            });
+        }
     }
 
     protected function hideBlockTypes()

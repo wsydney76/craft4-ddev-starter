@@ -115,7 +115,7 @@ This starter comes with a mix of functionality that is likely to be used in ever
 
 ### More content
 
-* Content Builder field with block types: Heading, Text, Image, Gallery, Quote, Cards, YouTube Video, Dynamic content with custom template, content sections (section page only)
+* Content Builder field with block types: Heading, Text, Image, Gallery, Quote (with style variations), Cards, YouTube Video, Dynamic content with custom template, content sections (section page only)
 * Site Info global inc. contact info
 * Assets with translatable alt text, copyright field
 
@@ -505,6 +505,12 @@ __... don't you use at least Tailwinds @apply to avoid those endless chains of c
 
 * Do not mix things up.
 * Avoid repetition by building components.
+
+__... do you add custom styles to the CP?__
+
+* The gray sidebar makes me sad...
+* We like to increase font-size and contrast.
+* We use a custom resource bundle instead of a plugin, because it can be version controlled without changing the project config. And one plugin less.
 
 __... don't you use images transforms defined in the CP?__
 

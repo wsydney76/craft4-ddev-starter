@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+* Fixed minor layout problems.
+* Added styles for block matrixblock type.
+* Added some missing translations.
+* Added some missing copyright notices for images.
+
 ## 2.1.0
 
 Added Topics section as an example for taxonomies.

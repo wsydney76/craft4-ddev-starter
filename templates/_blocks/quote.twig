@@ -2,38 +2,57 @@
 
 {% set style = block.style.value ?? 'default' %}
 
-{% switch style %}
+<div class="my-16">
+    {% switch style %}
 
-{% case "bordered" %}
+    {% case "bordered" %}
 
-    {% embed '_layouts/embeds/container-xl.twig' %}
-        {% block content %}
-            <div class="not-prose px-8">
-                <blockquote class="py-8 px-16 border-t-2 border-b-2 py-8 border-gray-700 dark:border-gray-300 text-center">
-                    <p class="text-3xl uppercase font-light mb-8 leading-relaxed">
-                        {{ block.text|quote }}
-                    </p>
-                    {% if block.cite %}
-                        <cite class="not-italic text-xl">
-                            {{ block.cite }}
-                        </cite>
-                    {% endif %}
-                </blockquote>
-            </div>
-        {% endblock %}
-    {% endembed %}
-
-
-{% case "colored" %}
-    <div class="bg-primary text-white py-16 text-center">
         {% embed '_layouts/embeds/container-xl.twig' %}
             {% block content %}
-                <blockquote class="px-8">
-                    <p class="text-xl md:text-2xl lg:text-3xl uppercase font-light mb-8 leading-relaxed lg:leading-[1.8]">
+                <div class="not-prose px-8">
+                    <blockquote class="py-8 px-16 border-t-2 border-b-2 py-8 border-gray-700 dark:border-gray-300 text-center">
+                        <p class="text-3xl uppercase font-light mb-8 leading-relaxed">
+                            {{ block.text|quote }}
+                        </p>
+                        {% if block.cite %}
+                            <cite class="not-italic text-xl">
+                                {{ block.cite }}
+                            </cite>
+                        {% endif %}
+                    </blockquote>
+                </div>
+            {% endblock %}
+        {% endembed %}
+
+
+    {% case "colored" %}
+        <div class="bg-primary text-white py-16 text-center">
+            {% embed '_layouts/embeds/container-xl.twig' %}
+                {% block content %}
+                    <blockquote class="px-8">
+                        <p class="text-xl md:text-2xl lg:text-3xl uppercase font-light mb-8 leading-relaxed lg:leading-[1.8]">
+                            {{ block.text|quote }}
+                        </p>
+                        {% if block.cite %}
+                            <cite class="not-italic text-lg lg:text-xl">
+                                {{ block.cite }}
+                            </cite>
+                        {% endif %}
+                    </blockquote>
+                {% endblock %}
+            {% endembed %}
+
+        </div>
+    {% default %}
+
+        {% embed '_layouts/embeds/container-md.twig' %}
+            {% block content %}
+                <blockquote class="py-4 border-l-4 border-primary dark:border-primary-dark pl-8">
+                    <p class="text-3xl italic text-primary dark:text-primary-dark font-bold mb-8 leading-relaxed">
                         {{ block.text|quote }}
                     </p>
                     {% if block.cite %}
-                        <cite class="not-italic text-lg lg:text-xl">
+                        <cite class="not-italic">
                             {{ block.cite }}
                         </cite>
                     {% endif %}
@@ -41,23 +60,6 @@
             {% endblock %}
         {% endembed %}
 
-    </div>
-{% default %}
 
-    {% embed '_layouts/embeds/container-md.twig' %}
-        {% block content %}
-            <blockquote class="py-4 border-l-4 border-primary dark:border-primary-dark pl-8">
-                <p class="text-3xl italic text-primary dark:text-primary-dark font-bold mb-8 leading-relaxed">
-                    {{ block.text|quote }}
-                </p>
-                {% if block.cite %}
-                    <cite class="not-italic">
-                        {{ block.cite }}
-                    </cite>
-                {% endif %}
-            </blockquote>
-        {% endblock %}
-    {% endembed %}
-
-
-{% endswitch %}
+    {% endswitch %}
+</div>

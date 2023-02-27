@@ -628,6 +628,8 @@ class SeedController extends InitController
     protected function getBodyContent(): array
     {
 
+        $localFaker = Factory::create('de_DE');
+
         $content = [
             'sortOrder' => [],
             'blocks' => []
@@ -671,7 +673,7 @@ class SeedController extends InitController
                         'type' => 'quote',
                         'fields' => [
                             'text' => $this->faker->text(80),
-                            'cite' => $this->faker->name,
+                            'cite' => $localFaker->name,
                             'style' => $this->faker->randomElement(['default', 'colored', 'bordered'])
                         ]
                     ];

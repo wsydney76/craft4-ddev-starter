@@ -5,13 +5,15 @@
 {% set linkEntry = linkEntry is defined ? linkEntry : false %}
 {% set showChildren = showChildren is defined ? showChildren : false %}
 
-<div class="flex flex-wrap items-center space-x-4">
+<div class="flex flex-wrap items-center space-x-4 mb-2">
     {% for ancestor in entry.ancestors.all %}
-        {% include '_layouts/partials/button.twig' with {
-            href: ancestor.url,
-            caption: ancestor.title,
-            color: 'white'
-        } only %}
+        <div>
+            {% include '_layouts/partials/button.twig' with {
+                href: ancestor.url,
+                caption: ancestor.title,
+                color: 'white'
+            } only %}
+        </div>
         <div class="">
             {{ svg('@templates/_icons/chevron-right.svg') }}
         </div>

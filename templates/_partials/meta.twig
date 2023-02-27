@@ -41,11 +41,13 @@
     </div>
 
     {% if breadcrumpQueries is defined %}
-        <div class="mt-8">
+        {% set foundLinkedEntries = false %}
+        <div>
             {% for breadcrumpQuery in breadcrumpQueries %}
                 {% set linkedEntries = breadcrumpQuery.all %}
                 {% if linkedEntries %}
-                    <div class="space-y-4">
+                    {# extra space for the first row #}
+                    <div class="space-y-4 {{ not foundLinkedEntries ? 'mt-8' }}">
                         {% for linkedEntry in linkedEntries %}
                             {% include '_layouts/partials/structure_breadcrump.twig' with {
                                 entry: linkedEntry,
@@ -53,6 +55,7 @@
                             } only %}
                         {% endfor %}
                     </div>
+                    {% set foundLinkedEntries = true %}
                 {% endif %}
             {% endfor %}
         </div>

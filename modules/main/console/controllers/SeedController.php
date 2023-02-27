@@ -671,7 +671,8 @@ class SeedController extends InitController
                         'type' => 'quote',
                         'fields' => [
                             'text' => $this->faker->text(80),
-                            'cite' => $this->faker->name
+                            'cite' => $this->faker->name,
+                            'style' => $this->faker->randomElement(['default', 'colored', 'bordered'])
                         ]
                     ];
                     break;

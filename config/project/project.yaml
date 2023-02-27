@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1677064141
+dateModified: 1677498690
 elementSources:
   craft\elements\Asset:
     -
@@ -233,6 +233,7 @@ meta:
     1de27fd9-bda6-4977-8d43-b36ef6813c60: Level # Level
     1f5834fd-ed0d-466a-b4dd-2891fd144893: 'Show Structure Navigation' # Show Structure Navigation
     2a1eaa07-5692-4473-9f2d-02ca85f81dfd: 'Text Modules' # Text Modules
+    2a4edc9c-3738-408b-bf08-b557bc12ee6e: Style # Style
     2bfd1710-35e5-41cb-a655-1fdaf49a0d7c: 'Featured Entries' # Featured Entries
     02d2113e-298a-47c6-a40e-413a682ac7c5: Question # Question
     2f93cb45-a9ce-4284-8848-9eb001fb8a1c: News # News

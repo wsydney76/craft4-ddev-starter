@@ -29,10 +29,68 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            fieldUid: 2a4edc9c-3738-408b-bf08-b557bc12ee6e # Style
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 15a637eb-c7ad-4f55-8838-3d4b052bc61c
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: a7e83c0a-3aa6-46d1-9a94-6a845b87b5ce
         userCondition: null
 fields:
+  2a4edc9c-3738-408b-bf08-b557bc12ee6e: # Style
+    columnSuffix: gsxskrpg
+    contentColumnType: string
+    fieldGroup: null
+    handle: style
+    instructions: null
+    name: Style
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Default
+            -
+              - value
+              - default
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Colored
+            -
+              - value
+              - colored
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Bordered
+            -
+              - value
+              - bordered
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
   9efaa99a-273e-47a3-83f7-692251886873: # Text
     columnSuffix: urypesmv
     contentColumnType: text

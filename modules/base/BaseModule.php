@@ -4,6 +4,7 @@ namespace modules\base;
 
 use Craft;
 use craft\base\conditions\BaseCondition;
+use craft\base\Element;
 use craft\base\Model;
 use craft\elements\Entry;
 use craft\events\DefineBehaviorsEvent;
@@ -11,6 +12,7 @@ use craft\events\DefineRulesEvent;
 use craft\events\RegisterComponentTypesEvent;
 use craft\events\RegisterConditionRuleTypesEvent;
 use craft\events\RegisterCpNavItemsEvent;
+use craft\events\RegisterElementActionsEvent;
 use craft\events\RegisterTemplateRootsEvent;
 use craft\i18n\PhpMessageSource;
 use craft\services\Dashboard;
@@ -19,7 +21,6 @@ use craft\web\twig\variables\Cp;
 use craft\web\twig\variables\CraftVariable;
 use craft\web\View;
 use modules\base\services\ContentService;
-use modules\main\services\ProjectService;
 use yii\base\Event;
 use yii\base\Module;
 use function array_splice;
@@ -192,6 +193,19 @@ class BaseModule extends Module
                 $event->rules[] = $rule;
             }
         });
+    }
+
+    protected function registerElementActions(string $elementType, array $actions): void
+    {
+        Event::on(
+            $elementType,
+            Element::EVENT_REGISTER_ACTIONS,
+            function(RegisterElementActionsEvent $event) use ($actions) {
+                foreach ($actions as $action) {
+                    $event->actions[] = $action;
+                }
+            }
+        );
     }
 
     protected function registerCraftVariableServices(array $services): void

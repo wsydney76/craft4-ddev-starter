@@ -4,6 +4,7 @@ namespace modules\main;
 
 use Craft;
 use craft\base\Element;
+use craft\elements\actions\CopyReferenceTag;
 use craft\elements\Entry;
 use craft\events\BlockTypesEvent;
 use craft\events\ElementEvent;
@@ -98,6 +99,10 @@ class MainModule extends BaseModule
                 [['bodyContent'], BodyContentValidator::class, 'on' => [Element::SCENARIO_LIVE]]
             ]);
 
+
+            $this->registerElementActions(Entry::class, [
+                CopyReferenceTag::class
+            ]);
 
             $this->hideBlockTypes();
         }

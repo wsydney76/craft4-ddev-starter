@@ -6,6 +6,7 @@
 * Added styles for block matrixblock type.
 * Added some missing translations.
 * Added some missing copyright notices for images.
+* Allowed reference tags in `text` block types.
 
 ## 2.1.0
 

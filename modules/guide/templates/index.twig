@@ -1,0 +1,24 @@
+{% extends "_layouts/cp.twig" %}
+{% set title = "Guide"|t %}
+
+{% set guides = craft.app.config.custom.guides %}
+
+{% block sidebar %}
+    <ul class="guide-sidebar">
+       {% for guide in guides %}
+       	    <li>
+                <a href="{{ cpUrl('guide', {guide: guide.template}) }}">{{ guide.label }}</a>
+            </li>
+       {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block content %}
+    {% if guides %}
+        {% set template = craft.app.request.queryParam('guide', guides[0].template) %}
+
+        {% include 'guide/_guide.twig' %}
+        
+    {% endif %}
+
+{% endblock %}

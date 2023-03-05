@@ -14,6 +14,7 @@ return [
     'Body' => 'Text',
     'Bordered' => 'Rahmen',
     'Colored' => 'Farbig',
+    'Contact' => 'Kontakt',
     'Content Section' => 'Inhalts-Abschnitt',
     'Content Sections' => 'Inhalts-Abschnitte',
     'Dark color mode' => 'Dunkler Farbmodus',

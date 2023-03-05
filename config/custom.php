@@ -65,6 +65,18 @@ return [
 
     ],
 
+    'showGuides' => [
+        'sections' => ['news', 'page', 'legal']
+    ],
+
+    'guides' => [
+        ['label' => 'Intro', 'template' => 'intro'],
+        ['label' => 'News', 'template' => 'content/news'],
+        ['label' => 'Page', 'template' => 'content/page'],
+        ['label' => 'Legal', 'template' => 'content/legal'],
+        ['label' => 'Blocks', 'template' => 'content/blocks'],
+    ],
+
     // this is the file as in sprig.script(), just hosting it locally. Check version after updating sprig.
     // Gets versioned by {% js craft.app.config.custom.htmxScriptUrl %} so it is safe to always use the same path
     // Copy from e.g. https://unpkg.com/htmx.org@1.8.0/dist/htmx.min.js

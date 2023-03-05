@@ -97,3 +97,25 @@ body.ltr #notifications {
 #sidebar li.heading.collapsed ul {
     display: none;
 }
+
+/* ============================= */
+
+.slideout .guide {
+    overflow-y: scroll;
+}
+
+.guide-btn {
+    margin-bottom: 12px;
+}
+
+.guide-sidebar li {
+    padding: 8px 0px;
+}
+
+.guide h1 {
+    font-size: 20px;
+}
+
+.guide h1, .guide h2 {
+    color: var(--red-700)
+}

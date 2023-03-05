@@ -1,0 +1,14 @@
+{# @param template string the guide #}
+
+{% set preferredLanguage = currentUser.preferredLanguage[:2] %}
+
+<div class="guide">
+    {% include [
+        template,
+        "_guides/#{preferredLanguage}/#{template}",
+        "_guides/#{template}",
+        "guide/_guides/#{preferredLanguage}/#{template}",
+        "guide/_guides/#{template}",
+        "guide/placeholder.twig"
+    ] %}
+</div>

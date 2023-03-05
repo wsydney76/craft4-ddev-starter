@@ -92,6 +92,8 @@ class BaseModule extends Module
                 $event->roots[$this->handle] = $this->getBasePath() . DIRECTORY_SEPARATOR . 'templates';
             });
         }
+
+
     }
 
     protected function registerBehaviors(string $className, array $behaviors): void

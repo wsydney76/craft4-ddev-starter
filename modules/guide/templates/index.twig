@@ -2,23 +2,29 @@
 {% set title = "Guide"|t %}
 
 {% set guides = craft.app.config.custom.guides %}
+{% set template = craft.app.request.queryParam('guide', guides[0].template) %}
 
 {% block sidebar %}
-    <ul class="guide-sidebar">
-       {% for guide in guides %}
-       	    <li>
-                <a href="{{ cpUrl('guide', {guide: guide.template}) }}">{{ guide.label }}</a>
-            </li>
-       {% endfor %}
-    </ul>
+    <nav>
+        <ul class="st-sidebar">
+            {% for guide in guides %}
+                {% if guide.heading is defined %}
+                    <li class="heading">
+                        <span>{{ guide.heading|t }}</span>
+                    </li>
+                {% else %}
+                    <li class="">
+                        <a class="{{ template == guide.template ? 'sel' }}"
+                           href="{{ cpUrl('guide', {guide: guide.template}) }}">{{ guide.label|t }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
 {% endblock %}
 
 {% block content %}
     {% if guides %}
-        {% set template = craft.app.request.queryParam('guide', guides[0].template) %}
-
         {% include 'guide/_guide.twig' %}
-        
     {% endif %}
-
 {% endblock %}

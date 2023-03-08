@@ -71,9 +71,11 @@ return [
 
     'guides' => [
         ['label' => 'Intro', 'template' => 'intro'],
+        ['heading' => 'Sections'],
         ['label' => 'News', 'template' => 'content/news'],
         ['label' => 'Page', 'template' => 'content/page'],
         ['label' => 'Legal', 'template' => 'content/legal'],
+        ['heading' => 'Editing'],
         ['label' => 'Blocks', 'template' => 'content/blocks'],
     ],
 

@@ -28,8 +28,8 @@ class ContentController extends Controller
         $template = Craft::$app->request->getRequiredBodyParam('template');
 
         return $this->asRaw($this->view->renderTemplate(
-            "guide/_guide.twig",
+            "guide/_guide-slideout.twig",
             ['template' => $template],
-            View::TEMPLATE_MODE_SITE));
+            View::TEMPLATE_MODE_CP));
     }
 }

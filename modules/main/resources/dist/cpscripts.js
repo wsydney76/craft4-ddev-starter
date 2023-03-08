@@ -105,11 +105,8 @@ function getStorageName(elementType) {
 }
 
 
-function showGuide(template) {
-    openSlideout('guide/content/show', {template: template})
-}
 
-function openPopup(action, data = {}, element) {
+function st_openPopup(action, data = {}, element) {
     Craft.sendActionRequest('POST', action, {data})
         .then((response) => {
             console.log(response)
@@ -125,12 +122,12 @@ function openPopup(action, data = {}, element) {
 }
 
 // Show action response in slideout
-function openSlideout(action, data = {}) {
+function st_openSlideout(action, data = {}) {
     Craft.sendActionRequest('POST', action, {data})
         .then((response) => {
             console.log(response)
-            new Craft.Slideout(response.data, {
-                containerAttributes: {class: 'co-slideout-container'}
+            slideout = new Craft.Slideout(response.data, {
+                containerAttributes: {class: 'st-slideout-container'}
             })
         })
         .catch((error) => {

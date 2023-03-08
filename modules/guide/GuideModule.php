@@ -6,10 +6,14 @@ use Craft;
 use craft\elements\Entry;
 use craft\events\DefineHtmlEvent;
 use craft\events\RegisterCpNavItemsEvent;
+use craft\events\RegisterTemplateRootsEvent;
+use craft\helpers\App;
 use craft\web\twig\variables\Cp;
+use craft\web\View;
 use modules\base\BaseModule;
 use yii\base\Event;
 use yii\base\Module;
+use const DIRECTORY_SEPARATOR;
 
 
 /**
@@ -37,7 +41,14 @@ class GuideModule extends BaseModule
     {
         // Register event handlers here ...
         // (see https://craftcms.com/docs/4.x/extend/events.html to get started)
-        $this->registerTemplateRoots();
+        Event::on(
+            View::class,
+            View::EVENT_REGISTER_CP_TEMPLATE_ROOTS, function(RegisterTemplateRootsEvent $event): void {
+            $event->roots['guide'] = $this->getBasePath() . DIRECTORY_SEPARATOR . 'templates';
+            // Enable twig to use templates available only in 'site' template mode
+            $event->roots['_guides'] = App::parseEnv('@templates/_guides');
+            $event->roots['_layouts'] = App::parseEnv('@templates/_layouts');
+        });
 
         Event::on(
             Entry::class,

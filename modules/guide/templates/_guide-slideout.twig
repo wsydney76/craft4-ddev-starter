@@ -1,0 +1,7 @@
+{# @param template string the guide #}
+
+{% embed '_layouts/embeds/slideout.twig' %}
+    {% block content %}
+        {% include 'guide/_guide.twig' %}
+    {% endblock %}
+{% endembed %}

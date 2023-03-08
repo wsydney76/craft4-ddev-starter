@@ -14,10 +14,14 @@ use craft\helpers\App;
 $isDev = App::env('CRAFT_ENVIRONMENT') === 'dev';
 $isProd = App::env('CRAFT_ENVIRONMENT') === 'production';
 
+$cpTrigger = 'admin';
+$isCpRequest = str_starts_with($_SERVER['REQUEST_URI'], "/$cpTrigger") || str_starts_with($_GET['p'], $cpTrigger);
+
 return
 	GeneralConfig::create()
 		->devMode($isDev)
 		->allowAdminChanges($isDev)
+        ->cpTrigger($cpTrigger)
 
 		->maxRevisions(10)
 
@@ -38,7 +42,7 @@ return
 
 		->convertFilenamesToAscii(true)
 		->maxUploadFileSize('32M')
-		->generateTransformsBeforePageLoad(true)
+		->generateTransformsBeforePageLoad(!$isCpRequest)
 		->optimizeImageFilesize(false)
 		->revAssetUrls(true)
 

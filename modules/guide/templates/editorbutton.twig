@@ -1,7 +1,9 @@
-
 {% if entry.section.handle in craft.app.config.custom.showGuides.sections %}
-    <div class="guide-btn">
-        <button type="button" onclick="showGuide('{{ "content/#{entry.section.handle}" }}')" class="btn">Guide</button>
-    </div>
+    <button type="button" onclick="showGuide('{{ "content/#{entry.section.handle}" }}')" class="btn">Guide</button>
 {% endif %}
 
+{% js %}
+function showGuide(template) {
+    st_openSlideout('guide/content/show', {template: template})
+}
+{% endjs %}

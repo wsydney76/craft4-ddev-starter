@@ -78,16 +78,19 @@ body.ltr #notifications {
 #sidebar li.heading > span {
     font-size: 14px;
     letter-spacing: 1px;
-    cursor: pointer;
     display: block;
 }
 
-#sidebar li.heading > span:hover::after {
+#sidebar ul:not(.st-sidebar) li.heading > span {
+    cursor: pointer;
+}
+
+#sidebar ul:not(.st-sidebar) li.heading > span:hover::after {
     content: '  [-]';
     font-weight: normal;
     font-size: 12px;
 }
-#sidebar li.heading.collapsed > span::after {
+#sidebar ul:not(.st-sidebar) li.heading.collapsed > span::after {
     content: ' [+]';
     font-weight: normal;
     font-size: 12px;
@@ -98,24 +101,27 @@ body.ltr #notifications {
     display: none;
 }
 
-/* ============================= */
+/* Slideouts */
+/* TODO: this should be somehow possible with core classes */
+/* This is just a quick workaround because new Craft.Slideout() adds padding by default */
 
-.slideout .guide {
-    overflow-y: scroll;
+.st-slideout-container {
+    padding: 0 !important;
 }
 
-.guide-btn {
-    margin-bottom: 12px;
+.slideout .st-slideout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-.guide-sidebar li {
-    padding: 8px 0px;
+.slideout .st-slideout-body {
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 24px 24px 0 24px;
+    overflow-y: auto;
 }
 
-.guide h1 {
-    font-size: 20px;
-}
-
-.guide h1, .guide h2 {
-    color: var(--red-700)
+.slideout .st-slideout-footer {
+    padding: 0 24px 24px 24px;
 }

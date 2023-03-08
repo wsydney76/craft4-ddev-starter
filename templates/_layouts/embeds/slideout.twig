@@ -1,0 +1,13 @@
+<div class="st-slideout">
+    <div class="st-slideout-body">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="st-slideout-footer">
+        <div class="fld-element-settings-footer">
+            <div class="flex-grow"></div>
+            <button type="button" class="btn" onclick="slideout.close()">
+                <div class="label">{{ 'Close'|t }}</div>
+            </button>
+        </div>
+    </div>
+</div>

@@ -14,7 +14,8 @@
 * Updated field types to use selectize inputs for consistency.
 * Made tips/warnings dismissible.
 * Added 'Restore dismissed tips' utility to user preferences page.
-* 
+* Converted `Site Info` global set to a single section.
+* Added  `d` and `dd` twig functions that act like the core `dump` function and `dd` tag, but output the dump with better accessibility (opinionated, the standard output is not readable for old men like me in dark mode with small font size). 
 
 ## 2.1.0
 

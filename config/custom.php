@@ -40,7 +40,7 @@ return [
 
     // Reused for eager loading transform records
     'cardTransform' => ['width' => 450, 'height' => 250],
-    'cardletTransform' => ['width' => 220, 'height' => 120],
+    'cardletTransform' => ['width' => 220, 'height' => 160],
 
     // Fallback, used for seo/json-ld
     'defaultTransform' => ['width' => 1024],

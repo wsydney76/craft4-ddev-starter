@@ -92,7 +92,7 @@ class AssetsController extends Controller
     public function actionCreateTransforms(): int
     {
 
-        if ($this->interactive && !$this->confirm('Retrieve each page to create missing image sizes? This may take some time.', true)) {
+        if ($this->interactive && !$this->confirm('Retrieve each page to create missing image sizes? This will take some time.', true)) {
             return ExitCode::UNSPECIFIED_ERROR;
         }
 

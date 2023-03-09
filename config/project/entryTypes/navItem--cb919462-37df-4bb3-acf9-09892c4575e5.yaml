@@ -5,6 +5,7 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            dismissible: true
             elementCondition: null
             style: tip
             tip: 'Does not have it''s own content, it creates a primary navigation item that shows a dropdown.'

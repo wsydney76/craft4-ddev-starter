@@ -65,6 +65,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dismissible: true
             elementCondition: null
             style: tip
             tip: 'Contact Form will be inserted here'

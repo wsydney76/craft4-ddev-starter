@@ -5,6 +5,7 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            dismissible: true
             elementCondition: null
             style: warning
             tip: 'The Emaillist plugin must be installed!'

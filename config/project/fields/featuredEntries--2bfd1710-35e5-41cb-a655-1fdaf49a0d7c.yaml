@@ -7,7 +7,9 @@ name: 'Featured Entries'
 searchable: false
 settings:
   allowSelfRelations: false
+  branchLimit: null
   localizeRelations: false
+  maintainHierarchy: false
   maxRelations: null
   minRelations: null
   selectionCondition:
@@ -23,7 +25,6 @@ settings:
         - craft\elements\conditions\entries\EntryCondition
   selectionLabel: null
   showSiteMenu: false
-  source: null
   sources: '*'
   targetSiteId: null
   validateRelatedElements: false

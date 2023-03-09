@@ -55,7 +55,9 @@ fields:
     searchable: false
     settings:
       allowSelfRelations: false
+      branchLimit: null
       localizeRelations: false
+      maintainHierarchy: false
       maxRelations: 1
       minRelations: null
       selectionCondition:
@@ -71,7 +73,6 @@ fields:
             - craft\elements\conditions\entries\EntryCondition
       selectionLabel: 'Select entry'
       showSiteMenu: false
-      source: null
       sources:
         - 'section:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # News
         - 'section:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page

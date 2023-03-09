@@ -78,7 +78,9 @@ fields:
     searchable: true
     settings:
       allowSelfRelations: false
+      branchLimit: null
       localizeRelations: false
+      maintainHierarchy: false
       maxRelations: null
       minRelations: null
       selectionCondition:
@@ -94,7 +96,6 @@ fields:
             - craft\elements\conditions\entries\EntryCondition
       selectionLabel: null
       showSiteMenu: false
-      source: null
       sources:
         - 'section:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # News
       targetSiteId: null

@@ -5,6 +5,7 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            dismissible: true
             elementCondition: null
             style: warning
             tip: 'There must be only one entry of type __home__ .The slug MUST be set to __\_\_home\_\___'
@@ -98,6 +99,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dismissible: true
             elementCondition: null
             style: tip
             tip: "Homepage content will be inserted here.\r\n\r\nDescendants will be displayed in the main navigation."

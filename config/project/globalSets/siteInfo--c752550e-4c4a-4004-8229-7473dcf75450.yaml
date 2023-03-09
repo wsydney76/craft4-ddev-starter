@@ -179,6 +179,7 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            dismissible: false
             elementCondition: null
             style: tip
             tip: 'Use __youtubeConsent__ as as key'

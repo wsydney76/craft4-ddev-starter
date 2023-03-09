@@ -7,6 +7,14 @@
 * Added some missing translations.
 * Added some missing copyright notices for images.
 * Allowed reference tags in `text` block types.
+* Added a simple 'Guide' module.
+
+### Update to Craft 4.4.0
+
+* Updated field types to use selectize inputs for consistency.
+* Made tips/warnings dismissible.
+* Added 'Restore dismissed tips' utility to user preferences page.
+* 
 
 ## 2.1.0
 

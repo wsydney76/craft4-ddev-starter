@@ -7,7 +7,9 @@ name: 'Content Components'
 searchable: true
 settings:
   allowSelfRelations: false
+  branchLimit: null
   localizeRelations: false
+  maintainHierarchy: false
   maxRelations: null
   minRelations: null
   selectionCondition:
@@ -23,7 +25,6 @@ settings:
         - craft\elements\conditions\entries\EntryCondition
   selectionLabel: 'Add a content component'
   showSiteMenu: false
-  source: null
   sources:
     - 'section:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
     - 'section:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area

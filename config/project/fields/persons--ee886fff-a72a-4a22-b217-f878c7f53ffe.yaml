@@ -7,7 +7,9 @@ name: Persons
 searchable: true
 settings:
   allowSelfRelations: false
+  branchLimit: null
   localizeRelations: false
+  maintainHierarchy: false
   maxRelations: null
   minRelations: null
   selectionCondition:
@@ -23,7 +25,6 @@ settings:
         - craft\elements\conditions\entries\EntryCondition
   selectionLabel: 'Add a person'
   showSiteMenu: false
-  source: null
   sources:
     - 'section:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
   targetSiteId: null

@@ -4,6 +4,7 @@ namespace modules\main\console\controllers;
 
 use Craft;
 use craft\elements\Asset;
+use craft\elements\Entry;
 use craft\elements\GlobalSet;
 use craft\elements\User;
 use craft\helpers\App;
@@ -94,7 +95,7 @@ class InitController extends BaseController
     }
 
     /**
-     * Sets (mostly faked) field values for the siteInfo global set
+     * Sets (mostly faked) field values for the siteInfo single
      *
      * @return int
      * @throws \Throwable
@@ -115,7 +116,7 @@ class InitController extends BaseController
 
 
         // Set Globals
-        $global = GlobalSet::find()->handle('siteInfo')->site('en')->one();
+        $global = Entry::find()->section('siteInfo')->site('en')->one();
         if ($global) {
             $global->setFieldValue('siteName', $siteName);
             $global->setFieldValue('copyright', $copyright);
@@ -143,7 +144,7 @@ class InitController extends BaseController
             Craft::$app->elements->saveElement($global);
         }
 
-        $global = GlobalSet::find()->handle('siteInfo')->site('de')->one();
+        $global = Entry::find()->section('siteInfo')->site('de')->one();
         if ($global) {
             $block = $global->textModules->one();
             $global->setFieldValue('textModules', [

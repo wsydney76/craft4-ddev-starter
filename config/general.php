@@ -22,16 +22,17 @@ return
 		->devMode($isDev)
 		->allowAdminChanges($isDev)
         ->cpTrigger($cpTrigger)
+        ->preloadSingles()
 
 		->maxRevisions(10)
 
-		->omitScriptNameInUrls(true)
+		->omitScriptNameInUrls()
         ->cpHeadTags([
             ['link', ['rel' => 'icon', 'href' => '/favicon.ico']],
         ])
-		->limitAutoSlugsToAscii(true)
+		->limitAutoSlugsToAscii()
 
-		->preventUserEnumeration(true)
+		->preventUserEnumeration()
 		->sendPoweredByHeader(false)
 		->disallowRobots(!$isProd)
         ->errorTemplatePrefix('_errors/')
@@ -40,13 +41,13 @@ return
 		->defaultTemplateExtensions(['twig'])
 		->enableTemplateCaching($isProd)
 
-		->convertFilenamesToAscii(true)
+		->convertFilenamesToAscii()
 		->maxUploadFileSize('32M')
 		->generateTransformsBeforePageLoad(!$isCpRequest)
 		->optimizeImageFilesize(false)
-		->revAssetUrls(true)
+		->revAssetUrls()
 
-		->useIframeResizer(true)
+		->useIframeResizer()
 
         ->enableGql(false)
 

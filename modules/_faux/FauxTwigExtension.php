@@ -60,7 +60,7 @@ class FauxTwigExtension extends AbstractExtension implements GlobalsInterface
 
 
             // Global Set
-            'siteInfo' => new GlobalSet(),
+            'siteInfo' => new Entry(),
 
             // Collections (Query results)
             'entries' => new ElementCollection(),

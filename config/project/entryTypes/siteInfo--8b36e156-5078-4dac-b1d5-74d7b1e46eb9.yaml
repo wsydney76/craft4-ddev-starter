@@ -1,9 +1,35 @@
 fieldLayouts:
-  f4019294-72d3-498d-a196-72612042deb5:
+  9e769ade-981f-4d62-8a34-a99331cadaaa:
     tabs:
       -
         elementCondition: null
         elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: b9e87b55-ef6f-421f-b975-d74962ec607e
+            userCondition: null
+            warning: null
+            width: 100
           -
             elementCondition: null
             fieldUid: 3e35a043-a62e-4ede-acd6-44dfb92d6914 # Site Name
@@ -12,7 +38,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 6f6b964a-7458-4e96-bbf6-7d922977be65
+            uid: 60519a3e-3e38-4400-8f9a-c25beeb9b07c
             userCondition: null
             warning: null
             width: 100
@@ -24,7 +50,7 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: a9c3e3e7-43b6-4184-afa5-6b30cf30ad82
+            uid: 40eee3c0-0575-4c4e-8f8c-6f7d65b5c38e
             userCondition:
               class: craft\elements\conditions\users\UserCondition
               conditionRules:
@@ -44,7 +70,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: edb4663c-ed87-4c0d-80ee-fa175abb697c
+            uid: 29d387be-3278-42fc-a9d2-2fd1e9a23c71
             userCondition: null
             warning: null
             width: 100
@@ -56,7 +82,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 682f84eb-f62e-4211-a156-f8f302904d65
+            uid: c9700ff7-ea01-4a92-a652-11516d38aee1
             userCondition: null
             warning: null
             width: 100
@@ -68,12 +94,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: a17c1872-4146-4578-9f61-54b0c65cbb05
+            uid: cd840675-51c0-41da-ab17-eba26aad36d7
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 5e034a3c-8cf7-46cb-a494-076274149e80
+        uid: b6f55c4a-511b-4037-8d75-358f4bc1ba4f
         userCondition: null
       -
         elementCondition: null
@@ -86,7 +112,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 1ee4cc86-fd3b-4c5a-a8b6-126e134bb46e
+            uid: 9d9cf86d-66cf-4e6c-8d8f-ffa9e5dcf475
             userCondition: null
             warning: null
             width: 100
@@ -98,7 +124,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 2a9bdd21-bf46-45a2-b58f-9b52078cb4cf
+            uid: b921a404-e21a-4930-a0c4-d9ad9da5e1c3
             userCondition: null
             warning: null
             width: 50
@@ -110,7 +136,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 93e45923-92bc-4621-8c4e-e92635d3053d
+            uid: afc3147d-9f54-4d55-80a1-eac004f83b9e
             userCondition: null
             warning: null
             width: 50
@@ -122,7 +148,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 544fbedc-652c-48a6-870d-def3768fa4d2
+            uid: 2d312e13-bf8f-44fb-a9e7-002b366c9eaa
             userCondition: null
             warning: null
             width: 100
@@ -130,7 +156,7 @@ fieldLayouts:
             elementCondition: null
             heading: 'Settings for sending system emails'
             type: craft\fieldlayoutelements\Heading
-            uid: 74567a4c-4c35-4f10-a2d0-acd8f79efca4
+            uid: 0637b212-ffec-4125-af4d-730766f1a0e6
             userCondition: null
           -
             elementCondition: null
@@ -140,7 +166,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 9ab522c0-8785-4c9d-8c88-d00f5f0df62b
+            uid: cd592fd7-0639-47d7-b9b9-3c4f1cf1e9c5
             userCondition:
               class: craft\elements\conditions\users\UserCondition
               conditionRules:
@@ -160,7 +186,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 5de2736a-9d8f-4c2a-9adf-07045925c4f4
+            uid: d76a3860-0754-4fba-b0f3-6c17e09b4cef
             userCondition:
               class: craft\elements\conditions\users\UserCondition
               conditionRules:
@@ -173,18 +199,18 @@ fieldLayouts:
             warning: null
             width: 50
         name: 'Contact Info'
-        uid: 5dc9b1dc-3459-46c0-a2de-b94398aab95c
+        uid: 73e483b6-dbd7-4378-9ce8-e0e6f90046da
         userCondition: null
       -
         elementCondition: null
         elements:
           -
-            dismissible: false
+            dismissible: true
             elementCondition: null
             style: tip
             tip: 'Use __youtubeConsent__ as as key'
             type: craft\fieldlayoutelements\Tip
-            uid: ca207e21-d768-4ba5-95c6-ffc57d49fb3c
+            uid: 253cfd36-6790-4618-b5f7-86da6aab0f0e
             userCondition: null
           -
             elementCondition: null
@@ -194,18 +220,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: e88c165a-f959-424f-9473-b9136b04549c
+            uid: 4896bd81-50a1-4e6b-968c-ccdb76ee0530
             userCondition: null
             warning: null
             width: 100
-          -
-            elementCondition: null
-            heading: 'Contact Info'
-            type: craft\fieldlayoutelements\Heading
-            uid: 6edb1a73-f7e8-4bf7-8399-4da130e8d54c
-            userCondition: null
         name: 'Text Modules'
-        uid: 509a171b-c72c-438c-9736-fdeab41e4eac
+        uid: 3db67718-7e3d-4d40-8c35-9276ae586f65
         userCondition: null
       -
         elementCondition: null
@@ -218,7 +238,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 2f026524-a355-4411-a822-944ebbd41c45
+            uid: faf46b13-13e0-4d49-8f58-4c843e7a37b1
             userCondition: null
             warning: null
             width: 100
@@ -230,12 +250,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: fb705374-5aed-4b8b-bcfe-ba9af7b1d0f5
+            uid: 3f3c968f-473a-4817-8922-66363870d294
             userCondition: null
             warning: null
             width: 100
         name: SEO
-        uid: de26a68f-7ada-4076-b3eb-0cf05f9f8bc4
+        uid: 4733ec62-0324-4ca3-867d-0f59b8c54754
         userCondition: null
       -
         elementCondition: null
@@ -248,7 +268,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: e46b5663-6a06-45f1-bd77-09973a6d6b79
+            uid: c9f86f5d-b367-4b95-a1c2-ea5c6ecc97d4
             userCondition:
               class: craft\elements\conditions\users\UserCondition
               conditionRules:
@@ -268,7 +288,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 7b26d798-9fc4-4a5e-91b3-5725526fabe2
+            uid: db304090-e414-4781-850c-e3e7ebf53153
             userCondition:
               class: craft\elements\conditions\users\UserCondition
               conditionRules:
@@ -288,7 +308,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 981d2bd2-7d96-41db-bc28-f225b9984a1b
+            uid: 3768aa6d-b3e5-436c-b924-b183eaf8e609
             userCondition:
               class: craft\elements\conditions\users\UserCondition
               conditionRules:
@@ -301,7 +321,7 @@ fieldLayouts:
             warning: null
             width: 25
         name: System
-        uid: 409bfca0-9a0d-4d28-8a6d-565b2e765948
+        uid: 811ba1e8-39a4-4095-9ec7-e4f8a6675de4
         userCondition:
           class: craft\elements\conditions\users\UserCondition
           conditionRules:
@@ -312,5 +332,10 @@ fieldLayouts:
           elementType: craft\elements\User
           fieldContext: global
 handle: siteInfo
+hasTitleField: false
 name: 'Site Info'
+section: 71c1782e-c5bc-4d87-840e-0a4c1a643eff # Site Info
 sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

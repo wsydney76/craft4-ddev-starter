@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1678356241
+dateModified: 1678357714
 elementSources:
   craft\elements\Asset:
     -
@@ -75,6 +75,15 @@ elementSources:
     -
       heading: Site
       type: heading
+    -
+      defaultSort:
+        - title
+        - asc
+      disabled: false
+      key: singles
+      tableAttributes:
+        - link
+      type: native
     -
       defaultSort:
         - structure
@@ -166,6 +175,11 @@ elementSources:
     -
       condition:
         class: craft\elements\conditions\entries\EntryCondition
+        conditionRules:
+          -
+            class: modules\main\conditions\HasDraftsConditionRule
+            uid: d043154b-2263-4f5b-9195-6c227606c4fe
+            value: true
         elementType: craft\elements\Entry
         fieldContext: global
       defaultSort:
@@ -259,6 +273,7 @@ meta:
     6c3cc577-cf01-4446-9846-f0f2f6ea3655: 'Short Bio' # Short Bio
     7b8b6f04-9d76-4b26-8276-96a80183750e: Quote # Quote
     7fda4ce3-4bdd-4fbe-b32f-35a5e6707295: 'News Index' # News Index
+    8b36e156-5078-4dac-b1d5-74d7b1e46eb9: 'Site Info' # Site Info
     8e7aba7b-4624-4470-b007-a84c85242f36: 'Sold Out' # Sold Out
     08f7545c-870e-4727-a418-660af19052ea: Buttons # Buttons
     8f596240-23ec-46cd-abe2-386291b11179: 'Content Editors' # Content Editors
@@ -277,6 +292,7 @@ meta:
     48fde250-325a-44bf-9238-66f0e831a883: Image # Image
     61c8dfb5-4ac7-420b-ad8e-5cad0d464a98: Description # Description
     67a97a95-ddb9-4d73-a10b-649ba6d997cd: Privacy # Privacy
+    71c1782e-c5bc-4d87-840e-0a4c1a643eff: 'Site Info' # Site Info
     72a3030d-cba4-4a39-ba7f-553d7116aeaf: Gallery # Gallery
     79c4d030-bf02-41c3-9a3e-260e28284dcf: 'Text Module' # Text Module
     080cb307-609c-4155-9c50-b6248db4d974: Text # Text
@@ -355,7 +371,6 @@ meta:
     c72e758a-f6c3-42cd-896b-3ff6353ed259: 'Featured Image' # Featured Image
     c908a30e-b8c5-44de-b9ee-7ae52d9c4c07: 'CTA Caption' # CTA Caption
     c38953ca-ba84-4992-8deb-65aa2fc40b34: 'Hero Area' # Hero Area
-    c752550e-4c4a-4004-8229-7473dcf75450: 'Site Info' # Site Info
     cb919462-37df-4bb3-acf9-09892c4575e5: 'Nav Item' # Nav Item
     cc3fbab0-826f-4aed-b2aa-eeaecc2964bf: 'Alt Text' # Alt Text
     cf967bc8-e8fd-4cd3-b66c-998982d2cc6c: 'Booking Status' # Booking Status

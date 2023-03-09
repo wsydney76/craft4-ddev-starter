@@ -1,4 +1,4 @@
-description: null
+description: ''
 handle: contentEditors
 name: 'Content Editors'
 permissions:
@@ -30,7 +30,6 @@ permissions:
   - 'deletepeerentrydrafts:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
   - 'deletepeerentrydrafts:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
   - 'deletepeerentrydrafts:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
-  - 'editglobalset:c752550e-4c4a-4004-8229-7473dcf75450' # Site Info
   - 'editimages:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
   - 'editimages:ed627edd-73bd-4b75-8684-f410bf4e4b9d' # Temporary Images
   - 'editpeerimages:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images

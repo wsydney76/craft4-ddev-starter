@@ -13,6 +13,7 @@ return [
     'Block {index}: H{level} cannot follow H{lastHeadingLevel}.' => 'Block {index}: H{level} kann nicht auf H{lastHeadingLevel} folgen.',
     'Body' => 'Text',
     'Bordered' => 'Rahmen',
+    'Categories' => 'Kategorien',
     'Colored' => 'Farbig',
     'Contact' => 'Kontakt',
     'Content Section' => 'Inhalts-Abschnitt',

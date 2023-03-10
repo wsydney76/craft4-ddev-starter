@@ -1,4 +1,4 @@
-# Craft 4 Simple Starter
+# Craft 4 Starter
 
 Multilingual Craft CMS starter for use with (or without) DDEV with a simple config and opinionated templating conventions, can be useful as a starting point.
 
@@ -12,6 +12,10 @@ Still beta quality, but feature complete, tried to make it suit for
 * prototyping new stuff
 * playground for internships and student theses
 * basis for ongoing PoCs, that try to split existing functionality into a series of plugins.
+
+## Versions
+
+Tagged a provisional 3.0.0 version for Craft 4.4, use 2.1.0 for Craft 4.3. 
 
 ## Disclaimer
 

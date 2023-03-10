@@ -1,15 +1,17 @@
 # Changelog
 
-## Unreleased
+## 3.0.0 2023-03-10
 
 * Fixed minor layout problems.
 * Added styles for block matrixblock type.
 * Added some missing translations.
 * Added some missing copyright notices for images.
 * Allowed reference tags in `text` block types.
-* Added a simple 'Guide' module.
+* Added a simple 'Guide' module (to be improved).
 
-### Update to Craft 4.4.0
+### Update to Craft 4.4.1
+
+Just one day old, things may change/still have bugs...
 
 * Updated field types to use selectize inputs for consistency.
 * Made tips/warnings dismissible.

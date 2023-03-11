@@ -49,10 +49,12 @@
                     {# extra space for the first row #}
                     <div class="space-y-4 {{ not foundLinkedEntries ? 'mt-8' }}">
                         {% for linkedEntry in linkedEntries %}
-                            {% include '_layouts/partials/structure_breadcrump.twig' with {
-                                entry: linkedEntry,
-                                linkEntry: true
-                            } only %}
+                            <div class="py-2">
+                                {% include '_layouts/partials/structure_breadcrump.twig' with {
+                                    entry: linkedEntry,
+                                    linkEntry: true
+                                } only %}
+                            </div>
                         {% endfor %}
                     </div>
                     {% set foundLinkedEntries = true %}

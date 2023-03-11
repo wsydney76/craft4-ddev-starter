@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+* Replaced the new Dumper app component for better readability and accessibility.
+* Dropped custem d/dd twig functions
+
 ## 3.0.0 2023-03-10
 
 * Fixed minor layout problems.

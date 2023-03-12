@@ -10,6 +10,9 @@ return [
     // container|2xl|xl|lg
     'navWidth' => 'container',
 
+    // Whether to show level 3 pages in a dropdown in the main navigation
+    'showChildrenInMainNav' => false,
+
     // Breakpoint when to show the mobile nav (hamburger), defined in nav.twig
     // md|lg|xl|2xl|never|always
     'mobileNavBreakpoint' => 'md',

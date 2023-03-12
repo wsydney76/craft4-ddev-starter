@@ -267,9 +267,12 @@ However, it is not very likely that this will meet your needs, but you may find 
 
 The main navigation uses the 'page' section hierarchy, the direct descendants of the 'homepage' entry will be shown as primary navigation items.
 
-If you want a dropdown showing another level, insert an entry of type `Nav Item` below the homepage and add subpages as children.
+If you want a dropdown showing another level, 
 
-Alternatively, you can specify a Twig template that can populate the dropdown panel as desired.
+* insert an entry of type `Nav Item` below the homepage and add subpages as children. This will create a consitent UX, where clicking a nav item (text or down arrow) will open a dropdown menu. Alternatively, you can specify a Twig template that can populate the dropdown panel as desired.
+* set `showChildrenInMainNav = true` in `config/custom.php`. This will link the main navigation item to the level 2 page, clicking the down arrow will open a dropdown showing the level 3 pages. This has real life precedents and does not require a helper product, but the UX is less clear.
+
+You should not mix these two possibilities
 
 ## Person section type
 

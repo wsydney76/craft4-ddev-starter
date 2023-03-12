@@ -6,10 +6,12 @@
 
 {% from '_layouts/macros/lib.twig' import navLinkClasses %}
 
+{% set title = entry is defined ? entry.title : '' %}
+
 {% if children %}
     {% if isDesktop %}
         {% embed '_layouts/components/alpinejs/dropdown.twig' with {
-            caption: entry.title,
+            caption: title,
             active,
             style: 'nav'
         } %}
@@ -25,8 +27,8 @@
     {% else %}
         {% from '_layouts/macros/lib.twig' import navLink %}
         <div class="{{ navLinkClasses() }}">
-            {{ entry.title }}
-            <ul class="ml-8 space-y-4 mt-4">
+            {{ title }}
+            <ul class="ml-8 space-y-4 {{ entry is defined ? 'mt-4' }}">
                 {% for child in children %}
                     <li>{{ navLink(child.menuTitle ?: child.title, child.url) }}</li>
                 {% endfor %}

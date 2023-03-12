@@ -1,16 +1,26 @@
 {% from '_layouts/macros/lib.twig' import navLink %}
 
 {% for navEntry in navEntries|filter(e => e.level == 2) %}
+
+    {% set children = navEntries|filter(e => e.parentId == navEntry.id) %}
+
     {% if navEntry.type.handle == 'navItem' %}
         {% set navTemplate = navEntry.navItemTemplate ?? '_layouts/partials/nav/item.twig' %}
 
         {% include navTemplate with {
             entry: navEntry,
-            children: navEntries|filter(e => e.parentId == navEntry.id),
+            children,
             active: false,
             isDesktop: false
         } only %}
     {% else %}
         {{ navLink(navEntry.menuTitle ?: navEntry.title, navEntry.url) }}
+        {% if craft.app.config.custom.showChildrenInMainNav and children %}
+            {% include '_layouts/partials/nav/item.twig' with {
+            	children,
+                active: false,
+                isDesktop: false
+            } only %}
+        {% endif %}
     {% endif %}
 {% endfor %}

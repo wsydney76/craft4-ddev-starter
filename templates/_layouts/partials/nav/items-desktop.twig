@@ -4,6 +4,7 @@
 
     {% set active = craft.app.request.segment(1) == navEntry.slug %}
 
+    {% set children = navEntries|filter(e => e.parentId == navEntry.id) %}
 
     {% if navEntry.type.handle == 'navItem' %}
 
@@ -11,13 +12,24 @@
 
         {% include navTemplate with {
         	entry: navEntry,
-            children: navEntries|filter(e => e.parentId == navEntry.id),
+            children,
             active,
             isDesktop: true
         } only %}
 
     {% else %}
-        {{ navLink(navEntry.menuTitle ?: navEntry.title, navEntry.url, active) }}
+        <div class="{{ children ? 'flex items-center' }}">
+            {{ navLink(navEntry.menuTitle ?: navEntry.title, navEntry.url, active) }}
+
+            {% if craft.app.config.custom.showChildrenInMainNav and children %}
+                {% include '_layouts/partials/nav/item.twig' with {
+                    children,
+                    active,
+                    isDesktop: true
+                } only %}
+            {% endif %}
+        </div>
+
     {% endif %}
 
 {% endfor %}

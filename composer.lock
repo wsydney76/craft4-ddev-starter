@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "024684c8f157ddd508bebb8803b52de6",
+    "content-hash": "ab62d0676cd60755e54c7736516318d2",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -58,16 +58,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.261.8",
+            "version": "3.261.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "9c38c82b7d3fb2b15957e71cae3957450e131ed8"
+                "reference": "d91e6f89a6c41e8df859b0d313150386cfee6f6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9c38c82b7d3fb2b15957e71cae3957450e131ed8",
-                "reference": "9c38c82b7d3fb2b15957e71cae3957450e131ed8",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d91e6f89a6c41e8df859b0d313150386cfee6f6a",
+                "reference": "d91e6f89a6c41e8df859b0d313150386cfee6f6a",
                 "shasum": ""
             },
             "require": {
@@ -146,9 +146,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.261.8"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.261.9"
             },
-            "time": "2023-03-09T19:23:27+00:00"
+            "time": "2023-03-10T19:25:08+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -822,16 +822,16 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "4.4.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/cms.git",
-                "reference": "0f27b7245610d64eb7312848ffa2cc26762c6c3e"
+                "reference": "63316c4cdcb6a65db4dcc664cd8ef7a8ca2f091c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/0f27b7245610d64eb7312848ffa2cc26762c6c3e",
-                "reference": "0f27b7245610d64eb7312848ffa2cc26762c6c3e",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/63316c4cdcb6a65db4dcc664cd8ef7a8ca2f091c",
+                "reference": "63316c4cdcb6a65db4dcc664cd8ef7a8ca2f091c",
                 "shasum": ""
             },
             "require": {
@@ -905,6 +905,7 @@
                 "ext-iconv": "Adds support for more character encodings than PHP’s built-in mb_convert_encoding() function, which Craft will take advantage of when converting strings to UTF-8.",
                 "ext-imagick": "Adds support for more image processing formats and options."
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -937,7 +938,7 @@
                 "rss": "https://github.com/craftcms/cms/releases.atom",
                 "source": "https://github.com/craftcms/cms"
             },
-            "time": "2023-03-09T21:06:00+00:00"
+            "time": "2023-03-11T14:48:23+00:00"
         },
         {
             "name": "craftcms/contact-form",
@@ -1923,16 +1924,16 @@
         },
         {
             "name": "google/cloud-core",
-            "version": "v1.49.1",
+            "version": "v1.49.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-cloud-php-core.git",
-                "reference": "aaa1a8d22ff38d0f0ae882ef14377b4c14a65a8f"
+                "reference": "18d37b0b9fa761eaff909f360f96efa9ca2d6ca7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-cloud-php-core/zipball/aaa1a8d22ff38d0f0ae882ef14377b4c14a65a8f",
-                "reference": "aaa1a8d22ff38d0f0ae882ef14377b4c14a65a8f",
+                "url": "https://api.github.com/repos/googleapis/google-cloud-php-core/zipball/18d37b0b9fa761eaff909f360f96efa9ca2d6ca7",
+                "reference": "18d37b0b9fa761eaff909f360f96efa9ca2d6ca7",
                 "shasum": ""
             },
             "require": {
@@ -1983,9 +1984,9 @@
             ],
             "description": "Google Cloud PHP shared dependency, providing functionality useful to all components.",
             "support": {
-                "source": "https://github.com/googleapis/google-cloud-php-core/tree/v1.49.1"
+                "source": "https://github.com/googleapis/google-cloud-php-core/tree/v1.49.2"
             },
-            "time": "2023-02-10T16:10:50+00:00"
+            "time": "2023-03-10T20:22:17+00:00"
         },
         {
             "name": "google/cloud-storage",
@@ -9008,9 +9009,18 @@
             "time": "2022-09-04T10:37:52+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "craftcms/cms",
+            "version": "dev-develop",
+            "alias": "4.4.1",
+            "alias_normalized": "4.4.1.0"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "craftcms/cms": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

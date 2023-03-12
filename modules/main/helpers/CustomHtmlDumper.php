@@ -3,11 +3,13 @@
 namespace modules\main\helpers;
 
 
-class HtmlDumper extends \Symfony\Component\VarDumper\Dumper\HtmlDumper
+use Symfony\Component\VarDumper\Dumper\HtmlDumper;
+
+class CustomHtmlDumper extends HtmlDumper
 {
     protected static $themes = [
         'light' => [
-            'default' => 'background:none; color:#CC7832; line-height:1.2em; font:16px Menlo, Monaco, Consolas, monospace; word-wrap: break-word; white-space: pre-wrap; position:relative; z-index:99999; word-break: break-all',
+            'default' => 'background:none; color:#CC7832; line-height:1.2em; font:17px Menlo, Monaco, Consolas, monospace; word-wrap: break-word; white-space: pre-wrap; position:relative; z-index:99999; word-break: break-all',
             'num' => 'font-weight:bold; color:#2563eb',
             'const' => 'font-weight:bold; color:#b45309',
             'str' => 'font-weight:bold; color:#15803d;',

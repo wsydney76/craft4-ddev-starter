@@ -1,11 +1,11 @@
 <?php
 
-use modules\main\helpers\HtmlDumper;
+use modules\main\helpers\CustomHtmlDumper;
 
 return [
     'components' => [
         'dumper' => function() {
-            $dumper = new HtmlDumper();
+            $dumper = new CustomHtmlDumper();
             $dumper->setTheme('light');
             return $dumper;
         },

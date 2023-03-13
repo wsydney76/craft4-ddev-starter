@@ -1,40 +1,46 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1678372470
+dateModified: 1678709033
 elementSources:
   craft\elements\Asset:
     -
       heading: Site
       type: heading
     -
+      defaultSort:
+        - dateCreated
+        - desc
       disabled: false
       key: 'volume:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
       tableAttributes:
         - 'field:cc3fbab0-826f-4aed-b2aa-eeaecc2964bf' # Alt Text
         - imageSize
         - dateModified
-        - link
       type: native
     -
       heading: Internal
       type: heading
     -
+      defaultSort:
+        - dateCreated
+        - desc
       disabled: false
       key: 'volume:ed627edd-73bd-4b75-8684-f410bf4e4b9d' # Temporary Images
       tableAttributes:
         - 'field:cc3fbab0-826f-4aed-b2aa-eeaecc2964bf' # Alt Text
         - imageSize
         - dateModified
-        - link
       type: native
     -
+      defaultSort:
+        - dateCreated
+        - desc
       disabled: false
       key: 'volume:3b60e4f9-36bb-4456-bee5-67160b5a3108' # User Photos
       tableAttributes:
         - 'field:cc3fbab0-826f-4aed-b2aa-eeaecc2964bf' # Alt Text
         - imageSize
         - dateModified
-        - link
       type: native
     -
       heading: Work

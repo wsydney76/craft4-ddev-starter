@@ -28,6 +28,7 @@ permissions:
   - 'deletepeerentries:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
   - 'deletepeerentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # News
   - 'deletepeerentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
+  - 'deletepeerentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
   - 'deletepeerentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
   - 'deletepeerentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
   - 'deletepeerentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
@@ -64,6 +65,7 @@ permissions:
   - 'savepeerentries:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
   - 'savepeerentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # News
   - 'savepeerentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
+  - 'savepeerentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
   - 'savepeerentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
   - 'savepeerentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
   - 'savepeerentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
@@ -90,6 +92,7 @@ permissions:
   - 'viewpeerentries:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
   - 'viewpeerentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # News
   - 'viewpeerentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
+  - 'viewpeerentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
   - 'viewpeerentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
   - 'viewpeerentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
   - 'viewpeerentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person

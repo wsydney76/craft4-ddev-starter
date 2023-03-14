@@ -33,7 +33,10 @@ class SectionField extends Field
         return Cp::selectizeHtml([
             'name' => $this->handle,
             'value' => $value,
-            'options' => $sectionOptions
+            'options' => $sectionOptions,
+            'selectizeOptions' => [
+                'allowEmptyOption' => true,
+            ],
         ]);
     }
 }

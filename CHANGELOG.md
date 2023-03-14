@@ -5,6 +5,7 @@
 * Replaced the new Dumper app component for better readability and accessibility.
 * Dropped custem d/dd twig functions
 * Added a `showChildrenInMainNav` custom config setting. See Readme for usage.
+* Fixed custom field types inputs with selectize to allow empty values.
 
 ## 3.0.0 2023-03-10
 

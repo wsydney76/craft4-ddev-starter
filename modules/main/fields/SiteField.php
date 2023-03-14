@@ -36,7 +36,10 @@ class SiteField extends Field
         return Cp::selectizeHtml([
             'name' => $this->handle,
             'value' => $value,
-            'options' => $siteOptions
+            'options' => $siteOptions,
+            'selectizeOptions' => [
+                'allowEmptyOption' => true,
+            ],
         ]);
     }
 }

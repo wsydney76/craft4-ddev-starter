@@ -26,9 +26,13 @@
                 color: 'white'
             } only %}
         {% else %}
-            <div class="font-bold">
-                {{ entry.title }}
-            </div>
+            {% include '_layouts/partials/button.twig' with {
+                tag: 'div',
+                href: '',
+                caption: entry.title,
+                color: 'primary'
+            } only %}
+
         {% endif %}
     </div>
 

@@ -15,7 +15,7 @@ Still beta quality, but feature complete, tried to make it suit for
 
 ## Versions
 
-Tagged a provisional 3.0.0 version for Craft 4.4, use 2.1.0 for Craft 4.3. 
+Tagged a provisional 3.0 version for Craft 4.4, use 2.1.0 for Craft 4.3. 
 
 ## Disclaimer
 

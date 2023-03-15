@@ -1,7 +1,8 @@
 # Changelog
 
-## Unreleased
+## 3.0.1 2023-03-15
 
+* Update to Craft 4.4.2
 * Replaced the new Dumper app component for better readability and accessibility.
 * Dropped custem d/dd twig functions
 * Added a `showChildrenInMainNav` custom config setting. See Readme for usage.

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "abc948c557dc8a2d4a2961a492e561a8",
+    "content-hash": "537781817a62663f6a8b42cea705eecf",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -58,16 +58,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.261.11",
+            "version": "3.261.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "bba0c975f34325cfb218d68bda6d9e476d309b4c"
+                "reference": "233b70c951707830dd205959375c98be35cbb36e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/bba0c975f34325cfb218d68bda6d9e476d309b4c",
-                "reference": "bba0c975f34325cfb218d68bda6d9e476d309b4c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/233b70c951707830dd205959375c98be35cbb36e",
+                "reference": "233b70c951707830dd205959375c98be35cbb36e",
                 "shasum": ""
             },
             "require": {
@@ -146,9 +146,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.261.11"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.261.13"
             },
-            "time": "2023-03-14T18:26:15+00:00"
+            "time": "2023-03-16T18:22:32+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -822,16 +822,16 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "4.4.2",
+            "version": "4.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/cms.git",
-                "reference": "e0734dad8bc29c7a69a9d7bf4d62a3da6d3b5c1d"
+                "reference": "d1edaf139b2245dda24fe172a80ec58c5c1a1174"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/e0734dad8bc29c7a69a9d7bf4d62a3da6d3b5c1d",
-                "reference": "e0734dad8bc29c7a69a9d7bf4d62a3da6d3b5c1d",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/d1edaf139b2245dda24fe172a80ec58c5c1a1174",
+                "reference": "d1edaf139b2245dda24fe172a80ec58c5c1a1174",
                 "shasum": ""
             },
             "require": {
@@ -937,7 +937,7 @@
                 "rss": "https://github.com/craftcms/cms/releases.atom",
                 "source": "https://github.com/craftcms/cms"
             },
-            "time": "2023-03-14T21:02:01+00:00"
+            "time": "2023-03-16T18:21:00+00:00"
         },
         {
             "name": "craftcms/contact-form",

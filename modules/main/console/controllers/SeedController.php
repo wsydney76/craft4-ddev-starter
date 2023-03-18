@@ -704,8 +704,10 @@ class SeedController extends InitController
                         'type' => 'gallery',
                         'fields' => [
                             'images' => $ids,
+                            'align' => 'wide',
                         ]
                     ];
+
                     break;
             }
 

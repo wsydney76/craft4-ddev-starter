@@ -22,7 +22,7 @@ fieldLayouts:
             fieldUid: 3d8293ac-fa84-47ed-befa-a41cb6315212 # Layout
             instructions: null
             label: null
-            required: true
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: dfc562a7-8b95-4966-9334-1905e2c8e5a0
@@ -53,7 +53,7 @@ fields:
               - card
             -
               - default
-              - ''
+              - '1'
         -
           __assoc__:
             -

@@ -2,7 +2,7 @@
   "buttons": ["bold", "italic", "unorderedlist", "orderedlist", "link"],
   "plugins": ["fullscreen"],
   "linkNewTab": true,
-  "toolbarFixed": true,
+  "air": true,
   "pastePlainText": true,
   "pasteImages": false,
   "pasteLinks": false,

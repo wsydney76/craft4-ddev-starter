@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1678788168
+dateModified: 1679157389
 elementSources:
   craft\elements\Asset:
     -
@@ -181,11 +181,6 @@ elementSources:
     -
       condition:
         class: craft\elements\conditions\entries\EntryCondition
-        conditionRules:
-          -
-            class: modules\main\conditions\HasDraftsConditionRule
-            uid: d043154b-2263-4f5b-9195-6c227606c4fe
-            value: true
         elementType: craft\elements\Entry
         fieldContext: global
       defaultSort:
@@ -363,6 +358,7 @@ meta:
     b32ea3bc-ee43-4236-864d-972d36f184b2: Sitemap # Sitemap
     b61bea97-e4d4-4de2-9149-15f74906945a: SEO # SEO
     b64a3aa4-62b9-40c5-b05d-ea06389b36c7: 'Start Date' # Start Date
+    b40353f4-de5f-4006-813a-15494e63e104: Align # Align
     b7361735-c91d-4877-a975-cfe6751133b1: Cards # Cards
     bb5f8fa8-90f9-4d54-9f99-3ccd6fb69a7b: Text # Text
     bbc46fd7-2b24-431f-a7d1-aedf86a6c169: Handle # Handle

@@ -2,6 +2,14 @@
 
 {% from '_layouts/macros/lib.twig' import img %}
 
+{% set align = block.align.value ?? 'default' %}
+
+{# Match with block 'align' options #}
+{% set alignClasses = {
+    default: 'sm:grid-cols-3',
+    wide: 'lg:-mx-24 sm:grid-cols-3 lg:grid-cols-4'
+} %}
+
 {% set lightboxTransform = {height: 800} %}
 {% set thumbnailTransform = {width: 320, height: 250} %}
 
@@ -17,7 +25,7 @@
 
 {% set images = query.collect %}
 
-<div id="gallery-{{ block.id }}" class="grid grid-cols-2 sm:grid-cols-3 gap-2 not-prose">
+<div id="gallery-{{ block.id }}" class="{{ alignClasses[align] }} grid grid-cols-2 gap-2 not-prose">
     {% for image in images %}
 
         {% if craft.app.plugins.pluginEnabled('imager-x') %}
@@ -28,13 +36,13 @@
             {% set lightboxUrl = image.url(lightboxTransform) %}
         {% endif %}
 
-        <a href="{{ lightboxUrl }}"
+        <a href="{{ lightboxUrl }}" class="overflow-hidden"
            data-caption="{{ image.altText ?? image.title }} {{ image.copyright ? "&copy; #{image.copyright}" }}">
 
             {{ img(image, {
                 transform: thumbnailTransform,
                 attr: {
-                    class: "hover:opacity-75 focus:opacity-75 transition duration-300 rounded"
+                    class: "hover:opacity-75 hover:scale-105 focus:opacity-75 transition duration-300 rounded"
                 }
             }) }}
 

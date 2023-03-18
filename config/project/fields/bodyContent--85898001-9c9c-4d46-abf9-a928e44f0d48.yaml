@@ -2,7 +2,7 @@ columnSuffix: null
 contentColumnType: string
 fieldGroup: bd76fb6e-8765-41d3-8e8a-02e37e127c80 # Common
 handle: bodyContent
-instructions: '[Guide](javascript:showGuide("content/blocks"))'
+instructions: 'See "Guide" for help.'
 name: 'Body Content'
 searchable: true
 settings:

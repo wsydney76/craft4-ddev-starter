@@ -48,6 +48,7 @@ return [
     'Scroll to top' => 'Zum Seitenanfang springen',
     'Search for' => 'Suche nach',
     'See all News' => 'Alle News ansehen',
+    'See "Guide" for help.' => 'Siehe "Guide" für Hilfe.',
     'Select the desired type in the drop-down field at the top right.' => 'Wählen Sie im Dropdown-Feld oben rechts den gewünschten Typ aus.',
     'Send' => 'Senden',
     'Show the video' => 'Video anzeigen',

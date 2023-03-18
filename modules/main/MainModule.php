@@ -171,13 +171,12 @@ class MainModule extends BaseModule
             return '<input type="text" name="dummy-first-name" value="wtf" style="display: none">';
         });
 
-        if (version_compare(Craft::$app->version, '4.4', '>=')) {
-            // Let users reset their dismissed tips/warnings
-            // This will only be called for users editing their own profile
-            Craft::$app->view->hook('cp.users.edit.prefs', function(array &$context) {
-                return Craft::$app->view->renderTemplate('main/cp-dismissed-tips.twig');
-            });
-        }
+
+        // Let users reset their dismissed tips/warnings
+        // This will only be called for users editing their own profile
+        Craft::$app->view->hook('cp.users.edit.prefs', function(array &$context) {
+            return Craft::$app->view->renderTemplate('main/cp-dismissed-tips.twig');
+        });
     }
 
     protected function hideBlockTypes()
@@ -187,6 +186,8 @@ class MainModule extends BaseModule
             Matrix::class,
             Matrix::EVENT_SET_FIELD_BLOCK_TYPES,
             function(BlockTypesEvent $event) {
+
+                // Only hide block types for bodyContent field
                 if (!$event->element instanceof Entry || $event->sender->handle !== 'bodyContent') {
                     return;
                 }
@@ -194,9 +195,19 @@ class MainModule extends BaseModule
                 $entry = $event->element;
 
                 // TODO: Make that configurable
+                // Hide dynamicBlock and contentComponents block types for pages
                 if ($entry->section->handle !== 'page' || in_array($entry->type->handle, ['faqs', 'sitemap'])) {
                     foreach ($event->blockTypes as $i => $blockType) {
                         if (in_array($blockType->handle, ['dynamicBlock', 'contentComponents'])) {
+                            unset($event->blockTypes[$i]);
+                        }
+                    }
+                }
+
+                // Hide richText block type if Redactor is not installed
+                if (!Craft::$app->plugins->isPluginEnabled('redactor')) {
+                    foreach ($event->blockTypes as $i => $blockType) {
+                        if ($blockType->handle === 'richText') {
                             unset($event->blockTypes[$i]);
                         }
                     }

@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+* Added `Align` setting to gallery block.
+* 
+
 ## 3.0.1 2023-03-15
 
 * Update to Craft 4.4.2

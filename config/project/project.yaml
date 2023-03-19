@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1679157389
+dateModified: 1679228644
 elementSources:
   craft\elements\Asset:
     -
@@ -163,6 +163,7 @@ elementSources:
       key: 'section:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
       tableAttributes:
         - 'field:80fa81e4-1f78-4d88-b733-f565d1f5b9bd' # Image
+        - author
         - postDate
       type: native
     -
@@ -173,6 +174,7 @@ elementSources:
       key: 'section:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
       tableAttributes:
         - type
+        - author
         - postDate
       type: native
     -
@@ -181,6 +183,11 @@ elementSources:
     -
       condition:
         class: craft\elements\conditions\entries\EntryCondition
+        conditionRules:
+          -
+            class: modules\main\conditions\HasDraftsConditionRule
+            uid: 8916849e-c14f-4f68-946e-16172ecc3870
+            value: true
         elementType: craft\elements\Entry
         fieldContext: global
       defaultSort:

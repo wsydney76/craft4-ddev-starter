@@ -26,7 +26,6 @@ use modules\main\validators\BodyContentValidator;
 use modules\main\widgets\MyProvisionalDraftsWidget;
 use yii\base\Event;
 use function in_array;
-use function version_compare;
 
 /**
  * @property-read EntriesService $entriesService

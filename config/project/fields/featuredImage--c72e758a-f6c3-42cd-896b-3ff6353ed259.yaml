@@ -18,7 +18,7 @@ settings:
   maintainHierarchy: false
   maxRelations: 1
   minRelations: null
-  previewMode: full
+  previewMode: thumbs
   restrictFiles: true
   restrictLocation: false
   restrictedDefaultUploadSubpath: null

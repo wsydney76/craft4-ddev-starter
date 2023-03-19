@@ -504,6 +504,13 @@ __... don't you use categories but sections for taxonomies?__
 * We want to resolve hierarchy at run time, instead of having redundant relationships. 
 * All content is available under only one main navigation point.
 
+__... don't you use a rich text editor like Redactor?__
+
+* If you can mix up headings, text blocks, images in a single field, it is very hard to keep translated content in sync.
+* We want to have a more granular control over the markup, especially for responsive images.
+* We want to restrict allowed html elements to a minimum, to prevent an inconsistent appearance.
+* We want the data to be as clean as possible, so we can use it in different contexts (e.g. for a mobile app), with the simplest possible conversions.
+
 __... do you use this strange Tailwind CSS bloat?__
 
 * It is such a productivity boost.

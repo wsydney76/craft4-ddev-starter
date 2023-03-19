@@ -43,6 +43,8 @@ class SeedController extends InitController
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
+        Console::output('Creating topic entries.');
+
         $topics = [
             [
                 'en' => 'Sport',
@@ -203,6 +205,8 @@ class SeedController extends InitController
         if ($this->interactive && !$this->confirm("Create some content for homepage?", true)) {
             return ExitCode::UNSPECIFIED_ERROR;
         }
+
+        Console::stdout('Creating homepage content.');
 
         $homepageEntry = Entry::find()->section('page')->type('home')->one();
 

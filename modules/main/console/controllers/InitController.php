@@ -5,14 +5,12 @@ namespace modules\main\console\controllers;
 use Craft;
 use craft\elements\Asset;
 use craft\elements\Entry;
-use craft\elements\GlobalSet;
 use craft\elements\User;
 use craft\helpers\App;
 use craft\helpers\Assets;
 use craft\helpers\Console;
 use Faker\Factory;
 use yii\console\ExitCode;
-use function str_replace;
 
 
 class InitController extends BaseController
@@ -48,21 +46,39 @@ class InitController extends BaseController
         $this->actionSetupGlobals();
         $this->stdout(PHP_EOL);
 
-        $this->stdout('Create one-off pages...' . PHP_EOL);
+        if ($this->interactive && !$this->confirm('Seed database with fake elements?', true)) {
+            Console::output('Skipping database seeding!');
+            Console::output('See craft help main/init and craft help main/seed for available options.');
+            return ExitCode::OK;
+        }
+
+        $retrievePages = true;
+        if ($this->interactive && !$this->confirm('Retrieve all pages after creation? That will create all missing image transforms, but will take some time.', true)) {
+            $retrievePages = false;
+        }
+        $this->stdout(PHP_EOL);
+
+        $this->stdout('Creating one-off pages.' . PHP_EOL);
         $this->actionCreateEntries();
         $this->stdout(PHP_EOL);
 
-        $this->stdout('Update Users...' . PHP_EOL);
+        $this->stdout('Updating Users.' . PHP_EOL);
         $this->actionSetUsers();
         $this->stdout(PHP_EOL);
 
-        Craft::$app->runAction('main/seed/create-topics', ['interactive' => $this->interactive]);
+        Craft::$app->runAction('main/seed/create-topics', ['interactive' => false]);
+        $this->stdout(PHP_EOL);
 
-        Craft::$app->runAction('main/seed/create-entries', ['interactive' => $this->interactive]);
+        Craft::$app->runAction('main/seed/create-entries', ['interactive' => false]);
+        $this->stdout(PHP_EOL);
 
-        Craft::$app->runAction('main/seed/create-homepage-content', ['interactive' => $this->interactive]);
+        Craft::$app->runAction('main/seed/create-homepage-content', ['interactive' => false]);
+        $this->stdout(PHP_EOL);
 
-        Craft::$app->runAction('main/assets/create-transforms', ['interactive' => $this->interactive]);
+        if ($retrievePages) {
+            Craft::$app->runAction('main/assets/create-transforms', ['interactive' => false]);
+            $this->stdout(PHP_EOL);
+        }
 
         return ExitCode::OK;
     }
@@ -106,8 +122,10 @@ class InitController extends BaseController
     {
         $faker = Factory::create('de_DE');
 
-        $siteName = 'Starter';
-        $copyright = 'Starter GmbH';
+        $siteInfo = Entry::find()->section('siteInfo')->one();
+
+        $siteName = $siteInfo->siteName ?? 'Starter';
+        $copyright = $siteInfo->copyright ?? 'Starter GmbH';
 
         if ($this->interactive) {
             $siteName = $this->prompt('Site Name (for frontend): ', ['default' => $siteName, 'required' => true]);

@@ -19,7 +19,6 @@ use modules\main\fields\IncludeField;
 use modules\main\fields\SectionField;
 use modules\main\fields\SiteField;
 use modules\main\resources\CpAssetBundle;
-use modules\main\services\EntriesService;
 use modules\main\services\ProjectService;
 use modules\main\twigextensions\TwigExtension;
 use modules\main\validators\BodyContentValidator;
@@ -27,9 +26,7 @@ use modules\main\widgets\MyProvisionalDraftsWidget;
 use yii\base\Event;
 use function in_array;
 
-/**
- * @property-read EntriesService $entriesService
- */
+
 class MainModule extends BaseModule
 {
 
@@ -104,6 +101,8 @@ class MainModule extends BaseModule
             ]);
 
             $this->hideBlockTypes();
+
+            $this->setElementIndexColumns();
         }
     }
 
@@ -213,5 +212,35 @@ class MainModule extends BaseModule
                 }
             });
     }
+
+
+    protected function setElementIndexColumns()
+    {
+        $this->setEntriesIndexImageColumn(
+            'bigFeaturedImage',
+            'featuredImage',
+            Craft::t('site', 'Featured Image (big)'),
+            [
+                'width' => 120,
+                'height' => 70
+            ]);
+        $this->setEntriesIndexImageColumn(
+            'bigImage',
+            'image',
+            Craft::t('site', 'Image (big)'),
+            [
+                'width' => 120,
+                'height' => 70
+            ]);
+        $this->setEntriesIndexImageColumn(
+            'bigPhoto',
+            'photo',
+            Craft::t('site', 'Photo (big)'),
+            [
+                'width' => 70,
+                'height' => 70
+            ]);
+    }
+
 
 }

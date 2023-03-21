@@ -7,6 +7,7 @@
 * Added `Custom` purifier config to `text` block.
 * Added `redactor` and `htmlpurifier` configuration files from `craft/craft` repo.
 * Streamlined main/init.
+* Added bigger image columns to element index
 
 ## 3.0.1 2023-03-15
 

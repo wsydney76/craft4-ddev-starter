@@ -9,11 +9,15 @@ use craft\base\Model;
 use craft\elements\Entry;
 use craft\events\DefineBehaviorsEvent;
 use craft\events\DefineRulesEvent;
+use craft\events\ElementIndexTableAttributeEvent;
 use craft\events\RegisterComponentTypesEvent;
 use craft\events\RegisterConditionRuleTypesEvent;
 use craft\events\RegisterCpNavItemsEvent;
 use craft\events\RegisterElementActionsEvent;
+use craft\events\RegisterElementTableAttributesEvent;
 use craft\events\RegisterTemplateRootsEvent;
+use craft\events\SetElementTableAttributeHtmlEvent;
+use craft\helpers\Html;
 use craft\i18n\PhpMessageSource;
 use craft\services\Dashboard;
 use craft\services\Fields;
@@ -238,6 +242,78 @@ class BaseModule extends Module
 
             }
         );
+    }
+
+
+    /**
+     * Define a new column for the entries index, which will display a bigger image
+     *
+     * @param string $attribute handle of the new column
+     * @param string $fieldHandle handle of the field to use for the image
+     * @param string $label label of the new column
+     * @param array $transform transform to use for the image
+     */
+    protected function setEntriesIndexImageColumn(string $attribute, string $fieldHandle, string $label, array $transform): void
+    {
+        // Register table attribute
+        Event::on(
+            Entry::class,
+            Element::EVENT_REGISTER_TABLE_ATTRIBUTES,
+            function(RegisterElementTableAttributesEvent $event) use ($attribute, $label) {
+                $event->tableAttributes[$attribute] = ['label' => $label];
+            });
+
+        // Set element index column content
+        Event::on(
+            Entry::class,
+            Element::EVENT_SET_TABLE_ATTRIBUTE_HTML,
+            function(SetElementTableAttributeHtmlEvent $event) use ($attribute, $fieldHandle, $transform) {
+
+                if ($event->attribute === $attribute) {
+                    /** @var Entry $entry */
+                    $entry = $event->sender;
+                    $event->html = '';
+                    $event->handled = true;
+
+                    // Don't wait for transformed images if generateTransformsBeforePageLoad = true
+//                    $config = Craft::$app->config->general;
+//                    $oldSetting = $config->generateTransformsBeforePageLoad;
+//                    $config->generateTransformsBeforePageLoad = false;
+
+                    $query = $entry->getFieldValue($fieldHandle);
+
+                    // If the field is in the entries field layout
+                    if ($query) {
+                        $image = $query->one();
+                        if ($image) {
+                            $image->setTransform($transform);
+                            $event->html = Html::tag('img', '', [
+                                'src' => $image->url,
+                                'style' => 'border-radius: 3px;',
+                                'width' => $image->width,
+                                'height' => $image->height,
+                                'alt' => $image->altText ?? $image->title,
+                                'ondblclick' => "Craft.createElementEditor('craft\\\\elements\\\\Asset', {elementId: {$image->id}, siteId: {$entry->site->id}})"
+                            ]);
+                        }
+                    }
+
+//                    $config->generateTransformsBeforePageLoad = $oldSetting;
+                }
+            });
+
+        // Eager load transformed images
+        Event::on(
+            Entry::class,
+            Entry::EVENT_PREP_QUERY_FOR_TABLE_ATTRIBUTE,
+            function(ElementIndexTableAttributeEvent $event) use ($attribute, $fieldHandle, $transform) {
+
+                if ($event->attribute === $attribute) {
+                    $event->query->andWith(
+                        [$fieldHandle, ['withTransforms' => [$transform]]]
+                    );
+                }
+            });
     }
 
 

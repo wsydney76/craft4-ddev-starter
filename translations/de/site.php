@@ -70,6 +70,10 @@ return [
     '{count,plural,=1{Related Entry} other{Related Entries}}' => '{count,plural,=1{Verwandter Eintrag} other{Verwandte Einträge}}',
     '“' => '„',
     '”' => '“',
+    'Featured Image (big)' => 'Featured Image (groß)',
+    'Image (big)' => 'Bild (groß)',
+    'Photo (big)' => 'Foto (groß)',
+
 
     
     // Environment field

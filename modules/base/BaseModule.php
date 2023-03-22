@@ -96,8 +96,6 @@ class BaseModule extends Module
                 $event->roots[$this->handle] = $this->getBasePath() . DIRECTORY_SEPARATOR . 'templates';
             });
         }
-
-
     }
 
     protected function registerBehaviors(string $className, array $behaviors): void
@@ -225,7 +223,6 @@ class BaseModule extends Module
                 foreach ($services as $service) {
                     $variable->set($service[0], $service[1]);
                 }
-
             }
         );
     }
@@ -239,7 +236,6 @@ class BaseModule extends Module
                 /** @var CraftVariable $variable */
                 $variable = $event->sender;
                 $variable->attachBehaviors($behaviors);
-
             }
         );
     }
@@ -272,14 +268,11 @@ class BaseModule extends Module
                 if ($event->attribute === $attribute) {
                     /** @var Entry $entry */
                     $entry = $event->sender;
+
+                    // Set default html
                     $event->html = '';
-                    $event->handled = true;
 
-                    // Don't wait for transformed images if generateTransformsBeforePageLoad = true
-//                    $config = Craft::$app->config->general;
-//                    $oldSetting = $config->generateTransformsBeforePageLoad;
-//                    $config->generateTransformsBeforePageLoad = false;
-
+                    // Get the image fields query
                     $query = $entry->getFieldValue($fieldHandle);
 
                     // If the field is in the entries field layout
@@ -298,7 +291,8 @@ class BaseModule extends Module
                         }
                     }
 
-//                    $config->generateTransformsBeforePageLoad = $oldSetting;
+                    // Prevent further processing
+                    $event->handled = true;
                 }
             });
 
@@ -309,6 +303,7 @@ class BaseModule extends Module
             function(ElementIndexTableAttributeEvent $event) use ($attribute, $fieldHandle, $transform) {
 
                 if ($event->attribute === $attribute) {
+                    // Eager load the image element including the transform
                     $event->query->andWith(
                         [$fieldHandle, ['withTransforms' => [$transform]]]
                     );

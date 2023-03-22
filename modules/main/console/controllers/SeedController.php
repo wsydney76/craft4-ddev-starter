@@ -206,7 +206,7 @@ class SeedController extends InitController
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
-        Console::stdout('Creating homepage content.');
+        Console::output('Creating homepage content.');
 
         $homepageEntry = Entry::find()->section('page')->type('home')->one();
 
@@ -849,28 +849,30 @@ class SeedController extends InitController
             return ExitCode::OK;
         }
 
-        if ($this->interactive && $this->confirm("Add provisional alt text/copyright to images?", true)) {
-            foreach (Craft::$app->sites->allSites as $site) {
-                $images = Asset::find()
-                    ->kind('image')
-                    ->volume($this->volume)
-                    ->site($site->handle)
-                    ->all();
+        if ($this->interactive && !$this->confirm("Add provisional alt text/copyright to images?", true)) {
+            return ExitCode::OK;
+        }
 
-                foreach ($images as $image) {
-                    $save = false;
-                    if (!$image->altText) {
-                        $image->altText = ucwords($image->title);
-                        $save = true;
-                    }
-                    if (!$image->copyright) {
-                        $image->copyright = 'tbd.';
-                        $save = true;
-                    }
-                    if ($save) {
-                        $this->stdout("Saving provisional alt text / copyright to $image->title ($site->name)" . PHP_EOL);
-                        Craft::$app->elements->saveElement($image, false, true, false);
-                    }
+        foreach (Craft::$app->sites->allSites as $site) {
+            $images = Asset::find()
+                ->kind('image')
+                ->volume($this->volume)
+                ->site($site->handle)
+                ->all();
+
+            foreach ($images as $image) {
+                $save = false;
+                if (!$image->altText) {
+                    $image->altText = ucwords($image->title);
+                    $save = true;
+                }
+                if (!$image->copyright) {
+                    $image->copyright = 'tbd.';
+                    $save = true;
+                }
+                if ($save) {
+                    $this->stdout("Saving provisional alt text / copyright to $image->title ($site->name)" . PHP_EOL);
+                    Craft::$app->elements->saveElement($image, false, true, false);
                 }
             }
         }

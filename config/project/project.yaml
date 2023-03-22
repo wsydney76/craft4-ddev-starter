@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1679228644
+dateModified: 1679481403
 elementSources:
   craft\elements\Asset:
     -
@@ -88,7 +88,9 @@ elementSources:
       disabled: false
       key: singles
       tableAttributes:
-        - link
+        - bigFeaturedImage
+        - 'field:3e35a043-a62e-4ede-acd6-44dfb92d6914' # Site Name
+        - 'field:eb6b24cc-83d7-416f-be4b-d002c7688b58' # Copyright
       type: native
     -
       defaultSort:
@@ -97,8 +99,8 @@ elementSources:
       disabled: false
       key: 'section:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
       tableAttributes:
+        - bigFeaturedImage
         - type
-        - slug
         - postDate
         - link
       type: native
@@ -109,8 +111,9 @@ elementSources:
       disabled: false
       key: 'section:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # News
       tableAttributes:
+        - bigFeaturedImage
+        - 'field:05ab0680-2ccc-4a59-932a-07311f773d42' # Topics
         - postDate
-        - author
         - link
       type: native
     -
@@ -120,9 +123,9 @@ elementSources:
       disabled: false
       key: 'section:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
       tableAttributes:
+        - bigPhoto
         - 'field:0767f000-e433-4930-9534-b795a48740bb' # Teaser
         - type
-        - 'field:78014c80-5d4b-4253-ae59-80f00e516c86' # Photo
         - postDate
       type: native
     -
@@ -134,7 +137,6 @@ elementSources:
       tableAttributes:
         - type
         - postDate
-        - author
         - link
       type: native
     -
@@ -147,9 +149,8 @@ elementSources:
       disabled: false
       key: 'section:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
       tableAttributes:
-        - 'field:400d2e7a-d260-459d-b16d-bc388f093106' # Tagline
+        - bigFeaturedImage
         - postDate
-        - author
         - link
       type: native
     -
@@ -162,8 +163,8 @@ elementSources:
       disabled: false
       key: 'section:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
       tableAttributes:
-        - 'field:80fa81e4-1f78-4d88-b733-f565d1f5b9bd' # Image
-        - author
+        - bigImage
+        - 'field:0767f000-e433-4930-9534-b795a48740bb' # Teaser
         - postDate
       type: native
     -
@@ -174,7 +175,6 @@ elementSources:
       key: 'section:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
       tableAttributes:
         - type
-        - author
         - postDate
       type: native
     -

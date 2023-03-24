@@ -40,7 +40,7 @@
     </div>
 </div>
 
-{% do craft.app.urlManager.setRouteParams({copyright: image.copyright}, true) %}
+{% do request.put('copyright', image.copyright) %}
 
 <div class="container mx-auto -mt-44 mb-20">
     {{ img(image,  {

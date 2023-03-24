@@ -3,13 +3,19 @@
 namespace modules\main\twigextensions;
 
 use Craft;
-use Symfony\Component\VarDumper\Cloner\VarCloner;
 use Twig\Extension\AbstractExtension;
+use Twig\Extension\GlobalsInterface;
 use Twig\TwigFilter;
-use Twig\TwigFunction;
 
-class TwigExtension extends AbstractExtension
+class TwigExtension extends AbstractExtension implements GlobalsInterface
 {
+
+    public function getGlobals(): array
+    {
+        return  [
+            'request' => Craft::$app->requestData
+        ];
+    }
 
     /**
      * @return TwigFilter[]

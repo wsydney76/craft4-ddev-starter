@@ -8,6 +8,7 @@
 * Added `redactor` and `htmlpurifier` configuration files from `craft/craft` repo.
 * Streamlined main/init.
 * Added bigger image columns to element index
+* Added `requestData` app component and `request` twig variable, representing a Laravel collection that can be used to simulate a request scope (experimental).
 
 ## 3.0.1 2023-03-15
 

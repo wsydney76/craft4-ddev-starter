@@ -18,6 +18,7 @@
  */
 
 use craft\helpers\App;
+use Illuminate\Support\Collection;
 use modules\base\BaseModule;
 use modules\guide\GuideModule;
 use modules\main\MainModule;
@@ -29,5 +30,8 @@ return [
         'base' => BaseModule::class,
         'guide' => GuideModule::class,
     ],
-    'bootstrap' => ['main', 'base', 'guide']
+    'bootstrap' => ['main', 'base', 'guide'],
+    'components' => [
+        'requestData' => new Collection()
+    ]
 ];

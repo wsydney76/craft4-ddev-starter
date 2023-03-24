@@ -11,7 +11,7 @@
                     &copy; {{ now|date('Y') }} {{ siteInfo.copyright ?? siteInfo.siteName }}
 
                     {# May be set in hero area template #}
-                    {% set copyright = craft.app.urlManager.getRouteParams.copyright ?? '' %}
+                    {% set copyright = request.get('copyright') %}
                     {% if copyright %}
                         <div>
                             &copy {{ 'Header Image'|t }}: {{ copyright }}

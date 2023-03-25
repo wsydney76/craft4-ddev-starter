@@ -5,6 +5,7 @@
 
 {% set style = style ?? 'nav' %}
 {% set caption = caption ?? 'Toggle'|t %}
+{% set active = active is defined ? active : false %}
 
 {% from '_layouts/macros/lib.twig' import navLinkClasses %}
 

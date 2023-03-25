@@ -1,11 +1,23 @@
-<div class="max-w-screen-md mx-auto px-8 my-16 text-center">
-    <div class="text-lg max-w-screen-sm mx-auto">
-        {{ entry.tagline }}
-    </div>
-    <div class="mt-8 text-6xl">
-        {{ entry.title }}
-    </div>
-    <div class="mt-12">
-        {% include '_sections/news_story/includes/meta.twig' %}
-    </div>
-</div>
+{% embed '_sections/news_story/includes/container.twig' %}
+    {% block content %}
+        <div class="text-center">
+            {% if entry.teaser %}
+                <div class="mb-4 text-lg max-w-screen-sm mx-auto">
+                    {{ entry.teaser }}
+                </div>
+            {% endif %}
+            <div class="text-6xl">
+                {{ entry.title }}
+            </div>
+            {% if entry.tagline %}
+                <div class="mt-8 text-lg max-w-screen-sm mx-auto">
+                    {{ entry.tagline }}
+                </div>
+            {% endif %}
+
+            <div class="mt-12">
+                {% include '_sections/news_story/includes/meta.twig' %}
+            </div>
+        </div>
+    {% endblock %}
+{% endembed %}

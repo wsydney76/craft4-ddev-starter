@@ -1,12 +1,20 @@
 {# @param entry Entry the entry #}
 {# @param breadcrumpQueries [EntryQuery] array of queries to elements whose ascendants should be shown as breadcrumpQuerys #}
+{# @param style string classes #}
+
+{% set style = style ?? 'boxed' %}
+
+{% set classes = {
+    boxed: 'bg-white dark:bg-gray-700 p-4 rounded shadow-lg',
+    none: ''
+} %}
 
 {% from '_layouts/macros/lib.twig' import img %}
 
 {% set authors = entry.authors %}
-<div class="bg-white dark:bg-gray-700 p-4 rounded shadow-lg">
-    <div class="flex justify-between items-center">
-        <div class="md:flex flex-wrap space-y-4 md:space-y-0 md:space-x-4">
+<div class="{{ classes[style] }} ">
+    <div class="flex justify-between ">
+        <div class="grid md:grid-cols-2 gap-4">
             {% for author in entry.authors %}
                 <div class="flex justify-start items-center">
                     {% if author.photo %}
@@ -21,11 +29,11 @@
                         </div>
                     {% endif %}
                     <div class="ml-4 text-lg uppercase">
-                        <div class="font-medium">
+                        <div class="font-medium text-left">
                             {{ author.name }}
                         </div>
                         {% if author.socialLinks %}
-                            <div>
+                            <div class="mt-1">
                                 {% include '_layouts/partials/social-icons.twig' with {
                                 	links: author.socialLinks
                                 } only %}

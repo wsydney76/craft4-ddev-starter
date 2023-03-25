@@ -46,4 +46,21 @@ class ProjectService extends Component
 
         return $topics;
     }
+
+    public static function estimatedReadingTime($blocks, $wpm = 200) {
+
+        $totalWords = 0;
+
+        foreach ($blocks as $block) {
+            $totalWords += str_word_count($block->text);
+        }
+
+        $minutes = floor($totalWords / $wpm);
+        $seconds = floor($totalWords % $wpm / ($wpm / 60));
+
+        return array(
+            'minutes' => $minutes,
+            'seconds' => $seconds
+        );
+    }
 }

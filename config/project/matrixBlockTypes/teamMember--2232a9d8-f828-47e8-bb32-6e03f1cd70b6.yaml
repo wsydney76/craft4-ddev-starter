@@ -1,73 +1,69 @@
-field: c0fe6eff-5323-415f-81d9-4f9d42a07b66 # Story Content
+field: 7ef9424e-9902-4930-9244-8d7f93d6dc4b # Story Team
 fieldLayouts:
-  0aa55bf9-2527-4724-bfab-1bb3986c4abc:
+  3a8c2b50-7e32-41d5-83c9-21d75f45e2a6:
     tabs:
       -
         elementCondition: null
         elements:
           -
             elementCondition: null
-            fieldUid: f620927d-baf7-430a-a965-f1e9ea676b83 # Text
+            fieldUid: 806a473e-c6e7-42cd-a76b-758ed48b5a2b # Role
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 52978b81-3e02-490b-95b0-f7bafa6addfd
+            uid: eeffa0cc-99fc-426e-9068-a6a8ca83f87d
             userCondition: null
             warning: null
-            width: 75
+            width: 25
           -
             elementCondition: null
-            fieldUid: 518aea6d-af2d-4e4e-8d4b-a2ca618cd89c # Style
+            fieldUid: 07a23de3-b713-43fc-8310-d9191d851801 # Name
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 0c44ee2d-9529-49c3-b3b5-e01e045595d6
+            uid: 966c9041-7120-48ab-b245-08a059dc4e59
             userCondition: null
             warning: null
             width: 25
         name: Content
-        uid: 2b434a53-4cff-4bda-b391-9765450995c5
+        uid: a52cf0ba-1c7e-4ffa-8a2f-b6b117d4ad16
         userCondition: null
 fields:
-  518aea6d-af2d-4e4e-8d4b-a2ca618cd89c: # Style
-    columnSuffix: hlykmjun
-    contentColumnType: string
+  07a23de3-b713-43fc-8310-d9191d851801: # Name
+    columnSuffix: tyztxjbk
+    contentColumnType: string(240)
     fieldGroup: null
-    handle: style
+    handle: teamName
     instructions: null
-    name: Style
+    name: Name
     searchable: false
     settings:
-      options:
-        -
-          __assoc__:
-            -
-              - label
-              - Quoted
-            -
-              - value
-              - quoted
-            -
-              - default
-              - ''
+      byteLimit: null
+      charLimit: 60
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\Checkboxes
-  f620927d-baf7-430a-a965-f1e9ea676b83: # Text
-    columnSuffix: acwqdamq
-    contentColumnType: string(250)
+    type: craft\fields\PlainText
+  806a473e-c6e7-42cd-a76b-758ed48b5a2b: # Role
+    columnSuffix: yjyvjsph
+    contentColumnType: string(240)
     fieldGroup: null
-    handle: text
+    handle: teamRole
     instructions: null
-    name: Text
-    searchable: true
+    name: Role
+    searchable: false
     settings:
-      byteLimit: 250
-      charLimit: null
+      byteLimit: null
+      charLimit: 60
       code: false
       columnType: null
       initialRows: 4
@@ -77,6 +73,6 @@ fields:
     translationKeyFormat: null
     translationMethod: language
     type: craft\fields\PlainText
-handle: heading
-name: Heading
-sortOrder: 2
+handle: teamMember
+name: 'Team Member'
+sortOrder: 1

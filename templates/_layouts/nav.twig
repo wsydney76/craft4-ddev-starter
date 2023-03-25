@@ -2,8 +2,6 @@
 
 {# @param entry Entry Set by Craft #}
 
-{% from '_layouts/macros/lib.twig' import navLink %}
-{% from '_layouts/macros/lib.twig' import navLinkClasses %}
 
 {# Use children of homepage for main navigation, show level 3 entries in dropdown #}
 {% set homePage = entry.isHomepage ? entry : craft.entries.section('page').type('home').one %}
@@ -34,7 +32,7 @@
 {% set config = craft.app.config.custom %}
 
 {# Alpine Component #}
-<div class="{{ config.stickyMenu or entry.type == 'story' ? 'sticky top-0 z-40' }} relative bg-header-background text-header-foreground dark:bg-header-background-dark dark:text-header-foreground-dark border-b border-header-border dark:border-header-border-dark"
+<div class="{{ config.stickyMenu or entry.forceStickyMenu ? 'sticky top-0 z-40' }} relative bg-header-background text-header-foreground dark:bg-header-background-dark dark:text-header-foreground-dark border-b border-header-border dark:border-header-border-dark"
      x-data="{open: false}">
 
     <div class="mx-auto {{ containerClass[config.navWidth] }} px-4 md:px-8">
@@ -119,7 +117,7 @@
         </div>
     {% endif %}
 
-    {% if entry.type == 'story' %}
+    {% if entry.forceStickyMenu %}
         {% include '_layouts/partials/scroll_indicator.twig' %}
     {% endif %}
 </div>

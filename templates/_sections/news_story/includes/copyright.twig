@@ -1,0 +1,33 @@
+{% if images %}
+    <div class="">
+
+        {% embed '_sections/news_story/includes/container.twig' %}
+            {% block content %}
+                {% from '_layouts/macros/lib.twig' import img %}
+
+                <div class="py-8">
+                    <div class="font-semibold text-xl">
+                        {{ 'Image Copyright'|t }}
+                    </div>
+                    <div class="mt-8 space-y-4">
+                        {% for image in images %}
+                            {% if image.copyright %}
+                                <div class="flex items-center">
+                                    <div>
+                                        {{ img(image, {
+                                            transform: {width: 80, height: 40}
+                                        }) }}
+                                    </div>
+                                    <div class="ml-4">
+                                        {{ image.copyright }}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endblock %}
+        {% endembed %}
+
+    </div>
+{% endif %}

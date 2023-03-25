@@ -13,4 +13,17 @@
             block
         } only %}
     {% endfor %}
+
+    {% set members = entry.storyTeam.all %}
+    {% set images = request.get('images') %}
+
+    {% if members or images %}
+        <div class="bg-gray-200 text-foreground py-8">
+            {% include '_sections/news_story/includes/team.twig' with {members} %}
+
+            {% include '_sections/news_story/includes/copyright.twig' with {images} %}
+        </div>
+    {% endif %}
+
+
 </div>

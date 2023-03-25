@@ -1,18 +1,27 @@
 {% set featuredImage = entry.featuredImage.one ?? siteInfo.featuredImage.one %}
 
 {% if featuredImage %}
+    {% do request.addToList('images', featuredImage) %}
+
     {% set config = craft.app.config.custom %}
     <div class="">
         <div class="bg-cover bg-center bg-fixed flex items-end"
              style="background-image: url({{ featuredImage.url({width: 2000, height: 1500, format: 'webp'}) }}); height: calc(100vh - 72px)">
 
             <div class="relative pl-8 pr-4 md:pl-24 pb-36 sh:pb-8 pt-72 text-white">
-                <div class="text-xl sh:text-lg max-w-screen-lg">
-                    {{ entry.tagline }}
-                </div>
-                <div class="mt-12 text-6xl sh:text-3xl font-semibold">
+                {% if entry.teaser %}
+                    <div class="text-xl sh:text-lg max-w-screen-lg">
+                        {{ entry.teaser }}
+                    </div>
+                {% endif %}
+                <div class="mt-6 text-6xl sh:text-3xl font-semibold">
                     {{ entry.title }}
                 </div>
+                {% if entry.tagline %}
+                    <div class="mt-6 text-xl sh:text-lg max-w-screen-lg">
+                        {{ entry.tagline }}
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>

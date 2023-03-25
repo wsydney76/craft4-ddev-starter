@@ -62,12 +62,13 @@ class MainModule extends BaseModule
             SectionField::class
         ]);
 
-        $this->registerTwigExtensions([
-            TwigExtension::class
-        ]);
 
         $this->registerCraftVariableServices([
             ['project', ProjectService::class]
+        ]);
+
+        $this->registerTwigExtensions([
+            TwigExtension::class
         ]);
 
         if (Craft::$app->request->isCpRequest) {

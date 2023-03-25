@@ -1,3 +1,8 @@
-<div class="my-16 max-w-screen-md mx-auto px-8 font-serif text-xl leading-relaxed">
-    {{ block.text|nl2br|parseRefs }}
-</div>
+{% embed '_sections/news_story/includes/container.twig' %}
+    {% block content %}
+        <div class="font-serif text-xl leading-relaxed">
+            {{ block.text|nl2br|parseRefs }}
+        </div>
+    {% endblock %}
+{% endembed %}
+

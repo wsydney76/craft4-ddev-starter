@@ -41,4 +41,12 @@ class EntryBehavior extends Behavior
 
         return $authors;
     }
+
+    public function forceStickyMenu(): bool
+    {
+        /** @var Entry $entry */
+        $entry = $this->owner;
+
+        return $entry->type->handle === 'story';
+    }
 }

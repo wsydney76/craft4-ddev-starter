@@ -2,6 +2,9 @@
 
 
 {% if image %}
+    
+    {% do request.addToList('images', image) %}
+    
     <div class="bg-cover bg-center bg-fixed min-h-screen flex flex-col justify-center items-center text-center"
          style="background-image: url({{ image.url({width: 2000, height: 1500, format: 'webp'}) }})">
 
@@ -11,7 +14,7 @@
                 {{ block.text|nl2br|parseRefs }}
             </div>
         {% else %}
-            <div class="max-w-screen-md mx-auto bg-white/80 m-8 px-16 pt-8 pb-4 text-gray-900">
+            <div class="max-w-screen-md mx-auto bg-white/80 m-8 px-16 py-8 text-gray-900">
 
                 {% if block.style.contains('showMeta') %}
                     {% include '_sections/news_story/includes/meta.twig' %}
@@ -21,13 +24,6 @@
                     {{ block.text|nl2br|parseRefs }}
                 </div>
 
-                {% if image.copyright %}
-                    <div class="mt-4 -mr-8 text-xs text-right">
-                        {{ 'Photo:'|t }} {{ image.copyright }}
-                    </div>
-                {% else %}
-                    <div class="h-4"></div>
-                {% endif %}
             </div>
         {% endif %}
     </div>

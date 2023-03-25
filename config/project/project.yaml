@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1679773095
+dateModified: 1679835840
 elementSources:
   craft\elements\Asset:
     -
@@ -277,7 +277,9 @@ meta:
     6c3cc577-cf01-4446-9846-f0f2f6ea3655: 'Short Bio' # Short Bio
     6ca3494d-cd87-4b86-a8fa-fbd8a0acab02: Story # Story
     6ecb9b3b-4c70-44df-a0ef-88a4ae27beec: Style # Style
+    07a23de3-b713-43fc-8310-d9191d851801: Name # Name
     7b8b6f04-9d76-4b26-8276-96a80183750e: Quote # Quote
+    7ef9424e-9902-4930-9244-8d7f93d6dc4b: 'Story Team' # Story Team
     7fda4ce3-4bdd-4fbe-b32f-35a5e6707295: 'News Index' # News Index
     8b36e156-5078-4dac-b1d5-74d7b1e46eb9: 'Site Info' # Site Info
     8c826eca-f376-4f7a-92d6-307faddea123: Image # Image
@@ -324,7 +326,9 @@ meta:
     710a1bd0-9eeb-4721-9493-f2d7dead49ee: Body # Body
     735b5e6e-8026-4de4-8e32-14e03d975565: Image # Image
     0767f000-e433-4930-9534-b795a48740bb: Teaser # Teaser
+    806a473e-c6e7-42cd-a76b-758ed48b5a2b: Role # Role
     871e0a60-ea70-4650-91f2-746c9bc2de41: 'Aspect Ratio' # Aspect Ratio
+    2232a9d8-f828-47e8-bb32-6e03f1cd70b6: 'Team Member' # Team Member
     3468bd44-82e8-4104-932e-5085601fca12: Default # Default
     4120c3e9-17c2-464b-8d41-7d009dacb5e3: 'Page Template' # Page Template
     4401f3f7-9915-4cd0-b3d9-987755e4bdf8: Image # Image

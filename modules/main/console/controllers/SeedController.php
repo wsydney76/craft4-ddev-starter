@@ -134,7 +134,7 @@ class SeedController extends InitController
      * @throws \yii\base\InvalidRouteException
      * @throws \yii\console\Exception
      */
-    public function actionCreateEntries(int $num = self::NUM_ENTRIES, string $sectionHandle = self::SECTION_HANDLE, string $path = 'starter/'): int
+    public function actionCreateNews(int $num = self::NUM_ENTRIES, string $sectionHandle = self::SECTION_HANDLE, string $path = 'starter/'): int
     {
         $section = Craft::$app->sections->getSectionByHandle($sectionHandle);
         if (!$section) {
@@ -166,7 +166,7 @@ class SeedController extends InitController
         for ($i = 1; $i <= $num; ++$i) {
 
             $title = $this->faker->text(50);
-            $this->stdout("[{$i}/{$num}] Creating ... ");
+            $this->stdout("[{$i}/{$num}] ");
 
             $entry = $this->createEntry([
                 'section' => $section->handle,

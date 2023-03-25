@@ -1,0 +1,23 @@
+<div class="mb-8">
+    <div class="italic text-xl">
+        {{ 'By'|t }}
+        {% for author in entry.authors %}
+            {{ author.name }}{{ not loop.last ? ', ' }}
+        {% endfor %}
+    </div>
+    <div class="mt-2 text-xl flex justify-center space-x-4">
+        <div>
+            {{ entry.postDate|date('long') }}
+        </div>
+
+        <div>
+            &mdash;
+        </div>
+
+        <div>
+            {% set readingTime = estimatedReadingTime(blocks) %}
+            {{ readingTime.minutes + 1 }} {{ 'min.'|t }} {{ 'reading time'|t }}
+        </div>
+
+    </div>
+</div>

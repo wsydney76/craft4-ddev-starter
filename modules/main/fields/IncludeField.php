@@ -3,7 +3,6 @@
 namespace modules\main\fields;
 
 use Craft;
-use craft\base\ElementInterface;
 use craft\base\Field;
 use craft\elements\Entry;
 use craft\helpers\App;
@@ -13,7 +12,6 @@ use function is_dir;
 use function str_contains;
 use function str_replace;
 use function ucwords;
-use const CRAFT_TEMPLATES_PATH;
 use const DIRECTORY_SEPARATOR;
 
 class IncludeField extends Field

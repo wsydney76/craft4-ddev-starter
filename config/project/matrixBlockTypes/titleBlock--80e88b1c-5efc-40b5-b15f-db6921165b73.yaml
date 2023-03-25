@@ -1,0 +1,39 @@
+field: c0fe6eff-5323-415f-81d9-4f9d42a07b66 # Story Content
+fieldLayouts:
+  24f25949-87b5-4e02-9006-d0231bc96c08:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: e5bf7587-80f3-47bf-8e22-d1d8bbcf11ee # Template
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a693085b-fb07-4cb3-8d63-2c625a47a120
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 6390c85f-7ed1-4786-8866-8d9501505250
+        userCondition: null
+fields:
+  e5bf7587-80f3-47bf-8e22-d1d8bbcf11ee: # Template
+    columnSuffix: zybjsdrz
+    contentColumnType: string
+    fieldGroup: null
+    handle: template
+    instructions: null
+    name: Template
+    searchable: false
+    settings:
+      includeDirectory: _sections/news_story/title
+    translationKeyFormat: null
+    translationMethod: none
+    type: modules\main\fields\IncludeField
+handle: titleBlock
+name: Title
+sortOrder: 1

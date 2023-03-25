@@ -9,6 +9,7 @@
 * Streamlined main/init.
 * Added bigger image columns to element index
 * Added `requestData` app component and `request` twig variable, representing a Laravel collection that can be used to simulate a request scope (experimental).
+* Added `Story` entry type for the `News` section.
 
 ## 3.0.1 2023-03-15
 

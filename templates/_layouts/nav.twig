@@ -34,7 +34,7 @@
 {% set config = craft.app.config.custom %}
 
 {# Alpine Component #}
-<div class="{{ config.stickyMenu ? 'sticky top-0 z-40' }} relative bg-header-background text-header-foreground dark:bg-header-background-dark dark:text-header-foreground-dark border-b border-header-border dark:border-header-border-dark"
+<div class="{{ config.stickyMenu or entry.type == 'story' ? 'sticky top-0 z-40' }} relative bg-header-background text-header-foreground dark:bg-header-background-dark dark:text-header-foreground-dark border-b border-header-border dark:border-header-border-dark"
      x-data="{open: false}">
 
     <div class="mx-auto {{ containerClass[config.navWidth] }} px-4 md:px-8">
@@ -72,6 +72,8 @@
             {% endif %}
         </div>
     </div>
+
+
 
     {# Mobile Menu #}
     {% if config.mobileNavBreakpoint != 'never' %}
@@ -115,5 +117,9 @@
 
             </div>
         </div>
+    {% endif %}
+
+    {% if entry.type == 'story' %}
+        {% include '_layouts/partials/scroll_indicator.twig' %}
     {% endif %}
 </div>

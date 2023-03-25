@@ -1,0 +1,12 @@
+columnSuffix: glrdgljk
+contentColumnType: string(7)
+fieldGroup: 669ee208-7bb0-4800-ba43-454bc31751ac # Story
+handle: backgroundColor
+instructions: null
+name: 'Background Color'
+searchable: false
+settings:
+  defaultColor: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Color

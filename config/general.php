@@ -47,7 +47,7 @@ return
 		->optimizeImageFilesize(false)
 		->revAssetUrls()
 
-		->useIframeResizer()
+		->useIframeResizer(false)
 
         ->enableGql(false)
 

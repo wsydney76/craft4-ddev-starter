@@ -1,0 +1,16 @@
+{% set style = '' %}
+{% if entry.textColor and entry.backgroundColor %}
+    {% set style = "color: #{entry.textColor}; background-color: #{entry.backgroundColor}" %}
+{% endif %}
+
+<div class="-mb-16 pb-16" style="{{ style }}">
+    {% set blocks = entry.storyContent.collect %}
+
+    {% for block in blocks %}
+        {% include "_sections/news_story/blocks/#{block.type.handle}.twig" with {
+            entry,
+            blocks,
+            block
+        } only %}
+    {% endfor %}
+</div>

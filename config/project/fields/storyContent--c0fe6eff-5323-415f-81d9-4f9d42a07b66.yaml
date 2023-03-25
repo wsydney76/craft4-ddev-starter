@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 669ee208-7bb0-4800-ba43-454bc31751ac # Story
+handle: storyContent
+instructions: null
+name: 'Story Content'
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_storycontent}}'
+  maxBlocks: null
+  minBlocks: null
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

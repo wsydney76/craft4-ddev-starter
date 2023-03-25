@@ -1,0 +1,7 @@
+<div class="my-16 max-w-screen-md mx-auto px-8 font-serif text-4xl leading-relaxed">
+    {% if block.style.contains('quoted') %}
+        {{ block.text|quote }}
+    {% else %}
+        {{ block.text }}
+    {% endif %}
+</div>

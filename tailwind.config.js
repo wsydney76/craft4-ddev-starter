@@ -74,7 +74,7 @@ module.exports = {
                 dark: secondaryDark
             },
 
-           // Light background/text, good contrast to foreground/primary
+            // Light background/text, good contrast to foreground/primary
             light: {
                 DEFAULT: light,
                 dark: lightDark
@@ -147,6 +147,7 @@ module.exports = {
             lg: '1024px',
             xl: '1280px',
             '2xl': '1536px',
+            'sh': {'raw': '(max-height: 450px)'}
         },
 
         extend: {

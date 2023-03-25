@@ -1,55 +1,11 @@
-{# News Page #}
+{# Show Page #}
 
 {% extends "_layouts/main.twig" %}
 
-{% set featuredImage = entry.featuredImage.one ?? siteInfo.featuredImage.one %}
-
-{% block heroArea %}
-    {% if featuredImage %}
-        {% include '_layouts/partials/hero-area-display.twig' with {
-            teaser: entry.teaser,
-            image: featuredImage,
-            title: entry.title,
-            text: entry.tagline,
-        } only %}
-    {% endif %}
-{% endblock %}
-
-{% block content %}
-
-    {% embed '_layouts/embeds/container-md.twig' %}
-        {% block content %}
-            {% include '_partials/meta.twig' with {
-                entry,
-                breadcrumpQueries: [entry.topics]
-            } only %}
-        {% endblock %}
-    {% endembed %}
-
-    {% include '_layouts/partials/content-blocks.twig' with {
-        query: entry.bodyContent
-    } only %}
-
-    {% embed '_layouts/embeds/container-md.twig' %}
-        {% block content %}
-            {# Related Entries #}
-            {% include '_layouts/partials/cards.twig' with {
-                heading: '{count,plural,=1{Related Entry} other{Related Entries}}',
-                query: craft.entries.relatedTo({element: entry, field: 'relatedEntries'}).orderBy('title'),
-                wide: false
-            } only %}
-        {% endblock %}
-    {% endembed %}
-
-    {% embed '_layouts/embeds/container-xl.twig' %}
-        {% block content %}
-            {% include '_layouts/partials/entry-nav-channel.twig' with {
-                entry,
-                criteria: {section: 'news'}
-            } only %}
-        {% endblock %}
-    {% endembed %}
-
-
-
+{% block contentWrapper %}
+    {# Display individual content per entry type #}
+    {% include [
+        "_sections/news_#{entry.type.handle}",
+        "_sections/news_default"
+    ] %}
 {% endblock %}

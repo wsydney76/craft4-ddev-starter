@@ -1,0 +1,115 @@
+fieldLayouts:
+  16071f75-24f5-4201-950a-92a09401de15:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 10617d77-96d5-4e35-a350-350fb771f91c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: c72e758a-f6c3-42cd-896b-3ff6353ed259 # Featured Image
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2a9758a6-8c25-4c57-a28a-57ee18188fc8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 400d2e7a-d260-459d-b16d-bc388f093106 # Tagline
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 734e1cb2-3bcc-4970-81e7-5a2999f2e191
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: ee886fff-a72a-4a22-b217-f878c7f53ffe # Persons
+            instructions: null
+            label: Authors
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 83eae09d-e203-4827-acc3-a029af6fd9ff
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 12ee7163-1896-4afc-b140-3f53c59f8b7d # Text Color
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 60eaceea-a6ce-4fa9-899d-e323a80cac16
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: 340c3b24-7f05-4789-b077-a502b4310109 # Background Color
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4452f89d-cd34-4898-9449-c9929305d727
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: c0fe6eff-5323-415f-81d9-4f9d42a07b66 # Story Content
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6bee8737-9e26-48b4-ad38-43ad7c662162
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 04857412-02c9-4c1f-bb50-56b63fe32a8b
+        userCondition: null
+handle: story
+hasTitleField: true
+name: Story
+section: 2f93cb45-a9ce-4284-8848-9eb001fb8a1c # News
+sortOrder: 2
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: language

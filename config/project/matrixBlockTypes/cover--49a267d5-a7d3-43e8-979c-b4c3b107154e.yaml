@@ -1,0 +1,186 @@
+field: c0fe6eff-5323-415f-81d9-4f9d42a07b66 # Story Content
+fieldLayouts:
+  78018d7c-8136-497e-87b9-3fb38825d4a8:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 8c826eca-f376-4f7a-92d6-307faddea123 # Image
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 23ab5238-4763-45f4-9563-bfefc9efce5c
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: dfe29fea-361a-48b4-b260-f547abb65701 # Text
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ad9432e7-f41e-4758-802f-d0edec02d993
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 6ecb9b3b-4c70-44df-a0ef-88a4ae27beec # Style
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9f46e648-4ac8-4af4-9ee9-394557dd3aec
+            userCondition: null
+            warning: null
+            width: 25
+        name: Content
+        uid: 70d18cd1-3e82-4fb3-98f0-17d01de281be
+        userCondition: null
+fields:
+  6ecb9b3b-4c70-44df-a0ef-88a4ae27beec: # Style
+    columnSuffix: fqakpihs
+    contentColumnType: string
+    fieldGroup: null
+    handle: style
+    instructions: null
+    name: Style
+    searchable: false
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Show Meta'
+            -
+              - value
+              - showMeta
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Bold
+            -
+              - value
+              - bold
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Text Shadow'
+            -
+              - value
+              - textShadow
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Checkboxes
+  8c826eca-f376-4f7a-92d6-307faddea123: # Image
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: null
+    name: Image
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowSubfolders: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      branchLimit: null
+      defaultUploadLocationSource: 'volume:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+      defaultUploadLocationSubpath: stories
+      localizeRelations: false
+      maintainHierarchy: false
+      maxRelations: 1
+      minRelations: null
+      previewMode: full
+      restrictFiles: true
+      restrictLocation: false
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'volume:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+      restrictedLocationSubpath: null
+      selectionCondition:
+        __assoc__:
+          -
+            - elementType
+            - craft\elements\Asset
+          -
+            - fieldContext
+            - global
+          -
+            - class
+            - craft\elements\conditions\assets\AssetCondition
+          -
+            - conditionRules
+            -
+              -
+                __assoc__:
+                  -
+                    - class
+                    - craft\elements\conditions\assets\WidthConditionRule
+                  -
+                    - uid
+                    - bed2b59f-ac5b-4ca3-91ee-7a871af47142
+                  -
+                    - operator
+                    - '>='
+                  -
+                    - value
+                    - '1800'
+                  -
+                    - maxValue
+                    - ''
+      selectionLabel: 'Select an image'
+      showSiteMenu: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      sources:
+        - 'volume:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  dfe29fea-361a-48b4-b260-f547abb65701: # Text
+    columnSuffix: uiesayha
+    contentColumnType: text
+    fieldGroup: null
+    handle: text
+    instructions: null
+    name: Text
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: true
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: language
+    type: craft\fields\PlainText
+handle: cover
+name: Cover
+sortOrder: 5

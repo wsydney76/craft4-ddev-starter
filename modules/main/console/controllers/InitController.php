@@ -69,7 +69,7 @@ class InitController extends BaseController
         Craft::$app->runAction('main/seed/create-topics', ['interactive' => false]);
         $this->stdout(PHP_EOL);
 
-        Craft::$app->runAction('main/seed/create-entries', ['interactive' => false]);
+        Craft::$app->runAction('main/seed/create-news', ['interactive' => false]);
         $this->stdout(PHP_EOL);
 
         Craft::$app->runAction('main/seed/create-homepage-content', ['interactive' => false]);

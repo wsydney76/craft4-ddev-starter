@@ -14,8 +14,7 @@
 
                     
                     <div class="mt-8 space-y-4">
-                        {% for imageInCopyright, images in imagesByCopyright %}
-
+                        {% for copyright, images in imagesByCopyright %}
                                 <div class="flex items-center">
                                     <div class="flex flex-wrap space-x-1">
                                         {% for image in images %}
@@ -25,7 +24,7 @@
                                         {% endfor %}
                                     </div>
                                     <div class="ml-4">
-                                        {{ imageInCopyright }}
+                                       &copy; {{ copyright }}
                                     </div>
                                 </div>
                         {% endfor %}

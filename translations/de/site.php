@@ -21,6 +21,7 @@ return [
     'Content Sections' => 'Inhalts-Abschnitte',
     'Copyright for images' => 'Copyright für Bilder',
     'Dark color mode' => 'Dunkler Farbmodus',
+    'Data' => 'Daten',
     'Email' => 'E-Mail',
     'Featured Entries' => 'Ausgewählte Einträge',
     'Featured Image (big)' => 'Eintragsbild (groß)',

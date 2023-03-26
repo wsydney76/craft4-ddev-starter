@@ -243,7 +243,7 @@ class SeedController extends InitController
 
             ]);
 
-            $this->translateHint($entry, 'de');
+            $this->translateHint($entry, 'de', 'storyContent');
         }
 
         return ExitCode::OK;
@@ -664,7 +664,7 @@ class SeedController extends InitController
         return ExitCode::OK;
     }
 
-    protected function translateHint(Entry $entry, string $siteHandle): void
+    protected function translateHint(Entry $entry, string $siteHandle, string $fieldHandle = 'bodyContent'): void
     {
         $entry = $entry->getLocalized()->site($siteHandle)->one();
         if (!$entry) {
@@ -672,9 +672,9 @@ class SeedController extends InitController
         }
 
         /** @var Collection $primaryBlocks */
-        $primaryBlocks = $entry->getFieldValue('bodyContent')->collect();
+        $primaryBlocks = $entry->getFieldValue($fieldHandle)->collect();
 
-        $entry->setFieldValue('bodyContent', [
+        $entry->setFieldValue($fieldHandle, [
             // Not sure whether ->ids() respects the correct order, so play it safe...
             'sortOrder' => $primaryBlocks->map(function($entry) {
                 return $entry->id;

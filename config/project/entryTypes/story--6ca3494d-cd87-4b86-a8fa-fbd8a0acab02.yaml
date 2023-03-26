@@ -41,19 +41,19 @@ fieldLayouts:
             uid: 10617d77-96d5-4e35-a350-350fb771f91c
             userCondition: null
             warning: null
-            width: 100
+            width: 75
           -
             elementCondition: null
-            fieldUid: c72e758a-f6c3-42cd-896b-3ff6353ed259 # Featured Image
+            fieldUid: b7e84646-2ab1-476a-97a1-49ac1fa05852 # Is Featured
             instructions: null
             label: null
-            required: true
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 2a9758a6-8c25-4c57-a28a-57ee18188fc8
+            uid: 382b6359-fa1d-46e4-9203-eed226f4abec
             userCondition: null
             warning: null
-            width: 100
+            width: 25
           -
             elementCondition: null
             fieldUid: 400d2e7a-d260-459d-b16d-bc388f093106 # Tagline
@@ -90,6 +90,30 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 25
+          -
+            elementCondition: null
+            fieldUid: c72e758a-f6c3-42cd-896b-3ff6353ed259 # Featured Image
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2a9758a6-8c25-4c57-a28a-57ee18188fc8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 44993cef-3718-479f-8c88-bdede1d256ba # Card Text
+            instructions: 'Will be show on the news index page instead of the tagline'
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6b337f51-9f5b-4a0e-9b2c-a3f49c8cc727
+            userCondition: null
+            warning: null
+            width: 100
           -
             elementCondition: null
             fieldUid: 12ee7163-1896-4afc-b140-3f53c59f8b7d # Text Color

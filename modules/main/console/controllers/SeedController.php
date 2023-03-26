@@ -233,7 +233,7 @@ class SeedController extends InitController
                 'title' => str_replace('.', '', $title),
                 'postDate' => $this->faker->dateTimeInInterval('-1 days', '-10 days'),
                 'fields' => [
-                    // 'isFeatured' => $this->faker->boolean(25),
+                    'isFeatured' => $this->faker->boolean(25),
                     'tagline' => $this->faker->text(50),
                     'teaser' => $this->faker->text(15),
                     'featuredImage' => [$images[$i - 1]->id],
@@ -243,7 +243,7 @@ class SeedController extends InitController
 
             ]);
 
-            // $this->translateHint($entry, 'de');
+            $this->translateHint($entry, 'de');
         }
 
         return ExitCode::OK;

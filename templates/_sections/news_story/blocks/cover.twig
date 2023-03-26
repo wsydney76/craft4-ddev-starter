@@ -4,7 +4,7 @@
 {% if image %}
     
     {% do request.addToList('images', image) %}
-    
+
     <div class="bg-cover bg-center bg-fixed min-h-screen flex flex-col justify-center items-center text-center"
          style="background-image: url({{ image.url({width: 2000, height: 1500, format: 'webp'}) }})">
 

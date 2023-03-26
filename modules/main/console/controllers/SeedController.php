@@ -191,6 +191,64 @@ class SeedController extends InitController
         return ExitCode::OK;
     }
 
+    public function actionCreateStories(int $num = 3, string $path = 'starter/'): int
+    {
+        $section = Craft::$app->sections->getSectionByHandle('news');
+        if (!$section) {
+            $this->stderr("Invalid section news") . PHP_EOL;
+            return ExitCode::UNSPECIFIED_ERROR;
+        }
+
+        // $this->indexImages();
+
+        // $this->actionImgAddProvisionalTexts($path);
+
+        $images = $this->getImagesFromFolder($path);
+
+        $num = min($num, $images->count());
+
+        if (!$num) {
+            $this->stdout('Could not find enough images' . PHP_EOL);
+            return ExitCode::OK;
+        }
+
+        if ($this->interactive && !$this->confirm("Create {$num} entries of type News/Story? Make sure a number of images exist!", true)) {
+            return ExitCode::UNSPECIFIED_ERROR;
+        }
+
+        $this->stdout("Creating {$num} entries of type 'Story'." . PHP_EOL);
+
+        $type = ArrayHelper::firstWhere($section->entryTypes, 'handle', 'story');
+
+
+        for ($i = 1; $i <= $num; ++$i) {
+
+            $title = $this->faker->text(30);
+            $this->stdout("[{$i}/{$num}] ");
+
+            $entry = $this->createEntry([
+                'section' => $section->handle,
+                'type' => $type->handle,
+                'author' => User::find()->orderBy('rand()')->one(),
+                'title' => str_replace('.', '', $title),
+                'postDate' => $this->faker->dateTimeInInterval('-1 days', '-10 days'),
+                'fields' => [
+                    // 'isFeatured' => $this->faker->boolean(25),
+                    'tagline' => $this->faker->text(50),
+                    'teaser' => $this->faker->text(15),
+                    'featuredImage' => [$images[$i - 1]->id],
+                    'storyContent' => $this->getStoryContent($i),
+                    'topics' => [$this->getRandomTopic()->id ?? null]
+                ]
+
+            ]);
+
+            // $this->translateHint($entry, 'de');
+        }
+
+        return ExitCode::OK;
+    }
+
     /**
      * Create a fake hero area entry and attach it to the home page.
      *
@@ -436,7 +494,7 @@ class SeedController extends InitController
                 'title' => 'Latest News',
                 'slug' => 'latest-news',
                 'fields' => [
-                    'criteria' => ['language' => 'json', 'value' => '{"section": "news", "limit": 9, "showMetaData": true}'],
+                    'criteria' => ['language' => 'json', 'value' => '{"section": "news", "type": "default", "limit": 9, "showMetaData": true}'],
                     'buttons' => [
                         [
                             'type' => 'button',
@@ -450,6 +508,7 @@ class SeedController extends InitController
                 ],
                 'localized' => [
                     'de' => [
+                        'title' => 'Aktuelle News',
                         'fields' => [
                             'buttons' => [
                                 [
@@ -462,6 +521,23 @@ class SeedController extends InitController
                                 ]
                             ]
                         ]
+                    ]
+                ]
+            ]);
+
+            $contentComponents[] = $this->createEntry([
+                'section' => 'contentComponent',
+                'type' => 'cards',
+                'site' => 'en',
+                'title' => 'Latest Stories',
+                'slug' => 'latest-stories',
+                'fields' => [
+                    'criteria' => ['language' => 'json', 'value' => '{"section": "news", "type": "story", "limit": 3}'],
+                ],
+                'localized' => [
+                    'de' => [
+                        'title' => 'Neueste Stories',
+                        'slug' => 'neueste-stories',
                     ]
                 ]
             ]);
@@ -712,6 +788,102 @@ class SeedController extends InitController
                         ]
                     ];
 
+                    break;
+            }
+
+            ++$i;
+            $id = "new{$i}";
+            $content['sortOrder'][] = $id;
+            $content['blocks'][$id] = $block;
+        }
+
+        $id = 'newExample';
+        $content['sortOrder'][] = $id;
+        $content['blocks'][$id] = [
+            'type' => 'text',
+            'fields' => [
+                'text' => 'This is an automatically generated sample entry.'
+            ]
+        ];
+
+        return $content;
+    }
+
+    protected function getStoryContent(int $index): array
+    {
+
+        $localFaker = Factory::create('de_DE');
+
+        $content = [
+            'sortOrder' => [],
+            'blocks' => []
+        ];
+
+        $folder = Craft::$app->assets->findFolder(['path' => 'starter/']);
+
+        $layouts = [
+            ['titleBlock', 'cover', 'cover', 'text', 'image', 'text', 'heading', 'text', 'cover'],
+            ['cover', 'cover', 'cover', 'titleBlock2', 'text', 'heading', 'text', 'cover', 'cover', 'image', 'image', 'text'],
+            ['titleBlock', 'text', 'heading', 'text', 'cover', 'text', 'image', 'image']
+        ];
+
+        // $blockTypes = $this->faker->randomElement($layouts);
+        $blockTypes = $layouts[$index - 1];
+
+        $i = 0;
+        foreach ($blockTypes as $blockType) {
+
+            switch ($blockType) {
+                case 'text':
+                    $block = [
+                        'type' => 'text',
+                        'fields' => [
+                            'text' => $this->getMarkdownParagraphs($this->faker->numberBetween(3, 5))
+                        ]
+                    ];
+                    break;
+                case 'heading':
+                    $block = [
+                        'type' => 'heading',
+                        'fields' => [
+                            'text' => $this->faker->text(40)
+                        ]
+                    ];
+                    break;
+                case 'titleBlock':
+                    $block = [
+                        'type' => 'titleBlock',
+                        'fields' => [
+                            'template' => 'fullheight.twig',
+                        ]
+                    ];
+                    break;
+                case 'titleBlock2':
+                    $block = [
+                        'type' => 'titleBlock',
+                        'fields' => [
+                            'template' => 'textonly.twig',
+                        ]
+                    ];
+                    break;
+                case 'image':
+                    $image = $this->getRandomImage(900);
+                    $block = [
+                        'type' => 'image',
+                        'fields' => [
+                            'image' => $image ? [$image->id] : null,
+                        ]
+                    ];
+                    break;
+                case 'cover':
+                    $image = $this->getRandomImage(1800);
+                    $block = [
+                        'type' => 'cover',
+                        'fields' => [
+                            'image' => $image ? [$image->id] : null,
+                            'text' => $this->faker->text(50),
+                        ]
+                    ];
                     break;
             }
 

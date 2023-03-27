@@ -5,23 +5,35 @@ return [
     $co->createColumn(7, [
         $co->createSection()
             ->section('news')
+            ->entryType('default')
             ->heading('Latest News')
             ->info('{tagline}, {postDate|date("short")}')
             ->imageField('featuredImage')
             ->layout('cards')
             ->size('small')
-            ->limit(6),
+            ->limit(3),
+        $co->createSection()
+            ->section('news')
+            ->entryType('story')
+            ->heading('Latest Stories')
+            ->info('{tagline}, {postDate|date("short")}')
+            ->imageField('featuredImage')
+            ->layout('cards')
+            ->size('small')
+            ->limit(3),
         $co->createSection()
             ->section('legal')
             ->info('{type.name}')
     ]),
 
+
+
     $co->createColumn(5, [
         $co->createSection()
             ->section('heroArea')
             ->limit(2)
-            ->info('{heroTagline}')
-            ->imageField('heroImage')
+            ->info('{body}')
+            ->imageField('image')
             ->layout('cardlets'),
 
         $co->createSection()

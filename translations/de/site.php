@@ -10,6 +10,7 @@ return [
     'All tips/warnings are visible again.' => 'Alle Tipps/Warnungen sind wieder sichtbar.',
     'and' => 'und',
     'Authors' => 'Autoren',
+    'Background image' => 'Hintergrundbild',
     'Block {index}: H{level} cannot follow H{lastHeadingLevel}.' => 'Block {index}: H{level} kann nicht auf H{lastHeadingLevel} folgen.',
     'Body' => 'Text',
     'Bold' => 'Fett',

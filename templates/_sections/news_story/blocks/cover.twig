@@ -8,6 +8,12 @@
     <div class="bg-cover bg-center bg-fixed min-h-screen flex flex-col justify-center items-center text-center"
          style="background-image: url({{ image.url({width: 2000, height: 1500, format: 'webp'}) }})">
 
+        {% if image.altText %}
+            <div class="sr-only">
+                {{ 'Background image'|t }}: {{ image.altText }}
+            </div>
+        {% endif %}
+
         {% if block.style.contains('textShadow') %}
         	<div class="max-w-screen-md mx-auto m-8 px-16 py-8 text-white font-bold font-serif leading-relaxed tracking-wider text-3xl"
                 style="text-shadow: 2px 2px 6px rgba(0,0,0,0.8)">

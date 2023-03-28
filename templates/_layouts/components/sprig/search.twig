@@ -85,6 +85,15 @@
                 </div>
             {% endif %}
 
+            {% set images = request.get('imagesForCopyrightNotice') %}
+            {% if images %}
+                <div class="">
+                    {% include '_layouts/partials/footer-copyright.twig' with {
+                        images
+                    } only %}
+                </div>
+            {% endif %}
+
         {% else %}
             {# Sorry... #}
             {{ "No results"|t }}

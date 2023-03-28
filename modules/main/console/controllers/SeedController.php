@@ -1025,6 +1025,13 @@ class SeedController extends InitController
             return ExitCode::OK;
         }
 
+        $localFaker = Factory::create('de_DE');
+
+        $photographers = [];
+        for ($i = 0; $i < 6; ++$i) {
+            $photographers[] = $localFaker->name;
+        }
+
         foreach (Craft::$app->sites->allSites as $site) {
             $images = Asset::find()
                 ->kind('image')
@@ -1039,7 +1046,7 @@ class SeedController extends InitController
                     $save = true;
                 }
                 if (!$image->copyright) {
-                    $image->copyright = 'tbd.';
+                    $image->copyright = $localFaker->randomElement($photographers);
                     $save = true;
                 }
                 if ($save) {

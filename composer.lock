@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae1d811e1e57f8122836523a954ffae0",
+    "content-hash": "f12c4c1f8ec2c3c2cfabfd2d5ed9bacf",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -3308,6 +3308,67 @@
                 "source": "https://github.com/jmespath/jmespath.php/tree/2.6.1"
             },
             "time": "2021-06-14T00:11:39+00:00"
+        },
+        {
+            "name": "nystudio107/craft-closure",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nystudio107/craft-closure.git",
+                "reference": "e44f4587067393b6a4179f0f513f3e00e21253da"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nystudio107/craft-closure/zipball/e44f4587067393b6a4179f0f513f3e00e21253da",
+                "reference": "e44f4587067393b6a4179f0f513f3e00e21253da",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.0.0",
+                "twig/twig": "^3.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "nystudio107\\closure\\Closure"
+            },
+            "autoload": {
+                "psr-4": {
+                    "nystudio107\\closure\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "nystudio107",
+                    "homepage": "https://nystudio107.com"
+                }
+            ],
+            "description": "Allows you to use arrow function closures in Twig",
+            "keywords": [
+                "Arrow",
+                "Craft",
+                "closure",
+                "closures",
+                "cms",
+                "craftcms",
+                "function",
+                "twig"
+            ],
+            "support": {
+                "docs": "https://github.com/nystudio107/craft-closure/blob/v1/README.md",
+                "issues": "https://github.com/nystudio107/craft-closure/issues",
+                "source": "https://github.com/nystudio107/craft-closure"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/khalwat",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-09-09T06:48:21+00:00"
         },
         {
             "name": "nystudio107/craft-code-editor",

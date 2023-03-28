@@ -8,7 +8,8 @@
     params keys:
         - transform: Transform object, optional=customConfig
         - srcset: Array of sizes, optional=customConfig
-        - showCopyright: Bool
+        - showCopyright: Bool, show copyright notice on image
+        - registerCopyright: Bool, add copyright notice to request scope
         - attr: Object for image attributes, e.g.
             - class
             - loading
@@ -20,6 +21,7 @@
     {% set srcset = params.srcset ?? config.defaultSrcSet %}
     {% set attr = params.attr ?? {loading: 'lazy'} %}
     {% set showCopyright = params.showCopyright is defined ? params.showCopyright : false %}
+    {% set registerCopyright = params.registerCopyright is defined ? params.registerCopyright : false %}
     {% if transform.format is not defined %}
         {% set transform = transform|merge({format: config.defaultImageFormat}) %}
     {% endif %}
@@ -86,14 +88,18 @@
         {% set imgHtml = image.img(transform, srcset)|attr(attr) %}
     {% endif %}
 
-    {% if showCopyright and image.copyright %}
+    {% if (showCopyright or config.showRegisteredCopyright == 'image') and image.copyright %}
         <div class="relative">
             {{ imgHtml|raw }}
             {{ _self.imgCopyright(image) }}
         </div>
     {% else %}
         {{ imgHtml|raw }}
+        {% if registerCopyright and image.copyright %}
+            {% do request.addToList('imagesForCopyrightNotice', image) %}
+        {% endif %}
     {% endif %}
+
 
 {% endmacro %}
 

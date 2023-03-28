@@ -47,10 +47,22 @@ fieldLayouts:
             fieldUid: eb6b24cc-83d7-416f-be4b-d002c7688b58 # Copyright
             instructions: null
             label: null
-            required: true
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 495718ec-8e48-40fc-b5ec-4a6e34efec05
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: f3bd1ac0-e068-493b-8d96-5806fa175179 # Image Source
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5acfbbb9-b346-4887-a9a1-7c10650de09b
             userCondition: null
             warning: null
             width: 100

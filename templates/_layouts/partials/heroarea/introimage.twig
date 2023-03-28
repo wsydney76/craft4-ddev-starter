@@ -40,12 +40,10 @@
     </div>
 </div>
 
-{% do request.put('copyright', image.copyright) %}
-
 <div class="container mx-auto -mt-44 mb-20">
     {{ img(image,  {
         transform: {width: 1024, height: 400},
         scrset: [768, 360],
-        showCopyright: false}) }}
+        registerCopyright: true}) }}
 </div>
 

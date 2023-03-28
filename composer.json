@@ -8,6 +8,7 @@
     "craftcms/contact-form": "3.0.1",
     "craftcms/contact-form-honeypot": "^2.0",
     "fakerphp/faker": "^1.20",
+    "nystudio107/craft-closure": "^1.0",
     "nystudio107/craft-code-field": "^4.0",
     "nystudio107/craft-vite": "4.0.5",
     "putyourlightson/craft-sprig": "2.5.1",

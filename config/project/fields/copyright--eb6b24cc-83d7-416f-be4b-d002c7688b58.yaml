@@ -2,7 +2,7 @@ columnSuffix: wcgkvvuu
 contentColumnType: string(240)
 fieldGroup: d50026f3-a236-4ae2-b00a-af55076acd17 # Site
 handle: copyright
-instructions: null
+instructions: 'For images: This is the information that must be legally displayed, usually the name of the photographer, for microstock images the name of the service if applicable. Leave blank if nothing is to be displayed on the website.'
 name: Copyright
 searchable: false
 settings:

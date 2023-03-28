@@ -1,0 +1,19 @@
+columnSuffix: zfsxfdkz
+contentColumnType: string(250)
+fieldGroup: 169ccd00-9c12-4921-b187-8ef8ca2ad525 # Assets
+handle: imageSource
+instructions: 'Internal only. Name of a Microstock service of agency, if it differs from the copyright notice.'
+name: 'Image Source'
+searchable: false
+settings:
+  byteLimit: 250
+  charLimit: null
+  code: false
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -53,7 +53,7 @@ class InitController extends BaseController
         }
 
         $retrievePages = true;
-        if ($this->interactive && !$this->confirm('Retrieve all pages after creation? That will create all missing image transforms, but will take some time.', true)) {
+        if ($this->interactive && !$this->confirm('Retrieve pages after creation? That will create image transforms, but will take some time.', true)) {
             $retrievePages = false;
         }
         $this->stdout(PHP_EOL);

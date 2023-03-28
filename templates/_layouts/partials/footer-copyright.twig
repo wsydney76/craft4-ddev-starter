@@ -1,0 +1,32 @@
+{% from '_layouts/macros/lib.twig' import img %}
+
+<div class="py-4">
+    <div class="font-semibold text-sm">
+        {{ 'Copyright for images'|t }}
+    </div>
+
+    {% set imagesByCopyright = images
+        .unique(image => image.id)
+        .filter(image => image.copyright)
+        .groupBy(image => image.copyright) %}
+
+
+    <div class="mt-4 flex flex-wrap">
+        {% for copyright, imagesForCopyright in imagesByCopyright %}
+            <div class="mb-4 mr-8 flex items-center">
+                <div class="flex flex-wrap">
+                    {% for image in imagesForCopyright %}
+                        {{ img(image, {
+                            transform: {width: 60, height: 40}
+                        }) }}
+                    {% endfor %}
+                </div>
+                <div class="ml-2 text-sm whitespace-nowrap">
+                    &copy; {{ copyright }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% do request.forget('imagesForCopyrightNotice') %}

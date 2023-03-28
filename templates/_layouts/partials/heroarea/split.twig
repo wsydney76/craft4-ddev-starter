@@ -41,13 +41,11 @@
 
     {% if image %}
 
-        {% do request.put('copyright', image.copyright) %}
-
         <div class="lg:w-1/2 lg:mb-0">
             {{ img(image,  {
                 transform: {width: 1024, height: 400},
                 scrset: [768, 360],
-                showCopyright: false,
+                registerCopyright: true,
                 attr: {
                     class: 'lg:object-cover lg:object-top w-full h-full',
                     loading: null,

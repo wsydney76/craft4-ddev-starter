@@ -66,8 +66,10 @@
     {% endif %}
     <div class="{{ classes[layout].imgDiv }} bg-gray-200 rounded-lg overflow-hidden">
         {% if image %}
+
             {{ img(image, {
                 transform: transform,
+                registerCopyright: true,
                 attr: {
                     class: "group-hover:opacity-75 group-hover:scale-105 group-focus:opacity-75 transition duration-300"
                 }

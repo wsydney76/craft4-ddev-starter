@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1679854360
+dateModified: 1680002187
 elementSources:
   craft\elements\Asset:
     -
@@ -424,6 +424,7 @@ meta:
     edae774c-4600-499d-8c26-3af51f7bc820: Features # Features
     ee6f8d07-ca81-4da0-991c-491e5108bff8: Home # Home
     ee886fff-a72a-4a22-b217-f878c7f53ffe: Persons # Persons
+    f3bd1ac0-e068-493b-8d96-5806fa175179: 'Image Source' # Image Source
     f3c6560d-3487-4f65-a4f9-ac2926397b57: 'Aspect Ratio' # Aspect Ratio
     f8ff18c6-ca19-4910-8753-62aa768dd3a3: Cite # Cite
     f76ccc3a-7c88-43a3-9024-5ea619356bbf: Heading # Heading

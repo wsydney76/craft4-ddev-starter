@@ -80,6 +80,7 @@ return [
         ['label' => 'Legal', 'template' => 'content/legal'],
         ['heading' => 'Editing'],
         ['label' => 'Blocks', 'template' => 'content/blocks'],
+        ['label' => 'Image Copyright', 'template' => 'content/image-copyright'],
     ],
 
     // this is the file as in sprig.script(), just hosting it locally. Check version after updating sprig.
@@ -92,6 +93,12 @@ return [
         '/assets/fonts/raleway-v22-latin-700.woff2',
         '/assets/fonts/open-sans-v27-latin-regular.woff2',
         '/assets/fonts/open-sans-v27-latin-600.woff2'
-    ]
+    ],
+
+
+    // Whether copyright notices registered in request.imagesForCopyrightNotice should be shown in the footer or on the image
+    // TODO: Implementation for 'image' is incomplete
+    // footer/image
+    'showRegisteredCopyright' => 'footer',
 
 ];

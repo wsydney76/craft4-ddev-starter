@@ -2,6 +2,17 @@
 
 {% from '_layouts/macros/lib.twig' import navLink %}
 
+{% set images = request.get('imagesForCopyrightNotice') %}
+{% if images %}
+   <div class="bg-gray-200">
+       <div class=" container mx-auto px-4 lg:px-8">
+           {% include '_layouts/partials/footer-copyright.twig' with {
+               images
+           } only %}
+       </div>
+   </div>
+{% endif %}
+
 <footer class="bg-footer-background text-footer-foreground dark:bg-footer-background-dark dark:text-footer-foreground-dark">
     <div class="container mx-auto py-4 px-4 lg:flex lg:justify-between lg:items-center overflow-hidden sm:px-6 lg:px-8  border-t border-footer-border dark:border-footer-border-dark">
 
@@ -9,14 +20,6 @@
             <div class="flex justify-center text-base">
                 <div>
                     &copy; {{ now|date('Y') }} {{ siteInfo.copyright ?? siteInfo.siteName }}
-
-                    {# May be set in hero area template #}
-                    {% set copyright = request.get('copyright') %}
-                    {% if copyright %}
-                        <div>
-                            &copy {{ 'Header Image'|t }}: {{ copyright }}
-                        </div>
-                    {% endif %}
                 </div>
             </div>
 
@@ -45,4 +48,6 @@
         </nav>
 
     </div>
+
+
 </footer>

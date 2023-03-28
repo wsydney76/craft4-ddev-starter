@@ -1,7 +1,7 @@
 {% set featuredImage = entry.featuredImage.one ?? siteInfo.featuredImage.one %}
 
 {% if featuredImage %}
-    {% do request.addToList('images', featuredImage) %}
+    {% do request.addToList('imagesForCopyrightNotice', featuredImage) %}
 
     {% set config = craft.app.config.custom %}
     <div class="">

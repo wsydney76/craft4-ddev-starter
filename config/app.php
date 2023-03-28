@@ -32,17 +32,6 @@ return [
     ],
     'bootstrap' => ['main', 'base', 'guide'],
     'components' => [
-        'requestData' => function() {
-            Collection::macro('addToList', function(string $key, mixed $value) {
-                if ($this->has($key)) {
-                    $this->put($key, array_merge($this->get($key), [$value]));
-                } else {
-                    $this->put($key, [$value]);
-                }
-
-                return $this;
-            });
-            return new Collection();
-        },
+        'requestData' => new Collection()
     ]
 ];

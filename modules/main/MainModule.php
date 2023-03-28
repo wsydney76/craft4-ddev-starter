@@ -11,6 +11,7 @@ use craft\events\ElementEvent;
 use craft\fields\Matrix;
 use craft\helpers\ElementHelper;
 use craft\services\Elements;
+use Illuminate\Support\Collection;
 use modules\base\BaseModule;
 use modules\main\behaviors\EntryBehavior;
 use modules\main\conditions\HasDraftsConditionRule;
@@ -70,6 +71,16 @@ class MainModule extends BaseModule
         $this->registerTwigExtensions([
             TwigExtension::class
         ]);
+
+        Collection::macro('addToList', function(string $key, mixed $value) {
+            if ($this->has($key)) {
+                $this->put($key, $this->get($key)->push($value));
+            } else {
+                $this->put($key, collect([$value]));
+            }
+
+            return $this;
+        });
 
         if (Craft::$app->request->isCpRequest) {
             $this->registerTemplateRoots(false, true);

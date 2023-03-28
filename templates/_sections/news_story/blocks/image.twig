@@ -2,12 +2,10 @@
 {% set image = block.image.one %}
 
 {% if image %}
-    {% do request.addToList('imagesForCopyrightNotice', image) %}
-
     <div class="my-16 max-w-screen-lg mx-auto px-8">
         {{ img(image, {
             transform: {width: 1024, height: 600, format: 'webp'},
-            handleCopyright: 'show'
+            handleCopyright: 'none'
         }) }}
     </div>
 {% endif %}

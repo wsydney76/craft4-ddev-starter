@@ -87,7 +87,7 @@
 
             {% set imagesByCopyright = craft.project.getImagesForCopyrightNotice() %}
             {% if imagesByCopyright.count %}
-                <div class="">
+                <div class="mt-8">
                     {% include '_layouts/partials/footer-copyright.twig' with {
                         imagesByCopyright
                     } only %}

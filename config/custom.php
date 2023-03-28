@@ -96,7 +96,7 @@ return [
     ],
 
 
-    // Whether copyright notices registered in request.imagesForCopyrightNotice should be shown in the footer or on the image
+    // Whether copyright notices should be by default shown in the footer or on the image
     // TODO: Implementation for 'show' is incomplete
     // register/show/none
     'handleCopyright' => 'register',

@@ -2,7 +2,8 @@
 
 ## Unreleased
 
-* Update to Craft 4.4.3
+* Update to Craft 4.4.5
+* Update to Tailwind 3.3.0
 * Added `Align` setting to `gallery` block.
 * Added `Custom` purifier config to `text` block.
 * Added `redactor` and `htmlpurifier` configuration files from `craft/craft` repo.

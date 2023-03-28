@@ -2,16 +2,18 @@
 
 {% from '_layouts/macros/lib.twig' import navLink %}
 
-{% set images = request.get('imagesForCopyrightNotice') %}
-{% if images %}
+{% set imagesByCopyright = craft.project.getImagesForCopyrightNotice() %}
+
+{% if imagesByCopyright.count %}
    <div class="bg-gray-200">
-       <div class=" container mx-auto px-4 lg:px-8">
+       <div class="container mx-auto px-4 lg:px-8">
            {% include '_layouts/partials/footer-copyright.twig' with {
-               images
+               imagesByCopyright
            } only %}
        </div>
    </div>
 {% endif %}
+
 
 <footer class="bg-footer-background text-footer-foreground dark:bg-footer-background-dark dark:text-footer-foreground-dark">
     <div class="container mx-auto py-4 px-4 lg:flex lg:justify-between lg:items-center overflow-hidden sm:px-6 lg:px-8  border-t border-footer-border dark:border-footer-border-dark">

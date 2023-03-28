@@ -2,8 +2,10 @@
 
 namespace modules\main\services;
 
+use Craft;
 use craft\base\Component;
 use craft\elements\Entry;
+use Illuminate\Support\Collection;
 
 class ProjectService extends Component
 {
@@ -47,7 +49,8 @@ class ProjectService extends Component
         return $topics;
     }
 
-    public static function estimatedReadingTime($blocks, $wpm = 200) {
+    public static function estimatedReadingTime($blocks, $wpm = 200)
+    {
 
         $totalWords = 0;
 
@@ -58,9 +61,25 @@ class ProjectService extends Component
         $minutes = floor($totalWords / $wpm);
         $seconds = floor($totalWords % $wpm / ($wpm / 60));
 
-        return array(
+        return [
             'minutes' => $minutes,
             'seconds' => $seconds
-        );
+        ];
+    }
+
+    public function getImagesForCopyrightNotice(): Collection
+    {
+
+        $images = Craft::$app->requestData->get('imagesForCopyrightNotice');
+
+        if (!$images) {
+            return collect([]);
+        }
+
+        // We need to make sure we only have unique images, containing a copyright notice, grouped by the copyright notice
+        return $images
+            ->unique(fn($image) => $image->id)
+            ->filter(fn($image) => $image->copyright)
+            ->groupBy(fn($image) => $image->copyright);
     }
 }

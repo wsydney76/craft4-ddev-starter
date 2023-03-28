@@ -97,8 +97,8 @@ return [
 
 
     // Whether copyright notices registered in request.imagesForCopyrightNotice should be shown in the footer or on the image
-    // TODO: Implementation for 'image' is incomplete
-    // footer/image
-    'showRegisteredCopyright' => 'footer',
+    // TODO: Implementation for 'show' is incomplete
+    // register/show/none
+    'handleCopyright' => 'register',
 
 ];

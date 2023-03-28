@@ -28,7 +28,7 @@
                         image: topic1.featuredImage.one ?? defaultImage,
                         transform: {width: 768, height: 250},
                         url: topic1.url,
-                        showCopyright: false
+                        handleCopyright: 'none'
                     } %}
                         {% block content %}
                             <div class="p-4 text-center my-12">
@@ -58,7 +58,7 @@
                                             image: topic2.featuredImage.one ?? defaultImage,
                                             transform: {width: 640, height: 240},
                                             url: topic2.url,
-                                            showCopyright: false
+                                            handleCopyright: 'none'
                                         } %}
                                             {% block content %}
                                                 <div class="p-2 my-4 text-xl text-center text-white tracking-wider font-headings font-bold">

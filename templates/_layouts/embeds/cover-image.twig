@@ -3,7 +3,7 @@
 {# @param image Asset background image #}
 {# @param transform array transform definition #}
 {# @param url string optional url #}
-{# @param showCopyright bool Whether copyright should be displayed #}
+{# @param handleCopyright string how copyright should be displayed #}
 {# @param srcset array optional #}
 {# @param attr array optional additional img tag attributes #}
 
@@ -13,7 +13,7 @@
 {% set tag = url ? 'a' : 'div' %}
 {% set srcset = srcset ?? null %}
 {% set attr = attr ?? {} %}
-{% set showCopyright = showCopyright is defined ? showCopyright : true %}
+{% set handleCopyright = handleCopyright ?? 'show' %}
 
 {% from '_layouts/macros/lib.twig' import img %}
 
@@ -23,6 +23,7 @@
             {{ img(image, {
                 transform,
                 srcset,
+                handleCopyright,
                 attr: attr|merge({
                     class: "h-full w-full object-cover #{url ? 'group-hover:opacity-75 group-hover:scale-105 group-focus:opacity-75 transition duration-300'}"
                 })
@@ -31,7 +32,7 @@
 
         <div class="absolute inset-0 bg-black/30"></div>
 
-        {% if showCopyright %}
+        {% if handleCopyright == 'show' %}
             {{ imgCopyright(image) }}
         {% endif %}
 

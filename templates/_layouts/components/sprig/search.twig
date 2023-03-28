@@ -85,11 +85,11 @@
                 </div>
             {% endif %}
 
-            {% set images = request.get('imagesForCopyrightNotice') %}
-            {% if images %}
+            {% set imagesByCopyright = craft.project.getImagesForCopyrightNotice() %}
+            {% if imagesByCopyright.count %}
                 <div class="">
                     {% include '_layouts/partials/footer-copyright.twig' with {
-                        images
+                        imagesByCopyright
                     } only %}
                 </div>
             {% endif %}

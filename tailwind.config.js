@@ -167,6 +167,7 @@ module.exports = {
             },
 
             aspectRatio: {
+                'video': '16 / 9',
                 '4/3': '4 / 3',
             },
 

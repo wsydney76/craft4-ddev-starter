@@ -1,6 +1,6 @@
 {# Display headings block #}
 
-{% set htmlTag = block.htmlTag ?? 'h2' %}
+{% set htmlTag = block.htmlTag.value ?? 'h2' %}
 
 {{ tag(htmlTag, {
     text: block.text

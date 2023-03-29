@@ -3,39 +3,42 @@
 <div class="flex flex-col-reverse lg:flex-row">
     <div class="lg:w-1/2 flex items-center px-16 bg-gradient-to-b from-gray-50 to-gray-300 dark:from-gray-700 dark:to-gray-950">
         <div class="py-16">
-            {% if topHtml %}
-                {{ topHtml|raw }}
-            {% endif %}
+            <div class="">
+                {% if topHtml %}
+                    {{ topHtml|raw }}
+                {% endif %}
 
-            {% if teaser is defined and teaser %}
-                <div class="mb-4 text-primary dark:text-primary-dark text-lg">
-                    {{ teaser }}
-                </div>
-            {% endif %}
+                {% if teaser is defined and teaser %}
+                    <div class="mb-4 text-primary dark:text-primary-dark text-lg">
+                        {{ teaser }}
+                    </div>
+                {% endif %}
 
-            <h1 class="text-3xl font-headings font-semibold tracking-wider text-3xl md:text-5xl lg:text-7xl">
+                <h1 class="text-3xl font-headings font-semibold tracking-wider text-3xl md:text-5xl lg:text-7xl">
 
-                <span class="block text-primary dark:text-primary-dark">{{ title }}</span>
+                    <span class="block text-primary dark:text-primary-dark">{{ title }}</span>
 
-            </h1>
+                </h1>
 
-            {% if text %}
-                <div class="prose mt-6 lg:text-xl tracking-wider text-primary dark:text-primary-dark sm:max-w-3xl">
-                    {{ text|md|purify }}
-                </div>
-            {% endif %}
+                {% if text %}
+                    <div class="prose mt-6 lg:text-xl tracking-wider text-primary dark:text-primary-dark sm:max-w-3xl">
+                        {{ text|md|purify }}
+                    </div>
+                {% endif %}
 
 
-            {% include '_layouts/partials/heroarea/_ctabuttons.twig' with {
-                buttons,
-                primaryColor: 'primary',
-                secondaryColor: 'white',
-                classes: 'mt-16'
-            } only %}
+                {% include '_layouts/partials/heroarea/_ctabuttons.twig' with {
+                    buttons,
+                    primaryColor: 'primary',
+                    secondaryColor: 'white',
+                    classes: 'mt-16'
+                } only %}
 
-            {% if bottomHtml %}
-                {{ bottomHtml|raw }}
-            {% endif %}
+                {% if bottomHtml %}
+                    {{ bottomHtml|raw }}
+                {% endif %}
+            </div>
+
         </div>
     </div>
 
@@ -45,6 +48,7 @@
             {{ img(image,  {
                 transform: {width: 1024, height: 400},
                 scrset: [768, 360],
+                handleCopyright: 'register',
                 attr: {
                     class: 'lg:object-cover lg:object-top w-full h-full',
                     loading: null,

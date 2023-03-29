@@ -95,10 +95,10 @@
     {% endif %}
 
     {% if (handleCopyright == 'show')  %}
-        <div class="relative">
+        {#<div class="relative">#}
             {{ imgHtml|raw }}
             {{ _self.imgCopyright(image) }}
-        </div>
+       {# </div>#}
     {% else %}
         {{ imgHtml|raw }}
         {% if handleCopyright == 'register' %}
@@ -111,9 +111,12 @@
 
 {% macro imgCopyright(image) %}
     {% if image.copyright %}
-        <div class="absolute bottom-0 right-0 px-2 py-1 bg-black/50 text-white text-xs">
-            &copy; {{ image.copyright }}
+        <div class="py-2 text-sm text-gray-700 text-right pe-1 dark:bg-background-dark dark:text-foreground-dark">
+            {{ 'Photo'|t }}: {{ image.copyright }}
         </div>
+        {#<div class="absolute bottom-0 right-0 px-2 py-1 bg-black/50 text-white text-xs">
+            &copy; {{ image.copyright }}
+        </div>#}
     {% endif %}
 {% endmacro %}
 

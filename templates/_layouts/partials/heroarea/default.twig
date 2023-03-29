@@ -1,5 +1,6 @@
 {% from '_layouts/macros/lib.twig' import img %}
-{% from '_layouts/macros/lib.twig' import imgCopyright %}
+
+{% set handleCopyright = craft.app.config.custom.handleCopyright %}
 
 <div class="relative">
     <div class="max-w-full">
@@ -8,6 +9,7 @@
             image,
             transform: config.heroTransform[config.heroWidth],
             srcset: config.heroSrcSet[config.heroWidth],
+            handleCopyright,
             attr: {
                 loading: null,
                 fetchpriority: 'high'
@@ -15,6 +17,8 @@
         } %}
 
             {% block content %}
+                {% from '_layouts/macros/lib.twig' import imgCopyright %}
+
                 <div class="max-w-screen-md mx-auto relative text-center px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
 
                     {% if topHtml %}
@@ -49,6 +53,8 @@
                         {{ bottomHtml|raw }}
                     {% endif %}
 
+
+                    
                 </div>
             {% endblock %}
 

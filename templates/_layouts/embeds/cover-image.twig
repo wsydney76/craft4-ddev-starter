@@ -13,17 +13,17 @@
 {% set tag = url ? 'a' : 'div' %}
 {% set srcset = srcset ?? null %}
 {% set attr = attr ?? {} %}
-{% set handleCopyright = handleCopyright ?? 'show' %}
+{% set handleCopyright = handleCopyright ?? craft.app.config.custom.handleCopyright %}
 
 {% from '_layouts/macros/lib.twig' import img %}
 
 {% tag tag with {href: url, class: 'relative block group overflow-hidden'} %}
-    <div class="absolute inset-0">
+    <div class="absolute inset-0 ?">
         {% if image %}
             {{ img(image, {
                 transform,
                 srcset,
-                handleCopyright,
+                handleCopyright: handleCopyright == 'show' ? 'none' : handleCopyright,
                 attr: attr|merge({
                     class: "h-full w-full object-cover #{url ? 'group-hover:opacity-75 group-hover:scale-105 group-focus:opacity-75 transition duration-300'}"
                 })
@@ -31,15 +31,15 @@
         {% endif %}
 
         <div class="absolute inset-0 bg-black/30"></div>
-
-        {% if handleCopyright == 'show' %}
-            {{ imgCopyright(image) }}
-        {% endif %}
-
     </div>
 
     <div class="relative flex justify-center items-center text-white">
         {% block content %}
         {% endblock %}
     </div>
+
 {% endtag %}
+
+{% if handleCopyright == 'show' and image.copyright %}
+    {{ imgCopyright(image) }}
+{% endif %}

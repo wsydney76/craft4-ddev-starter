@@ -13,7 +13,8 @@
                 <div class="flex flex-wrap">
                     {% for image in imagesForCopyright %}
                         {{ img(image, {
-                            transform: {width: 60, height: 40}
+                            transform: {width: 60, height: 40},
+                            handleCopyright: 'none'
                         }) }}
                     {% endfor %}
                 </div>

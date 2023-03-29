@@ -3,7 +3,9 @@
 
 {% if image %}
     
-    {% do request.addToList('imagesForCopyrightNotice', image) %}
+    {% if craft.app.config.custom.handleCopyright == 'register' %}
+        {% do request.addToList('imagesForCopyrightNotice', image) %}
+    {% endif %}
 
     <div class="bg-cover bg-center bg-fixed min-h-screen flex flex-col justify-center items-center text-center"
          style="background-image: url({{ image.url({width: 2000, height: 1500, format: 'webp'}) }})">
@@ -15,10 +17,18 @@
         {% endif %}
 
         {% if block.style.contains('textShadow') %}
-        	<div class="max-w-screen-md mx-auto m-8 px-16 py-8 text-white font-bold font-serif text-3xl/relaxed tracking-wider"
-                style="text-shadow: 2px 2px 6px rgba(0,0,0,0.8)">
-                {{ block.text|nl2br|parseRefs }}
+        	<div class="max-w-screen-md mx-auto m-8 px-16 py-8 x">
+                <div class="text-white font-bold font-serif text-3xl/relaxed tracking-wider"
+                     style="text-shadow: 2px 2px 6px rgba(0,0,0,0.8)">
+                    {{ block.text|nl2br|parseRefs }}
+                </div>
+                {% if craft.app.config.custom.handleCopyright == 'show' and image.copyright %}
+                    <div class="mt-2 text-white text-right text-sm shadow-none">
+                        {{ 'Photo'|t }} {{ image.copyright }}
+                    </div>
+                {% endif %}
             </div>
+
         {% else %}
             <div class="max-w-screen-md mx-auto bg-white/80 m-8 px-16 py-8 text-gray-900">
 
@@ -29,6 +39,12 @@
                 <div class="font-serif text-2xl/relaxed {{ block.style.contains('bold') ? 'font-semibold' }}">
                     {{ block.text|nl2br|parseRefs }}
                 </div>
+
+                {% if craft.app.config.custom.handleCopyright == 'show' and image.copyright %}
+                    <div class="mt-2 text-right text-sm text-gray-700">
+                        {{ 'Photo'|t }} {{ image.copyright }}
+                    </div>
+                {% endif %}
 
             </div>
         {% endif %}

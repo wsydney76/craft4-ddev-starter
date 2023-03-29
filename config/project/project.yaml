@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1680002187
+dateModified: 1680083146
 elementSources:
   craft\elements\Asset:
     -
@@ -14,6 +14,7 @@ elementSources:
       key: 'volume:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
       tableAttributes:
         - 'field:cc3fbab0-826f-4aed-b2aa-eeaecc2964bf' # Alt Text
+        - 'field:eb6b24cc-83d7-416f-be4b-d002c7688b58' # Copyright
         - imageSize
         - dateModified
       type: native

@@ -4,6 +4,8 @@
 
 {% embed '_layouts/embeds/card-text.twig' %}
     {% block content %}
-        {{ entry.cardText ?: entry.tagline }}
+        <div class="line-clamp-2">
+            {{ entry.cardText ?: entry.tagline }}
+        </div>
     {% endblock %}
 {% endembed %}

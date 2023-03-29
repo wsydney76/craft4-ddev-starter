@@ -1,6 +1,6 @@
 {% set entries = query.all %}
 {% if entries %}
-    <div class="flex space-x-4 mt-16">
+    <div class="flex space-x-4 rtl:space-x-reverse mt-16">
         {% for entry in entries %}
             {% for ancestor in entry.ancestors.all %}
 

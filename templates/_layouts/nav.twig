@@ -36,7 +36,7 @@
      x-data="{open: false}">
 
     <div class="mx-auto {{ containerClass[config.navWidth] }} px-4 md:px-8">
-        <div class="flex justify-between items-center py-4 md:space-x-10">
+        <div class="flex justify-between items-center py-4 md:space-x-10 rtl:md:space-x-reverse">
 
             {# Site Logo #}
             <div class="flex justify-start">
@@ -54,7 +54,7 @@
 
             {# Desktop Nav #}
             {% if config.mobileNavBreakpoint != 'always' %}
-                <nav class="{{ breakpointClasses[config.mobileNavBreakpoint].nav }} items-center space-x-4">
+                <nav class="{{ breakpointClasses[config.mobileNavBreakpoint].nav }} items-center space-x-4 rtl:space-x-reverse">
 
                     {% include '_layouts/partials/nav/items-desktop.twig' with {
                         navEntries

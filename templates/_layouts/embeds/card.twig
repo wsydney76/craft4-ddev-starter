@@ -37,7 +37,7 @@
         textDiv: 'p-4'
     },
     cardlet:  {
-        a: 'flex space-x-4',
+        a: 'flex space-x-4 rtl:space-x-reverse',
         imgDiv: 'flex-shrink-0 w-36 sm:w-52',
         textDiv: ''
     }
@@ -111,7 +111,7 @@
                     <div class="text-sm font-medium text-gray-900 dark:text-gray-200">
                         {{ authors[0].name }}
                     </div>
-                    <div class="flex space-x-1 text-sm text-gray-700 dark:text-gray-400">
+                    <div class="flex space-x-1 rtl:space-x-reverse text-sm text-gray-700 dark:text-gray-400">
                         <time datetime="{{ entry.postDate|date('Y-m-d') }}">{{ entry.postDate|date('short') }}</time>
                     </div>
                 </div>

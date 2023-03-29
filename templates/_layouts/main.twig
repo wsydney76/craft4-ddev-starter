@@ -6,7 +6,7 @@
 <head>
     {% include '_layouts/head.twig' with {entry} only %}
 </head>
-<body id="body" class="text-foreground bg-background dark:bg-background-dark dark:text-foreground-dark">
+<body id="body" class="text-foreground bg-background dark:bg-background-dark dark:text-foreground-dark" dir="{{ craft.app.locale.orientation }}">
 
 <a class="sr-only focus:not-sr-only" href="#content">{{ 'Skip to content'|t }}</a>
 

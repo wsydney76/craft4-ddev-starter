@@ -44,7 +44,6 @@ module.exports = {
 
     theme: {
 
-        // https://coolors.co/132a14-f1f9f1-2c5f2d-a8d8ac-6e8e43
         colors: {
 
             transparent: transparent,
@@ -80,6 +79,7 @@ module.exports = {
                 dark: lightDark
             },
 
+            // Headings
             headings: {
                 DEFAULT: headings,
                 dark: headingsDark
@@ -91,7 +91,6 @@ module.exports = {
             gray: gray,
 
             // Messages
-
             success: {
                 DEFAULT: success,
                 dark: successDark

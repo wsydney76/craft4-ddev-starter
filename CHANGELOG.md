@@ -12,6 +12,7 @@
 * Added `Story` entry type for the `News` section.
 * Improved display of copyright notices in footer.
 * Added `requestData` app component and `request` twig variable, representing a Laravel collection that can be used to simulate a request scope (experimental).
+* Prepared for rtl languages (needs review).
 
 
 ## 3.0.1 2023-03-15

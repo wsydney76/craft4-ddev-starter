@@ -18,7 +18,7 @@
 <footer class="bg-footer-background text-footer-foreground dark:bg-footer-background-dark dark:text-footer-foreground-dark">
     <div class="container mx-auto py-4 px-4 lg:flex lg:justify-between lg:items-center overflow-hidden sm:px-6 lg:px-8  border-t border-footer-border dark:border-footer-border-dark">
 
-        <div class="flex justify-center lg:justify-start space-x-8">
+        <div class="flex justify-center lg:justify-start space-x-8 rtl:space-x-reverse">
             <div class="flex justify-center text-base">
                 <div>
                     &copy; {{ now|date('Y') }} {{ siteInfo.copyright ?? siteInfo.siteName }}
@@ -37,7 +37,7 @@
             {% include '_layouts/components/alpinejs/darkmode.twig' %}
         </div>
 
-        <nav class="-mx-5 -my-2 mt-4 lg:-mt-1 flex flex-wrap justify-center items-center space-x-4"
+        <nav class="-mx-5 -my-2 mt-4 lg:-mt-1 flex flex-wrap justify-center items-center space-x-4 rtl:space-x-reverse"
              aria-label="Footer">
 
             {% for navEntry in craft.entries.section('legal').collect %}

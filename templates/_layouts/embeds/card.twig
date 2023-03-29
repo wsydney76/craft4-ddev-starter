@@ -47,9 +47,9 @@
 {% if layout == 'cardlet' and entry.level is defined and entry.level %}
     {% switch entry.level %}
     {% case 2 %}
-        {% set marginLeft = 'ml-12' %}
+        {% set marginLeft = 'ms-12' %}
     {% case 3 %}
-        {% set marginLeft = 'ml-24' %}
+        {% set marginLeft = 'ms-24' %}
     {% endswitch %}
 {% endif %}
 
@@ -107,7 +107,7 @@
                     </div>
                 {% endif %}
 
-                <div class="ml-4">
+                <div class="ms-4">
                     <div class="text-sm font-medium text-gray-900 dark:text-gray-200">
                         {{ authors[0].name }}
                     </div>

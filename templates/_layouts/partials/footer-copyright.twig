@@ -9,7 +9,7 @@
 
     <div class="mt-4 flex flex-wrap">
         {% for copyright, imagesForCopyright in imagesByCopyright %}
-            <div class="mb-4 mr-8 flex items-center">
+            <div class="mb-4 me-8 flex items-center">
                 <div class="flex flex-wrap">
                     {% for image in imagesForCopyright %}
                         {{ img(image, {
@@ -17,7 +17,7 @@
                         }) }}
                     {% endfor %}
                 </div>
-                <div class="ml-2 text-sm whitespace-nowrap">
+                <div class="ms-2 text-sm whitespace-nowrap">
                     {{ copyright }}
                 </div>
             </div>

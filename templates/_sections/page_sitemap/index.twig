@@ -9,7 +9,7 @@
             {% for sectionConfig in sections %}
                 {% set section = craft.app.sections.sectionByHandle(sectionConfig.handle) %}
 
-                <div class="mr-8">
+                <div class="me-8">
                     <h2>{{ section.name|t }}</h2>
 
                     {% if section.type == 'channel' %}

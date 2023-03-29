@@ -28,7 +28,7 @@
         {% from '_layouts/macros/lib.twig' import navLink %}
         <div class="{{ navLinkClasses() }}">
             {{ title }}
-            <ul class="ml-8 space-y-4 {{ entry is defined ? 'mt-4' }}">
+            <ul class="ms-8 space-y-4 {{ entry is defined ? 'mt-4' }}">
                 {% for child in children %}
                     <li>{{ navLink(child.menuTitle ?: child.title, child.url) }}</li>
                 {% endfor %}

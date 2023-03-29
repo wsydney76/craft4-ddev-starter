@@ -17,7 +17,7 @@
     {% set members = entry.storyTeam.all %}
 
     {% if members %}
-        <div class="bg-gray-200 text-foreground py-8">
+        <div class="bg-gray-200 text-foreground dark:bg-gray-700 dark:text-foreground-dark  py-8">
             {% include '_sections/news_story/includes/team.twig' with {members} %}
         </div>
     {% endif %}

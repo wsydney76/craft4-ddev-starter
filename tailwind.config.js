@@ -10,10 +10,10 @@ const hasDarkHeader = true
 const hasDarkFooter = true
 
 const black = '#000000'
-const foreground = colors[grayColor][900]
-const backgroundDark = colors[grayColor][900]
-const primary = colors[mainColor][900]
-const headings = colors[mainColor][900]
+const foreground = colors[grayColor][950]
+const backgroundDark = colors[grayColor][950]
+const primary = colors[mainColor][950]
+const headings = colors[mainColor][950]
 const lightDark = primary
 const secondary = colors[mainColor][600]
 const secondaryDark = colors[mainColor][400]
@@ -47,7 +47,7 @@ module.exports = {
         // https://coolors.co/132a14-f1f9f1-2c5f2d-a8d8ac-6e8e43
         colors: {
 
-            transparent: 'transparent',
+            transparent: transparent,
             current: 'currentColor',
 
             // Page background

@@ -11,7 +11,7 @@
             {% block content %}
                 <div class="not-prose px-8">
                     <blockquote class="py-8 px-16 border-t-2 border-b-2 py-8 border-gray-700 dark:border-gray-300 text-center">
-                        <p class="text-3xl uppercase font-light mb-8 leading-relaxed">
+                        <p class="text-3xl/relaxed uppercase font-light mb-8">
                             {{ block.text|quote }}
                         </p>
                         {% if block.cite %}
@@ -30,7 +30,7 @@
             {% embed '_layouts/embeds/container-xl.twig' %}
                 {% block content %}
                     <blockquote class="px-8">
-                        <p class="text-xl md:text-2xl lg:text-3xl uppercase font-light mb-8 leading-relaxed lg:leading-[1.8]">
+                        <p class="mb-8 text-xl/relaxed md:text-2xl/relaxed lg:text-3xl/[1.8] uppercase font-light">
                             {{ block.text|quote }}
                         </p>
                         {% if block.cite %}
@@ -48,7 +48,7 @@
         {% embed '_layouts/embeds/container-md.twig' %}
             {% block content %}
                 <blockquote class="py-4 border-l-4 border-primary dark:border-primary-dark ps-8">
-                    <p class="text-3xl italic text-primary dark:text-primary-dark font-bold mb-8 leading-relaxed">
+                    <p class="text-3xl/relaxed italic text-primary dark:text-primary-dark font-bold mb-8">
                         {{ block.text|quote }}
                     </p>
                     {% if block.cite %}

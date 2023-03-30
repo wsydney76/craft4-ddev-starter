@@ -61,7 +61,9 @@
                         {{ bottomHtml|raw }}
                     {% endif %}
 
-                    {{ imgCopyright(image) }}
+                    {% if craft.app.config.custom.handleCopyright == 'show' %}
+                        {{ imgCopyright(image) }}
+                    {% endif %}
 
                 </div>
             </div>

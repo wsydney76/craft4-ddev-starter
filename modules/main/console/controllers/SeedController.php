@@ -1005,7 +1005,7 @@ class SeedController extends InitController
      * @throws \craft\errors\ElementNotFoundException
      * @throws \yii\base\Exception
      */
-    public function actionImgAddProvisionalTexts(string $path = 'starter', string $defaultCopyright = ''): int
+    public function actionImgAddProvisionalTexts(string $path = 'starter/', string $defaultCopyright = ''): int
     {
         $folder = Craft::$app->assets->findFolder(['path' => $path]);
         if (!$folder) {
@@ -1037,6 +1037,7 @@ class SeedController extends InitController
         foreach (Craft::$app->sites->allSites as $site) {
             $images = Asset::find()
                 ->kind('image')
+                ->folderId($folder->id)
                 ->volume($this->volume)
                 ->site($site->handle)
                 ->all();

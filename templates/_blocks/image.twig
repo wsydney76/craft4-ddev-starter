@@ -51,14 +51,16 @@
         }) }}
 
         {% if block.caption or image.copyright %}
-            <figcaption>
-                {% if block.caption %}
-                    {{ block.caption }}
-                {% endif %}
+            <figcaption class="flex justify-between">
+                <div>
+                    {% if block.caption %}
+                        {{ block.caption }}
+                    {% endif %}
+                </div>
                 {% if image.copyright %}
-                    <span class="text-gray-500 dark:text-gray-300">
+                    <div class="text-gray-500 dark:text-gray-300">
                         ({{ 'Photo'|t }}: {{ image.copyright }})
-                    </span>
+                    </div>
                 {% endif %}
             </figcaption>
         {% endif %}

@@ -23,7 +23,7 @@ return [
     'heroWidth' => 'full',
 
     // template in _layouts/partials/heroarea
-    'heroTemplate' => 'skew',
+    'heroTemplate' => 'default',
     'heroFallbackTemplate' => 'textonly',
 
     // Body content block types that control their own width

@@ -94,29 +94,50 @@
         {% set imgHtml = image.img(transform, srcset)|attr(attr) %}
     {% endif %}
 
-    {% if (handleCopyright == 'show')  %}
-        {#<div class="relative">#}
-            {{ imgHtml|raw }}
-            {{ _self.imgCopyright(image) }}
-       {# </div>#}
-    {% else %}
+
+    {% switch handleCopyright %}
+
+    {% case "show" %}
         {{ imgHtml|raw }}
-        {% if handleCopyright == 'register' %}
-            {% do request.addToList('imagesForCopyrightNotice', image) %}
-        {% endif %}
-    {% endif %}
+        {{ _self.imgCopyright(image) }}
+
+    {% case "overlay" %}
+
+        <div class="relative">
+            {{ imgHtml|raw }}
+            {{ _self.imgCopyright(image, 'overlay') }}
+        </div>
+
+    {% case "register" %}
+        {{ imgHtml|raw }}
+        {% do request.addToList('imagesForCopyrightNotice', image) %}
+    {% default %}
+        {{ imgHtml|raw }}
+    {% endswitch %}
 
 
 {% endmacro %}
 
-{% macro imgCopyright(image) %}
+{% macro imgCopyright(image, style="default") %}
     {% if image.copyright %}
-        <div class="py-2 text-sm text-gray-700 text-right pe-1 dark:bg-background-dark dark:text-foreground-dark">
-            {{ 'Photo'|t }}: {{ image.copyright }}
-        </div>
-        {#<div class="absolute bottom-0 right-0 px-2 py-1 bg-black/50 text-white text-xs">
-            &copy; {{ image.copyright }}
-        </div>#}
+
+        {% switch style %}
+
+        {% case "overlay" %}
+
+            <div class="absolute bottom-0 right-0 px-2 py-1 bg-black/50 text-white text-xs">
+                {{ 'Photo'|t }}: {{ image.copyright }}
+            </div>
+
+        {% default %}
+
+            <div class="py-2 text-sm text-right pe-1">
+                {{ 'Photo'|t }}: {{ image.copyright }}
+            </div>
+
+        {% endswitch %}
+
+
     {% endif %}
 {% endmacro %}
 

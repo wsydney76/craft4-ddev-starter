@@ -639,6 +639,8 @@ class SeedController extends InitController
         $teasers = ['Project Manager', 'Frontend Developer', 'Junior Designer', 'Head of Development'];
 
 
+        $this->actionImgAddProvisionalTexts('photos/starter/', 'Tailwind UI');
+
         $images = $this->getImagesFromFolder('photos/starter/', 800, 4);
 
         foreach ($images as $i => $image) {
@@ -1003,7 +1005,7 @@ class SeedController extends InitController
      * @throws \craft\errors\ElementNotFoundException
      * @throws \yii\base\Exception
      */
-    public function actionImgAddProvisionalTexts(string $path = 'starter'): int
+    public function actionImgAddProvisionalTexts(string $path = 'starter', string $defaultCopyright = ''): int
     {
         $folder = Craft::$app->assets->findFolder(['path' => $path]);
         if (!$folder) {
@@ -1046,7 +1048,7 @@ class SeedController extends InitController
                     $save = true;
                 }
                 if (!$image->copyright) {
-                    $image->copyright = $localFaker->randomElement($photographers);
+                    $image->copyright = $defaultCopyright ?: $localFaker->randomElement($photographers);
                     $save = true;
                 }
                 if ($save) {

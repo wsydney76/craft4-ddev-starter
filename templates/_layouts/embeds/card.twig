@@ -7,11 +7,13 @@
 {# @param image Asset optional #}
 {# @param highlight String string for text fragmant highlighting #}
 {# @param showMetaData bool Show author and postdate #}
+{# @param handleCopyright string how to display copyright notive #}
 {# @param layout String card|cardlet #}
 
 {% set highlight = highlight ?? '' %}
 {% set layout = layout ?? 'card' %}
 {% set showMetaData = showMetaData is defined ? showMetaData : false %}
+{% set handleCopyright = handleCopyright ?? craft.app.config.custom.handleCopyright %}
 {% set teaser = teaser ?? '' %}
 
 {% from '_layouts/macros/lib.twig' import img %}
@@ -69,6 +71,7 @@
 
             {{ img(image, {
                 transform: transform,
+                handleCopyright: handleCopyright == 'show' ? 'overlay' : handleCopyright,
                 attr: {
                     class: "group-hover:opacity-75 group-hover:scale-105 group-focus:opacity-75 transition duration-300"
                 }
@@ -100,6 +103,7 @@
                         <span class="sr-only">{{ authors[0].name }}</span>
                         {{ img(authors[0].photo, {
                             transform: {width: 40, height: 40},
+                            handleCopyright: 'none',
                             attr: {
                                 class: "h-10 w-10 rounded-full"
                             }

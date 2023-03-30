@@ -3,13 +3,15 @@
 {% from '_layouts/macros/lib.twig' import img %}
 {% from '_layouts/macros/lib.twig' import imgCopyright %}
 
+{% set handleCopyright = craft.app.config.custom.handleCopyright %}
+
 {{ img(image, {
     transform: config.heroTransform[config.heroWidth],
     attr: {
         loading: null,
         fetchpriority: 'high'
     },
-    handleCopyright: 'show'
+    handleCopyright: handleCopyright == 'show' ? 'overlay' : handleCopyright
 }) }}
 
 {% include '_layouts/partials/heroarea/textonly.twig' %}

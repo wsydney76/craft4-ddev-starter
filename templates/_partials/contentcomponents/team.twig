@@ -9,6 +9,8 @@
 
 {% from '_layouts/macros/lib.twig' import img %}
 
+{% set handleCopyright = craft.app.config.custom.handleCopyright %}
+
 <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="space-y-12">
 
@@ -27,6 +29,7 @@
                                 <div class="">
                                     {{ img(image, {
                                         transform: {width: 300, height: 400},
+                                        handleCopyright: handleCopyright == 'show' ? 'overlay' : 'register',
                                         attr: {
                                             class: 'rounded-lg object-cover shadow-lg'
                                         }

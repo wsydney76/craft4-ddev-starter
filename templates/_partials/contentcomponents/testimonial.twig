@@ -1,9 +1,12 @@
 {% from '_layouts/macros/lib.twig' import img %}
+{% from '_layouts/macros/lib.twig' import imgCopyright %}
 
 {# @param entry Entry the content component entry #}
 {# Alternatively, individual parameters can be passed. #}
 
 {# @var person \craft\elements\Entry #}
+
+{% set handleCopyright = craft.app.config.custom.handleCopyright %}
 
 {% if entry is defined %}
     {% set person = entry.person.one %}
@@ -34,6 +37,7 @@
                                 {{ img(image, {
                                     transform: {width: 768, height: 400},
                                     srcset: [768, {width: 400, height: 500, format: 'webp'}],
+                                    handleCopyright: handleCopyright != 'register' ? 'none' : 'register',
                                     attr: {
                                         class: 'object-cover lg:h-full lg:w-full',
                                         sizes: '(min-width: 768px) 400px, 768px',
@@ -58,6 +62,11 @@
                                 <div class="text-lg font-medium text-white">{{ name }}</div>
                                 <div class="mt-1 font-medium text-gray-100">{{ jobDescription }}</div>
                             </footer>
+                        {% endif %}
+                        {% if handleCopyright != 'register' %}
+                            <div class="text-white">
+                                {{ imgCopyright(image) }}
+                            </div>
                         {% endif %}
                     </blockquote>
                 </div>

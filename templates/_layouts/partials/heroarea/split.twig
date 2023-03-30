@@ -1,4 +1,7 @@
 {% from '_layouts/macros/lib.twig' import img %}
+{% from '_layouts/macros/lib.twig' import imgCopyright %}
+
+{% set handleCopyright = craft.app.config.custom.handleCopyright %}
 
 <div class="flex flex-col-reverse lg:flex-row">
     <div class="lg:w-1/2 flex items-center px-16 bg-gradient-to-b from-gray-50 to-gray-300 dark:from-gray-700 dark:to-gray-950">
@@ -15,9 +18,7 @@
                 {% endif %}
 
                 <h1 class="text-3xl font-headings font-semibold tracking-wider text-3xl md:text-5xl lg:text-7xl">
-
                     <span class="block text-primary dark:text-primary-dark">{{ title }}</span>
-
                 </h1>
 
                 {% if text %}
@@ -37,6 +38,12 @@
                 {% if bottomHtml %}
                     {{ bottomHtml|raw }}
                 {% endif %}
+                
+                {% if handleCopyright != 'register'  %}
+                    {% if image %}
+                        {{ imgCopyright(image) }}
+                    {% endif %}
+                {% endif %}
             </div>
 
         </div>
@@ -48,7 +55,7 @@
             {{ img(image,  {
                 transform: {width: 1024, height: 400},
                 scrset: [768, 360],
-                handleCopyright: 'register',
+                handleCopyright: handleCopyright != 'register' ? 'none' : 'register',
                 attr: {
                     class: 'lg:object-cover lg:object-top w-full h-full',
                     loading: null,

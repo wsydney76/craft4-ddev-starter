@@ -69,7 +69,7 @@ return [
     ],
 
     'showGuides' => [
-        'sections' => ['news', 'page', 'legal']
+        'sections' => ['news', 'page', 'legal', 'siteInfo']
     ],
 
     'guides' => [
@@ -78,6 +78,7 @@ return [
         ['label' => 'News', 'template' => 'content/news'],
         ['label' => 'Page', 'template' => 'content/page'],
         ['label' => 'Legal', 'template' => 'content/legal'],
+        ['label' => 'Site Info', 'template' => 'content/siteInfo'],
         ['heading' => 'Editing'],
         ['label' => 'Blocks', 'template' => 'content/blocks'],
         ['label' => 'Image Copyright', 'template' => 'content/image-copyright'],

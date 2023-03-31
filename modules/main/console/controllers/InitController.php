@@ -127,7 +127,7 @@ class InitController extends BaseController
 
         $siteInfo = Entry::find()->section('siteInfo')->one();
 
-        $siteName = $siteInfo->title ?? 'Starter';
+        $siteName = App::env('SYSTEM_NAME') ?? 'Starter';
         $copyright = $siteInfo->copyright ?? 'Starter GmbH';
 
         if ($this->interactive) {

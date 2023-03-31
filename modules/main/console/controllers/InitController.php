@@ -127,7 +127,7 @@ class InitController extends BaseController
 
         $siteInfo = Entry::find()->section('siteInfo')->one();
 
-        $siteName = $siteInfo->siteName ?? 'Starter';
+        $siteName = $siteInfo->title ?? 'Starter';
         $copyright = $siteInfo->copyright ?? 'Starter GmbH';
 
         if ($this->interactive) {
@@ -139,7 +139,7 @@ class InitController extends BaseController
         // Set Globals
         $global = Entry::find()->section('siteInfo')->site('en')->one();
         if ($global) {
-            $global->setFieldValue('siteName', $siteName);
+            $global->title = $siteName;
             $global->setFieldValue('copyright', $copyright);
             $global->setFieldValue('postalAddress', $faker->address());
             $global->setFieldValue('email', App::env('EMAIL_ADDRESS'));

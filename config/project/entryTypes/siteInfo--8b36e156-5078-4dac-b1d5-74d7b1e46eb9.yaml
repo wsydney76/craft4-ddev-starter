@@ -12,8 +12,8 @@ fieldLayouts:
             disabled: false
             elementCondition: null
             id: null
-            instructions: null
-            label: null
+            instructions: 'As used in the front end'
+            label: 'Site Name'
             max: null
             min: null
             name: null
@@ -27,18 +27,6 @@ fieldLayouts:
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
             uid: b9e87b55-ef6f-421f-b975-d74962ec607e
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
-            fieldUid: 3e35a043-a62e-4ede-acd6-44dfb92d6914 # Site Name
-            instructions: 'As used in the front end'
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 60519a3e-3e38-4400-8f9a-c25beeb9b07c
             userCondition: null
             warning: null
             width: 100
@@ -332,10 +320,10 @@ fieldLayouts:
           elementType: craft\elements\User
           fieldContext: global
 handle: siteInfo
-hasTitleField: false
+hasTitleField: true
 name: 'Site Info'
 section: 71c1782e-c5bc-4d87-840e-0a4c1a643eff # Site Info
 sortOrder: 1
 titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null
-titleTranslationMethod: site
+titleTranslationMethod: none

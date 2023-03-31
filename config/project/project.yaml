@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1680083146
+dateModified: 1680268279
 elementSources:
   craft\elements\Asset:
     -
@@ -89,8 +89,8 @@ elementSources:
       disabled: false
       key: singles
       tableAttributes:
+        - section
         - bigFeaturedImage
-        - 'field:3e35a043-a62e-4ede-acd6-44dfb92d6914' # Site Name
         - 'field:eb6b24cc-83d7-416f-be4b-d002c7688b58' # Copyright
       type: native
     -

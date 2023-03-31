@@ -10,7 +10,7 @@
             .address(siteInfo.postalAddress))
         .email(siteInfo.email)
         .telephone(siteInfo.phoneNumber)
-        .name(siteInfo.copyright ?? siteInfo.siteName) %}
+        .name(siteInfo.copyright ?? siteInfo.title) %}
 
     {% set sectionRoots = craft.app.config.custom.sectionRoots ?? ['_sections'] %}
 

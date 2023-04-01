@@ -1,6 +1,6 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: d50026f3-a236-4ae2-b00a-af55076acd17 # Site
+fieldGroup: 320fb86e-2364-403c-b8e9-152bac87d58f # Environment variables
 handle: emailAddress
 instructions: null
 name: 'Email Address'

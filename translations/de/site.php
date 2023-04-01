@@ -107,6 +107,7 @@ return [
     'Drafts' => 'Entwürfe',
     'Embedded' => 'Eingebettet',
     'Entries' => 'Einträge',
+    'Environment variables' => 'Umgebungsvariablen',
     'Featured Entries' => 'Ausgewählte Einträge',
     'Featured Entry' => 'Ausgewählter Eintrag',
     'Featured Image' => 'Eintragsbild',

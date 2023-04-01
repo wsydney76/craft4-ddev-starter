@@ -203,8 +203,9 @@ Some hero templates stolen from other projects are included as a demo, styling n
 * imagecoloredbg: image + text on a colored background
 * introimage: colored background with an overlapping image
 * skew: image with a semi transparent, gradient overlay.
-* fading: fading image
+* fading: fading image (by Tailwind UI)
 * split: text on the left, image on the right. Great for longer texts.
+* HeaderWithBackgroundImage: image with a semi transparent, gradient overlay. The image is used as a background image for the header. (by Tailwind UI)
 
 Unused templates should be deleted in order to avoid unused tailwind classes in your css.
 

@@ -58,9 +58,10 @@ class MainModule extends BaseModule
 
         $this->registerFieldTypes([
             SiteField::class,
-            EnvironmentVariableField::class,
             IncludeField::class,
-            SectionField::class
+            SectionField::class,
+            // This field type ist currently not used, as it can only be used in global sets
+            EnvironmentVariableField::class,
         ]);
 
 

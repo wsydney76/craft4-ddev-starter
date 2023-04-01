@@ -13,6 +13,7 @@
 * Improved display of copyright notices in footer.
 * Added `requestData` app component and `request` twig variable, representing a Laravel collection that can be used to simulate a request scope (experimental).
 * Prepared for rtl languages (needs review).
+* Dropped environment variable fields from `Site Info` single entry field layout, as they do not support drafts. The fields are still available if you want to use them in a global set. 
 
 
 ## 3.0.1 2023-03-15

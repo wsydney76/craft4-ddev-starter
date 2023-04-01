@@ -32,26 +32,6 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 1b934de4-d292-4d6f-b40f-ba2b0120b6c8 # System Name
-            instructions: null
-            label: null
-            required: true
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 40eee3c0-0575-4c4e-8f8c-6f7d65b5c38e
-            userCondition:
-              class: craft\elements\conditions\users\UserCondition
-              conditionRules:
-                -
-                  class: craft\elements\conditions\users\AdminConditionRule
-                  uid: 316efda6-6c53-4b7b-9cab-f18008350ee9
-                  value: true
-              elementType: craft\elements\User
-              fieldContext: global
-            warning: null
-            width: 100
-          -
-            elementCondition: null
             fieldUid: eb6b24cc-83d7-416f-be4b-d002c7688b58 # Copyright
             instructions: null
             label: null
@@ -140,52 +120,6 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-          -
-            elementCondition: null
-            heading: 'Settings for sending system emails'
-            type: craft\fieldlayoutelements\Heading
-            uid: 0637b212-ffec-4125-af4d-730766f1a0e6
-            userCondition: null
-          -
-            elementCondition: null
-            fieldUid: d1ce7a99-7ba0-4ad1-9f19-c4cdad3f247e # Email Address
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: cd592fd7-0639-47d7-b9b9-3c4f1cf1e9c5
-            userCondition:
-              class: craft\elements\conditions\users\UserCondition
-              conditionRules:
-                -
-                  class: craft\elements\conditions\users\AdminConditionRule
-                  uid: 719fb8f0-e1de-41bc-aee5-0cffac8a96d2
-                  value: true
-              elementType: craft\elements\User
-              fieldContext: global
-            warning: null
-            width: 50
-          -
-            elementCondition: null
-            fieldUid: 481205e6-eb29-45a0-8b40-021d4dcfcac1 # Email Sender
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: d76a3860-0754-4fba-b0f3-6c17e09b4cef
-            userCondition:
-              class: craft\elements\conditions\users\UserCondition
-              conditionRules:
-                -
-                  class: craft\elements\conditions\users\AdminConditionRule
-                  uid: 5f361faf-6af3-4703-9eb8-5e1f5767a901
-                  value: true
-              elementType: craft\elements\User
-              fieldContext: global
-            warning: null
-            width: 50
         name: 'Contact Info'
         uid: 73e483b6-dbd7-4378-9ce8-e0e6f90046da
         userCondition: null
@@ -245,80 +179,6 @@ fieldLayouts:
         name: SEO
         uid: 4733ec62-0324-4ca3-867d-0f59b8c54754
         userCondition: null
-      -
-        elementCondition: null
-        elements:
-          -
-            elementCondition: null
-            fieldUid: a21f07ce-87f7-431d-b54c-a12786f9fc9c # Craft Environment
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: c9f86f5d-b367-4b95-a1c2-ea5c6ecc97d4
-            userCondition:
-              class: craft\elements\conditions\users\UserCondition
-              conditionRules:
-                -
-                  class: craft\elements\conditions\users\AdminConditionRule
-                  uid: 5139b8b2-445d-48ab-9c0b-255d8fe0cc39
-                  value: true
-              elementType: craft\elements\User
-              fieldContext: global
-            warning: null
-            width: 25
-          -
-            elementCondition: null
-            fieldUid: fed0a20c-7c44-4de7-83d9-7843f8facfb8 # Blitz Caching Enabled
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: db304090-e414-4781-850c-e3e7ebf53153
-            userCondition:
-              class: craft\elements\conditions\users\UserCondition
-              conditionRules:
-                -
-                  class: craft\elements\conditions\users\AdminConditionRule
-                  uid: 8a0a6ff1-7e50-40bb-8604-93d13d71c92c
-                  value: true
-              elementType: craft\elements\User
-              fieldContext: global
-            warning: null
-            width: 25
-          -
-            elementCondition: null
-            fieldUid: fbaae504-9220-4e1b-a58a-e3819e88194b # Use Vite Dev Server
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 3768aa6d-b3e5-436c-b924-b183eaf8e609
-            userCondition:
-              class: craft\elements\conditions\users\UserCondition
-              conditionRules:
-                -
-                  class: craft\elements\conditions\users\AdminConditionRule
-                  uid: 84a466ba-e070-41ca-a889-2ce9de68f125
-                  value: true
-              elementType: craft\elements\User
-              fieldContext: global
-            warning: null
-            width: 25
-        name: System
-        uid: 811ba1e8-39a4-4095-9ec7-e4f8a6675de4
-        userCondition:
-          class: craft\elements\conditions\users\UserCondition
-          conditionRules:
-            -
-              class: craft\elements\conditions\users\AdminConditionRule
-              uid: 32f8cb32-b756-46b2-8cc1-257b4618b8ef
-              value: true
-          elementType: craft\elements\User
-          fieldContext: global
 handle: siteInfo
 hasTitleField: true
 name: 'Site Info'

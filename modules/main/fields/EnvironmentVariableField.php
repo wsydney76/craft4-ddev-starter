@@ -15,6 +15,10 @@ use function array_merge;
 
 
 /**
+ * Field type for updating .env file variables from the CP
+ *
+ * Note: This field type should only be used in global sets, as it does not support drafts.
+ *
  *
  * @property-read array $elementValidationRule
  * @property-read array $elementValidationRules

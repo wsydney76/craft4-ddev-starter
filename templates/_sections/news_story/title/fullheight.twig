@@ -1,7 +1,8 @@
+{% from '_layouts/macros/lib.twig' import imgCopyright %}
+
 {% set featuredImage = entry.featuredImage.one ?? siteInfo.featuredImage.one %}
 
 {% if featuredImage %}
-    {% do request.addToList('imagesForCopyrightNotice', featuredImage) %}
 
     {% set config = craft.app.config.custom %}
     <div class="">
@@ -27,6 +28,16 @@
                     <div class="mt-6 text-xl sh:text-lg max-w-screen-lg">
                         {{ entry.tagline }}
                     </div>
+                {% endif %}
+                
+                {% if craft.app.config.custom.handleCopyright == 'show' %}
+                    <div class="mt-4">
+                        {{ imgCopyright(featuredImage) }}
+                    </div>
+                {% endif %}
+
+                {% if craft.app.config.custom.handleCopyright == 'register' %}
+                    {% do request.addToList('imagesForCopyrightNotice', featuredImage) %}
                 {% endif %}
             </div>
         </div>

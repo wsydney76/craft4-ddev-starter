@@ -16,7 +16,7 @@ fieldLayouts:
             uid: 8b419540-0e6e-4dbb-91c2-e8e28746954b
             userCondition: null
             warning: null
-            width: 25
+            width: 50
           -
             elementCondition: null
             fieldUid: 6193ce57-a570-451e-8124-ec3ba985b0b2 # Caption

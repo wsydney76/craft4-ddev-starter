@@ -4,6 +4,8 @@ return [
     'imagerSystemPath' => '@webroot/assets/site/',
     'imagerUrl' => '@web/assets/site/',
 
+    'fallbackImage' => '/assets/images/fallback.png',
+
     'fillTransforms ' => false,
     'fillInterval' => 256,
 

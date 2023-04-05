@@ -534,6 +534,17 @@ __... don't you use images transforms defined in the CP?__
 * Version control them along with the templates that use them without affecting the project config.
 * Sizes can be calculated dynamically depending on user selections (alignment, aspect ratio).
 
+__... don't you use a rich text field like Redactor?__
+
+* We want to have a strict control over the look and feel of our site, keeping it clean and minimal.
+* We want to avoid that users can add arbitrary html elements.
+* We want to avoid that users can add arbitrary image sizes.
+* So even for markdown we allow only a limited set of html elements.
+* The Redactor field type can be configured to use only what we want, but then it does not add a lot of benefit.
+* We added a `/config/redactor/Custom.json` config file in case you can't resist.
+* The websites we build typically do not have a lot of long text chunks.
+* Yet another plugin...
+
 __... do you place the root folder for images outside the web root?__
 
 * This way we enforce that only transformed, and therefore smaller, images are used on the front end.
@@ -591,6 +602,7 @@ __... why Craft CMS at all?__
 
 * The relationship engine. 
 * Multisite capabilities.
+* Live preview.
 
 
 __... is the stuff on this account in a semifinished state, to say the least?__

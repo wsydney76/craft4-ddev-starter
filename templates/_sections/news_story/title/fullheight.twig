@@ -37,7 +37,7 @@
                 {% endif %}
 
                 {% if craft.app.config.custom.handleCopyright == 'register' %}
-                    {% do request.addToList('imagesForCopyrightNotice', featuredImage) %}
+                    {% do _globals.addToCollection('imagesForCopyrightNotice', featuredImage) %}
                 {% endif %}
             </div>
         </div>

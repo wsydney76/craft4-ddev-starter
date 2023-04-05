@@ -85,14 +85,11 @@
                 </div>
             {% endif %}
 
-            {% set imagesByCopyright = craft.project.getImagesForCopyrightNotice() %}
-            {% if imagesByCopyright.count %}
-                <div class="mt-8">
-                    {% include '_layouts/partials/footer-copyright.twig' with {
-                        imagesByCopyright
-                    } only %}
-                </div>
-            {% endif %}
+
+            {% include '_layouts/partials/footer-copyright.twig' with {
+                outerClasses: 'mt-8'
+            } only %}
+
 
         {% else %}
             {# Sorry... #}

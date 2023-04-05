@@ -30,8 +30,5 @@ return [
         'base' => BaseModule::class,
         'guide' => GuideModule::class,
     ],
-    'bootstrap' => ['main', 'base', 'guide'],
-    'components' => [
-        'requestData' => new Collection()
-    ]
+    'bootstrap' => ['main', 'base', 'guide']
 ];

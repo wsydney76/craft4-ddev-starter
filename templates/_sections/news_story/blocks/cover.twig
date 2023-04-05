@@ -4,7 +4,7 @@
 {% if image %}
     
     {% if craft.app.config.custom.handleCopyright == 'register' %}
-        {% do request.addToList('imagesForCopyrightNotice', image) %}
+        {% do _globals.addToCollection('imagesForCopyrightNotice', image) %}
     {% endif %}
 
     <div class="bg-cover bg-center bg-fixed min-h-screen flex flex-col justify-center items-center text-center"

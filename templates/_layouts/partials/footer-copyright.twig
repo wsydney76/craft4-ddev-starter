@@ -1,29 +1,46 @@
 {# @param imagesByCopyright Collection collection of images grouped by copyright text #}
 
+{% set innerClasses = innerClasses ?? 'py-4' %}
+{% set outerClasses = outerClasses ?? '' %}
+
 {% from '_layouts/macros/lib.twig' import img %}
 
-<div class="py-4">
-    <div class="font-semibold text-sm">
-        {{ 'Copyright for images'|t }}
-    </div>
+{% set images = _globals.get('imagesForCopyrightNotice') %}
 
-    <div class="mt-4 flex flex-wrap">
-        {% for copyright, imagesForCopyright in imagesByCopyright %}
-            <div class="mb-4 me-8 flex items-center">
-                <div class="flex flex-wrap">
-                    {% for image in imagesForCopyright %}
-                        {{ img(image, {
-                            transform: {width: 60, height: 40},
-                            handleCopyright: 'none'
-                        }) }}
+{% if images %}
+    {% set imagesByCopyright = images
+        .unique(image => image.id)
+        .filter(image => image.copyright)
+        .groupBy(image => image.copyright)
+    %}
+
+    {% if imagesByCopyright.count %}
+        <div class="{{ outerClasses }}">
+            <div class="{{ innerClasses }}">
+                <div class="font-semibold text-sm">
+                    {{ 'Copyright for images'|t }}
+                </div>
+
+                <div class="mt-4 flex flex-wrap">
+                    {% for copyright, imagesForCopyright in imagesByCopyright %}
+                        <div class="mb-4 me-8 flex items-center">
+                            <div class="flex flex-wrap">
+                                {% for image in imagesForCopyright %}
+                                    {{ img(image, {
+                                        transform: {width: 60, height: 40},
+                                        handleCopyright: 'none'
+                                    }) }}
+                                {% endfor %}
+                            </div>
+                            <div class="ms-2 text-sm whitespace-nowrap">
+                                {{ copyright }}
+                            </div>
+                        </div>
                     {% endfor %}
                 </div>
-                <div class="ms-2 text-sm whitespace-nowrap">
-                    {{ copyright }}
-                </div>
             </div>
-        {% endfor %}
-    </div>
-</div>
+        </div>
+    {% endif %}
 
-{% do request.forget('imagesForCopyrightNotice') %}
+    {% do _globals.forget('imagesForCopyrightNotice') %}
+{% endif %}

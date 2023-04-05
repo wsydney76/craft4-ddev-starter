@@ -110,7 +110,7 @@
 
     {% case "register" %}
         {{ imgHtml|raw }}
-        {% do request.addToList('imagesForCopyrightNotice', image) %}
+        {% do _globals.addToCollection('imagesForCopyrightNotice', image) %}
     {% default %}
         {{ imgHtml|raw }}
     {% endswitch %}

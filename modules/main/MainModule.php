@@ -73,11 +73,11 @@ class MainModule extends BaseModule
             TwigExtension::class
         ]);
 
-        Collection::macro('addToList', function(string $key, mixed $value) {
+        Collection::macro('addToCollection', function(string $key, mixed $value) {
             if ($this->has($key)) {
                 $this->put($key, $this->get($key)->push($value));
             } else {
-                $this->put($key, collect([$value]));
+                $this->put($key, new Collection([$value]));
             }
 
             return $this;

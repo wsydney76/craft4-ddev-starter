@@ -3,6 +3,7 @@
 namespace modules\main\twigextensions;
 
 use Craft;
+use Illuminate\Support\Collection;
 use modules\main\MainModule;
 use modules\main\services\ProjectService;
 use Twig\Extension\AbstractExtension;
@@ -18,7 +19,7 @@ class TwigExtension extends AbstractExtension implements GlobalsInterface
     public function getGlobals(): array
     {
         return  [
-            'request' => Craft::$app->requestData
+            '_globals' => Collection::make()
         ];
     }
 

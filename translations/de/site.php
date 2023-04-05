@@ -137,7 +137,7 @@ return [
     'Postal Address' => 'Postanschrift',
     'Privacy' => 'Datenschutz',
     'Quote' => 'Zitat',
-    'Quoted' => 'Zitat',
+    'Quotation marks' => 'Anführungszeichen',
     'Related Entries' => 'Verknüpfte Einträge',
     'Right' => 'Rechts',
     'See "Guide" for help.' => 'Siehe "Guide" für Hilfe.',

@@ -19,6 +19,7 @@ class TwigExtension extends AbstractExtension implements GlobalsInterface
     public function getGlobals(): array
     {
         return  [
+            // TODO: Remove _globals in Craft 4.5
             '_globals' => Collection::make(),
             'customConfig' => Craft::$app->getConfig()->custom,
         ];
@@ -30,7 +31,7 @@ class TwigExtension extends AbstractExtension implements GlobalsInterface
     public function getFilters(): array
     {
         return [
-            new TwigFilter('quote', fn(?string $text): string => $this->quoteFilter($text))
+            new TwigFilter('quotationMarks', fn(?string $text): string => $this->quotationMarksFilter($text))
         ];
     }
 
@@ -43,7 +44,7 @@ class TwigExtension extends AbstractExtension implements GlobalsInterface
         ];
     }
 
-    public function quoteFilter(?string $text): string
+    public function quotationMarksFilter(?string $text): string
     {
         return Craft::t('site', '“') . $text . Craft::t('site', '”');
     }

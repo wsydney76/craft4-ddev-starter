@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-* Update to Craft 4.4.5
+* Update to the newest Craft 4.4
 * Update to Tailwind 3.3.0
 * Added `Align` setting to `gallery` block.
 * Added `Custom` purifier config to `text` block.
@@ -16,6 +16,7 @@
 * Prepared for rtl languages (needs review).
 * Dropped environment variable fields from `Site Info` single entry field layout, as they do not support drafts. The fields are still available if you want to use them in a global set.
 * Added `HeaderWithBackgroundImage` hero area template
+* Renamed `quote` filter to `quotationMarks`
 
 
 ## 3.0.1 2023-03-15

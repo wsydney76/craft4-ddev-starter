@@ -2,7 +2,7 @@
     {% block content %}
         <div class="font-serif text-4xl/normal">
             {% if block.style.contains('quoted') %}
-                {{ block.text|quote }}
+                {{ block.text|quotationMarks }}
             {% else %}
                 {{ block.text }}
             {% endif %}

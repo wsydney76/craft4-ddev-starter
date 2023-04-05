@@ -4,7 +4,7 @@
 {# @param bool constrain If standard blocks should be be wrapped in a max width div  #}
 {# @param bool padding If horizontal padding should be applied. Set to false if embedded in other components #}
 
-{% set fullWidthBlocks = craft.app.config.custom.fullWidthBlocks %}
+{% set fullWidthBlocks = customConfig.fullWidthBlocks %}
 {% set constrain = constrain is defined ? constrain : true %}
 {% set padding = padding is defined ? padding : true %}
 {% set extraClasses = extraClasses is defined ? extraClasses : 'my-12 mx-auto max-w-full'  %}

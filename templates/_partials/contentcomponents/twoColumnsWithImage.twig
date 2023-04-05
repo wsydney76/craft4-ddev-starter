@@ -3,7 +3,7 @@
 {# @param entry Entry the content component entry #}
 {# Alternatively, individual parameters can be passed. #}
 
-{% set handleCopyright = craft.app.config.custom.handleCopyright %}
+{% set handleCopyright = customConfig.handleCopyright %}
 
 {% if entry is defined %}
     {% set image = entry.image.one %}

@@ -15,7 +15,7 @@
         } only %}
     {% else %}
         {{ navLink(navEntry.menuTitle ?: navEntry.title, navEntry.url) }}
-        {% if craft.app.config.custom.showChildrenInMainNav and children %}
+        {% if customConfig.showChildrenInMainNav and children %}
             {% include '_layouts/partials/nav/item.twig' with {
             	children,
                 active: false,

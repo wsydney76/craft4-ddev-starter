@@ -11,7 +11,7 @@
 
             <div class="md:absolute md:inset-0">
                 {{ img(image, {
-                    transform: config.heroTransform[config.heroWidth],
+                    transform: customConfig.heroTransform[customConfig.heroWidth],
                     attr: {
                         class: 'hidden md:block h-full w-full object-cover',
                         loading: null,
@@ -61,7 +61,7 @@
                         {{ bottomHtml|raw }}
                     {% endif %}
 
-                    {% if craft.app.config.custom.handleCopyright == 'show' %}
+                    {% if customConfig.handleCopyright == 'show' %}
                         {{ imgCopyright(image) }}
                     {% endif %}
 

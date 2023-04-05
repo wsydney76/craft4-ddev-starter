@@ -9,8 +9,6 @@
 {# @param buttons Array buttons with url, caption, primary #}
 {# @param teaser String optional Small text above Title #}
 
-{% set config = craft.app.config.custom %}
-
 {% if entry is defined %}
     {% if buttons is not defined and entry.buttons %}
         {% set buttons = entry.buttons.collect|map(button => {
@@ -31,8 +29,8 @@
 
 {% set url = url ?? '' %}
 {% set text = text ?? '' %}
-{% set template = template ?? config.heroTemplate %}
-{% set fallbackTemplate = config.heroFallbackTemplate ?? 'textonly' %}
+{% set template = template ?? customConfig.heroTemplate %}
+{% set fallbackTemplate = customConfig.heroFallbackTemplate ?? 'textonly' %}
 {% set topHtml = topHtml ?? '' %}
 {% set bottomHtml = bottomHtml ?? '' %}
 {% set buttons = buttons ?? [] %}
@@ -42,7 +40,7 @@
     xl: 'max-w-screen-xl mx-auto mt-8 px-8'
 } %}
 
-<div class="{{ classes[config.heroWidth] }}">
+<div class="{{ classes[customConfig.heroWidth] }}">
     {% if image %}
         {% include [
             "_layouts/partials/heroarea/#{template}",

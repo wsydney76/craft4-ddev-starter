@@ -3,10 +3,10 @@
 {% from '_layouts/macros/lib.twig' import img %}
 {% from '_layouts/macros/lib.twig' import imgCopyright %}
 
-{% set handleCopyright = craft.app.config.custom.handleCopyright %}
+{% set handleCopyright = customConfig.handleCopyright %}
 
 {{ img(image, {
-    transform: config.heroTransform[config.heroWidth],
+    transform: customConfig.heroTransform[customConfig.heroWidth],
     attr: {
         loading: null,
         fetchpriority: 'high'

@@ -4,8 +4,8 @@
 <div class="bg-background dark:bg-background-dark">
     <div aria-hidden="true" class="relative">
         {{ img(image, {
-            transform: config.heroTransform[config.heroWidth],
-            srcset: config.heroSrcSet[config.heroWidth],
+            transform: customConfig.heroTransform[customConfig.heroWidth],
+            srcset: customConfig.heroSrcSet[customConfig.heroWidth],
             handleCopyright: 'register',
             attr: {
                 class: 'h-full w-full object-cover',
@@ -49,7 +49,5 @@
             {% endif %}
 
         </div>
-
-
     </div>
 </div>

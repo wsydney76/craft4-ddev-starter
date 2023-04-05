@@ -13,7 +13,7 @@
 {% set highlight = highlight ?? '' %}
 {% set layout = layout ?? 'card' %}
 {% set showMetaData = showMetaData is defined ? showMetaData : false %}
-{% set handleCopyright = handleCopyright ?? craft.app.config.custom.handleCopyright %}
+{% set handleCopyright = handleCopyright ?? customConfig.handleCopyright %}
 {% set teaser = teaser ?? '' %}
 
 {% from '_layouts/macros/lib.twig' import img %}
@@ -30,7 +30,7 @@
     {% set url = url ~ '#:~:text=' ~ highlight|replace({'"': ''})|e('url') %}
 {% endif %}
 
-{% set transform = transform ?? craft.app.config.custom.cardTransform %}
+{% set transform = transform ?? customConfig.cardTransform %}
 
 {% set classes = {
     card: {

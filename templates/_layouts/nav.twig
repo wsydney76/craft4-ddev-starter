@@ -29,13 +29,12 @@
     always: {button: '', nav: 'hidden'}
 } %}
 
-{% set config = craft.app.config.custom %}
 
 {# Alpine Component #}
-<div class="{{ config.stickyMenu or entry.forceStickyMenu ? 'sticky top-0 z-40' }} relative bg-header-background text-header-foreground dark:bg-header-background-dark dark:text-header-foreground-dark border-b border-header-border dark:border-header-border-dark"
+<div class="{{ customConfig.stickyMenu or entry.forceStickyMenu ? 'sticky top-0 z-40' }} relative bg-header-background text-header-foreground dark:bg-header-background-dark dark:text-header-foreground-dark border-b border-header-border dark:border-header-border-dark"
      x-data="{open: false}">
 
-    <div class="mx-auto {{ containerClass[config.navWidth] }} px-4 md:px-8">
+    <div class="mx-auto {{ containerClass[customConfig.navWidth] }} px-4 md:px-8">
         <div class="flex justify-between items-center py-4 md:space-x-10 rtl:md:space-x-reverse">
 
             {# Site Logo #}
@@ -46,15 +45,15 @@
             </div>
 
             {# Menu Button #}
-            {% if config.mobileNavBreakpoint != 'never' %}
-                <div class="-me-2 -my-2 {{ breakpointClasses[config.mobileNavBreakpoint].button }}">
+            {% if customConfig.mobileNavBreakpoint != 'never' %}
+                <div class="-me-2 -my-2 {{ breakpointClasses[customConfig.mobileNavBreakpoint].button }}">
                     {% include '_layouts/partials/nav/mobile-menu-button.twig' %}
                 </div>
             {% endif %}
 
             {# Desktop Nav #}
-            {% if config.mobileNavBreakpoint != 'always' %}
-                <nav class="{{ breakpointClasses[config.mobileNavBreakpoint].nav }} items-center space-x-4 rtl:space-x-reverse">
+            {% if customConfig.mobileNavBreakpoint != 'always' %}
+                <nav class="{{ breakpointClasses[customConfig.mobileNavBreakpoint].nav }} items-center space-x-4 rtl:space-x-reverse">
 
                     {% include '_layouts/partials/nav/items-desktop.twig' with {
                         navEntries
@@ -74,7 +73,7 @@
 
 
     {# Mobile Menu #}
-    {% if config.mobileNavBreakpoint != 'never' %}
+    {% if customConfig.mobileNavBreakpoint != 'never' %}
         <div x-show="open"
              x-collapse
              @click.outside.prevent.stop="open=false"

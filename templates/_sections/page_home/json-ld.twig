@@ -4,7 +4,7 @@
 {{ schema.webSite
     .name(entry.title)
     .sourceOrganization(organization)
-    .image(image ? image.url(craft.app.config.custom.defaultTransform))
+    .image(image ? image.url(customConfig.defaultTransform))
     .description(entry.tagline ?? entry.title)
     .url(entry.url)
     .datePublished(entry.postDate|date('Y-m-d'))

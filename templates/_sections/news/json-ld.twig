@@ -2,7 +2,7 @@
 {% set schema = craft.schema %}
 
 {{ schema.newsArticle
-    .image(image ? image.url(craft.app.config.custom.defaultTransform))
+    .image(image ? image.url(customConfig.defaultTransform))
     .author(schema.person.name(entry.author.name))
     .description(entry.tagline ?? entry.title)
     .url(entry.url)

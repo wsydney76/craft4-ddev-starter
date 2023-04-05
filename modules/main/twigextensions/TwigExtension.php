@@ -19,7 +19,8 @@ class TwigExtension extends AbstractExtension implements GlobalsInterface
     public function getGlobals(): array
     {
         return  [
-            '_globals' => Collection::make()
+            '_globals' => Collection::make(),
+            'customConfig' => Craft::$app->getConfig()->custom,
         ];
     }
 

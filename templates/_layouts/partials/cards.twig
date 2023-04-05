@@ -13,12 +13,12 @@
 {# @param layout string card|cardlet #}
 
 {% set layout = layout ?? 'card' %}
-{% set transform = layout == 'card' ? craft.app.config.custom.cardTransform : craft.app.config.custom.cardletTransform %}
+{% set transform = layout == 'card' ? customConfig.cardTransform : customConfig.cardletTransform %}
 
 {% set heading = heading ?? '' %}
 {% set wide = wide is defined ? wide : true %}
 {% set paginate = paginate is defined ? paginate : false %}
-{% set limit = limit ?? craft.app.config.custom.entriesPerPage %}
+{% set limit = limit ?? customConfig.entriesPerPage %}
 {% set defaultImage = siteInfo.featuredImage.one %}
 {% set highlight = highlight ?? '' %}
 {% set showMetaData = showMetaData is defined ? showMetaData : false %}
@@ -74,7 +74,7 @@
     {% endif %}
 
     {% set html %}
-        {% set sectionRoots = craft.app.config.custom.sectionRoots ?? ['_sections'] %}
+        {% set sectionRoots = customConfig.sectionRoots ?? ['_sections'] %}
 
         {% for entry in entries %}
             {% embed "_layouts/embeds/card.twig" with {

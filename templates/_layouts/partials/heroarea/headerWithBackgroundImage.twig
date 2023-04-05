@@ -7,7 +7,7 @@
         {{ img(image, {
             transform: {width: 2830, height: 1500},
             handleCopyright: 'none',
-            srcset: [2830]|merge(craft.app.config.custom.heroTransform.full),
+            srcset: [2830]|merge(customConfig.heroTransform.full),
             attr: {
                 class: 'absolute inset-0 -z-10 h-full w-full object-cover grayscale mix-blend-multiply'
             }

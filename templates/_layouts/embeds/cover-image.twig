@@ -13,7 +13,7 @@
 {% set tag = url ? 'a' : 'div' %}
 {% set srcset = srcset ?? null %}
 {% set attr = attr ?? {} %}
-{% set handleCopyright = handleCopyright ?? craft.app.config.custom.handleCopyright %}
+{% set handleCopyright = handleCopyright ?? customConfig.handleCopyright %}
 
 {% from '_layouts/macros/lib.twig' import img %}
 

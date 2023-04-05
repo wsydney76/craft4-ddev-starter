@@ -6,7 +6,7 @@
 
 {# @var person \craft\elements\Entry #}
 
-{% set handleCopyright = craft.app.config.custom.handleCopyright %}
+{% set handleCopyright = customConfig.handleCopyright %}
 
 {% if entry is defined %}
     {% set person = entry.person.one %}

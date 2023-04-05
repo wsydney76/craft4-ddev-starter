@@ -12,7 +12,7 @@
         .telephone(siteInfo.phoneNumber)
         .name(siteInfo.copyright ?? siteInfo.title) %}
 
-    {% set sectionRoots = craft.app.config.custom.sectionRoots ?? ['_sections'] %}
+    {% set sectionRoots = customConfig.sectionRoots ?? ['_sections'] %}
 
     {% set roots = sectionRoots|map(r => "#{r}/#{entry.section.handle}_#{entry.type.handle}/json-ld.twig") %}
     {% set roots = roots|merge(sectionRoots|map(r => "#{r}/#{entry.section.handle}/json-ld.twig")) %}

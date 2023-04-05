@@ -14,13 +14,11 @@
             - loading
     #}
 
-    {% set config = craft.app.config.custom %}
-
-    {% set transform = params.transform ?? config.defaultTransform %}
-    {% set srcset = params.srcset ?? config.defaultSrcSet %}
+    {% set transform = params.transform ?? customConfig.defaultTransform %}
+    {% set srcset = params.srcset ?? customConfig.defaultSrcSet %}
     {% set attr = params.attr ?? {loading: 'lazy'} %}
 
-    {% set handleCopyright = params.handleCopyright ?? config.handleCopyright ?? 'register' %}
+    {% set handleCopyright = params.handleCopyright ?? customConfig.handleCopyright ?? 'register' %}
 
     {% if params.showCopyright is defined and params.showCopyright %}
         {# backward compatibility #}
@@ -29,7 +27,7 @@
 
 
     {% if transform.format is not defined %}
-        {% set transform = transform|merge({format: config.defaultImageFormat}) %}
+        {% set transform = transform|merge({format: customConfig.defaultImageFormat}) %}
     {% endif %}
 
 
@@ -54,7 +52,7 @@
         {% set baseTransform = {
             width: transform.width,
             height: transform.height,
-            format: transform.format ?? config.defaultImageFormat,
+            format: transform.format ?? customConfig.defaultImageFormat,
             mode: transform.mode ?? 'crop',
             effects: {sharpen: true}
         } %}

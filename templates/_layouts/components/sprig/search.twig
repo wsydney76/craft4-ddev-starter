@@ -30,7 +30,7 @@
 
 {% endif %}
 
-{% set maxResults = craft.app.config.custom.searchMaxResults %}
+{% set maxResults = customConfig.searchMaxResults %}
 
 <div id="results" class="mt-8">
     {% if query %}
@@ -41,7 +41,7 @@
 
         {# set up search query #}
         {% set searchQuery = craft.entries
-            .section(craft.app.config.custom.searchSections)
+            .section(customConfig.searchSections)
             .search(query)
             .limit(maxResults)
             .orderBy('score') %}

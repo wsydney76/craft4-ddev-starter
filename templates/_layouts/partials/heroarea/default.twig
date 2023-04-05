@@ -1,14 +1,14 @@
 {% from '_layouts/macros/lib.twig' import img %}
 
-{% set handleCopyright = craft.app.config.custom.handleCopyright %}
+{% set handleCopyright = customConfig.handleCopyright %}
 
 <div class="relative">
     <div class="max-w-full">
 
         {% embed '_layouts/embeds/cover-image.twig' with {
             image,
-            transform: config.heroTransform[config.heroWidth],
-            srcset: config.heroSrcSet[config.heroWidth],
+            transform: customConfig.heroTransform[customConfig.heroWidth],
+            srcset: customConfig.heroSrcSet[customConfig.heroWidth],
             handleCopyright,
             attr: {
                 loading: null,

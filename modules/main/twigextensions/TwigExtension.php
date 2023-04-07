@@ -4,14 +4,12 @@ namespace modules\main\twigextensions;
 
 use Craft;
 use Illuminate\Support\Collection;
-use modules\main\MainModule;
+use modules\main\CustomConfig;
 use modules\main\services\ProjectService;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
-use function floor;
-use function str_word_count;
 
 class TwigExtension extends AbstractExtension implements GlobalsInterface
 {

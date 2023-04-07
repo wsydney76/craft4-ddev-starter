@@ -100,6 +100,10 @@ return [
     // Whether copyright notices should be by default shown in the footer or on the image
     // TODO: Implementation for 'show' is incomplete
     // register/show/none
-    'handleCopyright' => 'register',
+    'handleCopyright' => 'show',
+
+    // Whether to skip srcset generation for images
+    // This is useful to speed up things in development when not using the imager-x plugins
+    'skipSrcset' => true
 
 ];

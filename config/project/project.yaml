@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1680689564
+dateModified: 1680710452
 elementSources:
   craft\elements\Asset:
     -
@@ -468,11 +468,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
-  imager-x:
-    edition: lite
-    enabled: true
-    licenseKey: $IMAGER_X_LICENSE_KEY
-    schemaVersion: 4.0.0
   seomate:
     edition: standard
     enabled: true
@@ -486,7 +481,7 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
 system:
-  edition: pro
+  edition: solo
   live: true
   name: $SYSTEM_NAME
   retryDuration: 30

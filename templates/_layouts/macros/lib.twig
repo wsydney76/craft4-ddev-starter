@@ -88,8 +88,13 @@
         {# Craft native transforms, no need to manually calculate anything #}
         {% set attr = attr | merge({alt: image.altText ?: image.title}) %}
 
-        {% set srcset = srcset|map(src => src is array ? src.width : src) %}
-        {% set imgHtml = image.img(transform, srcset)|attr(attr) %}
+
+        {% if devMode and customConfig.skipSrcset %}
+            {% set imgHtml = image.img(transform)|attr(attr) %}
+        {% else %}
+            {% set srcset = srcset|map(src => src is array ? src.width : src) %}
+            {% set imgHtml = image.img(transform, srcset)|attr(attr) %}
+        {% endif %}
     {% endif %}
 
 

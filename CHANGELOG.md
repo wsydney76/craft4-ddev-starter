@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 3.1.0 2023-04-06
 
 * Update to the newest Craft 4.4
 * Update to Tailwind 3.3.0
@@ -11,12 +11,14 @@
 * Added bigger image columns to element index
 * Added `Story` entry type for the `News` section.
 * Improved display of copyright notices in footer.
-* Added `_globals` twig variable, representing a Laravel collection that can be used to simulate a request scope (experimental).
+* Added `_globals` twig variable, representing a Laravel collection that can be used to simulate a request scope (will be native in Craft 4.5).
 * Added `customConfig` twig variable as alias for `craft.app.config.custom`.
 * Prepared for rtl languages (needs review).
 * Dropped environment variable fields from `Site Info` single entry field layout, as they do not support drafts. The fields are still available if you want to use them in a global set.
 * Added `HeaderWithBackgroundImage` hero area template
 * Renamed `quote` filter to `quotationMarks`
+* Added `skipSrcset` custom config option to skip srcset generation for images in dev mode when not using Imager-X.
+* Switch to Craft Solo license and dropped Imager-X plugin.
 
 
 ## 3.0.1 2023-03-15

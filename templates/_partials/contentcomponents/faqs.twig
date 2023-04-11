@@ -13,7 +13,7 @@
 
 {% embed '_layouts/embeds/content-xl.twig' %}
     {% block contentBottom %}
-        <div class="mt-8 max-w-screen-md">
+        <section class="mt-8 max-w-screen-md">
             {% if faqs|length %}
                 <div>
                     {% include '_layouts/components/alpinejs/accordion.twig' with {
@@ -21,6 +21,6 @@
                     } only %}
                 </div>
             {% endif %}
-        </div>
+        </section>
     {% endblock %}
 {% endembed %}

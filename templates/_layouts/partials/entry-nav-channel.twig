@@ -7,7 +7,7 @@
 {% set prev = entry.prev(criteria) %}
 
 {% if next or prev %}
-    <div class="my-12 border-t pt-4 flex justify-between border-t pt-4 space-x-4 rtl:space-x-reverse">
+    <nav class="my-12 border-t pt-4 flex justify-between border-t pt-4 space-x-4 rtl:space-x-reverse">
         <div>
             {{ linkWithIcon(prev, 'chevron-left') }}
         </div>
@@ -15,5 +15,5 @@
         <div>
             {{ linkWithIcon(next, 'chevron-right', 'right') }}
         </div>
-    </div>
+    </nav>
 {% endif %}

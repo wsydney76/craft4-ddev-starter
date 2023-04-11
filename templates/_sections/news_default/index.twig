@@ -18,7 +18,7 @@
 {% endblock %}
 
 
-{% embed '_layouts/embeds/container-md.twig' %}
+{% embed '_layouts/embeds/container-md.twig' with {tag: 'section'} %}
     {% block content %}
         {% include '_partials/meta.twig' with {
             entry,
@@ -27,11 +27,13 @@
     {% endblock %}
 {% endembed %}
 
-{% include '_layouts/partials/content-blocks.twig' with {
-    query: entry.bodyContent
-} only %}
+<section>
+    {% include '_layouts/partials/content-blocks.twig' with {
+        query: entry.bodyContent
+    } only %}
+</section>
 
-{% embed '_layouts/embeds/container-md.twig' %}
+{% embed '_layouts/embeds/container-md.twig' with {tag: 'section'} %}
     {% block content %}
         {# Related Entries #}
         {% include '_layouts/partials/cards.twig' with {

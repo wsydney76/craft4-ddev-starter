@@ -14,7 +14,7 @@
                 color: 'white'
             } only %}
         </div>
-        <div class="">
+        <div>
             {{ svg('@templates/_icons/chevron-right.svg') }}
         </div>
     {% endfor %}
@@ -40,7 +40,7 @@
         {# TODO: This works only for a limited number of children #}
         {% set descendants = entry.children.all %}
         {% if descendants %}
-            <div class="">
+            <div>
                 {{ svg('@templates/_icons/chevron-right.svg') }}
             </div>
             {% for descendant in descendants %}

@@ -11,7 +11,7 @@
 
 {% set handleCopyright = customConfig.handleCopyright %}
 
-<div class="mx-auto max-w-7xl px-6 lg:px-8">
+<section class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="space-y-12">
 
         {% include '_layouts/partials/headline.twig' with {
@@ -26,15 +26,13 @@
                     <div class="space-y-4 sm:grid sm:grid-cols-3 sm:gap-6 sm:space-y-0 lg:gap-8">
                         {% if image %}
                             <div class="aspect-w-3 aspect-h-2 h-0 sm:aspect-w-3 sm:aspect-h-4 ">
-                                <div class="">
-                                    {{ img(image, {
-                                        transform: {width: 300, height: 400},
-                                        handleCopyright: handleCopyright == 'show' ? 'overlay' : 'register',
-                                        attr: {
-                                            class: 'rounded-lg object-cover shadow-lg'
-                                        }
-                                    }) }}
-                                </div>
+                                {{ img(image, {
+                                    transform: {width: 300, height: 400},
+                                    handleCopyright: handleCopyright == 'show' ? 'overlay' : 'register',
+                                    attr: {
+                                        class: 'rounded-lg object-cover shadow-lg'
+                                    }
+                                }) }}
                             </div>
                         {% endif %}
                         <div class="sm:col-span-2">
@@ -59,6 +57,6 @@
             {% endfor %}
         </ul>
     </div>
-</div>
+</section>
 
 

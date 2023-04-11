@@ -4,12 +4,12 @@
 {% from '_layouts/macros/lib.twig' import icon %}
 
 {% if links %}
-    <div class="flex space-x-4 rtl:space-x-reverse">
+    <address class="flex space-x-4 rtl:space-x-reverse">
         {% for link in links %}
             <a href="{{ link.socialLink }}" class="{{ classes ?? '' }}">
                 <span class="sr-only">{{ link.socialPlatform }}</span>
                 {{ icon(link.socialPlatform) }}
             </a>
         {% endfor %}
-    </div>
+    </address>
 {% endif %}

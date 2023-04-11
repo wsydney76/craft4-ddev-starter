@@ -5,7 +5,7 @@
 
 {% if pageInfo.totalPages > 1 %}
 
-    <div class="my-12 md:flex md:justify-between space-y-8 md:space-y-0 md:space-x-4 rtl:md:space-x-reverse items-center">
+    <nav class="my-12 md:flex md:justify-between space-y-8 md:space-y-0 md:space-x-4 rtl:md:space-x-reverse items-center">
 
         <div>
             {% if pageInfo.prevUrl %}
@@ -22,7 +22,7 @@
             {% endif %}
         </div>
 
-        <nav class="block md:flex md:justify-center">
+        <div class="block md:flex md:justify-center">
 
             <div class="flex flex-wrap border-l border-primary dark:border-gray-50">
 
@@ -66,7 +66,7 @@
 
             </div>
 
-        </nav>
+        </div>
 
         <div>
             {% if pageInfo.nextUrl %}
@@ -82,7 +82,7 @@
                 } only %}
             {% endif %}
         </div>
-    </div>
+    </nav>
 
 {% endif %}
 

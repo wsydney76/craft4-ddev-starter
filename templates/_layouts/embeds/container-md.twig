@@ -1,5 +1,10 @@
 {% set padding = padding is defined ? padding : true %}
+{% set tag = tag ?? 'div' %}
 
-<div class="max-w-screen-md mx-auto {{ padding ? 'px-4 sm:px-8' }}">
+{% tag tag with {
+    class: "max-w-screen-md mx-auto #{padding ? 'px-4 sm:px-8'}"
+} %}
+
     {% block content %}{% endblock %}
-</div>
+
+{% endtag %}

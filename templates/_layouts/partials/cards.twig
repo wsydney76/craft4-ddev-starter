@@ -65,56 +65,58 @@
 
 {% if entries.count %}
 
-    {% if heading %}
-        <div class="mb-8">
-            {% include '_layouts/partials/headline.twig' with {
-                text: heading|t({count: entries.count})
-            } only %}
-        </div>
-    {% endif %}
+    <section>
+        {% if heading %}
+            <div class="mb-8">
+                {% include '_layouts/partials/headline.twig' with {
+                    text: heading|t({count: entries.count})
+                } only %}
+            </div>
+        {% endif %}
 
-    {% set html %}
-        {% set sectionRoots = customConfig.sectionRoots ?? ['_sections'] %}
+        {% set html %}
+            {% set sectionRoots = customConfig.sectionRoots ?? ['_sections'] %}
 
-        {% for entry in entries %}
-            {% embed "_layouts/embeds/card.twig" with {
-                entry,
-                image: entry.featuredImage.one ?? defaultImage,
-                transform,
-                highlight,
-                sectionRoots,
-                layout,
-                showMetaData
-            } only %}
+            {% for entry in entries %}
+                {% embed "_layouts/embeds/card.twig" with {
+                    entry,
+                    image: entry.featuredImage.one ?? defaultImage,
+                    transform,
+                    highlight,
+                    sectionRoots,
+                    layout,
+                    showMetaData
+                } only %}
 
-                {# display individual content form section type #}
+                    {# display individual content form section type #}
+                    {% block content %}
+                        {% include sectionRoots|map(r => "#{r}/#{entry.section.handle}/card-content.twig")
+                            ignore missing  with {
+                            entry
+                        } only %}
+                    {% endblock %}
+
+                {% endembed %}
+            {% endfor %}
+        {% endset %}
+
+        {% switch layout %}
+
+        {% case "card" %}
+            {# Show cards grid #}
+
+            {% embed '_layouts/embeds/grid.twig' with {wide: wide} %}
                 {% block content %}
-                    {% include sectionRoots|map(r => "#{r}/#{entry.section.handle}/card-content.twig")
-                        ignore missing  with {
-                        entry
-                    } only %}
+                    {{ html }}
                 {% endblock %}
-
             {% endembed %}
-        {% endfor %}
-    {% endset %}
 
-    {% switch layout %}
-
-    {% case "card" %}
-        {# Show cards grid #}
-
-        {% embed '_layouts/embeds/grid.twig' with {wide: wide} %}
-            {% block content %}
+        {% case "cardlet" %}
+            <div class="space-y-8">
                 {{ html }}
-            {% endblock %}
-        {% endembed %}
-
-    {% case "cardlet" %}
-        <div class="space-y-8">
-            {{ html }}
-        </div>
-    {% endswitch %}
+            </div>
+        {% endswitch %}
+    </section>
 
 {% endif %}
 

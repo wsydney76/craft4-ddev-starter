@@ -7,6 +7,15 @@
 // ddev craft plugin/install _staticcache
 
 return [
+    'exclude' => [
+        'en' => [
+            '*contact*'
+        ],
+        'de' => [
+            '*kontakt*'
+        ],
+    ],
+
     'paginate' => [
         [
             'criteria' => [

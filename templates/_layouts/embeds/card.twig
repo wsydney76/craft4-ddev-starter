@@ -67,7 +67,7 @@
         {% endfor %}
     {% endif %}
 
-    <article class="{{ classes[layout].imgDiv }} bg-gray-200 rounded-lg overflow-hidden">
+    <div class="{{ classes[layout].imgDiv }} bg-gray-200 rounded-lg overflow-hidden">
         {% if image %}
 
             {{ img(image, {
@@ -78,10 +78,10 @@
                 }
             }) }}
         {% endif %}
-    </article>
+    </div>
 
 
-    <div class="flex flex-1 flex-col justify-between {{ classes[layout].textDiv }}">
+    <article class="flex flex-1 flex-col justify-between {{ classes[layout].textDiv }}">
         <div class="flex-1">
             <div class="mt-2 block">
                 {% if teaser %}
@@ -89,16 +89,16 @@
                         {{ teaser }}
                     </div>
                 {% endif %}
-                <div class="mb-2 text-xl font-semibold text-primary dark:text-primary-dark group-hover:underline group-focus:underline">
+                <header class="mb-2 text-xl font-semibold text-primary dark:text-primary-dark group-hover:underline group-focus:underline">
                     {{ title }}
-                </div>
+                </header>
                 {% block content %}{% endblock %}
             </div>
         </div>
 
         {% if entry is defined and showMetaData %}
             {% set authors = entry.authors %}
-            <div class="mt-4 flex items-center">
+            <footer class="mt-4 flex items-center">
                 {% if authors[0].photo %}
                     <div class="flex-shrink-0">
                         <span class="sr-only">{{ authors[0].name }}</span>
@@ -121,8 +121,8 @@
                     </div>
                 </div>
 
-            </div>
+            </footer>
         {% endif %}
 
-    </div>
+    </article>
 </a>

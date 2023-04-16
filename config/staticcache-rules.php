@@ -16,7 +16,7 @@ return [
         ],
     ],
 
-    'paginate' => [
+    'paginateTasks' => [
         [
             'criteria' => [
                 'section' => 'news',

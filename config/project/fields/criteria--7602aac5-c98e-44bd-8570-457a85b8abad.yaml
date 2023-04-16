@@ -20,6 +20,8 @@ settings:
     - typescript
     - yaml
   codeFolding: false
+  columnType: text
+  defaultValue: ''
   fontSize: 14
   language: json
   lineNumbers: true

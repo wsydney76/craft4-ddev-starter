@@ -215,8 +215,8 @@ class MainModule extends BaseModule
                     }
                 }
 
-                // Hide richText block type if Redactor is not installed
-                if (!Craft::$app->plugins->isPluginEnabled('redactor')) {
+                // Hide richText block type if CKEditor is not installed
+                if (!Craft::$app->plugins->isPluginEnabled('ckeditor')) {
                     foreach ($event->blockTypes as $i => $blockType) {
                         if ($blockType->handle === 'richText') {
                             unset($event->blockTypes[$i]);

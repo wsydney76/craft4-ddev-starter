@@ -1,0 +1,9 @@
+css: null
+js: null
+name: Simple
+toolbar:
+  - heading
+  - '|'
+  - bold
+  - italic
+  - link

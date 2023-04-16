@@ -133,4 +133,4 @@ fields:
     type: craft\fields\PlainText
 handle: quote
 name: Quote
-sortOrder: 5
+sortOrder: 6

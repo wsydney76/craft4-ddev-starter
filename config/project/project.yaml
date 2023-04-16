@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1680710452
+dateModified: 1681647640
 elementSources:
   craft\elements\Asset:
     -
@@ -253,6 +253,7 @@ meta:
     1f5834fd-ed0d-466a-b4dd-2891fd144893: 'Show Structure Navigation' # Show Structure Navigation
     2a1eaa07-5692-4473-9f2d-02ca85f81dfd: 'Text Modules' # Text Modules
     2a4edc9c-3738-408b-bf08-b557bc12ee6e: Style # Style
+    2bbce5d5-c118-4901-9146-7f243a1b9116: Simple # Simple
     2bfd1710-35e5-41cb-a655-1fdaf49a0d7c: 'Featured Entries' # Featured Entries
     02d2113e-298a-47c6-a40e-413a682ac7c5: Question # Question
     2f93cb45-a9ce-4284-8848-9eb001fb8a1c: News # News
@@ -274,6 +275,7 @@ meta:
     5aea2dce-a401-4e9f-8563-7a5a312f644b: 'Content Section' # Content Section
     5b0c38db-9ab4-47d8-b4a7-913710c08ca6: English # English
     5e954ca4-2245-4624-b25e-fc91bbb917bf: Default # Default
+    6ba1455f-9ffc-41d3-ac32-050f565424de: 'Rich Text' # Rich Text
     6bc951bf-74b3-4218-b3aa-dc427967abe9: Person # Person
     6c3cc577-cf01-4446-9846-f0f2f6ea3655: 'Short Bio' # Short Bio
     6ca3494d-cd87-4b86-a8fa-fbd8a0acab02: Story # Story
@@ -330,6 +332,7 @@ meta:
     0767f000-e433-4930-9534-b795a48740bb: Teaser # Teaser
     806a473e-c6e7-42cd-a76b-758ed48b5a2b: Role # Role
     871e0a60-ea70-4650-91f2-746c9bc2de41: 'Aspect Ratio' # Aspect Ratio
+    956fbff8-1bb5-4c5d-8e58-ec36d77bf04e: Custom # Custom
     2232a9d8-f828-47e8-bb32-6e03f1cd70b6: 'Team Member' # Team Member
     3468bd44-82e8-4104-932e-5085601fca12: Default # Default
     4120c3e9-17c2-464b-8d41-7d009dacb5e3: 'Page Template' # Page Template
@@ -430,6 +433,7 @@ meta:
     f3c6560d-3487-4f65-a4f9-ac2926397b57: 'Aspect Ratio' # Aspect Ratio
     f8ff18c6-ca19-4910-8753-62aa768dd3a3: Cite # Cite
     f76ccc3a-7c88-43a3-9024-5ea619356bbf: Heading # Heading
+    f7250ac7-93b5-4533-a000-82b9bec48075: Text # Text
     f620927d-baf7-430a-a965-f1e9ea676b83: Text # Text
     fad1f43f-1f3b-4f91-a3d7-fc97622b7767: FAQs # FAQs
     fbaae504-9220-4e1b-a58a-e3819e88194b: 'Use Vite Dev Server' # Use Vite Dev Server
@@ -439,6 +443,10 @@ meta:
     fea320b1-c261-431e-b670-048f10cf5285: Image # Image
     fed0a20c-7c44-4de7-83d9-7843f8facfb8: 'Blitz Caching Enabled' # Blitz Caching Enabled
 plugins:
+  ckeditor:
+    edition: standard
+    enabled: false
+    schemaVersion: 3.0.0.0
   codefield:
     edition: standard
     enabled: true

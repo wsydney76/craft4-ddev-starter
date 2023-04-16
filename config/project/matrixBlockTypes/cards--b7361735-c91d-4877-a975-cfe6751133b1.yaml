@@ -106,4 +106,4 @@ fields:
     type: craft\fields\Entries
 handle: cards
 name: Cards
-sortOrder: 6
+sortOrder: 7

@@ -60,4 +60,4 @@ fields:
     type: craft\fields\Entries
 handle: contentComponents
 name: 'Content Components'
-sortOrder: 9
+sortOrder: 10

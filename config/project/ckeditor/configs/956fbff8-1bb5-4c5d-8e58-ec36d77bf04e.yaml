@@ -1,0 +1,8 @@
+css: null
+js: "return {\r\n    removePlugins: [\r\n    'AutoImage',\r\n    'BlockQuote',\r\n    'Code',\r\n    'CodeBlock',\r\n    'Heading',\r\n    'HorizontalLine',\r\n    'MediaEmbed',\r\n    'TodoList',\r\n    'Underline',\r\n  ],\r\n}"
+name: Custom
+toolbar:
+  - bold
+  - italic
+  - bulletedList
+  - link

@@ -5,6 +5,7 @@
 * Prepared for Staticcache plugin. (update nginx config and added example custom rules config)
 * Improved use of semantic html5 tags.
 * Removed unnecessary empty class attributes.
+* Added rich text block type, powered by CKEditor 5. (Plugin is disabled by default.)
 
 ## 3.1.0 2023-04-06
 

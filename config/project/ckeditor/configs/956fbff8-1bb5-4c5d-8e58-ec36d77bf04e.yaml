@@ -1,24 +1,10 @@
-headingLevels:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
+headingLevels: false
 name: Custom
-options:
-  removePlugins:
-    - AutoImage
-    - BlockQuote
-    - Code
-    - CodeBlock
-    - Heading
-    - HorizontalLine
-    - MediaEmbed
-    - TodoList
-    - Underline
 toolbar:
   - bold
   - italic
   - bulletedList
+  - numberedList
+  - outdent
+  - indent
   - link

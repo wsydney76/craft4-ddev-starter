@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce9bef03daca0dc548de3040b8b3c10f",
+    "content-hash": "ad8db2c626b53618e9b527c25404e46d",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -440,19 +440,30 @@
         },
         {
             "name": "craftcms/ckeditor",
-            "version": "3.0.0",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/craftcms/ckeditor.git",
+                "reference": "612c1c5d78d04342d221f2e66a29a4d155218951"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/ckeditor/zipball/6b6d50bf5430a445bcef7efab6447a234c68cf4d",
-                "reference": "6b6d50bf5430a445bcef7efab6447a234c68cf4d",
+                "url": "https://api.github.com/repos/craftcms/ckeditor/zipball/612c1c5d78d04342d221f2e66a29a4d155218951",
+                "reference": "612c1c5d78d04342d221f2e66a29a4d155218951",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^4.4.7",
                 "craftcms/html-field": "^2.0.0-alpha.2",
-                "nystudio107/craft-code-editor": "^1.0",
+                "nystudio107/craft-code-editor": "^1.0.8",
                 "php": "^8.0.2"
             },
+            "require-dev": {
+                "craftcms/ecs": "dev-main",
+                "craftcms/phpstan": "dev-main",
+                "craftcms/rector": "dev-main"
+            },
+            "default-branch": true,
             "type": "craft-plugin",
             "extra": {
                 "name": "CKEditor",
@@ -464,6 +475,7 @@
                     "craft\\ckeditor\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -475,20 +487,20 @@
             ],
             "description": "Edit rich text content in Craft CMS using CKEditor.",
             "keywords": [
-                "ckeditor",
+                "CKEditor",
                 "cms",
                 "craftcms",
                 "html",
                 "yii2"
             ],
             "support": {
+                "docs": "https://github.com/craftcms/ckeditor/blob/master/README.md",
                 "email": "support@craftcms.com",
                 "issues": "https://github.com/craftcms/ckeditor/issues?state=open",
-                "source": "https://github.com/craftcms/ckeditor",
-                "docs": "https://github.com/craftcms/ckeditor/blob/master/README.md",
-                "rss": "https://github.com/craftcms/ckeditor/commits/master.atom"
+                "rss": "https://github.com/craftcms/ckeditor/commits/master.atom",
+                "source": "https://github.com/craftcms/ckeditor"
             },
-            "time": "2023-04-12T19:25:05+00:00"
+            "time": "2023-04-17T04:30:26+00:00"
         },
         {
             "name": "craftcms/cms",
@@ -718,6 +730,11 @@
         {
             "name": "craftcms/html-field",
             "version": "2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/craftcms/html-field.git",
+                "reference": "3030f7878335b8c7163b1db354fdc22c083d131c"
+            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/craftcms/html-field/zipball/3030f7878335b8c7163b1db354fdc22c083d131c",
@@ -728,12 +745,18 @@
                 "craftcms/cms": "^4.0.0-alpha.1",
                 "php": "^8.0.2"
             },
+            "require-dev": {
+                "craftcms/ecs": "dev-main",
+                "craftcms/phpstan": "dev-main",
+                "craftcms/rector": "dev-main"
+            },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "craft\\htmlfield\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -745,11 +768,11 @@
             ],
             "description": "Base class for Craft CMS field types with HTML values.",
             "support": {
+                "docs": "https://github.com/craftcms/html-field/blob/main/README.md",
                 "email": "support@craftcms.com",
                 "issues": "https://github.com/craftcms/html-field/issues?state=open",
-                "source": "https://github.com/craftcms/html-field",
-                "docs": "https://github.com/craftcms/html-field/blob/main/README.md",
-                "rss": "https://github.com/craftcms/html-field/commits/main.atom"
+                "rss": "https://github.com/craftcms/html-field/commits/main.atom",
+                "source": "https://github.com/craftcms/html-field"
             },
             "time": "2022-11-16T11:13:37+00:00"
         },
@@ -1815,11 +1838,11 @@
         },
         {
             "name": "league/oauth2-client",
-            "version": "2.6.1",
+            "version": "2.7.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/2334c249907190c132364f5dae0287ab8666aa19",
-                "reference": "2334c249907190c132364f5dae0287ab8666aa19",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/160d6274b03562ebeb55ed18399281d8118b76c8",
+                "reference": "160d6274b03562ebeb55ed18399281d8118b76c8",
                 "shasum": ""
             },
             "require": {
@@ -1865,7 +1888,7 @@
                 "oauth2",
                 "single sign on"
             ],
-            "time": "2021-12-22T16:42:49+00:00"
+            "time": "2023-04-16T18:19:15+00:00"
         },
         {
             "name": "mikehaertl/php-shellcommand",
@@ -2085,15 +2108,23 @@
         },
         {
             "name": "nystudio107/craft-code-editor",
-            "version": "1.0.8",
+            "version": "1.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nystudio107/craft-code-editor.git",
+                "reference": "ed82bebd043245173c187b8c16434bf93e179406"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-code-editor/zipball/6e9cd8a7078915660c99e934357eafc720492b88",
-                "reference": "6e9cd8a7078915660c99e934357eafc720492b88",
+                "url": "https://api.github.com/repos/nystudio107/craft-code-editor/zipball/ed82bebd043245173c187b8c16434bf93e179406",
+                "reference": "ed82bebd043245173c187b8c16434bf93e179406",
                 "shasum": ""
             },
             "require": {
                 "phpdocumentor/reflection-docblock": "^5.0.0"
+            },
+            "require-dev": {
+                "craftcms/cms": "^3.0.0 || ^4.0.0"
             },
             "type": "yii2-extension",
             "extra": {
@@ -2104,6 +2135,7 @@
                     "nystudio107\\codeeditor\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2126,15 +2158,26 @@
                 "markdown",
                 "twig"
             ],
-            "time": "2023-04-13T03:43:09+00:00"
+            "support": {
+                "docs": "https://github.com/nystudio107/craft-code-editor/blob/v1/README.md",
+                "issues": "https://github.com/nystudio107/craft-code-editor/issues",
+                "source": "https://github.com/nystudio107/craft-code-editor"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/khalwat",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-04-17T03:53:23+00:00"
         },
         {
             "name": "nystudio107/craft-code-field",
-            "version": "4.0.8",
+            "version": "4.0.9",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-code-field/zipball/eb7132a0212a87c663a4e9b464ae7691d6758c49",
-                "reference": "eb7132a0212a87c663a4e9b464ae7691d6758c49",
+                "url": "https://api.github.com/repos/nystudio107/craft-code-field/zipball/526639f38c6c0f59e20fc6562091c37115750561",
+                "reference": "526639f38c6c0f59e20fc6562091c37115750561",
                 "shasum": ""
             },
             "require": {
@@ -2174,7 +2217,7 @@
                 "docs": "https://github.com/nystudio107/craft-code-field/blob/v3/README.md",
                 "issues": "https://github.com/nystudio107/craft-code-field/issues"
             },
-            "time": "2023-04-13T17:43:16+00:00"
+            "time": "2023-04-17T04:02:07+00:00"
         },
         {
             "name": "nystudio107/craft-plugin-vite",
@@ -5344,6 +5387,7 @@
                 "issues": "https://github.com/wsydney76/craft-contentoverview/issues?state=open",
                 "source": "https://github.com/wsydney76/craft-contentoverview"
             },
+            "abandoned": true,
             "time": "2023-02-13T17:01:54+00:00"
         },
         {
@@ -6120,9 +6164,18 @@
             "time": "2022-09-04T10:37:52+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "craftcms/ckeditor",
+            "version": "dev-main",
+            "alias": "3.0.0",
+            "alias_normalized": "3.0.0.0"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "craftcms/ckeditor": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

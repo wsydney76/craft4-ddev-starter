@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ca6bfa97174219bdfbedf8fb2c606256",
+    "content-hash": "5ec3ee7ffa8bddc4e04a2411f5d208f4",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -677,70 +677,6 @@
             "time": "2022-02-25T21:32:43+00:00"
         },
         {
-            "name": "craftcms/ckeditor",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/craftcms/ckeditor.git",
-                "reference": "d87e882455fabec2fd16b6ed2806e2b1ffbded6e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/ckeditor/zipball/d87e882455fabec2fd16b6ed2806e2b1ffbded6e",
-                "reference": "d87e882455fabec2fd16b6ed2806e2b1ffbded6e",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^4.4.7",
-                "craftcms/html-field": "^2.0.0-alpha.2",
-                "nystudio107/craft-code-editor": "^1.0.8",
-                "php": "^8.0.2"
-            },
-            "require-dev": {
-                "craftcms/ecs": "dev-main",
-                "craftcms/phpstan": "dev-main",
-                "craftcms/rector": "dev-main"
-            },
-            "default-branch": true,
-            "type": "craft-plugin",
-            "extra": {
-                "name": "CKEditor",
-                "handle": "ckeditor",
-                "documentationUrl": "https://github.com/craftcms/ckeditor/blob/master/README.md"
-            },
-            "autoload": {
-                "psr-4": {
-                    "craft\\ckeditor\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pixel & Tonic",
-                    "homepage": "https://pixelandtonic.com/"
-                }
-            ],
-            "description": "Edit rich text content in Craft CMS using CKEditor.",
-            "keywords": [
-                "CKEditor",
-                "cms",
-                "craftcms",
-                "html",
-                "yii2"
-            ],
-            "support": {
-                "docs": "https://github.com/craftcms/ckeditor/blob/master/README.md",
-                "email": "support@craftcms.com",
-                "issues": "https://github.com/craftcms/ckeditor/issues?state=open",
-                "rss": "https://github.com/craftcms/ckeditor/commits/master.atom",
-                "source": "https://github.com/craftcms/ckeditor"
-            },
-            "time": "2023-04-17T21:43:19+00:00"
-        },
-        {
             "name": "craftcms/cms",
             "version": "4.4.7.1",
             "source": {
@@ -984,55 +920,6 @@
                 "source": "https://github.com/craftcms/contact-form-honeypot"
             },
             "time": "2022-05-03T23:41:59+00:00"
-        },
-        {
-            "name": "craftcms/html-field",
-            "version": "2.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/craftcms/html-field.git",
-                "reference": "3030f7878335b8c7163b1db354fdc22c083d131c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/html-field/zipball/3030f7878335b8c7163b1db354fdc22c083d131c",
-                "reference": "3030f7878335b8c7163b1db354fdc22c083d131c",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^4.0.0-alpha.1",
-                "php": "^8.0.2"
-            },
-            "require-dev": {
-                "craftcms/ecs": "dev-main",
-                "craftcms/phpstan": "dev-main",
-                "craftcms/rector": "dev-main"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "craft\\htmlfield\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pixel & Tonic",
-                    "homepage": "https://pixelandtonic.com/"
-                }
-            ],
-            "description": "Base class for Craft CMS field types with HTML values.",
-            "support": {
-                "docs": "https://github.com/craftcms/html-field/blob/main/README.md",
-                "email": "support@craftcms.com",
-                "issues": "https://github.com/craftcms/html-field/issues?state=open",
-                "rss": "https://github.com/craftcms/html-field/commits/main.atom",
-                "source": "https://github.com/craftcms/html-field"
-            },
-            "time": "2022-11-16T11:13:37+00:00"
         },
         {
             "name": "craftcms/oauth2-craftid",
@@ -8232,18 +8119,9 @@
             "time": "2022-09-04T10:37:52+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "craftcms/ckeditor",
-            "version": "dev-main",
-            "alias": "3.1.0",
-            "alias_normalized": "3.1.0.0"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "craftcms/ckeditor": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
@@ -8251,5 +8129,5 @@
     "platform-overrides": {
         "php": "8.0.2"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }

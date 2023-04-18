@@ -1,3 +1,10 @@
 {# Display text block #}
 
-{{ block.text|md|parseRefs|purify('Custom') }}
+{% if craft.app.plugins.pluginEnabled('ckeditor') %}
+    {# Assuming that this block type uses CKEditor, if it is installed and enabled #}
+    {{ block.text }}
+{% else %}
+    {{ block.text|md|parseRefs|purify('Custom') }}
+{% endif %}
+
+

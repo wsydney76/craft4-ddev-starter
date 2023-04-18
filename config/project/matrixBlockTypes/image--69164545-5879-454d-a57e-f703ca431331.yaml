@@ -275,4 +275,4 @@ fields:
     type: modules\main\fields\SiteField
 handle: image
 name: Image
-sortOrder: 4
+sortOrder: 3

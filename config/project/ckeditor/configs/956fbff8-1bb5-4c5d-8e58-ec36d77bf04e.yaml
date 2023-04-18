@@ -2,6 +2,15 @@ css: ".ck.ck-content ul, .ck.ck-content ol {\r\n  padding-left: 20px !important;
 headingLevels: false
 name: Custom
 options:
+  link:
+    decorators:
+      isNewTab:
+        attributes:
+          target: _blank,
+          rel: 'noopener noreferrer'
+        defaultValue: false
+        label: 'Open in a new tab'
+        mode: manual
   removePlugins:
     - ListProperties
 toolbar:

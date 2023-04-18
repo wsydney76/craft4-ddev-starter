@@ -120,4 +120,4 @@ fields:
     type: craft\fields\Dropdown
 handle: gallery
 name: Gallery
-sortOrder: 5
+sortOrder: 4

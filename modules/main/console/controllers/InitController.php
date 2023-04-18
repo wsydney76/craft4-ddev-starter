@@ -5,12 +5,14 @@ namespace modules\main\console\controllers;
 use Craft;
 use craft\elements\Asset;
 use craft\elements\Entry;
+use craft\elements\MatrixBlock;
 use craft\elements\User;
 use craft\helpers\App;
 use craft\helpers\Assets;
 use craft\helpers\Console;
 use Faker\Factory;
 use yii\console\ExitCode;
+use yii\helpers\Markdown;
 
 
 class InitController extends BaseController
@@ -471,5 +473,48 @@ class InitController extends BaseController
         }
     }
 
+    // action that converts the text blocks from markdown to html
+    public function actionConvertTextBlocks(): int
+    {
+
+        // exit if CKEditor plugin is not installed
+        if (!Craft::$app->plugins->isPluginEnabled('ckeditor')) {
+            Console::error('CKEditor plugin is not installed and enabled');
+            return ExitCode::OK;
+        }
+
+        // exit if not confirmed
+        if (!$this->confirm('This will convert all text blocks to html, so that CKEditor can be used. Are you sure?')) {
+            return ExitCode::OK;
+        }
+
+        $this->stdout("Converting text blocks..." . PHP_EOL);
+
+        $textBlocks = MatrixBlock::find()
+            ->status(null)
+            ->site('*')
+            ->field('bodyContent')
+            ->type('text')
+            ->all();
+
+        foreach ($textBlocks as $textBlock) {
+            // Check if text is already converted
+            if (str_contains($textBlock->text, '<p>')) {
+                continue;
+            }
+
+            // output owner title, block id and site name
+            $this->stdout($textBlock->owner->title . ' (' . $textBlock->id . ') - ' . $textBlock->site->name );
+
+            $textBlock->text = Markdown::process($textBlock->text);
+            if (!Craft::$app->elements->saveElement($textBlock)) {
+                $this->stderr('Error saving text block' . PHP_EOL);
+            } else {
+                $this->stdout(' - done' . PHP_EOL);
+            }
+        }
+
+        return ExitCode::OK;
+    }
 
 }

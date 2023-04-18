@@ -5,7 +5,8 @@
 * Prepared for Staticcache plugin. (update nginx config and added example custom rules config)
 * Improved use of semantic html5 tags.
 * Removed unnecessary empty class attributes.
-* Added rich text block type, powered by CKEditor Plugin.
+* Update custom html purifier config.
+* Added `actionConvertTextBlocks` to convert `text` blocks markdown content to html, so that CKEditor can be used.
 
 ## 3.1.0 2023-04-06
 

@@ -177,4 +177,4 @@ fields:
     type: craft\fields\PlainText
 handle: youtubeVideo
 name: 'YouTube Video'
-sortOrder: 8
+sortOrder: 7

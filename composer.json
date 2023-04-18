@@ -4,7 +4,6 @@
   "version": "3.1.0",
   "license": "MIT",
   "require": {
-    "craftcms/ckeditor": "dev-main as 3.1.0",
     "craftcms/cms": "4.4.7.1",
     "craftcms/contact-form": "3.0.1",
     "craftcms/contact-form-honeypot": "^2.0",

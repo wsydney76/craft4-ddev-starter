@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a70a2645249ea722575c5a250ccf5be2",
+    "content-hash": "ca6bfa97174219bdfbedf8fb2c606256",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -678,16 +678,16 @@
         },
         {
             "name": "craftcms/ckeditor",
-            "version": "3.1.0",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/ckeditor.git",
-                "reference": "ab793557c35bd8f75f6d686397d4a263e445e926"
+                "reference": "d87e882455fabec2fd16b6ed2806e2b1ffbded6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/ckeditor/zipball/ab793557c35bd8f75f6d686397d4a263e445e926",
-                "reference": "ab793557c35bd8f75f6d686397d4a263e445e926",
+                "url": "https://api.github.com/repos/craftcms/ckeditor/zipball/d87e882455fabec2fd16b6ed2806e2b1ffbded6e",
+                "reference": "d87e882455fabec2fd16b6ed2806e2b1ffbded6e",
                 "shasum": ""
             },
             "require": {
@@ -701,6 +701,7 @@
                 "craftcms/phpstan": "dev-main",
                 "craftcms/rector": "dev-main"
             },
+            "default-branch": true,
             "type": "craft-plugin",
             "extra": {
                 "name": "CKEditor",
@@ -737,7 +738,7 @@
                 "rss": "https://github.com/craftcms/ckeditor/commits/master.atom",
                 "source": "https://github.com/craftcms/ckeditor"
             },
-            "time": "2023-04-17T18:14:16+00:00"
+            "time": "2023-04-17T21:43:19+00:00"
         },
         {
             "name": "craftcms/cms",
@@ -8231,9 +8232,18 @@
             "time": "2022-09-04T10:37:52+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "craftcms/ckeditor",
+            "version": "dev-main",
+            "alias": "3.1.0",
+            "alias_normalized": "3.1.0.0"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "craftcms/ckeditor": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

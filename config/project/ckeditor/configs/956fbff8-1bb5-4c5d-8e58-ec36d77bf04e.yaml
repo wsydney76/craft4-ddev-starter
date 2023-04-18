@@ -1,10 +1,16 @@
+css: ".ck.ck-content ul, .ck.ck-content ol {\r\n  padding-left: 20px !important;\r\n}"
 headingLevels: false
 name: Custom
+options:
+  removePlugins:
+    - ListProperties
 toolbar:
   - bold
   - italic
+  - '|'
   - bulletedList
   - numberedList
   - outdent
   - indent
+  - '|'
   - link

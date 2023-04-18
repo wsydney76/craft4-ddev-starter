@@ -7,7 +7,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: f7250ac7-93b5-4533-a000-82b9bec48075 # Text
+            fieldUid: f7250ac7-93b5-4533-a000-82b9bec48075 # __blank__
             instructions: null
             label: null
             required: true
@@ -21,13 +21,13 @@ fieldLayouts:
         uid: 36a06db2-a9d8-4797-8afc-757369982b57
         userCondition: null
 fields:
-  f7250ac7-93b5-4533-a000-82b9bec48075: # Text
+  f7250ac7-93b5-4533-a000-82b9bec48075: # __blank__
     columnSuffix: kjzpxxkx
     contentColumnType: text
     fieldGroup: null
     handle: text
     instructions: null
-    name: Text
+    name: __blank__
     searchable: true
     settings:
       availableTransforms: ''

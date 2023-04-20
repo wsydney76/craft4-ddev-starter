@@ -722,7 +722,7 @@ class SeedController extends InitController
         $layouts = [
             ['text', 'heading', 'image', 'text', 'image'],
             ['text', 'heading', 'image', 'text', 'quote', 'text'],
-            ['text', 'text', 'text', 'heading', 'text', 'text', 'text', 'heading', 'text', 'text', 'text'],
+            ['longtext', 'heading', 'longtext', 'heading', 'longtext'],
             ['text', 'image', 'image', 'image'],
             ['text', 'heading', 'gallery', 'text', 'heading', 'text'],
         ];
@@ -738,6 +738,14 @@ class SeedController extends InitController
                         'type' => 'text',
                         'fields' => [
                             'text' => $this->getMarkdownParagraphs($this->faker->numberBetween(1, 5))
+                        ]
+                    ];
+                    break;
+                case 'longtext':
+                    $block = [
+                        'type' => 'text',
+                        'fields' => [
+                            'text' => $this->getMarkdownParagraphs($this->faker->numberBetween(6, 12))
                         ]
                     ];
                     break;

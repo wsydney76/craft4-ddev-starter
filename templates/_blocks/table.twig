@@ -1,0 +1,9 @@
+<div class="ckeditor">
+    {{ block.table|purify('Table') }}
+</div>
+
+{% css %}
+    .ckeditor table p {
+        margin: 0 !important;
+    }
+{% endcss %}

@@ -6,5 +6,5 @@
     "nofollow",
     "noopener"
   ],
-  "HTML.Allowed": "p,ul,ol,li,a[href|target|rel],strong,em,i,br,span[lang],table,thead,tbody,tr,th,td"
+  "HTML.Allowed": "p[style],a[href|target|rel],strong,em,i,br,figure,table,thead,tbody,tr,td,th"
 }

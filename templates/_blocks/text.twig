@@ -8,7 +8,7 @@
         {{ block.text|purify('Custom') }}
     {% endif %}
 {% else %}
-    {{ block.text|md|parseRefs|purify('Custom') }}
+    {{ block.text|md('extra')|parseRefs|purify('Custom') }}
 {% endif %}
 
 

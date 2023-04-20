@@ -5,6 +5,14 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            dismissible: true
+            elementCondition: null
+            style: tip
+            tip: 'This entry defines global settings for the entire site.'
+            type: craft\fieldlayoutelements\Tip
+            uid: f9a8ab04-fba7-4fac-b977-274aa9c15ed4
+            userCondition: null
+          -
             autocapitalize: true
             autocomplete: false
             autocorrect: true

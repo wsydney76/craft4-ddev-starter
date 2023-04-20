@@ -7,6 +7,9 @@
 * Removed unnecessary empty class attributes.
 * Update custom html purifier config.
 * Added `actionConvertTextBlocks` to convert `text` blocks markdown content to html, so that CKEditor can be used.
+* Prepared CKEditor configs/templates for `text` and (not included) `table` blocks.
+* Allowed table tags in `Custom` purifier config.
+* Text blocks content is now output using the `extra` markdown flavor.
 
 ## 3.1.0 2023-04-06
 

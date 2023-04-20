@@ -162,6 +162,7 @@ return [
     'Text Shadow' => 'Text-Schatten',
     'The first published Hero Area will be used' => 'Die erste veröffentlichte Hero-Area wird verwendet',
     'The key used in templates to output this text module.' => 'Der Schlüssel, der in Templates zur Ausgabe dieses Textbausteins verwendet wird.',
+    'This entry defines global settings for the entire site.' => 'Dieser Eintrag definiert globale Einstellungen für die gesamte Website.',
     'Wide' => 'Breit',
     'Work' => 'In Arbeit',
 ];

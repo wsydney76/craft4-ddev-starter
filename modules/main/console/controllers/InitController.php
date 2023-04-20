@@ -513,7 +513,7 @@ class InitController extends BaseController
             // output owner title, block id and site name
             $this->stdout($textBlock->owner->title . ' (' . $textBlock->id . ') - ' . $textBlock->site->name );
 
-            $textBlock->text = Markdown::process($textBlock->text);
+            $textBlock->text = Markdown::process($textBlock->text, "extra");
             if (!Craft::$app->elements->saveElement($textBlock)) {
                 $this->stderr('Error saving text block' . PHP_EOL);
             } else {

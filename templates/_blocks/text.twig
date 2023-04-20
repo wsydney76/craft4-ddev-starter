@@ -4,7 +4,9 @@
     {# Assuming that this block type uses CKEditor, if it is installed and enabled #}
 
     {# Purify at the latest moment for maximum safety #}
-    {{ block.text|purify('Custom') }}
+    {% if block.text %}
+        {{ block.text|purify('Custom') }}
+    {% endif %}
 {% else %}
     {{ block.text|md|parseRefs|purify('Custom') }}
 {% endif %}

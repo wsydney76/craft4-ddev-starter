@@ -2,7 +2,9 @@
 
 {% if craft.app.plugins.pluginEnabled('ckeditor') %}
     {# Assuming that this block type uses CKEditor, if it is installed and enabled #}
-    {{ block.text }}
+
+    {# Purify at the latest moment for maximum safety #}
+    {{ block.text|purify('Custom') }}
 {% else %}
     {{ block.text|md|parseRefs|purify('Custom') }}
 {% endif %}

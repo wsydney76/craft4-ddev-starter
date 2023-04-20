@@ -473,7 +473,14 @@ class InitController extends BaseController
         }
     }
 
-    // action that converts the text blocks from markdown to html
+    /**
+     * Convert text blocks markdown content to html, so that CKEditor can be used.
+     *
+     * @return int
+     * @throws \Throwable
+     * @throws \craft\errors\ElementNotFoundException
+     * @throws \yii\base\Exception
+     */
     public function actionConvertTextBlocks(): int
     {
 

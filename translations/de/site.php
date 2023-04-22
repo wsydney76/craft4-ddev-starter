@@ -102,6 +102,8 @@ return [
     'Content Section' => 'Inhalts-Abschnitt',
     'Content Sections' => 'Inhalts-Abschnitte',
     'Content' => 'Inhalt',
+    'Copy reference tag with link' => 'Referenz-Tag mit Link kopieren',
+    'Copy reference tag with markdown link' => 'Referenz-Tag mit Markdown-Link kopieren',
     'Data' => 'Daten',
     'Default' => 'Standard',
     'Displayed on the news index page instead of the tagline' => 'Wird auf der Indexseite der News anstelle der Tagline angezeigt',

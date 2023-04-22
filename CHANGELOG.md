@@ -30,6 +30,7 @@
 * Renamed `quote` filter to `quotationMarks`
 * Added `skipSrcset` custom config option to skip srcset generation for images in dev mode when not using Imager-X.
 * Switch to Craft Solo license and dropped Imager-X plugin.
+* Added better `copy reference tags` element actions.
 
 
 ## 3.0.1 2023-03-15

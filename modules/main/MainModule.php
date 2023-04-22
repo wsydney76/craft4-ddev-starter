@@ -15,6 +15,8 @@ use Illuminate\Support\Collection;
 use modules\base\BaseModule;
 use modules\main\behaviors\EntryBehavior;
 use modules\main\conditions\HasDraftsConditionRule;
+use modules\main\elements\actions\CopyMarkdownLink;
+use modules\main\elements\actions\CopyReferenceLinkTag;
 use modules\main\fields\EnvironmentVariableField;
 use modules\main\fields\IncludeField;
 use modules\main\fields\SectionField;
@@ -110,7 +112,9 @@ class MainModule extends BaseModule
 
 
             $this->registerElementActions(Entry::class, [
-                CopyReferenceTag::class
+                // CopyReferenceTag::class,
+                CopyReferenceLinkTag::class,
+                CopyMarkdownLink::class
             ]);
 
             $this->hideBlockTypes();

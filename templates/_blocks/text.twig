@@ -3,10 +3,21 @@
 {% if craft.app.plugins.pluginEnabled('ckeditor') %}
     {# Assuming that this block type uses CKEditor, if it is installed and enabled #}
 
-    {# Purify at the latest moment for maximum safety #}
     {% if block.text %}
-        {{ block.text|purify('Custom') }}
+
+        {# Use this if there are no embeded YouTube videos #}
+        {#{{ block.text|purify('Custom') }}#}
+
+        {# Use this if you want to convert oembed tags for YouTube videos to iframes whithout GDPR handling #}
+        {# {{ block.text|replace(
+            '/<oembed\\s+url="https:\\/\\/(?:www\\.)?youtube\\.[a-z]+\\/watch\\?v=([a-zA-Z0-9_-]+)">\\s*<\\/oembed>/',
+            '<iframe width="768" height="432" style="max-width: 100%;" frameborder="0" allowfullscreen src="https://www.youtube.com/embed/$1"></iframe>'
+        )|raw|purify }}#}
+
+        {# Use this if you want to show YouTube videos with proper GDPR handling (uses bodyContent matrix block) #}
+        {{ craft.project.replaceOembedTags(block.text) }}
     {% endif %}
+
 {% else %}
     {{ block.text|md('extra')|parseRefs|purify('Custom') }}
 {% endif %}

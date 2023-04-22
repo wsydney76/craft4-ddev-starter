@@ -2,10 +2,14 @@
   "Attr.AllowedFrameTargets": [
     "_blank"
   ],
+  "Attr.AllowedRel": [
+    "nofollow",
+    "noopener"
+  ],
   "Attr.EnableID": true,
   "HTML.AllowedComments": [
     "pagebreak"
   ],
   "HTML.SafeIframe": true,
-  "URI.SafeIframeRegexp": "%^(https?:)?//(www.youtube.com/embed/|player.vimeo.com/video/)%"
+  "URI.SafeIframeRegexp": "%^(https?:)?//(www.youtube.com/|vimeo.com/|player.vimeo.com)%"
 }

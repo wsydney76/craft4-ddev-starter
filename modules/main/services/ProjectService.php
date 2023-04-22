@@ -2,8 +2,14 @@
 
 namespace modules\main\services;
 
+use Craft;
 use craft\base\Component;
 use craft\elements\Entry;
+use craft\helpers\HtmlPurifier;
+use craft\helpers\Template;
+use function preg_match_all;
+use function str_replace;
+use const PREG_PATTERN_ORDER;
 
 class ProjectService extends Component
 {
@@ -63,6 +69,49 @@ class ProjectService extends Component
             'minutes' => $minutes,
             'seconds' => $seconds
         ];
+    }
+
+    /**
+     * Handle Oembed tags for YouTube videos
+     *
+     * @param $text
+     * @return \Twig\Markup
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     * @throws \yii\base\Exception
+     */
+    function replaceOembedTags($text)
+    {
+
+        // run text through htmlpurifier to remove any malicious code
+        $text = HtmlPurifier::process($text) ;
+
+        // use a regular expression to match the <oembed> tags and extract the video key
+        // TODO: Check whether possible variations (spaces, tabs, line breaks, etc.) are correctly taken into account.
+        $pattern = '/<oembed\s?url\s*=\s*"https:\/\/(www\.)?youtube\.[a-z]+\/watch\?v=([a-zA-Z0-9_-]+)">\s*<\/oembed>/';
+
+        preg_match_all($pattern, $text, $matches, PREG_PATTERN_ORDER);
+
+        // loop through each match and replace the <oembed> tag with the video block template
+        foreach ($matches[2] as $i => $key) {
+
+            $search = $matches[0][$i];
+
+            $replacement = Craft::$app->getView()->renderTemplate('_blocks/youtubeVideo.twig', [
+                'block' => [
+                    'key' => $key,
+                    'heading' => '',
+                    'text' => '',
+                    'aspectRatio' => ['value' => '16:9'],
+                ]
+            ]);
+
+            $text = str_replace($search, $replacement, $text);
+        }
+
+        // return the modified text
+        return Template::raw($text);
     }
 
 }

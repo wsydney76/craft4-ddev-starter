@@ -513,7 +513,7 @@ __... don't you use a rich text editor like Redactor/CKEditor?__
 * We want to have a more granular control over the markup, especially for responsive images.
 * We want to restrict allowed html elements to a minimum, to prevent an inconsistent appearance.
 * We want the data to be as clean as possible, so we can use it in different contexts (e.g. for a mobile app), with the simplest possible conversions.
-* In case you can't resist, you can set the `text` matrix block type field to CKEditor field, and there is a `craft main/init/convert-text-blocks` command to convert existing content.
+* In case you can't resist, see below...
 
 __... do you use this strange Tailwind CSS bloat?__
 
@@ -547,6 +547,7 @@ __... don't you use a rich text field like Redactor?__
 * We added a `/config/redactor/Custom.json` config file in case you can't resist.
 * The websites we build typically do not have a lot of long text chunks.
 * Yet another plugin...
+* If you can't resist, you can set the `text` matrix block type field to Redactor field, and there is a `craft main/init/convert-text-blocks` command to convert existing content.
 
 __... do you place the root folder for images outside the web root?__
 
@@ -633,3 +634,23 @@ Contains templates derived from [Tailwind UI](https://tailwindui.com/) and [Alpi
 Even though we created everything owning valid licenses, it is up to you to comply with the license terms when you use this starter for your own project.
 
 Contact the vendors if in doubt.
+
+## CKEditor
+
+We still do not recommend using a rich text editor, but just in case we prepared some things...
+
+* Install the CKEditor plugin: `ddev composer require craftcms/ckeditor -w && ddev craft plugin/install ckeditor`
+* In `Fields` > `Body Content` > `Text` matrix block, change the field type to `CKEditor`, select `Custom` as the editor config and `Default` as the HTMLPurifier config, and save.
+* Run `ddev craft main/init/convert-text-blocks` to convert existing content.
+* Check the `Custom` config settings and adjust them to your needs.
+* Check the `_blocks/text.twig` template and select the preferred way of handling oembed tags (in case you enabled them).
+* Currently only YouTube videos are supported.
+* In case things do not work as expected, check the HTML Purifier config first.
+* Having a lot of matrix blocks with CKEditor may slow down editing, so you may want to enable your config to use headings/images/quotes. Which in turn will make it more difficult to sync content between sites. 
+
+### Tables
+
+If you want to use CKEditor just for its support of tables:
+
+* Create a `bodyContent` block type with the handle `table` and a field with the handle `table`.
+* Select CKEditor as field type and select `Table` as the editor config and `Table` as the HTMLPurifier config.

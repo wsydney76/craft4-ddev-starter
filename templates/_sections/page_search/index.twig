@@ -5,8 +5,7 @@
     {% do craft.blitz.options.cachingEnabled(false) %}
 {% endif %}
 
-{# Load js script for Sprig/HTMX #}
-{% js customConfig.htmxScriptUrl %}
+{{ sprig.script }}
 
 {# Load sprig component #}
 {% embed '_layouts/embeds/content-xl.twig' %}

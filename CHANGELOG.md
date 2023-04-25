@@ -10,6 +10,7 @@
 * Prepared CKEditor configs/templates for `text` and (not included) `table` blocks.
 * Allowed table tags in `Custom` purifier config.
 * Text blocks content is now output using the `extra` markdown flavor.
+* The sprig plugin now hosts the hmtx library locally, so removed the `htmxScriptUrl` custom setting.
 
 ## 3.1.0 2023-04-06
 

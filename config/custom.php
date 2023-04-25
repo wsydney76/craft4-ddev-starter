@@ -84,11 +84,6 @@ return [
         ['label' => 'Image Copyright', 'template' => 'content/image-copyright'],
     ],
 
-    // this is the file as in sprig.script(), just hosting it locally. Check version after updating sprig.
-    // Gets versioned by {% js craft.app.config.custom.htmxScriptUrl %} so it is safe to always use the same path
-    // Copy from e.g. https://unpkg.com/htmx.org@1.8.0/dist/htmx.min.js
-    'htmxScriptUrl' => '/assets/vendor/htmx/htmx.min.js', // 1.8.0
-
     // Preload fonts used above the fold
     'preloadFonts' => [
         '/assets/fonts/raleway-v22-latin-700.woff2',

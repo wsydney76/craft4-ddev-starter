@@ -63,11 +63,17 @@ return [
         '_sections',
     ],
 
-    // This setting allows plugin to overwrite section specific templates
+    // This setting allows plugins to overwrite section specific templates
     'sectionTemplates' => [
 
     ],
 
+    // Settings for prepareText twig filter, used in text matrix blocks
+    'purifierConfig' => 'Custom', // File in config/htmlpurifier
+    'markdownFlavor' => 'extra', // extra|gfm|gfm-comments|original
+    'accents' => 'italic', // strong|italic|default
+
+    // Guides
     'showGuides' => [
         'sections' => ['news', 'page', 'legal', 'siteInfo']
     ],

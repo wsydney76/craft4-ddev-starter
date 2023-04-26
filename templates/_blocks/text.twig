@@ -19,7 +19,10 @@
     {% endif %}
 
 {% else %}
-    {{ block.text|md('extra')|parseRefs|purify('Custom') }}
+
+    {{ block.text|prepareText }}
+    
+   {# {{ block.text|md('extra')|parseRefs|purify('Custom')|replace({'<strong>': '<em>', '</strong>': '</em>'})|raw }}#}
 {% endif %}
 
 

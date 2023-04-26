@@ -2,5 +2,5 @@
   "Attr.AllowedFrameTargets": [
     "_blank"
   ],
-  "HTML.Allowed": "p[style],ul,ol,li,a[href|target|rel],strong,em,i,br,span[lang],table,thead,tbody,tr,th,td"
+  "HTML.Allowed": "p[style],ul,ol,li,a[href|target|rel],strong,em,i,br,span[lang],table,thead,tbody,tr,th,td,abbr[title]"
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b905002624a2175dd5cec92fdf60030",
+    "content-hash": "5e2bd6c775f4ecf633c49c05738252bf",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -440,11 +440,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "4.4.7.1",
+            "version": "4.4.8",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/5035cee5c412e35c5b53943d777627c53f1dc9fe",
-                "reference": "5035cee5c412e35c5b53943d777627c53f1dc9fe",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/c2947a7633375432d23dbbf11c21b4b6cc415650",
+                "reference": "c2947a7633375432d23dbbf11c21b4b6cc415650",
                 "shasum": ""
             },
             "require": {
@@ -474,7 +474,7 @@
                 "monolog/monolog": "^2.3",
                 "php": "^8.0.2",
                 "pixelandtonic/imagine": "~1.3.3.1",
-                "samdark/yii2-psr-log-target": "1.1.3",
+                "samdark/yii2-psr-log-target": "^1.1.3",
                 "seld/cli-prompt": "^1.0.4",
                 "symfony/http-client": "^6.0.3",
                 "symfony/var-dumper": "^5.0|^6.0",
@@ -535,7 +535,7 @@
                 "docs": "https://craftcms.com/docs/4.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2023-04-15T21:58:56+00:00"
+            "time": "2023-04-25T17:56:18+00:00"
         },
         {
             "name": "craftcms/contact-form",
@@ -2877,18 +2877,18 @@
         },
         {
             "name": "putyourlightson/craft-sprig",
-            "version": "2.6.0",
+            "version": "2.6.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-sprig/zipball/ee7baaea2ae7a6b71d569c49b5683acf6979733c",
-                "reference": "ee7baaea2ae7a6b71d569c49b5683acf6979733c",
+                "url": "https://api.github.com/repos/putyourlightson/craft-sprig/zipball/c44a631072e224c75e1107b4ec8425b92ad6166b",
+                "reference": "c44a631072e224c75e1107b4ec8425b92ad6166b",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^4.0",
                 "nystudio107/craft-code-editor": "^1.0.0",
                 "php": "^8.0.2",
-                "putyourlightson/craft-sprig-core": "^2.5.0"
+                "putyourlightson/craft-sprig-core": "^2.5.1"
             },
             "type": "craft-plugin",
             "extra": {
@@ -2914,15 +2914,15 @@
                 "source": "https://github.com/putyourlightson/craft-sprig",
                 "issues": "https://github.com/putyourlightson/craft-sprig/issues"
             },
-            "time": "2023-04-23T15:18:16+00:00"
+            "time": "2023-04-25T16:57:54+00:00"
         },
         {
             "name": "putyourlightson/craft-sprig-core",
-            "version": "2.5.0",
+            "version": "2.5.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-sprig-core/zipball/15bc5e90144e6eed5772642a4bb3454e35ca2717",
-                "reference": "15bc5e90144e6eed5772642a4bb3454e35ca2717",
+                "url": "https://api.github.com/repos/putyourlightson/craft-sprig-core/zipball/199aa80233eff7125e1d1da4602e4fd3603afa4e",
+                "reference": "199aa80233eff7125e1d1da4602e4fd3603afa4e",
                 "shasum": ""
             },
             "require": {
@@ -2944,7 +2944,7 @@
                 "source": "https://github.com/putyourlightson/craft-sprig-core",
                 "issues": "https://github.com/putyourlightson/craft-sprig-core/issues"
             },
-            "time": "2023-04-23T15:17:08+00:00"
+            "time": "2023-04-25T16:56:18+00:00"
         },
         {
             "name": "ralouphie/getallheaders",

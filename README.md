@@ -67,7 +67,7 @@ In case you do not want to use DDEV:
 Running `craft main init` will
 
 * Ask for site name, email settings, copyright
-* Create basic pages, like homepage, news index, sitemap, about/contact, search, legal stuff
+* Create basic pages, like homepage, article index, sitemap, about/contact, search, legal stuff
 * Create a second user assigned to `Content Editors` group.
 * Assign user photos.
 * Add provisional alt text/copyright to images (so that there will be no validation errors when doing the first demo...)
@@ -104,7 +104,7 @@ This starter comes with a mix of functionality that is likely to be used in ever
 
 * Pages section: We don't use singles, instead dedicated entry sections. Main navigation shows children of the homepage.
     * Home page. One page with slug `__home__` required.
-    * News Index: paginated card view of news entries
+    * Article Index: paginated card view of article entries
     * Topic Index: displays topic hierarchy
     * Contact: Simple contact form with first party Contact Form plugin
     * Sitemap
@@ -112,7 +112,7 @@ This starter comes with a mix of functionality that is likely to be used in ever
     * Default: just heading and blocks
     * Nav item: Does not have its own content, it creates a primary navigation item that lists its children in a dropdown, or renders a custom template in the dropdown panel.
     * Page Template: Create a page that renders a custom page template, e.g. for more specific section indexes with eager loading enabled. This is also the place where plugins can install their own pages.
-* News section
+* Article section
 * Topic section
 * Person section
     * Default: Just photo, name, job description, social links. This is used in content components like testimonial, team, where details do not matter. Does not have its own page.
@@ -120,6 +120,14 @@ This starter comes with a mix of functionality that is likely to be used in ever
 * Legal section. Use for privacy, imprint. Shown in footer navigation
 * 'Content Section' Embedded section with Features/Team/Testimonial types. 
 * Hero Area: Embedded section. This allows hero area/CTA content which can be scheduled precisely, independent of the owning entry.
+
+#### Article? News? Blog? Post?
+
+This starter uses the term 'article' for a channel. The reason is that 'blog'/'news' is a bit too specific, and 'post' is too generic. 'Article' is a bit more neutral, and can be used for other types of content as well.
+
+If you want to show a different term to your user, we highly recommend to just change name/uri in the section settings, and leave the handle as is. This will allow existing code/settings to work without changes.
+
+You will have to adjust translations, though.
 
 ### More content
 

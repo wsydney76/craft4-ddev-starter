@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+* Renamed `News` section to `Article`.
 * Prepared for Staticcache plugin. (update nginx config and added example custom rules config)
 * Improved use of semantic html5 tags.
 * Removed unnecessary empty class attributes.

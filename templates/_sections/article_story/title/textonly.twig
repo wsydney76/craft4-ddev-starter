@@ -1,4 +1,4 @@
-{% embed '_sections/news_story/includes/container.twig' %}
+{% embed '_sections/article_story/includes/container.twig' %}
     {% block content %}
         <div class="text-center">
             {% if entry.teaser %}
@@ -16,7 +16,7 @@
             {% endif %}
 
             <div class="mt-12">
-                {% include '_sections/news_story/includes/meta.twig' %}
+                {% include '_sections/article_story/includes/meta.twig' %}
             </div>
         </div>
     {% endblock %}

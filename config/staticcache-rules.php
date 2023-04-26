@@ -19,11 +19,11 @@ return [
     'paginateTasks' => [
         [
             'criteria' => [
-                'section' => 'news',
+                'section' => 'article',
             ],
             'uri' => [
-                'en' => 'news',
-                'de' => 'news',
+                'en' => 'articles',
+                'de' => 'artikel',
             ]
         ],
     ]

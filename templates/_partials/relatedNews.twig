@@ -1,6 +1,6 @@
-{# Diaplay related News for an entry #}
+{# Diaplay related articles for an entry #}
 
-{# @param entry Entry The entry to which news should point #}
+{# @param entry Entry The entry to which article should point #}
 {# @param heading String optional="In the News" #}
 {# @param wide Bool optional=true Set to false for use in narrow layout #}
 
@@ -8,7 +8,7 @@
 
 {% include '_layouts/partials/cards.twig' with {
     query:craft.entries
-        .section('news')
+        .section('article')
         .relatedTo({targetElement: entry, field: 'bodyContent.entries'}),
     heading: heading,
     wide: wide is defined ? wide : true

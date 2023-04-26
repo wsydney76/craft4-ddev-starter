@@ -8,9 +8,9 @@ use wsydney76\contentoverview\models\Section;
  * Sample model for Content Overview Plugin.
  */
 
-class NewsSection extends Section
+class ArticleSection extends Section
 {
-    public array|string $section = 'news';
+    public array|string $section = 'article';
     public ?int $limit = 12;
     public array|string $imageField = 'featuredImage';
     public ?string $layout = 'cardlets';

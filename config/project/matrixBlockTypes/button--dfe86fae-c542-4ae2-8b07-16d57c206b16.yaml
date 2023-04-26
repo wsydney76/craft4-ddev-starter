@@ -74,7 +74,7 @@ fields:
       selectionLabel: 'Select entry'
       showSiteMenu: false
       sources:
-        - 'section:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # News
+        - 'section:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
         - 'section:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
       targetSiteId: null
       validateRelatedElements: false

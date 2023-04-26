@@ -4,7 +4,7 @@
 return [
     $co->createColumn(7, [
         $co->createSection()
-            ->section('news')
+            ->section('article')
             ->entryType('default')
             ->heading('Latest News')
             ->info('{tagline}, {postDate|date("short")}')
@@ -13,7 +13,7 @@ return [
             ->size('small')
             ->limit(3),
         $co->createSection()
-            ->section('news')
+            ->section('article')
             ->entryType('story')
             ->heading('Latest Stories')
             ->info('{tagline}, {postDate|date("short")}')

@@ -7,7 +7,7 @@
     {% set blocks = entry.storyContent.collect %}
 
     {% for block in blocks %}
-        {% include "_sections/news_story/blocks/#{block.type.handle}.twig" with {
+        {% include "_sections/article_story/blocks/#{block.type.handle}.twig" with {
             entry,
             blocks,
             block
@@ -18,7 +18,7 @@
 
     {% if members %}
         <div class="bg-gray-200 text-foreground dark:bg-gray-700 dark:text-foreground-dark  py-8">
-            {% include '_sections/news_story/includes/team.twig' with {members} %}
+            {% include '_sections/article_story/includes/team.twig' with {members} %}
         </div>
     {% endif %}
 

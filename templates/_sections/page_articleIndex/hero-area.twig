@@ -1,7 +1,7 @@
 {% if craft.app.request.pageNum == 1 %}
 
     {% set featuredEntry = craft.entries
-        .section('news')
+        .section('article')
         .postDate('> '~ now|date_modify('-1 month')|date('Y-m-d'))
         .isFeatured(true)
     .one %}
@@ -16,7 +16,7 @@
                 caption: "#{'Read more about'|t} #{featuredEntry.title|quotationMarks}" ,
                 primary: false
             }],
-            teaser: 'Featured News'|t
+            teaser: 'Featured Article'|t
         } only %}
 
     {% endif %}

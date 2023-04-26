@@ -2,7 +2,7 @@ columnSuffix: null
 contentColumnType: text
 fieldGroup: bd76fb6e-8765-41d3-8e8a-02e37e127c80 # Common
 handle: cardText
-instructions: null
+instructions: 'Displayed on index pages instead of the tagline'
 name: 'Card Text'
 searchable: true
 settings:

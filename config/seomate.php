@@ -33,11 +33,11 @@ return [
             'elements' => [
                 'frontpages' => [
                     'elementType' => Entry::class,
-                    'criteria' => ['section' => 'page','type' => ['home', 'newsIndex']],
+                    'criteria' => ['section' => 'page','type' => ['home', 'articleIndex']],
                     'params' => ['changefreq' => 'daily', 'priority' => 1],
                 ],
                 'page' => ['changefreq' => 'daily', 'priority' => 0.5],
-                'news' => ['changefreq' => 'weekly', 'priority' => 0.5],
+                'article' => ['changefreq' => 'weekly', 'priority' => 0.5],
                 'legal' => ['changefreq' => 'yearly', 'priority' => 0.2],
             ],
         ],

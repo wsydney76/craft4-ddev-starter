@@ -4,7 +4,7 @@ return [
     'stickyMenu' => false,
 
     'entriesPerPage' => 12,
-    'latestNewsLimit' => 6,
+    'latestArticlesLimit' => 6,
 
     // The width of the primary navigation, defined in nav.twig
     // container|2xl|xl|lg
@@ -49,13 +49,13 @@ return [
     'defaultTransform' => ['width' => 1024],
     'defaultSrcSet' => [1024, 640, 400],
 
-    'searchSections' => ['news', 'page', 'legal', 'contentSection', 'heroArea', 'person'],
+    'searchSections' => ['article', 'page', 'legal', 'contentSection', 'heroArea', 'person'],
     'searchMaxResults' => 24,
 
     'sitemapSections' => [
         ['handle' => 'page'],
         ['handle' => 'legal'],
-        ['handle' => 'news', 'orderBy' => 'postDate desc', 'limit' => 10, 'moreType' => 'newsIndex', 'moreText' => Craft::t('site', 'All News')],
+        ['handle' => 'article', 'orderBy' => 'postDate desc', 'limit' => 10, 'moreType' => 'articleIndex', 'moreText' => Craft::t('site', 'All Articles')],
     ],
 
     // This setting allows plugins to inject section specific content via their own templates.
@@ -75,13 +75,13 @@ return [
 
     // Guides
     'showGuides' => [
-        'sections' => ['news', 'page', 'legal', 'siteInfo']
+        'sections' => ['article', 'page', 'legal', 'siteInfo']
     ],
 
     'guides' => [
         ['label' => 'Intro', 'template' => 'intro'],
         ['heading' => 'Sections'],
-        ['label' => 'News', 'template' => 'content/news'],
+        ['label' => 'Article', 'template' => 'content/article'],
         ['label' => 'Page', 'template' => 'content/page'],
         ['label' => 'Legal', 'template' => 'content/legal'],
         ['label' => 'Site Info', 'template' => 'content/siteInfo'],

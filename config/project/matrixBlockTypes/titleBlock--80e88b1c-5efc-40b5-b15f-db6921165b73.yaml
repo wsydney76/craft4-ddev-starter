@@ -30,7 +30,7 @@ fields:
     name: Template
     searchable: false
     settings:
-      includeDirectory: _sections/news_story/title
+      includeDirectory: _sections/article_story/title
     translationKeyFormat: null
     translationMethod: none
     type: modules\main\fields\IncludeField

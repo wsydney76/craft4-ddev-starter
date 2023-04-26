@@ -105,7 +105,7 @@ fieldLayouts:
           -
             elementCondition: null
             fieldUid: 44993cef-3718-479f-8c88-bdede1d256ba # Card Text
-            instructions: 'Will be show on the news index page instead of the tagline'
+            instructions: null
             label: null
             required: false
             tip: null
@@ -180,7 +180,7 @@ fieldLayouts:
 handle: story
 hasTitleField: true
 name: Story
-section: 2f93cb45-a9ce-4284-8848-9eb001fb8a1c # News
+section: 2f93cb45-a9ce-4284-8848-9eb001fb8a1c # Article
 sortOrder: 2
 titleFormat: null
 titleTranslationKeyFormat: null

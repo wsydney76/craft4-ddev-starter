@@ -7,6 +7,6 @@ $co = new ContentOverviewService();
 return [
     'tabs' => [
         $co->createTab('Site', require 'tab1.php'),
-        $co->createTab('News', require 'tab2.php'),
+        $co->createTab('Articles', require 'tab2.php'),
     ]
 ];

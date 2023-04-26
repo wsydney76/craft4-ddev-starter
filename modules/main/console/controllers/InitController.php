@@ -71,7 +71,7 @@ class InitController extends BaseController
         Craft::$app->runAction('main/seed/create-topics', ['interactive' => false]);
         $this->stdout(PHP_EOL);
 
-        Craft::$app->runAction('main/seed/create-news', ['interactive' => false]);
+        Craft::$app->runAction('main/seed/create-articles', ['interactive' => false]);
         $this->stdout(PHP_EOL);
 
         Craft::$app->runAction('main/seed/create-stories', ['interactive' => false]);
@@ -230,11 +230,17 @@ class InitController extends BaseController
 
         $this->createEntry([
             'section' => 'page',
-            'type' => 'newsIndex',
+            'type' => 'articleIndex',
             'site' => 'en',
             'title' => 'News',
-            'slug' => 'news',
-            'parent' => $homepage
+            'slug' => 'articles',
+            'parent' => $homepage,
+            'localized' => [
+                'de' => [
+                    'title' => 'Artikel',
+                    'slug' => 'artikel'
+                ]
+            ]
         ]);
 
         $this->createEntry([

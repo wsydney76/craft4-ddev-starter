@@ -1,32 +1,32 @@
 <?php
 /** @var wsydney76\contentoverview\services\ContentOverviewService $co */
 
-use modules\main\models\NewsSection;
+use modules\main\models\ArticleSection;
 
 
 return [
     $co->createColumn(6, [
-        $co->createSection(NewsSection::class)
+        $co->createSection(ArticleSection::class)
             ->heading('Drafts')
             ->scope('drafts'),
 
-        $co->createSection(NewsSection::class)
+        $co->createSection(ArticleSection::class)
             ->heading('My Provisional Drafts')
             ->scope('provisional')
             ->ownDraftsOnly(true),
 
-        $co->createSection(NewsSection::class)
+        $co->createSection(ArticleSection::class)
             ->heading('Pending')
             ->status('pending'),
 
-        $co->createSection(NewsSection::class)
+        $co->createSection(ArticleSection::class)
             ->heading('Disabled')
             ->status('disabled'),
     ]),
 
     $co->createColumn(6, [
-        (new NewsSection())
-            ->heading('Latest Live News')
+        (new ArticleSection())
+            ->heading('Latest Live Articles')
             ->layout('list')
             ->status('live')
             ->info('{postDate|date("short")}')

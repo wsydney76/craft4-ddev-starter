@@ -19,18 +19,6 @@ fieldLayouts:
             width: 25
           -
             elementCondition: null
-            fieldUid: 4bf7eb3c-ca42-4327-97e2-77533fc27a61 # Caption
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 649ac495-89c5-4501-a812-7f6b0c153d0a
-            userCondition: null
-            warning: null
-            width: 75
-          -
-            elementCondition: null
             fieldUid: 11f1c188-401c-44c4-bd0e-2b6d7b311fc6 # Align
             instructions: null
             label: null
@@ -53,6 +41,18 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 25
+          -
+            elementCondition: null
+            fieldUid: 4bf7eb3c-ca42-4327-97e2-77533fc27a61 # Caption
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 649ac495-89c5-4501-a812-7f6b0c153d0a
+            userCondition: null
+            warning: null
+            width: 50
           -
             elementCondition: null
             fieldUid: c8a6470e-a8da-46c4-ae23-4eb68d320a66 # Show in Sites

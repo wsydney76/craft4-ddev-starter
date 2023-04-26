@@ -1,4 +1,4 @@
-{# News Page #}
+{# Article Page #}
 
 {% set featuredImage = entry.featuredImage.one ?? siteInfo.featuredImage.one %}
 
@@ -48,7 +48,7 @@
     {% block content %}
         {% include '_layouts/partials/entry-nav-channel.twig' with {
             entry,
-            criteria: {section: 'news'}
+            criteria: {section: 'article'}
         } only %}
     {% endblock %}
 {% endembed %}

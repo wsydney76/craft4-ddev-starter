@@ -26,7 +26,7 @@ class SeedController extends InitController
 
 {
     public const NUM_ENTRIES = 50;
-    public const SECTION_HANDLE = 'news';
+    public const SECTION_HANDLE = 'article';
 
     protected Generator $faker;
 
@@ -134,7 +134,7 @@ class SeedController extends InitController
      * @throws \yii\base\InvalidRouteException
      * @throws \yii\console\Exception
      */
-    public function actionCreateNews(int $num = self::NUM_ENTRIES, string $sectionHandle = self::SECTION_HANDLE, string $path = 'starter/'): int
+    public function actionCreateArticles(int $num = self::NUM_ENTRIES, string $sectionHandle = self::SECTION_HANDLE, string $path = 'starter/'): int
     {
         $section = Craft::$app->sections->getSectionByHandle($sectionHandle);
         if (!$section) {
@@ -193,9 +193,9 @@ class SeedController extends InitController
 
     public function actionCreateStories(int $num = 3, string $path = 'starter/'): int
     {
-        $section = Craft::$app->sections->getSectionByHandle('news');
+        $section = Craft::$app->sections->getSectionByHandle('article');
         if (!$section) {
-            $this->stderr("Invalid section news") . PHP_EOL;
+            $this->stderr("Invalid section article") . PHP_EOL;
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
@@ -212,7 +212,7 @@ class SeedController extends InitController
             return ExitCode::OK;
         }
 
-        if ($this->interactive && !$this->confirm("Create {$num} entries of type News/Story? Make sure a number of images exist!", true)) {
+        if ($this->interactive && !$this->confirm("Create {$num} entries of type Article/Story? Make sure a number of images exist!", true)) {
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
@@ -290,8 +290,8 @@ class SeedController extends InitController
         if ($image) {
 
             // pseudo random
-            $target = Entry::find()->section('news')->orderBy('title')->one();
-            $target2 = Entry::find()->section('news')->offset(1)->orderBy('title')->one();
+            $target = Entry::find()->section('article')->orderBy('title')->one();
+            $target2 = Entry::find()->section('article')->offset(1)->orderBy('title')->one();
 
             $heroAreaEntry = $this->createEntry([
                 'section' => 'heroArea',
@@ -482,25 +482,25 @@ class SeedController extends InitController
             ]);
 
 
-            $newsIndex = Entry::find()
+            $articleIndex = Entry::find()
                 ->section('page')
-                ->type('newsIndex')
+                ->type('articleIndex')
                 ->one();
 
             $contentComponents[] = $this->createEntry([
                 'section' => 'contentComponent',
                 'type' => 'cards',
                 'site' => 'en',
-                'title' => 'Latest News',
-                'slug' => 'latest-news',
+                'title' => 'Latest Articles',
+                'slug' => 'latest-articles',
                 'fields' => [
-                    'criteria' => ['language' => 'json', 'value' => '{"section": "news", "type": "default", "limit": 9, "showMetaData": true}'],
+                    'criteria' => ['language' => 'json', 'value' => '{"section": "article", "type": "default", "limit": 9, "showMetaData": true}'],
                     'buttons' => [
                         [
                             'type' => 'button',
                             'fields' => [
-                                'target' => $newsIndex ? [$newsIndex->id] : [],
-                                'caption' => 'Show all News',
+                                'target' => $articleIndex ? [$articleIndex->id] : [],
+                                'caption' => 'Show all Articles',
                                 'primary' => true,
                             ]
                         ]
@@ -508,14 +508,14 @@ class SeedController extends InitController
                 ],
                 'localized' => [
                     'de' => [
-                        'title' => 'Aktuelle News',
+                        'title' => 'Aktuelle Artikel',
                         'fields' => [
                             'buttons' => [
                                 [
                                     'type' => 'button',
                                     'fields' => [
-                                        'target' => $newsIndex ? [$newsIndex->id] : [],
-                                        'caption' => 'Alle News anzeigen',
+                                        'target' => $articleIndex ? [$articleIndex->id] : [],
+                                        'caption' => 'Alle Artikel anzeigen',
                                         'primary' => true,
                                     ]
                                 ]
@@ -532,7 +532,7 @@ class SeedController extends InitController
                 'title' => 'Latest Stories',
                 'slug' => 'latest-stories',
                 'fields' => [
-                    'criteria' => ['language' => 'json', 'value' => '{"section": "news", "type": "story", "limit": 3}'],
+                    'criteria' => ['language' => 'json', 'value' => '{"section": "article", "type": "story", "limit": 3}'],
                 ],
                 'localized' => [
                     'de' => [

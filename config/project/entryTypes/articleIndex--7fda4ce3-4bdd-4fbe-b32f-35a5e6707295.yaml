@@ -93,9 +93,9 @@ fieldLayouts:
         name: SEO
         uid: 52c4d875-2329-4098-b96f-e3b91e20a132
         userCondition: null
-handle: newsIndex
+handle: articleIndex
 hasTitleField: true
-name: 'News Index'
+name: 'Article Index'
 section: 84b98802-2548-4aed-b67e-fc97f6ed9e30 # Page
 sortOrder: 3
 titleFormat: null

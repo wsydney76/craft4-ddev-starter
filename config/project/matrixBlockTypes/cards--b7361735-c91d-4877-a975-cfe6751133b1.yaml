@@ -97,7 +97,7 @@ fields:
       selectionLabel: null
       showSiteMenu: false
       sources:
-        - 'section:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # News
+        - 'section:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
       targetSiteId: null
       validateRelatedElements: false
       viewMode: null

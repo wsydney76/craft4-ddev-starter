@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1682006471
+dateModified: 1682500995
 elementSources:
   craft\elements\Asset:
     -
@@ -110,7 +110,7 @@ elementSources:
         - postDate
         - desc
       disabled: false
-      key: 'section:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # News
+      key: 'section:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
       tableAttributes:
         - bigFeaturedImage
         - type
@@ -256,7 +256,7 @@ meta:
     2bbce5d5-c118-4901-9146-7f243a1b9116: Simple # Simple
     2bfd1710-35e5-41cb-a655-1fdaf49a0d7c: 'Featured Entries' # Featured Entries
     02d2113e-298a-47c6-a40e-413a682ac7c5: Question # Question
-    2f93cb45-a9ce-4284-8848-9eb001fb8a1c: News # News
+    2f93cb45-a9ce-4284-8848-9eb001fb8a1c: Article # Article
     2f9975bd-3ee0-4f17-96cc-e91a163964dc: 'Content Components' # Content Components
     3b60e4f9-36bb-4456-bee5-67160b5a3108: 'User Photos' # User Photos
     3bb09a1c-cb36-438e-b8d5-0b35b0965f4e: Default # Default
@@ -282,7 +282,7 @@ meta:
     07a23de3-b713-43fc-8310-d9191d851801: Name # Name
     7b8b6f04-9d76-4b26-8276-96a80183750e: Quote # Quote
     7ef9424e-9902-4930-9244-8d7f93d6dc4b: 'Story Team' # Story Team
-    7fda4ce3-4bdd-4fbe-b32f-35a5e6707295: 'News Index' # News Index
+    7fda4ce3-4bdd-4fbe-b32f-35a5e6707295: 'Article Index' # Article Index
     8b36e156-5078-4dac-b1d5-74d7b1e46eb9: 'Site Info' # Site Info
     8c826eca-f376-4f7a-92d6-307faddea123: Image # Image
     8e7aba7b-4624-4470-b007-a84c85242f36: 'Sold Out' # Sold Out

@@ -232,7 +232,7 @@ class InitController extends BaseController
             'section' => 'page',
             'type' => 'articleIndex',
             'site' => 'en',
-            'title' => 'News',
+            'title' => 'Articles',
             'slug' => 'articles',
             'parent' => $homepage,
             'localized' => [

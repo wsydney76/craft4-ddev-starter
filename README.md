@@ -71,7 +71,7 @@ Running `craft main init` will
 * Create a second user assigned to `Content Editors` group.
 * Assign user photos.
 * Add provisional alt text/copyright to images (so that there will be no validation errors when doing the first demo...)
-* Create a number of 'News' entries
+* Create a number of 'Article' entries
 * Create some random homepage content (fun fact: the main image shows the place where the idea for this starter was born)
 * Retrieve each page so that image transforms are created
 
@@ -242,7 +242,7 @@ The starter contains the following examples, mainly derived from Tailwind UI.
 * Features: Lists some features with icon, header, text
 * Team: List of team members. Uses the 'person' section
 * Testimonial: A single testimonial. Uses the 'person' section.
-* Cards: Shows entries in a cards layout with custom criteria, e.g. a 'Latest News' section.
+* Cards: Shows entries in a cards layout with custom criteria, e.g. a 'Latest Articles' section.
 * Two colomns with image: Column layout with and image and the default content builder.
 * FAQs: An accordion component with questions and, hopefully, answers.
 
@@ -295,7 +295,7 @@ __Default__
 
 Just a name (title), job description photo, social links.
 
-A `News` entry can relate to multiple persons (= authors), if you do not want to show the CMS user as an author on the front end.
+An `Article` entry can relate to multiple persons (= authors), if you do not want to show the CMS user as an author on the front end.
 
 There is a `getAuthors()` entry behavior method, that return either data from person(s) entries or, as a fallback, the user element. 
 

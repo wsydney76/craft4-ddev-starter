@@ -6,7 +6,7 @@ return [
         $co->createSection()
             ->section('article')
             ->entryType('default')
-            ->heading('Latest News')
+            ->heading('Latest Articles')
             ->info('{tagline}, {postDate|date("short")}')
             ->imageField('featuredImage')
             ->layout('cards')

@@ -40,8 +40,7 @@ This will
 * build frontend assets (css/js)
 * run `main/init` (see Starter content below)
 
-Note: DDEV is configured here with http-port=81 in order to avoid a conflict with a web server running on the host machine (which in turn should not use 443 for https).
-Edit `setup/install` to change this.
+Note: DDEV is configured to use the default ports 80/443. If you have other services running on these ports, you will have to adjust the port mapping in `.ddev/config.yaml` and the `PRIMARY_SITE_URL` setting in `.env` accordingly. 
 
 ### Without DDEV
 

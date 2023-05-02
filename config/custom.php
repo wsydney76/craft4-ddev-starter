@@ -105,10 +105,6 @@ return [
 
     // Whether to skip srcset generation for images
     // This is useful to speed up things in development when not using the imager-x plugins
-    'skipSrcset' => true,
-
-    // Whether to enable hot reloading in live preview.
-    // Requires Craft PRO, and disabled auto refresh on all preview targets
-    'enableHotReload' => false,
+    'skipSrcset' => true
 
 ];

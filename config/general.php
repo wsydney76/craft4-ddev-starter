@@ -24,6 +24,8 @@ return
         ->cpTrigger($cpTrigger)
         ->preloadSingles()
 
+        ->defaultWeekStartDay(1)
+
 		->maxRevisions(10)
 
 		->omitScriptNameInUrls()

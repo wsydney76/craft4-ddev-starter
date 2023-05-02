@@ -2,6 +2,7 @@
 
 namespace modules\main\resources;
 
+use Craft;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
 
@@ -18,9 +19,15 @@ class CpAssetBundle extends AssetBundle
             'cpstyles.css'
         ];
 
-        $this->js = [
+        $scripts = [
             'cpscripts.js'
         ];
+
+        if (Craft::$app->edition === Craft::Pro && Craft::$app->getConfig()->getCustom()->enableHotReload) {
+            $scripts[] = 'hotreload.js';
+        }
+
+        $this->js = $scripts;
 
         parent::init();
     }

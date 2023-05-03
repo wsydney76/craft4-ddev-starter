@@ -8,7 +8,9 @@ use craft\elements\actions\CopyReferenceTag;
 use craft\elements\Entry;
 use craft\events\BlockTypesEvent;
 use craft\events\ElementEvent;
+use craft\events\RegisterPreviewTargetsEvent;
 use craft\fields\Matrix;
+use craft\helpers\ArrayHelper;
 use craft\helpers\ElementHelper;
 use craft\services\Elements;
 use Illuminate\Support\Collection;
@@ -27,6 +29,7 @@ use modules\main\twigextensions\TwigExtension;
 use modules\main\validators\BodyContentValidator;
 use modules\main\widgets\MyProvisionalDraftsWidget;
 use yii\base\Event;
+use function array_unshift;
 use function in_array;
 
 
@@ -120,6 +123,20 @@ class MainModule extends BaseModule
             $this->hideBlockTypes();
 
             $this->setElementIndexColumns();
+
+            // There is no preview target if switching to Pro edition, so add one by default
+            Event::on(
+                Entry::class,
+                Element::EVENT_REGISTER_PREVIEW_TARGETS,
+                function(RegisterPreviewTargetsEvent $event) {
+                    if ($event->sender->getUrl() && !ArrayHelper::firstWhere($event->previewTargets, 'urlFormat', '{url}')) {
+                        array_unshift($event->previewTargets, [
+                            'label' => Craft::t('app', 'Primary {type} page', ['type' => Entry::lowerDisplayName()]),
+                            'urlFormat' => '{url}',
+                        ]);
+                    }
+                }
+            );
         }
     }
 

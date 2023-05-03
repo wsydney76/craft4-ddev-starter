@@ -118,7 +118,7 @@ return [
     'Featured Image' => 'Eintragsbild',
     'Featured Article' => 'Ausgewählter Artikel',
     'Featured' => 'Ausgewählt',
-    'For images: This is the information that must be legally displayed, usually the name of the photographer, for microstock images the name of the service if applicable. Leave blank if nothing is to be displayed on the website.' => 'Für Bilder: Dies ist die Angabe, rechtlich angezeigt werden muss, in der Regel der Name des Fotografen, bei Microstock-Bilder ggfs. der Name des Dienstes. Freilassen, wenn auf der Website nichts angezeigt werden soll.',
+    'For images: This is the information that must be legally displayed, usually the name of the photographer, for microstock images the name of the service if applicable. Leave blank if nothing is to be displayed on the website.' => 'Für Bilder: Dies ist die Angabe, die rechtlich angezeigt werden muss, in der Regel der Name des Fotografen, bei Microstock-Bilder ggfs. der Name des Dienstes. Freilassen, wenn auf der Website nichts angezeigt werden soll.',
     'Full screen width' => 'Volle Bildschirmbreite',
     'Gallery' => 'Galerie',
     'Header image' => 'Seitenbild',

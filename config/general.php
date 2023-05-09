@@ -49,6 +49,16 @@ return
 		->optimizeImageFilesize(false)
 		->revAssetUrls()
 
+        // Only allow uploading of images and pdfs, except for AVIF, as it may cause the server to hang when generating transforms
+        ->allowedFileExtensions([
+            'jpg',
+            'jpeg',
+            'png',
+            'webp',
+            'svg',
+            'pdf'
+        ])
+
 		->useIframeResizer(false)
 
         ->enableGql(false)

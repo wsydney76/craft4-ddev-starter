@@ -14,6 +14,7 @@
 * The sprig plugin now hosts the hmtx library locally, so removed the `htmxScriptUrl` custom setting.
 * Added the `prepareText` twig filter and corresponding custom settings.
 * Add a preview target by default if on Craft Pro.
+* Restrict uploadable file types to images and pdfs.
 
 ## 3.1.0 2023-04-06
 

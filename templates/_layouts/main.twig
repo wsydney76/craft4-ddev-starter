@@ -1,6 +1,6 @@
 {%- if craft.app.plugins.pluginEnabled('blitz') -%}
     {% do craft.blitz.options.cacheDuration('P1D').tags([entry.section.handle]) %}
-{%- endif-%}
+{%- endif -%}
 <!DOCTYPE html>
 <html lang="{{ currentSite.language }}" style="overflow-y: scroll">
 <head>
@@ -37,6 +37,10 @@
 {% cache globally for 1 hour %}
     {% include '_layouts/footer.twig' with {entry} only %}
 {% endcache %}
+
+{% if customConfig.useCookieConsent == 'prompt' %}
+    {% include '_partials/cookie_consent.twig' %}
+{% endif %}
 
 </body>
 </html>

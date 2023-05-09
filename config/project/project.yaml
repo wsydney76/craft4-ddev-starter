@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1683103436
+dateModified: 1683620196
 elementSources:
   craft\elements\Asset:
     -
@@ -249,6 +249,7 @@ meta:
   __names__:
     0b3d2dae-0516-4e85-b297-c9e661b964d5: Heading # Heading
     0c39cdb5-26f9-49ca-9bb4-445a28a61ddf: Images # Images
+    0d56f12c-69da-44d0-a0d1-36e975f34020: 'Cookie Consent Info' # Cookie Consent Info
     1b04edb4-5ebc-45da-ba85-afcd734f187b: 'YouTube Video' # YouTube Video
     1b464b23-6750-460e-aea1-0c4af5f52e23: Key # Key
     1b934de4-d292-4d6f-b40f-ba2b0120b6c8: 'System Name' # System Name
@@ -347,6 +348,7 @@ meta:
     7681df0f-bb10-47a5-ae54-25d7743237e3: 'Content Components' # Content Components
     8833ee2a-8239-453f-9996-a3af3eabb404: Heading # Heading
     13852c19-7f9e-4e6b-8790-0063f0f21ab8: Default # Default
+    23765e34-af93-42cb-bbaf-ea8907bc7407: 'Cookie Consent Text' # Cookie Consent Text
     37283b65-80b3-4451-a1d2-03fd68d18a05: 'Content Components' # Content Components
     44993cef-3718-479f-8c88-bdede1d256ba: 'Card Text' # Card Text
     52144f06-b394-45aa-bee6-d00e1f86878f: Primary # Primary

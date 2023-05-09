@@ -54,7 +54,14 @@ return [
     '“' => '„',
     '”' => '“',
 
-
+    // Cookie Consent
+    'Your current settings' => 'Ihre aktuellen Einstellungen',
+    'You are not accepting third party cookies' => 'Sie akzeptieren keine Cookies von Dritten',
+    'You are accepting third party cookies' => 'Sie akzeptieren Cookies von Dritten',
+    'Accept' => 'Akzeptieren',
+    'Reject' => 'Zurückweisen',
+    'Allow once' => 'Einmalig erlauben',
+    'Always allow' => 'Immer erlauben',
     
     // Environment field
 

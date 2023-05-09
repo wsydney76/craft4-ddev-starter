@@ -1,0 +1,50 @@
+{% if not craft.app.request.isPreview %}
+    <div x-data="{
+        showInfo: false,
+     }">
+
+        <div class="fixed bottom-0  w-full text-sm z-50"
+             x-show="$store.consent.promptForUserChoice">
+
+            <div x-show="showInfo" x-transition class="bg-gray-300 text-black p-4">
+                <div class="max-w-screen-md mx-auto rich-text">
+                    {{ siteInfo.cookieConsentInfo|nl2br }}
+                </div>
+            </div>
+
+            <div class="bg-black text-white p-4 flex items-center justify-center space-x-4">
+
+                <div>
+                    {{ siteInfo.cookieConsentText }}
+                </div>
+
+                <button type="button" class="underline" @click="showInfo = !showInfo">
+                    Info
+                </button>
+
+                {% include '_layouts/partials/button.twig' with {
+                    tag: 'button',
+                	caption: 'Reject'|t,
+                    xOnClick: "$store.consent.rejectMediaCookies();"
+                } only %}
+
+                {% include '_layouts/partials/button.twig' with {
+                    tag: 'button',
+                    caption: 'Accept'|t,
+                    xOnClick: "$store.consent.allowMediaCookies();"
+                } only %}
+
+
+                {% set privacyEntry = craft.entries.section('legal').type('privacy').one %}
+
+                {% if privacyEntry %}
+                    <div>
+                        <a class="underline" href="{{ privacyEntry.url }}">{{ privacyEntry.title }}</a>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+
+    </div>
+{% endif %}

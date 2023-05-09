@@ -135,6 +135,30 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            elementCondition: null
+            fieldUid: 23765e34-af93-42cb-bbaf-ea8907bc7407 # Cookie Consent Text
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e3acecfc-3788-4956-b32a-bef92a5bb2f9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 0d56f12c-69da-44d0-a0d1-36e975f34020 # Cookie Consent Info
+            instructions: 'Displayed in a popup'
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 05ebf6b4-d07b-41e7-9c14-a1d8e148cda3
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dismissible: true
             elementCondition: null
             style: tip

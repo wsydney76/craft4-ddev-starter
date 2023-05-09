@@ -11,6 +11,11 @@ if (import.meta.hot) {
 import baguetteBox from 'baguettebox.js';
 window.baguetteBox = baguetteBox;
 
+// Alpine JS store for Cookie Consent
+import Consent from './stores/Consent';
+
+import Cookies from 'js-cookie'
+window.Cookies = Cookies
 
 // Alpine JS
 import Alpine from 'alpinejs'
@@ -20,6 +25,9 @@ import focus from '@alpinejs/focus'
 window.Alpine = Alpine
 Alpine.plugin(collapse)
 Alpine.plugin(focus)
+
+Alpine.store('consent', Consent)
+
 Alpine.start()
 
 

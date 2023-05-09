@@ -9,12 +9,13 @@
 {% set textModule = siteInfo.textModules.key(textKey).one %}
 {% set privacyEntry = craft.entries.section('legal').type('privacy').one %}
 
-<div x-data="{show: false}">
-    <template x-if="show">
+<div x-data="{acceptOnce: false}" class="my-8">
+    <template x-if="$store.consent.mediaCookiesAllowed || acceptOnce">
         {% block media %}{% endblock %}
     </template>
 
-    <div x-show="!show" class="border border-gray-700 bg-gray-50 rounded p-8 dark:bg-primary">
+    <div x-show="!$store.consent.mediaCookiesAllowed  && !acceptOnce"
+         class="border border-gray-700 bg-gray-50 rounded p-8 dark:bg-primary">
 
         {% if heading %}
             <div class="mb-8 text-xl font-bold">
@@ -35,18 +36,36 @@
             </div>
         {% endif %}
 
-        {% if privacyEntry %}
-            <div class="mb-2">
-                {{ privacyEntry.link }}
-            </div>
-        {% endif %}
+        <div class="mt-8 space-x-4">
 
-        <div class="mt-8">
-            {% include '_layouts/partials/button.twig' with {
-                caption: "Show the video"|t,
-                xOnClick: "show = true",
-                tag: 'button'
-            } only %}
+            {% if customConfig.useCookieConsent != 'none' %}
+
+                {% include '_layouts/partials/button.twig' with {
+                    tag: 'button',
+                    caption: 'Allow once'|t,
+                    xOnClick: "acceptOnce = true"
+                } only %}
+
+                {% include '_layouts/partials/button.twig' with {
+                    tag: 'button',
+                    caption: 'Always allow'|t,
+                    xOnClick: "$store.consent.allowMediaCookies()"
+                } only %}
+
+            {% else %}
+
+                {% include '_layouts/partials/button.twig' with {
+                    tag: 'button',
+                    caption: caption,
+                    xOnClick: "acceptOnce = true"
+                } only %}
+
+            {% endif %}
+
+            {% if privacyEntry %}
+                {{ privacyEntry.link }}
+            {% endif %}
+
         </div>
     </div>
 </div>

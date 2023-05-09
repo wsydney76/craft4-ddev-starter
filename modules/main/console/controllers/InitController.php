@@ -151,6 +151,8 @@ class InitController extends BaseController
                 ['col1' => 'mastodon', 'col2' => 'https://joinmastodon.org'],
                 ['col1' => 'instagram', 'col2' => 'https://instagram.com'],
             ]);
+            $global->setFieldValue('cookieConsentText', 'This website may use third party cookies.');
+            $global->setFieldValue('cookieConsentInfo', 'When external content is displayed, private data is transferred to third-party providers.');
             $global->setFieldValue('textModules', [
                 'sortOrder' => ['new1'],
                 'blocks' => [
@@ -159,7 +161,7 @@ class InitController extends BaseController
                         'fields' => [
                             'key' => 'youtubeConsent',
                             'heading' => 'External YouTube content',
-                            'text' => 'This will probably send personal data to youtube'
+                            'text' => 'This will send personal data to youtube'
                         ]
                     ]
                 ]
@@ -170,6 +172,8 @@ class InitController extends BaseController
         $global = Entry::find()->section('siteInfo')->site('de')->one();
         if ($global) {
             $block = $global->textModules->one();
+            $global->setFieldValue('cookieConsentText', 'Diese Website kann Cookies von Dritten verwenden.');
+            $global->setFieldValue('cookieConsentInfo', 'Wenn externe Inhalte anzeigt werden, werden private Daten an Drittanbieter übertragen.');
             $global->setFieldValue('textModules', [
                 'sortOrder' => [$block->id],
                 'blocks' => [
@@ -178,7 +182,7 @@ class InitController extends BaseController
                         'fields' => [
                             'key' => 'youtubeConsent',
                             'heading' => 'Externer YouTube-Inhalt',
-                            'text' => 'Dies wird wahrscheinlich persönliche Daten YouTube übertragen'
+                            'text' => 'Dies wird persönliche Daten an YouTube übertragen'
                         ]
                     ]
                 ]

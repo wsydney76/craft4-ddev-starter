@@ -98,6 +98,12 @@ return [
     ],
 
 
+    // Whether cookie consent is used
+    // prompt: show prompt on every page if no cookie is set
+    // media: no prompt, but ask on every media block if cookie is not set to 'allow'
+    // none: no cookie consent, ask for permission on every media block
+    'useCookieConsent' => 'prompt',
+
     // Whether copyright notices should be by default shown in the footer or on the image
     // TODO: Implementation for 'show' is incomplete
     // register/show/none

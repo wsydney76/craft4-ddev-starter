@@ -244,6 +244,15 @@ class MainModule extends BaseModule
                         }
                     }
                 }
+
+                if (!Craft::$app->config->custom->allowYoutubeVideos) {
+                    foreach ($event->blockTypes as $i => $blockType) {
+                        if ($blockType->handle === 'youtubeVideo') {
+                            unset($event->blockTypes[$i]);
+                        }
+                    }
+                }
+
             });
     }
 

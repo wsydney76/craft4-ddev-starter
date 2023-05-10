@@ -98,6 +98,11 @@ return [
     ],
 
 
+    // Whether YouTube videos are allowed
+    // Setting this to false will disable the YouTube video block.
+    // The 'useCookieConsent' setting should be set to 'none' in this case.
+    'allowYoutubeVideos' => false,
+
     // Whether cookie consent is used
     // prompt: show prompt on every page if no cookie is set
     // media: no prompt, but ask on every media block if cookie is not set to 'allow'

@@ -1,0 +1,14 @@
+columnSuffix: dfrmvvfg
+contentColumnType: boolean
+fieldGroup: bd76fb6e-8765-41d3-8e8a-02e37e127c80 # Common
+handle: showLink
+instructions: 'Whether a link to this page will be shown in menus'
+name: 'Show Link'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

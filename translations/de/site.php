@@ -42,11 +42,13 @@ return [
     'Sorry, we encountered an unexpected error. We will investigate immediatly.' => 'Entschuldigung, es ist ein unerwarteter Fehler aufgetreten. Wir werden den Fehler sofort beheben.',
     'Subject' => 'Betreff',
     'System color mode' => 'System-Farbmodus',
+    'Text Module' => 'Textbaustein',
     'Thank you for your message! We received it and will reply as soon as possible.' => 'Vielen Dank für Ihre Nachricht! Wir haben sie erhalten und werden so schnell wie möglich antworten.',
     'There are currently no dismissed tips/warnings.' => 'Derzeit gibt es keine ausgeblendeten Tipps/Warnungen.',
     'Tips/Warnings' => 'Tipps/Warnungen',
     'Topic' => 'Thema',
     'Topics' => 'Themen',
+    'Use the slug of this entry to access it in your templates. Make sure the slug is identical on all sites!' => 'Verwenden Sie den Slug dieses Eintrags, um ihn in Ihren Vorlagen aufzurufen. Achten Sie darauf, dass der Slug auf allen Sites identisch ist!',
     'Your Email' => 'Ihre E-Mail',
     'Your Name' => 'Ihr Name',
     '{c,plural,=1{more entry} other{more entries}}' => '{c,plural,=1{weiterer Eintrag} other{weitere Einträge}}',
@@ -62,6 +64,11 @@ return [
     'Reject' => 'Zurückweisen',
     'Allow once' => 'Einmalig erlauben',
     'Always allow' => 'Immer erlauben',
+    'Are you sure?' => 'Sind Sie sicher?',
+    'Open in a new window' => 'In einem neuen Fenster öffnen',
+    'This site uses cookies.' => 'Diese Website verwendet Cookies.',
+    'The text shown on the cookie banner' => 'Der auf dem Cookie-Banner angezeigte Text',
+    'The text shown in the info popup' => 'Der im Info-Popup angezeigte Text',
     
     // Environment field
 

@@ -1,5 +1,5 @@
 fieldLayouts:
-  78605b6a-aeb7-4aa5-b1b6-00c3ab01fa3e:
+  674b3078-0b6e-4166-8b6d-fa2a29979cd5:
     tabs:
       -
         elementCondition: null
@@ -12,7 +12,7 @@ fieldLayouts:
             disabled: false
             elementCondition: null
             id: null
-            instructions: null
+            instructions: 'The text shown on the cookie banner'
             label: null
             max: null
             min: null
@@ -26,42 +26,30 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: defc73e4-b96a-4c79-bcab-936391f0bc2b
-            userCondition: null
-            warning: null
-            width: 75
-          -
-            elementCondition: null
-            fieldUid: 6cd25639-c781-44e3-b74a-d82e6a45e5ec # Show Link
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 2b752ae9-a397-4563-98ef-9d978887869e
-            userCondition: null
-            warning: null
-            width: 25
-          -
-            elementCondition: null
-            fieldUid: 85898001-9c9c-4d46-abf9-a928e44f0d48 # Body Content
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: be1bf48c-5dde-44b4-86cb-29b00639dd67
+            uid: 9cf6e525-4440-47ad-a2d9-5b46f85635c9
             userCondition: null
             warning: null
             width: 100
-        name: Content
-        uid: 7624a4ed-026d-45c4-9431-6fb52daac8b0
+          -
+            elementCondition: null
+            fieldUid: 710a1bd0-9eeb-4721-9493-f2d7dead49ee # Body
+            instructions: 'The text shown in the info popup'
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ef06a53b-0980-424d-9111-8d79fe767056
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 84252758-c1ac-4b17-9042-f669ef34a75e
         userCondition: null
-handle: privacy
+handle: cookieConsent
 hasTitleField: true
-name: Privacy
+name: 'Cookie Consent'
 section: abd279ac-58c4-41dc-ac32-d2e388e34252 # Legal
-sortOrder: 2
+sortOrder: 3
 titleFormat: null
 titleTranslationKeyFormat: null
-titleTranslationMethod: language
+titleTranslationMethod: site

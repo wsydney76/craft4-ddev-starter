@@ -6,7 +6,9 @@
     {% embed '_layouts/components/alpinejs/external-media-consent.twig' with {
         heading: block.heading,
         caption: "Show the video"|t,
-        textKey: 'youtubeConsent' } %}
+        textKey: 'youtubeconsent',
+        externalLink: "https://www.youtube.com/watch?v=#{block.key}"
+    } %}
 
         {% block content %}
             {% if block.text %}

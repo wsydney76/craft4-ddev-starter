@@ -6,16 +6,23 @@ export default {
     },
 
     get mediaCookiesAllowed() {
-        return (!(this._mediaCookiesAllowed === undefined || this._mediaCookiesAllowed === 0))
+
+        // If the user has not made a choice yet, we assume that they have not given consent
+        if(this._mediaCookiesAllowed === undefined) {
+            return false;
+        }
+
+        // Do not use strict comparison here, because the value is a string (maybe)
+        return this._mediaCookiesAllowed === 'allowed';
     },
 
     allowMediaCookies() {
-        this._mediaCookiesAllowed = 1
-        Cookies.set('mediaCookiesAllowed', 1, { expires: 365 });
+        this._mediaCookiesAllowed = 'allowed'
+        Cookies.set('mediaCookiesAllowed', 'allowed', { expires: 365 });
     },
     rejectMediaCookies() {
-        this._mediaCookiesAllowed = 0
-        Cookies.set('mediaCookiesAllowed', 0, { expires: 365 });
+        this._mediaCookiesAllowed = 'rejected'
+        Cookies.set('mediaCookiesAllowed', 'rejected', { expires: 365 });
     },
 
     get promptForUserChoice() {

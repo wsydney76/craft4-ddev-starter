@@ -1,4 +1,7 @@
 {% if not craft.app.request.isPreview %}
+    
+    {% set cookieConsentEntry = craft.entries.section('legal').type('cookieConsent').one %}
+    
     <div x-data="{
         showInfo: false,
      }">
@@ -6,21 +9,25 @@
         <div class="fixed bottom-0  w-full text-sm z-50"
              x-show="$store.consent.promptForUserChoice">
 
-            <div x-show="showInfo" x-transition class="bg-gray-300 text-black p-4">
-                <div class="max-w-screen-md mx-auto rich-text">
-                    {{ siteInfo.cookieConsentInfo|nl2br }}
+            {% if cookieConsentEntry %}
+                <div x-show="showInfo" x-transition class="bg-gray-300 text-black p-4">
+                    <div class="max-w-screen-md mx-auto rich-text">
+                        {{ cookieConsentEntry.body|nl2br }}
+                    </div>
                 </div>
-            </div>
+            {% endif %}
 
             <div class="bg-black text-white p-4 flex items-center justify-center space-x-4">
 
                 <div>
-                    {{ siteInfo.cookieConsentText }}
+                    {{ cookieConsentEntry ? cookieConsentEntry.title : 'This site uses cookies.'|t }}
                 </div>
 
-                <button type="button" class="underline" @click="showInfo = !showInfo">
-                    Info
-                </button>
+                {% if cookieConsentEntry %}
+                    <button type="button" class="underline" @click="showInfo = !showInfo">
+                        Info
+                    </button>
+                {% endif %}
 
                 {% include '_layouts/partials/button.twig' with {
                     tag: 'button',

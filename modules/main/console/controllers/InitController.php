@@ -151,44 +151,10 @@ class InitController extends BaseController
                 ['col1' => 'mastodon', 'col2' => 'https://joinmastodon.org'],
                 ['col1' => 'instagram', 'col2' => 'https://instagram.com'],
             ]);
-            $global->setFieldValue('cookieConsentText', 'This website may use third party cookies.');
-            $global->setFieldValue('cookieConsentInfo', 'When external content is displayed, private data is transferred to third-party providers.');
-            $global->setFieldValue('textModules', [
-                'sortOrder' => ['new1'],
-                'blocks' => [
-                    'new1' => [
-                        'type' => 'textModule',
-                        'fields' => [
-                            'key' => 'youtubeConsent',
-                            'heading' => 'External YouTube content',
-                            'text' => 'This will send personal data to youtube'
-                        ]
-                    ]
-                ]
-            ]);
+
             Craft::$app->elements->saveElement($global);
         }
 
-        $global = Entry::find()->section('siteInfo')->site('de')->one();
-        if ($global) {
-            $block = $global->textModules->one();
-            $global->setFieldValue('cookieConsentText', 'Diese Website kann Cookies von Dritten verwenden.');
-            $global->setFieldValue('cookieConsentInfo', 'Wenn externe Inhalte anzeigt werden, werden private Daten an Drittanbieter übertragen.');
-            $global->setFieldValue('textModules', [
-                'sortOrder' => [$block->id],
-                'blocks' => [
-                    $block->id => [
-                        'type' => 'textModule',
-                        'fields' => [
-                            'key' => 'youtubeConsent',
-                            'heading' => 'Externer YouTube-Inhalt',
-                            'text' => 'Dies wird persönliche Daten an YouTube übertragen'
-                        ]
-                    ]
-                ]
-            ]);
-            Craft::$app->elements->saveElement($global);
-        }
 
         return ExitCode::OK;
     }
@@ -319,6 +285,9 @@ class InitController extends BaseController
             'site' => 'en',
             'title' => 'Imprint',
             'slug' => 'imprint',
+            'fields' => [
+                'showLink' => 1,
+            ],
             'localized' => [
                 'de' => [
                     'title' => 'Impressum',
@@ -331,9 +300,10 @@ class InitController extends BaseController
             'section' => 'legal',
             'type' => 'privacy',
             'site' => 'en',
-            'title' => 'Privacy Declaration',
+            'title' => 'Privacy',
             'slug' => 'privacy',
             'fields' => [
+                'showLink' => 1,
                 'bodyContent' => [
                     [
                         'type' => 'text',
@@ -345,8 +315,8 @@ class InitController extends BaseController
             ],
             'localized' => [
                 'de' => [
-                    'title' => 'Datenschutzerklärung',
-                    'slug' => 'datenschutzerklaerung',
+                    'title' => 'Datenschutz',
+                    'slug' => 'datenschutz',
                     'fields' => [
                         'bodyContent' => [
                             [
@@ -356,6 +326,46 @@ class InitController extends BaseController
                                 ]
                             ]
                         ]
+                    ],
+                ]
+            ]
+        ]);
+
+        $this->createEntry([
+            'section' => 'legal',
+            'type' => 'cookieConsent',
+            'site' => 'en',
+            'title' => 'This website may use third party cookies.',
+            'slug' => 'cookie-consent',
+            'fields' => [
+                'body' => 'When external content is displayed, private data is transferred to third-party providers.'
+            ],
+            'localized' => [
+                'de' => [
+                    'title' => 'Diese Website kann Cookies von Dritten verwenden.',
+                    'fields' => [
+                        'body' => 'Bei der Anzeige von externen Inhalten werden private Daten an Drittanbieter übertragen.'
+                    ]
+                ]
+            ]
+        ]);
+
+
+        $this->createEntry([
+            'section' => 'textModule',
+            'type' => 'default',
+            'site' => 'en',
+            'title' => 'External YouTube Content',
+            'slug' => 'youtubeconsent',
+            'fields' => [
+                'body' => 'This will send personal data to Google/YouTube.'
+            ],
+            'localized' => [
+                'de' => [
+                'title' => 'Externe YouTube-Inhalte',
+                    'slug' => 'youtubeconsent',
+                    'fields' => [
+                        'body' => 'Hiermit werden personenbezogene Daten an Google/YouTube gesendet.'
                     ],
                 ]
             ]

@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1683620196
+dateModified: 1683708959
 elementSources:
   craft\elements\Asset:
     -
@@ -180,6 +180,16 @@ elementSources:
         - postDate
       type: native
     -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: 'section:80c4b0e7-c398-4776-ad74-df0f53d43c86' # Text Module
+      tableAttributes:
+        - slug
+        - postDate
+      type: native
+    -
       heading: Work
       type: heading
     -
@@ -249,7 +259,6 @@ meta:
   __names__:
     0b3d2dae-0516-4e85-b297-c9e661b964d5: Heading # Heading
     0c39cdb5-26f9-49ca-9bb4-445a28a61ddf: Images # Images
-    0d56f12c-69da-44d0-a0d1-36e975f34020: 'Cookie Consent Info' # Cookie Consent Info
     1b04edb4-5ebc-45da-ba85-afcd734f187b: 'YouTube Video' # YouTube Video
     1b464b23-6750-460e-aea1-0c4af5f52e23: Key # Key
     1b934de4-d292-4d6f-b40f-ba2b0120b6c8: 'System Name' # System Name
@@ -257,7 +266,6 @@ meta:
     1dcc69f1-6963-4b8a-9a9a-10b35084db1a: Team # Team
     1de27fd9-bda6-4977-8d43-b36ef6813c60: Level # Level
     1f5834fd-ed0d-466a-b4dd-2891fd144893: 'Show Structure Navigation' # Show Structure Navigation
-    2a1eaa07-5692-4473-9f2d-02ca85f81dfd: 'Text Modules' # Text Modules
     2a4edc9c-3738-408b-bf08-b557bc12ee6e: Style # Style
     2bbce5d5-c118-4901-9146-7f243a1b9116: Simple # Simple
     2bfd1710-35e5-41cb-a655-1fdaf49a0d7c: 'Featured Entries' # Featured Entries
@@ -284,6 +292,7 @@ meta:
     6bc951bf-74b3-4218-b3aa-dc427967abe9: Person # Person
     6c3cc577-cf01-4446-9846-f0f2f6ea3655: 'Short Bio' # Short Bio
     6ca3494d-cd87-4b86-a8fa-fbd8a0acab02: Story # Story
+    6cd25639-c781-44e3-b74a-d82e6a45e5ec: 'Show Link' # Show Link
     6ecb9b3b-4c70-44df-a0ef-88a4ae27beec: Style # Style
     07a23de3-b713-43fc-8310-d9191d851801: Name # Name
     7b8b6f04-9d76-4b26-8276-96a80183750e: Quote # Quote
@@ -313,7 +322,7 @@ meta:
     67a97a95-ddb9-4d73-a10b-649ba6d997cd: Privacy # Privacy
     71c1782e-c5bc-4d87-840e-0a4c1a643eff: 'Site Info' # Site Info
     72a3030d-cba4-4a39-ba7f-553d7116aeaf: Gallery # Gallery
-    79c4d030-bf02-41c3-9a3e-260e28284dcf: 'Text Module' # Text Module
+    80c4b0e7-c398-4776-ad74-df0f53d43c86: 'Text Module' # Text Module
     080cb307-609c-4155-9c50-b6248db4d974: Text # Text
     80e88b1c-5efc-40b5-b15f-db6921165b73: Title # Title
     80fa81e4-1f78-4d88-b733-f565d1f5b9bd: Image # Image
@@ -348,7 +357,6 @@ meta:
     7681df0f-bb10-47a5-ae54-25d7743237e3: 'Content Components' # Content Components
     8833ee2a-8239-453f-9996-a3af3eabb404: Heading # Heading
     13852c19-7f9e-4e6b-8790-0063f0f21ab8: Default # Default
-    23765e34-af93-42cb-bbaf-ea8907bc7407: 'Cookie Consent Text' # Cookie Consent Text
     37283b65-80b3-4451-a1d2-03fd68d18a05: 'Content Components' # Content Components
     44993cef-3718-479f-8c88-bdede1d256ba: 'Card Text' # Card Text
     52144f06-b394-45aa-bee6-d00e1f86878f: Primary # Primary
@@ -412,8 +420,10 @@ meta:
     cf487444-d6c2-4c99-9432-e229efa674a2: Person # Person
     d0390287-042f-4178-bb20-48d3c7edf4ad: Style # Style
     d1ce7a99-7ba0-4ad1-9f19-c4cdad3f247e: 'Email Address' # Email Address
+    d3f37f0d-7675-4e3b-a223-69995d7b57b6: Standard # Standard
     d92e63b4-996e-4dcd-8b55-d119540b5831: Default # Default
     d50026f3-a236-4ae2-b00a-af55076acd17: Site # Site
+    d1935046-3734-43ba-934d-7512ecd81205: 'Cookie Consent' # Cookie Consent
     db33cf09-8ba1-45f6-9cc0-3e855cbcb809: Template # Template
     dbf50cb2-37c8-45f7-b375-dcb93e09691b: Deutsch # Deutsch
     de3c08c7-8c44-46ea-8a7c-109499269f55: Answer # Answer

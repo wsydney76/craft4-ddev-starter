@@ -15,6 +15,9 @@
 * Added the `prepareText` twig filter and corresponding custom settings.
 * Add a preview target by default if on Craft Pro.
 * Restrict uploadable file types to images and pdfs.
+* Added Cookie Consent banner.
+* Added `showLink` field to Legal section.
+* Moved text modules to `textModule` section.
 
 ## 3.1.0 2023-04-06
 

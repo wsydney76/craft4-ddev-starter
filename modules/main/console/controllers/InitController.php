@@ -304,28 +304,14 @@ class InitController extends BaseController
             'slug' => 'privacy',
             'fields' => [
                 'showLink' => 1,
-                'bodyContent' => [
-                    [
-                        'type' => 'text',
-                        'fields' => [
-                            'text' => 'Content TDB.'
-                        ]
-                    ]
-                ]
+                'body' => $this->getStarterTextFromFile('privacy_en.md')
             ],
             'localized' => [
                 'de' => [
                     'title' => 'Datenschutz',
                     'slug' => 'datenschutz',
                     'fields' => [
-                        'bodyContent' => [
-                            [
-                                'type' => 'text',
-                                'fields' => [
-                                    'text' => 'Inhalt TDB.'
-                                ]
-                            ]
-                        ]
+                        'body' => $this->getStarterTextFromFile('privacy_de.md')
                     ],
                 ]
             ]
@@ -338,13 +324,13 @@ class InitController extends BaseController
             'title' => 'This website may use third party cookies.',
             'slug' => 'cookie-consent',
             'fields' => [
-                'body' => 'When external content is displayed, private data is transferred to third-party providers.'
+                'body' => $this->getStarterTextFromFile('cookiebanner_en.txt')
             ],
             'localized' => [
                 'de' => [
                     'title' => 'Diese Website kann Cookies von Dritten verwenden.',
                     'fields' => [
-                        'body' => 'Bei der Anzeige von externen Inhalten werden private Daten an Drittanbieter übertragen.'
+                        'body' => $this->getStarterTextFromFile('cookiebanner_de.txt')
                     ]
                 ]
             ]

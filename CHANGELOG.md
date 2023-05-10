@@ -18,6 +18,8 @@
 * Added Cookie Consent banner.
 * Added `showLink` field to Legal section.
 * Moved text modules to `textModule` section.
+* Added `allowYoutubeVideos` custom config setting.
+* Added the possibility to read starter content from files, via the `BaseController::getStarterTextFromFile()` method.
 
 ## 3.1.0 2023-04-06
 

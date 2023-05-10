@@ -1,0 +1,11 @@
+Diese Seite benötigt für Ihre Funktion selbst keine Cookies.
+
+Ausnahmen:
+
+Bei Aufruf des Redaktionssystems für die Pflege der Inhalte werden technisch notwendige Cookies gesetzt. Siehe hierzu https://craftcms.com/knowledge-base/how-does-craft-use-cookies.
+
+Sollen externe Inhalte wie Videos (YouTube) angezeigt werden, benötigen wir hierfür Ihre Zustimmung.
+
+Ihre Zustimmung/Ablehnung wird dann in einem Cookie 'mediaCookiesAllowed' gespeichert.
+
+Details finden Sie in der Datenschutzerklärung.

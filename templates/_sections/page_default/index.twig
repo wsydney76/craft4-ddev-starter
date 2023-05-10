@@ -20,6 +20,20 @@
 
 {% endif %}
 
+{% if entry.body %}
+    {% embed '_layouts/embeds/container-md.twig' %}
+        {% block content %}
+            {% embed '_layouts/embeds/prose.twig' %}
+                {% block content %}
+                    {{ entry.body|md|purify }}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+
+
+{% endif %}
+
 {% if entry.bodyContent %}
     {% include '_layouts/partials/content-blocks.twig' with {
         query: entry.bodyContent

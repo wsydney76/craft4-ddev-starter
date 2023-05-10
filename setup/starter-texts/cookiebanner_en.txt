@@ -1,0 +1,11 @@
+This site does not require cookies to function itself.
+
+Exceptions:
+
+Technically necessary cookies are set when the editorial system is called for content maintenance. See https://craftcms.com/knowledge-base/how-does-craft-use-cookies.
+
+If external content such as videos (YouTube) is to be displayed, we require your consent for this.
+
+Your consent/rejection is then stored in a cookie 'mediaCookiesAllowed'.
+
+Details can be found in the privacy policy.

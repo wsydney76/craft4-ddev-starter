@@ -69,6 +69,7 @@ return [
     'This site uses cookies.' => 'Diese Website verwendet Cookies.',
     'The text shown on the cookie banner' => 'Der auf dem Cookie-Banner angezeigte Text',
     'The text shown in the info popup' => 'Der im Info-Popup angezeigte Text',
+    'This entry defines the caption and the info text for the cookie consent banner.' => 'Dieser Eintrag definiert die Beschriftung und den Infotext für das Cookie-Einwilligungsbanner.',
     
     // Environment field
 

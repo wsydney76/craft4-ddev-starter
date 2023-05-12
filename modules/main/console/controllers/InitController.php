@@ -236,7 +236,15 @@ class InitController extends BaseController
             'slug' => 'about',
             'parent' => $homepage,
             'fields' => [
-                'tagline' => 'Who we are'
+                'tagline' => 'Who we are',
+                'bodyContent' => [
+                    [
+                        'type' => 'text',
+                        'fields' => [
+                            'text' => 'TBD.'
+                        ]
+                    ]
+                ]
             ],
             'localized' => [
                 'de' => [
@@ -287,6 +295,14 @@ class InitController extends BaseController
             'slug' => 'imprint',
             'fields' => [
                 'showLink' => 1,
+                'bodyContent' => [
+                    [
+                        'type' => 'text',
+                        'fields' => [
+                            'text' => 'TBD.'
+                        ]
+                    ]
+                ]
             ],
             'localized' => [
                 'de' => [
@@ -348,7 +364,7 @@ class InitController extends BaseController
             ],
             'localized' => [
                 'de' => [
-                'title' => 'Externe YouTube-Inhalte',
+                    'title' => 'Externe YouTube-Inhalte',
                     'slug' => 'youtubeconsent',
                     'fields' => [
                         'body' => 'Hiermit werden personenbezogene Daten an Google/YouTube gesendet.'
@@ -517,7 +533,7 @@ class InitController extends BaseController
             }
 
             // output owner title, block id and site name
-            $this->stdout($textBlock->owner->title . ' (' . $textBlock->id . ') - ' . $textBlock->site->name );
+            $this->stdout($textBlock->owner->title . ' (' . $textBlock->id . ') - ' . $textBlock->site->name);
 
             $textBlock->text = Markdown::process($textBlock->text, "extra");
             if (!Craft::$app->elements->saveElement($textBlock)) {

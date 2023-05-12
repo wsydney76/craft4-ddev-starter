@@ -11,29 +11,6 @@
     {% endembed %}
 {% endif %}
 
-{% if customConfig.useCookieConsent != 'none' and entry.section.handle == 'legal' and entry.type.handle == 'privacy' %}
-    {% embed '_layouts/embeds/container-md.twig' %}
-        {% block content %}
-            {% include '_partials/privacy_settings.twig' %}
-        {% endblock %}
-    {% endembed %}
-
-{% endif %}
-
-{% if entry.body %}
-    {% embed '_layouts/embeds/container-md.twig' %}
-        {% block content %}
-            {% embed '_layouts/embeds/prose.twig' %}
-                {% block content %}
-                    {{ entry.body|md|purify }}
-                {% endblock %}
-            {% endembed %}
-        {% endblock %}
-    {% endembed %}
-
-
-{% endif %}
-
 {% if entry.bodyContent %}
     {% include '_layouts/partials/content-blocks.twig' with {
         query: entry.bodyContent

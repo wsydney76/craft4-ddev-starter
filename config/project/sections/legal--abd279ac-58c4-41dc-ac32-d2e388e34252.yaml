@@ -2,29 +2,17 @@ defaultPlacement: end
 enableVersioning: true
 handle: legal
 name: Legal
-previewTargets:
-  -
-    __assoc__:
-      -
-        - label
-        - 'Primary entry page'
-      -
-        - urlFormat
-        - '{url}'
-      -
-        - refresh
-        - '1'
 propagationMethod: all
 siteSettings:
   5b0c38db-9ab4-47d8-b4a7-913710c08ca6: # English
     enabledByDefault: true
     hasUrls: true
-    template: _sections/page
+    template: _sections/legal
     uriFormat: '{slug}'
   dbf50cb2-37c8-45f7-b375-dcb93e09691b: # Deutsch
     enabledByDefault: true
     hasUrls: true
-    template: _sections/page
+    template: _sections/legal
     uriFormat: '{slug}'
 structure:
   maxLevels: null

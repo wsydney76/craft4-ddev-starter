@@ -1,0 +1,29 @@
+{# Show default page content #}
+
+{% embed '_layouts/embeds/container-md.twig' %}
+    {% block content %}
+        {% include '_layouts/partials/page-header.twig' with {
+            entry,
+            alignTitle: alignTitle ?? 'left'
+        } only %}
+    {% endblock %}
+{% endembed %}
+
+{% if customConfig.useCookieConsent != 'none' and entry.section.handle == 'legal' and entry.type.handle == 'privacy' %}
+    {% embed '_layouts/embeds/container-md.twig' %}
+        {% block content %}
+            {% include '_partials/privacy_settings.twig' %}
+        {% endblock %}
+    {% endembed %}
+
+{% endif %}
+
+
+{% if entry.bodyContent %}
+    {% include '_layouts/partials/content-blocks.twig' with {
+        query: entry.bodyContent
+    } only %}
+{% endif %}
+
+
+

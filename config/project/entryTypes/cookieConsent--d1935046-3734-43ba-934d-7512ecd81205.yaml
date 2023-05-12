@@ -5,6 +5,14 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            dismissible: true
+            elementCondition: null
+            style: tip
+            tip: 'This entry defines the caption and the info text for the cookie consent banner.'
+            type: craft\fieldlayoutelements\Tip
+            uid: 99ad2900-2a5d-4360-87c2-c325c6eaf1bd
+            userCondition: null
+          -
             autocapitalize: true
             autocomplete: false
             autocorrect: true
@@ -13,7 +21,7 @@ fieldLayouts:
             elementCondition: null
             id: null
             instructions: 'The text shown on the cookie banner'
-            label: null
+            label: Caption
             max: null
             min: null
             name: null
@@ -34,7 +42,7 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 710a1bd0-9eeb-4721-9493-f2d7dead49ee # Body
             instructions: 'The text shown in the info popup'
-            label: null
+            label: 'Info Text'
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField

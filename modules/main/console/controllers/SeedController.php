@@ -188,6 +188,59 @@ class SeedController extends InitController
             $this->translateHint($entry, 'de');
         }
 
+        // Add a video example
+
+        $entry = $this->createEntry([
+            'section' => 'article',
+            'type' => 'default',
+            'author' => User::find()->orderBy('rand()')->one(),
+            'title' => 'Video Demo',
+            'fields' => [
+                'isFeatured' => true,
+                'tagline' => 'Example for Video and GDPR',
+                'teaser' => $this->faker->text(15),
+                'featuredImage' => [$this->getRandomImage(1200)->id],
+                'bodyContent' => [
+                    [
+                        'type' => 'text',
+                        'fields' => [
+                            'text' => $this->faker->text(250)
+                        ]
+                    ],
+                    [
+                        'type' => 'youtubeVideo',
+                        'fields' => [
+                            'heading' => $this->faker->text(30),
+                            'text' => $this->faker->text(100),
+                            'key' => 'DXIsTTH2wzg'
+                        ]
+                    ],
+                    [
+                        'type' => 'text',
+                        'fields' => [
+                            'text' => $this->faker->text(250)
+                        ]
+                    ],
+                    [
+                        'type' => 'youtubeVideo',
+                        'fields' => [
+                            'heading' => $this->faker->text(30),
+                            'text' => $this->faker->text(100),
+                            'key' => 'BKorP55Aqvg'
+                        ]
+                    ]
+                ]
+            ],
+            'localized' => [
+                'de' => [
+                    'fields' => [
+                        'tagline' => 'Beispiel für Video und DSGVO',
+                    ]
+                ]
+            ]
+
+        ]);
+
         return ExitCode::OK;
     }
 

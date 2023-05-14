@@ -168,6 +168,7 @@ module.exports = {
             aspectRatio: {
                 'video': '16 / 9',
                 '4/3': '4 / 3',
+                '21/9': '21 / 9',
             },
 
             // Custom color scheme with custom colors

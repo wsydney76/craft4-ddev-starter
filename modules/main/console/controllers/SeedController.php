@@ -212,7 +212,7 @@ class SeedController extends InitController
                         'fields' => [
                             'heading' => $this->faker->text(30),
                             'text' => $this->faker->text(100),
-                            'key' => 'DXIsTTH2wzg'
+                            'key' => 'uekZpkYf7-E'
                         ]
                     ],
                     [
@@ -226,7 +226,7 @@ class SeedController extends InitController
                         'fields' => [
                             'heading' => $this->faker->text(30),
                             'text' => $this->faker->text(100),
-                            'key' => 'BKorP55Aqvg'
+                            'key' => 'vrjad-k-eeo'
                         ]
                     ]
                 ]

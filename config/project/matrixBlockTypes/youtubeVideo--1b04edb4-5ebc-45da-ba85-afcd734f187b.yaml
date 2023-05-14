@@ -145,6 +145,17 @@ fields:
           __assoc__:
             -
               - label
+              - '21:9'
+            -
+              - value
+              - '21:9'
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
               - '4:3'
             -
               - value

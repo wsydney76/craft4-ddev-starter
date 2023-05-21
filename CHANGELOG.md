@@ -20,6 +20,8 @@
 * Moved text modules to `textModule` section.
 * Added `allowYoutubeVideos` custom config setting.
 * Added the possibility to read starter content from files, via the `BaseController::getStarterTextFromFile()` method.
+* Added 21:9 video aspect ratio
+* Added `fetchJson/postAction` JavaScript functions
 
 ## 3.1.0 2023-04-06
 

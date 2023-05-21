@@ -24,3 +24,12 @@
 {% endfor %}
 
 {{ craft.vite.script("/resources/js/app.js", false) }}
+
+{# used in resources/js/scripts.js
+<script type="text/javascript">
+    window.baseUrl = "{{ parseEnv('@web') }}"
+    window.actionTrigger = "{{ craft.app.config.general.actionTrigger }}";
+    window.csrfTokenName = "{{ craft.app.config.general.csrfTokenName }}";
+    window.csrfTokenValue = "{{ craft.app.request.csrfToken }}";
+</script>
+#}

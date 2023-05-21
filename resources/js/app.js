@@ -1,4 +1,5 @@
 import '@css/app.scss';
+// import './scripts';
 
 // Accept HMR as per: https://vitejs.dev/guide/api-hmr.html
 if (import.meta.hot) {

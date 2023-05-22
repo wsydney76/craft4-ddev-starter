@@ -71,22 +71,25 @@ class IncludeField extends Field
     /**
      * @inheritDoc
      */
+    // Returns the HTML that should be shown in the field input
     public function getInputHtml(mixed $value, ?\craft\base\ElementInterface $element = null): string
     {
-
         /** @var Entry $entry */
         $entry = $element;
+
+        // Start with an empty option
         $options = [
             ['label' => '---', 'value' => '']
         ];
 
         try {
-
+            // Get the base directory and read its files
             $baseDir = $this->getBaseDirectory($entry, $this->includeDirectory);
 
             $files = scandir($baseDir);
             $files = array_diff($files, ['..', '.']);
 
+            // Add each file to the options
             foreach ($files as $file) {
                 if (!str_starts_with($file, '_') && !is_dir($baseDir . DIRECTORY_SEPARATOR . $file)) {
                     $label = str_replace(['-','_','.twig'], [' ', ' ',''], $file);
@@ -99,6 +102,7 @@ class IncludeField extends Field
             }
         }
 
+        // Return a selectize field
         return Cp::selectizeHtml([
             'name' => $this->handle,
             'value' => $value,
@@ -109,20 +113,23 @@ class IncludeField extends Field
         ]);
     }
 
+    // Helper method to generate the base directory path
     protected function getBaseDirectory($entry, $includeDirectory): string
     {
-
+        // Replace %SITE% with the current site's handle
         if (str_contains($includeDirectory, '%SITE%')) {
             $includeDirectory = str_replace('%SITE%', $entry->site->handle, $includeDirectory);
         }
 
+        // Replace %SITEGROUP% with the first site's handle in the current site group
         if (str_contains($includeDirectory, '%SITEGROUP%')) {
-            // get first site in sitegroup, where the templates live
             $siteHandle = $entry->site->getGroup()->getSites()[0]->handle;
             $includeDirectory = str_replace('%SITEGROUP%', $siteHandle, $includeDirectory);
         }
 
+        // Return the full directory path
         return App::parseEnv('@templates') . DIRECTORY_SEPARATOR . $includeDirectory;
     }
+
 
 }

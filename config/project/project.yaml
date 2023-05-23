@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1684057156
+dateModified: 1684833678
 elementSources:
   craft\elements\Asset:
     -
@@ -168,16 +168,7 @@ elementSources:
         - bigImage
         - 'field:0767f000-e433-4930-9534-b795a48740bb' # Teaser
         - postDate
-      type: native
-    -
-      defaultSort:
-        - postDate
-        - desc
-      disabled: false
-      key: 'section:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
-      tableAttributes:
-        - type
-        - postDate
+        - expiryDate
       type: native
     -
       defaultSort:
@@ -187,6 +178,76 @@ elementSources:
       key: 'section:80c4b0e7-c398-4776-ad74-df0f53d43c86' # Text Module
       tableAttributes:
         - slug
+        - postDate
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: 'section:db16c9e5-2cfe-4821-88ff-7b18648846a1' # Testimonial
+      tableAttributes:
+        - 'field:6bc951bf-74b3-4218-b3aa-dc427967abe9' # Person
+        - postDate
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: 'section:4d41f740-b1a9-477c-8522-85cf52b2652f' # Features
+      tableAttributes:
+        - 'field:0767f000-e433-4930-9534-b795a48740bb' # Teaser
+        - postDate
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: 'section:ae6e4008-f45f-4d7d-bbc1-d8b90290efb8' # Team
+      tableAttributes:
+        - 'field:ee886fff-a72a-4a22-b217-f878c7f53ffe' # Persons
+        - postDate
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: 'section:e3333efd-6726-41c1-9a66-a746a6f0d350' # Cards
+      tableAttributes:
+        - 'field:7602aac5-c98e-44bd-8570-457a85b8abad' # Criteria
+        - postDate
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: 'section:4da24c3d-bc23-48bc-a26f-407730202ca7' # FAQs
+      tableAttributes:
+        - postDate
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: 'section:07fce1cd-37fc-4742-acf8-6bc0a4efd7d7' # Two Columns With Image
+      tableAttributes:
+        - 'field:80fa81e4-1f78-4d88-b733-f565d1f5b9bd' # Image
+        - 'field:0767f000-e433-4930-9534-b795a48740bb' # Teaser
+        - postDate
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: 'section:e26c6ef2-44c5-4a65-bfc1-b0a61124edca' # Newsletter
+      tableAttributes:
+        - 'field:bbc46fd7-2b24-431f-a7d1-aedf86a6c169' # Handle
         - postDate
       type: native
     -
@@ -283,6 +344,8 @@ meta:
     4b050685-0425-4094-bde2-85e2eedd0e12: Text # Text
     4bc24da9-fd88-45ec-8410-bc189032e3f8: 'Phone Number' # Phone Number
     4bf7eb3c-ca42-4327-97e2-77533fc27a61: Caption # Caption
+    4d41f740-b1a9-477c-8522-85cf52b2652f: Features # Features
+    4da24c3d-bc23-48bc-a26f-407730202ca7: FAQs # FAQs
     5a0be839-14a2-465e-a504-bb63dd0281e9: Images # Images
     5aa9454e-9fa0-4d8b-b667-023ce4cef5df: 'First Name' # First Name
     05ab0680-2ccc-4a59-932a-07311f773d42: Topics # Topics
@@ -297,6 +360,7 @@ meta:
     07a23de3-b713-43fc-8310-d9191d851801: Name # Name
     7b8b6f04-9d76-4b26-8276-96a80183750e: Quote # Quote
     7ef9424e-9902-4930-9244-8d7f93d6dc4b: 'Story Team' # Story Team
+    07fce1cd-37fc-4742-acf8-6bc0a4efd7d7: 'Two Columns With Image' # Two Columns With Image
     7fda4ce3-4bdd-4fbe-b32f-35a5e6707295: 'Article Index' # Article Index
     8b36e156-5078-4dac-b1d5-74d7b1e46eb9: 'Site Info' # Site Info
     8c826eca-f376-4f7a-92d6-307faddea123: Image # Image
@@ -380,7 +444,6 @@ meta:
     95358052-5e25-4a5d-bd52-58078b1a5aa2: FAQs # FAQs
     97881295-fc14-4543-bb41-555ad6247d0d: Text # Text
     a08f1c5e-b057-468b-b989-6b243df4d213: Dynamic # Dynamic
-    a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692: 'Content Component' # Content Component
     a1dd83a1-2011-4bef-aa20-b6d6a366d66e: 'SEO Image' # SEO Image
     a4fff836-97c9-4c02-b970-c6f28915d8d0: Text # Text
     a21f07ce-87f7-431d-b54c-a12786f9fc9c: 'Craft Environment' # Craft Environment
@@ -389,6 +452,7 @@ meta:
     abefa0bd-6b36-4b4f-a9de-a4304e7b66a3: 'Public Schema' # Public Schema
     ac457f93-1a50-473e-9983-a899a7f0bed7: Heading # Heading
     ad07bc26-df9d-4358-9fd9-f1ceb8e00af0: Sections # Sections
+    ae6e4008-f45f-4d7d-bbc1-d8b90290efb8: Team # Team
     af9afec0-f712-4b14-b235-851c6455e267: Text # Text
     b0cfc7f4-d446-41bb-87ab-dc16b1481540: 'Alternative Title' # Alternative Title
     b3aae533-c873-4f67-8df2-d2bde900b30a: 'Last Name' # Last Name
@@ -424,6 +488,7 @@ meta:
     d92e63b4-996e-4dcd-8b55-d119540b5831: Default # Default
     d50026f3-a236-4ae2-b00a-af55076acd17: Site # Site
     d1935046-3734-43ba-934d-7512ecd81205: 'Cookie Consent' # Cookie Consent
+    db16c9e5-2cfe-4821-88ff-7b18648846a1: Testimonial # Testimonial
     db33cf09-8ba1-45f6-9cc0-3e855cbcb809: Template # Template
     dbf50cb2-37c8-45f7-b375-dcb93e09691b: Deutsch # Deutsch
     de3c08c7-8c44-46ea-8a7c-109499269f55: Answer # Answer
@@ -431,11 +496,13 @@ meta:
     dfe86fae-c542-4ae2-8b07-16d57c206b16: Button # Button
     e2e51276-3783-49cb-9ed0-22ae364fd49a: 'Menu Title' # Menu Title
     e5bf7587-80f3-47bf-8e22-d1d8bbcf11ee: Template # Template
+    e26c6ef2-44c5-4a65-bfc1-b0a61124edca: Newsletter # Newsletter
     e41dea07-8368-4830-a643-ff8fa7f37200: Guides # Guides
     e53bc1f1-ecbf-44b8-a89f-bea86a68c048: Text # Text
     e62a4659-99c7-4a5b-af65-00d9f6cb1d22: 'Name Affix' # Name Affix
     e62d63b0-c299-42ce-aeef-86a69f7e676c: 'SEO Fields' # SEO Fields
     e842f783-0027-4c81-8136-61f70ccfbd6d: Birthday # Birthday
+    e3333efd-6726-41c1-9a66-a746a6f0d350: Cards # Cards
     eb6b24cc-83d7-416f-be4b-d002c7688b58: Copyright # Copyright
     eb61b6c1-d43a-4bf6-8091-bc71c44a9dcf: Entries # Entries
     eb276acd-66e3-48af-88d8-8ed2854da137: Default # Default

@@ -1,5 +1,6 @@
 {% set entries = query.collect %}
 
+
 <div class="space-y-20">
     {% for entry in entries %}
 
@@ -14,18 +15,16 @@
 
             {% switch entry.section.handle %}
 
-            {% case "contentComponent" %}
-
-                {% include "_partials/contentcomponents/#{entry.type.handle}.twig" with {
-                    entry
-                } only %}
-
             {% case "heroArea" %}
 
                 {% include '_layouts/partials/hero-area-display.twig' with {
                     entry
                 } only %}
 
+            {% default %}
+                {% include "_partials/contentcomponents/#{entry.type.handle}.twig" with {
+                    entry
+                } only %}
             {% endswitch %}
         </div>
     {% endfor %}

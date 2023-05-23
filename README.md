@@ -1,17 +1,17 @@
 # Craft 4 Starter
 
-Multilingual Craft CMS starter for use with (or without) DDEV with a simple config and opinionated templating conventions, can be useful as a starting point.
+The Multilingual Craft CMS Starter is designed to function with or without DDEV. It features a simplified configuration and employs distinct templating conventions. It's useful as a basis for numerous tasks.
 
-This is initially the result of a girls-only internship project, and we thank Aylin and Mel for bringing it to life and making it a success.
+The development of this starter kit started during an all-female internship project. Credit goes to Aylin and Mel who have significantly contributed to its creation and successful completion.
 
-Still beta quality, but feature complete, tried to make it suit for
+While still in its beta phase, the CMS starter is already feature complete. It's been developed with various applications in mind:
 
-* quick demos for potential customers
-* hobby or semi-professional projects
-* developer training
-* prototyping new stuff
-* playground for internships and student theses
-* basis for ongoing PoCs, that try to split existing functionality into a series of plugins.
+* Quick demos for potential clients
+* Hobby or semi-professional projects
+* Developer training
+* Prototyping
+* Internships and student theses
+* Basis for ongoing PoCs aiming to modularize existing functionality into plugins.
 
 ## Versions
 
@@ -122,11 +122,11 @@ This starter comes with a mix of functionality that is likely to be used in ever
 
 #### Article? News? Blog? Post?
 
-This starter uses the term 'article' for a channel. The reason is that 'blog'/'news' is a bit too specific, and 'post' is too generic. 'Article' is a bit more neutral, and can be used for other types of content as well.
+In this starter, the term 'article' is used to denote a channel. The decision to avoid terms like 'blog'/'news' or 'post' was made due to their specificity or generality, respectively. 'Article' offers a more neutral alternative that can accommodate various content types.
 
-If you want to show a different term to your user, we highly recommend to just change name/uri in the section settings, and leave the handle as is. This will allow existing code/settings to work without changes.
+To display a different term to your users, it's recommended to modify the name/uri in the section settings while leaving the handle unchanged. This approach ensures the compatibility of the existing code/settings without necessitating alterations.
 
-You will have to adjust translations, though.
+However, this will require making adjustments to the translations. It's important to keep this in mind while using the starter.
 
 ### More content
 
@@ -234,8 +234,6 @@ This is mainly for spinning up quick (potential) customer demos.
 
 The 'Homepage' page entry type and the 'Content Components' body content block have a 'Content Sections' entries field, which allows you to compose your page with content living in separate entries from the Hero Area or 'Content Section' sections.
 
-Different component types are implemented as entry types, which prevents the entries index from getting bloated.
-
 The starter contains the following examples, mainly derived from Tailwind UI.
 
 * Features: Lists some features with icon, header, text
@@ -244,6 +242,7 @@ The starter contains the following examples, mainly derived from Tailwind UI.
 * Cards: Shows entries in a cards layout with custom criteria, e.g. a 'Latest Articles' section.
 * Two colomns with image: Column layout with and image and the default content builder.
 * FAQs: An accordion component with questions and, hopefully, answers.
+* Newsletter: A newsletter signup form. Requires the 'Emaillist' custom plugin to be installed.
 
 You can also select a hero area, this way it can be included anywhere on the page.
 
@@ -253,7 +252,7 @@ The search is provisionally prepared for this, but correct search results may be
 
 Also previewing pages with embedded entries is limited, what should work for now:
 
-* Edit embedded content section in a slidout, do not save!
+* Edit embedded content section in a slideout, do not save!
 * Close slideout, confirm if asked.
 * Press `Refresh`
 
@@ -495,34 +494,26 @@ Not on the list:
 
 Some wonder why we built things the way we did. No pseudo-religious beliefs at all, just what feels better.
 
-__... do you seed the database via scripts and don't simply ship a database dump?__
+__... do you seed the database via scripts rather than simply providing a database dump?__
 
-* It is some work to have a db at hand without any test content.
-* We want a more granular control over what will be created.
-* It is easier to version control and share.
-* It should be independent of the database type and version you use.
-* We need this scripts anyway for plugins to create their things.
+* Crafting a database without test content can be labor-intensive.
+* Scripting allows more granular control over what is created.
+* Scripts are simpler to version control and distribute.
+* Scripts ensure independence from the database type and version in use.
+* These scripts are also necessary for plugins to generate their respective components.
 
 __... don't you use single sections?__
 
-* Because we can arrange pages from different entry types in a hierarchy.
-* A 'single' navigation item is not very intuitive for users.
+* A structure allow us to organize pages from various entry types into a hierarchical structure.
+* A 'single' navigation item doesn't provide an intuitive user experience.
 
 __... don't you use categories but sections for taxonomies?__
 
-* We want to give users a unified editing experience.
-* We want to group together what belongs together. E.g. A 'genre' is shown beneath 'film'.
-* Sometimes it is not clear what is a 'category' and what not. Is a 'country' a film is produced in a category or not?
-* We want to resolve hierarchy at run time, instead of having redundant relationships. 
-* All content is available under only one main navigation point.
-
-__... don't you use a rich text editor like Redactor/CKEditor?__
-
-* If you can mix up headings, text blocks, images in a single field, it is very hard to keep translated content in sync.
-* We want to have a more granular control over the markup, especially for responsive images.
-* We want to restrict allowed html elements to a minimum, to prevent an inconsistent appearance.
-* We want the data to be as clean as possible, so we can use it in different contexts (e.g. for a mobile app), with the simplest possible conversions.
-* In case you can't resist, see below...
+* Our goal is to provide users with a cohesive editing experience.
+* We aim to logically group related items. For instance, a 'genre' is displayed under 'film'.
+* Sometimes, it can be ambiguous whether a certain element is a 'category'. For example, is the 'country' where a film was produced considered a category?
+* We prefer to establish hierarchy during runtime, which avoids redundant relationships.
+* All content is conveniently accessible under a single main navigation point.
 
 __... do you use this strange Tailwind CSS bloat?__
 
@@ -541,22 +532,23 @@ __... do you add custom styles to the CP?__
 
 __... don't you use images transforms defined in the CP?__
 
-* We think of image sizes as part of the design, so it feels more natural to define them in the frontend templates along with the markup they live in.
-* Or define them in `config/custom.php` if used in multiple places.
-* Version control them along with the templates that use them without affecting the project config.
-* Sizes can be calculated dynamically depending on user selections (alignment, aspect ratio).
+* We consider image sizes to be integral to the design, hence it's more intuitive to define them in the frontend templates, where they are embedded.
+* Alternatively, define these sizes in `config/custom.php` if they are utilized in multiple locations.
+* Implement version control in conjunction with the templates that utilize these dimensions, without impacting the project configuration.
+* Image sizes can be dynamically adjusted based on user choices (such as alignment, aspect ratio, etc.).o).
 
-__... don't you use a rich text field like Redactor?__
+__Why isn't a rich text field like Redactor/CKEditor used?__
 
-* We want to have a strict control over the look and feel of our site, keeping it clean and minimal.
-* We want to avoid that users can add arbitrary html elements.
-* We want to avoid that users can add arbitrary image sizes.
-* So even for markdown we allow only a limited set of html elements.
-* The Redactor field type can be configured to use only what we want, but then it does not add a lot of benefit.
-* We added a `/config/redactor/Custom.json` config file in case you can't resist.
-* The websites we build typically do not have a lot of long text chunks.
-* Yet another plugin...
-* If you can't resist, you can set the `text` matrix block type field to Redactor field, and there is a `craft main/init/convert-text-blocks` command to convert existing content.
+* We strive to maintain a high degree of control over the appearance of our site, aiming for a clean, minimal look and feel.
+* The objective is to prevent users from adding arbitrary HTML elements.
+* The websites we construct typically don't include large chunks of text.
+* Similarly, we wish to stop users from inserting random image sizes.
+* Therefore, even for markdown, we only permit a limited selection of HTML elements.
+* While the Redactor/CKEditor field type can be tailored to only permit what we want, its benefits are somewhat limited in such a restrictive setting.
+* In case Redactor/CKEditor is needed, we've included a `/config/redactor/Custom.json` configuration file and CKEditor configs.
+* The use of Redactor/CKEditor also introduces the need for an additional plugin.
+* Rich text editors embed media content like YouTube videos in a way that is not GDPR-compliant.
+* If Redactor/CKEditor is deemed necessary, the `text` matrix block type field can be set to the Redactor/CKEditor field. Additionally, a `craft main/init/convert-text-blocks` command is available to convert existing content.
 
 __... do you place the root folder for images outside the web root?__
 
@@ -565,7 +557,7 @@ __... do you place the root folder for images outside the web root?__
 * Which is important if you want to make them available only for specific users, like print ready press photos.
 * Or make them paid content, e.g. on Patreon.
 
-__... do you use the Imager-X plugin instead of using the native image transforms?__
+__... do you recommend to use the Imager-X plugin instead of using the native image transforms?__
 
 * It is faster.
 * Does not require to eager load transform records.
@@ -628,6 +620,7 @@ __... is this such lousy english?__
 
 * Sorry, we don't have native speakers on the team, or someone who has lived in an English-speaking country.
 * And you see what happens when you only interact with other non-native speakers. Mistakes multiply.
+* Some texts are also machine translated and/or improved by AI. We are not proud of it, but it is what it is.
 
 
 ## Money

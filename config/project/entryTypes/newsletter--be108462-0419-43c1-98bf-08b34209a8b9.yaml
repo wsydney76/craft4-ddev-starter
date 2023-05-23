@@ -80,8 +80,8 @@ fieldLayouts:
 handle: newsletter
 hasTitleField: true
 name: Newsletter
-section: a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692 # Content Component
-sortOrder: 8
+section: e26c6ef2-44c5-4a65-bfc1-b0a61124edca # Newsletter
+sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: language

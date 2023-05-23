@@ -26,8 +26,14 @@ settings:
   selectionLabel: 'Add a content component'
   showSiteMenu: false
   sources:
-    - 'section:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
+    - 'section:4da24c3d-bc23-48bc-a26f-407730202ca7' # FAQs
+    - 'section:4d41f740-b1a9-477c-8522-85cf52b2652f' # Features
     - 'section:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
+    - 'section:e3333efd-6726-41c1-9a66-a746a6f0d350' # Cards
+    - 'section:e26c6ef2-44c5-4a65-bfc1-b0a61124edca' # Newsletter
+    - 'section:ae6e4008-f45f-4d7d-bbc1-d8b90290efb8' # Team
+    - 'section:db16c9e5-2cfe-4821-88ff-7b18648846a1' # Testimonial
+    - 'section:07fce1cd-37fc-4742-acf8-6bc0a4efd7d7' # Two Columns With Image
   targetSiteId: null
   validateRelatedElements: false
   viewMode: null

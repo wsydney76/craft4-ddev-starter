@@ -72,8 +72,8 @@ fieldLayouts:
 handle: cards
 hasTitleField: true
 name: Cards
-section: a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692 # Content Component
-sortOrder: 5
+section: e3333efd-6726-41c1-9a66-a746a6f0d350 # Cards
+sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

@@ -60,8 +60,8 @@ fieldLayouts:
 handle: team
 hasTitleField: true
 name: Team
-section: a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692 # Content Component
-sortOrder: 3
+section: ae6e4008-f45f-4d7d-bbc1-d8b90290efb8 # Team
+sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: language

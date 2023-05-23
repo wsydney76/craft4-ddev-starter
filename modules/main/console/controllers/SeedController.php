@@ -411,7 +411,7 @@ class SeedController extends InitController
             $icons = $this->getImagesFromFolder('icons/starter/', 20, 4);
 
             $contentComponents[] = $this->createEntry([
-                'section' => 'contentComponent',
+                'section' => 'testimonial',
                 'type' => 'testimonial',
                 'site' => 'en',
                 'title' => '',
@@ -425,7 +425,7 @@ class SeedController extends InitController
 
 
             $contentComponents[] = $this->createEntry([
-                'section' => 'contentComponent',
+                'section' => 'features',
                 'type' => 'features',
                 'site' => 'en',
                 'title' => $this->faker->text(60),
@@ -472,7 +472,7 @@ class SeedController extends InitController
 
 
             $contentComponents[] = $this->createEntry([
-                'section' => 'contentComponent',
+                'section' => 'testimonial',
                 'type' => 'testimonial',
                 'site' => 'en',
                 'title' => '',
@@ -485,7 +485,7 @@ class SeedController extends InitController
             ]);
 
             $contentComponents[] = $this->createEntry([
-                'section' => 'contentComponent',
+                'section' => 'team',
                 'type' => 'team',
                 'site' => 'en',
                 'title' => 'Our Team',
@@ -541,7 +541,7 @@ class SeedController extends InitController
                 ->one();
 
             $contentComponents[] = $this->createEntry([
-                'section' => 'contentComponent',
+                'section' => 'cards',
                 'type' => 'cards',
                 'site' => 'en',
                 'title' => 'Latest Articles',
@@ -579,7 +579,7 @@ class SeedController extends InitController
             ]);
 
             $contentComponents[] = $this->createEntry([
-                'section' => 'contentComponent',
+                'section' => 'cards',
                 'type' => 'cards',
                 'site' => 'en',
                 'title' => 'Latest Stories',
@@ -601,7 +601,7 @@ class SeedController extends InitController
                 ->one();
 
             $contentComponents[] = $this->createEntry([
-                'section' => 'contentComponent',
+                'section' => 'cards',
                 'type' => 'cards',
                 'site' => 'en',
                 'title' => 'Topics',
@@ -640,7 +640,7 @@ class SeedController extends InitController
             ]);
 
             $contentComponents[] = $this->createEntry([
-                'section' => 'contentComponent',
+                'section' => 'faqs',
                 'type' => 'faqs',
                 'site' => 'en',
                 'title' => 'FAQs',

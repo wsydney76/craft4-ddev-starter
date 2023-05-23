@@ -22,6 +22,7 @@
 * Added the possibility to read starter content from files, via the `BaseController::getStarterTextFromFile()` method.
 * Added 21:9 video aspect ratio
 * Added `fetchJson/postAction` JavaScript functions
+* Split `contentComponent` entry types into dedicated sections.
 
 ## 3.1.0 2023-04-06
 

@@ -9,7 +9,7 @@ permissions:
   - 'createentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
   - 'createentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
   - 'createentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
-  - 'createentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
+  - 'createentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692'
   - 'createentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
   - 'createentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
   - 'createfolders:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
@@ -20,7 +20,7 @@ permissions:
   - 'deleteentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
   - 'deleteentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
   - 'deleteentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
-  - 'deleteentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
+  - 'deleteentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692'
   - 'deleteentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
   - 'deleteentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
   - 'deletepeerassets:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
@@ -29,7 +29,7 @@ permissions:
   - 'deletepeerentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
   - 'deletepeerentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
   - 'deletepeerentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
-  - 'deletepeerentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
+  - 'deletepeerentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692'
   - 'deletepeerentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
   - 'deletepeerentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
   - 'deletepeerentrydrafts:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
@@ -37,7 +37,7 @@ permissions:
   - 'deletepeerentrydrafts:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
   - 'deletepeerentrydrafts:71c1782e-c5bc-4d87-840e-0a4c1a643eff' # Site Info
   - 'deletepeerentrydrafts:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
-  - 'deletepeerentrydrafts:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
+  - 'deletepeerentrydrafts:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692'
   - 'deletepeerentrydrafts:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
   - 'deletepeerentrydrafts:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
   - 'editimages:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
@@ -57,7 +57,7 @@ permissions:
   - 'saveentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
   - 'saveentries:71c1782e-c5bc-4d87-840e-0a4c1a643eff' # Site Info
   - 'saveentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
-  - 'saveentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
+  - 'saveentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692'
   - 'saveentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
   - 'saveentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
   - 'savepeerassets:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
@@ -66,7 +66,7 @@ permissions:
   - 'savepeerentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
   - 'savepeerentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
   - 'savepeerentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
-  - 'savepeerentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
+  - 'savepeerentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692'
   - 'savepeerentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
   - 'savepeerentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
   - 'savepeerentrydrafts:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
@@ -74,7 +74,7 @@ permissions:
   - 'savepeerentrydrafts:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
   - 'savepeerentrydrafts:71c1782e-c5bc-4d87-840e-0a4c1a643eff' # Site Info
   - 'savepeerentrydrafts:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
-  - 'savepeerentrydrafts:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
+  - 'savepeerentrydrafts:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692'
   - 'savepeerentrydrafts:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
   - 'savepeerentrydrafts:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
   - 'viewassets:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
@@ -84,7 +84,7 @@ permissions:
   - 'viewentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
   - 'viewentries:71c1782e-c5bc-4d87-840e-0a4c1a643eff' # Site Info
   - 'viewentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
-  - 'viewentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
+  - 'viewentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692'
   - 'viewentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
   - 'viewentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
   - 'viewpeerassets:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
@@ -93,7 +93,7 @@ permissions:
   - 'viewpeerentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
   - 'viewpeerentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
   - 'viewpeerentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
-  - 'viewpeerentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
+  - 'viewpeerentries:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692'
   - 'viewpeerentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
   - 'viewpeerentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
   - 'viewpeerentrydrafts:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
@@ -101,6 +101,6 @@ permissions:
   - 'viewpeerentrydrafts:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
   - 'viewpeerentrydrafts:71c1782e-c5bc-4d87-840e-0a4c1a643eff' # Site Info
   - 'viewpeerentrydrafts:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
-  - 'viewpeerentrydrafts:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692' # Content Component
+  - 'viewpeerentrydrafts:a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692'
   - 'viewpeerentrydrafts:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
   - 'viewpeerentrydrafts:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person

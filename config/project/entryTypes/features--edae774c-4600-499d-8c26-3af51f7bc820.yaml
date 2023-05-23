@@ -72,7 +72,7 @@ fieldLayouts:
 handle: features
 hasTitleField: true
 name: Features
-section: a1bd5e0e-3bf9-428d-a4f5-bebd6b3c1692 # Content Component
+section: 4d41f740-b1a9-477c-8522-85cf52b2652f # Features
 sortOrder: 2
 titleFormat: null
 titleTranslationKeyFormat: null

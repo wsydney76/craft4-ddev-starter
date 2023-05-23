@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1684843978
+dateModified: 1684881858
 elementSources:
   craft\elements\Asset:
     -
@@ -169,6 +169,7 @@ elementSources:
         - 'field:0767f000-e433-4930-9534-b795a48740bb' # Teaser
         - postDate
         - expiryDate
+        - link
       type: native
     -
       defaultSort:
@@ -189,6 +190,7 @@ elementSources:
       tableAttributes:
         - 'field:6bc951bf-74b3-4218-b3aa-dc427967abe9' # Person
         - postDate
+        - link
       type: native
     -
       defaultSort:
@@ -199,6 +201,7 @@ elementSources:
       tableAttributes:
         - 'field:0767f000-e433-4930-9534-b795a48740bb' # Teaser
         - postDate
+        - link
       type: native
     -
       defaultSort:
@@ -209,6 +212,7 @@ elementSources:
       tableAttributes:
         - 'field:ee886fff-a72a-4a22-b217-f878c7f53ffe' # Persons
         - postDate
+        - link
       type: native
     -
       defaultSort:
@@ -219,6 +223,7 @@ elementSources:
       tableAttributes:
         - 'field:7602aac5-c98e-44bd-8570-457a85b8abad' # Criteria
         - postDate
+        - link
       type: native
     -
       defaultSort:
@@ -228,6 +233,7 @@ elementSources:
       key: 'section:4da24c3d-bc23-48bc-a26f-407730202ca7' # FAQs
       tableAttributes:
         - postDate
+        - link
       type: native
     -
       defaultSort:
@@ -239,6 +245,7 @@ elementSources:
         - 'field:80fa81e4-1f78-4d88-b733-f565d1f5b9bd' # Image
         - 'field:0767f000-e433-4930-9534-b795a48740bb' # Teaser
         - postDate
+        - link
       type: native
     -
       defaultSort:
@@ -249,6 +256,7 @@ elementSources:
       tableAttributes:
         - 'field:bbc46fd7-2b24-431f-a7d1-aedf86a6c169' # Handle
         - postDate
+        - link
       type: native
     -
       heading: Work

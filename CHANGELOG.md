@@ -24,6 +24,7 @@
 * Added `fetchJson/postAction` JavaScript functions
 * Split `contentComponent` entry types into dedicated sections.
 * Added preview for Content Component and Hero Area sections.
+* Added `ImageTextOverlap` hero area template
 
 ## 3.1.0 2023-04-06
 

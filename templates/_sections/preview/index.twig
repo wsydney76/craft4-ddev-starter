@@ -15,7 +15,14 @@
         } only %}
 
         {% embed '_layouts/embeds/container-md.twig' %}
+
             {% block content %}
+
+                {% include '_layouts/partials/headline.twig' with {
+                    text: 'Preview',
+                    extraClasses: 'mt-12'
+                } only %}
+
                 {% for i in 0..2 %}
                 	<div>
                         <div class="my-8">
@@ -28,6 +35,17 @@
 
 
     {% default %}
+
+        {% embed '_layouts/embeds/container-md.twig' %}
+
+            {% block content %}
+
+                {% include '_layouts/partials/headline.twig' with {
+                    text: 'Preview',
+                    extraClasses: 'mt-12'
+                } only %}
+            {% endblock %}
+        {% endembed %}
 
         <div class="my-8">
             {% include [

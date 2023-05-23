@@ -22,7 +22,10 @@
                 } only %}
 
             {% default %}
-                {% include "_partials/contentcomponents/#{entry.type.handle}.twig" with {
+                {% include [
+                    "_partials/contentcomponents/#{entry.section.handle}_#{entry.type.handle}.twig",
+                    "_partials/contentcomponents/#{entry.section.handle}.twig"
+                ] with {
                     entry
                 } only %}
             {% endswitch %}

@@ -67,6 +67,10 @@ return [
                 'siteId' => '',
                 'uriPattern' => '^mitglieder/*',
             ],
+            [
+                'siteId' => '',
+                'uriPattern' => '^preview/*',
+            ],
         ],
 
         // The storage type to use.

@@ -14,11 +14,26 @@
             entry
         } only %}
 
+        {% embed '_layouts/embeds/container-md.twig' %}
+            {% block content %}
+                {% for i in 0..2 %}
+                	<div>
+                        <div class="my-8">
+                            Sed augue ipsum, egestas nec, vestibulum et, malesuada adipiscing, dui. Vestibulum volutpat pretium libero. Nulla neque dolor, sagittis eget, iaculis quis, molestie non, velit. Praesent adipiscing. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod ligula urna in dolor.
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endblock %}
+        {% endembed %}
+
 
     {% default %}
 
         <div class="my-8">
-            {% include "_partials/contentcomponents/#{entry.type.handle}.twig" with {
+            {% include [
+                "_partials/contentcomponents/#{entry.section.handle}_#{entry.type.handle}.twig",
+                "_partials/contentcomponents/#{entry.section.handle}.twig"
+            ] with {
                 entry
             } only %}
         </div>

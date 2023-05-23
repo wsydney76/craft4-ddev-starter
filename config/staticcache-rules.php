@@ -9,10 +9,12 @@
 return [
     'exclude' => [
         'en' => [
-            '*contact*'
+            '*contact*',
+            '*preview*',
         ],
         'de' => [
-            '*kontakt*'
+            '*kontakt*',
+            '*preview*',
         ],
     ],
 

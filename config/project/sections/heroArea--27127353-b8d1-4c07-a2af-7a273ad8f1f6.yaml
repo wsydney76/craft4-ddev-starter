@@ -2,28 +2,16 @@ defaultPlacement: end
 enableVersioning: true
 handle: heroArea
 name: 'Hero Area'
-previewTargets:
-  -
-    __assoc__:
-      -
-        - label
-        - 'Sample Preview'
-      -
-        - urlFormat
-        - '/cp/preview-hero-area.twig?id={id}&siteId={siteId}'
-      -
-        - refresh
-        - '1'
 propagationMethod: all
 siteSettings:
   5b0c38db-9ab4-47d8-b4a7-913710c08ca6: # English
     enabledByDefault: true
-    hasUrls: false
-    template: null
-    uriFormat: null
+    hasUrls: true
+    template: _sections/preview
+    uriFormat: 'preview/{section.handle}/{slug}'
   dbf50cb2-37c8-45f7-b375-dcb93e09691b: # Deutsch
     enabledByDefault: true
-    hasUrls: false
-    template: null
-    uriFormat: null
+    hasUrls: true
+    template: _sections/preview
+    uriFormat: 'preview/{section.handle}/{slug}'
 type: channel

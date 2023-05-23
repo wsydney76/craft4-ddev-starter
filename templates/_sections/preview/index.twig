@@ -1,0 +1,28 @@
+{% extends "_layouts/main.twig" %}
+
+{% block contentWrapper %}
+
+    {% if not craft.app.request.isPreview and not currentUser %}
+        {% exit 403 %}
+    {% endif %}
+
+    {% switch entry.section.handle %}
+
+    {% case "heroArea" %}
+
+        {% include '_layouts/partials/hero-area-display.twig' with {
+            entry
+        } only %}
+
+
+    {% default %}
+
+        <div class="my-8">
+            {% include "_partials/contentcomponents/#{entry.type.handle}.twig" with {
+                entry
+            } only %}
+        </div>
+
+    {% endswitch %}
+    
+{% endblock %}

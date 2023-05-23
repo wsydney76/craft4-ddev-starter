@@ -10,6 +10,11 @@
 {% from '_layouts/macros/lib.twig' import imgCopyright %}
 
 {% set url = url ?? null %}
+
+{% if 'preview' in url %}
+    {% set url = null %}
+{% endif %}
+
 {% set tag = url ? 'a' : 'div' %}
 {% set srcset = srcset ?? null %}
 {% set attr = attr ?? {} %}

@@ -23,6 +23,7 @@
 * Added 21:9 video aspect ratio
 * Added `fetchJson/postAction` JavaScript functions
 * Split `contentComponent` entry types into dedicated sections.
+* Added preview for Content Component and Hero Area sections.
 
 ## 3.1.0 2023-04-06
 

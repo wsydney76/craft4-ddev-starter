@@ -81,9 +81,9 @@ fieldLayouts:
         name: Content
         uid: ac442f84-3e1d-40cb-8fa8-aff61224880e
         userCondition: null
-handle: testimonial
+handle: overlappingImage
 hasTitleField: false
-name: Testimonial
+name: 'With Overlapping Image'
 section: db16c9e5-2cfe-4821-88ff-7b18648846a1 # Testimonial
 sortOrder: 1
 titleFormat: '{body[:50]} - {person.one.title}'

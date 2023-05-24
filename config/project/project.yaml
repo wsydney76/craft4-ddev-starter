@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1684923049
+dateModified: 1684949706
 elementSources:
   craft\elements\Asset:
     -
@@ -188,7 +188,7 @@ elementSources:
       disabled: false
       key: 'section:db16c9e5-2cfe-4821-88ff-7b18648846a1' # Testimonial
       tableAttributes:
-        - 'field:6bc951bf-74b3-4218-b3aa-dc427967abe9' # Person
+        - type
         - postDate
         - link
       type: native
@@ -355,6 +355,7 @@ meta:
     5aea2dce-a401-4e9f-8563-7a5a312f644b: 'Content Section' # Content Section
     5b0c38db-9ab4-47d8-b4a7-913710c08ca6: English # English
     5e954ca4-2245-4624-b25e-fc91bbb917bf: Default # Default
+    6b57aab7-999c-4514-83a5-18228f2a8299: 'With Large Avatar' # With Large Avatar
     6bc951bf-74b3-4218-b3aa-dc427967abe9: Person # Person
     6c3cc577-cf01-4446-9846-f0f2f6ea3655: 'Short Bio' # Short Bio
     6ca3494d-cd87-4b86-a8fa-fbd8a0acab02: Story # Story
@@ -379,7 +380,7 @@ meta:
     10ed7f90-b5ae-414d-a27e-ce0c2e680d27: Features # Features
     11f1c188-401c-44c4-bd0e-2b6d7b311fc6: Align # Align
     12ee7163-1896-4afc-b140-3f53c59f8b7d: 'Text Color' # Text Color
-    16e1ce60-0ee3-48c2-ac6a-d34757a52eed: Testimonial # Testimonial
+    16e1ce60-0ee3-48c2-ac6a-d34757a52eed: 'With Overlapping Image' # With Overlapping Image
     24a1d709-9601-4848-9deb-6df1f3ecd806: Feature # Feature
     27b3f36f-ea97-4dad-a77d-39eff7bd0900: Key # Key
     43f9aef9-cc98-45e1-ac64-8b73fc0c79a8: 'Topic Index' # Topic Index

@@ -419,7 +419,8 @@ class SeedController extends InitController
                 'fields' => [
                     'body' => $this->faker->text(250),
                     'person' => [$persons[0]->id],
-                    'align' => 'right'
+                    'align' => 'right',
+                    'testimonialStyle' => 'overlappingImage',
                 ]
             ]);
 
@@ -480,7 +481,8 @@ class SeedController extends InitController
                 'fields' => [
                     'body' => $this->faker->text(250),
                     'person' => [$persons[1]->id],
-                    'align' => 'default'
+                    'align' => 'default',
+                    'testimonialStyle' => 'overlappingImage',
                 ]
             ]);
 

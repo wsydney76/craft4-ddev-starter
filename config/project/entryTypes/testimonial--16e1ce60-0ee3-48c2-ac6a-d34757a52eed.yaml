@@ -56,6 +56,29 @@ fieldLayouts:
             width: 25
           -
             elementCondition: null
+            fieldUid: 6bc951bf-74b3-4218-b3aa-dc427967abe9 # Person
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a0513742-f153-46a0-aa76-49da5d5fda1e
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 013c1232-8bf7-4c1f-80dc-d456db31f159 # Testimonial Style
+                  operator: in
+                  uid: b66ce35f-6fca-4d62-84f1-6a88353d4044
+                  values:
+                    - overlappingImage
+              elementType: craft\elements\Entry
+              fieldContext: global
             fieldUid: 33518692-b4a6-4ac6-9423-5631e47f87a5 # Align
             instructions: 'Position of the image'
             label: null
@@ -68,22 +91,22 @@ fieldLayouts:
             width: 25
           -
             elementCondition: null
-            fieldUid: 6bc951bf-74b3-4218-b3aa-dc427967abe9 # Person
+            fieldUid: 013c1232-8bf7-4c1f-80dc-d456db31f159 # Testimonial Style
             instructions: null
             label: null
-            required: true
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: a0513742-f153-46a0-aa76-49da5d5fda1e
+            uid: 8d42963b-7bd4-418b-aaa7-798cff80a826
             userCondition: null
             warning: null
             width: 100
         name: Content
         uid: ac442f84-3e1d-40cb-8fa8-aff61224880e
         userCondition: null
-handle: overlappingImage
+handle: testimonial
 hasTitleField: false
-name: 'With Overlapping Image'
+name: Testimonial
 section: db16c9e5-2cfe-4821-88ff-7b18648846a1 # Testimonial
 sortOrder: 1
 titleFormat: '{body[:50]} - {person.one.title}'

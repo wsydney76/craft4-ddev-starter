@@ -25,6 +25,7 @@
 * Split `contentComponent` entry types into dedicated sections.
 * Added preview for Content Component and Hero Area sections.
 * Added `ImageTextOverlap` hero area template
+* Added `Large Avatar` testimonial entry type
 
 ## 3.1.0 2023-04-06
 

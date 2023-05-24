@@ -1,9 +1,9 @@
-columnSuffix: xkuyhmpj
+columnSuffix: zvkjsfie
 contentColumnType: string
-fieldGroup: 169ccd00-9c12-4921-b187-8ef8ca2ad525 # Assets
-handle: align
+fieldGroup: bef1d233-b346-4d06-a2c1-be50cca6eae2 # Content Sections
+handle: testimonialStyle
 instructions: null
-name: Align
+name: 'Testimonial Style'
 searchable: false
 settings:
   options:
@@ -11,10 +11,10 @@ settings:
       __assoc__:
         -
           - label
-          - Default
+          - 'With overlapping image'
         -
           - value
-          - ''
+          - overlappingImage
         -
           - default
           - '1'
@@ -22,10 +22,10 @@ settings:
       __assoc__:
         -
           - label
-          - Right
+          - 'With large avatar'
         -
           - value
-          - right
+          - largeAvatar
         -
           - default
           - ''

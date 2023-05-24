@@ -62,7 +62,7 @@ fields:
               - Default
             -
               - value
-              - default
+              - ''
             -
               - default
               - '1'

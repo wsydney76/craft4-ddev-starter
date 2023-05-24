@@ -4,9 +4,11 @@ namespace modules\main\console\controllers;
 
 use Craft;
 use craft\console\Controller;
+use craft\elements\Entry;
 use craft\elements\MatrixBlock;
 use yii\console\ExitCode;
 use yii\helpers\Console;
+use const PHP_EOL;
 
 /**
  * Utils controller
@@ -47,6 +49,7 @@ class UtilsController extends Controller
         return ExitCode::OK;
     }
 
+    // Do not allow empty values
     public function actionRepairMatrixAlign(): int
     {
         $blocks = MatrixBlock::find()
@@ -60,6 +63,34 @@ class UtilsController extends Controller
             Console::output('Repairing block ' . $block->id . ' in entry ' . $block->owner->title);
             $block->align = 'default';
             Craft::$app->elements->saveElement($block);
+        }
+
+        return ExitCode::OK;
+    }
+
+    // That was a bad idea, so revert it...
+    public function actionRepairDefault(): int
+    {
+        // $elements = Entry::find()
+
+        $elements = MatrixBlock::find()
+            ->field('bodyContent')
+            ->type('gallery')
+            ->align('default')
+            ->all();
+
+        foreach ($elements as $element) {
+            $this->stdout($element->id);
+
+            $element->setFieldValue('align', '');
+
+
+           if (!Craft::$app->elements->saveElement($element)) {
+                $this->stdout(' Error ');
+                Craft::dump($element->errors);
+            }
+
+            $this->stdout(PHP_EOL);
         }
 
         return ExitCode::OK;

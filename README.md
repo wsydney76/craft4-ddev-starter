@@ -92,7 +92,7 @@ Running `craft main init` will
 * Added frontend tooling that uses Tailwind CSS, Alpine JS, Baguettebox (Lightbox) via Vite/Craft Vite plugin
 * Added custom css for the control panel
 * Added extended 'Copy reference tag' element actions that generates output which can be used in markdown fields to create links.
-* Added plugins: Contact Form, Element Map (custom), Content Overview (custom, PoC, disable by default) Imager X (optional), SEO Mate, Sprig, Vite, Code Field
+* Added plugins: Contact Form, Element Map (custom), SEO Mate, Sprig, Vite, Code Field
 * Prepared for CKEditor plugin (not install by default).
 
 ## Custom Config

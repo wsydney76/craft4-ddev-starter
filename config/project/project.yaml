@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1684881858
+dateModified: 1684923049
 elementSources:
   craft\elements\Asset:
     -
@@ -264,11 +264,6 @@ elementSources:
     -
       condition:
         class: craft\elements\conditions\entries\EntryCondition
-        conditionRules:
-          -
-            class: modules\main\conditions\HasDraftsConditionRule
-            uid: 701a9d96-e1d3-4d6d-bca7-7e0b3c4a6bd6
-            value: true
         elementType: craft\elements\Entry
         fieldContext: global
       defaultSort:
@@ -555,10 +550,6 @@ plugins:
     schemaVersion: 1.0.0
     settings:
       honeypotParam: contact
-  contentoverview:
-    edition: standard
-    enabled: false
-    schemaVersion: 1.0.0
   elementmap:
     edition: standard
     enabled: true

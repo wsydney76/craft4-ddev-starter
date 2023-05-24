@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f841487a68faf26f1ccb941970d66914",
+    "content-hash": "048f3a937bf8fda81d5a4c8ea92b755f",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -7000,58 +7000,6 @@
                 }
             ],
             "time": "2023-01-06T12:12:50+00:00"
-        },
-        {
-            "name": "wsydney76/craft-contentoverview",
-            "version": "5.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wsydney76/craft-contentoverview.git",
-                "reference": "4c116f447c394409b29df504ae0ee25f93aa5f8b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wsydney76/craft-contentoverview/zipball/4c116f447c394409b29df504ae0ee25f93aa5f8b",
-                "reference": "4c116f447c394409b29df504ae0ee25f93aa5f8b",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^4.3.5"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Content Overview",
-                "handle": "contentoverview"
-            },
-            "autoload": {
-                "psr-4": {
-                    "wsydney76\\contentoverview\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "wsydney76",
-                    "homepage": "https://github.com/wsydney76"
-                }
-            ],
-            "description": "Content Overview",
-            "keywords": [
-                "CP",
-                "Craft",
-                "plugin"
-            ],
-            "support": {
-                "docs": "https://wsydney76.github.io/craft-contentoverview/",
-                "email": "wsydney@web.de",
-                "issues": "https://github.com/wsydney76/craft-contentoverview/issues?state=open",
-                "source": "https://github.com/wsydney76/craft-contentoverview"
-            },
-            "abandoned": true,
-            "time": "2023-02-13T17:01:54+00:00"
         },
         {
             "name": "wsydney76/elementmap",

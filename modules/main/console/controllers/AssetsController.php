@@ -119,10 +119,12 @@ class AssetsController extends Controller
                 $result = $client->get($entry->getUrl());
                 $this->stdout($result->getStatusCode());
             } catch (\Exception $exception) {
-                if ($exception->getCode() == 400) {
+                if ($exception->getCode() === 400) {
                     // Errors can occur if required params are not provided
                     $this->stdout("Error 400, missing params");
-                } else {
+                }
+                elseif ($exception->getCode() !== 403) {
+                    // 403 errors can occur if the page is protected by a login, or is just used for cp previews
                     $errors++;
                     $this->stdout("Error {$exception->getMessage()}");
                 }

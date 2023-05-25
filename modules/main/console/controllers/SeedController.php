@@ -481,7 +481,7 @@ class SeedController extends InitController
                 'fields' => [
                     'body' => $this->faker->text(250),
                     'person' => [$persons[1]->id],
-                    'align' => 'default',
+                    'align' => '',
                     'testimonialStyle' => 'overlappingImage',
                 ]
             ]);
@@ -819,7 +819,7 @@ class SeedController extends InitController
                         'fields' => [
                             'text' => $this->faker->text(80),
                             'cite' => $localFaker->name,
-                            'style' => $this->faker->randomElement(['default', 'colored', 'bordered'])
+                            'style' => $this->faker->randomElement(['', 'colored', 'bordered'])
                         ]
                     ];
                     break;

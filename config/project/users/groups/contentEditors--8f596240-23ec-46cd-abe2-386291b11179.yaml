@@ -1,0 +1,176 @@
+description: ''
+handle: contentEditors
+name: 'Content Editors'
+permissions:
+  - accesscp
+  - accesscpwhensystemisoff
+  - accesssitewhensystemisoff
+  - 'createentries:07fce1cd-37fc-4742-acf8-6bc0a4efd7d7' # Two Columns With Image
+  - 'createentries:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
+  - 'createentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
+  - 'createentries:4d41f740-b1a9-477c-8522-85cf52b2652f' # Features
+  - 'createentries:4da24c3d-bc23-48bc-a26f-407730202ca7' # FAQs
+  - 'createentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
+  - 'createentries:80c4b0e7-c398-4776-ad74-df0f53d43c86' # Text Module
+  - 'createentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
+  - 'createentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
+  - 'createentries:ae6e4008-f45f-4d7d-bbc1-d8b90290efb8' # Team
+  - 'createentries:db16c9e5-2cfe-4821-88ff-7b18648846a1' # Testimonial
+  - 'createentries:e26c6ef2-44c5-4a65-bfc1-b0a61124edca' # Newsletter
+  - 'createentries:e3333efd-6726-41c1-9a66-a746a6f0d350' # Cards
+  - 'createentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
+  - 'createfolders:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'createfolders:ed627edd-73bd-4b75-8684-f410bf4e4b9d' # Temporary Images
+  - 'deleteassets:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'deleteassets:ed627edd-73bd-4b75-8684-f410bf4e4b9d' # Temporary Images
+  - 'deleteentries:07fce1cd-37fc-4742-acf8-6bc0a4efd7d7' # Two Columns With Image
+  - 'deleteentries:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
+  - 'deleteentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
+  - 'deleteentries:4d41f740-b1a9-477c-8522-85cf52b2652f' # Features
+  - 'deleteentries:4da24c3d-bc23-48bc-a26f-407730202ca7' # FAQs
+  - 'deleteentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
+  - 'deleteentries:80c4b0e7-c398-4776-ad74-df0f53d43c86' # Text Module
+  - 'deleteentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
+  - 'deleteentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
+  - 'deleteentries:ae6e4008-f45f-4d7d-bbc1-d8b90290efb8' # Team
+  - 'deleteentries:db16c9e5-2cfe-4821-88ff-7b18648846a1' # Testimonial
+  - 'deleteentries:e26c6ef2-44c5-4a65-bfc1-b0a61124edca' # Newsletter
+  - 'deleteentries:e3333efd-6726-41c1-9a66-a746a6f0d350' # Cards
+  - 'deleteentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
+  - 'deletepeerassets:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'deletepeerassets:ed627edd-73bd-4b75-8684-f410bf4e4b9d' # Temporary Images
+  - 'deletepeerentries:07fce1cd-37fc-4742-acf8-6bc0a4efd7d7' # Two Columns With Image
+  - 'deletepeerentries:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
+  - 'deletepeerentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
+  - 'deletepeerentries:4d41f740-b1a9-477c-8522-85cf52b2652f' # Features
+  - 'deletepeerentries:4da24c3d-bc23-48bc-a26f-407730202ca7' # FAQs
+  - 'deletepeerentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
+  - 'deletepeerentries:80c4b0e7-c398-4776-ad74-df0f53d43c86' # Text Module
+  - 'deletepeerentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
+  - 'deletepeerentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
+  - 'deletepeerentries:ae6e4008-f45f-4d7d-bbc1-d8b90290efb8' # Team
+  - 'deletepeerentries:db16c9e5-2cfe-4821-88ff-7b18648846a1' # Testimonial
+  - 'deletepeerentries:e26c6ef2-44c5-4a65-bfc1-b0a61124edca' # Newsletter
+  - 'deletepeerentries:e3333efd-6726-41c1-9a66-a746a6f0d350' # Cards
+  - 'deletepeerentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
+  - 'deletepeerentrydrafts:07fce1cd-37fc-4742-acf8-6bc0a4efd7d7' # Two Columns With Image
+  - 'deletepeerentrydrafts:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
+  - 'deletepeerentrydrafts:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
+  - 'deletepeerentrydrafts:4d41f740-b1a9-477c-8522-85cf52b2652f' # Features
+  - 'deletepeerentrydrafts:4da24c3d-bc23-48bc-a26f-407730202ca7' # FAQs
+  - 'deletepeerentrydrafts:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
+  - 'deletepeerentrydrafts:71c1782e-c5bc-4d87-840e-0a4c1a643eff' # Site Info
+  - 'deletepeerentrydrafts:80c4b0e7-c398-4776-ad74-df0f53d43c86' # Text Module
+  - 'deletepeerentrydrafts:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
+  - 'deletepeerentrydrafts:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
+  - 'deletepeerentrydrafts:ae6e4008-f45f-4d7d-bbc1-d8b90290efb8' # Team
+  - 'deletepeerentrydrafts:db16c9e5-2cfe-4821-88ff-7b18648846a1' # Testimonial
+  - 'deletepeerentrydrafts:e26c6ef2-44c5-4a65-bfc1-b0a61124edca' # Newsletter
+  - 'deletepeerentrydrafts:e3333efd-6726-41c1-9a66-a746a6f0d350' # Cards
+  - 'deletepeerentrydrafts:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
+  - 'editimages:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'editimages:ed627edd-73bd-4b75-8684-f410bf4e4b9d' # Temporary Images
+  - 'editpeerimages:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'editpeerimages:ed627edd-73bd-4b75-8684-f410bf4e4b9d' # Temporary Images
+  - 'editsite:5b0c38db-9ab4-47d8-b4a7-913710c08ca6' # English
+  - 'editsite:dbf50cb2-37c8-45f7-b375-dcb93e09691b' # Deutsch
+  - 'replacefiles:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'replacefiles:ed627edd-73bd-4b75-8684-f410bf4e4b9d' # Temporary Images
+  - 'replacepeerfiles:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'replacepeerfiles:ed627edd-73bd-4b75-8684-f410bf4e4b9d' # Temporary Images
+  - 'saveassets:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'saveassets:ed627edd-73bd-4b75-8684-f410bf4e4b9d' # Temporary Images
+  - 'saveentries:07fce1cd-37fc-4742-acf8-6bc0a4efd7d7' # Two Columns With Image
+  - 'saveentries:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
+  - 'saveentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
+  - 'saveentries:4d41f740-b1a9-477c-8522-85cf52b2652f' # Features
+  - 'saveentries:4da24c3d-bc23-48bc-a26f-407730202ca7' # FAQs
+  - 'saveentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
+  - 'saveentries:71c1782e-c5bc-4d87-840e-0a4c1a643eff' # Site Info
+  - 'saveentries:80c4b0e7-c398-4776-ad74-df0f53d43c86' # Text Module
+  - 'saveentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
+  - 'saveentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
+  - 'saveentries:ae6e4008-f45f-4d7d-bbc1-d8b90290efb8' # Team
+  - 'saveentries:db16c9e5-2cfe-4821-88ff-7b18648846a1' # Testimonial
+  - 'saveentries:e26c6ef2-44c5-4a65-bfc1-b0a61124edca' # Newsletter
+  - 'saveentries:e3333efd-6726-41c1-9a66-a746a6f0d350' # Cards
+  - 'saveentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
+  - 'savepeerassets:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'savepeerassets:ed627edd-73bd-4b75-8684-f410bf4e4b9d' # Temporary Images
+  - 'savepeerentries:07fce1cd-37fc-4742-acf8-6bc0a4efd7d7' # Two Columns With Image
+  - 'savepeerentries:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
+  - 'savepeerentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
+  - 'savepeerentries:4d41f740-b1a9-477c-8522-85cf52b2652f' # Features
+  - 'savepeerentries:4da24c3d-bc23-48bc-a26f-407730202ca7' # FAQs
+  - 'savepeerentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
+  - 'savepeerentries:80c4b0e7-c398-4776-ad74-df0f53d43c86' # Text Module
+  - 'savepeerentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
+  - 'savepeerentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
+  - 'savepeerentries:ae6e4008-f45f-4d7d-bbc1-d8b90290efb8' # Team
+  - 'savepeerentries:db16c9e5-2cfe-4821-88ff-7b18648846a1' # Testimonial
+  - 'savepeerentries:e26c6ef2-44c5-4a65-bfc1-b0a61124edca' # Newsletter
+  - 'savepeerentries:e3333efd-6726-41c1-9a66-a746a6f0d350' # Cards
+  - 'savepeerentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
+  - 'savepeerentrydrafts:07fce1cd-37fc-4742-acf8-6bc0a4efd7d7' # Two Columns With Image
+  - 'savepeerentrydrafts:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
+  - 'savepeerentrydrafts:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
+  - 'savepeerentrydrafts:4d41f740-b1a9-477c-8522-85cf52b2652f' # Features
+  - 'savepeerentrydrafts:4da24c3d-bc23-48bc-a26f-407730202ca7' # FAQs
+  - 'savepeerentrydrafts:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
+  - 'savepeerentrydrafts:71c1782e-c5bc-4d87-840e-0a4c1a643eff' # Site Info
+  - 'savepeerentrydrafts:80c4b0e7-c398-4776-ad74-df0f53d43c86' # Text Module
+  - 'savepeerentrydrafts:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
+  - 'savepeerentrydrafts:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
+  - 'savepeerentrydrafts:ae6e4008-f45f-4d7d-bbc1-d8b90290efb8' # Team
+  - 'savepeerentrydrafts:db16c9e5-2cfe-4821-88ff-7b18648846a1' # Testimonial
+  - 'savepeerentrydrafts:e26c6ef2-44c5-4a65-bfc1-b0a61124edca' # Newsletter
+  - 'savepeerentrydrafts:e3333efd-6726-41c1-9a66-a746a6f0d350' # Cards
+  - 'savepeerentrydrafts:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
+  - 'viewassets:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'viewassets:ed627edd-73bd-4b75-8684-f410bf4e4b9d' # Temporary Images
+  - 'viewentries:07fce1cd-37fc-4742-acf8-6bc0a4efd7d7' # Two Columns With Image
+  - 'viewentries:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
+  - 'viewentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
+  - 'viewentries:4d41f740-b1a9-477c-8522-85cf52b2652f' # Features
+  - 'viewentries:4da24c3d-bc23-48bc-a26f-407730202ca7' # FAQs
+  - 'viewentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
+  - 'viewentries:71c1782e-c5bc-4d87-840e-0a4c1a643eff' # Site Info
+  - 'viewentries:80c4b0e7-c398-4776-ad74-df0f53d43c86' # Text Module
+  - 'viewentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
+  - 'viewentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
+  - 'viewentries:ae6e4008-f45f-4d7d-bbc1-d8b90290efb8' # Team
+  - 'viewentries:db16c9e5-2cfe-4821-88ff-7b18648846a1' # Testimonial
+  - 'viewentries:e26c6ef2-44c5-4a65-bfc1-b0a61124edca' # Newsletter
+  - 'viewentries:e3333efd-6726-41c1-9a66-a746a6f0d350' # Cards
+  - 'viewentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
+  - 'viewpeerassets:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'viewpeerassets:ed627edd-73bd-4b75-8684-f410bf4e4b9d' # Temporary Images
+  - 'viewpeerentries:07fce1cd-37fc-4742-acf8-6bc0a4efd7d7' # Two Columns With Image
+  - 'viewpeerentries:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
+  - 'viewpeerentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
+  - 'viewpeerentries:4d41f740-b1a9-477c-8522-85cf52b2652f' # Features
+  - 'viewpeerentries:4da24c3d-bc23-48bc-a26f-407730202ca7' # FAQs
+  - 'viewpeerentries:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
+  - 'viewpeerentries:80c4b0e7-c398-4776-ad74-df0f53d43c86' # Text Module
+  - 'viewpeerentries:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
+  - 'viewpeerentries:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
+  - 'viewpeerentries:ae6e4008-f45f-4d7d-bbc1-d8b90290efb8' # Team
+  - 'viewpeerentries:db16c9e5-2cfe-4821-88ff-7b18648846a1' # Testimonial
+  - 'viewpeerentries:e26c6ef2-44c5-4a65-bfc1-b0a61124edca' # Newsletter
+  - 'viewpeerentries:e3333efd-6726-41c1-9a66-a746a6f0d350' # Cards
+  - 'viewpeerentries:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person
+  - 'viewpeerentrydrafts:07fce1cd-37fc-4742-acf8-6bc0a4efd7d7' # Two Columns With Image
+  - 'viewpeerentrydrafts:27127353-b8d1-4c07-a2af-7a273ad8f1f6' # Hero Area
+  - 'viewpeerentrydrafts:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
+  - 'viewpeerentrydrafts:4d41f740-b1a9-477c-8522-85cf52b2652f' # Features
+  - 'viewpeerentrydrafts:4da24c3d-bc23-48bc-a26f-407730202ca7' # FAQs
+  - 'viewpeerentrydrafts:5042338b-5f7b-4535-96bb-578a829e987c' # Topic
+  - 'viewpeerentrydrafts:71c1782e-c5bc-4d87-840e-0a4c1a643eff' # Site Info
+  - 'viewpeerentrydrafts:80c4b0e7-c398-4776-ad74-df0f53d43c86' # Text Module
+  - 'viewpeerentrydrafts:84b98802-2548-4aed-b67e-fc97f6ed9e30' # Page
+  - 'viewpeerentrydrafts:abd279ac-58c4-41dc-ac32-d2e388e34252' # Legal
+  - 'viewpeerentrydrafts:ae6e4008-f45f-4d7d-bbc1-d8b90290efb8' # Team
+  - 'viewpeerentrydrafts:db16c9e5-2cfe-4821-88ff-7b18648846a1' # Testimonial
+  - 'viewpeerentrydrafts:e26c6ef2-44c5-4a65-bfc1-b0a61124edca' # Newsletter
+  - 'viewpeerentrydrafts:e3333efd-6726-41c1-9a66-a746a6f0d350' # Cards
+  - 'viewpeerentrydrafts:fcbda6e5-a26a-4efb-800a-a67a44a88fa1' # Person

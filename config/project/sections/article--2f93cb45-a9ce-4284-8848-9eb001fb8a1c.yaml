@@ -2,6 +2,29 @@ defaultPlacement: end
 enableVersioning: true
 handle: article
 name: Article
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Article Index'
+      -
+        - urlFormat
+        - '{{ craft.entries.section(''page'').type(''articleIndex'').site(object.site).one.url }}'
+      -
+        - refresh
+        - '1'
+  -
+    __assoc__:
+      -
+        - label
+        - 'Card Preview'
+      -
+        - urlFormat
+        - 'cp/preview-card?id={id}&siteId={object.site.id}&showMetaData=1'
+      -
+        - refresh
+        - '1'
 propagationMethod: all
 siteSettings:
   5b0c38db-9ab4-47d8-b4a7-913710c08ca6: # English

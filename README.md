@@ -625,11 +625,12 @@ __... is this such lousy english?__
 
 ## Money
 
-This starter does not come with paid software, but it is prepared to use it.
-
 Craft CMS Pro edition and the Imager X plugin are paid software, but can be used for free on non-production domains.
 
-It is safe to switch to Craft CMS Pro Edition and install the Imager X plugin. This starter will continue to work.
+* This starter is configured to work with Craft CMS Pro edition; this way we can ship some advanced configuration, like User groups and additional preview targets. You should switch to Craft Solo edition if you do not need these features.
+* The Imager X plugin is not installed by default.
+
+This starter will continue to work, regardless of whether you use Craft Pro/Imager-X or not.
 
 Contains templates derived from [Tailwind UI](https://tailwindui.com/) and [Alpine UI Components](https://alpinejs.dev/components).
 

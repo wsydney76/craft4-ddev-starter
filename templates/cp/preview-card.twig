@@ -1,0 +1,66 @@
+{% extends "_layouts/main.twig" %}
+
+
+{% if not craft.app.request.isPreview and not currentUser %}
+    {% exit 403 %}
+{% endif %}
+
+{% set id = craft.app.request.requiredQueryParam('id') %}
+{% set siteId = craft.app.request.requiredQueryParam('siteId') %}
+{% set showMetaData = craft.app.request.queryParam('showMetaData', 0) %}
+
+{% set entry = craft.app.entries.entryById(id, siteId) %}
+
+
+
+{% if not entry %}
+    {% exit 404 %}
+{% endif %}
+
+{% block contentWrapper %}
+
+    {% embed '_layouts/embeds/container-xl.twig' %}
+        {% block content %}
+
+            <div class="my-12 space-y-8">
+
+                {% include '_layouts/partials/cards.twig' with {
+                    heading: 'Preview Card'|t,
+                    query:  craft.entries
+                        .id(id)
+                        .siteId(siteId)
+                        .provisionalDrafts(true)
+                        .drafts(true)
+                        .with([
+                            'author',
+                            'author.photo',
+                            'persons',
+                            'persons.photo'
+                        ]),
+                    paginate: false,
+                    layout: 'card',
+                    showMetaData
+                } only %}
+
+                {% include '_layouts/partials/cards.twig' with {
+                    heading: 'Preview Cardlet'|t,
+                    query:  craft.entries
+                        .id(entry.id)
+                        .provisionalDrafts(true)
+                        .with([
+                            'author',
+                            'author.photo',
+                            'persons',
+                            'persons.photo'
+                        ]),
+                    paginate: false,
+                    layout: 'cardlet',
+                    showMetaData
+                } only %}
+
+            </div>
+        {% endblock %}
+    {% endembed %}
+
+
+{% endblock %}

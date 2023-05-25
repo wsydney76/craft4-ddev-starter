@@ -2,6 +2,18 @@ defaultPlacement: end
 enableVersioning: true
 handle: cards
 name: Cards
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - Preview
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
 propagationMethod: all
 siteSettings:
   5b0c38db-9ab4-47d8-b4a7-913710c08ca6: # English

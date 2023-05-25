@@ -1,7 +1,10 @@
 # Changelog
 
-## Unreleased
+## 3.2 2023-05-25
 
+Updated for recent use cases. It's not been tested thoroughly, so use at your own risk.
+
+* Update to the newest Craft 4.4
 * Renamed `News` section to `Article`.
 * Prepared for Staticcache plugin. (update nginx config and added example custom rules config)
 * Improved use of semantic html5 tags.

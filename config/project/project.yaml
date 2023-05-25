@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1685007709
+dateModified: 1685020600
 elementSources:
   craft\elements\Asset:
     -
@@ -264,6 +264,11 @@ elementSources:
     -
       condition:
         class: craft\elements\conditions\entries\EntryCondition
+        conditionRules:
+          -
+            class: modules\main\conditions\HasDraftsConditionRule
+            uid: 89a6f153-81bd-4c35-9710-b98ba3b78182
+            value: true
         elementType: craft\elements\Entry
         fieldContext: global
       defaultSort:

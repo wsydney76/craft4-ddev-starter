@@ -11,11 +11,10 @@
 
 {% set entry = craft.app.entries.entryById(id, siteId) %}
 
-
-
 {% if not entry %}
     {% exit 404 %}
 {% endif %}
+
 
 {% block contentWrapper %}
 
@@ -26,17 +25,7 @@
 
                 {% include '_layouts/partials/cards.twig' with {
                     heading: 'Preview Card'|t,
-                    query:  craft.entries
-                        .id(id)
-                        .siteId(siteId)
-                        .provisionalDrafts(true)
-                        .drafts(true)
-                        .with([
-                            'author',
-                            'author.photo',
-                            'persons',
-                            'persons.photo'
-                        ]),
+                    entries:  collect([entry]),
                     paginate: false,
                     layout: 'card',
                     showMetaData
@@ -44,15 +33,7 @@
 
                 {% include '_layouts/partials/cards.twig' with {
                     heading: 'Preview Cardlet'|t,
-                    query:  craft.entries
-                        .id(entry.id)
-                        .provisionalDrafts(true)
-                        .with([
-                            'author',
-                            'author.photo',
-                            'persons',
-                            'persons.photo'
-                        ]),
+                    entries:  collect([entry]),
                     paginate: false,
                     layout: 'cardlet',
                     showMetaData

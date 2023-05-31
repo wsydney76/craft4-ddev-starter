@@ -448,8 +448,13 @@ class InitController extends BaseController
         return ExitCode::OK;
     }
 
-    protected function getImagesFromFolder(string $path, $minWidth = null, $limit = null)
+    protected function getImagesFromFolder(string $path, $minWidth = null, $limit = null, $orderBy = null)
     {
+
+        if ($orderBy === 'random') {
+            $orderBy = Craft::$app->db->driverName === 'mysql' ? 'RAND()' : 'RANDOM()';
+        }
+
         $folder = Craft::$app->assets->findFolder(['path' => $path]);
         if (!$folder) {
             Console::output('Folder not found');
@@ -466,7 +471,7 @@ class InitController extends BaseController
             ->folderId($folder->id)
             ->width('> ' . $minWidth)
             ->limit($limit)
-            ->orderBy(Craft::$app->db->driverName === 'mysql' ? 'RAND()' : 'RANDOM()');
+            ->orderBy($orderBy);
 
 
         return $query->collect();

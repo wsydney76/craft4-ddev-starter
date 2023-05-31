@@ -406,8 +406,6 @@ class SeedController extends InitController
 
             $contentComponents = [];
 
-
-            $persons = Entry::find()->section('person')->collect();
             $icons = $this->getImagesFromFolder('icons/starter/', 20, 4);
 
             $contentComponents[] = $this->createEntry([
@@ -418,7 +416,7 @@ class SeedController extends InitController
                 'slug' => 'testimonial1',
                 'fields' => [
                     'body' => $this->faker->text(250),
-                    'person' => [$persons[0]->id],
+                    'person' => [Entry::find()->section('person')->slug('whitney-francis')->one()->id ?? null],
                     'align' => 'right',
                     'testimonialStyle' => 'overlappingImage',
                 ]
@@ -480,11 +478,21 @@ class SeedController extends InitController
                 'slug' => 'testimonial2',
                 'fields' => [
                     'body' => $this->faker->text(250),
-                    'person' => [$persons[1]->id],
+                    'person' => [Entry::find()->section('person')->slug('leslie-alexander')->one()->id ?? null],
                     'align' => '',
                     'testimonialStyle' => 'overlappingImage',
                 ]
             ]);
+
+            $query = Entry::find()->section('person');
+            $ids = [
+                $query->slug('michael-foster')->one()->id ?? null,
+                $query->slug('emily-selman')->one()->id ?? null,
+                $query->slug('leonard-krasner')->one()->id ?? null,
+                $query->slug('kristin-watson')->one()->id ?? null,
+                $query->slug('alicia-bell')->one()->id ?? null,
+                $query->slug('dries-vincent')->one()->id ?? null,
+            ];
 
             $contentComponents[] = $this->createEntry([
                 'section' => 'team',
@@ -493,7 +501,7 @@ class SeedController extends InitController
                 'title' => 'Our Team',
                 'slug' => 'team',
                 'fields' => [
-                    'persons' => Entry::find()->section('person')->limit(4)->ids(),
+                    'persons' => $ids,
                     'body' => $this->faker->text(200)
                 ],
                 'localized' => [
@@ -690,16 +698,29 @@ class SeedController extends InitController
 
     public function actionCreatePersons(): int
     {
-        $names = ['Erna Klawuppke', 'Aisha Conelly', 'Miram Zboncak', 'Aylin Müller-Lüdenscheidt'];
-        $teasers = ['Project Manager', 'Frontend Developer', 'Junior Designer', 'Head of Development'];
 
+        // Photos, names and job titles are stolen from Tailwind UIs team components
 
         $this->actionImgAddProvisionalTexts('photos/starter/', 'Tailwind UI');
 
-        $images = $this->getImagesFromFolder('photos/starter/', 800, 4);
+        $images = $this->getImagesFromFolder('photos/starter/', 500, null, 'filename');
+
+        $teasers = [
+            'Junior Copywriter',
+            'Partner, Creative',
+            'Business Relations',
+            'VP, User Experience',
+            'Senior Developer',
+            'Studio Artist',
+            'VP, Human Resources',
+            'Senior Designer',
+            'Co-Founder / CEO',
+            'Co-Founder / CTO',
+            'Copywriter',
+        ];
 
         foreach ($images as $i => $image) {
-            $name = $names[$i];
+            $name = $this->convertFilenameToProperName($image->filename);
             $slug = StringHelper::slugify($name);
             $person = $this->createEntry([
                 'section' => 'person',
@@ -710,7 +731,7 @@ class SeedController extends InitController
                 'fields' => [
                     'photo' => [$image->id],
                     'body' => $this->faker->text(200),
-                    'teaser' => $teasers[$i],
+                    'teaser' => $teasers[$i] ?? $this->faker->jobTitle,
                     'socialLinks' => [
                         ['col1' => 'mastodon', 'col2' => 'https://joinmastodon.org'],
                         ['col1' => 'email', 'col2' => 'email:name@example.com'],
@@ -1131,5 +1152,20 @@ class SeedController extends InitController
             ->orderBy(Craft::$app->db->driverName === 'mysql' ? 'RAND()' : 'RANDOM()')
             ->one();
     }
+
+    function convertFilenameToProperName($filename): string
+    {
+        // Get the filename without the extension
+        $name = pathinfo($filename, PATHINFO_FILENAME);
+
+        // Replace hyphens with spaces
+        $name = str_replace("-", " ", $name);
+
+        // Capitalize the first letter of each word
+        $name = ucwords($name);
+
+        return $name;
+    }
+
 
 }

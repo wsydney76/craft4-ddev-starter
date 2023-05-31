@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1685020600
+dateModified: 1685521515
 elementSources:
   craft\elements\Asset:
     -
@@ -442,6 +442,7 @@ meta:
     481205e6-eb29-45a0-8b40-021d4dcfcac1: 'Email Sender' # Email Sender
     502456b5-d67c-412d-927e-d06e8f662eac: 'Button Caption' # Button Caption
     655243f7-46a2-42c0-8de4-188017c31d53: 'Hero Area Template' # Hero Area Template
+    938701ef-3a45-4190-80fc-9326e9cf6f3b: Writer # Writer
     5042338b-5f7b-4535-96bb-578a829e987c: Topic # Topic
     5286148d-12b9-4f55-a35c-0e51c06bbe44: Contact # Contact
     8785637f-8785-4fd2-86d2-9232d9674420: 'Related Entries' # Related Entries

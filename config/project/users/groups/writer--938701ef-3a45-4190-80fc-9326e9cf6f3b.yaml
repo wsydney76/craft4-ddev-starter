@@ -1,0 +1,18 @@
+description: ''
+handle: writer
+name: Writer
+permissions:
+  - accesscp
+  - 'createentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
+  - 'deleteassets:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'deleteentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
+  - 'editimages:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'editsite:5b0c38db-9ab4-47d8-b4a7-913710c08ca6' # English
+  - 'editsite:dbf50cb2-37c8-45f7-b375-dcb93e09691b' # Deutsch
+  - 'replacefiles:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'saveassets:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'viewassets:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'viewassets:ed627edd-73bd-4b75-8684-f410bf4e4b9d' # Temporary Images
+  - 'viewentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article
+  - 'viewpeerassets:5a0be839-14a2-465e-a504-bb63dd0281e9' # Images
+  - 'viewpeerentries:2f93cb45-a9ce-4284-8848-9eb001fb8a1c' # Article

@@ -425,6 +425,31 @@ class InitController extends BaseController
             echo "Error saving user";
         }
 
+        // Add new user
+        $user = new User();
+        $user->username = 'klara';
+        $user->firstName = 'Klara';
+        $user->lastName = 'Peters';
+        $user->email = 'klara.peters@example.com';
+        $user->setFieldValue('socialLinks', [
+            ['col1' => 'mastodon', 'col2' => 'https://joinmastodon.org'],
+            ['col1' => 'email', 'col2' => 'mailto:klara.peters@example.com'],
+        ]);
+        $user->active = true;
+
+        $user->setScenario(User::SCENARIO_LIVE);
+
+
+        if (Craft::$app->elements->saveElement($user)) {
+            $group = Craft::$app->userGroups->getGroupByHandle('writer');
+
+            if ($group) {
+                Craft::$app->users->assignUserToGroups($user->getId(), [$group->id]);
+            }
+        } else {
+            echo "Error saving user";
+        }
+
 
         // Set user photos
         $sourceDir = App::parseEnv('@storage/rebrand/userphotos');

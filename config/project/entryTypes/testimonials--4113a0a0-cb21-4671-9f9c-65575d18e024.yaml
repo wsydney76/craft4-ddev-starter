@@ -1,0 +1,79 @@
+fieldLayouts:
+  7358cf8b-c7d9-4bc9-a793-4b9b63a977ae:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 0767f000-e433-4930-9534-b795a48740bb # Teaser
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a33ea35f-0c2d-4b7b-a674-8e0486048f87
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: d842a880-048f-45c1-abac-9bf2a23f6634
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: f26d4aac-c7ec-4b8f-98c8-ab7fc5315445 # Testimonials
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6ab62e6e-985f-4c95-bbb4-711419a974da
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 82752d41-f482-42da-b6c0-b1faa9b1aa1c # Grid Style
+            instructions: 'Shall the grid use grid or column classes.'
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e3e05070-2dfb-445c-b2f0-67a43efb80e2
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhalt
+        uid: 3e5e1727-d5e8-4aec-a2d9-c0500ded5ba0
+        userCondition: null
+handle: testimonials
+hasTitleField: true
+name: 'Multiple Testimonials'
+section: db16c9e5-2cfe-4821-88ff-7b18648846a1 # Testimonial
+sortOrder: 2
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: language

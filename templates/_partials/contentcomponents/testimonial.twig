@@ -1,3 +1,7 @@
 {% set style = entry.testimonialStyle.value ?? 'overlappingImage' %}
+{% if entry.type.handle == 'testimonials' %}
+    {% include "_partials/contentcomponents/testimonial_multi.twig" %}
+{% else %}
+    {% include "_partials/contentcomponents/testimonial_#{style}.twig" %}
+{% endif %}
 
-{% include "_partials/contentcomponents/testimonial_#{style}.twig" %}

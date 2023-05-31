@@ -1,0 +1,53 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: bef1d233-b346-4d06-a2c1-be50cca6eae2 # Content Sections
+handle: testimonials
+instructions: 'Works best with 3 or 6 testimonials'
+name: Testimonials
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  localizeRelations: false
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: 1
+  selectionCondition:
+    __assoc__:
+      -
+        - elementType
+        - craft\elements\Entry
+      -
+        - fieldContext
+        - global
+      -
+        - class
+        - craft\elements\conditions\entries\EntryCondition
+      -
+        - conditionRules
+        -
+          -
+            __assoc__:
+              -
+                - class
+                - craft\elements\conditions\entries\TypeConditionRule
+              -
+                - uid
+                - bf9b59ec-0471-4cf5-aa28-d1d0e139b278
+              -
+                - operator
+                - in
+              -
+                - values
+                -
+                  - 16e1ce60-0ee3-48c2-ac6a-d34757a52eed # Single Testimonial
+  selectionLabel: null
+  showSiteMenu: false
+  sources:
+    - 'section:db16c9e5-2cfe-4821-88ff-7b18648846a1' # Testimonial
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

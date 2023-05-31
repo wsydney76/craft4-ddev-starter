@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1685521515
+dateModified: 1685547513
 elementSources:
   craft\elements\Asset:
     -
@@ -188,6 +188,7 @@ elementSources:
       disabled: false
       key: 'section:db16c9e5-2cfe-4821-88ff-7b18648846a1' # Testimonial
       tableAttributes:
+        - type
         - 'field:013c1232-8bf7-4c1f-80dc-d456db31f159' # Testimonial Style
         - postDate
         - link
@@ -385,7 +386,7 @@ meta:
     11f1c188-401c-44c4-bd0e-2b6d7b311fc6: Align # Align
     12ee7163-1896-4afc-b140-3f53c59f8b7d: 'Text Color' # Text Color
     013c1232-8bf7-4c1f-80dc-d456db31f159: 'Testimonial Style' # Testimonial Style
-    16e1ce60-0ee3-48c2-ac6a-d34757a52eed: Testimonial # Testimonial
+    16e1ce60-0ee3-48c2-ac6a-d34757a52eed: 'Single Testimonial' # Single Testimonial
     24a1d709-9601-4848-9deb-6df1f3ecd806: Feature # Feature
     27b3f36f-ea97-4dad-a77d-39eff7bd0900: Key # Key
     43f9aef9-cc98-45e1-ac64-8b73fc0c79a8: 'Topic Index' # Topic Index
@@ -422,6 +423,7 @@ meta:
     956fbff8-1bb5-4c5d-8e58-ec36d77bf04e: Custom # Custom
     2232a9d8-f828-47e8-bb32-6e03f1cd70b6: 'Team Member' # Team Member
     3468bd44-82e8-4104-932e-5085601fca12: Default # Default
+    4113a0a0-cb21-4671-9f9c-65575d18e024: 'Multiple Testimonials' # Multiple Testimonials
     4120c3e9-17c2-464b-8d41-7d009dacb5e3: 'Page Template' # Page Template
     4401f3f7-9915-4cd0-b3d9-987755e4bdf8: Image # Image
     6193ce57-a570-451e-8124-ec3ba985b0b2: Caption # Caption
@@ -435,6 +437,7 @@ meta:
     52144f06-b394-45aa-bee6-d00e1f86878f: Primary # Primary
     75980a78-5a14-4d80-8e9c-b0616d62e02e: 'Hero Area' # Hero Area
     78014c80-5d4b-4253-ae59-80f00e516c86: Photo # Photo
+    82752d41-f482-42da-b6c0-b1faa9b1aa1c: 'Grid Style' # Grid Style
     90724a6b-55ad-446f-be50-7aea7e1fb067: Robots # Robots
     97742dae-23f0-4986-a259-c886b727a452: FAQ # FAQ
     367161e2-88c5-4828-92ff-9124ef18da28: Image # Image
@@ -525,6 +528,7 @@ meta:
     f3bd1ac0-e068-493b-8d96-5806fa175179: 'Image Source' # Image Source
     f3c6560d-3487-4f65-a4f9-ac2926397b57: 'Aspect Ratio' # Aspect Ratio
     f8ff18c6-ca19-4910-8753-62aa768dd3a3: Cite # Cite
+    f26d4aac-c7ec-4b8f-98c8-ab7fc5315445: Testimonials # Testimonials
     f76ccc3a-7c88-43a3-9024-5ea619356bbf: Heading # Heading
     f7250ac7-93b5-4533-a000-82b9bec48075: __blank__ # __blank__
     f620927d-baf7-430a-a965-f1e9ea676b83: Text # Text

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+* Added `Writer` user group with limited permissions.
+* Seed Testimonials/team components with better photos.
+* Added 'Multiple Testimonials' component entry type.
+
 ## 3.2 2023-05-25
 
 Updated for recent use cases. It's not been tested thoroughly, so use at your own risk.

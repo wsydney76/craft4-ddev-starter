@@ -5,6 +5,7 @@
 * Added `Writer` user group with limited permissions.
 * Seed Testimonials/team components with better photos.
 * Added 'Multiple Testimonials' component entry type.
+* Fix image block default values.
 
 ## 3.2 2023-05-25
 

@@ -14,8 +14,8 @@
 {% set image = block.image.one %}
 {% if image %}
 
-    {% set align = block.align.value ?? 'default' %}
-    {% set aspectRatio = block.aspectRatio.value ?? 'default' %}
+    {% set align = block.align.value ?: 'default' %}
+    {% set aspectRatio = block.aspectRatio.value ?: 'default' %}
 
     {# Match with block 'align' options #}
     {% set alignClasses = {

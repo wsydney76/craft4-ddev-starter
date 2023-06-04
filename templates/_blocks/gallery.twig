@@ -2,7 +2,7 @@
 
 {% from '_layouts/macros/lib.twig' import img %}
 
-{% set align = block.align.value ?? 'default' %}
+{% set align = block.align.value ?: 'default' %}
 
 {# Match with block 'align' options #}
 {% set alignClasses = {

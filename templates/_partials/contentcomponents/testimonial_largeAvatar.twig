@@ -11,7 +11,7 @@
 {% if entry is defined %}
     {% set person = entry.person.one %}
     {% set image = entry.image.one  ?? person.photo.one %}
-    {% set align = entry.align.value ?? 'default' %}
+    {% set align = entry.align.value ?: 'default' %}
     {% set text = entry.body %}
     {% set name = person.title ?? '' %}
     {% set jobDescription = person.teaser ?? '' %}

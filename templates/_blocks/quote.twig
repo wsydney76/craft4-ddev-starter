@@ -1,6 +1,6 @@
 {# Display quote block #}
 
-{% set style = block.style.value ?: 'default' %}
+{% set style = block.style.value|default('default') %}
 
 <div class="my-16">
     {% switch style %}

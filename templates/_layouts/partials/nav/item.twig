@@ -30,7 +30,7 @@
             {{ title }}
             <ul class="ms-8 space-y-4 {{ entry is defined ? 'mt-4' }}">
                 {% for child in children %}
-                    <li>{{ navLink(child.menuTitle ?: child.title, child.url) }}</li>
+                    <li>{{ navLink(child.menuTitle|default(child.title), child.url) }}</li>
                 {% endfor %}
             </ul>
         </div>

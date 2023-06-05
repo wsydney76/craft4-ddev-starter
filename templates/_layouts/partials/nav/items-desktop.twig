@@ -19,7 +19,7 @@
 
     {% else %}
         <div class="{{ children ? 'flex items-center' }}">
-            {{ navLink(navEntry.menuTitle ?: navEntry.title, navEntry.url, active) }}
+            {{ navLink(navEntry.menuTitle|default(navEntry.title), navEntry.url, active) }}
 
             {% if customConfig.showChildrenInMainNav and children %}
                 {% include '_layouts/partials/nav/item.twig' with {

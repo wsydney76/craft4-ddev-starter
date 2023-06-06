@@ -6,6 +6,8 @@
 * Seed Testimonials/team components with better photos.
 * Added 'Multiple Testimonials' component entry type.
 * Fix image block default values.
+* Added custom SEO preview, including a provisional Mastodon preview.
+* Added SEO fields to `Article/Story` entry type.
 
 ## 3.2 2023-05-25
 

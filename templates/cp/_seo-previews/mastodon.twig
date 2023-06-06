@@ -1,0 +1,45 @@
+{% set image = meta['og:image'] ?? meta.image ?? null %}
+{% set title = meta['og:title'] ?? meta.title ?? '' %}
+{% set description = meta['og:description'] ?? meta.description ?? '' %}
+
+<div class="Mastodon__context">
+    <div class="Mastodon__context-inner">
+        <div class="Mastodon__context-post Mastodon__context-extra">
+            <div class="">
+                <span>Alex Doe</span><span>@alex@mastodon.social</span>
+            </div>
+            <div>
+                Check out this post: <span class="Mastodon__blue">{{ meta.url }}</span>
+            </div>
+
+        </div>
+        <div class="Mastodon__item Mastodon__item--desktop">
+            {% if image %}
+                <div class="Mastodon__image">
+                    {% if image.getUrl is defined %}
+                        <img src="{{ image.getUrl({ width: 60, height: 60, mode: 'crop' }) }}" alt="">
+                    {% else %}
+                        <img src="{{ image }}" alt="">
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            <div class="Mastodon__meta">
+
+                <div class="Mastodon__text">
+                    <div class="Mastodon__title">
+                        <span>{{ title|striptags|raw }}</span>
+                    </div>
+                </div>
+
+                <div class="Mastodon__url">
+                    {{ meta.siteName }}
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

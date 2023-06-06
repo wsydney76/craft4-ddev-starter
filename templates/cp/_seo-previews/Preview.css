@@ -1,0 +1,825 @@
+body {
+    margin: 0
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible
+}
+
+a {
+    background-color: transparent
+}
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0
+}
+
+button, input {
+    overflow: visible
+}
+
+button, select {
+    text-transform: none
+}
+
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button
+}
+
+[type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner, button::-moz-focus-inner {
+    border-style: none;
+    padding: 0
+}
+
+[type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring, button:-moz-focusring {
+    outline: 1px dotted ButtonText
+}
+
+fieldset {
+    padding: .35em .75em .625em
+}
+
+textarea {
+    overflow: auto
+}
+
+[type=checkbox], [type=radio] {
+    box-sizing: border-box;
+    padding: 0
+}
+
+[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
+    height: auto
+}
+
+[type=search] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px
+}
+
+[type=search]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    height: 100%
+}
+
+body {
+    position: relative;
+    overflow-x: hidden
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1em;
+    font-weight: 400
+}
+
+h1, h2, h3, h4, h5, h6, li, p, small {
+    display: block;
+    margin: 0
+}
+
+ol, ul {
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0
+}
+
+img {
+    max-width: 100%;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+    display: inline-block;
+    width: 100%;
+    height: auto
+}
+
+figure {
+    margin: 0
+}
+
+a, button, input {
+    -ms-touch-action: none !important
+}
+
+input {
+    border-radius: 0
+}
+
+input[type=radio] {
+    -webkit-appearance: radio
+}
+
+input[type=checkbox] {
+    -webkit-appearance: checkbox
+}
+
+textarea {
+    resize: none
+}
+
+select {
+    border-radius: 0
+}
+
+input::-ms-clear {
+    display: none
+}
+
+input[type=search], input[type=text], textarea {
+    -webkit-appearance: none;
+    border-radius: 0;
+    box-sizing: border-box
+}
+
+fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0
+}
+
+picture {
+    display: block
+}
+
+address {
+    font-style: normal
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+b, strong {
+    font-weight: 400
+}
+
+em, i {
+    font-style: normal
+}
+
+button:not(:focus) {
+    outline: 0
+}
+
+.no-outline a, .no-outline button, .no-outline input, .no-outline label, .no-outline option, .no-outline select, .no-outline textarea {
+    outline: none !important
+}
+
+.l-wrap {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.Facebook {
+    background: #e9ebee;
+    font-family: system-ui, -apple-system, \.SFNSText-Regular, sans-serif
+}
+
+.Mastodon {
+    background: #e9ebee;
+    font-family: system-ui, -apple-system, \.SFNSText-Regular, sans-serif
+}
+
+.Facebook__blue {
+    color: #365899
+}
+
+.Facebook__context {
+    max-width: 502px;
+    border: 1px solid #dddfe2;
+    border-radius: 3px;
+    overflow: hidden
+}
+
+.Facebook__context-extra {
+    background: #fff;
+}
+
+
+.Facebook__context-post {
+    padding: 12px;
+    font-size: 14px;
+    line-height: 19.23px
+}
+
+.Facebook__context-post div:first-child {
+    position: relative
+}
+
+.Facebook__context-post div:first-child:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    display: block;
+    background: #ccc;
+    border-radius: 50%
+}
+
+.Facebook__context-post div:first-child:after {
+    content: "...";
+    position: absolute;
+    top: -2px;
+    right: 0;
+    font-weight: 700;
+    font-size: 18px
+}
+
+.Facebook__context-post div:first-child span {
+    display: block;
+    margin-left: 48px
+}
+
+.Facebook__context-post div:first-child span:first-child {
+    font-size: 14px;
+    color: #365899;
+    font-weight: 600
+}
+
+.Facebook__context-post div:first-child span:last-child {
+    font-size: 12px;
+    color: #616770
+}
+
+.Facebook__context-post div:last-child {
+    margin-top: 10px
+}
+
+.Facebook__context-post-bottom {
+    padding: 12px;
+    border-top: 1px solid #eff0f1;
+    height: 51px;
+    width: 100%;
+    position: relative
+}
+
+.Facebook__context-post-bottom:before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    width: 34px;
+    height: 34px;
+    display: block;
+    background: #ccc;
+    border-radius: 50%;
+}
+
+.Facebook__context-post-bottom:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: calc(100% - 66px);
+    height: 34px;
+    right: 12px;
+    top: 8px;
+    background: #f2f3f5;
+    border: 1px solid #ccd0d5;
+    border-radius: 18px;
+}
+
+.Facebook__context-post-share {
+    height: 40px;
+}
+
+.Facebook__item {
+    width: 100%;
+    background-color: #f2f3f5;
+    max-width: 500px;
+}
+
+.Facebook__image {
+    height: 0;
+    padding-bottom: 52.5%;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    position: relative;
+    overflow: hidden;
+}
+
+.Facebook__image:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, .1)
+}
+
+.Facebook__image img {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.Facebook__meta {
+    max-height: 100px;
+    padding: 10px 12px;
+    border-bottom: 1px solid #dddfe2
+}
+
+.Facebook__url {
+    color: #606770;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase
+}
+
+.Facebook__text {
+    max-height: 46px;
+    overflow: hidden
+}
+
+.Facebook__title {
+    font-weight: 600;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 5px 0 0;
+    max-height: 110px;
+    word-wrap: break-word;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    white-space: normal;
+    color: #1d2129
+}
+
+.Facebook__title span {
+    display: block
+}
+
+.Facebook__description {
+    color: #606770;
+    font-size: 14px;
+    line-height: 20px;
+    word-break: break-word;
+    margin-top: 3px;
+    max-height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: -webkit-box
+}
+
+.Twitter {
+    width: 100%;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    background: #e6ecf0;
+
+    -webkit-font-smoothing: antialiased
+}
+
+.Twitter__context {
+    max-width: 590px;
+    padding: 9px 12px 24px;
+    position: relative;
+    background-color: #fff;
+
+}
+
+
+.Twitter__context:before {
+    content: "";
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    border-radius: 50%;
+    top: 9px;
+    left: 12px;
+}
+
+.Twitter__context-inner {
+    margin-left: 58px;
+    background-color: #fff;
+}
+
+.Twitter__context-tweet {
+    line-height: 20px;
+    font-size: 14px;
+    color: #14171a;
+}
+
+
+.Twitter__context-meta span:first-child {
+    font-weight: 700;
+    margin-right: 4px
+}
+
+.Twitter__context-meta {
+    position: relative;
+}
+
+.Twitter__context-meta span:nth-child(n+2) {
+    font-size: 14px;
+    color: #657786;
+    margin-right: 5px
+}
+
+.Twitter__context-meta:after {
+    content: "...";
+    position: absolute;
+    top: -2px;
+    right: 0;
+    font-weight: 700;
+    font-size: 18px
+}
+
+.Twitter__context-meta span:last-child:before {
+    content: "\B7";
+    margin-right: 4px
+}
+
+.Twitter__context-content {
+    margin-bottom: 10px
+}
+
+.Twitter__card {
+    width: 100%;
+    border: 1px solid #e1e8ed;
+    border-radius: 16px;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.3em;
+    max-width: 508px;
+    background-color: #fff;
+}
+
+.Twitter__image {
+    height: 0;
+    padding-bottom: 50%;
+    border-bottom: 1px solid #e1e8ed;
+    position: relative;
+    overflow: hidden;
+}
+
+.Twitter__image img {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.Twitter__meta {
+    padding: .75em 1em;
+    background: #fff
+}
+
+.Twitter__title {
+    max-height: 1.3em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    margin: 4px 0 .15em;
+    color: rgb(15, 20, 25)
+}
+
+.Twitter__description {
+    max-height: 2.6em;
+    word-wrap: break-word;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box
+}
+
+.Twitter__description, .Twitter__url {
+    overflow: hidden;
+    color: rgb(80, 100, 113);
+    margin-top: .32333em;
+    text-overflow: ellipsis
+}
+
+.Twitter__url {
+    text-transform: lowercase;
+    max-height: 1.3em;
+    white-space: nowrap
+}
+
+.Google {
+    font-family: arial, sans-serif
+}
+
+.Google__header {
+    margin-bottom: 10px;
+    color: #4d5156;
+    display: flex;
+    align-items: center;
+}
+
+.Google__icon {
+    background-color: #f1f3f4;
+    border-radius: 50%;
+    height: 26px;
+    width: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.Google__icon img {
+    width: 18px;
+    height: 18px;
+
+}
+
+.Google__site {
+    font-size: 14px;
+}
+
+.Google__title {
+    color: #1a0dab;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 4px
+}
+
+.Google__url {
+    line-height: 18px;
+    max-width: 624px;
+    position: relative;
+    font-size: 12px;
+    display: flex;
+}
+
+.Google__svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    margin-top: 1px;
+    fill: #006621;
+}
+
+.Google__description {
+    font-size: 14px;
+    line-height: 18px;
+    max-width: 624px;
+    color: #545454
+}
+
+.Facebook .l-wrap {
+    border-bottom: 1px solid #4267b2
+}
+
+.Facebook .l-wrap, .Google .l-wrap, .Twitter .l-wrap, .Mastodon .l-wrap {
+    padding-top: 30px;
+    padding-bottom: 30px
+}
+
+h2 div.l-wrap {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.Google .l-wrap {
+    border-bottom: 1px solid #ccc
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+    /* margin-bottom: 1em */
+}
+
+.Facebook h2 {
+    background: #4267b2;
+    color: #fff
+}
+
+.Mastodon h2 {
+    background: #191B22;
+    color: #fff
+}
+
+.Twitter h2 {
+    background: #1da1f2;
+    color: #fff
+}
+
+.Google h2 span:first-child {
+    color: #4285f4
+}
+
+.Google h2 span:nth-child(2) {
+    color: #ea4335
+}
+
+.Google h2 span:nth-child(3) {
+    color: #f1b505
+}
+
+.Google h2 span:nth-child(4) {
+    color: #4184f2
+}
+
+.Google h2 span:nth-child(5) {
+    color: #34a853
+}
+
+.Google h2 span:nth-child(6) {
+    color: #e94335
+}
+
+
+/*
+* Mastodon styles TODO: Clean up, this is now just an adjusted copy of Facebook
+*/
+
+.Mastodon__blue {
+    color: #8c8dff
+}
+
+.Mastodon__context {
+    max-width: 580px;
+    border: 1px solid #dddfe2;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #282C37;
+    color: #fff;
+}
+
+.Mastodon__context-extra {
+
+}
+
+
+.Mastodon__context-post {
+    padding: 12px;
+    font-size: 14px;
+    color: #fff;
+    line-height: 19.23px
+}
+
+.Mastodon__context-post div:first-child {
+    position: relative
+}
+
+.Mastodon__context-post div:first-child:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    display: block;
+    background: #666;
+}
+
+
+.Mastodon__context-post div:first-child:after {
+    content: "\1F30E 2h";
+    position: absolute;
+    top: -2px;
+    right: 0;
+    font-size: 15px;
+    color: #606984;
+}
+
+.Mastodon__context-post div:first-child span {
+    display: block;
+    margin-left: 48px
+}
+
+.Mastodon__context-post div:first-child span:first-child {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600
+}
+
+.Mastodon__context-post div:first-child span:last-child {
+    font-size: 12px;
+    color: #606984
+}
+
+.Mastodon__context-post div:last-child {
+    margin-top: 10px
+}
+
+.Mastodon__context-post-bottom {
+    padding: 12px;
+    border-top: 1px solid #eff0f1;
+    height: 51px;
+    width: 100%;
+    position: relative
+}
+
+.Mastodon__context-post-bottom:before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    width: 34px;
+    height: 34px;
+    display: block;
+    background: #ccc;
+    border-radius: 50%;
+}
+
+.Mastodon__context-post-bottom:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: calc(100% - 66px);
+    height: 34px;
+    right: 12px;
+    top: 8px;
+    background: #f2f3f5;
+    border: 1px solid #ccd0d5;
+    border-radius: 18px;
+}
+
+.Mastodon__context-post-share {
+    height: 40px;
+}
+
+.Mastodon__item {
+    width: 100%;
+    background-color: #282C37;
+    max-width: 556px;
+    display: flex;
+    margin: 12px;
+    border: 1px solid rgb(96, 105, 132);
+    border-radius: 4px;
+}
+
+.Mastodon__image {
+    margin-right: 6px;
+}
+
+.Mastodon__meta {
+    max-height: 100px;
+    padding: 10px 12px;
+}
+
+.Mastodon__url {
+    color: #606984;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.Mastodon__text {
+    max-height: 46px;
+    overflow: hidden
+}
+
+.Mastodon__title {
+    color: #9baec8;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.Mastodon__title span {
+    display: block
+}
+
+.Mastodon__description {
+    color: #606770;
+    font-size: 14px;
+    line-height: 20px;
+    word-break: break-word;
+    margin-top: 3px;
+    max-height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: -webkit-box
+}

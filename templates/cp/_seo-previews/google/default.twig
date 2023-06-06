@@ -1,0 +1,45 @@
+{% set title = meta.title|default %}
+{% set url = meta.url|default %}
+{% set description = meta.description|default %}
+{% set siteName = meta.siteName|default %}
+
+{% set iconUrl = customConfig.previewIconUrl %}
+
+<div class="Google__default">
+
+    <div class="Google__header">
+        {% if iconUrl %}
+            <div class="Google__icon">
+                <img src="{{ iconUrl }}" alt="Icon">
+            </div>
+        {% endif %}
+        <div>
+            <div class="Google__site">
+                {{ siteName }}
+            </div>
+            <div class="Google__url">
+                {% if url %}
+                    {% set url = url | length > 85 ? url[:85] ~ '...' : url %}
+                    {% set url = url|replace('//','$$') %}
+                    {% set url = url|replace('/', ' > ') %}
+                    {% set url = url|replace('$$', '//') %}
+                    {{ url }}
+                    <svg focusable="false" class="Google__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="Google__title">
+        {% if title %}
+            {{ title|striptags|raw }}
+        {% endif %}
+    </div>
+
+
+    <div class="Google__description">
+        {% if description %}
+            {{ (description | length > 150 ? description[:150] ~ '...' : description)|striptags|raw }}
+        {% endif %}
+    </div>
+</div>

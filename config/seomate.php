@@ -7,6 +7,8 @@ use craft\elements\Entry;
 return [
     '*' => [
         'cacheEnabled' => false,
+        'previewEnabled' => false,
+
         'defaultProfile' => 'standard',
 
         'outputAlternate' => true,

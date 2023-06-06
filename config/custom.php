@@ -114,8 +114,16 @@ return [
     // register/show/none
     'handleCopyright' => 'show',
 
+    // Sections with SEO preview
+    'seoPreviewSections' => ['article', 'page', 'legal'],
+
+    // Icon url for SEO preview
+    'previewIconUrl' => '/favicon-32x32.png',
+
     // Whether to skip srcset generation for images
     // This is useful to speed up things in development when not using the imager-x plugins
-    'skipSrcset' => true
+    'skipSrcset' => true,
+
+
 
 ];

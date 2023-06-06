@@ -1,0 +1,89 @@
+{% if not craft.app.request.isPreview and not currentUser %}
+    {% exit 403 %}
+{% endif %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        {{ source('cp/_seo-previews/Preview.css') }}
+    </style>
+</head>
+<body>
+
+{% set request = craft.app.request %}
+
+{% set entry = craft.app.entries.entryById(request.queryParam('id'), request.queryParam('siteId')) %}
+
+
+{% if entry and entry.url|default %}
+
+    {% set meta = {
+        title: entry.seoFields.one.alternativeTitle ?? entry.title,
+        image: entry.seoFields.one.image.one ?? entry.featuredImage.one ?? siteInfo.seoImage.one ?? siteInfo.featuredImage.one,
+        description: entry.seoFields.one.description ?? entry.tagline ?? siteInfo.seoDescriction,
+        url: entry.url|split('?')|first,
+        siteName: siteInfo.title
+    } %}
+
+    <div class="Google">
+        <h2>
+            <div class="l-wrap"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+            </div>
+        </h2>
+        <div class="l-wrap">
+            {% include 'cp/_seo-previews/google/default.twig' %}
+        </div>
+    </div>
+
+    <div class="Mastodon">
+        <h2>
+            <div class="l-wrap">Mastodon</div>
+        </h2>
+        <div class="l-wrap">
+            {% include 'cp/_seo-previews/mastodon.twig' %}
+        </div>
+    </div>
+
+    <div class="Facebook">
+        <h2>
+            <div class="l-wrap">Facebook</div>
+        </h2>
+        <div class="l-wrap">
+            {% include 'cp/_seo-previews/facebook.twig' %}
+        </div>
+    </div>
+
+    <div class="Twitter">
+        <h2>
+            <div class="l-wrap">Twitter</div>
+        </h2>
+        <div class="l-wrap">
+            {% include 'cp/_seo-previews/twitter.twig' %}
+        </div>
+    </div>
+
+
+{% endif %}
+
+</body>
+</html>
+
+{# Fake an avatar #}
+{% set person = craft.entries.section('person').one %}
+{% if person %}
+    {% set image = person.photo.one %}
+    {% if image %}
+        {% set url = image.url({width: 40, height: 40}) %}
+        {% css %}
+        .Mastodon__context-post div:first-child:before, .Facebook__context-post div:first-child:before, .Twitter__context:before {
+            background-image: url('{{ url }}');
+            background-position:  center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        {% endcss %}
+    {% endif %}
+{% endif %}
+

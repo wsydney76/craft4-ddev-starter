@@ -124,17 +124,29 @@ class MainModule extends BaseModule
 
             $this->setElementIndexColumns();
 
-            // There is no preview target if switching to Pro edition, so add one by default
+
             Event::on(
                 Entry::class,
                 Element::EVENT_REGISTER_PREVIEW_TARGETS,
                 function(RegisterPreviewTargetsEvent $event) {
+
+                    // There is no preview target if switching to Pro edition, so add one by default
                     if ($event->sender->getUrl() && !ArrayHelper::firstWhere($event->previewTargets, 'urlFormat', '{url}')) {
                         array_unshift($event->previewTargets, [
                             'label' => Craft::t('app', 'Primary {type} page', ['type' => Entry::lowerDisplayName()]),
                             'urlFormat' => '{url}',
                         ]);
                     }
+
+                    // Add SEO preview target
+                    $seoPreviewSections = Craft::$app->config->custom->seoPreviewSections ?? [];
+                    if (in_array($event->sender->section->handle, $seoPreviewSections, true)) {
+                        $event->previewTargets[] = [
+                            'label' => Craft::t('site', 'SEO Preview'),
+                            'urlFormat' => 'cp/preview-seo?id={id}&siteId={object.site.id}',
+                        ];
+                    }
+
                 }
             );
         }

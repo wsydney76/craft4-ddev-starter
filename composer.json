@@ -4,15 +4,15 @@
   "version": "3.2.0",
   "license": "MIT",
   "require": {
-    "craftcms/cms": "4.4.13",
+    "craftcms/cms": "4.4.16",
     "craftcms/contact-form": "3.0.1",
     "craftcms/contact-form-honeypot": "^2.0",
     "fakerphp/faker": "^1.20",
     "nystudio107/craft-closure": "^1.0",
     "nystudio107/craft-code-field": "4.0.9",
-    "nystudio107/craft-vite": "4.0.5",
+    "nystudio107/craft-vite": "4.0.6",
     "putyourlightson/craft-sprig": "2.6.2",
-    "vaersaagod/seomate": "2.1.1",
+    "vaersaagod/seomate": "2.1.2",
     "vlucas/phpdotenv": "^5.4",
     "wsydney76/elementmap": "^4.0"
   },

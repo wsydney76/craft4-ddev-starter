@@ -9,70 +9,63 @@ Add to twig template:
 </script>
 */
 
-window.fetchJson = function(url, callback) {
-    fetch(getActionUrl(url), {
-        headers: {
-            'Accept': 'application/json'
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.error) {
-                alert(data.error);
-            } else if (data.exception) {
-                alert('Exception: ' + data.exception)
-            } else {
-                callback(data);
-            }
-        })
-        .catch(function(error) {
-            console.log(error);
-            alert('Error:', error)
-        });
-}
-
-// Define the postAction function on the window object.
-window.postAction = function(action, data, callback) {
-
-    // Add the CSRF token to the data payload for security.
+// Define a function named 'postAction' to handle posting data to the server
+window.postAction = function(action, data, callback, handleErrors = true) {
+    // Include the CSRF token in the data object
     data[window.csrfTokenName] = window.csrfTokenValue;
 
-    // Use the Fetch API to make a POST request.
+    // Use the Fetch API to send a POST request to the server
     fetch(getActionUrl(action), {
-        method: 'POST', // The HTTP method is POST.
+        method: 'POST',
         headers: {
-            'Accept': 'application/json', // The client will accept a JSON response.
-            'Content-Type': 'application/json' // The sent data is in JSON format.
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data) // The data payload is converted to a JSON string.
+        body: JSON.stringify(data)
     })
-        // Convert the response to JSON.
-        .then(response => response.json())
-        .then(data => {
-            console.log(data); // Log the response data.
-
-            // Check for an error in the response.
-            if (data.error) {
-                alert('Error ' + data.status + ': ' + data.error); // Show an alert with the error message.
-            }
-            // Check for an exception in the response.
-            else if (data.exception) {
-                alert('Exception: ' + data.exception); // Show an alert with the exception message.
-            }
-            // If there's no error or exception, call the callback function with the response data.
-            else {
-                callback(data);
+        .then((response) => {
+            // Parse the response as JSON and create a promise to handle it
+            // https://stackoverflow.com/questions/40248231/how-to-handle-http-code-4xx-responses-in-fetch-api
+            return new Promise((resolve) => response.json()
+                .then((json) => resolve({
+                    status: response.status,
+                    ok: response.ok,
+                    json,
+                })));
+        }).then(({status, json, ok}) => {
+            const message = json.message;
+            switch (status) {
+                case 400:
+                    // If the response status is 400, handle the error
+                    // This code is used by Crafts asFailure/asModelFailure methods
+                    console.log(status, json);
+                    if (handleErrors) {
+                        alert('Error ' + status + ': ' + message);
+                    } else {
+                        // Call the callback function with the error details
+                        callback(json, status, ok);
+                    }
+                    break;
+                case 200:
+                    // If the response status is 201 or 200, call the callback function with the response data
+                    callback(json, status, ok);
+                    break;
+                case 500:
+                default:
+                    // If the response status is 500 or other, log the error and throw an error
+                    console.log(status, json);
+                    throw new Error(status + ': ' + message);
             }
         })
-        // Handle any error that might occur during the request.
         .catch(function(error) {
-            console.log(error); // Log the error.
-            alert('System error: ' + error); // Show an alert with the error message.
+            // Handle any errors that occur during the fetch request or promise handling
+            console.log(error);
+            alert(error);
         });
 }
 
-// Define the getActionUrl function.
+// Function to get the action URL based on the provided action parameter
 function getActionUrl(action) {
-    // Construct the URL for the request by combining the base URL, action trigger, and action.
     return window.baseUrl + '/' + window.actionTrigger + '/' + action;
 }
+

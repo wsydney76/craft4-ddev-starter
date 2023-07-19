@@ -59,6 +59,10 @@ return
             'pdf'
         ])
 
+        // Avoid known issues with ImageMagick
+        ->transformGifs(false)
+        ->transformSvgs(false)
+
 		->useIframeResizer(false)
 
         ->enableGql(false)

@@ -1,48 +1,70 @@
-# Documentation for `postAction` Function
+## `postAction` Method Documentation
 
-## Overview
-The `postAction` function is a JavaScript function that makes a POST request to a Craft CMS action, passing some data, and then handles the server's response in the client.
+The `postAction` method is a utility function that simplifies sending a controller action request to the server and handling the response. It uses the Fetch API to perform the network request and provides a convenient way to handle success and error scenarios.
 
-## Syntax
+### Method Signature
+
 ```javascript
-window.postAction(action, data, callback);
+window.postAction(action: string, data: object, callback: function, handleErrors: boolean = true): void
 ```
 
 ### Parameters
 
-- `action` (required): A string representing the specific action on the server that the function will call.
+- `action` (string): The controller action to be performed on the server, in the form of `<module/plugin>/<controllerId>/<actionId>`.
 
-- `data` (required): An object representing the payload to be sent to the server. It should contain key-value pairs representing the data you want to send.
+- `data` (object): The data to be sent along with the request. It should be an object containing the necessary parameters and values.
 
-- `callback` (required): A function that will be called if the server returns a successful response that contains no error or exception. This function will be passed the server's response data as its argument.
+- `callback` (function): A callback function to be executed after a successful response from the server. It receives the parsed JSON response, the status code, and a boolean indicating the success status.
 
-## Usage
+- `handleErrors` (boolean, optional): Specifies whether to handle HTTP errors automatically or allow the callback function to handle them. By default, it's set to `true`.
 
-1. **Define the action**: Define the action you want to call on the server. This would typically match the name of a Craft CMS web controller action.
+### Usage
 
-2. **Prepare the data**: Prepare the data you want to send to the server as an object. The keys should be the data field names, and the values should be the data values.
+To use the `postAction` method, follow these steps:
 
-3. **Define the callback function**: Define the function that will be called if the server's response is successful and contains no error or exception.
+1. Ensure that the `postAction` function is available in the global scope, either by including it in your JavaScript code or by loading the script that contains the function.
 
-Here's an example usage:
+2. Call the `postAction` function and provide the required parameters:
 
 ```javascript
-var action = 'myModule/myController/myAction';
-var data = {
-    field1: 'value1',
-    field2: 'value2'
-};
-var callback = function(responseData) {
-    console.log('Server response:', responseData);
-};
-
-window.postAction(action, data, callback);
+postAction(action, data, callback, handleErrors);
 ```
 
-In this example, a POST request will be sent to the server endpoint represented by `action` (in this case, 'submitForm'). The data to be sent is the `data` object. If the server's response is successful and contains no error or exception, the `callback` function will be called, and it will log the server's response data.
+- `action` should be a string specifying the server action or endpoint you want to invoke.
 
-## Errors and Exceptions
+- `data` should be an object containing the necessary data to send to the server.
 
-If the server's response contains an error or an exception, an alert will be shown with the error or exception message. If an error occurs while making the request or handling the response, an alert will be shown with the error message.
+- `callback` should be a function that will be called after a successful response from the server. It will receive the parsed JSON response, the status code, and a boolean indicating the success status.
 
-Please note that the presence of CSRF tokens indicates that the system has security measures in place to protect against cross-site request forgery attacks. The CSRF token's name and value should be stored in `window.csrfTokenName` and `window.csrfTokenValue` respectively before calling `postAction`.
+- `handleErrors` is an optional parameter. If set to `true` (default), it will display an alert with the error message for HTTP error responses. If set to `false`, the error handling will be delegated to the callback function.
+
+### Example
+
+Here's an example that demonstrates how to use the `postAction` method:
+
+```javascript
+// Define a callback function to handle the server response
+// If the handleErrors parameter is set to true, this function will not be called for HTTP errors, so status will always be 200, and success will always be true
+function handleResponse(data, status, success) {
+    if (success) {
+        console.log('Success:', data);
+        // Handle the successful response
+    } else {
+        console.log('Error:', status, data);
+        // Handle the error response
+    }
+}
+
+// Prepare the data to send
+var postData = {
+    name: 'John Doe',
+    email: 'johndoe@example.com'
+};
+
+// Call the postAction method
+postAction('submitForm', postData, handleResponse, false);
+```
+
+In this example, the `postAction` method is called with the action `'submitForm'` and the `postData` object. The `handleResponse` function is provided as the callback, which will be called with the server response, status code, and success status.
+
+That's it! You can now use the `postAction` method to easily send POST requests to the server and handle the responses in your JavaScript code.

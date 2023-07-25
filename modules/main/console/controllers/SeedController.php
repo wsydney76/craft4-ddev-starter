@@ -171,7 +171,7 @@ class SeedController extends InitController
             $entry = $this->createEntry([
                 'section' => $section->handle,
                 'type' => $type->handle,
-                'author' => User::find()->orderBy('rand()')->one(),
+                'author' => User::find()->orderBy(Craft::$app->db->driverName === 'mysql' ? 'RAND()' : 'RANDOM()')->one(),
                 'title' => str_replace('.', '', $title),
                 'postDate' => $this->faker->dateTimeInInterval('-2 days', '-3 months'),
                 'fields' => [
@@ -193,7 +193,7 @@ class SeedController extends InitController
         $entry = $this->createEntry([
             'section' => 'article',
             'type' => 'default',
-            'author' => User::find()->orderBy('rand()')->one(),
+            'author' => User::find()->orderBy(Craft::$app->db->driverName === 'mysql' ? 'RAND()' : 'RANDOM()')->one(),
             'title' => 'Video Demo',
             'fields' => [
                 'isFeatured' => true,
@@ -282,7 +282,7 @@ class SeedController extends InitController
             $entry = $this->createEntry([
                 'section' => $section->handle,
                 'type' => $type->handle,
-                'author' => User::find()->orderBy('rand()')->one(),
+                'author' => User::find()->orderBy(Craft::$app->db->driverName === 'mysql' ? 'RAND()' : 'RANDOM()')->one(),
                 'title' => str_replace('.', '', $title),
                 'postDate' => $this->faker->dateTimeInInterval('-1 days', '-10 days'),
                 'fields' => [

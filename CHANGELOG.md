@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 3.3 2023-08-13
 
 * Added `Writer` user group with limited permissions.
 * Seed Testimonials/team components with better photos.
@@ -8,6 +8,11 @@
 * Fix image block default values.
 * Added custom SEO preview, including a provisional Mastodon preview.
 * Added SEO fields to `Article/Story` entry type.
+* Fix SEO preview
+* Update callactions.js for better error handling.
+* Use `q` html tag for quotes.
+* Various minor tweaks and fixes.
+* Updated Craft to 4.4.17.
 
 ## 3.2 2023-05-25
 

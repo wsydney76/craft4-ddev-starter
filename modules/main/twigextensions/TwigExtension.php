@@ -3,6 +3,7 @@
 namespace modules\main\twigextensions;
 
 use Craft;
+use craft\helpers\Html;
 use craft\helpers\HtmlPurifier;
 use craft\helpers\Json;
 use craft\helpers\Template;
@@ -53,9 +54,10 @@ class TwigExtension extends AbstractExtension implements GlobalsInterface
         ];
     }
 
-    public function quotationMarksFilter(?string $text): string
+    public function quotationMarksFilter(?string $text): \Twig\Markup
     {
-        return Craft::t('site', '“') . $text . Craft::t('site', '”');
+        return Template::raw(Html::tag('q', $text));
+        // return Craft::t('site', '“') . $text . Craft::t('site', '”');
     }
 
     public function prepareTextFilter(?string $text): string

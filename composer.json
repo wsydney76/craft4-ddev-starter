@@ -1,15 +1,15 @@
 {
   "description": "Multilingual Craft CMS starter for use with DDEV",
   "name": "wsydney76/craft4-ddev-starter",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "license": "MIT",
   "require": {
-    "craftcms/cms": "4.4.16.1",
+    "craftcms/cms": "4.4.17",
     "craftcms/contact-form": "3.0.1",
     "craftcms/contact-form-honeypot": "^2.0",
     "fakerphp/faker": "^1.20",
     "nystudio107/craft-closure": "^1.0",
-    "nystudio107/craft-code-field": "4.0.9",
+    "nystudio107/craft-code-field": "4.0.10",
     "nystudio107/craft-vite": "4.0.6",
     "putyourlightson/craft-sprig": "2.6.2",
     "vaersaagod/seomate": "2.1.2",

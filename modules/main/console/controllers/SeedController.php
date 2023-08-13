@@ -8,6 +8,7 @@ use craft\elements\Entry;
 use craft\elements\User;
 use craft\helpers\App;
 use craft\helpers\ArrayHelper;
+use craft\helpers\Assets;
 use craft\helpers\Console;
 use craft\helpers\FileHelper;
 use craft\helpers\StringHelper;
@@ -1155,6 +1156,7 @@ class SeedController extends InitController
 
     function convertFilenameToProperName($filename): string
     {
+
         // Get the filename without the extension
         $name = pathinfo($filename, PATHINFO_FILENAME);
 

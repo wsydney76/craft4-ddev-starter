@@ -159,7 +159,7 @@ name: Profile
 section: fcbda6e5-a26a-4efb-800a-a67a44a88fa1 # Person
 showStatusField: true
 slugTranslationKeyFormat: null
-slugTranslationMethod: site
+slugTranslationMethod: none
 sortOrder: 2
 titleFormat: '{firstName} {nameAffix} {lastName}'
 titleTranslationKeyFormat: null

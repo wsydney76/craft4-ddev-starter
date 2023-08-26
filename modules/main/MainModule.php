@@ -5,13 +5,16 @@ namespace modules\main;
 use Craft;
 use craft\base\Element;
 use craft\elements\actions\CopyReferenceTag;
+use craft\elements\Asset;
 use craft\elements\Entry;
 use craft\events\BlockTypesEvent;
 use craft\events\ElementEvent;
+use craft\events\RegisterElementSourcesEvent;
 use craft\events\RegisterPreviewTargetsEvent;
 use craft\fields\Matrix;
 use craft\helpers\ArrayHelper;
 use craft\helpers\ElementHelper;
+use craft\models\VolumeFolder;
 use craft\services\Elements;
 use Illuminate\Support\Collection;
 use modules\base\BaseModule;
@@ -101,8 +104,6 @@ class MainModule extends BaseModule
 
             $this->restrictSearchIndex();
 
-            $this->validateAllSites();
-
             $this->createHooks();
 
             $this->registerAssetBundles([
@@ -149,50 +150,25 @@ class MainModule extends BaseModule
 
                 }
             );
+
+            // https://github.com/craftcms/cms/discussions/13535
+            if (Craft::$app->config->custom->showAssetFolders) {
+                Event::on(Asset::class, Asset::EVENT_REGISTER_SOURCES, function(RegisterElementSourcesEvent $event) {
+                    $assetsService = Craft::$app->getAssets();
+
+                    foreach ($event->sources as &$source) {
+                        if (isset($source['data']['folder-id'])) {
+                            $folder = $assetsService->getFolderById($source['data']['folder-id']);
+                            if ($folder && !$folder->parentId) {
+                                $subfolders = $assetsService->getAllDescendantFolders($folder, withParent: false, asTree: true);
+                                $source['nested'] = $this->folders2sources($subfolders, $source);
+                            }
+                        }
+                    }
+                });
+            }
         }
     }
-
-    protected function validateAllSites()
-    {
-        // Validate entries on all sites (fixes open Craft bug)
-        Event::on(
-            Entry::class,
-            Entry::EVENT_BEFORE_SAVE, function($event): void {
-
-            if (Craft::$app->sites->getTotalSites() === 1) {
-                return;
-            }
-
-            /** @var Entry $entry */
-            $entry = $event->sender;
-
-            // TODO: Check conditionals
-
-            if ($entry->resaving || $entry->propagating || $entry->getScenario() != Entry::STATUS_LIVE) {
-                return;
-            }
-
-            $entry->validate();
-
-            if ($entry->hasErrors()) {
-                return;
-            }
-
-            foreach ($entry->getLocalized()->all() as $localizedEntry) {
-                $localizedEntry->scenario = Entry::SCENARIO_LIVE;
-
-                if (!$localizedEntry->validate()) {
-                    $entry->addError(
-                        $entry->getType()->hasTitleField ? 'title' : 'slug',
-                        Craft::t('site', 'Error validating entry in') .
-                        ' "' . $localizedEntry->site->name . '". ' .
-                        implode(' ', $localizedEntry->getErrorSummary(false)));
-                    $event->isValid = false;
-                }
-            }
-        });
-    }
-
 
     protected function restrictSearchIndex()
     {
@@ -297,5 +273,23 @@ class MainModule extends BaseModule
             ]);
     }
 
+    protected function folders2sources(array $folders, array $rootSource): array
+    {
+        return array_map(fn(VolumeFolder $folder) => [
+            'key' => "folder:$folder->uid",
+            'label' => $folder->name,
+            'hasThumbs' => true,
+            'criteria' => ['folderId' => $folder->id],
+            'defaultSort' => ['dateCreated', 'desc'],
+            'data' => [
+                'folder-id' => $folder->id,
+                'can-upload' => $rootSource['data']['can-upload'] ?? false,
+                'can-move-to' => $rootSource['data']['can-move-to'] ?? false,
+                'can-move-peer-files-to' => $rootSource['data']['can-move-peer-files-to'] ?? false,
+                'fs-type' => $rootSource['fs-type'] ?? null,
+            ],
+            'nested' => $this->folders2sources($folder->getChildren(), $rootSource),
+        ], $folders);
+    }
 
 }

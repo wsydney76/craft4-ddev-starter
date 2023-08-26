@@ -2,7 +2,7 @@
 
 
 {% if not craft.app.request.isPreview and not currentUser %}
-    {% exit 403 %}
+    {% exit 403 'Preview is not allowed in this context.'|t %}
 {% endif %}
 
 {% set id = craft.app.request.requiredQueryParam('id') %}
@@ -12,7 +12,7 @@
 {% set entry = craft.app.entries.entryById(id, siteId) %}
 
 {% if not entry %}
-    {% exit 404 %}
+    {% exit 404 'Entry not found.'|t %}
 {% endif %}
 
 

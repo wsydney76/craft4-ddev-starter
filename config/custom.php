@@ -125,5 +125,7 @@ return [
     'skipSrcset' => true,
 
 
+    // Whether to show asset folders in the sidebar
+    'showAssetFolders' => true,
 
 ];

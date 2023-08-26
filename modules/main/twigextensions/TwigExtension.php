@@ -28,8 +28,6 @@ class TwigExtension extends AbstractExtension implements GlobalsInterface
     public function getGlobals(): array
     {
         return [
-            // TODO: Remove _globals in Craft 4.5
-            '_globals' => Collection::make(),
             'customConfig' => Craft::$app->getConfig()->custom,
         ];
     }

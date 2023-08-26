@@ -3,7 +3,7 @@
 {% block contentWrapper %}
 
     {% if not craft.app.request.isPreview and not currentUser %}
-        {% exit 403 %}
+        {% exit 403 'Preview is not allowed in this context.'|t %}
     {% endif %}
 
     {% switch entry.section.handle %}

@@ -9,5 +9,3 @@ database:
 composer_version: "2"
 nodejs_version: "18"
 
-# See https://ddev.readthedocs.io/en/stable/users/configuration/config/ for more configuration options.
-# See https://ddev.readthedocs.io/en/stable/users/usage/commands/#debug-migrate-database for more information on database migrations.

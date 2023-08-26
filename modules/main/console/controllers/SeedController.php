@@ -1154,8 +1154,11 @@ class SeedController extends InitController
             ->one();
     }
 
-    function convertFilenameToProperName($filename): string
+    protected function convertFilenameToProperName($filename): string
     {
+
+        // Do not use Assets::filename2Title($filename) here, because it would break seeding persons, which rely on this convention.
+
 
         // Get the filename without the extension
         $name = pathinfo($filename, PATHINFO_FILENAME);

@@ -6,6 +6,7 @@ instructions: null
 name: 'Testimonial Style'
 searchable: false
 settings:
+  columnType: string
   options:
     -
       __assoc__:

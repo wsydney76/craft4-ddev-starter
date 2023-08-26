@@ -97,6 +97,9 @@ handle: articleIndex
 hasTitleField: true
 name: 'Article Index'
 section: 84b98802-2548-4aed-b67e-fc97f6ed9e30 # Page
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 3
 titleFormat: null
 titleTranslationKeyFormat: null

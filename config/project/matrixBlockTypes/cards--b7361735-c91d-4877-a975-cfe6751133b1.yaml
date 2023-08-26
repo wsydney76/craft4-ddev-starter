@@ -42,6 +42,7 @@ fields:
     name: Layout
     searchable: false
     settings:
+      columnType: string
       options:
         -
           __assoc__:

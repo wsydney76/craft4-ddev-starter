@@ -61,6 +61,9 @@ handle: privacy
 hasTitleField: true
 name: Privacy
 section: abd279ac-58c4-41dc-ac32-d2e388e34252 # Legal
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 2
 titleFormat: null
 titleTranslationKeyFormat: null

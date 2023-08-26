@@ -61,6 +61,9 @@ handle: team
 hasTitleField: true
 name: Team
 section: ae6e4008-f45f-4d7d-bbc1-d8b90290efb8 # Team
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

@@ -1,5 +1,5 @@
 columnSuffix: kylmvrit
-contentColumnType: string(7)
+contentColumnType: char(7)
 fieldGroup: 669ee208-7bb0-4800-ba43-454bc31751ac # Story
 handle: textColor
 instructions: null

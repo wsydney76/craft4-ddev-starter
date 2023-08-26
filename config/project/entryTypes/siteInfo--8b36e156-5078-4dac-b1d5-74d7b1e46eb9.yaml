@@ -165,6 +165,9 @@ handle: siteInfo
 hasTitleField: true
 name: 'Site Info'
 section: 71c1782e-c5bc-4d87-840e-0a4c1a643eff # Site Info
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null

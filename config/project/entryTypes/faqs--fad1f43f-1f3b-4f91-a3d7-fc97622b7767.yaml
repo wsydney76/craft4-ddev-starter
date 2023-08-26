@@ -49,6 +49,9 @@ handle: faqs
 hasTitleField: true
 name: FAQs
 section: 4da24c3d-bc23-48bc-a26f-407730202ca7 # FAQs
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

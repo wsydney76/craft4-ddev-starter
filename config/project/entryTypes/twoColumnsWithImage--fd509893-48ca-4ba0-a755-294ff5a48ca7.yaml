@@ -73,6 +73,9 @@ handle: twoColumnsWithImage
 hasTitleField: true
 name: 'Two columns with image'
 section: 07fce1cd-37fc-4742-acf8-6bc0a4efd7d7 # Two Columns With Image
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

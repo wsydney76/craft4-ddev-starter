@@ -6,6 +6,7 @@ instructions: null
 name: Align
 searchable: false
 settings:
+  columnType: string
   options:
     -
       __assoc__:

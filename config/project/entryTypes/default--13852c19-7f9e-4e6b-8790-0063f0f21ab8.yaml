@@ -109,6 +109,9 @@ handle: default
 hasTitleField: true
 name: Default
 section: 27127353-b8d1-4c07-a2af-7a273ad8f1f6 # Hero Area
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

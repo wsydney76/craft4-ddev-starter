@@ -199,6 +199,9 @@ handle: story
 hasTitleField: true
 name: Story
 section: 2f93cb45-a9ce-4284-8848-9eb001fb8a1c # Article
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 2
 titleFormat: null
 titleTranslationKeyFormat: null

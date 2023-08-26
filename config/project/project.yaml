@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1686041803
+dateModified: 1693033371
 elementSources:
   craft\elements\Asset:
     -
@@ -265,11 +265,6 @@ elementSources:
     -
       condition:
         class: craft\elements\conditions\entries\EntryCondition
-        conditionRules:
-          -
-            class: modules\main\conditions\HasDraftsConditionRule
-            uid: 89a6f153-81bd-4c35-9710-b98ba3b78182
-            value: true
         elementType: craft\elements\Entry
         fieldContext: global
       defaultSort:
@@ -327,7 +322,6 @@ fs:
     url: '@web/files/userphotos'
 meta:
   __names__:
-    0b3d2dae-0516-4e85-b297-c9e661b964d5: Heading # Heading
     0c39cdb5-26f9-49ca-9bb4-445a28a61ddf: Images # Images
     1b04edb4-5ebc-45da-ba85-afcd734f187b: 'YouTube Video' # YouTube Video
     1b464b23-6750-460e-aea1-0c4af5f52e23: Key # Key
@@ -348,7 +342,6 @@ meta:
     3d8293ac-fa84-47ed-befa-a41cb6315212: Layout # Layout
     3db074a8-549b-4879-a864-250d2652282e: Cards # Cards
     3e35a043-a62e-4ede-acd6-44dfb92d6914: 'Site Name' # Site Name
-    3fb81893-2727-4990-b8f6-a5f6e391a8d8: Style # Style
     4a8239eb-1b66-44e0-bd66-5a65d44b0727: Icon # Icon
     4b050685-0425-4094-bde2-85e2eedd0e12: Text # Text
     4bc24da9-fd88-45ec-8410-bc189032e3f8: 'Phone Number' # Phone Number
@@ -358,7 +351,6 @@ meta:
     5a0be839-14a2-465e-a504-bb63dd0281e9: Images # Images
     5aa9454e-9fa0-4d8b-b667-023ce4cef5df: 'First Name' # First Name
     05ab0680-2ccc-4a59-932a-07311f773d42: Topics # Topics
-    5aea2dce-a401-4e9f-8563-7a5a312f644b: 'Content Section' # Content Section
     5b0c38db-9ab4-47d8-b4a7-913710c08ca6: English # English
     5e954ca4-2245-4624-b25e-fc91bbb917bf: Default # Default
     6bc951bf-74b3-4218-b3aa-dc427967abe9: Person # Person
@@ -373,12 +365,10 @@ meta:
     7fda4ce3-4bdd-4fbe-b32f-35a5e6707295: 'Article Index' # Article Index
     8b36e156-5078-4dac-b1d5-74d7b1e46eb9: 'Site Info' # Site Info
     8c826eca-f376-4f7a-92d6-307faddea123: Image # Image
-    8e7aba7b-4624-4470-b007-a84c85242f36: 'Sold Out' # Sold Out
     08f7545c-870e-4727-a418-660af19052ea: Buttons # Buttons
     8f596240-23ec-46cd-abe2-386291b11179: 'Content Editors' # Content Editors
     9a3286bb-91f7-47ba-9862-9d102a8cf5d0: 'Show Hero Area' # Show Hero Area
     9c7e95a7-7a87-46ad-974e-8ce3846ef68b: Description # Description
-    9d9d22d0-ccc2-4e4e-95b2-a28deb16c08b: Heading # Heading
     9e2e3c4b-bd17-46b3-97f0-a4f6605b93d9: Text # Text
     9efaa99a-273e-47a3-83f7-692251886873: Text # Text
     10df8f20-7a11-4fb0-8143-f50048806d3b: Works # Works
@@ -388,16 +378,12 @@ meta:
     013c1232-8bf7-4c1f-80dc-d456db31f159: 'Testimonial Style' # Testimonial Style
     16e1ce60-0ee3-48c2-ac6a-d34757a52eed: 'Single Testimonial' # Single Testimonial
     24a1d709-9601-4848-9deb-6df1f3ecd806: Feature # Feature
-    27b3f36f-ea97-4dad-a77d-39eff7bd0900: Key # Key
     43f9aef9-cc98-45e1-ac64-8b73fc0c79a8: 'Topic Index' # Topic Index
-    48fde250-325a-44bf-9238-66f0e831a883: Image # Image
     49a267d5-a7d3-43e8-979c-b4c3b107154e: Cover # Cover
-    61c8dfb5-4ac7-420b-ad8e-5cad0d464a98: Description # Description
     67a97a95-ddb9-4d73-a10b-649ba6d997cd: Privacy # Privacy
     71c1782e-c5bc-4d87-840e-0a4c1a643eff: 'Site Info' # Site Info
     72a3030d-cba4-4a39-ba7f-553d7116aeaf: Gallery # Gallery
     80c4b0e7-c398-4776-ad74-df0f53d43c86: 'Text Module' # Text Module
-    080cb307-609c-4155-9c50-b6248db4d974: Text # Text
     80e88b1c-5efc-40b5-b15f-db6921165b73: Title # Title
     80fa81e4-1f78-4d88-b733-f565d1f5b9bd: Image # Image
     81e6a0d6-13c5-47ad-a9e6-c2181276db9c: Text # Text
@@ -425,7 +411,6 @@ meta:
     3468bd44-82e8-4104-932e-5085601fca12: Default # Default
     4113a0a0-cb21-4671-9f9c-65575d18e024: 'Multiple Testimonials' # Multiple Testimonials
     4120c3e9-17c2-464b-8d41-7d009dacb5e3: 'Page Template' # Page Template
-    4401f3f7-9915-4cd0-b3d9-987755e4bdf8: Image # Image
     6193ce57-a570-451e-8124-ec3ba985b0b2: Caption # Caption
     6739b2cb-a865-433d-9732-cdd6a419188d: 'Page Template' # Page Template
     7602aac5-c98e-44bd-8570-457a85b8abad: Criteria # Criteria
@@ -460,7 +445,6 @@ meta:
     a1dd83a1-2011-4bef-aa20-b6d6a366d66e: 'SEO Image' # SEO Image
     a4fff836-97c9-4c02-b970-c6f28915d8d0: Text # Text
     a21f07ce-87f7-431d-b54c-a12786f9fc9c: 'Craft Environment' # Craft Environment
-    a24e2c31-f1b3-4687-873d-b8d6dff03e10: Question # Question
     abd279ac-58c4-41dc-ac32-d2e388e34252: Legal # Legal
     abefa0bd-6b36-4b4f-a9de-a4304e7b66a3: 'Public Schema' # Public Schema
     ac457f93-1a50-473e-9983-a899a7f0bed7: Heading # Heading
@@ -469,14 +453,11 @@ meta:
     af9afec0-f712-4b14-b235-851c6455e267: Text # Text
     b0cfc7f4-d446-41bb-87ab-dc16b1481540: 'Alternative Title' # Alternative Title
     b3aae533-c873-4f67-8df2-d2bde900b30a: 'Last Name' # Last Name
-    b3b9ebe4-94b8-4601-bf11-3c5aa638c87f: 'CTA Target' # CTA Target
     b7e84646-2ab1-476a-97a1-49ac1fa05852: 'Is Featured' # Is Featured
     b32ea3bc-ee43-4236-864d-972d36f184b2: Sitemap # Sitemap
     b61bea97-e4d4-4de2-9149-15f74906945a: SEO # SEO
-    b64a3aa4-62b9-40c5-b05d-ea06389b36c7: 'Start Date' # Start Date
     b40353f4-de5f-4006-813a-15494e63e104: Align # Align
     b7361735-c91d-4877-a975-cfe6751133b1: Cards # Cards
-    bb5f8fa8-90f9-4d54-9f99-3ccd6fb69a7b: Text # Text
     bbc46fd7-2b24-431f-a7d1-aedf86a6c169: Handle # Handle
     bbe2ff0f-6056-4848-80de-3070bb80294d: Email # Email
     bd76fb6e-8765-41d3-8e8a-02e37e127c80: Common # Common
@@ -486,16 +467,12 @@ meta:
     c0fe6eff-5323-415f-81d9-4f9d42a07b66: 'Story Content' # Story Content
     c8a6470e-a8da-46c4-ae23-4eb68d320a66: 'Show in Sites' # Show in Sites
     c38ac7d1-9663-45a2-a78e-c676b354e27e: Search # Search
-    c62d66b7-d193-453a-b154-4141fa6332c6: Quote # Quote
     c72e758a-f6c3-42cd-896b-3ff6353ed259: 'Featured Image' # Featured Image
-    c908a30e-b8c5-44de-b9ee-7ae52d9c4c07: 'CTA Caption' # CTA Caption
     c38953ca-ba84-4992-8deb-65aa2fc40b34: 'Hero Area' # Hero Area
     cb919462-37df-4bb3-acf9-09892c4575e5: 'Nav Item' # Nav Item
     cc3fbab0-826f-4aed-b2aa-eeaecc2964bf: 'Alt Text' # Alt Text
-    cf967bc8-e8fd-4cd3-b66c-998982d2cc6c: 'Booking Status' # Booking Status
     cf1158bf-b524-4684-9147-0ca8295ba477: Text # Text
     cf487444-d6c2-4c99-9432-e229efa674a2: Person # Person
-    d0390287-042f-4178-bb20-48d3c7edf4ad: Style # Style
     d1ce7a99-7ba0-4ad1-9f19-c4cdad3f247e: 'Email Address' # Email Address
     d3f37f0d-7675-4e3b-a223-69995d7b57b6: Standard # Standard
     d92e63b4-996e-4dcd-8b55-d119540b5831: Default # Default
@@ -504,14 +481,11 @@ meta:
     db16c9e5-2cfe-4821-88ff-7b18648846a1: Testimonial # Testimonial
     db33cf09-8ba1-45f6-9cc0-3e855cbcb809: Template # Template
     dbf50cb2-37c8-45f7-b375-dcb93e09691b: Deutsch # Deutsch
-    de3c08c7-8c44-46ea-8a7c-109499269f55: Answer # Answer
     dfe29fea-361a-48b4-b260-f547abb65701: Text # Text
     dfe86fae-c542-4ae2-8b07-16d57c206b16: Button # Button
     e2e51276-3783-49cb-9ed0-22ae364fd49a: 'Menu Title' # Menu Title
     e5bf7587-80f3-47bf-8e22-d1d8bbcf11ee: Template # Template
     e26c6ef2-44c5-4a65-bfc1-b0a61124edca: Newsletter # Newsletter
-    e41dea07-8368-4830-a643-ff8fa7f37200: Guides # Guides
-    e53bc1f1-ecbf-44b8-a89f-bea86a68c048: Text # Text
     e62a4659-99c7-4a5b-af65-00d9f6cb1d22: 'Name Affix' # Name Affix
     e62d63b0-c299-42ce-aeef-86a69f7e676c: 'SEO Fields' # SEO Fields
     e842f783-0027-4c81-8136-61f70ccfbd6d: Birthday # Birthday
@@ -530,7 +504,6 @@ meta:
     f8ff18c6-ca19-4910-8753-62aa768dd3a3: Cite # Cite
     f26d4aac-c7ec-4b8f-98c8-ab7fc5315445: Testimonials # Testimonials
     f76ccc3a-7c88-43a3-9024-5ea619356bbf: Heading # Heading
-    f7250ac7-93b5-4533-a000-82b9bec48075: __blank__ # __blank__
     f620927d-baf7-430a-a965-f1e9ea676b83: Text # Text
     fad1f43f-1f3b-4f91-a3d7-fc97622b7767: FAQs # FAQs
     fbaae504-9220-4e1b-a58a-e3819e88194b: 'Use Vite Dev Server' # Use Vite Dev Server
@@ -582,5 +555,5 @@ system:
   live: true
   name: $SYSTEM_NAME
   retryDuration: 30
-  schemaVersion: 4.4.0.4
+  schemaVersion: 4.5.0.3
   timeZone: $SYSTEM_TIMEZONE

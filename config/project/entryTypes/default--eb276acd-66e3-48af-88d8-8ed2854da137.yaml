@@ -103,6 +103,9 @@ handle: default
 hasTitleField: true
 name: Default
 section: 5042338b-5f7b-4535-96bb-578a829e987c # Topic
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

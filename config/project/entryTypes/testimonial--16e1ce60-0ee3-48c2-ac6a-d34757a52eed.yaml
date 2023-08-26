@@ -108,6 +108,9 @@ handle: testimonial
 hasTitleField: false
 name: 'Single Testimonial'
 section: db16c9e5-2cfe-4821-88ff-7b18648846a1 # Testimonial
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: '{body[:50]} - {person.one.title}'
 titleTranslationKeyFormat: null

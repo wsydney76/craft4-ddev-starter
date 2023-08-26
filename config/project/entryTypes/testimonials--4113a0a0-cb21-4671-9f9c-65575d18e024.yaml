@@ -73,6 +73,9 @@ handle: testimonials
 hasTitleField: true
 name: 'Multiple Testimonials'
 section: db16c9e5-2cfe-4821-88ff-7b18648846a1 # Testimonial
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 2
 titleFormat: null
 titleTranslationKeyFormat: null

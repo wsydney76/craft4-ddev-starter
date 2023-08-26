@@ -73,6 +73,9 @@ handle: cards
 hasTitleField: true
 name: Cards
 section: e3333efd-6726-41c1-9a66-a746a6f0d350 # Cards
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

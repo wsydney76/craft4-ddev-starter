@@ -69,6 +69,9 @@ handle: navItem
 hasTitleField: true
 name: 'Nav Item'
 section: 84b98802-2548-4aed-b67e-fc97f6ed9e30 # Page
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 8
 titleFormat: null
 titleTranslationKeyFormat: null

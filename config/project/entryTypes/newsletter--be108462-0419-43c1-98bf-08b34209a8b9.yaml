@@ -81,6 +81,9 @@ handle: newsletter
 hasTitleField: true
 name: Newsletter
 section: e26c6ef2-44c5-4a65-bfc1-b0a61124edca # Newsletter
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

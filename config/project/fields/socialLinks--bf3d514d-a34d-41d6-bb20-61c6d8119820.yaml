@@ -122,6 +122,7 @@ settings:
           - ''
   maxRows: null
   minRows: null
+  staticRows: false
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Table

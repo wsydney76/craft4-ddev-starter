@@ -57,6 +57,9 @@ handle: default
 hasTitleField: true
 name: Standard
 section: 80c4b0e7-c398-4776-ad74-df0f53d43c86 # Text Module
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

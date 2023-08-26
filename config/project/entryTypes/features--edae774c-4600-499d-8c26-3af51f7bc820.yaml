@@ -73,6 +73,9 @@ handle: features
 hasTitleField: true
 name: Features
 section: 4d41f740-b1a9-477c-8522-85cf52b2652f # Features
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 2
 titleFormat: null
 titleTranslationKeyFormat: null

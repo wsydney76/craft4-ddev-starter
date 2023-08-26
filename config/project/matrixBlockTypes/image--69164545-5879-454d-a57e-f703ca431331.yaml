@@ -98,6 +98,7 @@ fields:
     name: Align
     searchable: false
     settings:
+      columnType: string
       options:
         -
           __assoc__:
@@ -203,6 +204,7 @@ fields:
     name: 'Aspect Ratio'
     searchable: false
     settings:
+      columnType: string
       options:
         -
           __assoc__:

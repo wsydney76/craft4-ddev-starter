@@ -92,6 +92,7 @@ fields:
     name: Align
     searchable: false
     settings:
+      columnType: string
       options:
         -
           __assoc__:

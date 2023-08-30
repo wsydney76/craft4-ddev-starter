@@ -10,9 +10,16 @@
 * Added SEO fields to `Article/Story` entry type.
 * Fix SEO preview
 * Update callactions.js for better error handling.
-* Use `q` html tag for quotes.
 * Various minor tweaks and fixes.
-* Updated Craft to 4.4.17.
+* Updated Craft to 4.5.3.
+* Removed custom `_globals` twig variable, as it's now native in Craft 4.5.
+* Set new `Slug Translation Method` and `Show the Status field` entry type settings where appropriate.
+* Added a hook to .ddev/config.yaml that creates a database dump on `ddev stop` or `ddev poweroff`.
+
+### Todos
+
+* Open CSS issue: horizontal shift on entry index page when refreshing the page.
+* Provisionally fixed CSS issue: vertical shift on glabal header if a user photo is set.
 
 ## 3.2 2023-05-25
 

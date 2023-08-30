@@ -4,7 +4,7 @@
   "version": "3.3.0",
   "license": "MIT",
   "require": {
-    "craftcms/cms": "^4.5.2",
+    "craftcms/cms": "^4.5.3",
     "craftcms/contact-form": "3.0.1",
     "craftcms/contact-form-honeypot": "^2.0",
     "fakerphp/faker": "^1.20",
@@ -38,12 +38,13 @@
   },
   "scripts": {
     "pre-update-cmd": [
-      "@php craft off --retry=30"
+      "@php craft off"
     ],
     "post-update-cmd": [
       "@php craft clear-caches/all",
       "@php craft migrate/all",
-      "@php craft on"
+      "@php craft on",
+      "@php craft project-config/rebuild"
     ]
   }
 }

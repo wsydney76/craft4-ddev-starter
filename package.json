@@ -1,5 +1,5 @@
 {
-  "name": "craft_project",
+  "name": "craft4_ddev_starter",
   "version": "1.0.0",
   "description": "Multilingual Craft CMS starter for use with DDEV/Vite",
   "author": "wsydney76",

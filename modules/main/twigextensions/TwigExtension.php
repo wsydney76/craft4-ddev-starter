@@ -52,10 +52,10 @@ class TwigExtension extends AbstractExtension implements GlobalsInterface
         ];
     }
 
-    public function quotationMarksFilter(?string $text): \Twig\Markup
+    public function quotationMarksFilter(?string $text): string
     {
-        return Template::raw(Html::tag('q', $text));
-        // return Craft::t('site', '“') . $text . Craft::t('site', '”');
+        // return Template::raw(Html::tag('q', $text));
+        return Craft::t('site', '“') . $text . Craft::t('site', '”');
     }
 
     public function prepareTextFilter(?string $text): string

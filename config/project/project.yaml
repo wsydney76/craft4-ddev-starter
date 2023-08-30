@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1693033713
+dateModified: 1693991385
 elementSources:
   craft\elements\Asset:
     -
@@ -265,6 +265,11 @@ elementSources:
     -
       condition:
         class: craft\elements\conditions\entries\EntryCondition
+        conditionRules:
+          -
+            class: modules\main\conditions\HasDraftsConditionRule
+            uid: 3769af4b-c29d-4ee1-bcce-5c08c32ce5bb
+            value: true
         elementType: craft\elements\Entry
         fieldContext: global
       defaultSort:
@@ -555,5 +560,5 @@ system:
   live: true
   name: $SYSTEM_NAME
   retryDuration: 30
-  schemaVersion: 4.5.0.3
+  schemaVersion: 4.5.3.0
   timeZone: $SYSTEM_TIMEZONE

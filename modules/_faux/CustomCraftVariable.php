@@ -11,26 +11,18 @@ use Spatie\SchemaOrg\Schema;
 /**
  * @mixin Schema $schema
  * @mixin ImagerVariable $imager
- * @mixin ProjectService $project
+ * @property  ProjectService $project
+ * @property Schema $schema
  * @mixin ViteVariable $vite
  */
 
 class CustomCraftVariable extends CraftVariable
 {
-    public function schema(): Schema
-    {
-        return new Schema();
-    }
-
     public function imager(): ImagerVariable
     {
         return new ImagerVariable();
     }
 
-    public function project(): ProjectService
-    {
-        return new ProjectService();
-    }
 
     public function vite(): ViteVariable
     {

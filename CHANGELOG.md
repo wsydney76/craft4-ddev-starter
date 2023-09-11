@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+* Fixed a bug where the `hasDraftsConditionRule` condition was removed from the `Work/Drafts` element index source when `craft project-config/rebuild` was run.
+
 ## 3.3 2023-08-13
 
 * Added `Writer` user group with limited permissions.

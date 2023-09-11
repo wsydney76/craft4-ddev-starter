@@ -91,12 +91,15 @@ class MainModule extends BaseModule
             return $this;
         });
 
-        if (Craft::$app->request->isCpRequest) {
-            $this->registerTemplateRoots(false, true);
-
+        if (!Craft::$app->request->isSiteRequest) {
+            // Don't register only for CP requests, as project-config/rebuild would delete it from custom sources
             $this->registerConditionRuleTypes([
                 HasDraftsConditionRule::class,
             ]);
+        }
+
+        if (Craft::$app->request->isCpRequest) {
+            $this->registerTemplateRoots(false, true);
 
             $this->registerWidgetTypes([
                 MyProvisionalDraftsWidget::class,

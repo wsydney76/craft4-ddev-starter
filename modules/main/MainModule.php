@@ -170,6 +170,8 @@ class MainModule extends BaseModule
                     }
                 });
             }
+
+            $this->validateAllSites();
         }
     }
 
@@ -293,6 +295,43 @@ class MainModule extends BaseModule
             ],
             'nested' => $this->folders2sources($folder->getChildren(), $rootSource),
         ], $folders);
+    }
+
+    private function validateAllSites()
+    {
+        // Validate entries on all sites
+        Event::on(
+            Entry::class,
+            Entry::EVENT_BEFORE_SAVE, function($event) {
+
+            /** @var Entry $entry */
+            $entry = $event->sender;
+
+            // TODO: Check conditionals
+
+            if ($entry->scenario !== Entry::SCENARIO_LIVE) {
+                return;
+            }
+
+            $entry->validate();
+
+            if ($entry->hasErrors()) {
+                return;
+            }
+
+            foreach ($entry->getLocalized()->all() as $localizedEntry) {
+                $localizedEntry->scenario = Entry::SCENARIO_LIVE;
+
+                if (!$localizedEntry->validate()) {
+                    $entry->addError(
+                        $entry->type->hasTitleField ? 'title' : 'slug',
+                        Craft::t('site', 'Error validating entry in') .
+                        ' "' . $localizedEntry->site->name . '". ' .
+                        implode(' ', $localizedEntry->getErrorSummary(false)));
+                    $event->isValid = false;
+                }
+            }
+        });
     }
 
 }

@@ -299,6 +299,11 @@ class MainModule extends BaseModule
 
     private function validateAllSites()
     {
+
+        if (!Craft::$app->config->custom->useCustomCrossSiteValidation) {
+            return;
+        }
+
         // Validate entries on all sites
         Event::on(
             Entry::class,

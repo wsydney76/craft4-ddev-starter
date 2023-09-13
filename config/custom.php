@@ -128,4 +128,9 @@ return [
     // Whether to show asset folders in the sidebar
     'showAssetFolders' => true,
 
+    // Whether to use custom cross site validation
+    // This is still useful as the built-in cross site validation does not work in slideouts.
+    'useCustomCrossSiteValidation' => true,
+
+
 ];

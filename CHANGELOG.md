@@ -3,8 +3,10 @@
 ## Unreleased
 
 * Fixed a bug where the `hasDraftsConditionRule` condition was removed from the `Work/Drafts` element index source when `craft project-config/rebuild` was run.
-* Bring back custom cross-site validation for entries, as the native solution in Craft 4.5 does not work in slideouts.
-* Updated to Craft 4.5.4
+* Added the `useCustomCrossSiteValidation` custom config setting.
+* Bring back optional custom cross-site validation for entries, as the native solution in Craft 4.5 does not work in slideouts.
+* Updated to Craft 4.5.5
+* Added a note to CHANGELOG.md about DDEV switching from Mailhog to Mailpit in v1.122.2
 
 ## 3.3 2023-08-13
 

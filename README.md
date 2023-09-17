@@ -32,6 +32,13 @@ Although shared publicly, this project was created for internal use, and therefo
 
 ### Using DDEV (recommended)
 
+**Important note: Beginning with DDEV Version v1.122.2 DDEV [switched from Mailhog to Mailpit](https://github.com/ddev/ddev/releases/tag/v1.22.2), so `.ddev/docker-compose.vite.yaml` has to be updated 
+if you are using DDEV v1.22.2 or higher.**
+
+Change `DDEV_MAILHOG_PORT` to `DDEV_MAILPIT_PORT` and `DDEV_MAILHOG_HTTPS_PORT` to `DDEV_MAILPIT_HTTPS_PORT` in `.ddev/docker-compose.vite.yaml`.
+
+If you don't, there will be warning messages when running `ddev start` and testing e-mails will not work.
+
 Run `bash setup/install <project-name>`. 
 
 This will 

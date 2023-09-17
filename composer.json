@@ -14,6 +14,7 @@
     "putyourlightson/craft-sprig": "2.6.2",
     "vaersaagod/seomate": "2.1.2",
     "vlucas/phpdotenv": "^5.4",
+    "wsydney76/craft-contentoverview": "^5.4",
     "wsydney76/elementmap": "^4.0"
   },
   "require-dev": {

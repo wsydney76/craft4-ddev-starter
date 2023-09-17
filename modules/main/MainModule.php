@@ -80,8 +80,10 @@ class MainModule extends BaseModule
 
         Collection::macro('addToCollection', function(string $key, mixed $value) {
             if ($this->has($key)) {
+                /** @phpstan-ignore-next-line */
                 $this->put($key, $this->get($key)->push($value));
             } else {
+                /** @phpstan-ignore-next-line */
                 $this->put($key, new Collection([$value]));
             }
 

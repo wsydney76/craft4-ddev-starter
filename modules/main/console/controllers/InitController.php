@@ -11,6 +11,7 @@ use craft\helpers\App;
 use craft\helpers\Assets;
 use craft\helpers\Console;
 use Faker\Factory;
+use Faker\Generator;
 use yii\console\ExitCode;
 use yii\helpers\Markdown;
 
@@ -22,6 +23,8 @@ class InitController extends BaseController
     public $defaultAction = 'all';
     public int $minWidth = 1200;
     public string $volume = 'images';
+
+    protected Generator $faker;
 
 
     /**

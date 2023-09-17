@@ -28,8 +28,6 @@ class SeedController extends InitController
     public const NUM_ENTRIES = 50;
     public const SECTION_HANDLE = 'article';
 
-    protected Generator $faker;
-
     public function beforeAction($action): bool
     {
         $this->faker = Factory::create();
@@ -875,6 +873,9 @@ class SeedController extends InitController
             ++$i;
             $id = "new{$i}";
             $content['sortOrder'][] = $id;
+
+            /* One of the switch/case blocks is always run */
+            /** @phpstan-ignore-next-line */
             $content['blocks'][$id] = $block;
         }
 

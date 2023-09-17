@@ -19,6 +19,8 @@ use craft\models\Section_SiteSettings;
 use craft\models\Site;
 use craft\records\FieldGroup as FieldGroupRecord;
 use modules\base\BaseModule;
+use Throwable;
+use yii\base\InvalidConfigException;
 use function collect;
 use function extract;
 use function in_array;
@@ -84,7 +86,7 @@ class BaseMigrationService extends BaseService
         );
 
         if (!Craft::$app->sections->saveSection($section)) {
-            $this->error("Could not create section $handle: {$section}", $section);
+            $this->error("Could not create section $handle: {$section}");
             return false;
         }
 
@@ -100,7 +102,7 @@ class BaseMigrationService extends BaseService
         }
 
         if (!Craft::$app->sections->saveEntryType($type)) {
-            $this->error("Could not save entry type for $handle", $type);
+            $this->error("Could not save entry type for $handle");
         }
 
         $this->info("Entry type $section->name/$type->name updated.");
@@ -152,9 +154,14 @@ class BaseMigrationService extends BaseService
         return true;
     }
 
+    /**
+     * @throws Throwable
+     * @throws InvalidConfigException
+     */
     protected function createField(array $config)
     {
-        extract($config, EXTR_OVERWRITE);
+        $handle = $config['handle'];
+        $name = $config['name'];
 
         $this->fields[$handle] = Craft::$app->fields->getFieldByHandle($handle);
         if ($this->fields[$handle]) {
@@ -164,7 +171,7 @@ class BaseMigrationService extends BaseService
         $field = Craft::createObject($config);
 
         if (!Craft::$app->fields->saveField($field)) {
-            $this->error("Could not save field {$handle}", $field);
+            $this->error("Could not save field {$handle}");
             return false;
         }
 
@@ -221,11 +228,11 @@ class BaseMigrationService extends BaseService
         $matrixField->setBlockTypes($blocktypes);
 
         if (!Craft::$app->fields->saveField($matrixField)) {
-            $this->error("Could not save field {$config['handle']}", $matrixField);
+            $this->error("Could not save field {$config['handle']}");
             return false;
         }
 
-        $this->fields[$config['handle']] = $field;
+        $this->fields[$config['handle']] = $matrixField;
 
         $this->info("Field {$config['name']} created.");
         return true;
@@ -302,7 +309,7 @@ class BaseMigrationService extends BaseService
         $layout->setTabs($tabs);
 
         if (!Craft::$app->fields->saveLayout($layout)) {
-            $this->error("Could not save fieldlayout for $sectionHandle", $layout);
+            $this->error("Could not save fieldlayout for $sectionHandle");
             return false;
         }
 

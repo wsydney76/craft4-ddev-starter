@@ -39,12 +39,16 @@ class ProjectService extends Component
                 }
                 case 2:
                 {
+                    /* Structure query will always ensure correct nesting */
+                    /** @phpstan-ignore-next-line */
                     $topics[$last1]['children'][$entry->id] = ['entry' => $entry, 'children' => []];
                     $last2 = $entry->id;
                     break;
                 }
                 case 3:
                 {
+                    /* Structure query will always ensure correct nesting */
+                    /** @phpstan-ignore-next-line */
                     $topics[$last1]['children'][$last2]['children'][$entry->id] = ['entry' => $entry];
                 }
             }

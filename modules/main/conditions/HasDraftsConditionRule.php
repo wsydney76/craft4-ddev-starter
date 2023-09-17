@@ -36,6 +36,7 @@ class HasDraftsConditionRule extends BaseLightswitchConditionRule implements Ele
         if ($this->value) {
             $userId = Craft::$app->user->identity->id;
             $draftsTable = Table::DRAFTS;
+            /* @phpstan-ignore-next-line */
             $query->andWhere("EXISTS (SELECT * from $draftsTable WHERE elements.id = $draftsTable.canonicalId AND $draftsTable.creatorId = $userId)");
         }
     }

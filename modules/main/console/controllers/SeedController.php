@@ -676,13 +676,8 @@ class SeedController extends InitController
                 ],
             ]);
 
-
-            if ($contentComponents) {
-                $contentComponents = collect($contentComponents);
-                if ($homepageEntry) {
-                    $homepageEntry->setFieldValue('contentComponents', $contentComponents->map(fn($e) => $e->id)->toArray());
-                }
-            }
+            $contentComponents = collect($contentComponents);
+            $homepageEntry->setFieldValue('contentComponents', $contentComponents->map(fn($e) => $e->id)->toArray());
 
             Craft::$app->elements->saveElement($homepageEntry);
         }

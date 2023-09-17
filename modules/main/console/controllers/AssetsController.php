@@ -115,7 +115,7 @@ class AssetsController extends Controller
 
             try {
                 $result = $client->get($entry->getUrl());
-                $this->stdout($result->getStatusCode());
+                $this->stdout((string)$result->getStatusCode());
             } catch (\Exception $exception) {
                 if ($exception->getCode() === 400) {
                     // Errors can occur if required params are not provided

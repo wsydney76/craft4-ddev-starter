@@ -1,0 +1,9 @@
+includes:
+    - vendor/craftcms/phpstan/phpstan.neon
+
+parameters:
+    level: 0
+    paths:
+        - modules/base
+        - modules/guide
+        - modules/main

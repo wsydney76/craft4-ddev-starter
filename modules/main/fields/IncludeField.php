@@ -16,7 +16,6 @@ use const DIRECTORY_SEPARATOR;
 
 class IncludeField extends Field
 {
-
     public string $includeDirectory = '';
 
     /**
@@ -40,7 +39,7 @@ class IncludeField extends Field
         return [
             self::TRANSLATION_METHOD_NONE,
             self::TRANSLATION_METHOD_SITE,
-            self::TRANSLATION_METHOD_SITE_GROUP
+            self::TRANSLATION_METHOD_SITE_GROUP,
         ];
     }
 
@@ -57,7 +56,6 @@ class IncludeField extends Field
 
     public function getSettingsHtml(): ?string
     {
-
         return Cp::textFieldHtml([
             'label' => 'Directory',
             'instructions' => 'Path to the directory (relative to the templates folder) where the included files live. Use %SITE% / %SITEGROUP% for site (group) specific templates. %SITEGROUP% will look in the first site of this group',
@@ -79,7 +77,7 @@ class IncludeField extends Field
 
         // Start with an empty option
         $options = [
-            ['label' => '---', 'value' => '']
+            ['label' => '---', 'value' => ''],
         ];
 
         try {
@@ -92,7 +90,7 @@ class IncludeField extends Field
             // Add each file to the options
             foreach ($files as $file) {
                 if (!str_starts_with($file, '_') && !is_dir($baseDir . DIRECTORY_SEPARATOR . $file)) {
-                    $label = str_replace(['-','_','.twig'], [' ', ' ',''], $file);
+                    $label = str_replace(['-', '_', '.twig'], [' ', ' ', ''], $file);
                     $options[] = ['label' => Craft::t('site', ucwords($label)), 'value' => $file];
                 }
             }
@@ -130,6 +128,4 @@ class IncludeField extends Field
         // Return the full directory path
         return App::parseEnv('@templates') . DIRECTORY_SEPARATOR . $includeDirectory;
     }
-
-
 }

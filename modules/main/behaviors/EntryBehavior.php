@@ -45,7 +45,7 @@ class EntryBehavior extends Behavior
                 ->map(fn(Entry $author) => [
                     'name' => $author->title,
                     'photo' => $author->photo->one(),
-                    'socialLinks' => $author->socialLinks
+                    'socialLinks' => $author->socialLinks,
                 ])
                 ->toArray();
         }
@@ -56,8 +56,8 @@ class EntryBehavior extends Behavior
                 [
                     'name' => $entry->author->name,
                     'photo' => $entry->author->photo,
-                    'socialLinks' => $entry->author->socialLinks
-                ]
+                    'socialLinks' => $entry->author->socialLinks,
+                ],
             ];
         }
 

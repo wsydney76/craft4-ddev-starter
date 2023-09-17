@@ -7,8 +7,6 @@ use craft\helpers\Html;
 use craft\helpers\HtmlPurifier;
 use craft\helpers\Json;
 use craft\helpers\Template;
-use Illuminate\Support\Collection;
-use modules\main\CustomConfig;
 use modules\main\services\ProjectService;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
@@ -22,7 +20,6 @@ use const DIRECTORY_SEPARATOR;
 
 class TwigExtension extends AbstractExtension implements GlobalsInterface
 {
-
     private ?array $purifierConfig = null;
 
     public function getGlobals(): array
@@ -108,5 +105,4 @@ class TwigExtension extends AbstractExtension implements GlobalsInterface
 
         return Template::raw($text);
     }
-
 }

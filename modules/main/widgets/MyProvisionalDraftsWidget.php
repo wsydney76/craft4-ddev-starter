@@ -31,7 +31,7 @@ class MyProvisionalDraftsWidget extends Widget
             ->all();
 
         return Craft::$app->view->renderTemplate('main/myprovisionaldrafts_widget', [
-            'entries' => $entries
+            'entries' => $entries,
         ]);
     }
 }

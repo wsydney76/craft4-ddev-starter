@@ -13,7 +13,6 @@ use craft\helpers\Cp;
 use yii\base\Exception;
 use function array_merge;
 
-
 /**
  * Field type for updating .env file variables from the CP
  *
@@ -26,7 +25,6 @@ use function array_merge;
  */
 class EnvironmentVariableField extends Field
 {
-
     /**
      * The Variable's key in .env file
      */
@@ -53,23 +51,23 @@ class EnvironmentVariableField extends Field
         $this->validationRules = [
             [
                 'label' => Craft::t('site', 'No validation'),
-                'value' => ''
+                'value' => '',
             ],
             [
                 'label' => Craft::t('site', 'Email'),
-                'value' => 'email'
+                'value' => 'email',
             ],
             [
                 'label' => Craft::t('site', 'Integer'),
-                'value' => 'integer'
+                'value' => 'integer',
             ],
             [
                 'label' => Craft::t('site', 'Boolean (0/1)'),
-                'value' => 'boolean'
+                'value' => 'boolean',
             ],
             [
                 'label' => Craft::t('site', 'URL'),
-                'value' => 'url'
+                'value' => 'url',
             ],
         ];
         parent::init();
@@ -108,7 +106,7 @@ class EnvironmentVariableField extends Field
             ['variableName', 'trim'],
             ['variableName', 'required'],
             ['variableName', 'match', 'pattern' => '/^[A-Z_]*$/'],
-            ['validationRule', 'in', 'range' => ArrayHelper::getColumn($this->validationRules, 'value')]
+            ['validationRule', 'in', 'range' => ArrayHelper::getColumn($this->validationRules, 'value')],
         ]);
     }
 
@@ -163,7 +161,7 @@ class EnvironmentVariableField extends Field
                 'name' => 'variableName',
                 'value' => $this->variableName,
                 'required' => true,
-                'errors' => $this->getErrors('variableName')
+                'errors' => $this->getErrors('variableName'),
             ]) .
 
             Cp::selectFieldHtml([
@@ -172,7 +170,7 @@ class EnvironmentVariableField extends Field
                 'name' => 'validationRule',
                 'value' => $this->validationRule,
                 'errors' => $this->getErrors('validationRule'),
-                'options' => $this->validationRules
+                'options' => $this->validationRules,
             ]);
     }
 
@@ -183,7 +181,7 @@ class EnvironmentVariableField extends Field
     {
         return Cp::textFieldHtml([
             'name' => $this->handle,
-            'value' => $value
+            'value' => $value,
         ]);
     }
 }

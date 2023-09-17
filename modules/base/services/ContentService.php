@@ -6,10 +6,7 @@ use Craft;
 use craft\elements\Entry;
 use craft\elements\User;
 use craft\fields\Matrix;
-use craft\helpers\App;
 use craft\helpers\ArrayHelper;
-use DateTime;
-use function in_array;
 
 /**
  * Content Service service
@@ -23,7 +20,6 @@ class ContentService extends BaseService
 
     public function createEntry(array $data, bool $overwrite = false): mixed
     {
-
         $user = User::find()->admin()->one();
 
         ['section' => $sectionHandle, 'type' => $typeHandle, 'title' => $title] = $data;
@@ -60,7 +56,7 @@ class ContentService extends BaseService
             'sectionId' => $section->id,
             'typeId' => $type->id,
             'siteId' => $siteId,
-            'title' => $title
+            'title' => $title,
         ]);
 
         if (isset($data['slug'])) {
@@ -118,7 +114,6 @@ class ContentService extends BaseService
 
                     if (isset($localizedContent['fields'])) {
                         foreach ($localizedContent['fields'] as $handle => $value) {
-
                             $field = Craft::$app->fields->getFieldByHandle($handle);
                             if ($field instanceof Matrix && !isset($value['sortOrder'])) {
                                 $blocks = $value;
@@ -146,5 +141,4 @@ class ContentService extends BaseService
 
         return $entry;
     }
-
 }

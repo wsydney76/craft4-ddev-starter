@@ -20,6 +20,4 @@ class BaseController extends Controller
 
         return file_get_contents($path);
     }
-
 }
-

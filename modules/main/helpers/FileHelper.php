@@ -21,7 +21,6 @@ use const DIRECTORY_SEPARATOR;
  */
 class FileHelper extends \craft\helpers\FileHelper
 {
-
     /**
      * Function to cleanup transform directories.
      * It goes through all the volumes and checks if they are local.
@@ -81,5 +80,4 @@ class FileHelper extends \craft\helpers\FileHelper
         // Check if directory is empty (only '.', '..' remain) and remove it if so
         return $empty && (is_readable($path) && count(scandir($path)) == 2) && rmdir($path);
     }
-
 }

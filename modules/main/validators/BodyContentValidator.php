@@ -4,13 +4,11 @@ namespace modules\main\validators;
 
 use Craft;
 use craft\elements\MatrixBlock;
-use modules\main\MainModule;
 use yii\validators\Validator;
 
 class BodyContentValidator extends Validator
 
 // https://nystudio107.com/blog/custom-matrix-block-validation-rules
-
 {
     public function validateAttribute($entry, $attribute)
     {
@@ -23,20 +21,18 @@ class BodyContentValidator extends Validator
 
         /** @var MatrixBlock $block */
         foreach ($blocks as $index => $block) {
-
             if ($block->type->handle === 'heading') {
                 $level = (int)str_replace('h', '', $block->htmlTag->value);
                 if ($level - $lastHeadingLevel > 1) {
                     $entry->addError('bodyContent', Craft::t('site', 'Block {index}: H{level} cannot follow H{lastHeadingLevel}.', [
                         'level' => $level,
                         'lastHeadingLevel' => $lastHeadingLevel,
-                        'index' => $index + 1
+                        'index' => $index + 1,
                     ]));
                     $isHeadingLevelValid = false;
                 }
                 $lastHeadingLevel = $level;
             }
-
         }
 
         $query->setCachedResult($blocks);
@@ -44,7 +40,5 @@ class BodyContentValidator extends Validator
         if (!$isHeadingLevelValid) {
             $entry->addError('bodyContent', Craft::t('site', 'Nesting of heading levels is wrong.'));
         }
-
-
     }
 }

@@ -6,10 +6,8 @@ use Craft;
 use craft\base\Component;
 use yii\helpers\Console;
 
-
 class BaseService extends Component
 {
-
     protected string $logCategory = 'BaseService';
 
     protected function info(string $string): void

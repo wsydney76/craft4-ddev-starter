@@ -26,11 +26,11 @@ class SiteField extends Field
         $siteOptions = collect(Craft::$app->sites->getAllSites())
             ->map(fn($site) => [
                 'label' => $site->name,
-                'value' => $site->handle
+                'value' => $site->handle,
             ])
             ->prepend([
                 'label' => Craft::t('main', 'All Sites'),
-                'value' => ''
+                'value' => '',
             ]);
 
         return Cp::selectizeHtml([

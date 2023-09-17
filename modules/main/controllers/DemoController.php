@@ -2,7 +2,6 @@
 
 namespace modules\main\controllers;
 
-use craft\elements\Asset;
 use craft\web\Controller;
 
 class DemoController extends Controller

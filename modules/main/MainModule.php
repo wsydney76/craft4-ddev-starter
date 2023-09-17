@@ -35,15 +35,12 @@ use yii\base\Event;
 use function array_unshift;
 use function in_array;
 
-
 class MainModule extends BaseModule
 {
-
     public $handle = 'main';
 
     public function init(): void
     {
-
         parent::init();
 
         // Defer most setup tasks until Craft is fully initialized
@@ -61,7 +58,7 @@ class MainModule extends BaseModule
         $this->registerTranslationCategory();
 
         $this->registerBehaviors(Entry::class, [
-            EntryBehavior::class
+            EntryBehavior::class,
         ]);
 
         $this->registerFieldTypes([
@@ -74,11 +71,11 @@ class MainModule extends BaseModule
 
 
         $this->registerCraftVariableServices([
-            ['project', ProjectService::class]
+            ['project', ProjectService::class],
         ]);
 
         $this->registerTwigExtensions([
-            TwigExtension::class
+            TwigExtension::class,
         ]);
 
         Collection::macro('addToCollection', function(string $key, mixed $value) {
@@ -110,18 +107,18 @@ class MainModule extends BaseModule
             $this->createHooks();
 
             $this->registerAssetBundles([
-                CpAssetBundle::class
+                CpAssetBundle::class,
             ]);
 
             $this->registerEntryValidators([
-                [['bodyContent'], BodyContentValidator::class, 'on' => [Element::SCENARIO_LIVE]]
+                [['bodyContent'], BodyContentValidator::class, 'on' => [Element::SCENARIO_LIVE]],
             ]);
 
 
             $this->registerElementActions(Entry::class, [
                 // CopyReferenceTag::class,
                 CopyReferenceLinkTag::class,
-                CopyMarkdownLink::class
+                CopyMarkdownLink::class,
             ]);
 
             $this->hideBlockTypes();
@@ -150,7 +147,6 @@ class MainModule extends BaseModule
                             'urlFormat' => 'cp/preview-seo?id={id}&siteId={object.site.id}',
                         ];
                     }
-
                 }
             );
 
@@ -245,7 +241,6 @@ class MainModule extends BaseModule
                         }
                     }
                 }
-
             });
     }
 
@@ -258,7 +253,7 @@ class MainModule extends BaseModule
             Craft::t('site', 'Featured Image (big)'),
             [
                 'width' => 120,
-                'height' => 70
+                'height' => 70,
             ]);
         $this->setEntriesIndexImageColumn(
             'bigImage',
@@ -266,7 +261,7 @@ class MainModule extends BaseModule
             Craft::t('site', 'Image (big)'),
             [
                 'width' => 120,
-                'height' => 70
+                'height' => 70,
             ]);
         $this->setEntriesIndexImageColumn(
             'bigPhoto',
@@ -274,7 +269,7 @@ class MainModule extends BaseModule
             Craft::t('site', 'Photo (big)'),
             [
                 'width' => 70,
-                'height' => 70
+                'height' => 70,
             ]);
     }
 
@@ -299,7 +294,6 @@ class MainModule extends BaseModule
 
     private function validateAllSites()
     {
-
         if (!Craft::$app->config->custom->useCustomCrossSiteValidation) {
             return;
         }
@@ -310,33 +304,32 @@ class MainModule extends BaseModule
             Entry::EVENT_BEFORE_SAVE, function($event) {
 
             /** @var Entry $entry */
-            $entry = $event->sender;
+                $entry = $event->sender;
 
-            // TODO: Check conditionals
+                // TODO: Check conditionals
 
-            if ($entry->scenario !== Entry::SCENARIO_LIVE) {
-                return;
-            }
+                if ($entry->scenario !== Entry::SCENARIO_LIVE) {
+                    return;
+                }
 
-            $entry->validate();
+                $entry->validate();
 
-            if ($entry->hasErrors()) {
-                return;
-            }
+                if ($entry->hasErrors()) {
+                    return;
+                }
 
-            foreach ($entry->getLocalized()->all() as $localizedEntry) {
-                $localizedEntry->scenario = Entry::SCENARIO_LIVE;
+                foreach ($entry->getLocalized()->all() as $localizedEntry) {
+                    $localizedEntry->scenario = Entry::SCENARIO_LIVE;
 
-                if (!$localizedEntry->validate()) {
-                    $entry->addError(
+                    if (!$localizedEntry->validate()) {
+                        $entry->addError(
                         $entry->type->hasTitleField ? 'title' : 'slug',
                         Craft::t('site', 'Error validating entry in') .
                         ' "' . $localizedEntry->site->name . '". ' .
                         implode(' ', $localizedEntry->getErrorSummary(false)));
-                    $event->isValid = false;
+                        $event->isValid = false;
+                    }
                 }
-            }
-        });
+            });
     }
-
 }

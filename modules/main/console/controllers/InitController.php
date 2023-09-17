@@ -14,10 +14,8 @@ use Faker\Factory;
 use yii\console\ExitCode;
 use yii\helpers\Markdown;
 
-
 class InitController extends BaseController
 {
-
     /**
      * @var string
      */
@@ -35,7 +33,6 @@ class InitController extends BaseController
      */
     public function actionAll(): int
     {
-
         if ($this->interactive && !$this->confirm('Run all init actions? This should only be done once, immediately after installing.', true)) {
             return ExitCode::UNSPECIFIED_ERROR;
         }
@@ -166,13 +163,12 @@ class InitController extends BaseController
      */
     public function actionCreateEntries(): int
     {
-
         $homepage = $this->createEntry([
             'section' => 'page',
             'type' => 'home',
             'site' => 'en',
             'title' => 'Homepage',
-            'slug' => '__home__'
+            'slug' => '__home__',
         ]);
 
         if (!$homepage) {
@@ -187,15 +183,15 @@ class InitController extends BaseController
             'title' => 'Sitemap',
             'slug' => 'sitemap',
             'fields' => [
-                'tagline' => 'Overview of all entries'
+                'tagline' => 'Overview of all entries',
             ],
             'localized' => [
                 'de' => [
                     'fields' => [
-                        'tagline' => 'Übersicht über alle Seiten'
+                        'tagline' => 'Übersicht über alle Seiten',
                     ],
-                ]
-            ]
+                ],
+            ],
         ]);
 
         $this->createEntry([
@@ -208,9 +204,9 @@ class InitController extends BaseController
             'localized' => [
                 'de' => [
                     'title' => 'Artikel',
-                    'slug' => 'artikel'
-                ]
-            ]
+                    'slug' => 'artikel',
+                ],
+            ],
         ]);
 
         $this->createEntry([
@@ -223,9 +219,9 @@ class InitController extends BaseController
             'localized' => [
                 'de' => [
                     'title' => 'Themen',
-                    'slug' => 'themen'
-                ]
-            ]
+                    'slug' => 'themen',
+                ],
+            ],
         ]);
 
         $this->createEntry([
@@ -241,20 +237,20 @@ class InitController extends BaseController
                     [
                         'type' => 'text',
                         'fields' => [
-                            'text' => 'TBD.'
-                        ]
-                    ]
-                ]
+                            'text' => 'TBD.',
+                        ],
+                    ],
+                ],
             ],
             'localized' => [
                 'de' => [
                     'title' => 'Über uns',
                     'slug' => 'ueber-uns',
                     'fields' => [
-                        'tagline' => 'Wer wir sind'
+                        'tagline' => 'Wer wir sind',
                     ],
-                ]
-            ]
+                ],
+            ],
         ]);
 
         $this->createEntry([
@@ -267,9 +263,9 @@ class InitController extends BaseController
             'localized' => [
                 'de' => [
                     'title' => 'Kontakt',
-                    'slug' => 'kontakt'
-                ]
-            ]
+                    'slug' => 'kontakt',
+                ],
+            ],
         ]);
 
         $this->createEntry([
@@ -282,9 +278,9 @@ class InitController extends BaseController
             'localized' => [
                 'de' => [
                     'title' => 'Suche',
-                    'slug' => 'suche'
-                ]
-            ]
+                    'slug' => 'suche',
+                ],
+            ],
         ]);
 
         $this->createEntry([
@@ -299,17 +295,17 @@ class InitController extends BaseController
                     [
                         'type' => 'text',
                         'fields' => [
-                            'text' => 'TBD.'
-                        ]
-                    ]
-                ]
+                            'text' => 'TBD.',
+                        ],
+                    ],
+                ],
             ],
             'localized' => [
                 'de' => [
                     'title' => 'Impressum',
-                    'slug' => 'impressum'
-                ]
-            ]
+                    'slug' => 'impressum',
+                ],
+            ],
         ]);
 
         $this->createEntry([
@@ -320,17 +316,17 @@ class InitController extends BaseController
             'slug' => 'privacy',
             'fields' => [
                 'showLink' => 1,
-                'body' => $this->getStarterTextFromFile('privacy_en.md')
+                'body' => $this->getStarterTextFromFile('privacy_en.md'),
             ],
             'localized' => [
                 'de' => [
                     'title' => 'Datenschutz',
                     'slug' => 'datenschutz',
                     'fields' => [
-                        'body' => $this->getStarterTextFromFile('privacy_de.md')
+                        'body' => $this->getStarterTextFromFile('privacy_de.md'),
                     ],
-                ]
-            ]
+                ],
+            ],
         ]);
 
         $this->createEntry([
@@ -340,16 +336,16 @@ class InitController extends BaseController
             'title' => 'This website may use third party cookies.',
             'slug' => 'cookie-consent',
             'fields' => [
-                'body' => $this->getStarterTextFromFile('cookiebanner_en.txt')
+                'body' => $this->getStarterTextFromFile('cookiebanner_en.txt'),
             ],
             'localized' => [
                 'de' => [
                     'title' => 'Diese Website kann Cookies von Dritten verwenden.',
                     'fields' => [
-                        'body' => $this->getStarterTextFromFile('cookiebanner_de.txt')
-                    ]
-                ]
-            ]
+                        'body' => $this->getStarterTextFromFile('cookiebanner_de.txt'),
+                    ],
+                ],
+            ],
         ]);
 
 
@@ -360,17 +356,17 @@ class InitController extends BaseController
             'title' => 'External YouTube Content',
             'slug' => 'youtubeconsent',
             'fields' => [
-                'body' => 'This will send personal data to Google/YouTube.'
+                'body' => 'This will send personal data to Google/YouTube.',
             ],
             'localized' => [
                 'de' => [
                     'title' => 'Externe YouTube-Inhalte',
                     'slug' => 'youtubeconsent',
                     'fields' => [
-                        'body' => 'Hiermit werden personenbezogene Daten an Google/YouTube gesendet.'
+                        'body' => 'Hiermit werden personenbezogene Daten an Google/YouTube gesendet.',
                     ],
-                ]
-            ]
+                ],
+            ],
         ]);
 
         return ExitCode::OK;
@@ -475,7 +471,6 @@ class InitController extends BaseController
 
     protected function getImagesFromFolder(string $path, $minWidth = null, $limit = null, $orderBy = null)
     {
-
         if ($orderBy === 'random') {
             $orderBy = Craft::$app->db->driverName === 'mysql' ? 'RAND()' : 'RANDOM()';
         }
@@ -575,5 +570,4 @@ class InitController extends BaseController
 
         return ExitCode::OK;
     }
-
 }

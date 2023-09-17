@@ -55,7 +55,6 @@ class ProjectService extends Component
 
     public static function estimatedReadingTime($blocks, $wpm = 200)
     {
-
         $totalWords = 0;
 
         foreach ($blocks as $block) {
@@ -67,7 +66,7 @@ class ProjectService extends Component
 
         return [
             'minutes' => $minutes,
-            'seconds' => $seconds
+            'seconds' => $seconds,
         ];
     }
 
@@ -81,11 +80,11 @@ class ProjectService extends Component
      * @throws \Twig\Error\SyntaxError
      * @throws \yii\base\Exception
      */
-    function replaceOembedTags($text)
+    public function replaceOembedTags($text)
     {
 
         // run text through htmlpurifier to remove any malicious code
-        $text = HtmlPurifier::process($text) ;
+        $text = HtmlPurifier::process($text);
 
         // use a regular expression to match the <oembed> tags and extract the video key
         // TODO: Check whether possible variations (spaces, tabs, line breaks, etc.) are correctly taken into account.
@@ -95,7 +94,6 @@ class ProjectService extends Component
 
         // loop through each match and replace the <oembed> tag with the video block template
         foreach ($matches[2] as $i => $key) {
-
             $search = $matches[0][$i];
 
             $replacement = Craft::$app->getView()->renderTemplate('_blocks/youtubeVideo.twig', [
@@ -104,7 +102,7 @@ class ProjectService extends Component
                     'heading' => '',
                     'text' => '',
                     'aspectRatio' => ['value' => '16:9'],
-                ]
+                ],
             ]);
 
             $text = str_replace($search, $replacement, $text);
@@ -113,5 +111,4 @@ class ProjectService extends Component
         // return the modified text
         return Template::raw($text);
     }
-
 }

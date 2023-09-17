@@ -2,7 +2,6 @@
 
 namespace modules\main\helpers;
 
-
 use Symfony\Component\VarDumper\Dumper\HtmlDumper;
 
 /**

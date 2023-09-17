@@ -17,7 +17,7 @@ use const PHP_EOL;
 
 class AssetsController extends Controller
 {
-// This is an example, better call a service method in real live.
+    // This is an example, better call a service method in real live.
     //
     // php craft main/assets/clear-image-transform-directories
     //
@@ -29,7 +29,6 @@ class AssetsController extends Controller
      */
     public function actionClearImageTransformDirectories(): int
     {
-
         if (Craft::$app->plugins->isPluginEnabled('imager-x')) {
             $this->stdout("Imager-X is enabled, please use it's utilities to clear the cache.");
             return ExitCode::UNSPECIFIED_ERROR;
@@ -67,7 +66,6 @@ class AssetsController extends Controller
      */
     public function actionDeleteEmptyTransformFolders(): int
     {
-
         if (Craft::$app->plugins->isPluginEnabled('imager-x')) {
             $this->stdout("Imager-X is enabled, please use it's utilities to clear the cache.");
             return ExitCode::UNSPECIFIED_ERROR;
@@ -91,7 +89,6 @@ class AssetsController extends Controller
      */
     public function actionCreateTransforms(): int
     {
-
         if ($this->interactive && !$this->confirm('Retrieve each page to create missing image sizes? This will take some time.', true)) {
             return ExitCode::UNSPECIFIED_ERROR;
         }
@@ -122,8 +119,7 @@ class AssetsController extends Controller
                 if ($exception->getCode() === 400) {
                     // Errors can occur if required params are not provided
                     $this->stdout("Error 400, missing params");
-                }
-                elseif ($exception->getCode() !== 403) {
+                } elseif ($exception->getCode() !== 403) {
                     // 403 errors can occur if the page is protected by a login, or is just used for cp previews
                     $errors++;
                     $this->stdout("Error {$exception->getMessage()}");
@@ -137,5 +133,4 @@ class AssetsController extends Controller
 
         return ExitCode::OK;
     }
-
 }

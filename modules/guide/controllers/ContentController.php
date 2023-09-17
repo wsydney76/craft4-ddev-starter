@@ -12,7 +12,6 @@ use yii\web\Response;
  */
 class ContentController extends Controller
 {
-
     public function beforeAction($action): bool
     {
         $this->requirePermission('accesscp');
@@ -24,7 +23,6 @@ class ContentController extends Controller
      */
     public function actionShow(): Response
     {
-
         $template = Craft::$app->request->getRequiredBodyParam('template');
 
         return $this->asRaw($this->view->renderTemplate(

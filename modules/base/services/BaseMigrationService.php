@@ -77,9 +77,9 @@ class BaseMigrationService extends BaseService
                         'enabledByDefault' => true,
                         'hasUrls' => $hasUrls,
                         'uriFormat' => $hasUrls ? Craft::t($this->translationCategory, $baseUri, language: $site->language) . '/{slug}' : '',
-                        'template' => $hasUrls ? $template : ''
+                        'template' => $hasUrls ? $template : '',
                     ]))
-                    ->toArray()
+                    ->toArray(),
             ]
         );
 
@@ -109,7 +109,7 @@ class BaseMigrationService extends BaseService
             $homePage = Entry::findOne(['slug' => '__home__']);
 
             $fields = [
-                'pageTemplate' => "$this->templateRoot/_sections/$section->handle/index"
+                'pageTemplate' => "$this->templateRoot/_sections/$section->handle/index",
             ];
 
             $contentService = BaseModule::getInstance()->contentService;
@@ -131,8 +131,8 @@ class BaseMigrationService extends BaseService
                     'de' => [
                         'title' => Craft::t($this->translationCategory, $plural, language: 'de_DE'),
                         'slug' => Craft::t($this->translationCategory, $baseUri, language: 'de_DE'),
-                    ]
-                ]
+                    ],
+                ],
             ]);
         }
 
@@ -143,8 +143,8 @@ class BaseMigrationService extends BaseService
                 'name' => $plural,
                 'handle' => $config['entriesFieldHandle'] ?? $baseUri,
                 'sources' => [
-                    "section:$section->uid"
-                ]
+                    "section:$section->uid",
+                ],
             ]);
         }
 
@@ -154,7 +154,6 @@ class BaseMigrationService extends BaseService
 
     protected function createField(array $config)
     {
-
         extract($config, EXTR_OVERWRITE);
 
         $this->fields[$handle] = Craft::$app->fields->getFieldByHandle($handle);
@@ -175,8 +174,8 @@ class BaseMigrationService extends BaseService
         return true;
     }
 
-    protected function createMatrixField(array $config): bool{
-
+    protected function createMatrixField(array $config): bool
+    {
         $this->fields[$config['handle']] = Craft::$app->fields->getFieldByHandle($config['handle']);
         if ($this->fields[$config['handle']]) {
             return true;
@@ -204,7 +203,7 @@ class BaseMigrationService extends BaseService
             $tab->sortOrder = 1;
             $tab->layout = $layout;
             $tab->setElements(collect($fields)
-                ->map(function ($field) use ($layoutConfigs) {
+                ->map(function($field) use ($layoutConfigs) {
                     $layoutConfig = $layoutConfigs[$field->handle] ?? [];
                     return new CustomField($field, $layoutConfig);
                 })
@@ -243,7 +242,7 @@ class BaseMigrationService extends BaseService
         // Single tab
         if (isset($tabConfigs[0])) {
             $tabConfigs = [
-                'Content' => $tabConfigs
+                'Content' => $tabConfigs,
             ];
         };
 
@@ -303,7 +302,6 @@ class BaseMigrationService extends BaseService
         $layout->setTabs($tabs);
 
         if (!Craft::$app->fields->saveLayout($layout)) {
-
             $this->error("Could not save fieldlayout for $sectionHandle", $layout);
             return false;
         }
@@ -339,7 +337,7 @@ class BaseMigrationService extends BaseService
         if (!$headingExists) {
             $config['craft\\elements\\Entry'][] = [
                 'heading' => $heading,
-                'type' => 'heading'
+                'type' => 'heading',
             ];
         }
 
@@ -348,7 +346,7 @@ class BaseMigrationService extends BaseService
             'disabled' => false,
             'key' => $key,
             'tableAttributes' => $tableAttributes,
-            'type' => 'native'
+            'type' => 'native',
         ];
 
         Craft::$app->projectConfig->set('elementSources', $config);

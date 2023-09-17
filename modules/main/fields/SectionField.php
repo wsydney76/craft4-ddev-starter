@@ -26,7 +26,7 @@ class SectionField extends Field
         $sectionOptions = collect(Craft::$app->sections->getAllSections())
             ->map(fn($section) => [
                 'label' => $section->name,
-                'value' => $section->handle
+                'value' => $section->handle,
             ])
            ;
 

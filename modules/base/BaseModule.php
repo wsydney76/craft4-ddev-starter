@@ -29,13 +29,11 @@ use yii\base\Event;
 use yii\base\Module;
 use function array_splice;
 
-
 /**
  * @property-read ContentService $contentService
  */
 class BaseModule extends Module
 {
-
     protected $handle = '';
 
     public function init()
@@ -45,7 +43,7 @@ class BaseModule extends Module
         $this->setControllerNamespace();
 
         $this->setComponents([
-            'contentService' => ContentService::class
+            'contentService' => ContentService::class,
         ]);
 
         parent::init();
@@ -85,16 +83,16 @@ class BaseModule extends Module
             Event::on(
                 View::class,
                 View::EVENT_REGISTER_SITE_TEMPLATE_ROOTS, function(RegisterTemplateRootsEvent $event): void {
-                $event->roots[$this->handle] = $this->getBasePath() . DIRECTORY_SEPARATOR . 'templates';
-            });
+                    $event->roots[$this->handle] = $this->getBasePath() . DIRECTORY_SEPARATOR . 'templates';
+                });
         }
 
         if ($cp) {
             Event::on(
                 View::class,
                 View::EVENT_REGISTER_CP_TEMPLATE_ROOTS, function(RegisterTemplateRootsEvent $event): void {
-                $event->roots[$this->handle] = $this->getBasePath() . DIRECTORY_SEPARATOR . 'templates';
-            });
+                    $event->roots[$this->handle] = $this->getBasePath() . DIRECTORY_SEPARATOR . 'templates';
+                });
         }
     }
 
@@ -188,15 +186,13 @@ class BaseModule extends Module
 
     protected function registerEntryValidators(array $rules): void
     {
-
         Event::on(
             Entry::class,
             Entry::EVENT_DEFINE_RULES, function(DefineRulesEvent $event) use ($rules) {
-
-            foreach ($rules as $rule) {
-                $event->rules[] = $rule;
-            }
-        });
+                foreach ($rules as $rule) {
+                    $event->rules[] = $rule;
+                }
+            });
     }
 
     protected function registerElementActions(string $elementType, array $actions): void
@@ -264,7 +260,6 @@ class BaseModule extends Module
             Entry::class,
             Element::EVENT_SET_TABLE_ATTRIBUTE_HTML,
             function(SetElementTableAttributeHtmlEvent $event) use ($attribute, $fieldHandle, $transform) {
-
                 if ($event->attribute === $attribute) {
                     /** @var Entry $entry */
                     $entry = $event->sender;
@@ -286,7 +281,7 @@ class BaseModule extends Module
                                 'width' => $image->width,
                                 'height' => $image->height,
                                 'alt' => $image->altText ?? $image->title,
-                                'ondblclick' => "Craft.createElementEditor('craft\\\\elements\\\\Asset', {elementId: {$image->id}, siteId: {$entry->site->id}})"
+                                'ondblclick' => "Craft.createElementEditor('craft\\\\elements\\\\Asset', {elementId: {$image->id}, siteId: {$entry->site->id}})",
                             ]);
                         }
                     }
@@ -301,7 +296,6 @@ class BaseModule extends Module
             Entry::class,
             Entry::EVENT_PREP_QUERY_FOR_TABLE_ATTRIBUTE,
             function(ElementIndexTableAttributeEvent $event) use ($attribute, $fieldHandle, $transform) {
-
                 if ($event->attribute === $attribute) {
                     // Eager load the image element including the transform
                     $event->query->andWith(
@@ -310,6 +304,4 @@ class BaseModule extends Module
                 }
             });
     }
-
-
 }

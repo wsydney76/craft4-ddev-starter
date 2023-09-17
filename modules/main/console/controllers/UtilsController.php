@@ -15,7 +15,6 @@ use const PHP_EOL;
  */
 class UtilsController extends Controller
 {
-
     public function options($actionID): array
     {
         $options = parent::options($actionID);
@@ -85,7 +84,7 @@ class UtilsController extends Controller
             $element->setFieldValue('align', '');
 
 
-           if (!Craft::$app->elements->saveElement($element)) {
+            if (!Craft::$app->elements->saveElement($element)) {
                 $this->stdout(' Error ');
                 Craft::dump($element->errors);
             }

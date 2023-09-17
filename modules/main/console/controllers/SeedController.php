@@ -24,7 +24,6 @@ use const DIRECTORY_SEPARATOR;
 use const PHP_EOL;
 
 class SeedController extends InitController
-
 {
     public const NUM_ENTRIES = 50;
     public const SECTION_HANDLE = 'article';
@@ -58,21 +57,21 @@ class SeedController extends InitController
                             ['en' => 'Bundesliga', 'de' => 'Bundesliga'],
                             ['en' => 'Premier League', 'de' => 'Premier League'],
                             ['en' => 'International', 'de' => 'International'],
-                        ]
+                        ],
                     ],
                     [
                         'en' => 'Tennis',
                         'de' => 'Tennis',
                         'children' => [
-                            ['en' => 'Majors', 'de' => 'Majors']
-                        ]
+                            ['en' => 'Majors', 'de' => 'Majors'],
+                        ],
                     ],
                     [
                         'en' => 'Golf',
-                        'de' => 'Golf'
-                    ]
+                        'de' => 'Golf',
+                    ],
 
-                ]
+                ],
             ],
             [
                 'en' => 'Entertainment',
@@ -80,12 +79,12 @@ class SeedController extends InitController
                 'children' => [
                     ['en' => 'Music', 'de' => 'Musik'],
                     ['en' => 'Cinema', 'de' => 'Kino'],
-                ]
+                ],
             ],
             [
                 'en' => 'Opinion',
-                'de' => 'Meinung'
-            ]
+                'de' => 'Meinung',
+            ],
         ];
 
         foreach ($topics as $topic) {
@@ -107,14 +106,14 @@ class SeedController extends InitController
             'slug' => StringHelper::slugify($topic['en']),
             'fields' => [
                 'tagline' => $this->faker->text(30),
-                'featuredImage' => [$this->getRandomImage()->id ?? null]
+                'featuredImage' => [$this->getRandomImage()->id ?? null],
             ],
             'localized' => [
                 'de' => [
                     'title' => $topic['de'],
-                    'slug' => StringHelper::slugify($topic['de'])
-                ]
-            ]
+                    'slug' => StringHelper::slugify($topic['de']),
+                ],
+            ],
         ]);
 
         if (isset($topic['children'])) {
@@ -165,7 +164,6 @@ class SeedController extends InitController
         $type = $section->getEntryTypes()[0];
 
         for ($i = 1; $i <= $num; ++$i) {
-
             $title = $this->faker->text(50);
             $this->stdout("[{$i}/{$num}] ");
 
@@ -181,8 +179,8 @@ class SeedController extends InitController
                     'teaser' => $this->faker->text(15),
                     'featuredImage' => [$images[$i - 1]->id],
                     'bodyContent' => $this->getBodyContent(),
-                    'topics' => [$this->getRandomTopic()->id ?? null]
-                ]
+                    'topics' => [$this->getRandomTopic()->id ?? null],
+                ],
 
             ]);
 
@@ -205,40 +203,40 @@ class SeedController extends InitController
                     [
                         'type' => 'text',
                         'fields' => [
-                            'text' => $this->faker->text(250)
-                        ]
+                            'text' => $this->faker->text(250),
+                        ],
                     ],
                     [
                         'type' => 'youtubeVideo',
                         'fields' => [
                             'heading' => $this->faker->text(30),
                             'text' => $this->faker->text(100),
-                            'key' => 'uekZpkYf7-E'
-                        ]
+                            'key' => 'uekZpkYf7-E',
+                        ],
                     ],
                     [
                         'type' => 'text',
                         'fields' => [
-                            'text' => $this->faker->text(250)
-                        ]
+                            'text' => $this->faker->text(250),
+                        ],
                     ],
                     [
                         'type' => 'youtubeVideo',
                         'fields' => [
                             'heading' => $this->faker->text(30),
                             'text' => $this->faker->text(100),
-                            'key' => 'vrjad-k-eeo'
-                        ]
-                    ]
-                ]
+                            'key' => 'vrjad-k-eeo',
+                        ],
+                    ],
+                ],
             ],
             'localized' => [
                 'de' => [
                     'fields' => [
                         'tagline' => 'Beispiel für Video und DSGVO',
-                    ]
-                ]
-            ]
+                    ],
+                ],
+            ],
 
         ]);
 
@@ -276,7 +274,6 @@ class SeedController extends InitController
 
 
         for ($i = 1; $i <= $num; ++$i) {
-
             $title = $this->faker->text(30);
             $this->stdout("[{$i}/{$num}] ");
 
@@ -292,8 +289,8 @@ class SeedController extends InitController
                     'teaser' => $this->faker->text(15),
                     'featuredImage' => [$images[$i - 1]->id],
                     'storyContent' => $this->getStoryContent($i),
-                    'topics' => [$this->getRandomTopic()->id ?? null]
-                ]
+                    'topics' => [$this->getRandomTopic()->id ?? null],
+                ],
 
             ]);
 
@@ -313,7 +310,6 @@ class SeedController extends InitController
      */
     public function actionCreateHomepageContent(): int
     {
-
         if ($this->interactive && !$this->confirm("Create some content for homepage?", true)) {
             return ExitCode::UNSPECIFIED_ERROR;
         }
@@ -364,7 +360,7 @@ class SeedController extends InitController
                                 'target' => $target ? [$target->id] : [],
                                 'caption' => $this->faker->text(20),
                                 'primary' => true,
-                            ]
+                            ],
                         ],
                         [
                             'type' => 'button',
@@ -372,10 +368,10 @@ class SeedController extends InitController
                                 'target' => $target2 ? [$target2->id] : [],
                                 'caption' => $this->faker->text(20),
                                 'primary' => false,
-                            ]
-                        ]
-                    ]
-                ]
+                            ],
+                        ],
+                    ],
+                ],
             ]);
 
             $this->actionCreatePersons();
@@ -391,17 +387,17 @@ class SeedController extends InitController
                         'type' => 'heading',
                         'fields' => [
                             'text' => $this->faker->text(50),
-                            'htmlTag' => 'h2'
-                        ]
+                            'htmlTag' => 'h2',
+                        ],
                     ],
                     'new2' => [
                         'type' => 'text',
                         'fields' => [
                             'text' => $this->getMarkdownParagraphs(3),
 
-                        ]
-                    ]
-                ]
+                        ],
+                    ],
+                ],
 
             ]);
 
@@ -420,7 +416,7 @@ class SeedController extends InitController
                     'person' => [Entry::find()->section('person')->slug('whitney-francis')->one()->id ?? null],
                     'align' => 'right',
                     'testimonialStyle' => 'overlappingImage',
-                ]
+                ],
             ]);
 
 
@@ -439,35 +435,35 @@ class SeedController extends InitController
                             'fields' => [
                                 'icon' => [$icons[0]->id],
                                 'heading' => $this->faker->text(30),
-                                'text' => $this->faker->text(120)
-                            ]
+                                'text' => $this->faker->text(120),
+                            ],
                         ],
                         [
                             'type' => 'feature',
                             'fields' => [
                                 'icon' => [$icons[1]->id],
                                 'heading' => $this->faker->text(30),
-                                'text' => $this->faker->text(120)
-                            ]
+                                'text' => $this->faker->text(120),
+                            ],
                         ],
                         [
                             'type' => 'feature',
                             'fields' => [
                                 'icon' => [$icons[2]->id],
                                 'heading' => $this->faker->text(30),
-                                'text' => $this->faker->text(120)
-                            ]
+                                'text' => $this->faker->text(120),
+                            ],
                         ],
                         [
                             'type' => 'feature',
                             'fields' => [
                                 'icon' => [$icons[3]->id],
                                 'heading' => $this->faker->text(30),
-                                'text' => $this->faker->text(120)
-                            ]
+                                'text' => $this->faker->text(120),
+                            ],
                         ],
-                    ]
-                ]
+                    ],
+                ],
             ]);
 
 
@@ -482,7 +478,7 @@ class SeedController extends InitController
                     'person' => [Entry::find()->section('person')->slug('leslie-alexander')->one()->id ?? null],
                     'align' => '',
                     'testimonialStyle' => 'overlappingImage',
-                ]
+                ],
             ]);
 
             $query = Entry::find()->section('person');
@@ -503,13 +499,13 @@ class SeedController extends InitController
                 'slug' => 'team',
                 'fields' => [
                     'persons' => $ids,
-                    'body' => $this->faker->text(200)
+                    'body' => $this->faker->text(200),
                 ],
                 'localized' => [
                     'de' => [
-                        'title' => 'Unser Team'
-                    ]
-                ]
+                        'title' => 'Unser Team',
+                    ],
+                ],
             ]);
 
 
@@ -531,7 +527,7 @@ class SeedController extends InitController
                                 'target' => $target ? [$target->id] : [],
                                 'caption' => $this->faker->text(20),
                                 'primary' => true,
-                            ]
+                            ],
                         ],
                         [
                             'type' => 'button',
@@ -539,10 +535,10 @@ class SeedController extends InitController
                                 'target' => $target2 ? [$target2->id] : [],
                                 'caption' => $this->faker->text(20),
                                 'primary' => false,
-                            ]
-                        ]
-                    ]
-                ]
+                            ],
+                        ],
+                    ],
+                ],
             ]);
 
 
@@ -566,9 +562,9 @@ class SeedController extends InitController
                                 'target' => $articleIndex ? [$articleIndex->id] : [],
                                 'caption' => 'Show all Articles',
                                 'primary' => true,
-                            ]
-                        ]
-                    ]
+                            ],
+                        ],
+                    ],
                 ],
                 'localized' => [
                     'de' => [
@@ -581,12 +577,12 @@ class SeedController extends InitController
                                         'target' => $articleIndex ? [$articleIndex->id] : [],
                                         'caption' => 'Alle Artikel anzeigen',
                                         'primary' => true,
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
             ]);
 
             $contentComponents[] = $this->createEntry([
@@ -602,8 +598,8 @@ class SeedController extends InitController
                     'de' => [
                         'title' => 'Neueste Stories',
                         'slug' => 'neueste-stories',
-                    ]
-                ]
+                    ],
+                ],
             ]);
 
             $topicsIndex = Entry::find()
@@ -626,9 +622,9 @@ class SeedController extends InitController
                                 'target' => $topicsIndex ? [$topicsIndex->id] : [],
                                 'caption' => 'Show all Topics',
                                 'primary' => true,
-                            ]
-                        ]
-                    ]
+                            ],
+                        ],
+                    ],
                 ],
                 'localized' => [
                     'de' => [
@@ -642,12 +638,12 @@ class SeedController extends InitController
                                         'target' => $topicsIndex ? [$topicsIndex->id] : [],
                                         'caption' => 'Alle Themen anzeigen',
                                         'primary' => true,
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
             ]);
 
             $contentComponents[] = $this->createEntry([
@@ -662,25 +658,25 @@ class SeedController extends InitController
                             'type' => 'faq',
                             'fields' => [
                                 'question' => str_replace('.', '?', $this->faker->text(40)),
-                                'answer' => $this->faker->text(300)
-                            ]
+                                'answer' => $this->faker->text(300),
+                            ],
                         ],
                         [
                             'type' => 'faq',
                             'fields' => [
                                 'question' => str_replace('.', '?', $this->faker->text(40)),
-                                'answer' => $this->faker->text(300)
-                            ]
+                                'answer' => $this->faker->text(300),
+                            ],
                         ],
                         [
                             'type' => 'faq',
                             'fields' => [
                                 'question' => str_replace('.', '?', $this->faker->text(40)),
-                                'answer' => $this->faker->text(300)
-                            ]
+                                'answer' => $this->faker->text(300),
+                            ],
                         ],
-                    ]
-                ]
+                    ],
+                ],
             ]);
 
 
@@ -736,8 +732,8 @@ class SeedController extends InitController
                     'socialLinks' => [
                         ['col1' => 'mastodon', 'col2' => 'https://joinmastodon.org'],
                         ['col1' => 'email', 'col2' => 'email:name@example.com'],
-                    ]
-                ]
+                    ],
+                ],
             ]);
         }
         return ExitCode::OK;
@@ -762,10 +758,10 @@ class SeedController extends InitController
                 $primaryBlocks->last()->id => [
                     'type' => 'text',
                     'fields' => [
-                        'text' => 'Dies ist ein automatisch erstellter Beispieleintrag.'
-                    ]
-                ]
-            ]
+                        'text' => 'Dies ist ein automatisch erstellter Beispieleintrag.',
+                    ],
+                ],
+            ],
         ]);
 
         Craft::$app->elements->saveElement($entry);
@@ -786,12 +782,11 @@ class SeedController extends InitController
      */
     protected function getBodyContent(): array
     {
-
         $localFaker = Factory::create('de_DE');
 
         $content = [
             'sortOrder' => [],
-            'blocks' => []
+            'blocks' => [],
         ];
 
         $folder = Craft::$app->assets->findFolder(['path' => 'starter/']);
@@ -808,22 +803,21 @@ class SeedController extends InitController
 
         $i = 0;
         foreach ($blockTypes as $blockType) {
-
             switch ($blockType) {
                 case 'text':
                     $block = [
                         'type' => 'text',
                         'fields' => [
-                            'text' => $this->getMarkdownParagraphs($this->faker->numberBetween(1, 5))
-                        ]
+                            'text' => $this->getMarkdownParagraphs($this->faker->numberBetween(1, 5)),
+                        ],
                     ];
                     break;
                 case 'longtext':
                     $block = [
                         'type' => 'text',
                         'fields' => [
-                            'text' => $this->getMarkdownParagraphs($this->faker->numberBetween(6, 12))
-                        ]
+                            'text' => $this->getMarkdownParagraphs($this->faker->numberBetween(6, 12)),
+                        ],
                     ];
                     break;
                 case 'heading':
@@ -831,8 +825,8 @@ class SeedController extends InitController
                         'type' => 'heading',
                         'fields' => [
                             'text' => $this->faker->text(40),
-                            'htmlTag' => 'h2'
-                        ]
+                            'htmlTag' => 'h2',
+                        ],
                     ];
                     break;
                 case 'quote':
@@ -841,8 +835,8 @@ class SeedController extends InitController
                         'fields' => [
                             'text' => $this->faker->text(80),
                             'cite' => $localFaker->name,
-                            'style' => $this->faker->randomElement(['', 'colored', 'bordered'])
-                        ]
+                            'style' => $this->faker->randomElement(['', 'colored', 'bordered']),
+                        ],
                     ];
                     break;
                 case 'image':
@@ -853,8 +847,8 @@ class SeedController extends InitController
                             'image' => $image ? [$image->id] : null,
                             'caption' => $this->faker->text(30),
                             'align' => 'wide',
-                            'aspectRatio' => 'default'
-                        ]
+                            'aspectRatio' => 'default',
+                        ],
                     ];
                     break;
                 case 'gallery':
@@ -872,7 +866,7 @@ class SeedController extends InitController
                         'fields' => [
                             'images' => $ids,
                             'align' => 'wide',
-                        ]
+                        ],
                     ];
 
                     break;
@@ -889,8 +883,8 @@ class SeedController extends InitController
         $content['blocks'][$id] = [
             'type' => 'text',
             'fields' => [
-                'text' => 'This is an automatically generated sample entry.'
-            ]
+                'text' => 'This is an automatically generated sample entry.',
+            ],
         ];
 
         return $content;
@@ -898,12 +892,11 @@ class SeedController extends InitController
 
     protected function getStoryContent(int $index): array
     {
-
         $localFaker = Factory::create('de_DE');
 
         $content = [
             'sortOrder' => [],
-            'blocks' => []
+            'blocks' => [],
         ];
 
         $folder = Craft::$app->assets->findFolder(['path' => 'starter/']);
@@ -911,7 +904,7 @@ class SeedController extends InitController
         $layouts = [
             ['titleBlock', 'cover', 'cover', 'text', 'image', 'text', 'heading', 'text', 'cover'],
             ['cover', 'cover', 'cover', 'titleBlock2', 'text', 'heading', 'text', 'cover', 'cover', 'image', 'image', 'text'],
-            ['titleBlock', 'text', 'heading', 'text', 'cover', 'text', 'image', 'image']
+            ['titleBlock', 'text', 'heading', 'text', 'cover', 'text', 'image', 'image'],
         ];
 
         // $blockTypes = $this->faker->randomElement($layouts);
@@ -919,22 +912,21 @@ class SeedController extends InitController
 
         $i = 0;
         foreach ($blockTypes as $blockType) {
-
             switch ($blockType) {
                 case 'text':
                     $block = [
                         'type' => 'text',
                         'fields' => [
-                            'text' => $this->getMarkdownParagraphs($this->faker->numberBetween(3, 5))
-                        ]
+                            'text' => $this->getMarkdownParagraphs($this->faker->numberBetween(3, 5)),
+                        ],
                     ];
                     break;
                 case 'heading':
                     $block = [
                         'type' => 'heading',
                         'fields' => [
-                            'text' => $this->faker->text(40)
-                        ]
+                            'text' => $this->faker->text(40),
+                        ],
                     ];
                     break;
                 case 'titleBlock':
@@ -942,7 +934,7 @@ class SeedController extends InitController
                         'type' => 'titleBlock',
                         'fields' => [
                             'template' => 'fullheight.twig',
-                        ]
+                        ],
                     ];
                     break;
                 case 'titleBlock2':
@@ -950,7 +942,7 @@ class SeedController extends InitController
                         'type' => 'titleBlock',
                         'fields' => [
                             'template' => 'textonly.twig',
-                        ]
+                        ],
                     ];
                     break;
                 case 'image':
@@ -959,7 +951,7 @@ class SeedController extends InitController
                         'type' => 'image',
                         'fields' => [
                             'image' => $image ? [$image->id] : null,
-                        ]
+                        ],
                     ];
                     break;
                 case 'cover':
@@ -969,7 +961,7 @@ class SeedController extends InitController
                         'fields' => [
                             'image' => $image ? [$image->id] : null,
                             'text' => $this->faker->text(50),
-                        ]
+                        ],
                     ];
                     break;
             }
@@ -985,8 +977,8 @@ class SeedController extends InitController
         $content['blocks'][$id] = [
             'type' => 'text',
             'fields' => [
-                'text' => 'This is an automatically generated sample entry.'
-            ]
+                'text' => 'This is an automatically generated sample entry.',
+            ],
         ];
 
         return $content;
@@ -1011,7 +1003,6 @@ class SeedController extends InitController
 
     public function actionCreateImages(int $num = 30, int $timeout = 10, string $folderName = 'examples'): int
     {
-
         if ($this->interactive && !$this->confirm("Download {$num} example images from Unsplash?")) {
             return ExitCode::UNSPECIFIED_ERROR;
         }
@@ -1046,7 +1037,6 @@ class SeedController extends InitController
         $session = Craft::$app->assetIndexer->createIndexingSession([$volume]);
 
         for ($i = $start; $i <= $end; ++$i) {
-
             ++$loop;
 
             $filename = "example_{$i}.jpg";
@@ -1171,6 +1161,4 @@ class SeedController extends InitController
 
         return $name;
     }
-
-
 }

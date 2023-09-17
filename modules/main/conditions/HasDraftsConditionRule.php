@@ -12,7 +12,6 @@ use craft\elements\Entry;
 
 class HasDraftsConditionRule extends BaseLightswitchConditionRule implements ElementConditionRuleInterface
 {
-
     /**
      * @inheritdoc
      */

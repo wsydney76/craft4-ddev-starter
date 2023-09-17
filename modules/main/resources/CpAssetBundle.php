@@ -7,7 +7,7 @@ use craft\web\assets\cp\CpAsset;
 
 class CpAssetBundle extends AssetBundle
 {
-    public function init()
+    public function init(): void
     {
         $this->sourcePath = '@modules/main/resources/dist';
 

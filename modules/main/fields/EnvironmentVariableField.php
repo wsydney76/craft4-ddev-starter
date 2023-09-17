@@ -41,6 +41,8 @@ class EnvironmentVariableField extends Field
      * For now, value can only be the name of a YII/Craft core validator that does not need additional parameters.
      * https://www.yiiframework.com/doc/guide/2.0/en/tutorial-core-validators
      */
+
+    /** @var array<array> */
     protected array $validationRules = [];
 
     /**
@@ -90,15 +92,16 @@ class EnvironmentVariableField extends Field
     }
 
     /**
-     * @return array
+     * @return array<string>
      */
     public static function supportedTranslationMethods(): array
     {
         return [self::TRANSLATION_METHOD_NONE];
     }
 
+
     /**
-     * @inheritdoc
+     * @return array<array>
      */
     public function defineRules(): array
     {
@@ -121,8 +124,9 @@ class EnvironmentVariableField extends Field
             App::env($this->variableName);
     }
 
+
     /**
-     * @inheritdoc
+     * @return array<array>
      */
     public function getElementValidationRules(): array
     {

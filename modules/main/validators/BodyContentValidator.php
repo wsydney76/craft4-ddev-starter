@@ -10,12 +10,12 @@ class BodyContentValidator extends Validator
 
 // https://nystudio107.com/blog/custom-matrix-block-validation-rules
 {
-    public function validateAttribute($entry, $attribute)
+    public function validateAttribute($model, $attribute): void
     {
         $isHeadingLevelValid = true;
         $lastHeadingLevel = 1;
 
-        $query = $entry->$attribute;
+        $query = $model->$attribute;
         // Iterate through all the blocks
         $blocks = $query->getCachedResult() ?? $query->limit(null)->anyStatus()->all();
 
@@ -25,7 +25,7 @@ class BodyContentValidator extends Validator
                 /* @phpstan-ignore-next-line */
                 $level = (int)str_replace('h', '', $block->htmlTag->value);
                 if ($level - $lastHeadingLevel > 1) {
-                    $entry->addError('bodyContent', Craft::t('site', 'Block {index}: H{level} cannot follow H{lastHeadingLevel}.', [
+                    $model->addError('bodyContent', Craft::t('site', 'Block {index}: H{level} cannot follow H{lastHeadingLevel}.', [
                         'level' => $level,
                         'lastHeadingLevel' => $lastHeadingLevel,
                         'index' => $index + 1,
@@ -39,7 +39,7 @@ class BodyContentValidator extends Validator
         $query->setCachedResult($blocks);
 
         if (!$isHeadingLevelValid) {
-            $entry->addError('bodyContent', Craft::t('site', 'Nesting of heading levels is wrong.'));
+            $model->addError('bodyContent', Craft::t('site', 'Nesting of heading levels is wrong.'));
         }
     }
 }

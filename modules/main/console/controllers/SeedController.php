@@ -6,6 +6,9 @@ use Craft;
 use craft\elements\Asset;
 use craft\elements\Entry;
 use craft\elements\User;
+use craft\errors\ElementNotFoundException;
+use craft\errors\InvalidFieldException;
+use craft\errors\SiteNotFoundException;
 use craft\helpers\App;
 use craft\helpers\ArrayHelper;
 use craft\helpers\Assets;
@@ -15,6 +18,7 @@ use craft\helpers\StringHelper;
 use Exception;
 use Faker\Factory;
 use Illuminate\Support\Collection;
+use Throwable;
 use yii\console\ExitCode;
 use function is_dir;
 use function str_replace;
@@ -92,7 +96,17 @@ class SeedController extends InitController
         return ExitCode::OK;
     }
 
-    protected function createTopic($topic, ?Entry $parent = null): void
+    /**
+     * @param array $topic
+     * @param Entry|null $parent
+     * @return void
+     * @throws Throwable
+     * @throws ElementNotFoundException
+     * @throws InvalidFieldException
+     * @throws SiteNotFoundException
+     * @throws \yii\base\Exception
+     */
+    protected function createTopic(array $topic, ?Entry $parent = null): void
     {
         $entry = $this->createEntry([
             'section' => 'topic',
@@ -759,7 +773,7 @@ class SeedController extends InitController
         Craft::$app->elements->saveElement($entry);
     }
 
-    protected function getRandomImage($width = 1900): ?Asset
+    protected function getRandomImage(int $width = 1900): ?Asset
     {
         return Asset::find()
             ->volume($this->volume)
@@ -770,7 +784,7 @@ class SeedController extends InitController
     }
 
     /**
-     * @return array<string, array<array<string, string|array<string, string>|array<string, mixed[]|string|null>|array<string, mixed[]>>|string>>
+     * @return array<string, array<array<string, string|array<string, string>|array<string, array|string|null>|array<string, array>>|string>>
      */
     protected function getBodyContent(): array
     {
@@ -885,6 +899,10 @@ class SeedController extends InitController
         return $content;
     }
 
+    /**
+     * @param int $index
+     * @return array
+     */
     protected function getStoryContent(int $index): array
     {
         $localFaker = Factory::create('de_DE');
@@ -1144,7 +1162,7 @@ class SeedController extends InitController
             ->one();
     }
 
-    protected function convertFilenameToProperName($filename): string
+    protected function convertFilenameToProperName(string $filename): string
     {
 
         // Do not use Assets::filename2Title($filename) here, because it would break seeding persons, which rely on this convention.

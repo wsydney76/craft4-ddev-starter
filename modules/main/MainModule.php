@@ -173,7 +173,7 @@ class MainModule extends BaseModule
         }
     }
 
-    protected function restrictSearchIndex()
+    protected function restrictSearchIndex(): void
     {
         // Don't update search index for drafts
         Event::on(
@@ -187,7 +187,7 @@ class MainModule extends BaseModule
         );
     }
 
-    protected function createHooks()
+    protected function createHooks(): void
     {
         // Prevent password managers like Bitdefender Wallet from falsely inserting credentials into user form
         Craft::$app->view->hook('cp.users.edit.content', function(array &$context) {
@@ -202,7 +202,7 @@ class MainModule extends BaseModule
         });
     }
 
-    protected function hideBlockTypes()
+    protected function hideBlockTypes(): void
     {
         // Hide bodyContent block types not relevant for the current entry
         Event::on(
@@ -247,7 +247,7 @@ class MainModule extends BaseModule
     }
 
 
-    protected function setElementIndexColumns()
+    protected function setElementIndexColumns(): void
     {
         $this->setEntriesIndexImageColumn(
             'bigFeaturedImage',
@@ -275,6 +275,11 @@ class MainModule extends BaseModule
             ]);
     }
 
+    /**
+     * @param array<VolumeFolder> $folders
+     * @param array $rootSource
+     * @return array<array>
+     */
     protected function folders2sources(array $folders, array $rootSource): array
     {
         return array_map(fn(VolumeFolder $folder) => [
@@ -294,7 +299,7 @@ class MainModule extends BaseModule
         ], $folders);
     }
 
-    private function validateAllSites()
+    private function validateAllSites(): void
     {
         if (!Craft::$app->config->custom->useCustomCrossSiteValidation) {
             return;

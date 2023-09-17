@@ -4,8 +4,13 @@ namespace modules\base\services;
 
 use Craft;
 use craft\base\Field;
+use craft\base\FieldInterface;
 use craft\elements\Asset;
 use craft\elements\Entry;
+use craft\errors\BusyResourceException;
+use craft\errors\EntryTypeNotFoundException;
+use craft\errors\SectionNotFoundException;
+use craft\errors\StaleResourceException;
 use craft\fieldlayoutelements\CustomField;
 use craft\fieldlayoutelements\LineBreak;
 use craft\fieldlayoutelements\Tip;
@@ -18,9 +23,14 @@ use craft\models\Section;
 use craft\models\Section_SiteSettings;
 use craft\models\Site;
 use craft\records\FieldGroup as FieldGroupRecord;
+use Faker\Generator;
 use modules\base\BaseModule;
 use Throwable;
+use yii\base\ErrorException;
+use yii\base\Exception;
 use yii\base\InvalidConfigException;
+use yii\base\NotSupportedException;
+use yii\web\ServerErrorHttpException;
 use function collect;
 use function in_array;
 use function is_string;
@@ -40,14 +50,28 @@ class BaseMigrationService extends BaseService
     protected string $translationCategory = 'site';
     protected string $templateRoot = 'base';
 
+    /** @var array<Section> $sections */
     protected array $sections = [];
+
+    /** @var array<FieldInterface> $fields */
     protected array $fields = [];
-    protected $fieldGroup;
-    protected $doUpdateFieldlayout = [];
 
-    protected $faker;
+    protected FieldGroupRecord $fieldGroup;
+
+    /** @var array<string> $doUpdateFieldlayout */
+    protected array $doUpdateFieldlayout = [];
+
+    protected Generator $faker;
 
 
+    /**
+     * @param array $config
+     * @return bool
+     * @throws InvalidConfigException
+     * @throws Throwable
+     * @throws EntryTypeNotFoundException
+     * @throws SectionNotFoundException
+     */
     protected function createSection(array $config): bool
     {
         $name = $config['name'];
@@ -153,10 +177,12 @@ class BaseMigrationService extends BaseService
     }
 
     /**
-     * @throws Throwable
+     * @param array $config
+     * @return bool
      * @throws InvalidConfigException
+     * @throws Throwable
      */
-    protected function createField(array $config)
+    protected function createField(array $config): bool
     {
         $handle = $config['handle'];
         $name = $config['name'];
@@ -166,6 +192,7 @@ class BaseMigrationService extends BaseService
             return true;
         }
 
+        /* @phpstan-ignore-next-line */
         $field = Craft::createObject($config);
 
         if (!Craft::$app->fields->saveField($field)) {
@@ -179,6 +206,12 @@ class BaseMigrationService extends BaseService
         return true;
     }
 
+    /**
+     * @param array $config
+     * @return bool
+     * @throws InvalidConfigException
+     * @throws Throwable
+     */
     protected function createMatrixField(array $config): bool
     {
         $this->fields[$config['handle']] = Craft::$app->fields->getFieldByHandle($config['handle']);
@@ -197,6 +230,7 @@ class BaseMigrationService extends BaseService
                     unset($fieldConfig['layoutConfig']);
                 }
 
+                /* @phpstan-ignore-next-line */
                 $fields[] = Craft::createObject($fieldConfig);
             }
             $blocktype = new MatrixBlockType();
@@ -237,7 +271,13 @@ class BaseMigrationService extends BaseService
     }
 
 
-    protected function updateFieldLayout(string $sectionHandle, array $tabConfigs)
+    /**
+     * @param string $sectionHandle
+     * @param array $tabConfigs
+     * @return bool
+     * @throws Exception
+     */
+    protected function updateFieldLayout(string $sectionHandle, array $tabConfigs): bool
     {
         // Only create field layout for newly created sections
         if (!in_array($sectionHandle, $this->doUpdateFieldlayout)) {
@@ -255,7 +295,6 @@ class BaseMigrationService extends BaseService
         /** @var Section $section */
         $section = $this->sections[$sectionHandle];
         $layout = $section->entryTypes[0]->getFieldLayout();
-        $tab = $layout->getTabs()[0];
 
         $tabs = [];
 
@@ -270,6 +309,7 @@ class BaseMigrationService extends BaseService
 //        }
 
         $sortOrder = 1;
+        /** @var array $layoutElements */
         foreach ($tabConfigs as $label => $layoutElements) {
             $tab = new FieldLayoutTab();
             $tab->name = $label;
@@ -316,7 +356,20 @@ class BaseMigrationService extends BaseService
         return true;
     }
 
-    protected function updateElementSource(string $heading, string $sectionHandle, array $tableAttributes)
+    /**
+     * @param string $heading
+     * @param string $sectionHandle
+     * @param array $tableAttributes
+     * @return void
+     * @throws Exception
+     * @throws InvalidConfigException
+     * @throws BusyResourceException
+     * @throws StaleResourceException
+     * @throws ErrorException
+     * @throws NotSupportedException
+     * @throws ServerErrorHttpException
+     */
+    protected function updateElementSource(string $heading, string $sectionHandle, array $tableAttributes): void
     {
         $config = Craft::$app->projectConfig->get('elementSources');
         $section = Craft::$app->sections->getSectionByHandle($sectionHandle);
@@ -359,12 +412,12 @@ class BaseMigrationService extends BaseService
     }
 
 
-    protected function getFieldGroup(string $fieldGroup)
+    protected function getFieldGroup(string $fieldGroup): ?FieldGroupRecord
     {
         return FieldGroupRecord::findOne(['name' => $fieldGroup]);
     }
 
-    protected function getRandomImage($width)
+    protected function getRandomImage(int $width): ?Asset
     {
         return Asset::find()
             ->volume($this->imageVolume)

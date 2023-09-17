@@ -44,7 +44,7 @@ class IncludeField extends Field
     }
 
     /**
-     * @return mixed[]
+     * @return array
      */
     protected function defineRules(): array
     {
@@ -112,7 +112,7 @@ class IncludeField extends Field
     }
 
     // Helper method to generate the base directory path
-    protected function getBaseDirectory($entry, $includeDirectory): string
+    protected function getBaseDirectory(Entry $entry, string $includeDirectory): string
     {
         // Replace %SITE% with the current site's handle
         if (str_contains($includeDirectory, '%SITE%')) {

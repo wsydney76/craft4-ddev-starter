@@ -30,7 +30,7 @@ class EntryBehavior extends Behavior
      * This function will first attempt to fetch all authors from the 'persons' field.
      * If no authors are found, it will return the author directly associated with the entry.
      *
-     * @return array An array of authors, each represented as an array with 'name', 'photo' and 'socialLinks'
+     * @return array<array> An array of authors, each represented as an array with 'name', 'photo' and 'socialLinks'
      */
     public function getAuthors(): array
     {

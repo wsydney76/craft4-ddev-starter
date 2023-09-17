@@ -12,6 +12,7 @@ use craft\helpers\Assets;
 use craft\helpers\Console;
 use Faker\Factory;
 use Faker\Generator;
+use Illuminate\Support\Collection;
 use yii\console\ExitCode;
 use yii\helpers\Markdown;
 
@@ -472,7 +473,14 @@ class InitController extends BaseController
         return ExitCode::OK;
     }
 
-    protected function getImagesFromFolder(string $path, $minWidth = null, $limit = null, $orderBy = null)
+    /**
+     * @param string $path
+     * @param $minWidth
+     * @param $limit
+     * @param $orderBy
+     * @return Collection|int
+     */
+    protected function getImagesFromFolder(string $path, ?int $minWidth = null, ?int $limit = null, ?string $orderBy = null): int|Collection
     {
         if ($orderBy === 'random') {
             $orderBy = Craft::$app->db->driverName === 'mysql' ? 'RAND()' : 'RANDOM()';

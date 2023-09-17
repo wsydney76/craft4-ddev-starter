@@ -19,8 +19,12 @@ use const DIRECTORY_SEPARATOR;
 
 class TwigExtension extends AbstractExtension implements GlobalsInterface
 {
+    /** @var array|null $purifierConfig */
     private ?array $purifierConfig = null;
 
+    /**
+     * @return array
+     */
     public function getGlobals(): array
     {
         return [

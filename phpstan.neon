@@ -2,7 +2,9 @@ includes:
     - vendor/craftcms/phpstan/phpstan.neon
 
 parameters:
-    level: 5
+    level: 6
+    checkGenericClassInNonGenericObjectType: false
+    checkMissingIterableValueType: false
     paths:
         - modules/base
         - modules/guide

@@ -9,6 +9,7 @@ use Symfony\Component\VarDumper\Dumper\HtmlDumper;
  */
 class CustomHtmlDumper extends HtmlDumper
 {
+    /* @phpstan-ignore-next-line */
     protected static $themes = [
         'light' => [
             'default' => 'background:white; color:#78350f; line-height:1.2em; font:17px Menlo, Monaco, Consolas, monospace; word-wrap: break-word; white-space: pre-wrap; position:relative; z-index:99999; word-break: break-all',

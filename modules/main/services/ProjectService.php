@@ -4,7 +4,9 @@ namespace modules\main\services;
 
 use Craft;
 use craft\base\Component;
+use craft\elements\ElementCollection;
 use craft\elements\Entry;
+use craft\elements\MatrixBlock;
 use craft\helpers\HtmlPurifier;
 use craft\helpers\Template;
 use function preg_match_all;
@@ -18,9 +20,9 @@ class ProjectService extends Component
      *
      * Performance optimization, minimize database query count and make it easy to use in Twig.
      *
-     * @return array
+     * @return array<array>
      */
-    public function getStructureNodes(string $sectionHandle)
+    public function getStructureNodes(string $sectionHandle): array
     {
         $entries = Entry::find()
             ->section($sectionHandle)
@@ -57,11 +59,17 @@ class ProjectService extends Component
         return $topics;
     }
 
-    public static function estimatedReadingTime($blocks, $wpm = 200)
+    /**
+     * @param array<MatrixBlock|ElementCollection> $blocks
+     * @param int $wpm
+     * @return array
+     */
+    public static function estimatedReadingTime(array|ElementCollection $blocks, int $wpm = 200)
     {
         $totalWords = 0;
 
         foreach ($blocks as $block) {
+            /* @phpstan-ignore-next-line */
             $totalWords += str_word_count($block->text);
         }
 
@@ -84,7 +92,7 @@ class ProjectService extends Component
      * @throws \Twig\Error\SyntaxError
      * @throws \yii\base\Exception
      */
-    public function replaceOembedTags($text)
+    public function replaceOembedTags(string $text): \Twig\Markup
     {
 
         // run text through htmlpurifier to remove any malicious code

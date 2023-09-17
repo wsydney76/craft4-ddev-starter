@@ -5,19 +5,34 @@ namespace modules\base\services;
 use Craft;
 use craft\elements\Entry;
 use craft\elements\User;
+use craft\errors\ElementNotFoundException;
+use craft\errors\InvalidFieldException;
+use craft\errors\SiteNotFoundException;
 use craft\fields\Matrix;
 use craft\helpers\ArrayHelper;
+use Throwable;
+use yii\base\Exception;
 
 /**
  * Content Service service
  */
 class ContentService extends BaseService
 {
-    public function test()
+    public function test(): string
     {
         return 'Hey, it works!';
     }
 
+    /**
+     * @param array $data
+     * @param bool $overwrite
+     * @return mixed
+     * @throws Throwable
+     * @throws ElementNotFoundException
+     * @throws InvalidFieldException
+     * @throws SiteNotFoundException
+     * @throws Exception
+     */
     public function createEntry(array $data, bool $overwrite = false): mixed
     {
         $user = User::find()->admin()->one();

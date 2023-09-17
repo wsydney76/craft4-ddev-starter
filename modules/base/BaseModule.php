@@ -7,8 +7,6 @@ use craft\base\conditions\BaseCondition;
 use craft\base\Element;
 use craft\base\Field;
 use craft\base\Model;
-use craft\base\Widget;
-use craft\elements\conditions\ElementConditionRuleInterface;
 use craft\elements\Entry;
 use craft\events\DefineBehaviorsEvent;
 use craft\events\DefineRulesEvent;
@@ -28,8 +26,6 @@ use craft\web\twig\variables\Cp;
 use craft\web\twig\variables\CraftVariable;
 use craft\web\View;
 use modules\base\services\ContentService;
-use Twig\Extension\AbstractExtension;
-use yii\base\Behavior;
 use yii\base\Event;
 use yii\base\InvalidConfigException;
 use yii\base\Module;
@@ -210,7 +206,7 @@ class BaseModule extends Module
     }
 
     /**
-     * @param mixed[] $navItem
+     * @param array $navItem
      * @param $pos
      * @return void
      */
@@ -242,7 +238,7 @@ class BaseModule extends Module
     }
 
     /**
-     * @param mixed[] $rules
+     * @param array $rules
      * @return void
      */
     protected function registerEntryValidators(array $rules): void
@@ -275,7 +271,7 @@ class BaseModule extends Module
     }
 
     /**
-     * @param mixed[] $services
+     * @param array $services
      * @return void
      */
     protected function registerCraftVariableServices(array $services): void
@@ -317,7 +313,7 @@ class BaseModule extends Module
      * @param string $attribute handle of the new column
      * @param string $fieldHandle handle of the field to use for the image
      * @param string $label label of the new column
-     * @param mixed[] $transform transform to use for the image
+     * @param array $transform transform to use for the image
      */
     protected function setEntriesIndexImageColumn(string $attribute, string $fieldHandle, string $label, array $transform): void
     {

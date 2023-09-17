@@ -22,11 +22,9 @@ use modules\base\BaseModule;
 use Throwable;
 use yii\base\InvalidConfigException;
 use function collect;
-use function extract;
 use function in_array;
 use function is_string;
 use function strtolower;
-use const EXTR_OVERWRITE;
 
 /**
  * Base Migration Service

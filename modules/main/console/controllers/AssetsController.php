@@ -54,6 +54,7 @@ class AssetsController extends Controller
 
     private function _clearVolume(Volume $volume): void
     {
+        /* @phpstan-ignore-next-line */
         $root = App::parseEnv($volume->getTransformFs()->path);
 
         FileHelper::clearDirectory($root);

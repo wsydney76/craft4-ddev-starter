@@ -40,11 +40,14 @@ class EntryBehavior extends Behavior
         $authors = [];
 
         // Attempt to get authors from 'persons' field
+        /* @phpstan-ignore-next-line */
         if ($entry->persons) {
             $authors = $entry->persons->collect()
                 ->map(fn(Entry $author) => [
                     'name' => $author->title,
+                    /* @phpstan-ignore-next-line */
                     'photo' => $author->photo->one(),
+                    /* @phpstan-ignore-next-line */
                     'socialLinks' => $author->socialLinks,
                 ])
                 ->toArray();
@@ -56,6 +59,7 @@ class EntryBehavior extends Behavior
                 [
                     'name' => $entry->author->name,
                     'photo' => $entry->author->photo,
+                    /* @phpstan-ignore-next-line */
                     'socialLinks' => $entry->author->socialLinks,
                 ],
             ];

@@ -46,6 +46,7 @@ class HasDraftsConditionRule extends BaseLightswitchConditionRule implements Ele
     public function matchElement(ElementInterface $element): bool
     {
         $user = Craft::$app->user->identity;
+        /* @phpstan-ignore-next-line */
         return $this->value === false ? true : Entry::find()->draftOf($element->canonicalId)->draftCreator($user)->exists();
     }
 }

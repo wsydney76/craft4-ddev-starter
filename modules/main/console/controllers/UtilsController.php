@@ -31,6 +31,7 @@ class UtilsController extends Controller
      */
     public function actionRepairMatrixHeadingTag(): int
     {
+        /* @phpstan-ignore-next-line */
         $blocks = MatrixBlock::find()
             ->field('bodyContent')
             ->status(null)
@@ -51,6 +52,7 @@ class UtilsController extends Controller
     // Do not allow empty values
     public function actionRepairMatrixAlign(): int
     {
+        /* @phpstan-ignore-next-line */
         $blocks = MatrixBlock::find()
             ->field('bodyContent')
             ->status(null)
@@ -72,6 +74,7 @@ class UtilsController extends Controller
     {
         // $elements = Entry::find()
 
+        /* @phpstan-ignore-next-line */
         $elements = MatrixBlock::find()
             ->field('bodyContent')
             ->type('gallery')

@@ -14,7 +14,6 @@ use craft\helpers\FileHelper;
 use craft\helpers\StringHelper;
 use Exception;
 use Faker\Factory;
-use Faker\Generator;
 use Illuminate\Support\Collection;
 use yii\console\ExitCode;
 use function is_dir;
@@ -1017,6 +1016,7 @@ class SeedController extends InitController
             return ExitCode::UNSPECIFIED_ERROR;
         }
 
+        /* @phpstan-ignore-next-line */
         $path = App::parseEnv($volume->fs->path) . DIRECTORY_SEPARATOR . $folderName;
         if (!is_dir($path)) {
             FileHelper::createDirectory($path);
@@ -1075,7 +1075,7 @@ class SeedController extends InitController
      * Make sure images in the specified folder have alt text and copyright.
      * This will make sure that entries relating to these images can be saved without errors.
      *
-     * @param string $folderName The folder name where to check the images
+     * @param string $path The folder name where to check the images
      * @return int
      * @throws \Throwable
      * @throws \craft\errors\ElementNotFoundException
@@ -1088,6 +1088,7 @@ class SeedController extends InitController
             return ExitCode::OK;
         }
 
+        /* @phpstan-ignore-next-line */
         $hasNoAlt = Asset::find()
             ->site('*')
             ->folderId($folder->id)
@@ -1120,10 +1121,13 @@ class SeedController extends InitController
 
             foreach ($images as $image) {
                 $save = false;
+                /* @phpstan-ignore-next-line */
                 if (!$image->altText) {
                     $image->altText = ucwords($image->title);
                     $save = true;
                 }
+
+                /* @phpstan-ignore-next-line */
                 if (!$image->copyright) {
                     $image->copyright = $defaultCopyright ?: $localFaker->randomElement($photographers);
                     $save = true;

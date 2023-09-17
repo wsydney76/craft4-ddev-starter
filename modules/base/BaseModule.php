@@ -5,7 +5,10 @@ namespace modules\base;
 use Craft;
 use craft\base\conditions\BaseCondition;
 use craft\base\Element;
+use craft\base\Field;
 use craft\base\Model;
+use craft\base\Widget;
+use craft\elements\conditions\ElementConditionRuleInterface;
 use craft\elements\Entry;
 use craft\events\DefineBehaviorsEvent;
 use craft\events\DefineRulesEvent;
@@ -25,7 +28,10 @@ use craft\web\twig\variables\Cp;
 use craft\web\twig\variables\CraftVariable;
 use craft\web\View;
 use modules\base\services\ContentService;
+use Twig\Extension\AbstractExtension;
+use yii\base\Behavior;
 use yii\base\Event;
+use yii\base\InvalidConfigException;
 use yii\base\Module;
 use function array_splice;
 
@@ -34,9 +40,9 @@ use function array_splice;
  */
 class BaseModule extends Module
 {
-    protected $handle = '';
+    protected string $handle = '';
 
-    public function init()
+    public function init(): void
     {
         $this->setAlias();
 
@@ -49,12 +55,18 @@ class BaseModule extends Module
         parent::init();
     }
 
+    /**
+     * @return void
+     */
     protected function setAlias(): void
     {
         // Required for php craft help
         Craft::setAlias('@modules/' . $this->handle, $this->getBasePath());
     }
 
+    /**
+     * @return void
+     */
     protected function setControllerNamespace(): void
     {
 
@@ -66,7 +78,10 @@ class BaseModule extends Module
         }
     }
 
-    protected function registerTranslationCategory()
+    /**
+     * @return void
+     */
+    protected function registerTranslationCategory(): void
     {
         Craft::$app->i18n->translations[$this->handle] = [
             'class' => PhpMessageSource::class,
@@ -76,6 +91,11 @@ class BaseModule extends Module
         ];
     }
 
+    /**
+     * @param bool $site
+     * @param bool $cp
+     * @return void
+     */
     protected function registerTemplateRoots(bool $site = true, bool $cp = true): void
     {
         // Base template directory
@@ -96,6 +116,11 @@ class BaseModule extends Module
         }
     }
 
+    /**
+     * @param string $className
+     * @param array<string> $behaviors
+     * @return void
+     */
     protected function registerBehaviors(string $className, array $behaviors): void
     {
         // Register Behaviors
@@ -109,6 +134,10 @@ class BaseModule extends Module
             });
     }
 
+    /**
+     * @param array<string> $conditionRuleTypes
+     * @return void
+     */
     protected function registerConditionRuleTypes(array $conditionRuleTypes): void
     {
         // Register Custom Conditions
@@ -123,6 +152,10 @@ class BaseModule extends Module
         );
     }
 
+    /**
+     * @param array<string> $fieldTypes
+     * @return void
+     */
     protected function registerFieldTypes(array $fieldTypes): void
     {
         // Register custom field types
@@ -136,6 +169,10 @@ class BaseModule extends Module
             });
     }
 
+    /**
+     * @param array<string> $widgetTypes
+     * @return void
+     */
     protected function registerWidgetTypes(array $widgetTypes): void
     {
         Event::on(
@@ -149,20 +186,35 @@ class BaseModule extends Module
         );
     }
 
+    /**
+     * @param array<string> $extensions
+     * @return void
+     * @throws InvalidConfigException
+     */
     protected function registerTwigExtensions(array $extensions): void
     {
         foreach ($extensions as $extension) {
+            /* @phpstan-ignore-next-line */
             Craft::$app->view->registerTwigExtension(Craft::createObject($extension));
         }
     }
 
+    /**
+     * @param array<string> $services
+     * @return void
+     */
     protected function registerServices(array $services): void
     {
         // Register Services
         $this->setComponents($services);
     }
 
-    protected function registerNavItem(array $navItem, $pos = null): void
+    /**
+     * @param mixed[] $navItem
+     * @param $pos
+     * @return void
+     */
+    protected function registerNavItem(array $navItem, ?int $pos = null): void
     {
         Event::on(
             Cp::class,
@@ -177,6 +229,11 @@ class BaseModule extends Module
         );
     }
 
+    /**
+     * @param array<string> $assetBundles
+     * @return void
+     * @throws InvalidConfigException
+     */
     protected function registerAssetBundles(array $assetBundles): void
     {
         foreach ($assetBundles as $assetBundle) {
@@ -184,6 +241,10 @@ class BaseModule extends Module
         }
     }
 
+    /**
+     * @param mixed[] $rules
+     * @return void
+     */
     protected function registerEntryValidators(array $rules): void
     {
         Event::on(
@@ -195,6 +256,11 @@ class BaseModule extends Module
             });
     }
 
+    /**
+     * @param string $elementType
+     * @param array<string> $actions
+     * @return void
+     */
     protected function registerElementActions(string $elementType, array $actions): void
     {
         Event::on(
@@ -208,6 +274,10 @@ class BaseModule extends Module
         );
     }
 
+    /**
+     * @param mixed[] $services
+     * @return void
+     */
     protected function registerCraftVariableServices(array $services): void
     {
         Event::on(
@@ -223,6 +293,10 @@ class BaseModule extends Module
         );
     }
 
+    /**
+     * @param array<string> $behaviors
+     * @return void
+     */
     protected function registerCraftVariableBehaviors(array $behaviors): void
     {
         Event::on(
@@ -243,7 +317,7 @@ class BaseModule extends Module
      * @param string $attribute handle of the new column
      * @param string $fieldHandle handle of the field to use for the image
      * @param string $label label of the new column
-     * @param array $transform transform to use for the image
+     * @param mixed[] $transform transform to use for the image
      */
     protected function setEntriesIndexImageColumn(string $attribute, string $fieldHandle, string $label, array $transform): void
     {

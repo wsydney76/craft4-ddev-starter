@@ -3,7 +3,6 @@
 namespace modules\main\twigextensions;
 
 use Craft;
-use craft\helpers\Html;
 use craft\helpers\HtmlPurifier;
 use craft\helpers\Json;
 use craft\helpers\Template;

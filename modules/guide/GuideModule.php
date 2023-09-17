@@ -22,9 +22,9 @@ use const DIRECTORY_SEPARATOR;
  */
 class GuideModule extends BaseModule
 {
-    public $handle = 'guide';
+    public string $handle = 'guide';
 
-    public function init()
+    public function init(): void
     {
         parent::init();
 

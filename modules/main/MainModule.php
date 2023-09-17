@@ -37,7 +37,7 @@ use function in_array;
 
 class MainModule extends BaseModule
 {
-    public $handle = 'main';
+    public string $handle = 'main';
 
     public function init(): void
     {

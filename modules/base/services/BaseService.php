@@ -6,10 +6,17 @@ use Craft;
 use craft\base\Component;
 use yii\helpers\Console;
 
+/**
+ * A base service class for all services to extend from.
+ */
 class BaseService extends Component
 {
     protected string $logCategory = 'BaseService';
 
+    /**
+     * @param string $string
+     * @return void
+     */
     protected function info(string $string): void
     {
         if (Craft::$app->request->isConsoleRequest) {
@@ -19,6 +26,10 @@ class BaseService extends Component
         }
     }
 
+    /**
+     * @param string $string
+     * @return void
+     */
     protected function error(string $string): void
     {
         if (Craft::$app->request->isConsoleRequest) {

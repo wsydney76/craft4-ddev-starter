@@ -12,6 +12,10 @@ use Throwable;
 use yii\base\Exception;
 use function file_get_contents;
 
+/**
+ * Class BaseController
+ * @package modules\main\console\controllers
+ */
 class BaseController extends Controller
 {
     /**
@@ -29,6 +33,10 @@ class BaseController extends Controller
         return BaseModule::getInstance()->contentService->createEntry($data, $overwrite);
     }
 
+    /**
+     * @param string $string
+     * @return string
+     */
     protected function getStarterTextFromFile(string $string): string
     {
         $path = App::parseEnv('@root') . '/setup/starter-texts/' . $string;

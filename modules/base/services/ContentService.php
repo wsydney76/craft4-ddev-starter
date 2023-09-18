@@ -14,7 +14,7 @@ use Throwable;
 use yii\base\Exception;
 
 /**
- * Content Service service
+ * Content Service
  */
 class ContentService extends BaseService
 {

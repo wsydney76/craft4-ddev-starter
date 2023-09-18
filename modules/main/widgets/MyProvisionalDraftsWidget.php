@@ -8,16 +8,25 @@ use craft\elements\Entry;
 
 class MyProvisionalDraftsWidget extends Widget
 {
+    /**
+     * @inheritDoc
+     */
     public static function displayName(): string
     {
         return Craft::t('main', 'My Open Edits');
     }
 
+    /**
+     * @inheritDoc
+     */
     public static function icon(): ?string
     {
         return Craft::getAlias('@appicons/draft.svg');
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getBodyHtml(): ?string
     {
         $entries = Entry::find()

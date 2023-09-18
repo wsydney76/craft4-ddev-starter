@@ -22,7 +22,7 @@ use const DIRECTORY_SEPARATOR;
 class FileHelper extends \craft\helpers\FileHelper
 {
     /**
-     * Function to cleanup transform directories.
+     * Function to clean up transform directories.
      * It goes through all the volumes and checks if they are local.
      * If local, it proceeds to remove any empty subfolders in them.
      *

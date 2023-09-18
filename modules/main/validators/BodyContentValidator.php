@@ -10,6 +10,9 @@ class BodyContentValidator extends Validator
 
 // https://nystudio107.com/blog/custom-matrix-block-validation-rules
 {
+    /**
+     * @inerhitdoc
+     */
     public function validateAttribute($model, $attribute): void
     {
         $isHeadingLevelValid = true;

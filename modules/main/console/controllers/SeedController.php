@@ -26,11 +26,22 @@ use function ucwords;
 use const DIRECTORY_SEPARATOR;
 use const PHP_EOL;
 
+/**
+ * Class SeedController
+ *
+ * Create faked seed entries
+ *
+ * @package modules\main\console\controllers
+ */
 class SeedController extends InitController
 {
     public const NUM_ENTRIES = 50;
     public const SECTION_HANDLE = 'article';
 
+    /**
+     * @param $action
+     * @return bool
+     */
     public function beforeAction($action): bool
     {
         $this->faker = Factory::create();
@@ -38,6 +49,14 @@ class SeedController extends InitController
     }
 
 
+    /**
+     * @return int
+     * @throws ElementNotFoundException
+     * @throws InvalidFieldException
+     * @throws SiteNotFoundException
+     * @throws Throwable
+     * @throws \yii\base\Exception
+     */
     public function actionCreateTopics(): int
     {
         if ($this->interactive && !$this->confirm("Create topic entries?", true)) {
@@ -796,6 +815,9 @@ class SeedController extends InitController
         ];
 
         $folder = Craft::$app->assets->findFolder(['path' => 'starter/']);
+        if (!$folder) {
+            return $content;
+        }
 
         $layouts = [
             ['text', 'heading', 'image', 'text', 'image'],
@@ -1154,6 +1176,9 @@ class SeedController extends InitController
         return ExitCode::OK;
     }
 
+    /**
+     * @return Entry|null
+     */
     protected function getRandomTopic(): ?Entry
     {
         return Entry::find()
@@ -1162,6 +1187,10 @@ class SeedController extends InitController
             ->one();
     }
 
+    /**
+     * @param string $filename
+     * @return string
+     */
     protected function convertFilenameToProperName(string $filename): string
     {
 

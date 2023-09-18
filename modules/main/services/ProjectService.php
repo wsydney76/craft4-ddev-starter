@@ -69,7 +69,6 @@ class ProjectService extends Component
         $totalWords = 0;
 
         foreach ($blocks as $block) {
-            /* @phpstan-ignore-next-line */
             $totalWords += str_word_count($block->text);
         }
 

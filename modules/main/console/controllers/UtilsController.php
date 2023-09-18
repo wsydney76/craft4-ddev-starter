@@ -6,15 +6,24 @@ use Craft;
 use craft\console\Controller;
 use craft\elements\Entry;
 use craft\elements\MatrixBlock;
+use craft\errors\ElementNotFoundException;
+use Throwable;
+use yii\base\Exception;
 use yii\console\ExitCode;
 use yii\helpers\Console;
 use const PHP_EOL;
 
 /**
  * Utils controller
+ *
+ * One-off commands to fix things
  */
 class UtilsController extends Controller
 {
+    /**
+     * @param $actionID
+     * @return array|string[]
+     */
     public function options($actionID): array
     {
         $options = parent::options($actionID);
@@ -50,6 +59,13 @@ class UtilsController extends Controller
     }
 
     // Do not allow empty values
+
+    /**
+     * @return int
+     * @throws Throwable
+     * @throws ElementNotFoundException
+     * @throws Exception
+     */
     public function actionRepairMatrixAlign(): int
     {
         /* @phpstan-ignore-next-line */
@@ -70,6 +86,13 @@ class UtilsController extends Controller
     }
 
     // That was a bad idea, so revert it...
+
+    /**
+     * @return int
+     * @throws ElementNotFoundException
+     * @throws Exception
+     * @throws Throwable
+     */
     public function actionRepairDefault(): int
     {
         // $elements = Entry::find()

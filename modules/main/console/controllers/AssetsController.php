@@ -10,11 +10,20 @@ use craft\helpers\App;
 use craft\models\Volume;
 use GuzzleHttp\Exception\GuzzleException;
 use modules\main\helpers\FileHelper;
+use yii\base\ErrorException;
+use yii\base\InvalidConfigException;
 use yii\console\ExitCode;
 use yii\db\Exception;
 use function count;
 use const PHP_EOL;
 
+/**
+ * Class AssetsController
+ *
+ * Asset specific console commands
+ *
+ * @package modules\main\console\controllers
+ */
 class AssetsController extends Controller
 {
     // This is an example, better call a service method in real live.
@@ -52,6 +61,12 @@ class AssetsController extends Controller
         return ExitCode::OK;
     }
 
+    /**
+     * @param Volume $volume
+     * @return void
+     * @throws ErrorException
+     * @throws InvalidConfigException
+     */
     private function _clearVolume(Volume $volume): void
     {
         /* @phpstan-ignore-next-line */
@@ -100,7 +115,7 @@ class AssetsController extends Controller
 
         $entries = Entry::find()
             ->uri(':notempty:')
-            ->site('*') // uncomment this line if this is a multi site install
+            ->site('*') // uncomment this line if this is a multi-site install
             ->unique() // uncomment this line if there are no site specific images in a multisite install
             ->orderBy('id')
             ->all();

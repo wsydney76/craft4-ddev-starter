@@ -373,6 +373,10 @@ class BaseMigrationService extends BaseService
     {
         $config = Craft::$app->projectConfig->get('elementSources');
         $section = Craft::$app->sections->getSectionByHandle($sectionHandle);
+        if (!$section) {
+            $this->error("Section $sectionHandle not found.");
+            return;
+        }
         $key = "section:{$section->uid}";
 
         // Check for existing source
@@ -412,11 +416,19 @@ class BaseMigrationService extends BaseService
     }
 
 
+    /**
+     * @param string $fieldGroup
+     * @return FieldGroupRecord|null
+     */
     protected function getFieldGroup(string $fieldGroup): ?FieldGroupRecord
     {
         return FieldGroupRecord::findOne(['name' => $fieldGroup]);
     }
 
+    /**
+     * @param int $width
+     * @return Asset|null
+     */
     protected function getRandomImage(int $width): ?Asset
     {
         return Asset::find()

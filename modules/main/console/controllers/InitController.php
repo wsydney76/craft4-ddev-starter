@@ -13,9 +13,18 @@ use craft\helpers\Console;
 use Faker\Factory;
 use Faker\Generator;
 use Illuminate\Support\Collection;
+use yii\base\InvalidRouteException;
+use yii\console\Exception;
 use yii\console\ExitCode;
 use yii\helpers\Markdown;
 
+/**
+ * Class InitController
+ *
+ * One-off actions to be run after installing the project.
+ *
+ * @package modules\main\console\controllers
+ */
 class InitController extends BaseController
 {
     /**
@@ -508,6 +517,10 @@ class InitController extends BaseController
         return $query->collect();
     }
 
+    /**
+     * @param int $number
+     * @return string
+     */
     protected function getMarkdownParagraphs(int $number): string
     {
         $paragraphs = '';
@@ -517,6 +530,11 @@ class InitController extends BaseController
         return $paragraphs;
     }
 
+    /**
+     * @return void
+     * @throws InvalidRouteException
+     * @throws Exception
+     */
     protected function indexImages(): void
     {
         $imagesCount = Asset::find()

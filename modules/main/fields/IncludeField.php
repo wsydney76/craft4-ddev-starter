@@ -8,6 +8,7 @@ use craft\elements\Entry;
 use craft\helpers\App;
 use craft\helpers\Cp;
 use Exception;
+use yii\base\InvalidConfigException;
 use function is_dir;
 use function str_contains;
 use function str_replace;
@@ -112,6 +113,13 @@ class IncludeField extends Field
     }
 
     // Helper method to generate the base directory path
+
+    /**
+     * @param Entry $entry
+     * @param string $includeDirectory
+     * @return string
+     * @throws InvalidConfigException
+     */
     protected function getBaseDirectory(Entry $entry, string $includeDirectory): string
     {
         // Replace %SITE% with the current site's handle

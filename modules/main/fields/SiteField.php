@@ -9,11 +9,17 @@ use craft\helpers\Cp;
 
 class SiteField extends Field
 {
+    /**
+     * @inheritDoc
+     */
     public static function displayName(): string
     {
         return 'Site';
     }
 
+    /**
+     * @inheritDoc
+     */
     public static function supportedTranslationMethods(): array
     {
         return [
@@ -21,6 +27,9 @@ class SiteField extends Field
         ];
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getInputHtml(mixed $value, ?ElementInterface $element = null): string
     {
         $siteOptions = collect(Craft::$app->sites->getAllSites())

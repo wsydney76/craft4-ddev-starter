@@ -11,6 +11,7 @@ use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
+use yii\base\Exception;
 use yii\base\InvalidArgumentException;
 use yii\helpers\Markdown;
 use function file_get_contents;
@@ -43,6 +44,9 @@ class TwigExtension extends AbstractExtension implements GlobalsInterface
         ];
     }
 
+    /**
+     * @return TwigFunction[]
+     */
     public function getFunctions()
     {
         return [
@@ -52,12 +56,21 @@ class TwigExtension extends AbstractExtension implements GlobalsInterface
         ];
     }
 
+    /**
+     * @param string|null $text
+     * @return string
+     */
     public function quotationMarksFilter(?string $text): string
     {
         // return Template::raw(Html::tag('q', $text));
         return Craft::t('site', '“') . $text . Craft::t('site', '”');
     }
 
+    /**
+     * @param string|null $text
+     * @return string
+     * @throws Exception
+     */
     public function prepareTextFilter(?string $text): string
     {
         $customConfig = Craft::$app->getConfig()->custom;

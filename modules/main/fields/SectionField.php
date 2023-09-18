@@ -9,11 +9,17 @@ use craft\helpers\Cp;
 
 class SectionField extends Field
 {
+    /**
+     * @inheritDoc
+     */
     public static function displayName(): string
     {
         return 'Section';
     }
 
+    /**
+     * @inheritDoc
+     */
     public static function supportedTranslationMethods(): array
     {
         return [
@@ -21,6 +27,9 @@ class SectionField extends Field
         ];
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getInputHtml(mixed $value, ?ElementInterface $element = null): string
     {
         $sectionOptions = collect(Craft::$app->sections->getAllSections())

@@ -38,14 +38,14 @@
             {% set lightboxUrl = image.url(lightboxTransform) %}
         {% endif %}
 
-        <a href="{{ lightboxUrl }}" class="overflow-hidden"
+        <a href="{{ lightboxUrl }}" class="overflow-hidden rounded-lg"
            data-caption="{{ image.altText ?? image.title }} {{ image.copyright ? "&copy; #{image.copyright}" }}">
 
             {{ img(image, {
                 transform: thumbnailTransform,
                 handleCopyright: handleCopyright == 'show' ? 'overlay' : handleCopyright,
                 attr: {
-                    class: "hover:opacity-75 hover:scale-105 focus:opacity-75 transition duration-300 rounded"
+                    class: "hover:opacity-75 hover:scale-105 focus:opacity-75 transition duration-300 rounded-lg overflow-hidden"
                 }
             }) }}
 

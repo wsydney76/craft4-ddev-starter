@@ -101,6 +101,8 @@ Running `craft main init` will
 
 ### Frontend Tooling
 
+Set `VITE_USE_DEV_SERVER=1` in `.env` to use the Vite dev server. This is useful if you want to use the Vite hot module replacement feature.
+
 Run
 
 * `ddev npm run dev` for development (automatic reloading)

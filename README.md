@@ -32,13 +32,6 @@ Although shared publicly, this project was created for internal use, and therefo
 
 ### Using DDEV (recommended)
 
-**Important note: Beginning with DDEV Version v1.122.2 DDEV [switched from Mailhog to Mailpit](https://github.com/ddev/ddev/releases/tag/v1.22.2), so `.ddev/docker-compose.vite.yaml` has to be updated 
-if you are using DDEV v1.22.2 or higher.**
-
-Change `DDEV_MAILHOG_PORT` to `DDEV_MAILPIT_PORT` and `DDEV_MAILHOG_HTTPS_PORT` to `DDEV_MAILPIT_HTTPS_PORT` in `.ddev/docker-compose.vite.yaml`.
-
-If you don't, there will be warning messages when running `ddev start` and testing e-mails will not work.
-
 Run `bash setup/install <project-name>`. 
 
 This will 
@@ -105,6 +98,19 @@ Running `craft main init` will
 * Added extended 'Copy reference tag' element actions that generates output which can be used in markdown fields to create links.
 * Added plugins: Contact Form, Element Map (custom), Content Overview (custom, beta) SEO Mate, Sprig, Vite, Code Field
 * Prepared for CKEditor plugin (not install by default).
+
+### Frontend Tooling
+
+Run
+
+* `ddev npm run dev` for development (automatic reloading)
+* `ddev npm run build` for production
+
+Setup according to [Craft Vite](https://nystudio107.com/docs/vite/#using-ddev) docs.
+
+Port variables for DDEV's built-in mail catcher are hardcoded in `.ddev/docker-compose.vite.yaml` for now, as the switch from Mailhog to Mailpit in DDEV v1.122.2 comes with different variable names.
+
+See comments in  `.ddev/docker-compose.vite.yaml` for details.
 
 ## Custom Config
 

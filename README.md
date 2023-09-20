@@ -110,10 +110,6 @@ Run
 
 Setup according to [Craft Vite](https://nystudio107.com/docs/vite/#using-ddev) docs.
 
-Port variables for DDEV's built-in mail catcher are hardcoded in `.ddev/docker-compose.vite.yaml` for now, as the switch from Mailhog to Mailpit in DDEV v1.122.2 comes with different variable names.
-
-See comments in  `.ddev/docker-compose.vite.yaml` for details.
-
 ## Custom Config
 
 This starter comes with a mix of functionality that is likely to be used in every project.

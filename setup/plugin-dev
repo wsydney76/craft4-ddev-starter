@@ -1,5 +1,5 @@
 ddev composer config minimum-stability dev
 ddev composer config prefer-stable true
-ddev composer config repositories.0 path '/var/www/plugins/*'
+ddev composer config repositories.myplugins path '/var/www/plugins/*'
 cp setup/docker-compose.mounts.yaml .ddev
 ddev restart

@@ -74,6 +74,7 @@
         {% set transformedImages = imager.transformImage(image, transforms) %}
 
         {% set imgHtml =  tag('img', {
+            id: "img-#{image.id}",
             src: imager.placeholder({ width: transform.height, height: transform.width, color: '#cccccc' }),
             height: transform.height,
             width: transform.width,
@@ -86,7 +87,10 @@
     {% else %}
 
         {# Craft native transforms, no need to manually calculate anything #}
-        {% set attr = attr | merge({alt: image.altText ?: image.title}) %}
+        {% set attr = attr | merge({
+            id: "img-#{image.id}",
+            alt: image.altText ?: image.title
+        }) %}
 
 
         {% if devMode and customConfig.skipSrcset %}

@@ -26,10 +26,12 @@
                         <div class="mb-4 me-8 flex items-center">
                             <div class="flex flex-wrap">
                                 {% for image in imagesForCopyright %}
-                                    {{ img(image, {
-                                        transform: {width: 60, height: 40},
-                                        handleCopyright: 'none'
-                                    }) }}
+                                    <a href="#{{ "img-#{image.id}" }}">
+                                        {{ img(image, {
+                                            transform: {width: 60, height: 40},
+                                            handleCopyright: 'none'
+                                        }) }}
+                                    </a>
                                 {% endfor %}
                             </div>
                             <div class="ms-2 text-sm whitespace-nowrap">

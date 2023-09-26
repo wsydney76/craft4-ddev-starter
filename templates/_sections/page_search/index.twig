@@ -5,8 +5,6 @@
     {% do craft.blitz.options.cachingEnabled(false) %}
 {% endif %}
 
-{{ sprig.script }}
-
 {# Load sprig component #}
 {% embed '_layouts/embeds/content-xl.twig' %}
     {% block content %}

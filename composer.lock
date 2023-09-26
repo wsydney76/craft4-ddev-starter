@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d428c64d96c52a867c9b793065378f9c",
+    "content-hash": "692723d8e347ee9397fb65d9d6c4c1cc",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -766,16 +766,16 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "4.5.5",
+            "version": "4.5.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/cms.git",
-                "reference": "906e011df5c248174770050ee598f620005f6623"
+                "reference": "fac7353b79c771d1d6ceb62e5addb10d4f5c0eb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/906e011df5c248174770050ee598f620005f6623",
-                "reference": "906e011df5c248174770050ee598f620005f6623",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/fac7353b79c771d1d6ceb62e5addb10d4f5c0eb3",
+                "reference": "fac7353b79c771d1d6ceb62e5addb10d4f5c0eb3",
                 "shasum": ""
             },
             "require": {
@@ -878,7 +878,7 @@
                 "rss": "https://github.com/craftcms/cms/releases.atom",
                 "source": "https://github.com/craftcms/cms"
             },
-            "time": "2023-09-15T04:55:07+00:00"
+            "time": "2023-09-27T12:28:01+00:00"
         },
         {
             "name": "craftcms/contact-form",
@@ -1061,16 +1061,16 @@
         },
         {
             "name": "craftcms/server-check",
-            "version": "2.1.6",
+            "version": "2.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/server-check.git",
-                "reference": "445c8eccde570ede09dc96c39fc1357a5296520f"
+                "reference": "97c09a55cee207cb0a79243606354d9783d693d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/server-check/zipball/445c8eccde570ede09dc96c39fc1357a5296520f",
-                "reference": "445c8eccde570ede09dc96c39fc1357a5296520f",
+                "url": "https://api.github.com/repos/craftcms/server-check/zipball/97c09a55cee207cb0a79243606354d9783d693d8",
+                "reference": "97c09a55cee207cb0a79243606354d9783d693d8",
                 "shasum": ""
             },
             "type": "library",
@@ -1099,7 +1099,7 @@
                 "rss": "https://github.com/craftcms/server-check/releases.atom",
                 "source": "https://github.com/craftcms/server-check"
             },
-            "time": "2023-09-09T18:23:58+00:00"
+            "time": "2023-09-20T01:56:57+00:00"
         },
         {
             "name": "creocoder/yii2-nested-sets",
@@ -3175,16 +3175,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.24.0",
+            "version": "1.24.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "3510b0a6274cc42f7219367cb3abfc123ffa09d6"
+                "reference": "bcad8d995980440892759db0c32acae7c8e79442"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/3510b0a6274cc42f7219367cb3abfc123ffa09d6",
-                "reference": "3510b0a6274cc42f7219367cb3abfc123ffa09d6",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/bcad8d995980440892759db0c32acae7c8e79442",
+                "reference": "bcad8d995980440892759db0c32acae7c8e79442",
                 "shasum": ""
             },
             "require": {
@@ -3216,9 +3216,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.24.0"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.24.2"
             },
-            "time": "2023-09-07T20:46:32+00:00"
+            "time": "2023-09-26T12:28:12+00:00"
         },
         {
             "name": "pixelandtonic/imagine",
@@ -3386,16 +3386,16 @@
         },
         {
             "name": "psr/http-client",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-client.git",
-                "reference": "0955afe48220520692d2d09f7ab7e0f93ffd6a31"
+                "reference": "bb5906edc1c324c9a05aa0873d40117941e5fa90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-client/zipball/0955afe48220520692d2d09f7ab7e0f93ffd6a31",
-                "reference": "0955afe48220520692d2d09f7ab7e0f93ffd6a31",
+                "url": "https://api.github.com/repos/php-fig/http-client/zipball/bb5906edc1c324c9a05aa0873d40117941e5fa90",
+                "reference": "bb5906edc1c324c9a05aa0873d40117941e5fa90",
                 "shasum": ""
             },
             "require": {
@@ -3432,9 +3432,9 @@
                 "psr-18"
             ],
             "support": {
-                "source": "https://github.com/php-fig/http-client/tree/1.0.2"
+                "source": "https://github.com/php-fig/http-client"
             },
-            "time": "2023-04-10T20:12:12+00:00"
+            "time": "2023-09-23T14:17:50+00:00"
         },
         {
             "name": "psr/http-factory",
@@ -3647,23 +3647,23 @@
         },
         {
             "name": "putyourlightson/craft-sprig",
-            "version": "2.6.2",
+            "version": "2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/putyourlightson/craft-sprig.git",
-                "reference": "5fb86aaaf040d6fe2b15882fa2c0a44bde78106a"
+                "reference": "5e1db473141fe5d899b886c4dddd5c009b6369a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-sprig/zipball/5fb86aaaf040d6fe2b15882fa2c0a44bde78106a",
-                "reference": "5fb86aaaf040d6fe2b15882fa2c0a44bde78106a",
+                "url": "https://api.github.com/repos/putyourlightson/craft-sprig/zipball/5e1db473141fe5d899b886c4dddd5c009b6369a2",
+                "reference": "5e1db473141fe5d899b886c4dddd5c009b6369a2",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^4.0",
                 "nystudio107/craft-code-editor": "^1.0.0",
                 "php": "^8.0.2",
-                "putyourlightson/craft-sprig-core": "^2.5.2"
+                "putyourlightson/craft-sprig-core": "^2.6.2"
             },
             "type": "craft-plugin",
             "extra": {
@@ -3696,20 +3696,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-01T13:00:18+00:00"
+            "time": "2023-09-27T07:58:41+00:00"
         },
         {
             "name": "putyourlightson/craft-sprig-core",
-            "version": "2.5.2",
+            "version": "2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/putyourlightson/craft-sprig-core.git",
-                "reference": "129e9963e67628913f5c9a20063a08cb56c6cf0a"
+                "reference": "b1091e90235385f58831562d94d1a418344f4419"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-sprig-core/zipball/129e9963e67628913f5c9a20063a08cb56c6cf0a",
-                "reference": "129e9963e67628913f5c9a20063a08cb56c6cf0a",
+                "url": "https://api.github.com/repos/putyourlightson/craft-sprig-core/zipball/b1091e90235385f58831562d94d1a418344f4419",
+                "reference": "b1091e90235385f58831562d94d1a418344f4419",
                 "shasum": ""
             },
             "require": {
@@ -3738,7 +3738,7 @@
                 "issues": "https://github.com/putyourlightson/craft-sprig-core/issues",
                 "source": "https://github.com/putyourlightson/craft-sprig-core"
             },
-            "time": "2023-05-01T12:59:26+00:00"
+            "time": "2023-09-27T07:43:01+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -7922,16 +7922,16 @@
         },
         {
             "name": "nette/php-generator",
-            "version": "v4.0.9",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/php-generator.git",
-                "reference": "72cf9e20686904678d9c1de664c6f7a8c9d676ed"
+                "reference": "8b728c622c49b196513c0f95508f2f66342d1e8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/php-generator/zipball/72cf9e20686904678d9c1de664c6f7a8c9d676ed",
-                "reference": "72cf9e20686904678d9c1de664c6f7a8c9d676ed",
+                "url": "https://api.github.com/repos/nette/php-generator/zipball/8b728c622c49b196513c0f95508f2f66342d1e8f",
+                "reference": "8b728c622c49b196513c0f95508f2f66342d1e8f",
                 "shasum": ""
             },
             "require": {
@@ -7951,7 +7951,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -7985,22 +7985,22 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/php-generator/issues",
-                "source": "https://github.com/nette/php-generator/tree/v4.0.9"
+                "source": "https://github.com/nette/php-generator/tree/v4.1.0"
             },
-            "time": "2023-08-29T19:09:26+00:00"
+            "time": "2023-09-26T12:28:52+00:00"
         },
         {
             "name": "nette/utils",
-            "version": "v4.0.1",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "9124157137da01b1f5a5a22d6486cb975f26db7e"
+                "reference": "cead6637226456b35e1175cc53797dd585d85545"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/9124157137da01b1f5a5a22d6486cb975f26db7e",
-                "reference": "9124157137da01b1f5a5a22d6486cb975f26db7e",
+                "url": "https://api.github.com/repos/nette/utils/zipball/cead6637226456b35e1175cc53797dd585d85545",
+                "reference": "cead6637226456b35e1175cc53797dd585d85545",
                 "shasum": ""
             },
             "require": {
@@ -8022,8 +8022,7 @@
                 "ext-intl": "to use Strings::webalize(), toAscii(), normalize() and compare()",
                 "ext-json": "to use Nette\\Utils\\Json",
                 "ext-mbstring": "to use Strings::lower() etc...",
-                "ext-tokenizer": "to use Nette\\Utils\\Reflection::getUseStatements()",
-                "ext-xml": "to use Strings::length() etc. when mbstring is not available"
+                "ext-tokenizer": "to use Nette\\Utils\\Reflection::getUseStatements()"
             },
             "type": "library",
             "extra": {
@@ -8072,9 +8071,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/utils/issues",
-                "source": "https://github.com/nette/utils/tree/v4.0.1"
+                "source": "https://github.com/nette/utils/tree/v4.0.2"
             },
-            "time": "2023-07-30T15:42:21+00:00"
+            "time": "2023-09-19T11:58:07+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -8134,16 +8133,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.34",
+            "version": "1.10.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "7f806b6f1403e6914c778140e2ba07c293cb4901"
+                "reference": "e730e5facb75ffe09dfb229795e8c01a459f26c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/7f806b6f1403e6914c778140e2ba07c293cb4901",
-                "reference": "7f806b6f1403e6914c778140e2ba07c293cb4901",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e730e5facb75ffe09dfb229795e8c01a459f26c3",
+                "reference": "e730e5facb75ffe09dfb229795e8c01a459f26c3",
                 "shasum": ""
             },
             "require": {
@@ -8192,20 +8191,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-09-13T09:49:47+00:00"
+            "time": "2023-09-19T15:27:56+00:00"
         },
         {
             "name": "psy/psysh",
-            "version": "v0.11.20",
+            "version": "v0.11.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "0fa27040553d1d280a67a4393194df5228afea5b"
+                "reference": "bcb22101107f3bf770523b65630c9d547f60c540"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/0fa27040553d1d280a67a4393194df5228afea5b",
-                "reference": "0fa27040553d1d280a67a4393194df5228afea5b",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/bcb22101107f3bf770523b65630c9d547f60c540",
+                "reference": "bcb22101107f3bf770523b65630c9d547f60c540",
                 "shasum": ""
             },
             "require": {
@@ -8235,6 +8234,10 @@
             "extra": {
                 "branch-alias": {
                     "dev-main": "0.11.x-dev"
+                },
+                "bamarni-bin": {
+                    "bin-links": false,
+                    "forward-command": false
                 }
             },
             "autoload": {
@@ -8266,9 +8269,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.11.20"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.11.21"
             },
-            "time": "2023-07-31T14:32:22+00:00"
+            "time": "2023-09-17T21:15:54+00:00"
         },
         {
             "name": "symplify/easy-coding-standard",
@@ -8404,5 +8407,5 @@
     "platform-overrides": {
         "php": "8.0.2"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

@@ -22,5 +22,14 @@
         </div>
     {% endif %}
 
+    {% embed '_layouts/embeds/container-xl.twig' %}
+        {% block content %}
+            {% include '_layouts/partials/entry-nav-channel.twig' with {
+                entry,
+                criteria: {section: 'article'}
+            } only %}
+        {% endblock %}
+    {% endembed %}
 
 </div>
+

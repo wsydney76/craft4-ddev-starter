@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6e21bfef0883aeaeab744413fd17e996",
+    "content-hash": "f1fc729ea3d0d91814a03c5c52aa1939",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -766,16 +766,16 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "4.5.7",
+            "version": "4.5.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/cms.git",
-                "reference": "c1f066ce4b0632ccf532255bc3dfd75ceca8691d"
+                "reference": "8dc4521a7f8dcabfe935811f5d884b140ebbfd41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/c1f066ce4b0632ccf532255bc3dfd75ceca8691d",
-                "reference": "c1f066ce4b0632ccf532255bc3dfd75ceca8691d",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/8dc4521a7f8dcabfe935811f5d884b140ebbfd41",
+                "reference": "8dc4521a7f8dcabfe935811f5d884b140ebbfd41",
                 "shasum": ""
             },
             "require": {
@@ -878,7 +878,7 @@
                 "rss": "https://github.com/craftcms/cms/releases.atom",
                 "source": "https://github.com/craftcms/cms"
             },
-            "time": "2023-10-17T18:42:03+00:00"
+            "time": "2023-10-20T19:14:45+00:00"
         },
         {
             "name": "craftcms/contact-form",

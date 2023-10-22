@@ -3,6 +3,7 @@
 namespace modules\main\fields;
 
 use Craft;
+use craft\base\ElementInterface;
 use craft\base\Field;
 use craft\elements\Entry;
 use craft\helpers\App;
@@ -120,7 +121,7 @@ class IncludeField extends Field
      * @return string
      * @throws InvalidConfigException
      */
-    protected function getBaseDirectory(Entry $entry, string $includeDirectory): string
+    protected function getBaseDirectory(ElementInterface $entry, string $includeDirectory): string
     {
         // Replace %SITE% with the current site's handle
         if (str_contains($includeDirectory, '%SITE%')) {

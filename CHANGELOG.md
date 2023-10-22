@@ -1,11 +1,11 @@
 # Changelog
 
-## Unreleased
+## 3.4 2023-10-21
 
 * Fixed a bug where the `hasDraftsConditionRule` condition was removed from the `Work/Drafts` element index source when `craft project-config/rebuild` was run.
 * Added the `useCustomCrossSiteValidation` custom config setting.
 * Bring back optional custom cross-site validation for entries, as the native solution in Craft 4.5 does not work in slideouts.
-* Updated to Craft 4.5.6 and Sprig 2.7.1
+* Updated to Craft 4.5.7 and Sprig 2.7.2
 * Added ECS (Easy Coding Standards) and Phpstan checks, according to [Craft's coding standards](https://craftcms.com/docs/4.x/extend/coding-guidelines.html).
 * Images in the copyright footer are now link to the original image on the page, if the `handleCopyright` custom config is set to `register`.
 

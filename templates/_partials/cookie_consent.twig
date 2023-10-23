@@ -1,6 +1,6 @@
 {% if not craft.app.request.isPreview %}
     
-    {% set cookieConsentEntry = craft.entries.section('legal').type('cookieConsent').one %}
+    {% set cookieConsentEntry = craft.entries.section('legal').type('cookieConsent').one() %}
     
     <div x-data="{
         showInfo: false,
@@ -42,7 +42,7 @@
                 } only %}
 
 
-                {% set privacyEntry = craft.entries.section('legal').type('privacy').one %}
+                {% set privacyEntry = craft.entries.section('legal').type('privacy').one() %}
 
                 {% if privacyEntry %}
                     <div>

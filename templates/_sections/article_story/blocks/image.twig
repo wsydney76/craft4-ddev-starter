@@ -1,5 +1,5 @@
 {% from '_layouts/macros/lib.twig' import img %}
-{% set image = block.image.one %}
+{% set image = block.image.one() %}
 
 {% if image %}
     <div class="my-16 max-w-screen-lg mx-auto px-8">

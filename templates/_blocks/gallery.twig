@@ -25,7 +25,7 @@
     ]) %}
 {% endif %}
 
-{% set images = query.collect %}
+{% set images = query.collect() %}
 
 <div id="gallery-{{ block.id }}" class="{{ alignClasses[align] }} grid grid-cols-2 gap-2 not-prose">
     {% for image in images %}

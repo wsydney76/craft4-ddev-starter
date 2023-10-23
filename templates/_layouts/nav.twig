@@ -4,11 +4,11 @@
 
 
 {# Use children of homepage for main navigation, show level 3 entries in dropdown #}
-{% set homePage = entry.isHomepage ? entry : craft.entries.section('page').type('home').one %}
-{% set navEntries = homePage.descendants.level('<=3').collect ?? [] %}
+{% set homePage = entry.isHomepage ? entry : craft.entries.section('page').type('home').one() %}
+{% set navEntries = homePage.descendants.level('<=3').collect() ?? [] %}
 
-{% set localizedEntries = entry.localized.uri(':notempty:').collect %}
-{% set logo = siteInfo.logo.one %}
+{% set localizedEntries = entry.localized.uri(':notempty:').collect() %}
+{% set logo = siteInfo.logo.one() %}
 
 {# No query params for site switcher if reactive content #}
 {% set queryParams = entry.type == 'search' ? null : craft.app.request.queryParams %}

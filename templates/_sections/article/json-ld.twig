@@ -1,4 +1,4 @@
-{% set image = entry.featuredImage.one ?? siteInfo.featuredImage.one %}
+{% set image = entry.featuredImage.one() ?? siteInfo.featuredImage.one() %}
 {% set schema = craft.schema %}
 
 {{ schema.newsArticle

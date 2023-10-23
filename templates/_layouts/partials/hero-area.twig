@@ -6,19 +6,19 @@
     {# 1. the entry itself  #}
 
     {% include '_layouts/partials/hero-area-display.twig' with {
-        image: entry.featuredImage.one ?? siteInfo.featuredImage.one,
+        image: entry.featuredImage.one() ?? siteInfo.featuredImage.one,
         entry
     } only %}
 
 {% else %}
     {# 2. Hero entry #}
 
-    {% set heroEntry = entry.heroArea ? entry.heroArea.one : null %}
+    {% set heroEntry = entry.heroArea ? entry.heroArea.one() : null %}
 
     {% if heroEntry %}
 
         {% if craft.app.request.isPreview and currentUser %}
-            {% set draft = craft.entries.draftOf(heroEntry.id).provisionalDrafts(true).draftCreator(currentUser).one %}
+            {% set draft = craft.entries.draftOf(heroEntry.id).provisionalDrafts(true).draftCreator(currentUser).one() %}
             {% if draft %}
                 {% set heroEntry = draft %}
             {% endif %}

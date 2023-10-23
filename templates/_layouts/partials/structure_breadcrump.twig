@@ -6,7 +6,7 @@
 {% set showChildren = showChildren is defined ? showChildren : false %}
 
 <div class="flex flex-wrap items-center space-x-4 rtl:space-x-reverse">
-    {% for ancestor in entry.ancestors.all %}
+    {% for ancestor in entry.ancestors.collect() %}
         <div>
             {% include '_layouts/partials/button.twig' with {
                 href: ancestor.url,
@@ -38,7 +38,7 @@
 
     {% if showChildren %}
         {# TODO: This works only for a limited number of children #}
-        {% set descendants = entry.children.all %}
+        {% set descendants = entry.children.collect() %}
         {% if descendants %}
             <div>
                 {{ svg('@templates/_icons/chevron-right.svg') }}

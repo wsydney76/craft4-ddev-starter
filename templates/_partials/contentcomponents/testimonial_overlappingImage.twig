@@ -9,8 +9,8 @@
 {% set handleCopyright = customConfig.handleCopyright %}
 
 {% if entry is defined %}
-    {% set person = entry.person.one %}
-    {% set image = entry.image.one  ?? person.photo.one%}
+    {% set person = entry.person.one() %}
+    {% set image = entry.image.one()  ?? person.photo.one%}
     {% set align = entry.align.value|default('default') %}
     {% set text = entry.body %}
     {% set name = person.title ?? '' %}

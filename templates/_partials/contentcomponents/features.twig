@@ -5,7 +5,7 @@
     {% set teaser = entry.teaser %}
     {% set title = entry.title %}
     {% set text = entry.body %}
-    {% set features = entry.features.with('feature:icon').collect %}
+    {% set features = entry.features.with('feature:icon').collect() %}
 {% endif %}
 
 {# Defaults #}
@@ -36,7 +36,7 @@
                 <div class="relative ps-16">
                     <dt class="text-lg/7 font-semibold text-gray-900 dark:text-gray-100">
                         <div class="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-lg bg-primary dark:bg-gray-700">
-                            {% set icon = feature.icon.one %}
+                            {% set icon = feature.icon.one() %}
 
                             {% if icon %}
                                 {{ svg(icon)|attr({class: 'h6 w-6 text-white'}) }}

@@ -162,7 +162,7 @@
 
 {# Button for 'see more' #}
 {% macro pageButton(type, caption) %}
-    {% set navEntry = craft.entries.section('page').type(type).one %}
+    {% set navEntry = craft.entries.section('page').type(type).one() %}
     {% if navEntry %}
         <div class="mt-8">
             {% include '_layouts/partials/button.twig' with {

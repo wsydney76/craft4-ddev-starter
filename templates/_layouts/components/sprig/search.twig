@@ -47,22 +47,22 @@
             .orderBy('score') %}
 
         {# count all hits #}
-        {% set count = searchQuery.count %}
+        {% set count = searchQuery.count() %}
         {% if count %}
 
             {# TODO: this has to be smarter, does not handle maxResults correctly #}
-            {% set results = searchQuery.collect %}
+            {% set results = searchQuery.collect() %}
             {% set entries = collect([]) %}
 
             {% for result in results %}
-                {% if entries.count < maxResults %}
+                {% if entries.count() < maxResults %}
                     {% if result.url %}
                         {% if not entries.firstWhere('id', result.id) %}
                             {% set entries = entries.push(result) %}
                         {% endif %}
                     {% else %}
                         {# found an embeded section, look for usages #}
-                        {% set relatedEntries = craft.entries.relatedTo({targetElement: result.id}).uri(':notempty:').collect %}
+                        {% set relatedEntries = craft.entries.relatedTo({targetElement: result.id}).uri(':notempty:').collect() %}
                         {% for relatedEntry in relatedEntries %}
                             {% if not entries.firstWhere('id', relatedEntry.id) %}
                                 {% set entries = entries.push(relatedEntry) %}
@@ -79,7 +79,7 @@
             } only %}
 
             {# Display hint if there are more than maxResults hits #}
-            {% if entries.count > maxResults %}
+            {% if entries.count() > maxResults %}
                 <div class="mt-8 font-medium">
                     {{ "Showing top {maxResults} of {count}"|t({maxResults, count: entries.count}) }}
                 </div>

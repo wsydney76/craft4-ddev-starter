@@ -14,7 +14,7 @@
         .groupBy(image => image.copyright)
     %}
 
-    {% if imagesByCopyright.count %}
+    {% if imagesByCopyright.count() %}
         <div class="{{ outerClasses }}">
             <div class="{{ innerClasses }}">
                 <div class="font-semibold text-sm">

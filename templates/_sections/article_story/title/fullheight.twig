@@ -1,6 +1,6 @@
 {% from '_layouts/macros/lib.twig' import imgCopyright %}
 
-{% set featuredImage = entry.featuredImage.one ?? siteInfo.featuredImage.one %}
+{% set featuredImage = entry.featuredImage.one() ?? siteInfo.featuredImage.one() %}
 
 {% if featuredImage %}
 

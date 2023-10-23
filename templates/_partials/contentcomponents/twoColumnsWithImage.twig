@@ -6,7 +6,7 @@
 {% set handleCopyright = customConfig.handleCopyright %}
 
 {% if entry is defined %}
-    {% set image = entry.image.one %}
+    {% set image = entry.image.one() %}
     {% set teaser = entry.teaser %}
     {% set title = entry.title %}
     {% set query = entry.bodyContent %}

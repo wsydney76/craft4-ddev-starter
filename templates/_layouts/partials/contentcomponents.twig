@@ -1,11 +1,11 @@
-{% set entries = query.collect %}
+{% set entries = query.collect() %}
 
 
 <div class="space-y-20">
     {% for entry in entries %}
 
         {% if craft.app.request.isPreview and currentUser %}
-            {% set draft = craft.entries.draftOf(entry.id).provisionalDrafts(true).draftCreator(currentUser).one %}
+            {% set draft = craft.entries.draftOf(entry.id).provisionalDrafts(true).draftCreator(currentUser).one() %}
             {% if draft %}
                 {% set entry = draft %}
             {% endif %}

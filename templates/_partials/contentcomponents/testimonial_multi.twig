@@ -7,7 +7,7 @@
         ['person'],
         ['persion.photo', {withTransforms: [transform]}]
     ])
-.collect %}
+.collect() %}
 
 {% set gridStyle = entry.gridStyle.value|default('default') %}
 
@@ -27,10 +27,10 @@
             <div class="-mt-8 sm:-mx-4 {{ gridClasses[gridStyle] }}">
 
                 {% for testimonials in testimonials %}
-                    {% set person = testimonials.person.one %}
+                    {% set person = testimonials.person.one() %}
 
                     {% if person %}
-                        {% set photo = person.photo.one %}
+                        {% set photo = person.photo.one() %}
 
                         <div class="pt-8 sm:inline-block sm:w-full sm:px-4">
                             <figure class="rounded-2xl bg-gray-50 dark:bg-gray-900 shadow-xl p-8 text-sm leading-6">

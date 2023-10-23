@@ -13,7 +13,7 @@
 {% if showNav %}
     {% set next = entry.nextSibling %}
     {% set prev = entry.prevSibling %}
-    {% set children = entry.children.all %}
+    {% set children = entry.children.collect() %}
 
     {% if next or prev %}
         <nav class="my-12 border-t pt-4 grid md:grid-cols-3 gap-4 border-t pt-4 space-x-4 rtl:space-x-reverse">

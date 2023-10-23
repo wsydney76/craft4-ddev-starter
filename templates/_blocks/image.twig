@@ -11,7 +11,7 @@
     wide: [1024, 768, 400]
 } %}
 
-{% set image = block.image.one %}
+{% set image = block.image.one() %}
 {% if image %}
 
     {% set align = block.align.value|default('default') %}

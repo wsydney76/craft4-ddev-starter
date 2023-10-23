@@ -1,6 +1,6 @@
 {# Article Page #}
 
-{% set featuredImage = entry.featuredImage.one ?? siteInfo.featuredImage.one %}
+{% set featuredImage = entry.featuredImage.one() ?? siteInfo.featuredImage.one() %}
 
 {% block heroArea %}
 

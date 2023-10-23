@@ -34,7 +34,7 @@
         <nav class="-mx-5 -my-2 mt-4 lg:-mt-1 flex flex-wrap justify-center items-center space-x-4 rtl:space-x-reverse"
              aria-label="Footer">
 
-            {% for navEntry in craft.entries.section('legal').showLink(true).collect %}
+            {% for navEntry in craft.entries.section('legal').showLink(true).collect() %}
                 {{ navLink(navEntry.title, navEntry.url) }}
             {% endfor %}
 

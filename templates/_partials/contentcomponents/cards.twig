@@ -5,8 +5,8 @@
     {% set title = entry.title %}
     {% set criteria = entry.criteria.value|json_decode %}
     {% set buttons = entry.buttons.collect|map(button => {
-        url: button.target.one.url ?? '',
-        caption: button.caption ?? button.target.one.title ?? 'Read more'|t,
+        url: button.target.one().url ?? '',
+        caption: button.caption ?? button.target.one().title ?? 'Read more'|t,
         primary: button.primary
     }) %}
 {% endif %}

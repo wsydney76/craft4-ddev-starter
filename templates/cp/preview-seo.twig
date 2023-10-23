@@ -20,9 +20,9 @@
 {% if entry and entry.url|default %}
 
     {% set meta = {
-        title: entry.seoFields.one.alternativeTitle ?? entry.title,
-        image: entry.seoFields.one.image.one ?? entry.featuredImage.one ?? siteInfo.seoImage.one ?? siteInfo.featuredImage.one,
-        description: entry.seoFields.one.description ?? entry.tagline ?? siteInfo.seoDescriction,
+        title: entry.seoFields.one().alternativeTitle ?? entry.title,
+        image: entry.seoFields.one().image.one() ?? entry.featuredImage.one() ?? siteInfo.seoImage.one() ?? siteInfo.featuredImage.one,
+        description: entry.seoFields.one().description ?? entry.tagline ?? siteInfo.seoDescriction,
         url: entry.url|split('?')|first,
         siteName: siteInfo.title
     } %}
@@ -71,9 +71,9 @@
 </html>
 
 {# Fake an avatar #}
-{% set person = craft.entries.section('person').one %}
+{% set person = craft.entries.section('person').one() %}
 {% if person %}
-    {% set image = person.photo.one %}
+    {% set image = person.photo.one() %}
     {% if image %}
         {% set url = image.url({width: 40, height: 40}) %}
         {% css %}

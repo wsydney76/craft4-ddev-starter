@@ -1,4 +1,4 @@
-{% set image = siteInfo.featuredImage.one %}
+{% set image = siteInfo.featuredImage.one() %}
 {% set schema = craft.schema %}
 
 {{ schema.webSite

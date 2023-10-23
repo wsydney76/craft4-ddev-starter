@@ -19,7 +19,7 @@
 {% set wide = wide is defined ? wide : true %}
 {% set paginate = paginate is defined ? paginate : false %}
 {% set limit = limit ?? customConfig.entriesPerPage %}
-{% set defaultImage = siteInfo.featuredImage.one %}
+{% set defaultImage = siteInfo.featuredImage.one() %}
 {% set highlight = highlight ?? '' %}
 {% set showMetaData = showMetaData is defined ? showMetaData : false %}
 
@@ -51,7 +51,7 @@
     {% else %}
 
         {# get all entries #}
-        {% set entries = query.collect %}
+        {% set entries = query.collect() %}
     {% endif %}
 {% endif %}
 
@@ -63,7 +63,7 @@
     </div>
 {% endif %}
 
-{% if entries.count %}
+{% if entries.count() %}
 
     <section>
         {% if heading %}
@@ -80,7 +80,7 @@
             {% for entry in entries %}
                 {% embed "_layouts/embeds/card.twig" with {
                     entry,
-                    image: entry.featuredImage.one ?? defaultImage,
+                    image: entry.featuredImage.one() ?? defaultImage,
                     transform,
                     highlight,
                     sectionRoots,

@@ -4,7 +4,7 @@
 {% endif %}
 
 <div class="-mb-16 pb-16" style="{{ style }}">
-    {% set blocks = entry.storyContent.collect %}
+    {% set blocks = entry.storyContent.collect() %}
 
     {% for block in blocks %}
         {% include "_sections/article_story/blocks/#{block.type.handle}.twig" with {
@@ -14,7 +14,7 @@
         } only %}
     {% endfor %}
 
-    {% set members = entry.storyTeam.all %}
+    {% set members = entry.storyTeam.collect() %}
 
     {% if members %}
         <div class="bg-gray-200 text-foreground dark:bg-gray-700 dark:text-foreground-dark  py-8">

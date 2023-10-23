@@ -1,9 +1,9 @@
 {# @param Heading string Widget heading #}
 {# @param query EntryQuery specifies entries to display #}
 
-{% set entries = query.collect %}
+{% set entries = query.collect() %}
 
-{% if entries.count %}
+{% if entries.count() %}
 
     {% embed '_layouts/embeds/widget.twig' with {heading: heading} %}
         {% block content %}

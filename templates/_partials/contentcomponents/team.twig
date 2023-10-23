@@ -3,7 +3,7 @@
 
 {% if entry is defined %}
     {% set title = entry.title %}
-    {% set persons = entry.persons.collect %}
+    {% set persons = entry.persons.collect() %}
 {% endif %}
 
 
@@ -21,7 +21,7 @@
         <ul role="list"
             class="space-y-12 lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 lg:gap-y-12 lg:space-y-0">
             {% for person in persons %}
-                {% set image = person.photo.one %}
+                {% set image = person.photo.one() %}
                 <li>
                     <div class="space-y-4 sm:grid sm:grid-cols-3 sm:gap-6 sm:space-y-0 lg:gap-8">
                         {% if image %}

@@ -9,9 +9,9 @@
 {% set padding = padding is defined ? padding : true %}
 {% set extraClasses = extraClasses is defined ? extraClasses : 'my-12 mx-auto max-w-full'  %}
 
-{% set blocks = query.collect %}
+{% set blocks = query.collect() %}
 
-{% if blocks.count %}
+{% if blocks.count() %}
 
     {% embed '_layouts/embeds/prose.twig' with {extraClasses} %}
         {% block content %}

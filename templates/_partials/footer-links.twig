@@ -1,6 +1,6 @@
 {% from '_layouts/macros/lib.twig' import navLink %}
 
-{% set siteMapEntry = craft.entries.section('page').type('sitemap').one %}
+{% set siteMapEntry = craft.entries.section('page').type('sitemap').one() %}
 {% if siteMapEntry %}
     {{ navLink(siteMapEntry.title, siteMapEntry.url) }}
 {% endif %}

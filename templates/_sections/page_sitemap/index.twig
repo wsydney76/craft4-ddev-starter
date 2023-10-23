@@ -22,15 +22,15 @@
                             .limit(limit)
                             .orderBy(sectionConfig.orderBy) %}
                         <ul>
-                            {% for entry in query.collect %}
+                            {% for entry in query.collect() %}
                                 <li>
                                     {{ entry.link }}
                                 </li>
                             {% endfor %}
                         </ul>
 
-                        {% if limit and  query.count > limit %}
-                            {% set indexEntry = craft.entries.section('page').type(sectionConfig.moreType).one %}
+                        {% if limit and  query.count() > limit %}
+                            {% set indexEntry = craft.entries.section('page').type(sectionConfig.moreType).one() %}
                             {% if indexEntry %}
                                 <div class="mt-4">
                                     <a href="{{ indexEntry.url }}">{{ sectionConfig.moreText ?? "More"|t }}</a>

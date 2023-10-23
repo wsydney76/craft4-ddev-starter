@@ -54,7 +54,7 @@
                      :class="success ? 'bg-success' : 'bg-error '">
                 </div>
 
-                {% set privacyEntry = craft.entries.section('legal').type('privacy').one %}
+                {% set privacyEntry = craft.entries.section('legal').type('privacy').one() %}
                 {% if privacyEntry %}
                     <div class="mt-3 text-sm text-gray-500 dark:text-gray-200">
                         <a class="underline" href="{{ privacyEntry.url }}">{{ privacyEntry.title }}</a>

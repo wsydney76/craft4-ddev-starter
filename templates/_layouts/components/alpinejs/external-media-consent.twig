@@ -7,8 +7,8 @@
 {% set caption = caption ?? 'Show Media'|t %}
 {% set externalLink = externalLink ?? '' %}
 
-{% set textModule = craft.entries.section('textModule').slug(textKey).one %}
-{% set privacyEntry = craft.entries.section('legal').type('privacy').one %}
+{% set textModule = craft.entries.section('textModule').slug(textKey).one() %}
+{% set privacyEntry = craft.entries.section('legal').type('privacy').one() %}
 
 <div x-data="{acceptOnce: false}" class="my-8">
     <template x-if="$store.consent.mediaCookiesAllowed || acceptOnce">

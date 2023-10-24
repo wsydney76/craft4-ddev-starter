@@ -8,20 +8,24 @@ return [
     $co->createColumn(6, [
         $co->createSection(ArticleSection::class)
             ->heading('Drafts')
-            ->scope('drafts'),
+            ->scope('drafts')
+            ->actions(['relationships','view','compare']),
 
         $co->createSection(ArticleSection::class)
             ->heading('My Provisional Drafts')
             ->scope('provisional')
-            ->ownDraftsOnly(true),
+            ->ownDraftsOnly(true)
+            ->actions(['relationships','view','compare']),
 
         $co->createSection(ArticleSection::class)
             ->heading('Pending')
-            ->status('pending'),
+            ->status('pending')
+            ->actions(['relationships','view']),
 
         $co->createSection(ArticleSection::class)
             ->heading('Disabled')
-            ->status('disabled'),
+            ->status('disabled')
+            ->actions(['relationships','view']),
     ]),
 
     $co->createColumn(6, [
@@ -30,6 +34,7 @@ return [
             ->layout('list')
             ->status('live')
             ->info('{postDate|date("short")}')
+            ->actions(['relationships','view','compare'])
     ])
 
 ];

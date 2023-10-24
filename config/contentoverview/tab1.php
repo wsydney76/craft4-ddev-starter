@@ -11,6 +11,7 @@ return [
             ->imageField('featuredImage')
             ->layout('cards')
             ->size('small')
+            ->actions(['relationships','view'])
             ->limit(3),
         $co->createSection()
             ->section('article')
@@ -20,9 +21,11 @@ return [
             ->imageField('featuredImage')
             ->layout('cards')
             ->size('small')
+            ->actions(['relationships','view'])
             ->limit(3),
         $co->createSection()
             ->section('legal')
+            ->actions(['relationships','view'])
             ->info('{type.name}')
     ]),
 
@@ -34,6 +37,7 @@ return [
             ->limit(2)
             ->info('{body}')
             ->imageField('image')
+            ->actions(['relationships'])
             ->layout('cardlets'),
 
         $co->createSection()
@@ -41,6 +45,7 @@ return [
             ->heading('Page Structure')
             ->info('{isDraft ? "Draft"} {type.name}')
             ->icon('@appicons/globe.svg')
+            ->actions(['relationships','view'])
             ->scope('all')
     ]),
 

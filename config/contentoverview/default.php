@@ -8,5 +8,6 @@ return [
     'tabs' => [
         $co->createTab('Site', require 'tab1.php'),
         $co->createTab('Articles', require 'tab2.php'),
+        $co->createTab('Persons', require 'tab3.php'),
     ]
 ];

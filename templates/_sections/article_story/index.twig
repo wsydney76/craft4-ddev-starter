@@ -16,7 +16,7 @@
 
     {% set members = entry.storyTeam.collect() %}
 
-    {% if members %}
+    {% if members.count() %}
         <div class="bg-gray-200 text-foreground dark:bg-gray-700 dark:text-foreground-dark  py-8">
             {% include '_sections/article_story/includes/team.twig' with {members} %}
         </div>

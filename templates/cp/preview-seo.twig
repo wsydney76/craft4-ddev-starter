@@ -21,7 +21,7 @@
 
     {% set meta = {
         title: entry.seoFields.one().alternativeTitle ?? entry.title,
-        image: entry.seoFields.one().image.one() ?? entry.featuredImage.one() ?? siteInfo.seoImage.one() ?? siteInfo.featuredImage.one,
+        image: entry.seoFields.one().image.one() ?? entry.featuredImage.one() ?? siteInfo.seoImage.one() ?? siteInfo.featuredImage.one(),
         description: entry.seoFields.one().description ?? entry.tagline ?? siteInfo.seoDescriction,
         url: entry.url|split('?')|first,
         siteName: siteInfo.title

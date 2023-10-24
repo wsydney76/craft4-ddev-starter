@@ -6,7 +6,7 @@
     {# 1. the entry itself  #}
 
     {% include '_layouts/partials/hero-area-display.twig' with {
-        image: entry.featuredImage.one() ?? siteInfo.featuredImage.one,
+        image: entry.featuredImage.one() ?? siteInfo.featuredImage.one(),
         entry
     } only %}
 

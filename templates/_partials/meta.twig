@@ -54,7 +54,7 @@
         <div>
             {% for breadcrumpQuery in breadcrumpQueries %}
                 {% set linkedEntries = breadcrumpQuery.collect() %}
-                {% if linkedEntries %}
+                {% if linkedEntries.count() %}
                     {# extra space for the first row #}
                     <div class="space-y-4 {{ not foundLinkedEntries ? 'mt-8' }}">
                         {% for linkedEntry in linkedEntries %}

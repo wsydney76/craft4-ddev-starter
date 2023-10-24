@@ -1,8 +1,8 @@
 {% set entries = query.collect() %}
-{% if entries %}
+{% if entries.count() %}
     <div class="flex space-x-4 rtl:space-x-reverse mt-16">
         {% for entry in entries %}
-            {% for ancestor in entry.ancestors.collect() %}
+            {% for ancestor in entry.ancestors.all() %}
 
                 {% include '_layouts/partials/button.twig' with {
                 	href: ancestor.url,

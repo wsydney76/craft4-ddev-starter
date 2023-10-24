@@ -15,6 +15,8 @@ While still in its beta phase, the CMS starter is already feature complete. It's
 
 ## Versions
 
+Tagged a provisional 3.3.1 with minor changes.
+
 Tagged a provisional 3.3 version for Craft 4.5
 
 Tagged a provisional 3.0 version for Craft 4.4, use 2.1.0 for Craft 4.3. 
@@ -24,6 +26,8 @@ Edit: 3.2 contains a couple of changes made for recent use cases. It's not been 
 ## Disclaimer
 
 Although shared publicly, this project was created for internal use, and therefore contains things that seem a bit strange without context.
+
+No longer officially supported, I (Karla) will try to continue for personal use.
 
 ## Install
 

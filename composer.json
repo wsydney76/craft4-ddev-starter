@@ -1,7 +1,7 @@
 {
   "description": "Multilingual Craft CMS starter for use with DDEV",
   "name": "wsydney76/craft4-ddev-starter",
-  "version": "3.4.0",
+  "version": "3.3.1",
   "license": "MIT",
   "require": {
     "craftcms/cms": "4.5.9",

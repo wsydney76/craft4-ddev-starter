@@ -995,7 +995,7 @@ class SeedController extends InitController
                         'type' => 'cover',
                         'fields' => [
                             'image' => $image ? [$image->id] : null,
-                            'text' => $this->faker->text(50),
+                            'text' => $this->faker->text(120),
                         ],
                     ];
                     break;

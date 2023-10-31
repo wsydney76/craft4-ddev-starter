@@ -23,6 +23,20 @@ settings:
       -
         - class
         - craft\elements\conditions\entries\EntryCondition
+      -
+        - conditionRules
+        -
+          -
+            __assoc__:
+              -
+                - class
+                - modules\main\conditions\IncludeUnpublishedDrafts
+              -
+                - uid
+                - 1679aac6-4740-4b91-81c3-1c2bc1bb0b9a
+              -
+                - value
+                - true
   selectionLabel: null
   showSiteMenu: false
   sources: '*'

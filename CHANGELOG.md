@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+* Paginated pages (like article index) are now also retrieved for generating transformed images in `craft main/assets/create-transforms`
+* Added 'Include unpublished drafts' element condition rule (experimental).
+
 ## 3.3.1 2023-10-21
 
 * Fixed a bug where the `hasDraftsConditionRule` condition was removed from the `Work/Drafts` element index source when `craft project-config/rebuild` was run.

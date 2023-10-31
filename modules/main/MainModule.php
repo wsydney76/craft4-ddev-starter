@@ -20,6 +20,7 @@ use Illuminate\Support\Collection;
 use modules\base\BaseModule;
 use modules\main\behaviors\EntryBehavior;
 use modules\main\conditions\HasDraftsConditionRule;
+use modules\main\conditions\IncludeUnpublishedDrafts;
 use modules\main\elements\actions\CopyMarkdownLink;
 use modules\main\elements\actions\CopyReferenceLinkTag;
 use modules\main\fields\EnvironmentVariableField;
@@ -94,6 +95,7 @@ class MainModule extends BaseModule
             // Don't register only for CP requests, as project-config/rebuild would delete it from custom sources
             $this->registerConditionRuleTypes([
                 HasDraftsConditionRule::class,
+                IncludeUnpublishedDrafts::class,
             ]);
         }
 

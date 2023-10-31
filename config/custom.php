@@ -1,5 +1,7 @@
 <?php
 
+use craft\elements\Entry;
+
 return [
     'stickyMenu' => false,
 
@@ -132,5 +134,11 @@ return [
     // This is still useful as the built-in cross site validation does not work in slideouts.
     'useCustomCrossSiteValidation' => true,
 
+    'paginatedUris' => [
+        'articles' => [
+            'site' => 'en',
+            'query' => Entry::find()->section('article')->site('en'),
+        ]
+    ]
 
 ];

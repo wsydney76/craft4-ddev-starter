@@ -1029,7 +1029,7 @@ class SeedController extends InitController
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Throwable
      * @throws \craft\errors\AssetDisallowedExtensionException
-     * @throws \craft\errors\ElementNotFoundException
+     * @throws ElementNotFoundException
      * @throws \craft\errors\MissingAssetException
      * @throws \craft\errors\VolumeException
      * @throws \yii\base\Exception
@@ -1113,7 +1113,7 @@ class SeedController extends InitController
      * @param string $path The folder name where to check the images
      * @return int
      * @throws \Throwable
-     * @throws \craft\errors\ElementNotFoundException
+     * @throws ElementNotFoundException
      * @throws \yii\base\Exception
      */
     public function actionImgAddProvisionalTexts(string $path = 'starter/', string $defaultCopyright = ''): int

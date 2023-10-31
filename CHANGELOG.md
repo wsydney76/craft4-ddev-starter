@@ -4,6 +4,7 @@
 
 * Paginated pages (like article index) are now also retrieved for generating transformed images in `craft main/assets/create-transforms`
 * Added 'Include unpublished drafts' element condition rule (experimental).
+* Use select instead of selectize for custom field types.
 
 ## 3.3.1 2023-10-21
 

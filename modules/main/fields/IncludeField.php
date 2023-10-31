@@ -102,14 +102,11 @@ class IncludeField extends Field
             }
         }
 
-        // Return a selectize field
-        return Cp::selectizeHtml([
+        // Return a select field
+        return Cp::selectHtml([
             'name' => $this->handle,
             'value' => $value,
             'options' => $options,
-            'selectizeOptions' => [
-                'allowEmptyOption' => true,
-            ],
         ]);
     }
 

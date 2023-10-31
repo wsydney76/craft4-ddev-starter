@@ -9,7 +9,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-{% hook 'seomateMeta' %}
+{% if craft.app.plugins.pluginEnabled('seomate') %}
+    {% hook 'seomateMeta' %}
+    {% include '_layouts/partials/json-ld.twig' with {
+        entry
+    } only %}
+{% endif %}
 
 {% include '_layouts/partials/json-ld.twig' with {
 	entry

@@ -36,16 +36,12 @@ class SectionField extends Field
             ->map(fn($section) => [
                 'label' => $section->name,
                 'value' => $section->handle,
-            ])
-           ;
+            ]);
 
-        return Cp::selectizeHtml([
+        return Cp::selectHtml([
             'name' => $this->handle,
             'value' => $value,
             'options' => $sectionOptions,
-            'selectizeOptions' => [
-                'allowEmptyOption' => true,
-            ],
         ]);
     }
 }

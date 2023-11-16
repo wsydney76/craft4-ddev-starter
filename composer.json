@@ -41,13 +41,10 @@
   },
   "scripts": {
     "pre-update-cmd": [
-      "@php craft off"
+      "@php craft install/check && php craft off || exit 0"
     ],
     "post-update-cmd": [
-      "@php craft clear-caches/all",
-      "@php craft migrate/all",
-      "@php craft on",
-      "@php craft project-config/rebuild"
+      "@php craft install/check && php craft clear-caches/all && php craft migrate/all && php craft on && php craft project-config/rebuild || exit 0"
     ],
     "check-cs": "ecs check --ansi",
     "fix-cs": "ecs check --ansi --fix",

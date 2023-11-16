@@ -10,7 +10,6 @@
 {# Show search query input (only on first call, do not replace on ajax calls #}
 {% if sprig.isInclude %}
 
-
     <div class="mt-8">
         {{ forms.input({
             label: "Search for"|t,
@@ -27,6 +26,9 @@
         }) }}
     </div>
 
+    <div id="sprig-error" class="hidden mt-4 font-bold text-error">
+        {{ 'An unexpected error has occurred during the request.'|t }}
+    </div>
 
 {% endif %}
 

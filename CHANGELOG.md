@@ -5,6 +5,7 @@
 * Paginated pages (like article index) are now also retrieved for generating transformed images in `craft main/assets/create-transforms`
 * Added 'Include unpublished drafts' element condition rule (experimental).
 * Use select instead of selectize for custom field types.
+* Composer `pre-update-cmd / post-update-cmd` scripts no longer throw errors if Craft is not installed.
 
 ## 3.3.1 2023-10-21
 

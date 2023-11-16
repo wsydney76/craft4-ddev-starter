@@ -3,6 +3,7 @@
 return [
     'All Articles' => 'Alle Artikel',
     'All tips/warnings are visible again.' => 'Alle Tipps/Warnungen sind wieder sichtbar.',
+    'An unexpected error has occurred during the request.' => 'Während der Anfrage ist ein unerwarteter Fehler aufgetreten.',
     'and' => 'und',
     'Articles' => 'Artikel',
     'Background image' => 'Hintergrundbild',

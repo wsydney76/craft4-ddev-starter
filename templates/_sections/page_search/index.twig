@@ -11,3 +11,13 @@
         {{ sprig('_layouts/components/sprig/search.twig') }}
     {% endblock %}
 {% endembed %}
+
+{% js %}
+htmx.on('htmx:afterRequest', function(event) {
+    if (!event.detail.successful) {
+        htmx.removeClass('#sprig-error', 'hidden')
+    } else {
+        htmx.addClass('#sprig-error', 'hidden')
+    }
+})
+{% endjs %}

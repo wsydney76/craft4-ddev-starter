@@ -10,6 +10,11 @@ database:
     type: mariadb
     version: "10.4"
 use_dns_when_possible: true
+web_extra_exposed_ports:
+  - name: vite
+    container_port: 3000
+    http_port: 3001
+    https_port: 3000
 composer_version: "2"
 web_environment: []
 nodejs_version: "18"

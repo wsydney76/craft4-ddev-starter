@@ -32,8 +32,7 @@ const errorDark = colors['red'][400]
 
 const transparent = 'transparent'
 
-
-module.exports = {
+export default {
 
     darkMode: 'class',
 

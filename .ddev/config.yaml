@@ -1,7 +1,7 @@
 name: craft4-starter
 type: craftcms
 docroot: web
-php_version: "8.1"
+php_version: "8.2"
 webserver_type: nginx-fpm
 xdebug_enabled: false
 additional_hostnames: []
@@ -11,13 +11,13 @@ database:
     version: "10.4"
 use_dns_when_possible: true
 web_extra_exposed_ports:
-  - name: vite
+  - name: Vite
     container_port: 3000
     http_port: 3001
     https_port: 3000
 composer_version: "2"
 web_environment: []
-nodejs_version: "18"
+nodejs_version: "20"
 hooks:
   pre-stop:
     - exec: php /var/www/html/craft db/backup /var/www/html/storage/custom-backups/latest.sql --zip --overwrite

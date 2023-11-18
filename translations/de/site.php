@@ -38,6 +38,7 @@ return [
     'Scroll to top' => 'Zum Seitenanfang springen',
     'Search for' => 'Suche nach',
     'Send' => 'Senden',
+    'Select color mode' => 'Farbmodus auswählen',
     'Shall the grid use grid or column classes.' => 'Soll das Grid Grid- oder Column-Klassen verwenden.',
     'Show the video' => 'Video anzeigen',
     'Showing top {maxResults} of {count}' => 'Zeige top {maxResults} von {count}',

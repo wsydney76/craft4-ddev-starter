@@ -4,7 +4,7 @@
   "version": "3.3.1",
   "license": "MIT",
   "require": {
-    "craftcms/cms": "4.5.9",
+    "craftcms/cms": "4.5.11",
     "craftcms/contact-form": "3.0.1",
     "craftcms/contact-form-honeypot": "^2.0",
     "fakerphp/faker": "^1.20",

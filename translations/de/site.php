@@ -192,4 +192,32 @@ return [
     'This entry defines global settings for the entire site.' => 'Dieser Eintrag definiert globale Einstellungen für die gesamte Website.',
     'Wide' => 'Breit',
     'Work' => 'In Arbeit',
+
+    // Missing translations
+
+    'Guide' => 'Guide',
+    'Email address' => 'E-Mail Adresse',
+    'reading time' => 'Lesezeit',
+    'Show Media' => 'Zeige Medium',
+    'Sign up' => 'Sign up',
+    'No entries yet' => 'Noch keine Einträge',
+    'Preview Cardlet' => 'Preview Cardlet',
+    'More' => 'Mehr',
+    'Explore the GraphQL API' => 'Erkunden Sie die GraphQL API',
+    '{plugin} is disabled by the {setting} config setting.' => '{plugin} ist durch die {setting} Konfigurationseinstellung deaktiviert.',
+    'Never' => 'Nie',
+    'Toggle' => 'Umschalten',
+    'Open modal' => 'Modal öffnen',
+    'Team' => 'Team',
+    '{plugin} can’t be installed due to the {setting} config setting.' => '{plugin} kann aufgrund der {setting} Konfigurationseinstellung nicht installiert werden.',
+    'Landscape' => 'Landscape',
+    'Verify Email' => 'E-Mail verifizieren',
+    'The email address {email} is already in use.' => 'Die E-Mail-Adresse {email} wird bereits verwendet.',
+    'Portrait' => 'Portrait',
+    'Preview Card' => 'Preview Card',
+    'min.' => 'min.',
+    'SEO Preview' => 'SEO Preview',
+    'Error validating entry in' => 'Fehler beim Validieren des Eintrags in',
+    'Footer' => 'Footer',
+    'Close' => 'Schließen'
 ];

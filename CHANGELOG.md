@@ -6,6 +6,7 @@
 * Added 'Include unpublished drafts' element condition rule (experimental).
 * Use select instead of selectize for custom field types.
 * Composer `pre-update-cmd / post-update-cmd` scripts no longer throw errors if Craft is not installed.
+* Added an `All Images` custom asset source. This allows you to apply filters and search easily for images in any folder.
 
 ## 3.3.1 2023-10-21
 

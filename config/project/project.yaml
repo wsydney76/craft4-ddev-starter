@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: ed627edd-73bd-4b75-8684-f410bf4e4b9d # Temporary Images
-dateModified: 1701100715
+dateModified: 1701101523
 elementSources:
   craft\elements\Asset:
     -
@@ -67,6 +67,38 @@ elementSources:
         - imageSize
         - dateCreated
         - uploader
+      type: custom
+    -
+      heading: 'Search & Filter'
+      type: heading
+    -
+      condition:
+        class: craft\elements\conditions\assets\AssetCondition
+        conditionRules:
+          -
+            class: craft\elements\conditions\assets\FileTypeConditionRule
+            operator: in
+            uid: f7614fdc-9370-4690-b14f-7a1c1baad092
+            values:
+              - image
+          -
+            class: craft\elements\conditions\assets\VolumeConditionRule
+            operator: in
+            uid: 6fbb3945-4a0d-4747-9471-4acbadf79393
+            values:
+              - 5a0be839-14a2-465e-a504-bb63dd0281e9 # Images
+        elementType: craft\elements\Asset
+        fieldContext: global
+      defaultSort:
+        - dateCreated
+        - desc
+      key: 'custom:0d3bd914-adcd-42cd-863b-d186c5a31bb8'
+      label: 'All Images'
+      tableAttributes:
+        - imageSize
+        - location
+        - dateCreated
+        - link
       type: custom
   craft\elements\Entry:
     -

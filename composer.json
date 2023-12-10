@@ -10,7 +10,7 @@
     "fakerphp/faker": "^1.20",
     "nystudio107/craft-closure": "^1.0",
     "nystudio107/craft-code-field": "4.0.11",
-    "nystudio107/craft-vite": "4.0.6",
+    "nystudio107/craft-vite": "4.0.7",
     "putyourlightson/craft-sprig": "2.7.2",
     "vaersaagod/seomate": "2.1.2",
     "vlucas/phpdotenv": "^5.4",

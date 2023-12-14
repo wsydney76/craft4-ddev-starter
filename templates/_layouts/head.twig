@@ -24,10 +24,6 @@
 
 {% include '_layouts/partials/darkmode.twig' %}
 
-{% for font in customConfig.preloadFonts %}
-	<link rel="preload" as="font" href="{{ font }}" type="font/woff2" crossorigin>
-{% endfor %}
-
 {{ craft.vite.script("/resources/js/app.js", false) }}
 
 {# used in resources/js/callactions.js

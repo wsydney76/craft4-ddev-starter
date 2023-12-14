@@ -92,14 +92,6 @@ return [
         ['label' => 'Image Copyright', 'template' => 'content/image-copyright'],
     ],
 
-    // Preload fonts used above the fold
-    'preloadFonts' => [
-        '/assets/fonts/raleway-v22-latin-700.woff2',
-        '/assets/fonts/open-sans-v27-latin-regular.woff2',
-        '/assets/fonts/open-sans-v27-latin-600.woff2'
-    ],
-
-
     // Whether YouTube videos are allowed
     // Setting this to false will disable the YouTube video block.
     // The 'useCookieConsent' setting should be set to 'none' in this case.

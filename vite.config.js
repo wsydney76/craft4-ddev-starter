@@ -14,7 +14,7 @@ export default ({ command }) => {
             commonjsOptions: {
                 transformMixedEsModules: true,
             },
-            manifest: true,
+            manifest: 'manifest.json',
             outDir: path.resolve(__dirname, 'web/assets/dist/'),
             assetsDir: './',
             rollupOptions: {

@@ -18,3 +18,4 @@
 /web/cpresources
 /web/files
 /config/license.key
+!/.ddev/nginx_full/nginx-site.conf

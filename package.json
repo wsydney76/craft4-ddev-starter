@@ -1,6 +1,6 @@
 {
   "name": "craft4_ddev_starter",
-  "version": "1.0.0",
+  "version": "3.3.2",
   "type": "module",
   "description": "Multilingual Craft CMS starter for use with DDEV/Vite",
   "author": "wsydney76",

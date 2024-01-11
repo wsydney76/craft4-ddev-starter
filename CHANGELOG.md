@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 3.3.2 2024-01-11
 
 * Paginated pages (like article index) are now also retrieved for generating transformed images in `craft main/assets/create-transforms`
 * Added 'Include unpublished drafts' element condition rule (experimental).
@@ -8,6 +8,7 @@
 * Composer `pre-update-cmd / post-update-cmd` scripts no longer throw errors if Craft is not installed.
 * Added an `All Images` custom asset source. This allows you to apply filters and search easily for images in any folder.
 * Updated to Craft 4.6.0
+* Updated build to Vite 5
 
 ## 3.3.1 2023-10-21
 
